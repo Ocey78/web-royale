@@ -1,0 +1,98 @@
+[
+  {
+    "mode": "Default",
+    "wallSeconds": 5.709382851,
+    "simulationSeconds": 219.05,
+    "seats": 2,
+    "updates": 561,
+    "commands": 59
+  },
+  {
+    "mode": "TeamVsTeam",
+    "wallSeconds": 7.4155068779999995,
+    "simulationSeconds": 234.85,
+    "seats": 4,
+    "updates": 1148,
+    "commands": 64
+  },
+  {
+    "mode": "Team3v3",
+    "wallSeconds": 23.589362288999997,
+    "simulationSeconds": 248.95,
+    "seats": 6,
+    "updates": 1872,
+    "commands": 64
+  },
+  {
+    "mode": "BridgeBattle",
+    "wallSeconds": 5.976877154999995,
+    "simulationSeconds": 304,
+    "seats": 2,
+    "updates": 776,
+    "commands": 64
+  },
+  {
+    "mode": "FourCardDeck",
+    "wallSeconds": 3.0597138330000018,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "RandomDeck",
+    "wallSeconds": 4.990511961999997,
+    "simulationSeconds": 219.05,
+    "seats": 2,
+    "updates": 561,
+    "commands": 59
+  },
+  {
+    "mode": "DoubleElixir",
+    "wallSeconds": 2.8133523549999953,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "TripleElixir",
+    "wallSeconds": 4.179032636000003,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "RampUp",
+    "wallSeconds": 3.5564572610000034,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "SuddenDeath",
+    "wallSeconds": 1.8628041449999946,
+    "simulationSeconds": 95.45,
+    "seats": 2,
+    "updates": 239,
+    "commands": 41
+  },
+  {
+    "mode": "7xElixir",
+    "wallSeconds": 8.448728678,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "ClanWar_BoatBattle",
+    "wallSeconds": 0.8243302450000046,
+    "simulationSeconds": 62.4,
+    "seats": 2,
+    "updates": 84,
+    "commands": 10
+  }
+]

@@ -1,0 +1,17 @@
+{"mode":"Default","wallSeconds":5.551114409999999,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"TeamVsTeam","wallSeconds":9.586394831,"simulationSeconds":304,"seats":4,"updates":1477,"commands":64}
+{"mode":"Team3v3","wallSeconds":13.916594461,"simulationSeconds":300,"seats":6,"updates":2280,"commands":64}
+{"mode":"TeamRumble","wallSeconds":21.933506247,"simulationSeconds":300,"seats":10,"updates":3784,"commands":64}
+{"mode":"BridgeBattle","wallSeconds":2.9920573949999962,"simulationSeconds":180,"seats":2,"updates":456,"commands":44}
+{"mode":"FourCardDeck","wallSeconds":5.402459356,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"TwelveCardDeck","wallSeconds":2.7717246779999987,"simulationSeconds":180,"seats":2,"updates":456,"commands":54}
+{"mode":"TwentyElixir","wallSeconds":4.631203573000006,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"OneShot","wallSeconds":1.4130786059999956,"simulationSeconds":58.45,"seats":2,"updates":148,"commands":23}
+{"mode":"RandomDeck","wallSeconds":6.038023719000004,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"DoubleElixir","wallSeconds":4.279388283000007,"simulationSeconds":219.95,"seats":2,"updates":564,"commands":64}
+{"mode":"TripleElixir","wallSeconds":8.82725800500001,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"RampUp","wallSeconds":7.817933933000008,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"SuddenDeath","wallSeconds":6.393555701999998,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"7xElixir","wallSeconds":10.479557854,"simulationSeconds":304,"seats":2,"updates":776,"commands":64}
+{"mode":"ClanWar_BoatBattle","wallSeconds":0.943262075000006,"simulationSeconds":74.25,"seats":2,"updates":99,"commands":12}
+All 16 modes completed and learned.

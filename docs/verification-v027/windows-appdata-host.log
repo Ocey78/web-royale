@@ -1,0 +1,18 @@
+PASS: capabilities available
+PASS: fixed test AI directory
+PASS: random 256-bit authorization token
+PASS: unauthorized read denied
+PASS: cross-origin access denied
+PASS: new store empty
+PASS: first commit acknowledged
+PASS: state file created in AI folder
+PASS: individual match archived
+PASS: stale revision rejected
+PASS: replacement commit acknowledged
+PASS: previous state backup retained
+PASS: repeated archive ID does not duplicate file
+PASS: invalid weights rejected
+PASS: invalid commit does not change state
+PASS: static website remains read-only
+PASS: restart loads committed model
+17 Windows AppData integration checks passed.

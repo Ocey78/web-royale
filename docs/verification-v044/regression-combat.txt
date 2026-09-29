@@ -1,0 +1,61 @@
+runtime loaded
+UI artwork loaded
+PASS Release v0.44.0 boots
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 256656320, 'totalSize': 311394304, 'embedderHeapUsedSize': 46071688, 'backingStorageSize': 140660381}
+PASS Team Rumble real ten-seat battle
+PASS Rumble has ten independent eight-card decks and banks
+PASS Rumble visual field is dry and all foundations align with towers
+PASS Random slots assign each position once per team
+PASS Rumble phase 0 real timer and income
+PASS Rumble phase 120 real timer and income
+PASS Rumble phase 240 real timer and income
+PASS Rumble phase 300 real timer and income
+PASS Rumble phase 420 real timer and income
+PASS Rumble phase 540 real timer and income
+PASS rumble-arena remains within screen 1280
+PASS rumble-arena remains within screen 390
+PASS rumble-arena remains within screen 320
+PASS Local King is identified and gold-health tagged
+PASS Own King loss leaves bank but stops passive income only locally
+PASS Mirror copied Legendary shows mirrored rim and portrait
+PASS Mirror still costs one extra elixir with no hand level text
+PASS mirror-hand remains within screen 1280
+PASS mirror-hand remains within screen 390
+PASS mirror-hand remains within screen 320
+PASS Rumble victory supports five King crowns
+PASS Rare battle item shown in result reward box
+PASS Magic Coin actually credited once
+PASS Magic item caption stays inside its reward box
+PASS rumble-rewards remains within screen 1280
+PASS rumble-rewards remains within screen 390
+PASS rumble-rewards remains within screen 320
+PASS Team3v3 loaded real battle
+MEMORY Team3v3 {'usedSize': 188856212, 'totalSize': 248078336, 'embedderHeapUsedSize': 30979968, 'backingStorageSize': 84216340}
+PASS Team3v3 art is centered on logical towers
+PASS Team3v3 cached layered scenery available
+PASS aligned-Team3v3 remains within screen 1280
+PASS aligned-Team3v3 remains within screen 390
+PASS aligned-Team3v3 remains within screen 320
+PASS BridgeBattle loaded real battle
+MEMORY BridgeBattle {'usedSize': 149063384, 'totalSize': 225165312, 'embedderHeapUsedSize': 18777008, 'backingStorageSize': 64553044}
+PASS BridgeBattle art is centered on logical towers
+PASS BridgeBattle cached layered scenery available
+PASS aligned-BridgeBattle remains within screen 1280
+PASS aligned-BridgeBattle remains within screen 390
+PASS aligned-BridgeBattle remains within screen 320
+PASS Default loaded real battle
+MEMORY Default {'usedSize': 137309216, 'totalSize': 189280256, 'embedderHeapUsedSize': 27550752, 'backingStorageSize': 42157187}
+PASS Five Firecracker split projectiles active in real browser
+PASS Firecracker fan damages all spread targets
+PASS Firecracker impact effect dispatches for split hits
+PASS Sandbox includes all eighteen maps
+PASS Rumble sandbox resets to ten-seat geometry
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 177677988, 'totalSize': 265621504, 'embedderHeapUsedSize': 72243576, 'backingStorageSize': 69812593}
+PASS Potato supports new dry-field Rumble renderer
+PASS potato-rumble remains within screen 1280
+PASS potato-rumble remains within screen 390
+PASS potato-rumble remains within screen 320
+PASS Learning Center contains sixteen modes including Rumble
+PASS No uncaught page errors

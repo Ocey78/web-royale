@@ -1,0 +1,13 @@
+/* v0.22: keep rendered whitespace in the inline flow of the chest label.
+   The older .chest-slot span absolute positioning was collapsing this gap. */
+.classic-home .chest-slot .ink-space {
+ position:static!important;inset:auto!important;display:inline-block!important;
+ height:1px!important;min-width:0;vertical-align:baseline!important;
+ margin:0!important;padding:0!important;float:none!important;
+}
+.classic-home .chest-slot .slot-duration{white-space:nowrap}
+.skin-availability{margin:14px 14px 24px;padding:16px 18px;border:2px solid #8298bc;
+ border-radius:10px;background:#192b47dd;color:#e7efff;text-align:center;line-height:1.5}
+.skin-availability p{margin:0 0 8px;font-size:15px}.skin-availability p:last-child{margin-bottom:0}
+.skin-availability .skin-refund-note{font-size:12px;color:#c2daf5}
+#cosmeticCollection .skin-availability{margin:14px 0 24px}

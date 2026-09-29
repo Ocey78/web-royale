@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "version": "0.37.0",
+  "runtimeFiles": 1203,
+  "rebuildDirectory": "clean source archive selection with no duplicate raw artwork",
+  "command": "node tools/build-web.js --compact-scenes",
+  "hashesEqual": true,
+  "stdout": "{\n  \"version\": \"0.37.0\",\n  \"target\": \"web\",\n  \"files\": 1203,\n  \"entryBytes\": 13955,\n  \"totalBytes\": 264546277,\n  \"snapshot\": \"3.2557.2\"\n}\n"
+}

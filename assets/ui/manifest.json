@@ -1,0 +1,2958 @@
+{
+  "background": {
+    "file": "assets/ui/background.png",
+    "source": "recovered packaged original asset: assets/ui/background.png"
+  },
+  "menutop": {
+    "file": "assets/ui/menutop.png",
+    "source": "recovered packaged original asset: assets/ui/menutop.png"
+  },
+  "nav-bg": {
+    "file": "assets/ui/nav-bg.png",
+    "source": "recovered packaged original asset: assets/ui/nav-bg.png"
+  },
+  "nav-selected": {
+    "file": "assets/ui/nav-selected.png",
+    "source": "recovered packaged original asset: assets/ui/nav-selected.png"
+  },
+  "nav-highlight": {
+    "file": "assets/ui/nav-highlight.png",
+    "source": "recovered packaged original asset: assets/ui/nav-highlight.png"
+  },
+  "shop": {
+    "file": "assets/ui/shop.png",
+    "source": "recovered packaged original asset: assets/ui/shop.png"
+  },
+  "cards": {
+    "file": "assets/ui/cards.png",
+    "source": "recovered packaged original asset: assets/ui/cards.png"
+  },
+  "battle": {
+    "file": "assets/ui/battle.png",
+    "source": "recovered packaged original asset: assets/ui/battle.png"
+  },
+  "clan": {
+    "file": "assets/ui/clan.png",
+    "source": "recovered packaged original asset: assets/ui/clan.png"
+  },
+  "events": {
+    "file": "assets/ui/events.png",
+    "source": "recovered packaged original asset: assets/ui/events.png"
+  },
+  "gold": {
+    "file": "assets/ui/gold.png",
+    "source": "recovered packaged original asset: assets/ui/gold.png"
+  },
+  "gems": {
+    "file": "assets/ui/gems.png",
+    "source": "recovered packaged original asset: assets/ui/gems.png"
+  },
+  "training": {
+    "file": "assets/ui/training.png",
+    "source": "recovered packaged original asset: assets/ui/training.png"
+  },
+  "challenge": {
+    "file": "assets/ui/challenge.png",
+    "source": "recovered packaged original asset: assets/ui/challenge.png"
+  },
+  "royaltv": {
+    "file": "assets/ui/royaltv.png",
+    "source": "recovered packaged original asset: assets/ui/royaltv.png"
+  },
+  "silver-chest": {
+    "file": "assets/ui/silver-chest.png",
+    "source": "recovered packaged original asset: assets/ui/silver-chest.png"
+  },
+  "gold-chest": {
+    "file": "assets/ui/gold-chest.png",
+    "source": "recovered packaged original asset: assets/ui/gold-chest.png"
+  },
+  "magic-chest": {
+    "file": "assets/ui/magic-chest.png",
+    "source": "recovered packaged original asset: assets/ui/magic-chest.png"
+  },
+  "chest-slot": {
+    "file": "assets/ui/chest-slot.png",
+    "source": "recovered packaged original asset: assets/ui/chest-slot.png"
+  },
+  "deck-header": {
+    "file": "assets/ui/deck-header.png",
+    "source": "recovered packaged original asset: assets/ui/deck-header.png"
+  },
+  "upgrade": {
+    "file": "assets/ui/upgrade.png",
+    "source": "recovered packaged original asset: assets/ui/upgrade.png"
+  },
+  "share": {
+    "file": "assets/ui/share.png",
+    "source": "recovered packaged original asset: assets/ui/share.png"
+  },
+  "common": {
+    "file": "assets/ui/common.png",
+    "source": "recovered packaged original asset: assets/ui/common.png"
+  },
+  "rare": {
+    "file": "assets/ui/rare.png",
+    "source": "recovered packaged original asset: assets/ui/rare.png"
+  },
+  "epic": {
+    "file": "assets/ui/epic.png",
+    "source": "recovered packaged original asset: assets/ui/epic.png"
+  },
+  "legendary": {
+    "file": "assets/ui/legendary.png",
+    "source": "recovered packaged original asset: assets/ui/legendary.png"
+  },
+  "clan-badge": {
+    "file": "assets/ui/clan-badge.png",
+    "source": "recovered packaged original asset: assets/ui/clan-badge.png"
+  },
+  "shop-item": {
+    "file": "assets/ui/shop-item.png",
+    "source": "recovered packaged original asset: assets/ui/shop-item.png"
+  },
+  "pass-banner": {
+    "file": "assets/ui/pass-banner.png",
+    "source": "recovered packaged original asset: assets/ui/pass-banner.png"
+  },
+  "pass-gold": {
+    "file": "assets/ui/pass-gold.png",
+    "source": "recovered packaged original asset: assets/ui/pass-gold.png"
+  },
+  "pass-silver": {
+    "file": "assets/ui/pass-silver.png",
+    "source": "recovered packaged original asset: assets/ui/pass-silver.png"
+  },
+  "pass-crowns": {
+    "file": "assets/ui/pass-crowns.png",
+    "source": "recovered packaged original asset: assets/ui/pass-crowns.png"
+  },
+  "pass-claim": {
+    "file": "assets/ui/pass-claim.png",
+    "source": "recovered packaged original asset: assets/ui/pass-claim.png"
+  },
+  "pass-track": {
+    "file": "assets/ui/pass-track.png",
+    "source": "recovered packaged original asset: assets/ui/pass-track.png"
+  },
+  "pass-top": {
+    "file": "assets/ui/pass-top.png",
+    "source": "recovered packaged original asset: assets/ui/pass-top.png"
+  },
+  "button-orange": {
+    "file": "assets/ui/button-orange.png",
+    "source": "recovered packaged original asset: assets/ui/button-orange.png"
+  },
+  "button-square": {
+    "file": "assets/ui/button-square.png",
+    "source": "recovered packaged original asset: assets/ui/button-square.png"
+  },
+  "profile-panel": {
+    "file": "assets/ui/profile-panel.png",
+    "source": "recovered packaged original asset: assets/ui/profile-panel.png"
+  },
+  "card-panel": {
+    "file": "assets/ui/card-panel.png",
+    "source": "recovered packaged original asset: assets/ui/card-panel.png"
+  },
+  "event-double": {
+    "file": "assets/ui/event-double.png",
+    "source": "recovered packaged original asset: assets/ui/event-double.png"
+  },
+  "event-triple": {
+    "file": "assets/ui/event-triple.png",
+    "source": "recovered packaged original asset: assets/ui/event-triple.png"
+  },
+  "event-war": {
+    "file": "assets/ui/event-war.png",
+    "source": "recovered packaged original asset: assets/ui/event-war.png"
+  },
+  "win": {
+    "file": "assets/ui/win.png",
+    "source": "recovered packaged original asset: assets/ui/win.png"
+  },
+  "loss": {
+    "file": "assets/ui/loss.png",
+    "source": "recovered packaged original asset: assets/ui/loss.png"
+  },
+  "arena-0": {
+    "file": "assets/ui/arena-0.png",
+    "source": "recovered packaged original asset: assets/ui/arena-0.png"
+  },
+  "arena-1": {
+    "file": "assets/ui/arena-1.png",
+    "source": "recovered packaged original asset: assets/ui/arena-1.png"
+  },
+  "arena-2": {
+    "file": "assets/ui/arena-2.png",
+    "source": "recovered packaged original asset: assets/ui/arena-2.png"
+  },
+  "arena-3": {
+    "file": "assets/ui/arena-3.png",
+    "source": "recovered packaged original asset: assets/ui/arena-3.png"
+  },
+  "arena-4": {
+    "file": "assets/ui/arena-4.png",
+    "source": "recovered packaged original asset: assets/ui/arena-4.png"
+  },
+  "arena-5": {
+    "file": "assets/ui/arena-5.png",
+    "source": "recovered packaged original asset: assets/ui/arena-5.png"
+  },
+  "arena-6": {
+    "file": "assets/ui/arena-6.png",
+    "source": "recovered packaged original asset: assets/ui/arena-6.png"
+  },
+  "arena-7": {
+    "file": "assets/ui/arena-7.png",
+    "source": "recovered packaged original asset: assets/ui/arena-7.png"
+  },
+  "arena-8": {
+    "file": "assets/ui/arena-8.png",
+    "source": "recovered packaged original asset: assets/ui/arena-8.png"
+  },
+  "arena-9": {
+    "file": "assets/ui/arena-9.png",
+    "source": "recovered packaged original asset: assets/ui/arena-9.png"
+  },
+  "button-0": {
+    "file": "assets/ui/button-0.png",
+    "source": "recovered packaged original asset: assets/ui/button-0.png"
+  },
+  "button-1": {
+    "file": "assets/ui/button-1.png",
+    "source": "recovered packaged original asset: assets/ui/button-1.png"
+  },
+  "button-2": {
+    "file": "assets/ui/button-2.png",
+    "source": "recovered packaged original asset: assets/ui/button-2.png"
+  },
+  "button-3": {
+    "file": "assets/ui/button-3.png",
+    "source": "recovered packaged original asset: assets/ui/button-3.png"
+  },
+  "button-4": {
+    "file": "assets/ui/button-4.png",
+    "source": "recovered packaged original asset: assets/ui/button-4.png"
+  },
+  "button-5": {
+    "file": "assets/ui/button-5.png",
+    "source": "recovered packaged original asset: assets/ui/button-5.png"
+  },
+  "button-6": {
+    "file": "assets/ui/button-6.png",
+    "source": "recovered packaged original asset: assets/ui/button-6.png"
+  },
+  "button-7": {
+    "file": "assets/ui/button-7.png",
+    "source": "recovered packaged original asset: assets/ui/button-7.png"
+  },
+  "button-8": {
+    "file": "assets/ui/button-8.png",
+    "source": "recovered packaged original asset: assets/ui/button-8.png"
+  },
+  "button-9": {
+    "file": "assets/ui/button-9.png",
+    "source": "recovered packaged original asset: assets/ui/button-9.png"
+  },
+  "button-10": {
+    "file": "assets/ui/button-10.png",
+    "source": "recovered packaged original asset: assets/ui/button-10.png"
+  },
+  "button-11": {
+    "file": "assets/ui/button-11.png",
+    "source": "recovered packaged original asset: assets/ui/button-11.png"
+  },
+  "trophy": {
+    "file": "assets/ui/trophy.png",
+    "source": "recovered packaged original asset: assets/ui/trophy.png"
+  },
+  "battle-button": {
+    "file": "assets/ui/battle-button.png",
+    "source": "recovered packaged original asset: assets/ui/battle-button.png"
+  },
+  "close": {
+    "file": "assets/ui/close.png",
+    "source": "recovered packaged original asset: assets/ui/close.png"
+  },
+  "settings": {
+    "file": "assets/ui/settings.png",
+    "source": "recovered packaged original asset: assets/ui/settings.png"
+  },
+  "info": {
+    "file": "assets/ui/info.png",
+    "source": "recovered packaged original asset: assets/ui/info.png"
+  },
+  "button-blue": {
+    "file": "assets/ui/button-blue.png",
+    "source": "recovered packaged original asset: assets/ui/button-blue.png"
+  },
+  "button-red": {
+    "file": "assets/ui/button-red.png",
+    "source": "recovered packaged original asset: assets/ui/button-red.png"
+  },
+  "menu-arena": {
+    "file": "assets/ui/menu-arena.png",
+    "source": "recovered packaged original asset: assets/ui/menu-arena.png"
+  },
+  "hud-hand": {
+    "file": "assets/ui/hud-hand.png",
+    "source": "recovered packaged original asset: assets/ui/hud-hand.png"
+  },
+  "hud-player": {
+    "file": "assets/ui/hud-player.png",
+    "source": "recovered packaged original asset: assets/ui/hud-player.png"
+  },
+  "hud-enemy": {
+    "file": "assets/ui/hud-enemy.png",
+    "source": "recovered packaged original asset: assets/ui/hud-enemy.png"
+  },
+  "hud-timer": {
+    "file": "assets/ui/hud-timer.png",
+    "source": "recovered packaged original asset: assets/ui/hud-timer.png"
+  },
+  "deck-panel": {
+    "file": "assets/ui/deck-panel.png",
+    "source": "recovered packaged original asset: assets/ui/deck-panel.png"
+  },
+  "collection-panel": {
+    "file": "assets/ui/collection-panel.png",
+    "source": "recovered packaged original asset: assets/ui/collection-panel.png"
+  },
+  "event-sudden": {
+    "file": "assets/ui/event-sudden.png",
+    "source": "recovered packaged original asset: assets/ui/event-sudden.png"
+  },
+  "event-ramp": {
+    "file": "assets/ui/event-ramp.png",
+    "source": "recovered packaged original asset: assets/ui/event-ramp.png"
+  },
+  "text-battle": {
+    "file": "assets/ui/text-battle.png",
+    "source": "recovered packaged original asset: assets/ui/text-battle.png"
+  },
+  "text-shop": {
+    "file": "assets/ui/text-shop.png",
+    "source": "recovered packaged original asset: assets/ui/text-shop.png"
+  },
+  "text-cards": {
+    "file": "assets/ui/text-cards.png",
+    "source": "recovered packaged original asset: assets/ui/text-cards.png"
+  },
+  "text-clan": {
+    "file": "assets/ui/text-clan.png",
+    "source": "recovered packaged original asset: assets/ui/text-clan.png"
+  },
+  "text-events": {
+    "file": "assets/ui/text-events.png",
+    "source": "recovered packaged original asset: assets/ui/text-events.png"
+  },
+  "text-pass-royale": {
+    "file": "assets/ui/text-pass-royale.png",
+    "source": "recovered packaged original asset: assets/ui/text-pass-royale.png"
+  },
+  "text-victory": {
+    "file": "assets/ui/text-victory.png",
+    "source": "recovered packaged original asset: assets/ui/text-victory.png"
+  },
+  "text-defeat": {
+    "file": "assets/ui/text-defeat.png",
+    "source": "recovered packaged original asset: assets/ui/text-defeat.png"
+  },
+  "text-draw": {
+    "file": "assets/ui/text-draw.png",
+    "source": "recovered packaged original asset: assets/ui/text-draw.png"
+  },
+  "text-battle-deck": {
+    "file": "assets/ui/text-battle-deck.png",
+    "source": "recovered packaged original asset: assets/ui/text-battle-deck.png"
+  },
+  "text-card-collection": {
+    "file": "assets/ui/text-card-collection.png",
+    "source": "recovered packaged original asset: assets/ui/text-card-collection.png"
+  },
+  "text-use": {
+    "file": "assets/ui/text-use.png",
+    "source": "recovered packaged original asset: assets/ui/text-use.png"
+  },
+  "text-collect": {
+    "file": "assets/ui/text-collect.png",
+    "source": "recovered packaged original asset: assets/ui/text-collect.png"
+  },
+  "text-claim": {
+    "file": "assets/ui/text-claim.png",
+    "source": "recovered packaged original asset: assets/ui/text-claim.png"
+  },
+  "text-ok": {
+    "file": "assets/ui/text-ok.png",
+    "source": "recovered packaged original asset: assets/ui/text-ok.png"
+  },
+  "text-upgrade": {
+    "file": "assets/ui/text-upgrade.png",
+    "source": "recovered packaged original asset: assets/ui/text-upgrade.png"
+  },
+  "text-settings": {
+    "file": "assets/ui/text-settings.png",
+    "source": "recovered packaged original asset: assets/ui/text-settings.png"
+  },
+  "text-profile": {
+    "file": "assets/ui/text-profile.png",
+    "source": "recovered packaged original asset: assets/ui/text-profile.png"
+  },
+  "card-frame-normal": {
+    "file": "assets/ui/card-frame-normal.png",
+    "source": "recovered packaged original asset: assets/ui/card-frame-normal.png"
+  },
+  "card-frame-legendary": {
+    "file": "assets/ui/card-frame-legendary.png",
+    "source": "recovered packaged original asset: assets/ui/card-frame-legendary.png"
+  },
+  "card-frame-collection": {
+    "file": "assets/ui/card-frame-collection.png",
+    "source": "recovered packaged original asset: assets/ui/card-frame-collection.png"
+  },
+  "card-frame-selected": {
+    "file": "assets/ui/card-frame-selected.png",
+    "source": "recovered packaged original asset: assets/ui/card-frame-selected.png"
+  },
+  "battle-panel-blue": {
+    "file": "assets/ui/battle-panel-blue.png",
+    "source": "recovered packaged original asset: assets/ui/battle-panel-blue.png"
+  },
+  "elixir-icon": {
+    "file": "assets/ui/elixir-icon.png",
+    "source": "recovered packaged original asset: assets/ui/elixir-icon.png"
+  },
+  "hp-player-tower": {
+    "file": "assets/ui/hp-player-tower.png",
+    "source": "recovered packaged original asset: assets/ui/hp-player-tower.png"
+  },
+  "hp-enemy-tower": {
+    "file": "assets/ui/hp-enemy-tower.png",
+    "source": "recovered packaged original asset: assets/ui/hp-enemy-tower.png"
+  },
+  "hp-player-fill": {
+    "file": "assets/ui/hp-player-fill.png",
+    "source": "recovered packaged original asset: assets/ui/hp-player-fill.png"
+  },
+  "hp-enemy-fill": {
+    "file": "assets/ui/hp-enemy-fill.png",
+    "source": "recovered packaged original asset: assets/ui/hp-enemy-fill.png"
+  },
+  "level-crown": {
+    "file": "assets/ui/level-crown.png",
+    "source": "recovered packaged original asset: assets/ui/level-crown.png"
+  },
+  "emote-icon": {
+    "file": "assets/ui/emote-icon.png",
+    "source": "recovered packaged original asset: assets/ui/emote-icon.png"
+  },
+  "button-blue-fixed": {
+    "file": "assets/ui/button-blue-fixed.png",
+    "source": "recovered packaged original asset: assets/ui/button-blue-fixed.png"
+  },
+  "button-red-fixed": {
+    "file": "assets/ui/button-red-fixed.png",
+    "source": "recovered packaged original asset: assets/ui/button-red-fixed.png"
+  },
+  "button-gold-fixed": {
+    "file": "assets/ui/button-gold-fixed.png",
+    "source": "recovered packaged original asset: assets/ui/button-gold-fixed.png"
+  },
+  "text-party": {
+    "file": "assets/ui/text-party.png",
+    "source": "recovered packaged original asset: assets/ui/text-party.png"
+  },
+  "text-daily-deals": {
+    "file": "assets/ui/text-daily-deals.png",
+    "source": "recovered packaged original asset: assets/ui/text-daily-deals.png"
+  },
+  "text-daily-gift": {
+    "file": "assets/ui/text-daily-gift.png",
+    "source": "recovered packaged original asset: assets/ui/text-daily-gift.png"
+  },
+  "text-treasure-chests": {
+    "file": "assets/ui/text-treasure-chests.png",
+    "source": "recovered packaged original asset: assets/ui/text-treasure-chests.png"
+  },
+  "text-find-clan": {
+    "file": "assets/ui/text-find-clan.png",
+    "source": "recovered packaged original asset: assets/ui/text-find-clan.png"
+  },
+  "text-better-together": {
+    "file": "assets/ui/text-better-together.png",
+    "source": "recovered packaged original asset: assets/ui/text-better-together.png"
+  },
+  "text-choose-challenge": {
+    "file": "assets/ui/text-choose-challenge.png",
+    "source": "recovered packaged original asset: assets/ui/text-choose-challenge.png"
+  },
+  "text-classic-challenge": {
+    "file": "assets/ui/text-classic-challenge.png",
+    "source": "recovered packaged original asset: assets/ui/text-classic-challenge.png"
+  },
+  "text-double-elixir": {
+    "file": "assets/ui/text-double-elixir.png",
+    "source": "recovered packaged original asset: assets/ui/text-double-elixir.png"
+  },
+  "text-triple-elixir": {
+    "file": "assets/ui/text-triple-elixir.png",
+    "source": "recovered packaged original asset: assets/ui/text-triple-elixir.png"
+  },
+  "text-ramp-up": {
+    "file": "assets/ui/text-ramp-up.png",
+    "source": "recovered packaged original asset: assets/ui/text-ramp-up.png"
+  },
+  "text-sudden-death": {
+    "file": "assets/ui/text-sudden-death.png",
+    "source": "recovered packaged original asset: assets/ui/text-sudden-death.png"
+  },
+  "text-infinite-elixir": {
+    "file": "assets/ui/text-infinite-elixir.png",
+    "source": "recovered packaged original asset: assets/ui/text-infinite-elixir.png"
+  },
+  "text-free": {
+    "file": "assets/ui/text-free.png",
+    "source": "recovered packaged original asset: assets/ui/text-free.png"
+  },
+  "text-join-clan": {
+    "file": "assets/ui/text-join-clan.png",
+    "source": "recovered packaged original asset: assets/ui/text-join-clan.png"
+  },
+  "text-create-clan": {
+    "file": "assets/ui/text-create-clan.png",
+    "source": "recovered packaged original asset: assets/ui/text-create-clan.png"
+  },
+  "text-collected": {
+    "file": "assets/ui/text-collected.png",
+    "source": "recovered packaged original asset: assets/ui/text-collected.png"
+  },
+  "ref-decks": {
+    "file": "assets/ui/ref-decks.png",
+    "source": "recovered packaged original asset: assets/ui/ref-decks.png"
+  },
+  "ref-collection": {
+    "file": "assets/ui/ref-collection.png",
+    "source": "recovered packaged original asset: assets/ui/ref-collection.png"
+  },
+  "ref-by-rarity": {
+    "file": "assets/ui/ref-by-rarity.png",
+    "source": "recovered packaged original asset: assets/ui/ref-by-rarity.png"
+  },
+  "ref-by-elixir": {
+    "file": "assets/ui/ref-by-elixir.png",
+    "source": "recovered packaged original asset: assets/ui/ref-by-elixir.png"
+  },
+  "ref-by-name": {
+    "file": "assets/ui/ref-by-name.png",
+    "source": "recovered packaged original asset: assets/ui/ref-by-name.png"
+  },
+  "ref-by-level": {
+    "file": "assets/ui/ref-by-level.png",
+    "source": "recovered packaged original asset: assets/ui/ref-by-level.png"
+  },
+  "ref-by-type": {
+    "file": "assets/ui/ref-by-type.png",
+    "source": "recovered packaged original asset: assets/ui/ref-by-type.png"
+  },
+  "ref-social": {
+    "file": "assets/ui/ref-social.png",
+    "source": "recovered packaged original asset: assets/ui/ref-social.png"
+  },
+  "ref-friends": {
+    "file": "assets/ui/ref-friends.png",
+    "source": "recovered packaged original asset: assets/ui/ref-friends.png"
+  },
+  "ref-online": {
+    "file": "assets/ui/ref-online.png",
+    "source": "recovered packaged original asset: assets/ui/ref-online.png"
+  },
+  "ref-leaderboard": {
+    "file": "assets/ui/ref-leaderboard.png",
+    "source": "recovered packaged original asset: assets/ui/ref-leaderboard.png"
+  },
+  "ref-clan-war": {
+    "file": "assets/ui/ref-clan-war.png",
+    "source": "recovered packaged original asset: assets/ui/ref-clan-war.png"
+  },
+  "ref-chat": {
+    "file": "assets/ui/ref-chat.png",
+    "source": "recovered packaged original asset: assets/ui/ref-chat.png"
+  },
+  "ref-add-friends": {
+    "file": "assets/ui/ref-add-friends.png",
+    "source": "recovered packaged original asset: assets/ui/ref-add-friends.png"
+  },
+  "ref-quickplay": {
+    "file": "assets/ui/ref-quickplay.png",
+    "source": "recovered packaged original asset: assets/ui/ref-quickplay.png"
+  },
+  "ref-request-cards": {
+    "file": "assets/ui/ref-request-cards.png",
+    "source": "recovered packaged original asset: assets/ui/ref-request-cards.png"
+  },
+  "ref-friendly-battle": {
+    "file": "assets/ui/ref-friendly-battle.png",
+    "source": "recovered packaged original asset: assets/ui/ref-friendly-battle.png"
+  },
+  "ref-send": {
+    "file": "assets/ui/ref-send.png",
+    "source": "recovered packaged original asset: assets/ui/ref-send.png"
+  },
+  "ref-donate": {
+    "file": "assets/ui/ref-donate.png",
+    "source": "recovered packaged original asset: assets/ui/ref-donate.png"
+  },
+  "ref-view": {
+    "file": "assets/ui/ref-view.png",
+    "source": "recovered packaged original asset: assets/ui/ref-view.png"
+  },
+  "ref-watch": {
+    "file": "assets/ui/ref-watch.png",
+    "source": "recovered packaged original asset: assets/ui/ref-watch.png"
+  },
+  "ref-details": {
+    "file": "assets/ui/ref-details.png",
+    "source": "recovered packaged original asset: assets/ui/ref-details.png"
+  },
+  "ref-battle-results": {
+    "file": "assets/ui/ref-battle-results.png",
+    "source": "recovered packaged original asset: assets/ui/ref-battle-results.png"
+  },
+  "ref-emotes": {
+    "file": "assets/ui/ref-emotes.png",
+    "source": "recovered packaged original asset: assets/ui/ref-emotes.png"
+  },
+  "ref-currency": {
+    "file": "assets/ui/ref-currency.png",
+    "source": "recovered packaged original asset: assets/ui/ref-currency.png"
+  },
+  "ref-gems": {
+    "file": "assets/ui/ref-gems.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems.png"
+  },
+  "ref-gold": {
+    "file": "assets/ui/ref-gold.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gold.png"
+  },
+  "ref-max": {
+    "file": "assets/ui/ref-max.png",
+    "source": "recovered packaged original asset: assets/ui/ref-max.png"
+  },
+  "ref-collected-mark": {
+    "file": "assets/ui/ref-collected-mark.png",
+    "source": "recovered packaged original asset: assets/ui/ref-collected-mark.png"
+  },
+  "ref-copy": {
+    "file": "assets/ui/ref-copy.png",
+    "source": "recovered packaged original asset: assets/ui/ref-copy.png"
+  },
+  "ref-search": {
+    "file": "assets/ui/ref-search.png",
+    "source": "recovered packaged original asset: assets/ui/ref-search.png"
+  },
+  "ref-filter": {
+    "file": "assets/ui/ref-filter.png",
+    "source": "recovered packaged original asset: assets/ui/ref-filter.png"
+  },
+  "ref-members": {
+    "file": "assets/ui/ref-members.png",
+    "source": "recovered packaged original asset: assets/ui/ref-members.png"
+  },
+  "ref-no-clan": {
+    "file": "assets/ui/ref-no-clan.png",
+    "source": "recovered packaged original asset: assets/ui/ref-no-clan.png"
+  },
+  "ref-back": {
+    "file": "assets/ui/ref-back.png",
+    "source": "recovered packaged original asset: assets/ui/ref-back.png"
+  },
+  "ref-all-cards": {
+    "file": "assets/ui/ref-all-cards.png",
+    "source": "recovered packaged original asset: assets/ui/ref-all-cards.png"
+  },
+  "ref-common": {
+    "file": "assets/ui/ref-common.png",
+    "source": "recovered packaged original asset: assets/ui/ref-common.png"
+  },
+  "ref-rare": {
+    "file": "assets/ui/ref-rare.png",
+    "source": "recovered packaged original asset: assets/ui/ref-rare.png"
+  },
+  "ref-epic": {
+    "file": "assets/ui/ref-epic.png",
+    "source": "recovered packaged original asset: assets/ui/ref-epic.png"
+  },
+  "ref-legendary": {
+    "file": "assets/ui/ref-legendary.png",
+    "source": "recovered packaged original asset: assets/ui/ref-legendary.png"
+  },
+  "ref-in-deck": {
+    "file": "assets/ui/ref-in-deck.png",
+    "source": "recovered packaged original asset: assets/ui/ref-in-deck.png"
+  },
+  "ref-ready": {
+    "file": "assets/ui/ref-ready.png",
+    "source": "recovered packaged original asset: assets/ui/ref-ready.png"
+  },
+  "ref-screenshot": {
+    "file": "assets/ui/ref-screenshot.png",
+    "source": "recovered packaged original asset: assets/ui/ref-screenshot.png"
+  },
+  "ref-friendly-invite": {
+    "file": "assets/ui/ref-friendly-invite.png",
+    "source": "recovered packaged original asset: assets/ui/ref-friendly-invite.png"
+  },
+  "ref-accept": {
+    "file": "assets/ui/ref-accept.png",
+    "source": "recovered packaged original asset: assets/ui/ref-accept.png"
+  },
+  "ref-sort": {
+    "file": "assets/ui/ref-sort.png",
+    "source": "recovered packaged original asset: assets/ui/ref-sort.png"
+  },
+  "ref-owned": {
+    "file": "assets/ui/ref-owned.png",
+    "source": "recovered packaged original asset: assets/ui/ref-owned.png"
+  },
+  "ref-preview": {
+    "file": "assets/ui/ref-preview.png",
+    "source": "recovered packaged original asset: assets/ui/ref-preview.png"
+  },
+  "ref-pile-gold": {
+    "file": "assets/ui/ref-pile-gold.png",
+    "source": "recovered packaged original asset: assets/ui/ref-pile-gold.png"
+  },
+  "ref-pouch-gold": {
+    "file": "assets/ui/ref-pouch-gold.png",
+    "source": "recovered packaged original asset: assets/ui/ref-pouch-gold.png"
+  },
+  "ref-wagon-gold": {
+    "file": "assets/ui/ref-wagon-gold.png",
+    "source": "recovered packaged original asset: assets/ui/ref-wagon-gold.png"
+  },
+  "ref-level-1": {
+    "file": "assets/ui/ref-level-1.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-1.png"
+  },
+  "ref-level-2": {
+    "file": "assets/ui/ref-level-2.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-2.png"
+  },
+  "ref-level-3": {
+    "file": "assets/ui/ref-level-3.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-3.png"
+  },
+  "ref-level-4": {
+    "file": "assets/ui/ref-level-4.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-4.png"
+  },
+  "ref-level-5": {
+    "file": "assets/ui/ref-level-5.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-5.png"
+  },
+  "ref-level-6": {
+    "file": "assets/ui/ref-level-6.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-6.png"
+  },
+  "ref-level-7": {
+    "file": "assets/ui/ref-level-7.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-7.png"
+  },
+  "ref-level-8": {
+    "file": "assets/ui/ref-level-8.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-8.png"
+  },
+  "ref-level-9": {
+    "file": "assets/ui/ref-level-9.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-9.png"
+  },
+  "ref-level-10": {
+    "file": "assets/ui/ref-level-10.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-10.png"
+  },
+  "ref-level-11": {
+    "file": "assets/ui/ref-level-11.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-11.png"
+  },
+  "ref-level-12": {
+    "file": "assets/ui/ref-level-12.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-12.png"
+  },
+  "ref-level-13": {
+    "file": "assets/ui/ref-level-13.png",
+    "source": "recovered packaged original asset: assets/ui/ref-level-13.png"
+  },
+  "ref-deck-number-1": {
+    "file": "assets/ui/ref-deck-number-1.png",
+    "source": "recovered packaged original asset: assets/ui/ref-deck-number-1.png"
+  },
+  "ref-deck-number-2": {
+    "file": "assets/ui/ref-deck-number-2.png",
+    "source": "recovered packaged original asset: assets/ui/ref-deck-number-2.png"
+  },
+  "ref-deck-number-3": {
+    "file": "assets/ui/ref-deck-number-3.png",
+    "source": "recovered packaged original asset: assets/ui/ref-deck-number-3.png"
+  },
+  "ref-deck-number-4": {
+    "file": "assets/ui/ref-deck-number-4.png",
+    "source": "recovered packaged original asset: assets/ui/ref-deck-number-4.png"
+  },
+  "ref-deck-number-5": {
+    "file": "assets/ui/ref-deck-number-5.png",
+    "source": "recovered packaged original asset: assets/ui/ref-deck-number-5.png"
+  },
+  "ref-gem-pack-0": {
+    "file": "assets/ui/ref-gem-pack-0.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gem-pack-0.png"
+  },
+  "ref-gem-pack-1": {
+    "file": "assets/ui/ref-gem-pack-1.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gem-pack-1.png"
+  },
+  "ref-gem-pack-2": {
+    "file": "assets/ui/ref-gem-pack-2.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gem-pack-2.png"
+  },
+  "ref-gem-pack-3": {
+    "file": "assets/ui/ref-gem-pack-3.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gem-pack-3.png"
+  },
+  "ref-gem-pack-4": {
+    "file": "assets/ui/ref-gem-pack-4.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gem-pack-4.png"
+  },
+  "ref-gem-pack-5": {
+    "file": "assets/ui/ref-gem-pack-5.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gem-pack-5.png"
+  },
+  "ref-name-knight": {
+    "file": "assets/ui/ref-name-knight.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-knight.png"
+  },
+  "ref-name-archers": {
+    "file": "assets/ui/ref-name-archers.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-archers.png"
+  },
+  "ref-name-goblins": {
+    "file": "assets/ui/ref-name-goblins.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-goblins.png"
+  },
+  "ref-name-giant": {
+    "file": "assets/ui/ref-name-giant.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-giant.png"
+  },
+  "ref-name-pekka": {
+    "file": "assets/ui/ref-name-pekka.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-pekka.png"
+  },
+  "ref-name-minions": {
+    "file": "assets/ui/ref-name-minions.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-minions.png"
+  },
+  "ref-name-balloon": {
+    "file": "assets/ui/ref-name-balloon.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-balloon.png"
+  },
+  "ref-name-witch": {
+    "file": "assets/ui/ref-name-witch.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-witch.png"
+  },
+  "ref-name-barbarians": {
+    "file": "assets/ui/ref-name-barbarians.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-barbarians.png"
+  },
+  "ref-name-golem": {
+    "file": "assets/ui/ref-name-golem.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-golem.png"
+  },
+  "ref-name-skeletons": {
+    "file": "assets/ui/ref-name-skeletons.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-skeletons.png"
+  },
+  "ref-name-valkyrie": {
+    "file": "assets/ui/ref-name-valkyrie.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-valkyrie.png"
+  },
+  "ref-name-skeleton-army": {
+    "file": "assets/ui/ref-name-skeleton-army.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-skeleton-army.png"
+  },
+  "ref-name-bomber": {
+    "file": "assets/ui/ref-name-bomber.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-bomber.png"
+  },
+  "ref-name-musketeer": {
+    "file": "assets/ui/ref-name-musketeer.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-musketeer.png"
+  },
+  "ref-name-baby-dragon": {
+    "file": "assets/ui/ref-name-baby-dragon.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-baby-dragon.png"
+  },
+  "ref-name-prince": {
+    "file": "assets/ui/ref-name-prince.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-prince.png"
+  },
+  "ref-name-wizard": {
+    "file": "assets/ui/ref-name-wizard.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-wizard.png"
+  },
+  "ref-name-mini-pekka": {
+    "file": "assets/ui/ref-name-mini-pekka.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-mini-pekka.png"
+  },
+  "ref-name-spear-goblins": {
+    "file": "assets/ui/ref-name-spear-goblins.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-spear-goblins.png"
+  },
+  "ref-name-giant-skeleton": {
+    "file": "assets/ui/ref-name-giant-skeleton.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-giant-skeleton.png"
+  },
+  "ref-name-hog-rider": {
+    "file": "assets/ui/ref-name-hog-rider.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-hog-rider.png"
+  },
+  "ref-name-minion-horde": {
+    "file": "assets/ui/ref-name-minion-horde.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-minion-horde.png"
+  },
+  "ref-name-ice-wizard": {
+    "file": "assets/ui/ref-name-ice-wizard.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-ice-wizard.png"
+  },
+  "ref-name-royal-giant": {
+    "file": "assets/ui/ref-name-royal-giant.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-royal-giant.png"
+  },
+  "ref-name-guards": {
+    "file": "assets/ui/ref-name-guards.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-guards.png"
+  },
+  "ref-name-princess": {
+    "file": "assets/ui/ref-name-princess.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-princess.png"
+  },
+  "ref-name-dark-prince": {
+    "file": "assets/ui/ref-name-dark-prince.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-dark-prince.png"
+  },
+  "ref-name-three-musketeers": {
+    "file": "assets/ui/ref-name-three-musketeers.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-three-musketeers.png"
+  },
+  "ref-name-lava-hound": {
+    "file": "assets/ui/ref-name-lava-hound.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-lava-hound.png"
+  },
+  "ref-name-ice-spirit": {
+    "file": "assets/ui/ref-name-ice-spirit.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-ice-spirit.png"
+  },
+  "ref-name-fire-spirits": {
+    "file": "assets/ui/ref-name-fire-spirits.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-fire-spirits.png"
+  },
+  "ref-name-miner": {
+    "file": "assets/ui/ref-name-miner.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-miner.png"
+  },
+  "ref-name-sparky": {
+    "file": "assets/ui/ref-name-sparky.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-sparky.png"
+  },
+  "ref-name-bowler": {
+    "file": "assets/ui/ref-name-bowler.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-bowler.png"
+  },
+  "ref-name-lumberjack": {
+    "file": "assets/ui/ref-name-lumberjack.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-lumberjack.png"
+  },
+  "ref-name-battle-ram": {
+    "file": "assets/ui/ref-name-battle-ram.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-battle-ram.png"
+  },
+  "ref-name-inferno-dragon": {
+    "file": "assets/ui/ref-name-inferno-dragon.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-inferno-dragon.png"
+  },
+  "ref-name-ice-golem": {
+    "file": "assets/ui/ref-name-ice-golem.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-ice-golem.png"
+  },
+  "ref-name-mega-minion": {
+    "file": "assets/ui/ref-name-mega-minion.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-mega-minion.png"
+  },
+  "ref-name-dart-goblin": {
+    "file": "assets/ui/ref-name-dart-goblin.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-dart-goblin.png"
+  },
+  "ref-name-goblin-gang": {
+    "file": "assets/ui/ref-name-goblin-gang.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-goblin-gang.png"
+  },
+  "ref-name-electro-wizard": {
+    "file": "assets/ui/ref-name-electro-wizard.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-electro-wizard.png"
+  },
+  "ref-name-elite-barbarians": {
+    "file": "assets/ui/ref-name-elite-barbarians.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-elite-barbarians.png"
+  },
+  "ref-name-hunter": {
+    "file": "assets/ui/ref-name-hunter.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-hunter.png"
+  },
+  "ref-name-executioner": {
+    "file": "assets/ui/ref-name-executioner.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-executioner.png"
+  },
+  "ref-name-bandit": {
+    "file": "assets/ui/ref-name-bandit.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-bandit.png"
+  },
+  "ref-name-royal-recruits": {
+    "file": "assets/ui/ref-name-royal-recruits.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-royal-recruits.png"
+  },
+  "ref-name-night-witch": {
+    "file": "assets/ui/ref-name-night-witch.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-night-witch.png"
+  },
+  "ref-name-bats": {
+    "file": "assets/ui/ref-name-bats.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-bats.png"
+  },
+  "ref-name-royal-ghost": {
+    "file": "assets/ui/ref-name-royal-ghost.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-royal-ghost.png"
+  },
+  "ref-name-ram-rider": {
+    "file": "assets/ui/ref-name-ram-rider.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-ram-rider.png"
+  },
+  "ref-name-zappies": {
+    "file": "assets/ui/ref-name-zappies.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-zappies.png"
+  },
+  "ref-name-rascals": {
+    "file": "assets/ui/ref-name-rascals.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-rascals.png"
+  },
+  "ref-name-cannon-cart": {
+    "file": "assets/ui/ref-name-cannon-cart.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-cannon-cart.png"
+  },
+  "ref-name-mega-knight": {
+    "file": "assets/ui/ref-name-mega-knight.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-mega-knight.png"
+  },
+  "ref-name-skeleton-barrel": {
+    "file": "assets/ui/ref-name-skeleton-barrel.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-skeleton-barrel.png"
+  },
+  "ref-name-flying-machine": {
+    "file": "assets/ui/ref-name-flying-machine.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-flying-machine.png"
+  },
+  "ref-name-wall-breakers": {
+    "file": "assets/ui/ref-name-wall-breakers.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-wall-breakers.png"
+  },
+  "ref-name-royal-hogs": {
+    "file": "assets/ui/ref-name-royal-hogs.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-royal-hogs.png"
+  },
+  "ref-name-goblin-giant": {
+    "file": "assets/ui/ref-name-goblin-giant.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-goblin-giant.png"
+  },
+  "ref-name-fisherman": {
+    "file": "assets/ui/ref-name-fisherman.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-fisherman.png"
+  },
+  "ref-name-magic-archer": {
+    "file": "assets/ui/ref-name-magic-archer.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-magic-archer.png"
+  },
+  "ref-name-electro-dragon": {
+    "file": "assets/ui/ref-name-electro-dragon.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-electro-dragon.png"
+  },
+  "ref-name-firecracker": {
+    "file": "assets/ui/ref-name-firecracker.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-firecracker.png"
+  },
+  "ref-name-elixir-golem": {
+    "file": "assets/ui/ref-name-elixir-golem.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-elixir-golem.png"
+  },
+  "ref-name-battle-healer": {
+    "file": "assets/ui/ref-name-battle-healer.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-battle-healer.png"
+  },
+  "ref-name-skeleton-dragons": {
+    "file": "assets/ui/ref-name-skeleton-dragons.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-skeleton-dragons.png"
+  },
+  "ref-name-mother-witch": {
+    "file": "assets/ui/ref-name-mother-witch.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-mother-witch.png"
+  },
+  "ref-name-electro-spirit": {
+    "file": "assets/ui/ref-name-electro-spirit.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-electro-spirit.png"
+  },
+  "ref-name-electro-giant": {
+    "file": "assets/ui/ref-name-electro-giant.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-electro-giant.png"
+  },
+  "ref-name-cannon": {
+    "file": "assets/ui/ref-name-cannon.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-cannon.png"
+  },
+  "ref-name-goblin-hut": {
+    "file": "assets/ui/ref-name-goblin-hut.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-goblin-hut.png"
+  },
+  "ref-name-mortar": {
+    "file": "assets/ui/ref-name-mortar.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-mortar.png"
+  },
+  "ref-name-inferno-tower": {
+    "file": "assets/ui/ref-name-inferno-tower.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-inferno-tower.png"
+  },
+  "ref-name-bomb-tower": {
+    "file": "assets/ui/ref-name-bomb-tower.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-bomb-tower.png"
+  },
+  "ref-name-barbarian-hut": {
+    "file": "assets/ui/ref-name-barbarian-hut.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-barbarian-hut.png"
+  },
+  "ref-name-tesla": {
+    "file": "assets/ui/ref-name-tesla.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-tesla.png"
+  },
+  "ref-name-elixir-collector": {
+    "file": "assets/ui/ref-name-elixir-collector.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-elixir-collector.png"
+  },
+  "ref-name-x-bow": {
+    "file": "assets/ui/ref-name-x-bow.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-x-bow.png"
+  },
+  "ref-name-tombstone": {
+    "file": "assets/ui/ref-name-tombstone.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-tombstone.png"
+  },
+  "ref-name-furnace": {
+    "file": "assets/ui/ref-name-furnace.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-furnace.png"
+  },
+  "ref-name-goblin-cage": {
+    "file": "assets/ui/ref-name-goblin-cage.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-goblin-cage.png"
+  },
+  "ref-name-fireball": {
+    "file": "assets/ui/ref-name-fireball.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-fireball.png"
+  },
+  "ref-name-arrows": {
+    "file": "assets/ui/ref-name-arrows.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-arrows.png"
+  },
+  "ref-name-rage": {
+    "file": "assets/ui/ref-name-rage.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-rage.png"
+  },
+  "ref-name-rocket": {
+    "file": "assets/ui/ref-name-rocket.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-rocket.png"
+  },
+  "ref-name-goblin-barrel": {
+    "file": "assets/ui/ref-name-goblin-barrel.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-goblin-barrel.png"
+  },
+  "ref-name-freeze": {
+    "file": "assets/ui/ref-name-freeze.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-freeze.png"
+  },
+  "ref-name-mirror": {
+    "file": "assets/ui/ref-name-mirror.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-mirror.png"
+  },
+  "ref-name-lightning": {
+    "file": "assets/ui/ref-name-lightning.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-lightning.png"
+  },
+  "ref-name-zap": {
+    "file": "assets/ui/ref-name-zap.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-zap.png"
+  },
+  "ref-name-poison": {
+    "file": "assets/ui/ref-name-poison.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-poison.png"
+  },
+  "ref-name-graveyard": {
+    "file": "assets/ui/ref-name-graveyard.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-graveyard.png"
+  },
+  "ref-name-the-log": {
+    "file": "assets/ui/ref-name-the-log.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-the-log.png"
+  },
+  "ref-name-tornado": {
+    "file": "assets/ui/ref-name-tornado.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-tornado.png"
+  },
+  "ref-name-clone": {
+    "file": "assets/ui/ref-name-clone.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-clone.png"
+  },
+  "ref-name-earthquake": {
+    "file": "assets/ui/ref-name-earthquake.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-earthquake.png"
+  },
+  "ref-name-barbarian-barrel": {
+    "file": "assets/ui/ref-name-barbarian-barrel.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-barbarian-barrel.png"
+  },
+  "ref-name-heal-spirit": {
+    "file": "assets/ui/ref-name-heal-spirit.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-heal-spirit.png"
+  },
+  "ref-name-giant-snowball": {
+    "file": "assets/ui/ref-name-giant-snowball.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-giant-snowball.png"
+  },
+  "ref-name-royal-delivery": {
+    "file": "assets/ui/ref-name-royal-delivery.png",
+    "source": "recovered packaged original asset: assets/ui/ref-name-royal-delivery.png"
+  },
+  "team-icon": {
+    "file": "assets/ui/team-icon.png",
+    "source": "recovered packaged original asset: assets/ui/team-icon.png"
+  },
+  "ref-tick": {
+    "file": "assets/ui/ref-tick.png",
+    "source": "recovered packaged original asset: assets/ui/ref-tick.png"
+  },
+  "ref-swap": {
+    "file": "assets/ui/ref-swap.png",
+    "source": "recovered packaged original asset: assets/ui/ref-swap.png"
+  },
+  "ref-cosmetics-banner": {
+    "file": "assets/ui/ref-cosmetics-banner.png",
+    "source": "recovered packaged original asset: assets/ui/ref-cosmetics-banner.png"
+  },
+  "ref-gems-1": {
+    "file": "assets/ui/ref-gems-1.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems-1.png"
+  },
+  "ref-gems-2": {
+    "file": "assets/ui/ref-gems-2.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems-2.png"
+  },
+  "ref-gems-3": {
+    "file": "assets/ui/ref-gems-3.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems-3.png"
+  },
+  "ref-gems-4": {
+    "file": "assets/ui/ref-gems-4.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems-4.png"
+  },
+  "ref-gems-5": {
+    "file": "assets/ui/ref-gems-5.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems-5.png"
+  },
+  "ref-gems-6": {
+    "file": "assets/ui/ref-gems-6.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gems-6.png"
+  },
+  "ref-gold-1": {
+    "file": "assets/ui/ref-gold-1.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gold-1.png"
+  },
+  "ref-gold-2": {
+    "file": "assets/ui/ref-gold-2.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gold-2.png"
+  },
+  "ref-gold-3": {
+    "file": "assets/ui/ref-gold-3.png",
+    "source": "recovered packaged original asset: assets/ui/ref-gold-3.png"
+  },
+  "emote-Emote0": {
+    "file": "assets/ui/emote-Emote0.png",
+    "source": "sc/emotes_king_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote1": {
+    "file": "assets/ui/emote-Emote1.png",
+    "source": "sc/emotes_king_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote2": {
+    "file": "assets/ui/emote-Emote2.png",
+    "source": "sc/emotes_king_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote3": {
+    "file": "assets/ui/emote-Emote3.png",
+    "source": "sc/emotes_king_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote4": {
+    "file": "assets/ui/emote-Emote4.png",
+    "source": "sc/emotes_goblin_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote20": {
+    "file": "assets/ui/emote-Emote20.png",
+    "source": "sc/emotes_princess_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote38": {
+    "file": "assets/ui/emote-Emote38.png",
+    "source": "sc/emotes_hog_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "ref-shop-bg": {
+    "file": "assets/ui/ref-shop-bg.webp",
+    "source": "recovered packaged original asset: assets/ui/ref-shop-bg.webp"
+  },
+  "ref-purple-bg": {
+    "file": "assets/ui/ref-purple-bg.webp",
+    "source": "recovered packaged original asset: assets/ui/ref-purple-bg.webp"
+  },
+  "ref-green-bg": {
+    "file": "assets/ui/ref-green-bg.webp",
+    "source": "recovered packaged original asset: assets/ui/ref-green-bg.webp"
+  },
+  "ref-deck-bg": {
+    "file": "assets/ui/ref-deck-bg.webp",
+    "source": "recovered packaged original asset: assets/ui/ref-deck-bg.webp"
+  },
+  "ref-shop-tile": {
+    "file": "assets/ui/ref-shop-tile.png",
+    "source": "recovered packaged original asset: assets/ui/ref-shop-tile.png"
+  },
+  "classic-loading": {
+    "file": "assets/ui/classic-loading.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-loading.webp"
+  },
+  "classic-loading-bar": {
+    "file": "assets/ui/classic-loading-bar.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-loading-bar.webp"
+  },
+  "classic-xp": {
+    "file": "assets/ui/classic-xp.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-xp.webp"
+  },
+  "classic-wood-chest": {
+    "file": "assets/ui/classic-wood-chest.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-wood-chest.webp"
+  },
+  "classic-crown-chest": {
+    "file": "assets/ui/classic-crown-chest.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-crown-chest.webp"
+  },
+  "classic-crown": {
+    "file": "assets/ui/classic-crown.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-crown.webp"
+  },
+  "classic-tv": {
+    "file": "assets/ui/classic-tv.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-tv.webp"
+  },
+  "classic-team": {
+    "file": "assets/ui/classic-team.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-team.webp"
+  },
+  "classic-arena-training": {
+    "file": "assets/ui/classic-arena-training.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-training.webp"
+  },
+  "classic-arena-goblin": {
+    "file": "assets/ui/classic-arena-goblin.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-goblin.webp"
+  },
+  "classic-arena-bone": {
+    "file": "assets/ui/classic-arena-bone.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-bone.webp"
+  },
+  "classic-arena-barbarian": {
+    "file": "assets/ui/classic-arena-barbarian.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-barbarian.webp"
+  },
+  "classic-arena-pekka": {
+    "file": "assets/ui/classic-arena-pekka.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-pekka.webp"
+  },
+  "classic-arena-spell": {
+    "file": "assets/ui/classic-arena-spell.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-spell.webp"
+  },
+  "classic-arena-builder": {
+    "file": "assets/ui/classic-arena-builder.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-builder.webp"
+  },
+  "classic-arena-royal": {
+    "file": "assets/ui/classic-arena-royal.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-royal.webp"
+  },
+  "classic-arena-frozen": {
+    "file": "assets/ui/classic-arena-frozen.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-frozen.webp"
+  },
+  "classic-arena-jungle": {
+    "file": "assets/ui/classic-arena-jungle.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-jungle.webp"
+  },
+  "classic-arena-hog": {
+    "file": "assets/ui/classic-arena-hog.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-hog.webp"
+  },
+  "classic-arena-electro": {
+    "file": "assets/ui/classic-arena-electro.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-electro.webp"
+  },
+  "classic-arena-spooky": {
+    "file": "assets/ui/classic-arena-spooky.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-spooky.webp"
+  },
+  "classic-arena-rascals": {
+    "file": "assets/ui/classic-arena-rascals.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-rascals.webp"
+  },
+  "classic-arena-serenity": {
+    "file": "assets/ui/classic-arena-serenity.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-serenity.webp"
+  },
+  "classic-league-1": {
+    "file": "assets/ui/classic-league-1.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-1.webp"
+  },
+  "classic-league-2": {
+    "file": "assets/ui/classic-league-2.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-2.webp"
+  },
+  "classic-league-3": {
+    "file": "assets/ui/classic-league-3.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-3.webp"
+  },
+  "classic-league-4": {
+    "file": "assets/ui/classic-league-4.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-4.webp"
+  },
+  "classic-league-5": {
+    "file": "assets/ui/classic-league-5.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-5.webp"
+  },
+  "classic-league-6": {
+    "file": "assets/ui/classic-league-6.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-6.webp"
+  },
+  "classic-league-7": {
+    "file": "assets/ui/classic-league-7.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-7.webp"
+  },
+  "classic-league-8": {
+    "file": "assets/ui/classic-league-8.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-8.webp"
+  },
+  "classic-league-9": {
+    "file": "assets/ui/classic-league-9.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-9.webp"
+  },
+  "classic-league-10": {
+    "file": "assets/ui/classic-league-10.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-league-10.webp"
+  },
+  "classic-road": {
+    "file": "assets/ui/classic-road.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-road.webp"
+  },
+  "classic-arena-title": {
+    "file": "assets/ui/classic-arena-title.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-arena-title.webp"
+  },
+  "classic-road-player": {
+    "file": "assets/ui/classic-road-player.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-road-player.webp"
+  },
+  "classic-road-lock": {
+    "file": "assets/ui/classic-road-lock.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-road-lock.webp"
+  },
+  "classic-platform-17": {
+    "file": "assets/ui/classic-platform-17.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-17.webp"
+  },
+  "classic-platform-18": {
+    "file": "assets/ui/classic-platform-18.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-18.webp"
+  },
+  "classic-platform-27": {
+    "file": "assets/ui/classic-platform-27.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-27.webp"
+  },
+  "classic-platform-30": {
+    "file": "assets/ui/classic-platform-30.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-30.webp"
+  },
+  "classic-platform-31": {
+    "file": "assets/ui/classic-platform-31.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-31.webp"
+  },
+  "classic-platform-32": {
+    "file": "assets/ui/classic-platform-32.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-32.webp"
+  },
+  "classic-platform-33": {
+    "file": "assets/ui/classic-platform-33.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-33.webp"
+  },
+  "classic-platform-34": {
+    "file": "assets/ui/classic-platform-34.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-34.webp"
+  },
+  "classic-platform-35": {
+    "file": "assets/ui/classic-platform-35.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-35.webp"
+  },
+  "classic-platform-36": {
+    "file": "assets/ui/classic-platform-36.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-36.webp"
+  },
+  "classic-platform-37": {
+    "file": "assets/ui/classic-platform-37.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-37.webp"
+  },
+  "classic-platform-44": {
+    "file": "assets/ui/classic-platform-44.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-44.webp"
+  },
+  "classic-platform-51": {
+    "file": "assets/ui/classic-platform-51.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-51.webp"
+  },
+  "classic-platform-58": {
+    "file": "assets/ui/classic-platform-58.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-58.webp"
+  },
+  "classic-platform-67": {
+    "file": "assets/ui/classic-platform-67.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-67.webp"
+  },
+  "classic-platform-73": {
+    "file": "assets/ui/classic-platform-73.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-73.webp"
+  },
+  "classic-platform-79": {
+    "file": "assets/ui/classic-platform-79.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-79.webp"
+  },
+  "classic-platform-88": {
+    "file": "assets/ui/classic-platform-88.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-88.webp"
+  },
+  "classic-platform-93": {
+    "file": "assets/ui/classic-platform-93.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-93.webp"
+  },
+  "classic-platform-98": {
+    "file": "assets/ui/classic-platform-98.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-98.webp"
+  },
+  "classic-platform-106": {
+    "file": "assets/ui/classic-platform-106.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-106.webp"
+  },
+  "classic-platform-107": {
+    "file": "assets/ui/classic-platform-107.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-107.webp"
+  },
+  "classic-platform-108": {
+    "file": "assets/ui/classic-platform-108.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-platform-108.webp"
+  },
+  "classic-reference-profile": {
+    "file": "assets/ui/classic-reference-profile.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-profile.webp"
+  },
+  "classic-reference-settings": {
+    "file": "assets/ui/classic-reference-settings.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-settings.webp"
+  },
+  "classic-reference-road": {
+    "file": "assets/ui/classic-reference-road.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-road.webp"
+  },
+  "classic-reference-log": {
+    "file": "assets/ui/classic-reference-log.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-log.webp"
+  },
+  "classic-reference-tv": {
+    "file": "assets/ui/classic-reference-tv.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-tv.webp"
+  },
+  "classic-reference-star": {
+    "file": "assets/ui/classic-reference-star.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-star.webp"
+  },
+  "classic-reference-battle": {
+    "file": "assets/ui/classic-reference-battle.webp",
+    "source": "recovered packaged original asset: assets/ui/classic-reference-battle.webp"
+  },
+  "road-token-common": {
+    "file": "assets/ui/road-token-common.webp",
+    "source": "recovered packaged original asset: assets/ui/road-token-common.webp"
+  },
+  "road-wild-common": {
+    "file": "assets/ui/road-wild-common.webp",
+    "source": "recovered packaged original asset: assets/ui/road-wild-common.webp"
+  },
+  "road-token-rare": {
+    "file": "assets/ui/road-token-rare.webp",
+    "source": "recovered packaged original asset: assets/ui/road-token-rare.webp"
+  },
+  "road-wild-rare": {
+    "file": "assets/ui/road-wild-rare.webp",
+    "source": "recovered packaged original asset: assets/ui/road-wild-rare.webp"
+  },
+  "road-token-epic": {
+    "file": "assets/ui/road-token-epic.webp",
+    "source": "recovered packaged original asset: assets/ui/road-token-epic.webp"
+  },
+  "road-wild-epic": {
+    "file": "assets/ui/road-wild-epic.webp",
+    "source": "recovered packaged original asset: assets/ui/road-wild-epic.webp"
+  },
+  "road-token-legendary": {
+    "file": "assets/ui/road-token-legendary.webp",
+    "source": "recovered packaged original asset: assets/ui/road-token-legendary.webp"
+  },
+  "road-wild-legendary": {
+    "file": "assets/ui/road-wild-legendary.webp",
+    "source": "recovered packaged original asset: assets/ui/road-wild-legendary.webp"
+  },
+  "road-chest-giant": {
+    "file": "assets/ui/road-chest-giant.webp",
+    "source": "recovered packaged original asset: assets/ui/road-chest-giant.webp"
+  },
+  "road-chest-epic": {
+    "file": "assets/ui/road-chest-epic.webp",
+    "source": "recovered packaged original asset: assets/ui/road-chest-epic.webp"
+  },
+  "road-chest-legendary": {
+    "file": "assets/ui/road-chest-legendary.webp",
+    "source": "recovered packaged original asset: assets/ui/road-chest-legendary.webp"
+  },
+  "road-chest-legendarykings": {
+    "file": "assets/ui/road-chest-legendarykings.webp",
+    "source": "recovered packaged original asset: assets/ui/road-chest-legendarykings.webp"
+  },
+  "road-chest-lightning": {
+    "file": "assets/ui/road-chest-lightning.webp",
+    "source": "recovered packaged original asset: assets/ui/road-chest-lightning.webp"
+  },
+  "emote-Emote58": {
+    "file": "assets/ui/emote-Emote58.png",
+    "source": "sc/emotes_crl_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-Emote71": {
+    "file": "assets/ui/emote-Emote71.png",
+    "source": "sc/emotes_royal_ghost_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "card-progress-original": {
+    "file": "assets/ui/card-progress-original.webp",
+    "source": "sc/ui_spells.sc#spell_card_full.progress",
+    "frames": 101
+  },
+  "emote-emotes_10yr_infernoDragon_dl-emote1": {
+    "file": "assets/ui/emote-emotes_10yr_infernoDragon_dl-emote1.png",
+    "source": "sc/emotes_10yr_infernoDragon_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_10yr_king_dl-emote1": {
+    "file": "assets/ui/emote-emotes_10yr_king_dl-emote1.png",
+    "source": "sc/emotes_10yr_king_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_10yr_knight_dl-emote1": {
+    "file": "assets/ui/emote-emotes_10yr_knight_dl-emote1.png",
+    "source": "sc/emotes_10yr_knight_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_10yr_lavaHound_dl-emote1": {
+    "file": "assets/ui/emote-emotes_10yr_lavaHound_dl-emote1.png",
+    "source": "sc/emotes_10yr_lavaHound_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_4th_bday_battleHealer_dl-emote1": {
+    "file": "assets/ui/emote-emotes_4th_bday_battleHealer_dl-emote1.png",
+    "source": "sc/emotes_4th_bday_battleHealer_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_4th_bday_fish_dl-emote1": {
+    "file": "assets/ui/emote-emotes_4th_bday_fish_dl-emote1.png",
+    "source": "sc/emotes_4th_bday_fish_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_4th_bday_pekka_dl-emote1": {
+    "file": "assets/ui/emote-emotes_4th_bday_pekka_dl-emote1.png",
+    "source": "sc/emotes_4th_bday_pekka_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_4th_bday_royalGiant_dl-emote1": {
+    "file": "assets/ui/emote-emotes_4th_bday_royalGiant_dl-emote1.png",
+    "source": "sc/emotes_4th_bday_royalGiant_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_4th_bday_sparky_dl-emote1": {
+    "file": "assets/ui/emote-emotes_4th_bday_sparky_dl-emote1.png",
+    "source": "sc/emotes_4th_bday_sparky_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_LNY_2021_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_LNY_2021_01_dl-emote1.png",
+    "source": "sc/emotes_LNY_2021_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_LNY_2021_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_LNY_2021_01_dl-emote2.png",
+    "source": "sc/emotes_LNY_2021_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_LNY_2021_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_LNY_2021_02_dl-emote1.png",
+    "source": "sc/emotes_LNY_2021_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_LNY_2021_03_dl-emote1": {
+    "file": "assets/ui/emote-emotes_LNY_2021_03_dl-emote1.png",
+    "source": "sc/emotes_LNY_2021_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_PEKKA_boombox_dl-emote1": {
+    "file": "assets/ui/emote-emotes_PEKKA_boombox_dl-emote1.png",
+    "source": "sc/emotes_PEKKA_boombox_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_PEKKA_coconut_dl-emote1": {
+    "file": "assets/ui/emote-emotes_PEKKA_coconut_dl-emote1.png",
+    "source": "sc/emotes_PEKKA_coconut_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_april_fools_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_april_fools_01_dl-emote1.png",
+    "source": "sc/emotes_april_fools_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_april_fools_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_april_fools_01_dl-emote2.png",
+    "source": "sc/emotes_april_fools_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_archers_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_archers_01_dl-emote1.png",
+    "source": "sc/emotes_archers_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_archers_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_archers_01_dl-emote2.png",
+    "source": "sc/emotes_archers_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_archers_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_archers_01_dl-emote3.png",
+    "source": "sc/emotes_archers_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_barbarian_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_barbarian_01_dl-emote1.png",
+    "source": "sc/emotes_barbarian_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_barbarian_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_barbarian_01_dl-emote2.png",
+    "source": "sc/emotes_barbarian_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_barbarian_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_barbarian_01_dl-emote3.png",
+    "source": "sc/emotes_barbarian_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_barbarian_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_barbarian_01_dl-emote4.png",
+    "source": "sc/emotes_barbarian_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_battlehealer_cakethrow_dl-emote1": {
+    "file": "assets/ui/emote-emotes_battlehealer_cakethrow_dl-emote1.png",
+    "source": "sc/emotes_battlehealer_cakethrow_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_bday_03_dl-emote1": {
+    "file": "assets/ui/emote-emotes_bday_03_dl-emote1.png",
+    "source": "sc/emotes_bday_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_bday_03_dl-emote2": {
+    "file": "assets/ui/emote-emotes_bday_03_dl-emote2.png",
+    "source": "sc/emotes_bday_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_bday_03_dl-emote3": {
+    "file": "assets/ui/emote-emotes_bday_03_dl-emote3.png",
+    "source": "sc/emotes_bday_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_black_friday_01_dl-emote1.png",
+    "source": "sc/emotes_black_friday_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_black_friday_01_dl-emote2.png",
+    "source": "sc/emotes_black_friday_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_black_friday_01_dl-emote3.png",
+    "source": "sc/emotes_black_friday_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_black_friday_01_dl-emote4.png",
+    "source": "sc/emotes_black_friday_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_black_friday_02_dl-emote1.png",
+    "source": "sc/emotes_black_friday_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_black_friday_02_dl-emote2.png",
+    "source": "sc/emotes_black_friday_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_02_dl-emote3": {
+    "file": "assets/ui/emote-emotes_black_friday_02_dl-emote3.png",
+    "source": "sc/emotes_black_friday_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_black_friday_02_dl-emote4": {
+    "file": "assets/ui/emote-emotes_black_friday_02_dl-emote4.png",
+    "source": "sc/emotes_black_friday_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_clashnights_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_clashnights_01_dl-emote1.png",
+    "source": "sc/emotes_clashnights_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_clashnights_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_clashnights_01_dl-emote2.png",
+    "source": "sc/emotes_clashnights_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_crl_01_dl-emote1.png",
+    "source": "sc/emotes_crl_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_crl_01_dl-emote2.png",
+    "source": "sc/emotes_crl_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_crl_01_dl-emote4.png",
+    "source": "sc/emotes_crl_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_01_dl-emote5": {
+    "file": "assets/ui/emote-emotes_crl_01_dl-emote5.png",
+    "source": "sc/emotes_crl_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_03_dl-emote1": {
+    "file": "assets/ui/emote-emotes_crl_03_dl-emote1.png",
+    "source": "sc/emotes_crl_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_20win_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_crl_20win_01_dl-emote1.png",
+    "source": "sc/emotes_crl_20win_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_crl_king_headset_dl-emote1": {
+    "file": "assets/ui/emote-emotes_crl_king_headset_dl-emote1.png",
+    "source": "sc/emotes_crl_king_headset_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_cw_goblinDance_dl-emote1": {
+    "file": "assets/ui/emote-emotes_cw_goblinDance_dl-emote1.png",
+    "source": "sc/emotes_cw_goblinDance_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_cw_goblinThumb_dl-emote1": {
+    "file": "assets/ui/emote-emotes_cw_goblinThumb_dl-emote1.png",
+    "source": "sc/emotes_cw_goblinThumb_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_cw_golem_boat_dl-emote1": {
+    "file": "assets/ui/emote-emotes_cw_golem_boat_dl-emote1.png",
+    "source": "sc/emotes_cw_golem_boat_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_dragon_boat_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_dragon_boat_01_dl-emote1.png",
+    "source": "sc/emotes_dragon_boat_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_dragon_boat_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_dragon_boat_01_dl-emote2.png",
+    "source": "sc/emotes_dragon_boat_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_dragon_boat_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_dragon_boat_01_dl-emote3.png",
+    "source": "sc/emotes_dragon_boat_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_dragon_boat_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_dragon_boat_01_dl-emote4.png",
+    "source": "sc/emotes_dragon_boat_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_electroGiant_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_electroGiant_01_dl-emote1.png",
+    "source": "sc/emotes_electroGiant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_electroGiant_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_electroGiant_01_dl-emote2.png",
+    "source": "sc/emotes_electroGiant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_electroGiant_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_electroGiant_01_dl-emote3.png",
+    "source": "sc/emotes_electroGiant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_electroGiant_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_electroGiant_01_dl-emote4.png",
+    "source": "sc/emotes_electroGiant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_elixir_golem_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_elixir_golem_01_dl-emote1.png",
+    "source": "sc/emotes_elixir_golem_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_elixir_golem_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_elixir_golem_01_dl-emote2.png",
+    "source": "sc/emotes_elixir_golem_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_elixirgolem_candlehead_dl-emote1": {
+    "file": "assets/ui/emote-emotes_elixirgolem_candlehead_dl-emote1.png",
+    "source": "sc/emotes_elixirgolem_candlehead_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ewiz_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_ewiz_01_dl-emote1.png",
+    "source": "sc/emotes_ewiz_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ewiz_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_ewiz_01_dl-emote2.png",
+    "source": "sc/emotes_ewiz_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ewiz_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_ewiz_01_dl-emote3.png",
+    "source": "sc/emotes_ewiz_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ewiz_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_ewiz_01_dl-emote4.png",
+    "source": "sc/emotes_ewiz_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_feb2020_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_feb2020_01_dl-emote1.png",
+    "source": "sc/emotes_feb2020_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_feb2020_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_feb2020_01_dl-emote2.png",
+    "source": "sc/emotes_feb2020_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_feb2020_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_feb2020_01_dl-emote3.png",
+    "source": "sc/emotes_feb2020_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_fish_slap_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_fish_slap_01_dl-emote1.png",
+    "source": "sc/emotes_fish_slap_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_fisherman_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_fisherman_01_dl-emote1.png",
+    "source": "sc/emotes_fisherman_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_fisherman_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_fisherman_01_dl-emote2.png",
+    "source": "sc/emotes_fisherman_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_fisherman_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_fisherman_01_dl-emote3.png",
+    "source": "sc/emotes_fisherman_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_fisherman_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_fisherman_01_dl-emote4.png",
+    "source": "sc/emotes_fisherman_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_giant_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_giant_01_dl-emote1.png",
+    "source": "sc/emotes_giant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_giant_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_giant_01_dl-emote2.png",
+    "source": "sc/emotes_giant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_giant_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_giant_01_dl-emote3.png",
+    "source": "sc/emotes_giant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_giant_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_giant_01_dl-emote4.png",
+    "source": "sc/emotes_giant_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_goblin_01_dl-emote2.png",
+    "source": "sc/emotes_goblin_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_goblin_01_dl-emote3.png",
+    "source": "sc/emotes_goblin_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_goblin_01_dl-emote4.png",
+    "source": "sc/emotes_goblin_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_goblin_02_dl-emote1.png",
+    "source": "sc/emotes_goblin_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_goblin_02_dl-emote2.png",
+    "source": "sc/emotes_goblin_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_02_dl-emote3": {
+    "file": "assets/ui/emote-emotes_goblin_02_dl-emote3.png",
+    "source": "sc/emotes_goblin_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_02_dl-emote4": {
+    "file": "assets/ui/emote-emotes_goblin_02_dl-emote4.png",
+    "source": "sc/emotes_goblin_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_03_dl-emote1": {
+    "file": "assets/ui/emote-emotes_goblin_03_dl-emote1.png",
+    "source": "sc/emotes_goblin_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_03_dl-emote2": {
+    "file": "assets/ui/emote-emotes_goblin_03_dl-emote2.png",
+    "source": "sc/emotes_goblin_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_03_dl-emote3": {
+    "file": "assets/ui/emote-emotes_goblin_03_dl-emote3.png",
+    "source": "sc/emotes_goblin_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_03_dl-emote4": {
+    "file": "assets/ui/emote-emotes_goblin_03_dl-emote4.png",
+    "source": "sc/emotes_goblin_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_04_dl-emote1": {
+    "file": "assets/ui/emote-emotes_goblin_04_dl-emote1.png",
+    "source": "sc/emotes_goblin_04_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_04_dl-emote2": {
+    "file": "assets/ui/emote-emotes_goblin_04_dl-emote2.png",
+    "source": "sc/emotes_goblin_04_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_04_dl-emote3": {
+    "file": "assets/ui/emote-emotes_goblin_04_dl-emote3.png",
+    "source": "sc/emotes_goblin_04_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_04_dl-emote4": {
+    "file": "assets/ui/emote-emotes_goblin_04_dl-emote4.png",
+    "source": "sc/emotes_goblin_04_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_brawler_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_goblin_brawler_01_dl-emote1.png",
+    "source": "sc/emotes_goblin_brawler_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_brawler_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_goblin_brawler_01_dl-emote2.png",
+    "source": "sc/emotes_goblin_brawler_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_feast_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_goblin_feast_01_dl-emote1.png",
+    "source": "sc/emotes_goblin_feast_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_feast_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_goblin_feast_01_dl-emote2.png",
+    "source": "sc/emotes_goblin_feast_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_goblin_feast_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_goblin_feast_01_dl-emote3.png",
+    "source": "sc/emotes_goblin_feast_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_golden_week_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_golden_week_01_dl-emote1.png",
+    "source": "sc/emotes_golden_week_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_halloween_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_halloween_01_dl-emote1.png",
+    "source": "sc/emotes_halloween_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_halloween_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_halloween_01_dl-emote2.png",
+    "source": "sc/emotes_halloween_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_halloween_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_halloween_01_dl-emote3.png",
+    "source": "sc/emotes_halloween_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_halloween_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_halloween_01_dl-emote4.png",
+    "source": "sc/emotes_halloween_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_halloween_01_dl-emote5": {
+    "file": "assets/ui/emote-emotes_halloween_01_dl-emote5.png",
+    "source": "sc/emotes_halloween_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_halloween_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_halloween_02_dl-emote1.png",
+    "source": "sc/emotes_halloween_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_heist_bandit_dl-emote1": {
+    "file": "assets/ui/emote-emotes_heist_bandit_dl-emote1.png",
+    "source": "sc/emotes_heist_bandit_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_heist_hunter_dl-emote1": {
+    "file": "assets/ui/emote-emotes_heist_hunter_dl-emote1.png",
+    "source": "sc/emotes_heist_hunter_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_heist_magicArcher_dl-emote1": {
+    "file": "assets/ui/emote-emotes_heist_magicArcher_dl-emote1.png",
+    "source": "sc/emotes_heist_magicArcher_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_hog_01_dl-emote2.png",
+    "source": "sc/emotes_hog_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_hog_01_dl-emote3.png",
+    "source": "sc/emotes_hog_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_hog_01_dl-emote4.png",
+    "source": "sc/emotes_hog_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_hog_02_dl-emote1.png",
+    "source": "sc/emotes_hog_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_hog_02_dl-emote2.png",
+    "source": "sc/emotes_hog_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_02_dl-emote3": {
+    "file": "assets/ui/emote-emotes_hog_02_dl-emote3.png",
+    "source": "sc/emotes_hog_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hog_02_dl-emote4": {
+    "file": "assets/ui/emote-emotes_hog_02_dl-emote4.png",
+    "source": "sc/emotes_hog_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hogrider_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_hogrider_01_dl-emote1.png",
+    "source": "sc/emotes_hogrider_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hogrider_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_hogrider_01_dl-emote2.png",
+    "source": "sc/emotes_hogrider_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hogrider_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_hogrider_01_dl-emote3.png",
+    "source": "sc/emotes_hogrider_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_hogrider_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_hogrider_01_dl-emote4.png",
+    "source": "sc/emotes_hogrider_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_icewizard_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_icewizard_01_dl-emote1.png",
+    "source": "sc/emotes_icewizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_icewizard_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_icewizard_01_dl-emote2.png",
+    "source": "sc/emotes_icewizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_icewizard_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_icewizard_01_dl-emote3.png",
+    "source": "sc/emotes_icewizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_king_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_king_02_dl-emote1.png",
+    "source": "sc/emotes_king_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_king_book_dl-emote1": {
+    "file": "assets/ui/emote-emotes_king_book_dl-emote1.png",
+    "source": "sc/emotes_king_book_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_lny_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_lny_01_dl-emote1.png",
+    "source": "sc/emotes_lny_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_lny_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_lny_02_dl-emote1.png",
+    "source": "sc/emotes_lny_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_lny_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_lny_02_dl-emote2.png",
+    "source": "sc/emotes_lny_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_lny_02_dl-emote3": {
+    "file": "assets/ui/emote-emotes_lny_02_dl-emote3.png",
+    "source": "sc/emotes_lny_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_log_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_log_02_dl-emote1.png",
+    "source": "sc/emotes_log_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_log_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_log_02_dl-emote2.png",
+    "source": "sc/emotes_log_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_logmas2020_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_logmas2020_01_dl-emote1.png",
+    "source": "sc/emotes_logmas2020_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_logmas2020_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_logmas2020_02_dl-emote1.png",
+    "source": "sc/emotes_logmas2020_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_logmas2020_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_logmas2020_02_dl-emote2.png",
+    "source": "sc/emotes_logmas2020_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_logmas2020_03_dl-emote1": {
+    "file": "assets/ui/emote-emotes_logmas2020_03_dl-emote1.png",
+    "source": "sc/emotes_logmas2020_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_logmas2020_04_dl-emote1": {
+    "file": "assets/ui/emote-emotes_logmas2020_04_dl-emote1.png",
+    "source": "sc/emotes_logmas2020_04_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_lumberjack_cakerun_dl-emote1": {
+    "file": "assets/ui/emote-emotes_lumberjack_cakerun_dl-emote1.png",
+    "source": "sc/emotes_lumberjack_cakerun_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_megaKnight_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_megaKnight_01_dl-emote1.png",
+    "source": "sc/emotes_megaKnight_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_megaKnight_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_megaKnight_01_dl-emote2.png",
+    "source": "sc/emotes_megaKnight_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_megaKnight_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_megaKnight_01_dl-emote3.png",
+    "source": "sc/emotes_megaKnight_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_miner_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_miner_01_dl-emote1.png",
+    "source": "sc/emotes_miner_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_miner_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_miner_01_dl-emote2.png",
+    "source": "sc/emotes_miner_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_minipekka_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_minipekka_02_dl-emote1.png",
+    "source": "sc/emotes_minipekka_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_minipekka_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_minipekka_02_dl-emote2.png",
+    "source": "sc/emotes_minipekka_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_minipekka_02_dl-emote3": {
+    "file": "assets/ui/emote-emotes_minipekka_02_dl-emote3.png",
+    "source": "sc/emotes_minipekka_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_minipekka_02_dl-emote4": {
+    "file": "assets/ui/emote-emotes_minipekka_02_dl-emote4.png",
+    "source": "sc/emotes_minipekka_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_night_witch_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_night_witch_01_dl-emote1.png",
+    "source": "sc/emotes_night_witch_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_night_witch_clap_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_night_witch_clap_01_dl-emote1.png",
+    "source": "sc/emotes_night_witch_clap_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_pekka_blossom_dl-emote1": {
+    "file": "assets/ui/emote-emotes_pekka_blossom_dl-emote1.png",
+    "source": "sc/emotes_pekka_blossom_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_prince_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_prince_01_dl-emote1.png",
+    "source": "sc/emotes_prince_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_prince_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_prince_01_dl-emote2.png",
+    "source": "sc/emotes_prince_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_prince_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_prince_01_dl-emote3.png",
+    "source": "sc/emotes_prince_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_prince_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_prince_01_dl-emote4.png",
+    "source": "sc/emotes_prince_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_princess_01_dl-emote2.png",
+    "source": "sc/emotes_princess_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_princess_01_dl-emote3.png",
+    "source": "sc/emotes_princess_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_princess_01_dl-emote4.png",
+    "source": "sc/emotes_princess_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_princess_02_dl-emote1.png",
+    "source": "sc/emotes_princess_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_02_dl-emote2": {
+    "file": "assets/ui/emote-emotes_princess_02_dl-emote2.png",
+    "source": "sc/emotes_princess_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_02_dl-emote3": {
+    "file": "assets/ui/emote-emotes_princess_02_dl-emote3.png",
+    "source": "sc/emotes_princess_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_02_dl-emote4": {
+    "file": "assets/ui/emote-emotes_princess_02_dl-emote4.png",
+    "source": "sc/emotes_princess_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_princess_glasses_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_princess_glasses_01_dl-emote1.png",
+    "source": "sc/emotes_princess_glasses_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ramRiderFeb2020_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_ramRiderFeb2020_01_dl-emote1.png",
+    "source": "sc/emotes_ramRiderFeb2020_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ram_rider_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_ram_rider_01_dl-emote1.png",
+    "source": "sc/emotes_ram_rider_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_ram_rider_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_ram_rider_01_dl-emote2.png",
+    "source": "sc/emotes_ram_rider_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_royalGuards_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_royalGuards_01_dl-emote1.png",
+    "source": "sc/emotes_royalGuards_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_royal_ghost_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_royal_ghost_01_dl-emote1.png",
+    "source": "sc/emotes_royal_ghost_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_royal_ghost_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_royal_ghost_01_dl-emote2.png",
+    "source": "sc/emotes_royal_ghost_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_royal_ghost_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_royal_ghost_01_dl-emote3.png",
+    "source": "sc/emotes_royal_ghost_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_royal_ghost_01_dl-emote5": {
+    "file": "assets/ui/emote-emotes_royal_ghost_01_dl-emote5.png",
+    "source": "sc/emotes_royal_ghost_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_s12_darkPrince_dl-emote1": {
+    "file": "assets/ui/emote-emotes_s12_darkPrince_dl-emote1.png",
+    "source": "sc/emotes_s12_darkPrince_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_s12_pony_dl-emote1": {
+    "file": "assets/ui/emote-emotes_s12_pony_dl-emote1.png",
+    "source": "sc/emotes_s12_pony_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_s12_prince_dl-emote1": {
+    "file": "assets/ui/emote-emotes_s12_prince_dl-emote1.png",
+    "source": "sc/emotes_s12_prince_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_scid_chicken_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_scid_chicken_01_dl-emote1.png",
+    "source": "sc/emotes_scid_chicken_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_shipwreck_02_dl-emote1": {
+    "file": "assets/ui/emote-emotes_shipwreck_02_dl-emote1.png",
+    "source": "sc/emotes_shipwreck_02_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_shipwreck_03_dl-emote1": {
+    "file": "assets/ui/emote-emotes_shipwreck_03_dl-emote1.png",
+    "source": "sc/emotes_shipwreck_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_shipwreck_03_dl-emote2": {
+    "file": "assets/ui/emote-emotes_shipwreck_03_dl-emote2.png",
+    "source": "sc/emotes_shipwreck_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_shipwreck_03_dl-emote3": {
+    "file": "assets/ui/emote-emotes_shipwreck_03_dl-emote3.png",
+    "source": "sc/emotes_shipwreck_03_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_shipwreck_kingPirate_dl-emote1": {
+    "file": "assets/ui/emote-emotes_shipwreck_kingPirate_dl-emote1.png",
+    "source": "sc/emotes_shipwreck_kingPirate_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_skeleton_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_skeleton_01_dl-emote1.png",
+    "source": "sc/emotes_skeleton_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_skeleton_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_skeleton_01_dl-emote2.png",
+    "source": "sc/emotes_skeleton_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_skeleton_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_skeleton_01_dl-emote3.png",
+    "source": "sc/emotes_skeleton_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_skeleton_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_skeleton_01_dl-emote4.png",
+    "source": "sc/emotes_skeleton_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_skeleton_dragon_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_skeleton_dragon_01_dl-emote1.png",
+    "source": "sc/emotes_skeleton_dragon_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_skeleton_snorkel_dl-emote1": {
+    "file": "assets/ui/emote-emotes_skeleton_snorkel_dl-emote1.png",
+    "source": "sc/emotes_skeleton_snorkel_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_sparky_surprise_dl-emote1": {
+    "file": "assets/ui/emote-emotes_sparky_surprise_dl-emote1.png",
+    "source": "sc/emotes_sparky_surprise_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_spring_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_spring_01_dl-emote1.png",
+    "source": "sc/emotes_spring_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_spring_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_spring_01_dl-emote2.png",
+    "source": "sc/emotes_spring_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_spring_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_spring_01_dl-emote3.png",
+    "source": "sc/emotes_spring_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_spring_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_spring_01_dl-emote4.png",
+    "source": "sc/emotes_spring_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_wizard_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_wizard_01_dl-emote1.png",
+    "source": "sc/emotes_wizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_wizard_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_wizard_01_dl-emote2.png",
+    "source": "sc/emotes_wizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_wizard_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_wizard_01_dl-emote3.png",
+    "source": "sc/emotes_wizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_wizard_01_dl-emote4": {
+    "file": "assets/ui/emote-emotes_wizard_01_dl-emote4.png",
+    "source": "sc/emotes_wizard_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_womens_month_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_womens_month_01_dl-emote1.png",
+    "source": "sc/emotes_womens_month_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_womens_month_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_womens_month_01_dl-emote2.png",
+    "source": "sc/emotes_womens_month_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_womens_month_01_dl-emote3": {
+    "file": "assets/ui/emote-emotes_womens_month_01_dl-emote3.png",
+    "source": "sc/emotes_womens_month_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_xmas_01_dl-emote1": {
+    "file": "assets/ui/emote-emotes_xmas_01_dl-emote1.png",
+    "source": "sc/emotes_xmas_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_xmas_01_dl-emote2": {
+    "file": "assets/ui/emote-emotes_xmas_01_dl-emote2.png",
+    "source": "sc/emotes_xmas_01_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_xmass_barb_nutcracker_dl-emote1": {
+    "file": "assets/ui/emote-emotes_xmass_barb_nutcracker_dl-emote1.png",
+    "source": "sc/emotes_xmass_barb_nutcracker_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_xmass_hog_lights_dl-emote1": {
+    "file": "assets/ui/emote-emotes_xmass_hog_lights_dl-emote1.png",
+    "source": "sc/emotes_xmass_hog_lights_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "emote-emotes_xmass_santa_giant_dl-emote1": {
+    "file": "assets/ui/emote-emotes_xmass_santa_giant_dl-emote1.png",
+    "source": "sc/emotes_xmass_santa_giant_dl.sc",
+    "width": 256,
+    "height": 256
+  },
+  "magic-common-book": {
+    "file": "assets/ui/magic-common-book.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-common-book.png"
+  },
+  "magic-epic-book": {
+    "file": "assets/ui/magic-epic-book.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-epic-book.png"
+  },
+  "magic-rare-book": {
+    "file": "assets/ui/magic-rare-book.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-rare-book.png"
+  },
+  "magic-book-of-books": {
+    "file": "assets/ui/magic-book-of-books.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-book-of-books.png"
+  },
+  "magic-legendary-book": {
+    "file": "assets/ui/magic-legendary-book.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-legendary-book.png"
+  },
+  "magic-chest-key": {
+    "file": "assets/ui/magic-chest-key.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-chest-key.png"
+  },
+  "magic-magic-coin": {
+    "file": "assets/ui/magic-magic-coin.png",
+    "source": "Retained packaged native game art from v0.42.0: assets/ui/magic-magic-coin.png"
+  },
+  "boat-body": {
+    "file": "assets/ui/boat-body.png"
+  },
+  "boat-defense-gun": {
+    "file": "assets/ui/boat-defense-gun.png"
+  },
+  "boat-player-gun": {
+    "file": "assets/ui/boat-player-gun.png"
+  },
+  "chest-reward-gold": {
+    "file": "assets/ui/chest-reward-gold.png",
+    "source": "assets/sc/ui_chest.sc#war_win_pouch_open[1427]/clip[1426]/shape[883]",
+    "sourceSha256": "407acbbf33fa767b105e38b118e5a199d86590f3600fa5c82b52d578102b7679",
+    "textureSource": "assets/sc/ui_chest_tex.sc",
+    "textureSha256": "3122d6cef2e48febe6591d6a57a3ff9f91a906620219607562112a8a4e720457",
+    "sha256": "9412b57872ba7245fd324c7b78f2e80ba38b4c0a579f05b1e99cb3bde7e6835e",
+    "sourceAtlasIndices": [
+      0
+    ],
+    "render": "original polygon UVs and scene coordinates, transparent canvas",
+    "bounds": {
+      "x": -189.75,
+      "y": -100.9,
+      "width": 308.1,
+      "height": 114.95
+    },
+    "width": 225,
+    "height": 87,
+    "scale": 0.7142857142857143
+  },
+  "chest-reward-gems": {
+    "file": "assets/ui/chest-reward-gems.png",
+    "source": "assets/sc/ui.sc#icon_gems[448]/shape[403]",
+    "sourceSha256": "bb8882d51659442901e658a2e890cae9e231ab74678b741b4176fb308bdcb499",
+    "textureSource": "assets/sc/ui_tex.sc",
+    "textureSha256": "508720bf28913ce145b9faf3a7606e74482070922422bea277e66a9d1cd55d3c",
+    "sha256": "dd0a2053e1da38c4a53b232d45c8ada7d24f97235ef3ee71af0a35e5b9d5534d",
+    "sourceAtlasIndices": [
+      0
+    ],
+    "render": "original polygon UVs and scene coordinates, transparent canvas",
+    "bounds": {
+      "x": -16.5,
+      "y": -22,
+      "width": 32.5,
+      "height": 39.5
+    },
+    "width": 69,
+    "height": 83,
+    "scale": 2
+  },
+  "gem-chest": {
+    "file": "assets/ui/gem-chest.png",
+    "source": "Palette-only variant of gold-chest.png; geometry and alpha unchanged"
+  },
+  "treasure-chest": {
+    "file": "assets/ui/treasure-chest.webp",
+    "source": "Palette-only variant of original wooden Free Chest; silver trim recolored gold"
+  }
+}

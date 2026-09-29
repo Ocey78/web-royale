@@ -1,0 +1,490 @@
+{
+  "archiveSha256": "870e6f50be30526bccdc444ffde5c2756691cd3bc526de48b75f2a4a759d2b81",
+  "bundles": [
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_10yr_infernoDragon_dl.sc",
+      "sha256": "1106723d94eb4c37249fa1add613c3d1c8ffb4e3424b2cd76255edfc939c2069",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_10yr_king_dl.sc",
+      "sha256": "79445084a3d47ca00d44cf8c259ad6248d77802b1130dfb326298060b3399526",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_10yr_knight_dl.sc",
+      "sha256": "01e0d9db92704dc428ca90396bba8dfb9a3776e528cb88f58667674182f828fc",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_10yr_lavaHound_dl.sc",
+      "sha256": "b917044d6a99279f59869ddb44242d31c8321558cd538709c91806cbfab8721a",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_4th_bday_battleHealer_dl.sc",
+      "sha256": "3bccce87244106d761022ad2582e580ac22428d13c8efc091f08a249f71b3baa",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_4th_bday_fish_dl.sc",
+      "sha256": "bfa39b7c77efda92ffdcf72e1410683a3d34667871771402d72df7004a178efa",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_4th_bday_pekka_dl.sc",
+      "sha256": "335881a57dfc0e8788bcad2c3abc3ae498043d5bbc8df31ebba59cedaf5c2fe8",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_4th_bday_royalGiant_dl.sc",
+      "sha256": "fb0731987fb7e05993e79c5de0affb85c1c3ca905688092e4961905aa3c620aa",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_4th_bday_sparky_dl.sc",
+      "sha256": "6d4140f5f70449eb6cf95a4f42977989ee05b1c3614c26126486a1d1351ff9f4",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_LNY_2021_01_dl.sc",
+      "sha256": "58a0e0b4b03e01d39e050383b2abe3914653aed0388abff5abee356d087adc18",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_LNY_2021_02_dl.sc",
+      "sha256": "f90400c37486ac6eeb1e799ac93f4a192ed6c6a051d2a414592c1c14a522fbe8",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_LNY_2021_03_dl.sc",
+      "sha256": "46b7798ef9d109639a1ea291ccf12461d7678acdb88e6af1c7af7e625ee17279",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_PEKKA_boombox_dl.sc",
+      "sha256": "9f27f234d2a5f06721682a3d0ad095b3cd72e7a78974a69791e1842995334c7c",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_PEKKA_coconut_dl.sc",
+      "sha256": "c4cea690dfb0e1a43ed826838af252f5ea72c4b3ae660fb7559187201be68505",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_april_fools_01_dl.sc",
+      "sha256": "66f5019fa4d4692f2359ba5c29ea50f20fd933ccf72f102dd4e49f93a1626a9a",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_archers_01_dl.sc",
+      "sha256": "b6b53107566c761b743bdad7ae3ce98d3acd25734a4f090e62f2f67e15bdbd60",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_barbarian_01_dl.sc",
+      "sha256": "86a24736ec23d1dcd59fde126dd5f6e54621c5f631c0871c9f87ba57666bb60a",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_battlehealer_cakethrow_dl.sc",
+      "sha256": "0023d1afdb07d53d43fb81a7f53df65efcfb9698f53dec1f2df4241a266eb143",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_bday_03_dl.sc",
+      "sha256": "1bf2f027eafacaedf0f06cef9a9615545794b73b86d896ea99cc94ce4d9416c8",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_black_friday_01_dl.sc",
+      "sha256": "2dfde5dc48e2cdaff6f782227c39a24924bf9861b4afcaf27468dcda4ce0f69d",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_black_friday_02_dl.sc",
+      "sha256": "f5afbb839553f2c6bda243a9868bb69dd390caef8145a86839f17d76dc98ad5c",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_clashnights_01_dl.sc",
+      "sha256": "ac3b074e51887f0d98c8fd89b7b1d13c3745f47ff7bd7554ced664ac0bca45f4",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_crl_01_dl.sc",
+      "sha256": "d7f4a06e96b40bafd0228366a35dda8cfdc5686cc576d6f0797ec9971fb7050b",
+      "animations": 5
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_crl_03_dl.sc",
+      "sha256": "d5491a18d3c6d9bc632425fa71e56fe3bd0c2a668064c5492b31a9f3a8dbfed6",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_crl_20win_01_dl.sc",
+      "sha256": "63480d3f2fad2a52113ebe020726278edb241bb68b8e182a93a25100cc1b707a",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_crl_king_headset_dl.sc",
+      "sha256": "15ef2f618f17d9c2aa56a7ad5cf43f433d4c40a744a3db25b6ed46bca4c6989f",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_cw_goblinDance_dl.sc",
+      "sha256": "4dffbba17d54b10d2eadcb2b8046d8180138aaeb460dffcb9663bae7fd163774",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_cw_goblinThumb_dl.sc",
+      "sha256": "cc92631775b6fdb83509f16f1b3871635bd1b45f3fec7b99b0ef4c85f718bd43",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_cw_golem_boat_dl.sc",
+      "sha256": "2095a626a159e595b51a8026a949bb0242ac56719362e49f364cad42347844df",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_dragon_boat_01_dl.sc",
+      "sha256": "8c85e9c33d5a683ada52a5e9467f5608eb643ac028b6adb7de960aee077a768c",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_electroGiant_01_dl.sc",
+      "sha256": "4c8ecffe16c7dfa5ba2ed0fd1dcd48c969e4e503625567e0bad02be379c63150",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_elixir_golem_01_dl.sc",
+      "sha256": "ba1d9ea8cb9409e9ec6d18aed00f00a1a2963eeb9c93a9d4b003595f907c6630",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_elixirgolem_candlehead_dl.sc",
+      "sha256": "23b321e9180d680fcdd4f15b2b5c236866421d400675535d35a365fb28451dd8",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_ewiz_01_dl.sc",
+      "sha256": "b4a1e923774a7bce2f684641454541d312e0d936cae4f57e67a915c34c783f69",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_feb2020_01_dl.sc",
+      "sha256": "187c964e3d177b0334a5aa07b9ccb25fc14af9c5f5f95a0cec7bb926aab21f25",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_fish_slap_01_dl.sc",
+      "sha256": "16f624968d612ab258c98c5d95bc6badaa40a1b4843c6b022929293d5503e8c9",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_fisherman_01_dl.sc",
+      "sha256": "8938af28b90e8594168d11959ed9c2a92c01a0fb38005fc59042a019ef8b83d8",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_giant_01_dl.sc",
+      "sha256": "cec71a3bc4c20912e5a204c32ac7dc5ce9e85d84b91a4942c75f8e7edfa27079",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_goblin_01_dl.sc",
+      "sha256": "46563285fa50b68f9a8373a25b492ba9f546db583d9672903c799460d26659e6",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_goblin_02_dl.sc",
+      "sha256": "8cec7a7f4e5228f232d470059416b5059e0f8bd6a3bafc95b0af349a6e77124b",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_goblin_03_dl.sc",
+      "sha256": "d80a5496da93f1edbdc8f7200f477e0ccbabf7021287eaf62bd4387b78c3ae05",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_goblin_04_dl.sc",
+      "sha256": "04c9672f267a5ef2f9f2c760dbcc238875f044162de7d15e2e2c026d0fa7d136",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_goblin_brawler_01_dl.sc",
+      "sha256": "de1fd551b75ebb1bfc1923e10ee3f95664085b6551e8c6ac53338e59fcde5a51",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_goblin_feast_01_dl.sc",
+      "sha256": "a92849ad065a9016fb8ad4ceb804126301624b4e5f98d86fb998ebc308a09eff",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_golden_week_01_dl.sc",
+      "sha256": "dd16e731a4096a00db9359b057edfac130f65c9f6ef0d1d289d816c2ff36293d",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_halloween_01_dl.sc",
+      "sha256": "532d45cedbd4c4e417a3a829f1ea025071196ec6acdfe873ec1b2ab3205dbe58",
+      "animations": 5
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_halloween_02_dl.sc",
+      "sha256": "69d70f2556d5199cd26c575e4fc8dec9b0903564694f035f827d1a3ae61ad432",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_heist_bandit_dl.sc",
+      "sha256": "3b1afa11f4c9fd26638ff4494842ad9ef83610e98d22d387c572731ed558866e",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_heist_hunter_dl.sc",
+      "sha256": "fc0a8e074483de8280f317f86225edee04d261464f97196b7a2957440b8b4d8b",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_heist_magicArcher_dl.sc",
+      "sha256": "0f17670fe420b0469841a6086096ba303e193e9f0832ffa292d88543d3e81980",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_hog_01_dl.sc",
+      "sha256": "84b48640b8c6b37f725d8dc86472f97781a284b8f46008656e6d37a1b51dd89c",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_hog_02_dl.sc",
+      "sha256": "7321fb2bf23b272e4aca7f7782985e11f229a725c7b20a6cfa6bbaad1a82950d",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_hogrider_01_dl.sc",
+      "sha256": "dbbb1033527e8d46b679f4adf96357f3eed8b12ac70c0b29dfbe8c7d8b75bec9",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_icewizard_01_dl.sc",
+      "sha256": "0c157d24aab5ec7b7f359543f9050091be9445b5ae2c7d0e6408e9da064f50da",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_king_01_dl.sc",
+      "sha256": "db1f20a68d7c62b992df9ec8fd208d909a5d16a424f2e11ad6ffb7262795570e",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_king_02_dl.sc",
+      "sha256": "a457c7f77b12a1d28a1c6e8e28785af369358c95819b3c302e683857dc101e04",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_king_book_dl.sc",
+      "sha256": "e9c69823ef5a427afd40b51d7c0b02ca2f252510629820a6e70f206f473c2fa1",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_lny_01_dl.sc",
+      "sha256": "710339652a818d85fb67632d7b669b80023dea4efb04accab871f94f3190908f",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_lny_02_dl.sc",
+      "sha256": "450c0695a7154068b1d34003586bb75e53a46ed6a383be6505c4d6c8d1e1bcc3",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_log_02_dl.sc",
+      "sha256": "90ca2f760b46a7330fa8f964d7e22cd3eff9437a732853d9ecae5154ccce01f5",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_logmas2020_01_dl.sc",
+      "sha256": "0a193f2762ce3c65f3420d294336da8c549f225607a013c1e84fa98b32ebb05a",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_logmas2020_02_dl.sc",
+      "sha256": "ff3f4a3ad3156c764014647d6a25f953554fd7e5249cc99ec6adbb224bf389e7",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_logmas2020_03_dl.sc",
+      "sha256": "a9581a013c487e349e523838d1644e4ec06c895194067d5c59bead9090455919",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_logmas2020_04_dl.sc",
+      "sha256": "c91c4afcf81eece43f39ca30f6fc83a9e73cd21563d788d0fa344940ee47875c",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_lumberjack_cakerun_dl.sc",
+      "sha256": "911b15225be1e07f8ff7d915467358b123f312281211b627cdac84f8848bbb0d",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_megaKnight_01_dl.sc",
+      "sha256": "212414d04c3c6aeb179f57bf66a4c85c17438de20ebb323897710bbe8f6c5965",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_miner_01_dl.sc",
+      "sha256": "308d4d75af56225ffe0087874186b7855e366c281091933d9707fff342147c02",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_minipekka_02_dl.sc",
+      "sha256": "04fe11807ac6e6af0fb795ac286af323bb1c3b65cda97cbf882681b51201fcb5",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_night_witch_01_dl.sc",
+      "sha256": "df27ffcacfc1be2c4aa295f517b9d541a89b02560c6408122fb45fa9029972e1",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_night_witch_clap_01_dl.sc",
+      "sha256": "553ead95ab1de8d64d478c0f15c1f277a7ae4ef7c3a7e397baf4d6287dc348b6",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_pekka_blossom_dl.sc",
+      "sha256": "e4fe4e1cb3d9b4a01a94576055d41ffd562904f4adbd6c74ff00612751cee2fa",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_prince_01_dl.sc",
+      "sha256": "faeb29a0769c927f39fd0ffe75866cbca043e275a736c7b6fac58a2a8e026f2d",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_princess_01_dl.sc",
+      "sha256": "49caa48d3298b7dc0f32d78fc66efbd8c7f0ae90e4bb43003eea233420d44941",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_princess_02_dl.sc",
+      "sha256": "1e22f81900adc5f3af69b61c4988ec9792a3fece439fcf7e800fd6eb37a5c26b",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_princess_glasses_01_dl.sc",
+      "sha256": "71d4aa4a8fba93f63386aa518404a145ea8ba2aa385a454d2ad9a13bae9265c3",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_ramRiderFeb2020_01_dl.sc",
+      "sha256": "32c02c658a10ee55d2649fcdc7dce3aa2a6426a38a0a6f81dcfefed392318815",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_ram_rider_01_dl.sc",
+      "sha256": "1aeb4026eae7a564b9897f8734bc2e0e69ee9f1b1d7f91fbdf6ae5b3ca5f6e01",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_royalGuards_01_dl.sc",
+      "sha256": "65f0d4322e9fe361a7e55fd85e53a8ad00b631d1b4fbd1af18b325f1213ff31a",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_royal_ghost_01_dl.sc",
+      "sha256": "51c4eb8e2899879ff174ae3185f04129161ade34a034fa0995cf2de53af3f75a",
+      "animations": 5
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_s12_darkPrince_dl.sc",
+      "sha256": "fa22add5e81ff6bd9fc102632ec9009f4b7f003201dad739c4bd59059273e3bb",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_s12_pony_dl.sc",
+      "sha256": "49c723eafc6afed5d1ce0a46bbce12674e5d5d08189dbfc05f018385da900597",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_s12_prince_dl.sc",
+      "sha256": "5c37cb062db2030a48ef612e538d89255e6ba8cf52797f9834c86d14f3f591fc",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_scid_chicken_01_dl.sc",
+      "sha256": "34344c308c9996b7356ff966552e26f93d971566c368a24913df20dcdaa8b838",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_shipwreck_02_dl.sc",
+      "sha256": "7c24b148440de3053ad50dad231dd083f90e0efe65c260fd22c9c24f23fcbc45",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_shipwreck_03_dl.sc",
+      "sha256": "404d1608ef790150d42f5bf5c665f7ca81bf10230373768a3cea1c627f7a46bb",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_shipwreck_kingPirate_dl.sc",
+      "sha256": "e3a91789ac016a766cc5162d709df85a3a94fa2c6e4f0a48cde156fabe0bf514",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_skeleton_01_dl.sc",
+      "sha256": "4c7e55bce04b3355d16787afad55e962aab8bec1d010fc912d81931b7a6a85cb",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_skeleton_dragon_01_dl.sc",
+      "sha256": "379876e38ce0fbf15fb594aa4654e827070b9a8612d938c354080b9bb2a88b35",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_skeleton_snorkel_dl.sc",
+      "sha256": "5124715e683ff13358eb8f8b80cc1be2020c7f5602b1e521823213701f6fb7ee",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_sparky_surprise_dl.sc",
+      "sha256": "43ee25e2a537cafadf7a09b9177232d46045d3247ed9ca01447738dd80bac6d1",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_spring_01_dl.sc",
+      "sha256": "745a4b44c8cdcc2d9bf1bda59e9b4a2bcc8dafa7cca4de6db1e55eba1cb569e6",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_wizard_01_dl.sc",
+      "sha256": "d4172a941b8c1a254fee9cf472c0558b35936ded6011ca699959b403bdfdd66b",
+      "animations": 4
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_womens_month_01_dl.sc",
+      "sha256": "e7baf509964660c1c1815b6039b4f2b2e415665ab84d91491f96db1e7d1e03c0",
+      "animations": 3
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_xmas_01_dl.sc",
+      "sha256": "76f1da401ab7b95ad4d6b1cde73a60e29ede995124800a1943709e403d625af9",
+      "animations": 2
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_xmass_barb_nutcracker_dl.sc",
+      "sha256": "889e25a334a0684dfc1e88b6ea1e4100f39eeafb0fd5106de8da4091c5704c39",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_xmass_hog_lights_dl.sc",
+      "sha256": "b5b0ed49214e718054edf9309535149dec56d68ebc15ab1143223c3bf1c10d33",
+      "animations": 1
+    },
+    {
+      "bundle": "CR-3.5.0-Graphics/sc/emotes_xmass_santa_giant_dl.sc",
+      "sha256": "abf7b00aed80b476355fcd7b6c610f1ee22482217fabcfe8b56f8af2e59c1d0a",
+      "animations": 1
+    }
+  ]
+}

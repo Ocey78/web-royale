@@ -1,0 +1,68 @@
+TAP version 13
+# Subtest: Full particles survive save normalization and restore the full emitter/frame budget
+ok 1 - Full particles survive save normalization and restore the full emitter/frame budget
+  ---
+  duration_ms: 5.41393
+  type: 'test'
+  ...
+# Subtest: Faster result OK is visible at 2.7 seconds and not at the start
+ok 2 - Faster result OK is visible at 2.7 seconds and not at the start
+  ---
+  duration_ms: 0.552639
+  type: 'test'
+  ...
+# Subtest: Full-health Princess Towers show HP on both sides and King Tower text contains no level
+ok 3 - Full-health Princess Towers show HP on both sides and King Tower text contains no level
+  ---
+  duration_ms: 4.125498
+  type: 'test'
+  ...
+# Subtest: Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+ok 4 - Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+  ---
+  duration_ms: 14.930143
+  type: 'test'
+  ...
+# Subtest: Magic Archer arrow stays at its authored constant height after the original target dies
+ok 5 - Magic Archer arrow stays at its authored constant height after the original target dies
+  ---
+  duration_ms: 5.094442
+  type: 'test'
+  ...
+# Subtest: Magic Archer line hits produce hit feedback at each actual damaged target
+ok 6 - Magic Archer line hits produce hit feedback at each actual damaged target
+  ---
+  duration_ms: 3.406674
+  type: 'test'
+  ...
+# Subtest: Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+not ok 7 - Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+  ---
+  duration_ms: 2229.533973
+  type: 'test'
+  location: '/mnt/data/work037/Web-Royale/tests/v037-presentation.test.cjs:10:1'
+  failureType: 'testCodeFailure'
+  error: 'Winner! appears in native result fields'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work037/Web-Royale/tests/v037-presentation.test.cjs:10:689)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2493.857926

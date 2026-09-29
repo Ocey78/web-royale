@@ -1,0 +1,76 @@
+{
+  "sourceRelease": "0.29.0",
+  "sourceEngine": "0.28",
+  "trainingEngine": "training-engine.4a998ff023a5.js",
+  "trainingEngineSha256": "4a998ff023a5565aac2b9ff8dd5768fe443ad194d95eded73a110ad898f348fd",
+  "boatAdapterSha256": "237ea1d314228b0bfdb3637244f3272616045444f38ae2a5198fb91c4ef34aba",
+  "gameDataSha256": "65133cbd9f6b62e0b178af44e32c034c9bf7421978e25e9f580a2bf494e92f5b",
+  "method": "Fixtures generated with unchanged released v0.28.0 and v0.29.0 core, boat adapter, and replay recorder. Each record was replayed by its original release and its final digest compared before migration; the legacy capsule freezes v0.29.0, which still recorded engine0.28.",
+  "fixtures": [
+    {
+      "file": "normal.json",
+      "sha256": "a47bbd6dd3f3bf54a6b94ab5cf7f355ea21543a36b3d9bf81c19ad26bfc8ed7a",
+      "duration": 42.99999999999884,
+      "commands": 3,
+      "result": null,
+      "sourceRelease": "0.29.0"
+    },
+    {
+      "file": "boat.json",
+      "sha256": "8a31383bef21f0f29be0fa80579c5ecb04b6c91341b2d44cc3acdff31a06e8fd",
+      "duration": 30.349999999999557,
+      "commands": 2,
+      "result": {
+        "winner": 1,
+        "reason": "Attacker tower destroyed"
+      },
+      "sourceRelease": "0.29.0"
+    },
+    {
+      "file": "tiebreak.json",
+      "sha256": "85268e4229e46a778f83a4ba9c2b5f05abfcb40c2a49a8e739d37bda1f5bd8ca",
+      "duration": 304.0000000000558,
+      "commands": 1,
+      "result": {
+        "winner": 0,
+        "reason": "Tiebreaker"
+      },
+      "sourceRelease": "0.29.0"
+    },
+    {
+      "file": "v028-normal.json",
+      "sha256": "535e03385bc5f44a2746a953a789bc98cf5ace22a9a9b9d6d3f1f491a45c58cd",
+      "sourceRelease": "0.28.0",
+      "duration": 42.99999999999884,
+      "commands": 3,
+      "result": null
+    },
+    {
+      "file": "v028-boat.json",
+      "sha256": "431c40b0f2197f29b5e0befa63ea4123df0cb9e89ebe971abf0f2c1a4ed26c7a",
+      "sourceRelease": "0.28.0",
+      "duration": 30.349999999999557,
+      "commands": 2,
+      "result": {
+        "winner": 1,
+        "reason": "Attacker tower destroyed"
+      }
+    },
+    {
+      "file": "v028-tiebreak.json",
+      "sha256": "b93d15756d1e7345e11d1c6e3ea4a6f728d8d2fffb7e7148bcc1b3af0f7c8a25",
+      "sourceRelease": "0.28.0",
+      "duration": 304.0000000000558,
+      "commands": 1,
+      "result": {
+        "winner": 0,
+        "reason": "Tiebreaker"
+      }
+    }
+  ],
+  "earlierSourceRelease": {
+    "version": "0.28.0",
+    "trainingEngine": "training-engine.24592b3dd98f.js",
+    "trainingEngineSha256": "24592b3dd98f4298a490d2503c9d2c9dfd2c4cfaec223e3a8002f5749e00bcc5"
+  }
+}

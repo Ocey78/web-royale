@@ -1,0 +1,111 @@
+runtime loaded
+UI artwork loaded
+PASS Generated build version is 0.39.1
+PASS Deck cards fit horizontally at 1280
+PASS Deck frame and portrait share native aspect at 1280
+PASS Level labels remain inside their frames at 1280
+PASS Deck cards fit horizontally at 390
+PASS Deck frame and portrait share native aspect at 390
+PASS Level labels remain inside their frames at 390
+PASS All collection cards share their frame aspect
+PASS Trophy Road has no wild-card inventory shortcut
+PASS Trophy Road still has claimable reward tiles
+PASS both: credited gold equals saved receipt
+PASS both: gold box shows exact credited total
+PASS both: gem box shows exact credited gems
+PASS both: chest box reflects actual chest drop
+PASS both: correct gold threshold
+PASS both: correct gem threshold
+PASS both: no extra streak sentence in reward panel
+PASS both: repeated result drawing cannot recredit
+PASS both: boxes fit screen at 1280
+PASS both: all reward icons decoded at 1280
+PASS both: boxes fit screen at 390
+PASS both: all reward icons decoded at 390
+PASS both: boxes fit screen at 320
+PASS both: all reward icons decoded at 320
+PASS both: OK enabled
+PASS both: OK returns home
+PASS gold: credited gold equals saved receipt
+PASS gold: gold box shows exact credited total
+PASS gold: zero-gem box omitted
+PASS gold: chest box reflects actual chest drop
+PASS gold: correct gold threshold
+PASS gold: correct gem threshold
+PASS gold: no extra streak sentence in reward panel
+PASS gold: repeated result drawing cannot recredit
+PASS gold: boxes fit screen at 390
+PASS gold: all reward icons decoded at 390
+PASS gold: OK enabled
+PASS gold: OK returns home
+PASS gems: credited gold equals saved receipt
+PASS gems: gold box shows exact credited total
+PASS gems: gem box shows exact credited gems
+PASS gems: chest box reflects actual chest drop
+PASS gems: correct gold threshold
+PASS gems: correct gem threshold
+PASS gems: no extra streak sentence in reward panel
+PASS gems: repeated result drawing cannot recredit
+PASS gems: boxes fit screen at 390
+PASS gems: all reward icons decoded at 390
+PASS gems: OK enabled
+PASS gems: OK returns home
+PASS ordinary: credited gold equals saved receipt
+PASS ordinary: gold box shows exact credited total
+PASS ordinary: zero-gem box omitted
+PASS ordinary: chest box reflects actual chest drop
+PASS ordinary: correct gold threshold
+PASS ordinary: correct gem threshold
+PASS ordinary: no extra streak sentence in reward panel
+PASS ordinary: repeated result drawing cannot recredit
+PASS ordinary: boxes fit screen at 390
+PASS ordinary: all reward icons decoded at 390
+PASS ordinary: OK enabled
+PASS ordinary: OK returns home
+PASS full-slots: credited gold equals saved receipt
+PASS full-slots: gold box shows exact credited total
+PASS full-slots: gem box shows exact credited gems
+PASS full-slots: chest box reflects actual chest drop
+PASS full-slots: correct gold threshold
+PASS full-slots: correct gem threshold
+PASS full-slots: no extra streak sentence in reward panel
+PASS full-slots: repeated result drawing cannot recredit
+PASS full-slots: boxes fit screen at 390
+PASS full-slots: all reward icons decoded at 390
+PASS full-slots: OK enabled
+PASS full-slots: OK returns home
+PASS loss: credited gold equals saved receipt
+PASS loss: gold box shows exact credited total
+PASS loss: zero-gem box omitted
+PASS loss: chest box reflects actual chest drop
+PASS loss: no ineligible streak currency
+PASS loss: no extra streak sentence in reward panel
+PASS loss: repeated result drawing cannot recredit
+PASS loss: boxes fit screen at 390
+PASS loss: all reward icons decoded at 390
+PASS loss: OK enabled
+PASS loss: OK returns home
+PASS draw: credited gold equals saved receipt
+PASS draw: gold box shows exact credited total
+PASS draw: zero-gem box omitted
+PASS draw: chest box reflects actual chest drop
+PASS draw: no ineligible streak currency
+PASS draw: no extra streak sentence in reward panel
+PASS draw: repeated result drawing cannot recredit
+PASS draw: boxes fit screen at 390
+PASS draw: all reward icons decoded at 390
+PASS draw: OK enabled
+PASS draw: OK returns home
+PASS nonranked: credited gold equals saved receipt
+PASS nonranked: gold box shows exact credited total
+PASS nonranked: zero-gem box omitted
+PASS nonranked: chest box reflects actual chest drop
+PASS nonranked: no ineligible streak currency
+PASS nonranked: no extra streak sentence in reward panel
+PASS nonranked: repeated result drawing cannot recredit
+PASS nonranked: boxes fit screen at 390
+PASS nonranked: all reward icons decoded at 390
+PASS nonranked: OK enabled
+PASS nonranked: OK returns home
+PASS Practice has no normal reward panel
+PASS No uncaught application errors

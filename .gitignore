@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.pyc
+*.apk
+*.mp4
+Web-Royale-Save*.json
+assets/cards/*.png
+assets/native/*.webp
+assets/ui/*.png
+assets/ui/*.webp

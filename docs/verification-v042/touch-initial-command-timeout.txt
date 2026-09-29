@@ -1,0 +1,19 @@
+runtime loaded
+UI artwork loaded
+PASS Touch phone uses the actual compact battle composition
+PASS Team3v3 compact layout stays inside screen 390
+PASS Team3v3 map selector remains visible 390
+PASS Team3v3 compact layout stays inside screen 320
+PASS Team3v3 map selector remains visible 320
+PASS Team3v3 touch deployment follows the displayed custom camera
+PASS BridgeBattle compact layout stays inside screen 390
+PASS BridgeBattle map selector remains visible 390
+PASS BridgeBattle compact layout stays inside screen 320
+PASS BridgeBattle map selector remains visible 320
+PASS BridgeBattle touch deployment follows the displayed custom camera
+PASS frozen compact layout stays inside screen 390
+PASS frozen map selector remains visible 390
+PASS frozen compact layout stays inside screen 320
+PASS frozen map selector remains visible 320
+PASS frozen touch deployment follows the displayed custom camera
+PASS Compact Potato battle still uses twenty-cap elixir

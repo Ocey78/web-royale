@@ -1,0 +1,122 @@
+[
+  {
+    "mode": "Default",
+    "wallSeconds": 4.084039762,
+    "simulationSeconds": 219.05,
+    "seats": 2,
+    "updates": 561,
+    "commands": 59
+  },
+  {
+    "mode": "TeamVsTeam",
+    "wallSeconds": 7.416372234,
+    "simulationSeconds": 234.85,
+    "seats": 4,
+    "updates": 1148,
+    "commands": 64
+  },
+  {
+    "mode": "Team3v3",
+    "wallSeconds": 40.652961802,
+    "simulationSeconds": 300,
+    "seats": 6,
+    "updates": 2280,
+    "commands": 64
+  },
+  {
+    "mode": "BridgeBattle",
+    "wallSeconds": 5.644414648999999,
+    "simulationSeconds": 304,
+    "seats": 2,
+    "updates": 776,
+    "commands": 64
+  },
+  {
+    "mode": "FourCardDeck",
+    "wallSeconds": 2.9591424259999983,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "TwelveCardDeck",
+    "wallSeconds": 5.339626074,
+    "simulationSeconds": 304,
+    "seats": 2,
+    "updates": 776,
+    "commands": 64
+  },
+  {
+    "mode": "TwentyElixir",
+    "wallSeconds": 2.6977186990000046,
+    "simulationSeconds": 213.55,
+    "seats": 2,
+    "updates": 546,
+    "commands": 57
+  },
+  {
+    "mode": "OneShot",
+    "wallSeconds": 1.6886674390000116,
+    "simulationSeconds": 93.4,
+    "seats": 2,
+    "updates": 233,
+    "commands": 45
+  },
+  {
+    "mode": "RandomDeck",
+    "wallSeconds": 3.4840823799999927,
+    "simulationSeconds": 219.05,
+    "seats": 2,
+    "updates": 561,
+    "commands": 59
+  },
+  {
+    "mode": "DoubleElixir",
+    "wallSeconds": 2.879783109000011,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "TripleElixir",
+    "wallSeconds": 4.047464468999999,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "RampUp",
+    "wallSeconds": 3.073236162000001,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "SuddenDeath",
+    "wallSeconds": 1.990413526000004,
+    "simulationSeconds": 95.45,
+    "seats": 2,
+    "updates": 239,
+    "commands": 41
+  },
+  {
+    "mode": "7xElixir",
+    "wallSeconds": 7.727775955000005,
+    "simulationSeconds": 180,
+    "seats": 2,
+    "updates": 456,
+    "commands": 64
+  },
+  {
+    "mode": "ClanWar_BoatBattle",
+    "wallSeconds": 0.8544923640000052,
+    "simulationSeconds": 62.4,
+    "seats": 2,
+    "updates": 84,
+    "commands": 10
+  }
+]

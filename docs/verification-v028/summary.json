@@ -1,0 +1,38 @@
+{
+  "release": "0.28.0",
+  "node": {
+    "version": "24.20.0",
+    "tests": 683,
+    "passed": 683,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 220286.2387
+  },
+  "movement": {
+    "sourceReachableEntities": 98,
+    "independentMovers": 77,
+    "scenarioRecords": 345,
+    "passed": 345,
+    "routeSegmentsInAggregate": 1250
+  },
+  "behaviorCasesAdded": 26,
+  "cardCoverage": {
+    "basicDeployment": 102,
+    "dedicatedMappedScenario": 57,
+    "noDedicatedMappedScenario": 45
+  },
+  "browser": {
+    "cardSheets": 102,
+    "collectionLabelsPainted": 111,
+    "desktopAndPhone": true,
+    "pointerDeployment": true,
+    "upgrade": true,
+    "legacyReplay": true,
+    "arenasAndPhases": 30,
+    "uncaughtErrors": 0,
+    "missingAssets": 0
+  },
+  "runtimeFiles": 1181,
+  "review": "No remaining actionable blocker",
+  "nativeParity": "Not certified; limitations in BUILD-NOTES-v0.28.0.md and CARD-COVERAGE.md"
+}

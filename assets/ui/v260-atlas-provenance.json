@@ -1,0 +1,86 @@
+{
+  "magic-common-book": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      1,
+      1,
+      267,
+      267
+    ],
+    "alphaThreshold": 8,
+    "sha256": "93708984836df571f3451764e86f49638b6e0ecb2e467d2124b383a7d16eb470",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  },
+  "magic-epic-book": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      252,
+      1,
+      271,
+      269
+    ],
+    "alphaThreshold": 8,
+    "sha256": "f8325a765bb030c118fa4ade3422730a4969e585e418499012e317c36d7bc6ca",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  },
+  "magic-rare-book": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      486,
+      77,
+      270,
+      271
+    ],
+    "alphaThreshold": 8,
+    "sha256": "3ad5ba4ae0cf2b054e83d88cbdfddef1a9f8ab63e96f1a0fbc27746d603b6a5e",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  },
+  "magic-book-of-books": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      188,
+      257,
+      271,
+      271
+    ],
+    "alphaThreshold": 8,
+    "sha256": "0aa600802d92f855d708e141c627be0bcc6f196952f7b2ce00dca0839a976609",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  },
+  "magic-legendary-book": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      448,
+      336,
+      271,
+      271
+    ],
+    "alphaThreshold": 8,
+    "sha256": "cce9f896bc5a1c0c57f582982291755f8afcbdad636d56a1339c49f6d64caa4a",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  },
+  "magic-chest-key": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      265,
+      511,
+      266,
+      229
+    ],
+    "alphaThreshold": 70,
+    "sha256": "f486c1ebc00d59e8e6c99d38d33957ff2e6ed1a145359aa41fc4517ab7151e83",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  },
+  "magic-magic-coin": {
+    "source": "assets/native/fx-ui_spells-1.webp",
+    "bounds": [
+      1,
+      839,
+      184,
+      265
+    ],
+    "alphaThreshold": 180,
+    "sha256": "d3599dafa7d6dc348f7fe048de180faabd731bba3515436ca900dbcaca0865dc",
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85"
+  }
+}

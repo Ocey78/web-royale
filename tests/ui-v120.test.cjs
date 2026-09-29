@@ -1,0 +1,11 @@
+const T=require('node:test'),A=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');const root=path.resolve(__dirname,'..'),app=fs.readFileSync(path.join(root,'src/app.js'),'utf8');let css='';try{css=fs.readFileSync(path.join(root,'src/v120.css'),'utf8');}catch(_){}
+T('settings has its own scrollable content area and persistent header',()=>{A.match(app,/settings-body/);A.match(css,/\.settings-body/);A.match(css,/data-kind.?=.?(?:settings|["']settings)/);});
+T('level emblems outside the home screen are no longer polygon-clipped',()=>{A.match(css,/\.topbar\s+\.xp-cluster\s+\.xp-badge/);A.match(css,/clip-path:\s*none/);});
+T('collection progress uses original source atlas rather than generic CSS fill',()=>{A.match(app,/card-progress-original/);A.match(css,/--ui-card-progress-original/);const d=JSON.parse(fs.readFileSync(path.join(root,'assets/ui/manifest.json')));A.equal(d['card-progress-original'].frames,101);A.match(d['card-progress-original'].source,/spell_card_full\.progress/);});
+T('training UI exposes 5000 total and active matches with high-concurrency warning',()=>{A.match(app,/#?trainingConcurrency/);A.match(app,/5000/);A.match(app,/trainingRisk/);A.match(app,/WorkerPool/);});
+T('browser uses the real AppData adapter, not an unused implementation',()=>{A.match(app,/new RoyaleAppData\.AppDataLearningStore/);A.match(app,/learningStore\.path/);});
+
+T('card-count text is vertically centered in the source progress-bar fill',()=>{const rule=css.match(/\.card-progress\.original>b\{([^}]+)\}/)[1],top=Number(rule.match(/top:(\d+)%/)[1]);A.ok(top>=30&&top<=37,`Original fill center is 56% of the cell; 17px text must start near 34%, not ${top}%`);});
+
+T('failed live-match writes remain retryable and the Learning Center still opens offline',()=>{A.match(app,/trainingPackets\.push\(packet\);trainingSaveError/);A.match(app,/case 'learning-center':[\s\S]*?catch\(e\)[\s\S]*?learningMenu\(\)/);});
+T('a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs',()=>{const U=require('../src/menu-model');A.equal(typeof U.swipeDirection,'function');A.equal(U.swipeDirection(-300,0,1,1800),1);A.equal(U.swipeDirection(150,5,1,250),-1);A.equal(U.swipeDirection(40,170,1,250),0);A.equal(U.swipeDirection(200,0,1,5000),0);});

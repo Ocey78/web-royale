@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/data/work041/Web-Royale/tools/verify-v041-browser.py", line 125, in <module>
+    check('Treasure opening uses dedicated gold-trim scene',page.evaluate("RoyaleNative.library.scenes.treasure_chest!==undefined"))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/work041/Web-Royale/tools/verify-v041-browser.py", line 63, in check
+    assert condition,name
+           ^^^^^^^^^
+AssertionError: Treasure opening uses dedicated gold-trim scene
+
+[]

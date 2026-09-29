@@ -1,0 +1,6 @@
+const test=require('node:test'),A=require('node:assert/strict'),fs=require('node:fs'),C=require('../src/core.js'),N=require('../src/native.js');
+const data=require('../assets/native/data.json');
+test('every summonable card has original native animation mappings',()=>{for(const c of C.CARDS.filter(c=>c.entity)){const cfg=data.units[c.entity];A.ok(cfg,c.name);const sc=data.scenes[cfg.scene];for(const team of [0,1])for(const state of ['idle','run','attack'])for(const name of cfg.animations[`${team}:${state}`])A.ok(name&&sc.exports[name]!==undefined,c.name+' '+state)}});
+test('animated exports use mappings rather than constructing guessed names',()=>{const cfg={prefix:['test','red'],animations:{'0:run':Array(9).fill('actual_walk')}};A.equal(N.exportName(cfg,0,'run',2),'actual_walk')});
+test('all source textures and card portraits are bundled locally',()=>{for(const s of Object.values(data.scenes))for(const t of s.textures)A.ok(fs.existsSync('assets/native/'+t.file),t.file);const m=require('../assets/manifest.json');A.equal(m.cards.length,102);for(const c of m.cards){A.ok(fs.existsSync(c.file));A.ok(c.source)}});
+test('renderer exposes source projectile rendering',()=>A.equal(typeof N.Library.prototype.drawProjectile,'function'));

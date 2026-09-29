@@ -1,0 +1,55 @@
+TAP version 13
+# Subtest: Princess rows line up front to back and stay mirrored on both team arenas
+ok 1 - Princess rows line up front to back and stay mirrored on both team arenas
+  ---
+  duration_ms: 12.35688
+  type: 'test'
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+not ok 2 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 2.680185
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:8:1'
+  failureType: 'testCodeFailure'
+  error: 'Unknown source entity Sparky'
+  code: 'ERR_TEST_FAILURE'
+  name: 'RangeError'
+  stack: |-
+    entityDef (/mnt/data/work043/Web-Royale/src/catalog.js:12:186)
+    Battle.entityDefinition (/mnt/data/work043/Web-Royale/src/battle.js:44:38)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:11:79)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+ok 3 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 35.924848
+  type: 'test'
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+ok 4 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 4.442925
+  type: 'test'
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 5 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.342527
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 151.074697

@@ -1,0 +1,535 @@
+TAP version 13
+# Subtest: v038 Daily Shop paid cards have five times the old quantities at unchanged prices
+not ok 1 - v038 Daily Shop paid cards have five times the old quantities at unchanged prices
+  ---
+  duration_ms: 5.500287
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:4:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    20 !== 100
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 100
+  actual: 20
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:4:175)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: v038 Daily Shop free wildcards multiply by five, not currency or claim count
+not ok 2 - v038 Daily Shop free wildcards multiply by five, not currency or claim count
+  ---
+  duration_ms: 14.684149
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:5:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      a.ok(o.quantity>=range[o.rarity][0]&&o.quantity<=range[o.rarity][1])
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:5:292)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: v038 Gem Shop has six distinct persistent eligible gem-priced offers
+not ok 3 - v038 Gem Shop has six distinct persistent eligible gem-priced offers
+  ---
+  duration_ms: 0.415517
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'undefined'
+    - 'function'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'function'
+  actual: 'undefined'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:6:84)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 Gem Shop rotates all six slots on the second successful purchase, not the first
+not ok 4 - v038 Gem Shop rotates all six slots on the second successful purchase, not the first
+  ---
+  duration_ms: 0.293713
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'undefined'
+    - 'function'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'function'
+  actual: 'undefined'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:7:100)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 Gem Shop rejects duplicate, unfunded, stale, and invalid purchases without state changes
+not ok 5 - v038 Gem Shop rejects duplicate, unfunded, stale, and invalid purchases without state changes
+  ---
+  duration_ms: 0.308235
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'undefined'
+    - 'function'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'function'
+  actual: 'undefined'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:8:109)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 legacy profiles keep currency/decks and new gem rotation normalization is bounded
+not ok 6 - v038 legacy profiles keep currency/decks and new gem rotation normalization is bounded
+  ---
+  duration_ms: 1.687696
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:9:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + undefined
+    - {
+    -   purchased: [
+    -     0
+    -   ],
+    -   rotation: 0
+    - }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    rotation: 0
+    purchased:
+      0: 0
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-economy.test.cjs:9:194)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 real goblins deployment uses every adjusted preview position
+not ok 7 - v038 real goblins deployment uses every adjusted preview position
+  ---
+  duration_ms: 10.233286
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:6:104'
+  failureType: 'testCodeFailure'
+  error: 'goblins member 0 differs from preview'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:65
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: v038 real guards deployment uses every adjusted preview position
+not ok 8 - v038 real guards deployment uses every adjusted preview position
+  ---
+  duration_ms: 1.966366
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:6:104'
+  failureType: 'testCodeFailure'
+  error: 'guards member 0 differs from preview'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:65
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: v038 real skeleton-army deployment uses every adjusted preview position
+not ok 9 - v038 real skeleton-army deployment uses every adjusted preview position
+  ---
+  duration_ms: 2.880574
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:6:104'
+  failureType: 'testCodeFailure'
+  error: 'skeleton-army member 1 differs from preview'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:65
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 real rascals deployment uses every adjusted preview position
+not ok 10 - v038 real rascals deployment uses every adjusted preview position
+  ---
+  duration_ms: 1.777702
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:6:104'
+  failureType: 'testCodeFailure'
+  error: 'rascals member 0 differs from preview'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:65
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 real royal-recruits deployment uses every adjusted preview position
+ok 11 - v038 real royal-recruits deployment uses every adjusted preview position
+  ---
+  duration_ms: 9.917018
+  type: 'test'
+  ...
+# Subtest: v038 real barbarians deployment uses every adjusted preview position
+not ok 12 - v038 real barbarians deployment uses every adjusted preview position
+  ---
+  duration_ms: 3.340079
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:6:104'
+  failureType: 'testCodeFailure'
+  error: 'barbarians member 0 differs from preview'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:65
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:11:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 real archers deployment uses every adjusted preview position
+ok 13 - v038 real archers deployment uses every adjusted preview position
+  ---
+  duration_ms: 7.220291
+  type: 'test'
+  ...
+# Subtest: v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 0
+not ok 14 - v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 0
+  ---
+  duration_ms: 1970.285919
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:14:25'
+  failureType: 'testCodeFailure'
+  error: '{"x":1.5,"y":17}'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:17:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 1
+not ok 15 - v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 1
+  ---
+  duration_ms: 1838.500514
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:14:25'
+  failureType: 'testCodeFailure'
+  error: '{"x":1.5,"y":15}'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:17:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 static tower routes are reused instead of recomputing every 650ms
+not ok 16 - v038 static tower routes are reused instead of recomputing every 650ms
+  ---
+  duration_ms: 35.147026
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:19:1'
+  failureType: 'testCodeFailure'
+  error: 'unnecessary A* searches: 13'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:22:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 Goblin Barrel spreads three goblins around each tower, not through it team 0
+not ok 17 - v038 Goblin Barrel spreads three goblins around each tower, not through it team 0
+  ---
+  duration_ms: 2.525509
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:24:25'
+  failureType: 'testCodeFailure'
+  error: 'Goblin inside PrincessTower'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    clear (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:5:226)
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:28:85
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:28:74)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 Goblin Barrel spreads three goblins around each tower, not through it team 1
+not ok 18 - v038 Goblin Barrel spreads three goblins around each tower, not through it team 1
+  ---
+  duration_ms: 1.192709
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:24:25'
+  failureType: 'testCodeFailure'
+  error: 'Goblin inside PrincessTower'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    clear (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:5:226)
+    /mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:28:85
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:28:74)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 Goblin Barrel landing by banks, arena walls, and a building gives legal separated bodies
+not ok 19 - v038 Goblin Barrel landing by banks, arena walls, and a building gives legal separated bodies
+  ---
+  duration_ms: 17.547829
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      a.ok(Math.hypot((us[i].x-us[j].x)/C.SX,(us[i].y-us[j].y)/C.SY)>=us[i].def.radiusTiles+us[j].def.radiusTiles-1e-6)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-movement.test.cjs:34:565)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 DarkPrince team 0 shield badge exactly tracks live shield, including group labels
+not ok 20 - v038 DarkPrince team 0 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 11.691671
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:4:93'
+  failureType: 'testCodeFailure'
+  error: 'intact group level must display a shield'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'hp_player_number'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:6:108)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: v038 DarkPrince team 1 shield badge exactly tracks live shield, including group labels
+not ok 21 - v038 DarkPrince team 1 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 2.246959
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:4:93'
+  failureType: 'testCodeFailure'
+  error: 'full shield must display a shield'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'hp_enemy_number'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:6:18)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 SkeletonWarrior team 0 shield badge exactly tracks live shield, including group labels
+not ok 22 - v038 SkeletonWarrior team 0 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 2.681525
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:4:93'
+  failureType: 'testCodeFailure'
+  error: 'intact group level must display a shield'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'hp_player_number'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:6:108)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 SkeletonWarrior team 1 shield badge exactly tracks live shield, including group labels
+not ok 23 - v038 SkeletonWarrior team 1 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 2.151745
+  type: 'test'
+  location: '/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:4:93'
+  failureType: 'testCodeFailure'
+  error: 'full shield must display a shield'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'hp_enemy_number'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work038/Web-Royale/tests/v038-shields.test.cjs:6:18)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v038 RoyalRecruit team 0 shield badge exactly tracks live shield, including group labels
+ok 24 - v038 RoyalRecruit team 0 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 0.141073
+  type: 'test'
+  ...
+# Subtest: v038 RoyalRecruit team 1 shield badge exactly tracks live shield, including group labels
+ok 25 - v038 RoyalRecruit team 1 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 0.134844
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 4
+# fail 21
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4024.243511

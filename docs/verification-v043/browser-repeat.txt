@@ -1,0 +1,79 @@
+runtime loaded
+UI artwork loaded
+PASS Release v0.43.0 boots
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 255030004, 'totalSize': 302997504, 'embedderHeapUsedSize': 40827112, 'backingStorageSize': 140423023}
+PASS TeamRumble repeat hidden during initial result reveal
+PASS TeamRumble Play Again and OK both available
+PASS play-again-results remains within screen 1280
+PASS play-again-results remains within screen 390
+PASS play-again-results remains within screen 320
+PASS Results actions do not overlap rewards or each other
+PASS TeamRumble repeated match keeps exact queue and mode
+PASS TeamRumble only one new match from rapid double-click
+PASS TeamRumble old reward never pays a second time
+PASS TeamRumble selected deck retained on replay-again
+PASS TeamRumble new match hides the old result actions
+PASS Default loaded real battle
+MEMORY Default {'usedSize': 186172996, 'totalSize': 277942272, 'embedderHeapUsedSize': 49175688, 'backingStorageSize': 100626538}
+PASS Default repeat hidden during initial result reveal
+PASS Default Play Again and OK both available
+PASS Default repeated match keeps exact queue and mode
+PASS Default only one new match from rapid double-click
+PASS Default old reward never pays a second time
+PASS Default selected deck retained on replay-again
+PASS Default new match hides the old result actions
+PASS RandomDeck loaded real battle
+MEMORY RandomDeck {'usedSize': 182359996, 'totalSize': 268607488, 'embedderHeapUsedSize': 19040984, 'backingStorageSize': 72630508}
+PASS RandomDeck repeat hidden during initial result reveal
+PASS RandomDeck Play Again and OK both available
+PASS RandomDeck repeated match keeps exact queue and mode
+PASS RandomDeck only one new match from rapid double-click
+PASS RandomDeck old reward never pays a second time
+PASS Random Deck rematch regenerates its deck
+PASS RandomDeck new match hides the old result actions
+PASS FourCardDeck loaded real battle
+MEMORY FourCardDeck {'usedSize': 156173576, 'totalSize': 216510464, 'embedderHeapUsedSize': 29410232, 'backingStorageSize': 58761054}
+PASS FourCardDeck repeat hidden during initial result reveal
+PASS FourCardDeck Play Again and OK both available
+PASS FourCardDeck repeated match keeps exact queue and mode
+PASS FourCardDeck only one new match from rapid double-click
+PASS FourCardDeck old reward never pays a second time
+PASS FourCardDeck selected deck retained on replay-again
+PASS FourCardDeck new match hides the old result actions
+PASS TwelveCardDeck loaded real battle
+MEMORY TwelveCardDeck {'usedSize': 126762772, 'totalSize': 196206592, 'embedderHeapUsedSize': 37302472, 'backingStorageSize': 55569523}
+PASS TwelveCardDeck repeat hidden during initial result reveal
+PASS TwelveCardDeck Play Again and OK both available
+PASS TwelveCardDeck repeated match keeps exact queue and mode
+PASS TwelveCardDeck only one new match from rapid double-click
+PASS TwelveCardDeck old reward never pays a second time
+PASS TwelveCardDeck selected deck retained on replay-again
+PASS TwelveCardDeck new match hides the old result actions
+PASS OneShot loaded real battle
+MEMORY OneShot {'usedSize': 126892424, 'totalSize': 187117568, 'embedderHeapUsedSize': 37575432, 'backingStorageSize': 39679673}
+PASS OneShot repeat hidden during initial result reveal
+PASS OneShot Play Again and OK both available
+PASS OneShot repeated match keeps exact queue and mode
+PASS OneShot only one new match from rapid double-click
+PASS OneShot old reward never pays a second time
+PASS OneShot selected deck retained on replay-again
+PASS OneShot new match hides the old result actions
+PASS Recorded replays do not show Play Again
+Traceback (most recent call last):
+  File "/mnt/data/work043/Web-Royale/tools/verify-v043-browser.py", line 213, in <module>
+    check('No uncaught page errors',not errors)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/work043/Web-Royale/tools/verify-v043-browser.py", line 64, in check
+    assert condition,name
+           ^^^^^^^^^
+AssertionError: No uncaught page errors
+PAGE ERRORS ["Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')", "Cannot read properties of undefined (reading 'duration')"]
+Traceback (most recent call last):
+  File "/mnt/data/work043/Web-Royale/tools/verify-v043-browser.py", line 213, in <module>
+    check('No uncaught page errors',not errors)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/work043/Web-Royale/tools/verify-v043-browser.py", line 64, in check
+    assert condition,name
+           ^^^^^^^^^
+AssertionError: No uncaught page errors

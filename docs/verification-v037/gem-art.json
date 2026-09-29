@@ -1,0 +1,18 @@
+[
+  {
+    "source": "assets/ui/gold-chest.png",
+    "file": "assets/ui/gem-chest.png",
+    "width": 177,
+    "height": 162,
+    "goldPixels": 17928,
+    "bluePixels": 4063
+  },
+  {
+    "source": "assets/native/chest-opening-0.webp",
+    "file": "assets/native/gem-chest-opening-0.webp",
+    "width": 2494,
+    "height": 3824,
+    "goldPixels": 1605624,
+    "bluePixels": 3045250
+  }
+]

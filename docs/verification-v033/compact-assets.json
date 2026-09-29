@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "verifiedAt": "2026-09-27T21:59:45.216Z",
+  "passed": true,
+  "buildVersion": "0.33.0",
+  "referenceVersion": "0.33.0",
+  "source": "C:\\Users\\Oceyi\\Documents\\Codex\\2026-09-27\\im\\work\\baseline\\Web-Royale",
+  "build": "C:\\Users\\Oceyi\\Documents\\Codex\\2026-09-27\\im\\work\\baseline\\Web-Royale\\dist",
+  "reference": "C:\\Users\\Oceyi\\Documents\\Codex\\2026-09-27\\im\\work\\web-royale-iphone\\dist",
+  "releaseSha256": "c8666b67685152b07d0b5fafda666268bf54d60c70e7e6297c2fbf453c273b2b",
+  "checks": {
+    "releaseHashes": {
+      "checked": 1198,
+      "expected": 1198,
+      "unlistedMetadataFiles": [
+        "release.json"
+      ],
+      "unexpectedFiles": 0
+    },
+    "nativeScenes": {
+      "sourceByteExact": 111,
+      "precedingBuildByteExact": 111,
+      "runtimeReferences": 111,
+      "expected": 111,
+      "originalBytes": 44582045,
+      "gzipBytes": 6922663,
+      "savedBytes": 37659382
+    },
+    "artworkAndAudio": {
+      "byteExactFiles": 981,
+      "expectedFiles": 981,
+      "bytes": 224288207
+    },
+    "unchangedEmoteJsonAndTrainingFiles": 100,
+    "folder": {
+      "fileCount": 1199,
+      "totalBytes": 258492659,
+      "limitBytes": 268435456,
+      "headroomBytes": 9942797
+    }
+  },
+  "failures": []
+}

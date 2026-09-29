@@ -1,0 +1,11 @@
+{
+  "unchanged": {
+    "src/battle-view.js": "02ab31393150533987053d118377259f2e753cc278cd4ca26cb81ade6fd00c8a",
+    "src/v250.css": "158fa80b5635ad9724375eac6dce9279af097b269051f5e666c70ca72e0125f4",
+    "assets/native/data.json": "6186085a4ccde9e979ec01493cf6e113888292d46c6f1514ad85c69fbe7428ee",
+    "assets/presentation/data.json": "b53fd1dac1c080300457f513ac8ab8ad2ed0972c0a159e2bb4e93c9ffe04d26b"
+  },
+  "intentionalChanges": [
+    "src/draw.js animation clocks and source visual effects"
+  ]
+}

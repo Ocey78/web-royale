@@ -1,0 +1,32 @@
+{
+  "method": "Chromium software/headless Canvas 2D, 1080x1920, 60 single-Fireball impact frames at t=i/30. One pixel read flush per frame, excluded from readback counts. Rendering timings are an isolated workload, not whole-game FPS.",
+  "records": [
+    {
+      "kind": "baseline",
+      "readbacks": 329,
+      "pixels": 4041056,
+      "meanMs": 13.38833333333799,
+      "p95Ms": 19.300000000046566,
+      "maxMs": 32.800000000046566,
+      "sprites": 6729
+    },
+    {
+      "kind": "updated-cold",
+      "readbacks": 42,
+      "pixels": 452765,
+      "meanMs": 6.016666666666667,
+      "p95Ms": 9.399999999906868,
+      "maxMs": 10.600000000093132,
+      "sprites": 3619
+    },
+    {
+      "kind": "updated-prewarmed",
+      "readbacks": 34,
+      "pixels": 369512,
+      "meanMs": 5.958333333325572,
+      "p95Ms": 8.899999999906868,
+      "maxMs": 9.600000000093132,
+      "sprites": 3619
+    }
+  ]
+}

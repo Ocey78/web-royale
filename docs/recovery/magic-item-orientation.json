@@ -1,0 +1,104 @@
+{
+  "source": "APK/assets/sc/ui_spells.sc",
+  "sourceSha256": "1018183cee3bf96717456a24d1d38f1280da9f714b79772e027c117d7e4bb3d7",
+  "texture": "assets/native/fx-ui_spells-1.webp",
+  "items": [
+    {
+      "asset": "assets/ui/magic-legendary-book.png",
+      "export": "icon_consumable_book_cards_legendary_hires",
+      "clipId": 253,
+      "shapeId": 105,
+      "shapeTransform": "identity (65535)",
+      "texture": 1,
+      "firstEdge": {
+        "xy": [
+          [
+            -54.45,
+            -100.2
+          ],
+          [
+            79.15,
+            -100.2
+          ]
+        ],
+        "uv": [
+          [
+            0.9484092469672694,
+            0.27862973983367667
+          ],
+          [
+            0.9484092469672694,
+            0.4029297322041657
+          ]
+        ]
+      },
+      "cssRotationDegrees": -90,
+      "evidence": "Scene +X follows atlas +V; the raw recovered crop omitted this UV orientation."
+    },
+    {
+      "asset": "assets/ui/magic-book-of-books.png",
+      "export": "icon_consumable_book_cards_all_hires",
+      "clipId": 251,
+      "shapeId": 103,
+      "shapeTransform": "identity (65535)",
+      "texture": 1,
+      "firstEdge": {
+        "xy": [
+          [
+            -54.25,
+            -100.0
+          ],
+          [
+            79.3,
+            -100.0
+          ]
+        ],
+        "uv": [
+          [
+            0.25131609063859006,
+            0.32471198596169987
+          ],
+          [
+            0.25131609063859006,
+            0.2004119935912108
+          ]
+        ]
+      },
+      "cssRotationDegrees": 90,
+      "evidence": "Scene +X follows atlas -V; the raw recovered crop omitted this UV orientation."
+    },
+    {
+      "asset": "assets/ui/magic-chest-key.png",
+      "export": "icon_consumable_chest_key_icon_hires",
+      "clipId": 242,
+      "shapeId": 100,
+      "shapeTransform": "identity (65535)",
+      "texture": 1,
+      "firstEdge": {
+        "xy": [
+          [
+            -18.35,
+            -100.6
+          ],
+          [
+            11.65,
+            -100.6
+          ]
+        ],
+        "uv": [
+          [
+            0.7037003128099489,
+            0.4196841382467384
+          ],
+          [
+            0.7037003128099489,
+            0.44762340733958955
+          ]
+        ]
+      },
+      "cssRotationDegrees": -90,
+      "evidence": "Scene +X follows atlas +V; the raw recovered crop omitted this UV orientation."
+    }
+  ],
+  "note": "Only presentation transform restored; the original recovered PNG bytes remain unchanged."
+}

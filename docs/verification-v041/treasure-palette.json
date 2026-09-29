@@ -1,0 +1,22 @@
+[
+  {
+    "source": "classic-wood-chest.webp",
+    "file": "treasure-chest.webp",
+    "metalPixelsChanged": 7041,
+    "alphaUnchanged": true,
+    "dimensions": [
+      183,
+      148
+    ]
+  },
+  {
+    "source": "chest-opening-0.webp",
+    "file": "treasure-chest-opening-0.webp",
+    "metalPixelsChanged": 2806129,
+    "alphaUnchanged": true,
+    "dimensions": [
+      2494,
+      3824
+    ]
+  }
+]

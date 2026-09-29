@@ -1,0 +1,17 @@
+[
+  {
+    "card": "knight",
+    "maskDisabledInteriorError": 0.0,
+    "passed": true
+  },
+  {
+    "card": "princess",
+    "maskDisabledInteriorError": 0.0,
+    "passed": true
+  },
+  {
+    "card": "fireball",
+    "maskDisabledInteriorError": 0.0,
+    "passed": true
+  }
+]

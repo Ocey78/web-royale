@@ -1,0 +1,19 @@
+{
+  "baseArchive": "Web-Royale-v0.42.0-Full-Build.zip",
+  "baseVersion": "0.42.0",
+  "assetFilesCompared": 1195,
+  "changedAssets": [],
+  "missingAssets": [],
+  "protectedFilesIdentical": {
+    "Web-Royale/src/legacy-core-v027.js": true,
+    "Web-Royale/src/legacy-core-v028.js": true,
+    "Web-Royale/src/legacy-core-v030.js": true,
+    "Web-Royale/src/legacy-core-v031.js": true,
+    "Web-Royale/src/legacy-core-v037.js": true,
+    "Web-Royale/src/legacy-core-v040.js": true,
+    "Web-Royale/src/legacy-core-v041.js": true,
+    "Web-Royale/open offline.bat": true,
+    "Web-Royale/offline build opener.bat": true
+  },
+  "baseArchiveSha256": "f20740c6d3e15279c674f9c7492e534137ac6ae7b123234199f75bec35c11c82"
+}

@@ -1,0 +1,271 @@
+{
+  "scenario": "One Knight routes around a friendly Cannon toward the enemy Princess Tower for 900 movement steps at 1/60 s; AI and renderer disabled.",
+  "environment": {
+    "node": "v22.16.0",
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "samples": {
+    "v037": [
+      {
+        "milliseconds": 17.41850199999999,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 14.677357000000029,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 12.944421999999975,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.974814000000038,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 11.96360100000004,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.600369999999998,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.4928070000000275,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.742382999999961,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.293936999999971,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.426816999999971,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 8.716681999999992,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.252184,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 7.549680999999964,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.697534999999959,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      },
+      {
+        "milliseconds": 6.937878000000012,
+        "routeSearches": 13,
+        "position": [
+          3.695845633198344,
+          10.646576034285099
+        ]
+      }
+    ],
+    "v038": [
+      {
+        "milliseconds": 7.7280210000000125,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 7.10581099999996,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.538987999999961,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.019585000000006,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 5.95168000000001,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 3.9330939999999828,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 3.921697999999992,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.021248000000014,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.180397000000028,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.800207999999998,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 3.9578819999999837,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.65007700000001,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.410754999999995,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.359987999999987,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      },
+      {
+        "milliseconds": 4.606360999999993,
+        "routeSearches": 1,
+        "position": [
+          3.6999885021543966,
+          10.714004263646308
+        ]
+      }
+    ]
+  },
+  "v037": {
+    "medianMilliseconds": 6.937878000000012,
+    "routeSearches": 13,
+    "finalPosition": [
+      3.695845633198344,
+      10.646576034285099
+    ]
+  },
+  "v038": {
+    "medianMilliseconds": 4.410754999999995,
+    "routeSearches": 1,
+    "finalPosition": [
+      3.6999885021543966,
+      10.714004263646308
+    ]
+  },
+  "cpuReductionPercent": 36.42501352719106
+}

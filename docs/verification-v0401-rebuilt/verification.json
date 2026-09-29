@@ -1,0 +1,46 @@
+{
+  "version": "0.40.1",
+  "distribution": "rebuilt replacement; not byte-identical to expired v0.40.1 ZIP",
+  "baseline": "Web-Royale-v0.40.0-Full-Build.zip",
+  "nodeTests": {
+    "passed": 1050,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browserUI": {
+    "passed": 190,
+    "errors": []
+  },
+  "arenaComparisons": {
+    "passed": 47,
+    "arenas": 15,
+    "maxMeanChannelDifference": 0.8786
+  },
+  "runtimeFilesVerified": 1203,
+  "modifiedProductionSource": [
+    "src/native.js"
+  ],
+  "preservedSourceAndLaunchers": 85,
+  "performance": {
+    "before": {
+      "meanMilliseconds": 19.570000000003105,
+      "drawCallsPerFrame": 185,
+      "shapeCacheBytes": 149880008
+    },
+    "after": {
+      "meanMilliseconds": 10.28666666666977,
+      "drawCallsPerFrame": 25,
+      "shapeCacheBytes": 48862592
+    }
+  },
+  "limitations": [
+    "No physical iPhone/Safari or Windows launcher test",
+    "No live-site deployment",
+    "Arena measurements use headless Chromium and 30 GPU-readback samples, not device FPS",
+    "Historical test screenshots omitted from archive; actual game artwork retained"
+  ],
+  "initialFailures": {
+    "tests": "Version suffix violated the existing numeric-version assertion; a legacy scene fixture needed the previous cache-clear fallback. Both corrected, then all tests rerun.",
+    "arenaFixture": "First fixture exceeded the 4 GiB environment limit after two arenas. The rerun sends only required arena data and passed all 15 arenas."
+  }
+}

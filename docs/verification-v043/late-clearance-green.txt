@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: Princess rows line up front to back and stay mirrored on both team arenas
+ok 1 - Princess rows line up front to back and stay mirrored on both team arenas
+  ---
+  duration_ms: 11.057067
+  type: 'test'
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+ok 2 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 2.672008
+  type: 'test'
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+ok 3 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 37.714388
+  type: 'test'
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+ok 4 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 3.428498
+  type: 'test'
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 5 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.479143
+  type: 'test'
+  ...
+# Subtest: Bridge has a real outboard route past the King for the largest ground body
+ok 6 - Bridge has a real outboard route past the King for the largest ground body
+  ---
+  duration_ms: 1.299489
+  type: 'test'
+  ...
+# Subtest: Sandbox accepts extended Rumble corners without teleporting placements to old borders
+ok 7 - Sandbox accepts extended Rumble corners without teleporting placements to old borders
+  ---
+  duration_ms: 3.932207
+  type: 'test'
+  ...
+# Subtest: largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+ok 8 - largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+  ---
+  duration_ms: 54.860569
+  type: 'test'
+  ...
+# Subtest: air units in narrow Bridge mode keep their outboard movement permission
+ok 9 - air units in narrow Bridge mode keep their outboard movement permission
+  ---
+  duration_ms: 1.469715
+  type: 'test'
+  ...
+# Subtest: Rumble custom renderer has dry continuous middle and geometry-derived tower foundations
+ok 10 - Rumble custom renderer has dry continuous middle and geometry-derived tower foundations
+  ---
+  duration_ms: 12.544548
+  type: 'test'
+  ...
+# Subtest: all custom map surface metadata anchors match real towers and consecutive draws reuse cache
+ok 11 - all custom map surface metadata anchors match real towers and consecutive draws reuse cache
+  ---
+  duration_ms: 15.69624
+  type: 'test'
+  ...
+# Subtest: enlarged Rumble ground is actually drawn to its new playable edges
+ok 12 - enlarged Rumble ground is actually drawn to its new playable edges
+  ---
+  duration_ms: 7.00643
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 200.985032

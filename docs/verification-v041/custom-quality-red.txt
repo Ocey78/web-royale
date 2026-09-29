@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+ok 1 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 2.081694
+  type: 'test'
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+ok 2 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 6.964012
+  type: 'test'
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+ok 3 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 2.720445
+  type: 'test'
+  ...
+# Subtest: custom battles do not decode an unused Trophy Road arena
+ok 4 - custom battles do not decode an unused Trophy Road arena
+  ---
+  duration_ms: 1403.337475
+  type: 'test'
+  ...
+# Subtest: custom arena quality follows saved background and texture policy
+not ok 5 - custom arena quality follows saved background and texture policy
+  ---
+  duration_ms: 2.675276
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1280 !== 480
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 480
+  actual: 1280
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:6:591)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1529.889525

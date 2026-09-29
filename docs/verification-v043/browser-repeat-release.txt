@@ -1,0 +1,64 @@
+runtime loaded
+UI artwork loaded
+PASS Release v0.43.0 boots
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 267537676, 'totalSize': 315523072, 'embedderHeapUsedSize': 41079784, 'backingStorageSize': 141377643}
+PASS TeamRumble repeat hidden during initial result reveal
+PASS TeamRumble Play Again and OK both available
+PASS play-again-results remains within screen 1280
+PASS play-again-results remains within screen 390
+PASS play-again-results remains within screen 320
+PASS Results actions do not overlap rewards or each other
+PASS TeamRumble repeated match keeps exact queue and mode
+PASS TeamRumble only one new match from rapid double-click
+PASS TeamRumble old reward never pays a second time
+PASS TeamRumble selected deck retained on replay-again
+PASS TeamRumble new match hides the old result actions
+PASS Default loaded real battle
+MEMORY Default {'usedSize': 243999404, 'totalSize': 323063808, 'embedderHeapUsedSize': 54614968, 'backingStorageSize': 124916814}
+PASS Default repeat hidden during initial result reveal
+PASS Default Play Again and OK both available
+PASS Default repeated match keeps exact queue and mode
+PASS Default only one new match from rapid double-click
+PASS Default old reward never pays a second time
+PASS Default selected deck retained on replay-again
+PASS Default new match hides the old result actions
+PASS RandomDeck loaded real battle
+MEMORY RandomDeck {'usedSize': 145780104, 'totalSize': 213385216, 'embedderHeapUsedSize': 15466936, 'backingStorageSize': 75020675}
+PASS RandomDeck repeat hidden during initial result reveal
+PASS RandomDeck Play Again and OK both available
+PASS RandomDeck repeated match keeps exact queue and mode
+PASS RandomDeck only one new match from rapid double-click
+PASS RandomDeck old reward never pays a second time
+PASS Random Deck rematch regenerates its deck
+PASS RandomDeck new match hides the old result actions
+PASS FourCardDeck loaded real battle
+MEMORY FourCardDeck {'usedSize': 177697816, 'totalSize': 249462784, 'embedderHeapUsedSize': 18828296, 'backingStorageSize': 92809589}
+PASS FourCardDeck repeat hidden during initial result reveal
+PASS FourCardDeck Play Again and OK both available
+PASS FourCardDeck repeated match keeps exact queue and mode
+PASS FourCardDeck only one new match from rapid double-click
+PASS FourCardDeck old reward never pays a second time
+PASS FourCardDeck selected deck retained on replay-again
+PASS FourCardDeck new match hides the old result actions
+PASS TwelveCardDeck loaded real battle
+MEMORY TwelveCardDeck {'usedSize': 191055556, 'totalSize': 255705088, 'embedderHeapUsedSize': 47148584, 'backingStorageSize': 84207909}
+PASS TwelveCardDeck repeat hidden during initial result reveal
+PASS TwelveCardDeck Play Again and OK both available
+PASS TwelveCardDeck repeated match keeps exact queue and mode
+PASS TwelveCardDeck only one new match from rapid double-click
+PASS TwelveCardDeck old reward never pays a second time
+PASS TwelveCardDeck selected deck retained on replay-again
+PASS TwelveCardDeck new match hides the old result actions
+PASS OneShot loaded real battle
+MEMORY OneShot {'usedSize': 139212776, 'totalSize': 208732160, 'embedderHeapUsedSize': 37664088, 'backingStorageSize': 63485653}
+PASS OneShot repeat hidden during initial result reveal
+PASS OneShot Play Again and OK both available
+PASS OneShot repeated match keeps exact queue and mode
+PASS OneShot only one new match from rapid double-click
+PASS OneShot old reward never pays a second time
+PASS OneShot selected deck retained on replay-again
+PASS OneShot new match hides the old result actions
+PASS Actual recorded replay remains reward-free
+PASS Recorded replays do not show Play Again
+PASS No uncaught page errors

@@ -1,0 +1,73 @@
+runtime loaded
+UI artwork loaded
+PASS Generated release is v0.38.0
+PASS Sandbox removed from home
+PASS Sandbox moved into Other Modes
+PASS Four Card and Random Deck modes each have a Play button
+PASS Add deck creates and selects a saved deck
+PASS Removing deck requires confirmation
+PASS Deletion preserves all existing decks
+PASS Ten decks supported and add button disabled at ten
+PASS Tenth deck is selectable
+PASS Deck library written to existing save key
+PASS Stretched deck wood background removed
+PASS Mobile deck has no stretched background
+PASS Four graphics categories retained
+PASS Full particles applies full frame budget immediately
+PASS Full particles persists in saved profile
+PASS Gem Shop has six cards priced in gems
+PASS Gem Shop starts at zero of two purchases
+PASS Daily paid quantities are fivefold
+PASS Fivefold quantities rendered on daily offer cards
+PASS First Gem Shop purchase deducts gems, not gold
+PASS First purchase grants advertised cards
+PASS First purchase does not refresh and is marked collected
+PASS Reloaded saved profile retains offers and one purchase
+PASS Second purchase resets the entire Gem Shop
+PASS Second purchase grants old offer before refresh
+PASS Refresh produces new offers
+PASS Gem Shop fits mobile viewport
+PASS Insufficient gems do not grant a card or advance refresh
+PASS Daily Shop exactly nine slots
+PASS Daily Shop top three are free
+PASS Daily Shop bottom six are paid cards
+PASS Hour Shop still has twelve slots
+PASS Lightning Shop still has three slots
+PASS Free Gold Chest grants 100–10000 gold in increments of ten
+PASS Gold chest uses actual reward summary
+PASS Collected free Gold Chest cannot be claimed again
+PASS Free Gem Chest grants 5–250 gems in increments of five
+PASS Gem Chest uses dedicated recolored native scene
+PASS Gem reward card amount matches credited balance
+PASS Free Wild Cards credited to profile
+PASS All three free claims stay collected
+PASS Claim receipts stored with saved profile
+PASS Daily Shop columns remain inside phone viewport
+PASS Four-card builder has exactly four slots
+PASS Four-card selection updates saved deck
+PASS Four-card builder leaves normal deck library alone
+PASS Four-card builder remembers last selection when reopened
+PASS Four-card choice persisted under original save key
+PASS Both combatants receive four cards and no next-card queues
+PASS Hand no longer contains level labels
+PASS Four-card mode hides Next preview
+PASS Four-card mode is level nine and non-ranked
+PASS Playing four-card mode retains its four-card hand
+PASS AI handles four-card matches without undefined cards
+PASS Faster OK visible shortly after 2.65 seconds
+PASS Non-ranked win leaves trophies unchanged
+PASS Result rewards reflect actual chest and gold
+PASS OK returns to home
+PASS Random Deck creates eight unique cards on both sides
+PASS Random Deck restores normal Next preview
+PASS Random Deck rerolls for next match
+PASS Random Deck never overwrites saved decks
+PASS Normal battle remains eight cards with four next cards
+PASS Ranked result shows trophy gain without extra streak sentence
+PASS Draw has a visible label and working OK
+PASS Native shield artwork matches intact and broken state for both teams
+PASS Every selected shield and health export exists in native artwork
+PASS Goblin Barrel spawns three goblins outside the tower footprint
+PASS Historical replay engine is isolated in browser bundle
+PASS No uncaught application errors
+ALL PASSED 70

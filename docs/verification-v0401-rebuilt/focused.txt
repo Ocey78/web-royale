@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: arena planner separates still ground from moving children in painter order
+ok 1 - arena planner separates still ground from moving children in painter order
+  ---
+  duration_ms: 1.779871
+  type: 'test'
+  ...
+# Subtest: low/background still mode retains a single frozen root
+ok 2 - low/background still mode retains a single frozen root
+  ---
+  duration_ms: 1.077366
+  type: 'test'
+  ...
+# Subtest: explicit frame never advances its descendants
+ok 3 - explicit frame never advances its descendants
+  ---
+  duration_ms: 0.12889
+  type: 'test'
+  ...
+# Subtest: masked one-frame assembly is not split across its mask
+ok 4 - masked one-frame assembly is not split across its mask
+  ---
+  duration_ms: 0.167727
+  type: 'test'
+  ...
+# Subtest: animated root remains intact instead of freezing its own timeline
+ok 5 - animated root remains intact instead of freezing its own timeline
+  ---
+  duration_ms: 0.415983
+  type: 'test'
+  ...
+# Subtest: arena offscreen shapes are culled before rasterization
+ok 6 - arena offscreen shapes are culled before rasterization
+  ---
+  duration_ms: 0.652681
+  type: 'test'
+  ...
+# Subtest: non-arena paths retain their ordinary rasterization behavior
+ok 7 - non-arena paths retain their ordinary rasterization behavior
+  ---
+  duration_ms: 0.211741
+  type: 'test'
+  ...
+# Subtest: huge untinted arena shapes draw directly without an oversized raster
+ok 8 - huge untinted arena shapes draw directly without an oversized raster
+  ---
+  duration_ms: 0.588126
+  type: 'test'
+  ...
+# Subtest: small visible arena shapes keep the original cached raster
+ok 9 - small visible arena shapes keep the original cached raster
+  ---
+  duration_ms: 0.839266
+  type: 'test'
+  ...
+# Subtest: switching arenas releases all background raster surfaces
+ok 10 - switching arenas releases all background raster surfaces
+  ---
+  duration_ms: 1.483915
+  type: 'test'
+  ...
+# Subtest: normal and overtime share the cache when their art is identical
+ok 11 - normal and overtime share the cache when their art is identical
+  ---
+  duration_ms: 0.7401
+  type: 'test'
+  ...
+# Subtest: normal and overtime differing art keep separate variants
+ok 12 - normal and overtime differing art keep separate variants
+  ---
+  duration_ms: 1.288077
+  type: 'test'
+  ...
+# Subtest: still runs are not repainted on later animation frames
+ok 13 - still runs are not repainted on later animation frames
+  ---
+  duration_ms: 0.391586
+  type: 'test'
+  ...
+# Subtest: offscreen area cache construction does not allocate negative extents
+ok 14 - offscreen area cache construction does not allocate negative extents
+  ---
+  duration_ms: 0.287523
+  type: 'test'
+  ...
+# Subtest: many camera variants retain a bounded, released background cache
+ok 15 - many camera variants retain a bounded, released background cache
+  ---
+  duration_ms: 0.777044
+  type: 'test'
+  ...
+# Subtest: stationary Cannon Cart faces a left-hand target with one horizontal reflection
+ok 16 - stationary Cannon Cart faces a left-hand target with one horizontal reflection
+  ---
+  duration_ms: 1.51402
+  type: 'test'
+  ...
+# Subtest: health-bar crown frame is not selected by combat level
+ok 17 - health-bar crown frame is not selected by combat level
+  ---
+  duration_ms: 0.644319
+  type: 'test'
+  ...
+# Subtest: building lifetime does not invent a source ammo-bar value
+ok 18 - building lifetime does not invent a source ammo-bar value
+  ---
+  duration_ms: 0.123853
+  type: 'test'
+  ...
+# Subtest: source health-bar progress remains the inverse of the clamped fill
+ok 19 - source health-bar progress remains the inverse of the clamped fill
+  ---
+  duration_ms: 0.097153
+  type: 'test'
+  ...
+# Subtest: original timer bindings use source instance names and clamp time
+ok 20 - original timer bindings use source instance names and clamp time
+  ---
+  duration_ms: 0.165423
+  type: 'test'
+  ...
+# Subtest: native column texture strip has a drawable affine map
+ok 21 - native column texture strip has a drawable affine map
+  ---
+  duration_ms: 0.871333
+  type: 'test'
+  ...
+# Subtest: native row texture strip has a drawable affine map
+ok 22 - native row texture strip has a drawable affine map
+  ---
+  duration_ms: 0.114929
+  type: 'test'
+  ...
+# Subtest: native solid texture strip has a drawable affine map
+ok 23 - native solid texture strip has a drawable affine map
+  ---
+  duration_ms: 0.173907
+  type: 'test'
+  ...
+# Subtest: ordinary source UV polygons are left unchanged
+ok 24 - ordinary source UV polygons are left unchanged
+  ---
+  duration_ms: 0.757736
+  type: 'test'
+  ...
+# Subtest: native frame index preserves fps, looping and clamp
+ok 25 - native frame index preserves fps, looping and clamp
+  ---
+  duration_ms: 0.843843
+  type: 'test'
+  ...
+# Subtest: direction resolution covers original nine facing exports
+ok 26 - direction resolution covers original nine facing exports
+  ---
+  duration_ms: 0.609998
+  type: 'test'
+  ...
+# Subtest: UV affine maps rotated texture corners to their vertices
+ok 27 - UV affine maps rotated texture corners to their vertices
+  ---
+  duration_ms: 0.270578
+  type: 'test'
+  ...
+# Subtest: collinear texture coordinates are rejected
+ok 28 - collinear texture coordinates are rejected
+  ---
+  duration_ms: 0.180526
+  type: 'test'
+  ...
+# Subtest: clip resolution uses per-team source prefixes
+ok 29 - clip resolution uses per-team source prefixes
+  ---
+  duration_ms: 0.134558
+  type: 'test'
+  ...
+# Subtest: battle publishes movement and attack animation states
+ok 30 - battle publishes movement and attack animation states
+  ---
+  duration_ms: 20.752641
+  type: 'test'
+  ...
+# Subtest: paused battle freezes native animation time
+ok 31 - paused battle freezes native animation time
+  ---
+  duration_ms: 1.461342
+  type: 'test'
+  ...
+# Subtest: bundled native data includes original tower-princess animations for both teams
+ok 32 - bundled native data includes original tower-princess animations for both teams
+  ---
+  duration_ms: 714.689738
+  type: 'test'
+  ...
+# Subtest: battle canvas retains a modest1.25x quality floor without using the2x glyph floor
+ok 33 - battle canvas retains a modest1.25x quality floor without using the2x glyph floor
+  ---
+  duration_ms: 2.162334
+  type: 'test'
+  ...
+# Subtest: battle canvas preserves actual Retina and phone device density, including compact battle height
+ok 34 - battle canvas preserves actual Retina and phone device density, including compact battle height
+  ---
+  duration_ms: 2.562664
+  type: 'test'
+  ...
+# Subtest: battle canvas keeps the previous high-DPR cap and restores its logical transform every draw
+ok 35 - battle canvas keeps the previous high-DPR cap and restores its logical transform every draw
+  ---
+  duration_ms: 0.985682
+  type: 'test'
+  ...
+# Subtest: still source draw plans reuse geometry while live text and caller state remain dynamic
+ok 36 - still source draw plans reuse geometry while live text and caller state remain dynamic
+  ---
+  duration_ms: 1.077417
+  type: 'test'
+  ...
+# Subtest: still source plans retain hidden instances and use a bounded cache
+ok 37 - still source plans retain hidden instances and use a bounded cache
+  ---
+  duration_ms: 2.577716
+  type: 'test'
+  ...
+# Subtest: mask and replacement-node clips retain the ordinary interpreter
+ok 38 - mask and replacement-node clips retain the ordinary interpreter
+  ---
+  duration_ms: 0.188498
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 894.539902

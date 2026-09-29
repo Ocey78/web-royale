@@ -1,0 +1,75 @@
+runtime loaded
+UI artwork loaded
+PASS Release v0.44.0 boots
+PASS Fourteen casual selectable modes each open their independent deck builder
+PASS TwelveCardDeck shows the correct deck size
+PASS TwelveCardDeck all allowed catalog cards available on starter save
+PASS TwelveCardDeck playable without ranked unlocks
+PASS builder-TwelveCardDeck remains within screen 1280
+PASS builder-TwelveCardDeck remains within screen 390
+PASS builder-TwelveCardDeck remains within screen 320
+PASS TwentyElixir shows the correct deck size
+PASS TwentyElixir all allowed catalog cards available on starter save
+PASS TwentyElixir playable without ranked unlocks
+PASS OneShot shows the correct deck size
+PASS OneShot all allowed catalog cards available on starter save
+PASS OneShot playable without ranked unlocks
+PASS One Shot excludes Miner and Drill as well as spells and siege
+PASS builder-OneShot remains within screen 1280
+PASS builder-OneShot remains within screen 390
+PASS builder-OneShot remains within screen 320
+PASS TeamRumble shows the correct deck size
+PASS TeamRumble all allowed catalog cards available on starter save
+PASS TeamRumble playable without ranked unlocks
+PASS builder-TeamRumble remains within screen 1280
+PASS builder-TeamRumble remains within screen 390
+PASS builder-TeamRumble remains within screen 320
+PASS Team3v3 shows the correct deck size
+PASS Team3v3 all allowed catalog cards available on starter save
+PASS Team3v3 playable without ranked unlocks
+PASS BridgeBattle shows the correct deck size
+PASS BridgeBattle all allowed catalog cards available on starter save
+PASS BridgeBattle playable without ranked unlocks
+PASS FourCardDeck shows the correct deck size
+PASS FourCardDeck all allowed catalog cards available on starter save
+PASS FourCardDeck playable without ranked unlocks
+PASS TeamVsTeam shows the correct deck size
+PASS TeamVsTeam all allowed catalog cards available on starter save
+PASS TeamVsTeam playable without ranked unlocks
+PASS Default shows the correct deck size
+PASS Default all allowed catalog cards available on starter save
+PASS Default playable without ranked unlocks
+PASS DoubleElixir shows the correct deck size
+PASS DoubleElixir all allowed catalog cards available on starter save
+PASS DoubleElixir playable without ranked unlocks
+PASS TripleElixir shows the correct deck size
+PASS TripleElixir all allowed catalog cards available on starter save
+PASS TripleElixir playable without ranked unlocks
+PASS RampUp shows the correct deck size
+PASS RampUp all allowed catalog cards available on starter save
+PASS RampUp playable without ranked unlocks
+PASS SuddenDeath shows the correct deck size
+PASS SuddenDeath all allowed catalog cards available on starter save
+PASS SuddenDeath playable without ranked unlocks
+PASS 7xElixir shows the correct deck size
+PASS 7xElixir all allowed catalog cards available on starter save
+PASS 7xElixir playable without ranked unlocks
+PASS Inspecting casual builders does not grant ranked ownership
+PASS Casual locked legendary is editable and saved only in its own deck
+PASS Casual edit leaves ranked decks intact
+PASS Sixteen decks retained with four pages
+PASS Last page has one deck and previous arrow
+PASS Deck name saved alongside active deck
+PASS Previous page shows exactly decks 11-15
+PASS named-decks remains within screen 1280
+PASS named-decks remains within screen 390
+PASS named-decks remains within screen 320
+PASS Toolbar controls do not overlap at compact width
+PASS Deck name remains within footer
+PASS Deck labels survive reload normalization
+PASS Trophy Road has larger centered arena icons
+PASS Trophy Road now includes Books and Magic Coins
+PASS trophy-road remains within screen 1280
+PASS trophy-road remains within screen 390
+PASS trophy-road remains within screen 320
+PASS No uncaught page errors

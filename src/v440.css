@@ -1,0 +1,5 @@
+/* Reflective Mirror rim with a genuinely transparent center. No CSS mask or
+   full-face shine plane: copied portraits must survive mask-less browsers. */
+#viewport .hand-card .card-visual.mirrored>.card-frame{object-fit:fill!important;filter:sepia(.45) saturate(1.6) hue-rotate(155deg)!important}
+#viewport .card-visual.mirrored:before{content:none;background:none}
+#viewport .card-visual.mirrored:after{content:"";position:absolute;inset:1px;box-sizing:border-box;border:3px solid #9bdeed;border-top-color:#eafcff;border-right-color:#9ab6fb;border-bottom-color:#c7b8f1;border-radius:10px;background:none;box-shadow:inset 0 0 0 1px #edfbff99,0 0 0 1px #283e67;mask:none;-webkit-mask:none;pointer-events:none;z-index:3}

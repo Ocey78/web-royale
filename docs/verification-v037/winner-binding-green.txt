@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: Full particles survive save normalization and restore the full emitter/frame budget
+ok 1 - Full particles survive save normalization and restore the full emitter/frame budget
+  ---
+  duration_ms: 3.174646
+  type: 'test'
+  ...
+# Subtest: Faster result OK is visible at 2.7 seconds and not at the start
+ok 2 - Faster result OK is visible at 2.7 seconds and not at the start
+  ---
+  duration_ms: 0.343002
+  type: 'test'
+  ...
+# Subtest: Full-health Princess Towers show HP on both sides and King Tower text contains no level
+ok 3 - Full-health Princess Towers show HP on both sides and King Tower text contains no level
+  ---
+  duration_ms: 2.848141
+  type: 'test'
+  ...
+# Subtest: Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+ok 4 - Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+  ---
+  duration_ms: 8.893101
+  type: 'test'
+  ...
+# Subtest: Magic Archer arrow stays at its authored constant height after the original target dies
+ok 5 - Magic Archer arrow stays at its authored constant height after the original target dies
+  ---
+  duration_ms: 2.834719
+  type: 'test'
+  ...
+# Subtest: Magic Archer line hits produce hit feedback at each actual damaged target
+ok 6 - Magic Archer line hits produce hit feedback at each actual damaged target
+  ---
+  duration_ms: 2.199854
+  type: 'test'
+  ...
+# Subtest: Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+ok 7 - Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+  ---
+  duration_ms: 1174.15687
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1364.772007

@@ -1,0 +1,16 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),vm=require('node:vm');
+const C=require('../src/core'),Replay=require('../src/replay');
+test('v038 records have a new simulation tag for changed spawn and navigation rules',()=>{const b=new C.Battle({ai:false});Replay.captureInitial(b);a.equal(Replay.pack(b).engine,'0.44');a.ok(new Replay.Session(Replay.pack(b)).battle instanceof C.Battle);});
+test('v038 accepts the previous engine0.32 including four-card recordings',()=>{const b=new C.Battle({ai:false,mode:'FourCardDeck',deck:C.DEFAULT_DECK.slice(0,4),enemyDeck:C.DEFAULT_DECK.slice(0,4)});Replay.captureInitial(b);const r=Replay.pack(b);r.engine='0.32';a.equal(Replay.validate(r).initial.decks[0].length,4);});
+const Legacy=require('../src/legacy-core-v037'),Boat=require('../src/boat-battle'),provenance=require('./fixtures/replay-v037/provenance.json');
+const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+test('v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance',()=>{
+ const text=fs.readFileSync(path.join(__dirname,'../src/legacy-core-v037.js'),'utf8'),start=text.indexOf('(function(globalThis,module,require){\n')+'(function(globalThis,module,require){\n'.length,marker='\n;\n/* Frozen boat adapter from the same release. */\n',split=text.indexOf(marker,start),end=text.indexOf('\n})(legacy,undefined,undefined);',split);a.equal(sha(text.slice(start,split)),provenance.trainingEngineSha256);a.equal(sha(text.slice(split+marker.length,end)),provenance.boatAdapterSha256);a.equal(sha(fs.readFileSync(path.join(__dirname,'../src/game-data.js'))),provenance.gameDataSha256);
+ for(const entry of provenance.fixtures)a.equal(sha(fs.readFileSync(path.join(__dirname,'fixtures/replay-v037',entry.file))),entry.sha256);
+});
+for(const {file}of provenance.fixtures)test('v038 historical engine0.32 '+file+' reproduces the original digest through seeks',t=>{
+ t.mock.method(C.Battle.prototype,'step',()=>{throw Error('Live simulation must not run in old replays');});t.mock.method(Boat,'configure',()=>{throw Error('Live boat adapter must not run in old replays');});
+ const r=require('./fixtures/replay-v037/'+file),s=new Replay.Session(r);a.ok(s.battle instanceof Legacy.Battle);for(const time of [r.duration,2,r.duration])s.seek(time);a.equal(s.error,null);a.deepEqual(Replay.digest(s.battle),r.expected);
+});
+test('v038 frozen browser replay global does not overwrite live modules',()=>{const context=vm.createContext({RoyaleGameData:require('../src/game-data'),RoyaleCore:C,RoyaleBoatBattle:Boat});for(const file of ['legacy-core-v037.js','replay.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src',file),'utf8'),context);a.equal(context.RoyaleCore,C);a.equal(context.RoyaleBoatBattle,Boat);a.notEqual(context.RoyaleLegacyCore037.Battle,C.Battle);const record=require('./fixtures/replay-v037/goblin-barrel.json'),s=new context.RoyaleReplay.Session(record);s.seek(record.duration);a.equal(s.error,null);a.deepEqual(JSON.parse(JSON.stringify(context.RoyaleReplay.digest(s.battle))),record.expected);});

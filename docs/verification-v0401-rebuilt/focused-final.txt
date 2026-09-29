@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: arena planner separates still ground from moving children in painter order
+ok 1 - arena planner separates still ground from moving children in painter order
+  ---
+  duration_ms: 1.762957
+  type: 'test'
+  ...
+# Subtest: low/background still mode retains a single frozen root
+ok 2 - low/background still mode retains a single frozen root
+  ---
+  duration_ms: 1.240177
+  type: 'test'
+  ...
+# Subtest: explicit frame never advances its descendants
+ok 3 - explicit frame never advances its descendants
+  ---
+  duration_ms: 0.13581
+  type: 'test'
+  ...
+# Subtest: masked one-frame assembly is not split across its mask
+ok 4 - masked one-frame assembly is not split across its mask
+  ---
+  duration_ms: 0.168358
+  type: 'test'
+  ...
+# Subtest: animated root remains intact instead of freezing its own timeline
+ok 5 - animated root remains intact instead of freezing its own timeline
+  ---
+  duration_ms: 0.130232
+  type: 'test'
+  ...
+# Subtest: arena offscreen shapes are culled before rasterization
+ok 6 - arena offscreen shapes are culled before rasterization
+  ---
+  duration_ms: 0.680102
+  type: 'test'
+  ...
+# Subtest: non-arena paths retain their ordinary rasterization behavior
+ok 7 - non-arena paths retain their ordinary rasterization behavior
+  ---
+  duration_ms: 0.21067
+  type: 'test'
+  ...
+# Subtest: huge untinted arena shapes draw directly without an oversized raster
+ok 8 - huge untinted arena shapes draw directly without an oversized raster
+  ---
+  duration_ms: 0.564962
+  type: 'test'
+  ...
+# Subtest: small visible arena shapes keep the original cached raster
+ok 9 - small visible arena shapes keep the original cached raster
+  ---
+  duration_ms: 0.702115
+  type: 'test'
+  ...
+# Subtest: switching arenas releases all background raster surfaces
+ok 10 - switching arenas releases all background raster surfaces
+  ---
+  duration_ms: 1.566226
+  type: 'test'
+  ...
+# Subtest: normal and overtime share the cache when their art is identical
+ok 11 - normal and overtime share the cache when their art is identical
+  ---
+  duration_ms: 0.765688
+  type: 'test'
+  ...
+# Subtest: normal and overtime differing art keep separate variants
+ok 12 - normal and overtime differing art keep separate variants
+  ---
+  duration_ms: 1.491556
+  type: 'test'
+  ...
+# Subtest: still runs are not repainted on later animation frames
+ok 13 - still runs are not repainted on later animation frames
+  ---
+  duration_ms: 0.425166
+  type: 'test'
+  ...
+# Subtest: offscreen area cache construction does not allocate negative extents
+ok 14 - offscreen area cache construction does not allocate negative extents
+  ---
+  duration_ms: 0.248786
+  type: 'test'
+  ...
+# Subtest: many camera variants retain a bounded, released background cache
+ok 15 - many camera variants retain a bounded, released background cache
+  ---
+  duration_ms: 0.76079
+  type: 'test'
+  ...
+# Subtest: v160 release declares placement engine modules in visible and training bundles
+ok 16 - v160 release declares placement engine modules in visible and training bundles
+  ---
+  duration_ms: 0.982927
+  type: 'test'
+  ...
+# Subtest: package version agrees with the generated release
+ok 17 - package version agrees with the generated release
+  ---
+  duration_ms: 1.851077
+  type: 'test'
+  ...
+# Subtest: battle dependency planning does not require the full texture collection
+ok 18 - battle dependency planning does not require the full texture collection
+  ---
+  duration_ms: 1.822654
+  type: 'test'
+  ...
+# Subtest: local artwork URLs are allowed but other origins and executable URLs are not
+ok 19 - local artwork URLs are allowed but other origins and executable URLs are not
+  ---
+  duration_ms: 0.629417
+  type: 'test'
+  ...
+# Subtest: streamed native loading has a battle preparation interface
+ok 20 - streamed native loading has a battle preparation interface
+  ---
+  duration_ms: 0.09514
+  type: 'test'
+  ...
+# Subtest: unused scenes and their decoded textures can be released without evicting the current deck
+ok 21 - unused scenes and their decoded textures can be released without evicting the current deck
+  ---
+  duration_ms: 0.310978
+  type: 'test'
+  ...
+# Subtest: arena rendering waits for all referenced scenes instead of caching an incomplete arena
+ok 22 - arena rendering waits for all referenced scenes instead of caching an incomplete arena
+  ---
+  duration_ms: 0.501739
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 728.1025

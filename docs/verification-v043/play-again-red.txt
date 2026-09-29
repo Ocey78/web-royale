@@ -1,0 +1,169 @@
+TAP version 13
+# Subtest: Play Again retains mode, queue and a copy of the selected deck
+not ok 1 - Play Again retains mode, queue and a copy of the selected deck
+  ---
+  duration_ms: 1.376845
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:5:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:5:84)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: casual 1v1 repeat cannot become a ranked match
+not ok 2 - casual 1v1 repeat cannot become a ranked match
+  ---
+  duration_ms: 0.182405
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:6:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:6:68)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: Random Deck repeat requests fresh generation instead of reusing either deck
+not ok 3 - Random Deck repeat requests fresh generation instead of reusing either deck
+  ---
+  duration_ms: 0.115644
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:7:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:7:97)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: all selectable deck sizes are preserved by repeat
+not ok 4 - all selectable deck sizes are preserved by repeat
+  ---
+  duration_ms: 2.901154
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:8:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:8:186)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: practice repeat keeps practice rewards disabled
+not ok 5 - practice repeat keeps practice rewards disabled
+  ---
+  duration_ms: 0.181433
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:9:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:9:69)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: unfinished, sandbox, replay and war-ticket matches cannot be repeated from results
+not ok 6 - unfinished, sandbox, replay and war-ticket matches cannot be repeated from results
+  ---
+  duration_ms: 0.134453
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:10:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:10:104)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: repeat request does not modify or repay the completed match
+not ok 7 - repeat request does not modify or repay the completed match
+  ---
+  duration_ms: 10.55957
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:11:1'
+  failureType: 'testCodeFailure'
+  error: 'Play Again policy exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    policy (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:3:21)
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-play-again.test.cjs:11:280)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 0
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 101.217222

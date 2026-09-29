@@ -1,0 +1,243 @@
+{
+  "comparisons": 47,
+  "arenas": 15,
+  "results": [
+    {
+      "case": "training-0-0",
+      "meanAbsoluteChannelDifference": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "training-3.2-0",
+      "meanAbsoluteChannelDifference": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "training-3.2-1",
+      "meanAbsoluteChannelDifference": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "goblin-0-0",
+      "meanAbsoluteChannelDifference": 0.4465,
+      "passed": true
+    },
+    {
+      "case": "goblin-3.2-0",
+      "meanAbsoluteChannelDifference": 0.4463,
+      "passed": true
+    },
+    {
+      "case": "goblin-3.2-1",
+      "meanAbsoluteChannelDifference": 0.4463,
+      "passed": true
+    },
+    {
+      "case": "bone-0-0",
+      "meanAbsoluteChannelDifference": 0.0716,
+      "passed": true
+    },
+    {
+      "case": "bone-3.2-0",
+      "meanAbsoluteChannelDifference": 0.0714,
+      "passed": true
+    },
+    {
+      "case": "bone-3.2-1",
+      "meanAbsoluteChannelDifference": 0.0714,
+      "passed": true
+    },
+    {
+      "case": "barbarian-0-0",
+      "meanAbsoluteChannelDifference": 0.8786,
+      "passed": true
+    },
+    {
+      "case": "barbarian-3.2-0",
+      "meanAbsoluteChannelDifference": 0.8786,
+      "passed": true
+    },
+    {
+      "case": "barbarian-3.2-1",
+      "meanAbsoluteChannelDifference": 0.8786,
+      "passed": true
+    },
+    {
+      "case": "pekka-0-0",
+      "meanAbsoluteChannelDifference": 0.7237,
+      "passed": true
+    },
+    {
+      "case": "pekka-3.2-0",
+      "meanAbsoluteChannelDifference": 0.7228,
+      "passed": true
+    },
+    {
+      "case": "pekka-3.2-1",
+      "meanAbsoluteChannelDifference": 0.7228,
+      "passed": true
+    },
+    {
+      "case": "spell-0-0",
+      "meanAbsoluteChannelDifference": 0.4712,
+      "passed": true
+    },
+    {
+      "case": "spell-3.2-0",
+      "meanAbsoluteChannelDifference": 0.4701,
+      "passed": true
+    },
+    {
+      "case": "spell-3.2-1",
+      "meanAbsoluteChannelDifference": 0.4701,
+      "passed": true
+    },
+    {
+      "case": "builder-0-0",
+      "meanAbsoluteChannelDifference": 0.7444,
+      "passed": true
+    },
+    {
+      "case": "builder-3.2-0",
+      "meanAbsoluteChannelDifference": 0.7444,
+      "passed": true
+    },
+    {
+      "case": "builder-3.2-1",
+      "meanAbsoluteChannelDifference": 0.7444,
+      "passed": true
+    },
+    {
+      "case": "royal-0-0",
+      "meanAbsoluteChannelDifference": 0.5773,
+      "passed": true
+    },
+    {
+      "case": "royal-3.2-0",
+      "meanAbsoluteChannelDifference": 0.5771,
+      "passed": true
+    },
+    {
+      "case": "royal-3.2-1",
+      "meanAbsoluteChannelDifference": 0.5771,
+      "passed": true
+    },
+    {
+      "case": "frozen-0-0",
+      "meanAbsoluteChannelDifference": 0.0014,
+      "passed": true
+    },
+    {
+      "case": "frozen-3.2-0",
+      "meanAbsoluteChannelDifference": 0.0014,
+      "passed": true
+    },
+    {
+      "case": "frozen-3.2-1",
+      "meanAbsoluteChannelDifference": 0.0014,
+      "passed": true
+    },
+    {
+      "case": "jungle-0-0",
+      "meanAbsoluteChannelDifference": 0.1147,
+      "passed": true
+    },
+    {
+      "case": "jungle-3.2-0",
+      "meanAbsoluteChannelDifference": 0.1145,
+      "passed": true
+    },
+    {
+      "case": "jungle-3.2-1",
+      "meanAbsoluteChannelDifference": 0.1145,
+      "passed": true
+    },
+    {
+      "case": "hog-0-0",
+      "meanAbsoluteChannelDifference": 0.6519,
+      "passed": true
+    },
+    {
+      "case": "hog-3.2-0",
+      "meanAbsoluteChannelDifference": 0.652,
+      "passed": true
+    },
+    {
+      "case": "hog-3.2-1",
+      "meanAbsoluteChannelDifference": 0.652,
+      "passed": true
+    },
+    {
+      "case": "hog-8.1-0",
+      "meanAbsoluteChannelDifference": 0.6506,
+      "passed": true
+    },
+    {
+      "case": "hog-15.9-1",
+      "meanAbsoluteChannelDifference": 0.6502,
+      "passed": true
+    },
+    {
+      "case": "electro-0-0",
+      "meanAbsoluteChannelDifference": 0.1147,
+      "passed": true
+    },
+    {
+      "case": "electro-3.2-0",
+      "meanAbsoluteChannelDifference": 0.1214,
+      "passed": true
+    },
+    {
+      "case": "electro-3.2-1",
+      "meanAbsoluteChannelDifference": 0.2136,
+      "passed": true
+    },
+    {
+      "case": "spooky-0-0",
+      "meanAbsoluteChannelDifference": 0.4542,
+      "passed": true
+    },
+    {
+      "case": "spooky-3.2-0",
+      "meanAbsoluteChannelDifference": 0.4501,
+      "passed": true
+    },
+    {
+      "case": "spooky-3.2-1",
+      "meanAbsoluteChannelDifference": 0.4584,
+      "passed": true
+    },
+    {
+      "case": "rascals-0-0",
+      "meanAbsoluteChannelDifference": 0.001,
+      "passed": true
+    },
+    {
+      "case": "rascals-3.2-0",
+      "meanAbsoluteChannelDifference": 0.001,
+      "passed": true
+    },
+    {
+      "case": "rascals-3.2-1",
+      "meanAbsoluteChannelDifference": 0.001,
+      "passed": true
+    },
+    {
+      "case": "serenity-0-0",
+      "meanAbsoluteChannelDifference": 0.0005,
+      "passed": true
+    },
+    {
+      "case": "serenity-3.2-0",
+      "meanAbsoluteChannelDifference": 0.0005,
+      "passed": true
+    },
+    {
+      "case": "serenity-3.2-1",
+      "meanAbsoluteChannelDifference": 0.0005,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "environment": "headless Chromium, file-backed original assets, not physical iPhone or production deployment"
+}

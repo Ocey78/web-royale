@@ -1,0 +1,424 @@
+TAP version 13
+# Subtest: current full release matches package version and content-addressed app integrity
+ok 1 - current full release matches package version and content-addressed app integrity
+  ---
+  duration_ms: 15.166847
+  type: 'test'
+  ...
+# Subtest: all runtime assets match their current release hashes
+ok 2 - all runtime assets match their current release hashes
+  ---
+  duration_ms: 495.245628
+  type: 'test'
+  ...
+# Subtest: recovered social, war, replay and fixed queue modules are available
+ok 3 - recovered social, war, replay and fixed queue modules are available
+  ---
+  duration_ms: 145.081737
+  type: 'test'
+  ...
+# Subtest: re-extracted magic and boat art have real locally packaged PNG images
+ok 4 - re-extracted magic and boat art have real locally packaged PNG images
+  ---
+  duration_ms: 1.293458
+  type: 'test'
+  ...
+# Subtest: web build has a small external-script entry point instead of a 149 MB payload
+ok 5 - web build has a small external-script entry point instead of a 149 MB payload
+  ---
+  duration_ms: 3.488298
+  type: 'test'
+  ...
+# Subtest: web release is complete and cannot contain desktop executables, installers or fonts
+ok 6 - web release is complete and cannot contain desktop executables, installers or fonts
+  ---
+  duration_ms: 669.028057
+  type: 'test'
+  ...
+# Subtest: split scene metadata and images resolve to packaged files with cache-busting revisions
+ok 7 - split scene metadata and images resolve to packaged files with cache-busting revisions
+  ---
+  duration_ms: 285.832819
+  type: 'test'
+  ...
+# Subtest: web build bundles no remote script, remote image host, or account impersonation endpoint
+ok 8 - web build bundles no remote script, remote image host, or account impersonation endpoint
+  ---
+  duration_ms: 204.392704
+  type: 'test'
+  ...
+# Subtest: the web build-info dialog does not advertise the old native bundle version
+ok 9 - the web build-info dialog does not advertise the old native bundle version
+  ---
+  duration_ms: 11.220766
+  type: 'test'
+  ...
+# Subtest: v036 graphics defaults and invalid values normalize independently
+ok 10 - v036 graphics defaults and invalid values normalize independently
+  ---
+  duration_ms: 2.668515
+  type: 'test'
+  ...
+# Subtest: v036 profile exports and imports all four graphics options
+ok 11 - v036 profile exports and imports all four graphics options
+  ---
+  duration_ms: 22.414004
+  type: 'test'
+  ...
+# Subtest: v036 quality tiers control texture rasterization and animation cadence
+ok 12 - v036 quality tiers control texture rasterization and animation cadence
+  ---
+  duration_ms: 0.536552
+  type: 'test'
+  ...
+# Subtest: v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+ok 13 - v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+  ---
+  duration_ms: 2.164501
+  type: 'test'
+  ...
+# Subtest: v036 particle sampler honors a pre-sampling budget
+ok 14 - v036 particle sampler honors a pre-sampling budget
+  ---
+  duration_ms: 1.420234
+  type: 'test'
+  ...
+# Subtest: v036 untouched troops share one badge; damage moves only that troop to individual
+ok 15 - v036 untouched troops share one badge; damage moves only that troop to individual
+  ---
+  duration_ms: 2.200579
+  type: 'test'
+  ...
+# Subtest: v036 two surviving troops both use individual badges
+ok 16 - v036 two surviving troops both use individual badges
+  ---
+  duration_ms: 1.307206
+  type: 'test'
+  ...
+# Subtest: v036 shield damage counts, dead/hidden units do not, deployments stay separate
+ok 17 - v036 shield damage counts, dead/hidden units do not, deployments stay separate
+  ---
+  duration_ms: 0.484094
+  type: 'test'
+  ...
+# Subtest: v036 separate casts of a swarm have distinct persistent visual group IDs
+ok 18 - v036 separate casts of a swarm have distinct persistent visual group IDs
+  ---
+  duration_ms: 13.410371
+  type: 'test'
+  ...
+# Subtest: v036 mixed-unit card formations share a group ID without changing entity sequence
+ok 19 - v036 mixed-unit card formations share a group ID without changing entity sequence
+  ---
+  duration_ms: 2.881205
+  type: 'test'
+  ...
+# Subtest: animated alpha is composited without generating a separate tint texture per fade frame
+ok 20 - animated alpha is composited without generating a separate tint texture per fade frame
+  ---
+  duration_ms: 2.216427
+  type: 'test'
+  ...
+# Subtest: particle Off retains core spell artwork but skips emitter sprite work
+ok 21 - particle Off retains core spell artwork but skips emitter sprite work
+  ---
+  duration_ms: 3.053068
+  type: 'test'
+  ...
+# Subtest: Spells only skips movement particles but permits marked spell particles within the frame cap
+ok 22 - Spells only skips movement particles but permits marked spell particles within the frame cap
+  ---
+  duration_ms: 9.420628
+  type: 'test'
+  ...
+# Subtest: undamaged enemy troops draw a native level badge, not a health bar
+ok 23 - undamaged enemy troops draw a native level badge, not a health bar
+  ---
+  duration_ms: 4.092337
+  type: 'test'
+  ...
+# Subtest: Low texture tier really permits half-size raster textures
+ok 24 - Low texture tier really permits half-size raster textures
+  ---
+  duration_ms: 0.431115
+  type: 'test'
+  ...
+# Subtest: effect prewarming is bounded, yields, and never changes combat state
+ok 25 - effect prewarming is bounded, yields, and never changes combat state
+  ---
+  duration_ms: 1.171454
+  type: 'test'
+  ...
+# Subtest: v036 free chest is ready exactly ten minutes after claiming
+ok 26 - v036 free chest is ready exactly ten minutes after claiming
+  ---
+  duration_ms: 31.636861
+  type: 'test'
+  ...
+# Subtest: v036 migrates a v9 four-hour deadline once, preserving last claim
+ok 27 - v036 migrates a v9 four-hour deadline once, preserving last claim
+  ---
+  duration_ms: 1.131245
+  type: 'test'
+  ...
+# Subtest: v036 ten crowns ignore an old crown cooldown and are spent atomically
+ok 28 - v036 ten crowns ignore an old crown cooldown and are spent atomically
+  ---
+  duration_ms: 2.128403
+  type: 'test'
+  ...
+# Subtest: v036 streak bonus rerolls on each win within an unlocked tier
+ok 29 - v036 streak bonus rerolls on each win within an unlocked tier
+  ---
+  duration_ms: 14.535677
+  type: 'test'
+  ...
+# Subtest: v036 the same result pays once and replay/practice cannot change a streak
+ok 30 - v036 the same result pays once and replay/practice cannot change a streak
+  ---
+  duration_ms: 6.039033
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+ok 31 - v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+  ---
+  duration_ms: 3.557191
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop can select every rarity over its rotations
+ok 32 - v036 lightning shop can select every rarity over its rotations
+  ---
+  duration_ms: 15.949399
+  type: 'test'
+  ...
+# Subtest: v036 lightning purchase persists, rejects duplicates and stale offers without charging
+ok 33 - v036 lightning purchase persists, rejects duplicates and stale offers without charging
+  ---
+  duration_ms: 2.728111
+  type: 'test'
+  ...
+# Subtest: Normal deck deletion survives normalization, and ten saved decks are retained
+ok 34 - Normal deck deletion survives normalization, and ten saved decks are retained
+  ---
+  duration_ms: 4.163306
+  type: 'test'
+  ...
+# Subtest: Add/remove deck operations retain at least one and never mutate the input
+ok 35 - Add/remove deck operations retain at least one and never mutate the input
+  ---
+  duration_ms: 6.423427
+  type: 'test'
+  ...
+# Subtest: Four-card saved deck is independent, legal and persistent
+ok 36 - Four-card saved deck is independent, legal and persistent
+  ---
+  duration_ms: 0.985678
+  type: 'test'
+  ...
+# Subtest: Four-card matches have four real cards on both sides and safely cycle with an empty queue
+ok 37 - Four-card matches have four real cards on both sides and safely cycle with an empty queue
+  ---
+  duration_ms: 22.234049
+  type: 'test'
+  ...
+# Subtest: Random deck generation varies per seed without editing saved decks
+ok 38 - Random deck generation varies per seed without editing saved decks
+  ---
+  duration_ms: 4.084827
+  type: 'test'
+  ...
+# Subtest: Random deck mode remains named and non-ranked without modifying the deck library
+ok 39 - Random deck mode remains named and non-ranked without modifying the deck library
+  ---
+  duration_ms: 3.69517
+  type: 'test'
+  ...
+# Subtest: Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+ok 40 - Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+  ---
+  duration_ms: 26.340309
+  type: 'test'
+  ...
+# Subtest: Gem Chest retains its kind through saves and requires two subsequent wins
+ok 41 - Gem Chest retains its kind through saves and requires two subsequent wins
+  ---
+  duration_ms: 12.743079
+  type: 'test'
+  ...
+# Subtest: Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+ok 42 - Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+  ---
+  duration_ms: 183.845607
+  type: 'test'
+  ...
+# Subtest: Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+ok 43 - Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+  ---
+  duration_ms: 22.911104
+  type: 'test'
+  ...
+# Subtest: Daily Shop has nine stable offers and top three are always free
+ok 44 - Daily Shop has nine stable offers and top three are always free
+  ---
+  duration_ms: 4.713934
+  type: 'test'
+  ...
+# Subtest: Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+ok 45 - Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+  ---
+  duration_ms: 1255.810293
+  type: 'test'
+  ...
+# Subtest: Daily claims are atomic and survive JSON save normalization
+ok 46 - Daily claims are atomic and survive JSON save normalization
+  ---
+  duration_ms: 11.378602
+  type: 'test'
+  ...
+# Subtest: Daily paid offers debit gold once and reject insufficient funds or stale identity
+ok 47 - Daily paid offers debit gold once and reject insufficient funds or stale identity
+  ---
+  duration_ms: 2.514967
+  type: 'test'
+  ...
+# Subtest: Full particles survive save normalization and restore the full emitter/frame budget
+ok 48 - Full particles survive save normalization and restore the full emitter/frame budget
+  ---
+  duration_ms: 3.292735
+  type: 'test'
+  ...
+# Subtest: Faster result OK is visible at 2.7 seconds and not at the start
+ok 49 - Faster result OK is visible at 2.7 seconds and not at the start
+  ---
+  duration_ms: 7.876386
+  type: 'test'
+  ...
+# Subtest: Full-health Princess Towers show HP on both sides and King Tower text contains no level
+ok 50 - Full-health Princess Towers show HP on both sides and King Tower text contains no level
+  ---
+  duration_ms: 2.629434
+  type: 'test'
+  ...
+# Subtest: Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+ok 51 - Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+  ---
+  duration_ms: 16.846595
+  type: 'test'
+  ...
+# Subtest: Magic Archer arrow stays at its authored constant height after the original target dies
+ok 52 - Magic Archer arrow stays at its authored constant height after the original target dies
+  ---
+  duration_ms: 8.393088
+  type: 'test'
+  ...
+# Subtest: Magic Archer line hits produce hit feedback at each actual damaged target
+ok 53 - Magic Archer line hits produce hit feedback at each actual damaged target
+  ---
+  duration_ms: 7.750127
+  type: 'test'
+  ...
+# Subtest: Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+ok 54 - Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+  ---
+  duration_ms: 1568.373009
+  type: 'test'
+  ...
+# Subtest: v160 release declares placement engine modules in visible and training bundles
+ok 55 - v160 release declares placement engine modules in visible and training bundles
+  ---
+  duration_ms: 2.76223
+  type: 'test'
+  ...
+# Subtest: package version agrees with the generated release
+ok 56 - package version agrees with the generated release
+  ---
+  duration_ms: 10.239624
+  type: 'test'
+  ...
+# Subtest: princess tower destruction emits original crown death graph and crown flight event
+ok 57 - princess tower destruction emits original crown death graph and crown flight event
+  ---
+  duration_ms: 19.715781
+  type: 'test'
+  ...
+# Subtest: king tower destruction emits king crown death graph and awards three crowns
+ok 58 - king tower destruction emits king crown death graph and awards three crowns
+  ---
+  duration_ms: 2.746163
+  type: 'test'
+  ...
+# Subtest: spell cards emit their authored cast effects before resolving
+ok 59 - spell cards emit their authored cast effects before resolving
+  ---
+  duration_ms: 20.516478
+  type: 'test'
+  ...
+# Subtest: end result uses dedicated native-style flow instead of result modal
+ok 60 - end result uses dedicated native-style flow instead of result modal
+  ---
+  duration_ms: 2.217275
+  type: 'test'
+  ...
+# Subtest: graveyard emits its authored skeleton appearance effect for each spawned skeleton
+ok 61 - graveyard emits its authored skeleton appearance effect for each spawned skeleton
+  ---
+  duration_ms: 50.96344
+  type: 'test'
+  ...
+# Subtest: end-of-match source crown and confetti graphs are bundled
+ok 62 - end-of-match source crown and confetti graphs are bundled
+  ---
+  duration_ms: 9.372189
+  type: 'test'
+  ...
+# Subtest: winner confetti waits for the result banners and first crown reveal
+ok 63 - winner confetti waits for the result banners and first crown reveal
+  ---
+  duration_ms: 4.209768
+  type: 'test'
+  ...
+# Subtest: v180 bundles the original ui_battle_end scene for the match result board
+ok 64 - v180 bundles the original ui_battle_end scene for the match result board
+  ---
+  duration_ms: 1748.757885
+  type: 'test'
+  ...
+# Subtest: v180 result timeline matches recorded Match Over -> board -> crowns -> winner cadence
+ok 65 - v180 result timeline matches recorded Match Over -> board -> crowns -> winner cadence
+  ---
+  duration_ms: 0.967339
+  type: 'test'
+  ...
+# Subtest: v180 original crown-award sound cues are packaged
+ok 66 - v180 original crown-award sound cues are packaged
+  ---
+  duration_ms: 0.635619
+  type: 'test'
+  ...
+# Subtest: v180 native library exposes battle-end renderer and battle dependencies include the source scene
+ok 67 - v180 native library exposes battle-end renderer and battle dependencies include the source scene
+  ---
+  duration_ms: 924.565669
+  type: 'test'
+  ...
+# Subtest: v180 clustered same-direction troops spread sideways without orbiting or spinning
+ok 68 - v180 clustered same-direction troops spread sideways without orbiting or spinning
+  ---
+  duration_ms: 151.152367
+  type: 'test'
+  ...
+# Subtest: v180 soft separation is time-step scaled rather than frame-rate dependent
+ok 69 - v180 soft separation is time-step scaled rather than frame-rate dependent
+  ---
+  duration_ms: 75.23948
+  type: 'test'
+  ...
+1..69
+# tests 69
+# suites 0
+# pass 69
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4634.966069

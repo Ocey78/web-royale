@@ -1,0 +1,863 @@
+TAP version 13
+# Subtest: v044 new Rumble replays keep arches, independent owners and ten-player input cycles
+not ok 1 - v044 new Rumble replays keep arches, independent owners and ten-player input cycles
+  ---
+  duration_ms: 1.330902
+  type: 'test'
+  location: '/mnt/data/work044/Web-Royale/tests/v044-replay.test.cjs:2:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '0.43' !== '0.44'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '0.44'
+  actual: '0.43'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work044/Web-Royale/tests/v044-replay.test.cjs:2:96)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: v044 keeps the previous flat v043 arena and old elixir intervals for historical 5v5 replays
+not ok 2 - v044 keeps the previous flat v043 arena and old elixir intervals for historical 5v5 replays
+  ---
+  duration_ms: 41.723755
+  type: 'test'
+  location: '/mnt/data/work044/Web-Royale/tests/v044-replay.test.cjs:3:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      {
+        crowns: [
+          0,
+          0
+        ],
+    ...
+            1,
+    +       -26.66667,
+            80,
+    -       40,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       106.66667,
+    +       34,
+    -       160,
+    -       40,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            240,
+    +       20,
+    -       40,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       373.33333,
+    +       34,
+    -       320,
+    -       40,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       506.66667,
+    +       80,
+    -       400,
+    -       40,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       -26.66667,
+    +       200,
+    -       74.66667,
+    -       140,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       106.66667,
+    +       154,
+    -       157.33333,
+    -       140,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       373.33333,
+    +       154,
+    -       322.66667,
+    -       140,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            1,
+    +       506.66667,
+    +       200,
+    -       405.33333,
+    -       140,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       -26.66667,
+    +       560,
+    -       80,
+    -       600,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       106.66667,
+    +       606,
+    -       160,
+    -       600,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            240,
+    +       620,
+    -       600,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       373.33333,
+    +       606,
+    -       320,
+    -       600,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       506.66667,
+    +       560,
+    -       400,
+    -       600,
+            4128,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       -26.66667,
+    +       440,
+    -       74.66667,
+    -       500,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       106.66667,
+    +       486,
+    -       157.33333,
+    -       500,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       373.33333,
+    +       486,
+    -       322.66667,
+    -       500,
+            2576,
+            0,
+            0
+          ],
+          [
+    ...
+            0,
+    +       506.66667,
+    +       440,
+    -       405.33333,
+    -       500,
+            2576,
+            0,
+            0
+          ]
+        ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    time: 1.33333
+    crowns:
+      0: 0
+      1: 0
+    elixir:
+      0: 6.47619
+      1: 6.47619
+      2: 6.47619
+      3: 6.47619
+      4: 6.47619
+      5: 6.47619
+      6: 6.47619
+      7: 6.47619
+      8: 6.47619
+      9: 6.47619
+    hand:
+      0:
+        0: 'knight'
+        1: 'archers'
+        2: 'giant'
+        3: 'mini-pekka'
+      1:
+        0: 'baby-dragon'
+        1: 'mega-minion'
+        2: 'musketeer'
+        3: 'goblins'
+      2:
+        0: 'barbarians'
+        1: 'fireball'
+        2: 'goblins'
+        3: 'hunter'
+      3:
+        0: 'wall-breakers'
+        1: 'skeletons'
+        2: 'giant'
+        3: 'musketeer'
+      4:
+        0: 'skeleton-army'
+        1: 'tombstone'
+        2: 'goblin-barrel'
+        3: 'musketeer'
+      5:
+        0: 'minions'
+        1: 'golem'
+        2: 'miner'
+        3: 'witch'
+      6:
+        0: 'goblin-barrel'
+        1: 'inferno-tower'
+        2: 'wall-breakers'
+        3: 'tombstone'
+      7:
+        0: 'barbarian-hut'
+        1: 'battle-ram'
+        2: 'fireball'
+        3: 'bomber'
+      8:
+        0: 'miner'
+        1: 'bomber'
+        2: 'prince'
+        3: 'minions'
+      9:
+        0: 'minion-horde'
+        1: 'spear-goblins'
+        2: 'inferno-tower'
+        3: 'wall-breakers'
+    queue:
+      0:
+        0: 'musketeer'
+        1: 'bomber'
+        2: 'fireball'
+        3: 'arrows'
+      1:
+        0: 'giant'
+        1: 'fireball'
+        2: 'miner'
+        3: 'barbarians'
+      2:
+        0: 'minions'
+        1: 'giant'
+        2: 'inferno-tower'
+        3: 'valkyrie'
+      3:
+        0: 'tombstone'
+        1: 'fireball'
+        2: 'miner'
+        3: 'goblin-hut'
+      4:
+        0: 'golem'
+        1: 'baby-dragon'
+        2: 'witch'
+        3: 'barbarian-barrel'
+      5:
+        0: 'goblin-barrel'
+        1: 'hunter'
+        2: 'goblin-hut'
+        3: 'bomber'
+      6:
+        0: 'golem'
+        1: 'barbarian-barrel'
+        2: 'skeletons'
+        3: 'knight'
+      7:
+        0: 'golem'
+        1: 'valkyrie'
+        2: 'minions'
+        3: 'goblin-barrel'
+      8:
+        0: 'fireball'
+        1: 'valkyrie'
+        2: 'golem'
+        3: 'goblin-hut'
+      9:
+        0: 'fireball'
+        1: 'witch'
+        2: 'golem'
+        3: 'bomber'
+    units:
+      0:
+        0: 20
+        1: 'KingTower'
+        2: 1
+        3: 80
+        4: 40
+        5: 4128
+        6: 0
+        7: 0
+      1:
+        0: 21
+        1: 'KingTower'
+        2: 1
+        3: 160
+        4: 40
+        5: 4128
+        6: 0
+        7: 0
+      2:
+        0: 22
+        1: 'KingTower'
+        2: 1
+        3: 240
+        4: 40
+        5: 4128
+        6: 0
+        7: 0
+      3:
+        0: 23
+        1: 'KingTower'
+        2: 1
+        3: 320
+        4: 40
+        5: 4128
+        6: 0
+        7: 0
+      4:
+        0: 24
+        1: 'KingTower'
+        2: 1
+        3: 400
+        4: 40
+        5: 4128
+        6: 0
+        7: 0
+      5:
+        0: 25
+        1: 'PrincessTower'
+        2: 1
+        3: 74.66667
+        4: 140
+        5: 2576
+        6: 0
+        7: 0
+      6:
+        0: 26
+        1: 'PrincessTower'
+        2: 1
+        3: 157.33333
+        4: 140
+        5: 2576
+        6: 0
+        7: 0
+      7:
+        0: 27
+        1: 'PrincessTower'
+        2: 1
+        3: 240
+        4: 140
+        5: 2576
+        6: 0
+        7: 0
+      8:
+        0: 28
+        1: 'PrincessTower'
+        2: 1
+        3: 322.66667
+        4: 140
+        5: 2576
+        6: 0
+        7: 0
+      9:
+        0: 29
+        1: 'PrincessTower'
+        2: 1
+        3: 405.33333
+        4: 140
+        5: 2576
+        6: 0
+        7: 0
+      10:
+        0: 30
+        1: 'KingTower'
+        2: 0
+        3: 80
+        4: 600
+        5: 4128
+        6: 0
+        7: 0
+      11:
+        0: 31
+        1: 'KingTower'
+        2: 0
+        3: 160
+        4: 600
+        5: 4128
+        6: 0
+        7: 0
+      12:
+        0: 32
+        1: 'KingTower'
+        2: 0
+        3: 240
+        4: 600
+        5: 4128
+        6: 0
+        7: 0
+      13:
+        0: 33
+        1: 'KingTower'
+        2: 0
+        3: 320
+        4: 600
+        5: 4128
+        6: 0
+        7: 0
+      14:
+        0: 34
+        1: 'KingTower'
+        2: 0
+        3: 400
+        4: 600
+        5: 4128
+        6: 0
+        7: 0
+      15:
+        0: 35
+        1: 'PrincessTower'
+        2: 0
+        3: 74.66667
+        4: 500
+        5: 2576
+        6: 0
+        7: 0
+      16:
+        0: 36
+        1: 'PrincessTower'
+        2: 0
+        3: 157.33333
+        4: 500
+        5: 2576
+        6: 0
+        7: 0
+      17:
+        0: 37
+        1: 'PrincessTower'
+        2: 0
+        3: 240
+        4: 500
+        5: 2576
+        6: 0
+        7: 0
+      18:
+        0: 38
+        1: 'PrincessTower'
+        2: 0
+        3: 322.66667
+        4: 500
+        5: 2576
+        6: 0
+        7: 0
+      19:
+        0: 39
+        1: 'PrincessTower'
+        2: 0
+        3: 405.33333
+        4: 500
+        5: 2576
+        6: 0
+        7: 0
+    result: ~
+  actual:
+    time: 1.33333
+    crowns:
+      0: 0
+      1: 0
+    elixir:
+      0: 6.47619
+      1: 6.47619
+      2: 6.47619
+      3: 6.47619
+      4: 6.47619
+      5: 6.47619
+      6: 6.47619
+      7: 6.47619
+      8: 6.47619
+      9: 6.47619
+    hand:
+      0:
+        0: 'knight'
+        1: 'archers'
+        2: 'giant'
+        3: 'mini-pekka'
+      1:
+        0: 'baby-dragon'
+        1: 'mega-minion'
+        2: 'musketeer'
+        3: 'goblins'
+      2:
+        0: 'barbarians'
+        1: 'fireball'
+        2: 'goblins'
+        3: 'hunter'
+      3:
+        0: 'wall-breakers'
+        1: 'skeletons'
+        2: 'giant'
+        3: 'musketeer'
+      4:
+        0: 'skeleton-army'
+        1: 'tombstone'
+        2: 'goblin-barrel'
+        3: 'musketeer'
+      5:
+        0: 'minions'
+        1: 'golem'
+        2: 'miner'
+        3: 'witch'
+      6:
+        0: 'goblin-barrel'
+        1: 'inferno-tower'
+        2: 'wall-breakers'
+        3: 'tombstone'
+      7:
+        0: 'barbarian-hut'
+        1: 'battle-ram'
+        2: 'fireball'
+        3: 'bomber'
+      8:
+        0: 'miner'
+        1: 'bomber'
+        2: 'prince'
+        3: 'minions'
+      9:
+        0: 'minion-horde'
+        1: 'spear-goblins'
+        2: 'inferno-tower'
+        3: 'wall-breakers'
+    queue:
+      0:
+        0: 'musketeer'
+        1: 'bomber'
+        2: 'fireball'
+        3: 'arrows'
+      1:
+        0: 'giant'
+        1: 'fireball'
+        2: 'miner'
+        3: 'barbarians'
+      2:
+        0: 'minions'
+        1: 'giant'
+        2: 'inferno-tower'
+        3: 'valkyrie'
+      3:
+        0: 'tombstone'
+        1: 'fireball'
+        2: 'miner'
+        3: 'goblin-hut'
+      4:
+        0: 'golem'
+        1: 'baby-dragon'
+        2: 'witch'
+        3: 'barbarian-barrel'
+      5:
+        0: 'goblin-barrel'
+        1: 'hunter'
+        2: 'goblin-hut'
+        3: 'bomber'
+      6:
+        0: 'golem'
+        1: 'barbarian-barrel'
+        2: 'skeletons'
+        3: 'knight'
+      7:
+        0: 'golem'
+        1: 'valkyrie'
+        2: 'minions'
+        3: 'goblin-barrel'
+      8:
+        0: 'fireball'
+        1: 'valkyrie'
+        2: 'golem'
+        3: 'goblin-hut'
+      9:
+        0: 'fireball'
+        1: 'witch'
+        2: 'golem'
+        3: 'bomber'
+    units:
+      0:
+        0: 20
+        1: 'KingTower'
+        2: 1
+        3: -26.66667
+        4: 80
+        5: 4128
+        6: 0
+        7: 0
+      1:
+        0: 21
+        1: 'KingTower'
+        2: 1
+        3: 106.66667
+        4: 34
+        5: 4128
+        6: 0
+        7: 0
+      2:
+        0: 22
+        1: 'KingTower'
+        2: 1
+        3: 240
+        4: 20
+        5: 4128
+        6: 0
+        7: 0
+      3:
+        0: 23
+        1: 'KingTower'
+        2: 1
+        3: 373.33333
+        4: 34
+        5: 4128
+        6: 0
+        7: 0
+      4:
+        0: 24
+        1: 'KingTower'
+        2: 1
+        3: 506.66667
+        4: 80
+        5: 4128
+        6: 0
+        7: 0
+      5:
+        0: 25
+        1: 'PrincessTower'
+        2: 1
+        3: -26.66667
+        4: 200
+        5: 2576
+        6: 0
+        7: 0
+      6:
+        0: 26
+        1: 'PrincessTower'
+        2: 1
+        3: 106.66667
+        4: 154
+        5: 2576
+        6: 0
+        7: 0
+      7:
+        0: 27
+        1: 'PrincessTower'
+        2: 1
+        3: 240
+        4: 140
+        5: 2576
+        6: 0
+        7: 0
+      8:
+        0: 28
+        1: 'PrincessTower'
+        2: 1
+        3: 373.33333
+        4: 154
+        5: 2576
+        6: 0
+        7: 0
+      9:
+        0: 29
+        1: 'PrincessTower'
+        2: 1
+        3: 506.66667
+        4: 200
+        5: 2576
+        6: 0
+        7: 0
+      10:
+        0: 30
+        1: 'KingTower'
+        2: 0
+        3: -26.66667
+        4: 560
+        5: 4128
+        6: 0
+        7: 0
+      11:
+        0: 31
+        1: 'KingTower'
+        2: 0
+        3: 106.66667
+        4: 606
+        5: 4128
+        6: 0
+        7: 0
+      12:
+        0: 32
+        1: 'KingTower'
+        2: 0
+        3: 240
+        4: 620
+        5: 4128
+        6: 0
+        7: 0
+      13:
+        0: 33
+        1: 'KingTower'
+        2: 0
+        3: 373.33333
+        4: 606
+        5: 4128
+        6: 0
+        7: 0
+      14:
+        0: 34
+        1: 'KingTower'
+        2: 0
+        3: 506.66667
+        4: 560
+        5: 4128
+        6: 0
+        7: 0
+      15:
+        0: 35
+        1: 'PrincessTower'
+        2: 0
+        3: -26.66667
+        4: 440
+        5: 2576
+        6: 0
+        7: 0
+      16:
+        0: 36
+        1: 'PrincessTower'
+        2: 0
+        3: 106.66667
+        4: 486
+        5: 2576
+        6: 0
+        7: 0
+      17:
+        0: 37
+        1: 'PrincessTower'
+        2: 0
+        3: 240
+        4: 500
+        5: 2576
+        6: 0
+        7: 0
+      18:
+        0: 38
+        1: 'PrincessTower'
+        2: 0
+        3: 373.33333
+        4: 486
+        5: 2576
+        6: 0
+        7: 0
+      19:
+        0: 39
+        1: 'PrincessTower'
+        2: 0
+        3: 506.66667
+        4: 440
+        5: 2576
+        6: 0
+        7: 0
+    result: ~
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work044/Web-Royale/tests/v044-replay.test.cjs:3:314)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: v044 legacy twelve-card and One Shot validation still selects the correct prior engine
+ok 3 - v044 legacy twelve-card and One Shot validation still selects the correct prior engine
+  ---
+  duration_ms: 14.016914
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 1
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 222.626881

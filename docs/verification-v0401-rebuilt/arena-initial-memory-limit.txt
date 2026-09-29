@@ -1,0 +1,2 @@
+PASS training 3 visual comparisons
+PASS goblin 3 visual comparisons

@@ -1,0 +1,8142 @@
+{
+  "snapshot": "3.2557.2",
+  "catalogCards": 102,
+  "methodology": "Pinned source-reachable entities, real Battle.move and separation, deterministic geometry and source speeds/radii. This does not certify native tick-for-tick parity.",
+  "roster": [
+    {
+      "entity": "AngryBarbarian",
+      "cards": [
+        "elite-barbarians"
+      ],
+      "paths": [
+        [
+          "elite-barbarians",
+          "SummonCharacter:AngryBarbarian"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Archer",
+      "cards": [
+        "archers"
+      ],
+      "paths": [
+        [
+          "archers",
+          "SummonCharacter:Archer"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Assassin",
+      "cards": [
+        "bandit"
+      ],
+      "paths": [
+        [
+          "bandit",
+          "SummonCharacter:Assassin"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "AxeMan",
+      "cards": [
+        "executioner"
+      ],
+      "paths": [
+        [
+          "executioner",
+          "SummonCharacter:AxeMan"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BabyDragon",
+      "cards": [
+        "baby-dragon"
+      ],
+      "paths": [
+        [
+          "baby-dragon",
+          "SummonCharacter:BabyDragon"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Balloon",
+      "cards": [
+        "balloon"
+      ],
+      "paths": [
+        [
+          "balloon",
+          "SummonCharacter:Balloon"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BalloonBomb",
+      "cards": [
+        "balloon"
+      ],
+      "paths": [
+        [
+          "balloon",
+          "SummonCharacter:Balloon",
+          "DeathSpawnCharacter:BalloonBomb"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.45,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": true
+    },
+    {
+      "entity": "Barbarian",
+      "cards": [
+        "barbarians",
+        "battle-ram",
+        "barbarian-hut",
+        "barbarian-barrel"
+      ],
+      "paths": [
+        [
+          "barbarians",
+          "SummonCharacter:Barbarian"
+        ],
+        [
+          "battle-ram",
+          "SummonCharacter:BattleRam",
+          "DeathSpawnCharacter:Barbarian"
+        ],
+        [
+          "barbarian-hut",
+          "SummonCharacter:BarbarianHut",
+          "SpawnCharacter:Barbarian"
+        ],
+        [
+          "barbarian-hut",
+          "SummonCharacter:BarbarianHut",
+          "DeathSpawnCharacter:Barbarian"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BarbarianHut",
+      "cards": [
+        "barbarian-hut"
+      ],
+      "paths": [
+        [
+          "barbarian-hut",
+          "SummonCharacter:BarbarianHut"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 1,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Bat",
+      "cards": [
+        "night-witch",
+        "bats"
+      ],
+      "paths": [
+        [
+          "night-witch",
+          "SummonCharacter:DarkWitch",
+          "SpawnCharacter:Bat"
+        ],
+        [
+          "night-witch",
+          "SummonCharacter:DarkWitch",
+          "DeathSpawnCharacter:Bat"
+        ],
+        [
+          "bats",
+          "SummonCharacter:Bat"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.5,
+      "mass": 1,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BattleHealer",
+      "cards": [
+        "battle-healer"
+      ],
+      "paths": [
+        [
+          "battle-healer",
+          "SummonCharacter:BattleHealer"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": false,
+      "hover": true,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BattleRam",
+      "cards": [
+        "battle-ram"
+      ],
+      "paths": [
+        [
+          "battle-ram",
+          "SummonCharacter:BattleRam"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.75,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BlowdartGoblin",
+      "cards": [
+        "dart-goblin"
+      ],
+      "paths": [
+        [
+          "dart-goblin",
+          "SummonCharacter:BlowdartGoblin"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.5,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Bomber",
+      "cards": [
+        "bomber",
+        "bomb-tower"
+      ],
+      "paths": [
+        [
+          "bomber",
+          "SummonCharacter:Bomber"
+        ],
+        [
+          "bomb-tower",
+          "SummonCharacter:BombTower",
+          "AttachedCharacter:Bomber"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BombTower",
+      "cards": [
+        "bomb-tower"
+      ],
+      "paths": [
+        [
+          "bomb-tower",
+          "SummonCharacter:BombTower"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.6,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BombTowerBomb",
+      "cards": [
+        "bomb-tower"
+      ],
+      "paths": [
+        [
+          "bomb-tower",
+          "SummonCharacter:BombTower",
+          "DeathSpawnCharacter:BombTowerBomb"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.45,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": true
+    },
+    {
+      "entity": "Bowler",
+      "cards": [
+        "bowler"
+      ],
+      "paths": [
+        [
+          "bowler",
+          "SummonCharacter:Bowler"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "BrokenCannon",
+      "cards": [
+        "cannon-cart"
+      ],
+      "paths": [
+        [
+          "cannon-cart",
+          "SummonCharacter:MovingCannon",
+          "DeathSpawnCharacter:BrokenCannon"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Cannon",
+      "cards": [
+        "cannon"
+      ],
+      "paths": [
+        [
+          "cannon",
+          "SummonCharacter:Cannon"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.6,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "DarkPrince",
+      "cards": [
+        "dark-prince"
+      ],
+      "paths": [
+        [
+          "dark-prince",
+          "SummonCharacter:DarkPrince"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "DarkWitch",
+      "cards": [
+        "night-witch"
+      ],
+      "paths": [
+        [
+          "night-witch",
+          "SummonCharacter:DarkWitch"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "DartBarrell",
+      "cards": [
+        "flying-machine"
+      ],
+      "paths": [
+        [
+          "flying-machine",
+          "SummonCharacter:DartBarrell"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 3,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "DeliveryRecruit",
+      "cards": [
+        "royal-delivery"
+      ],
+      "paths": [
+        [
+          "royal-delivery",
+          "AreaEffectObject:RoyalDeliveryArea",
+          "Projectile:RoyalDeliveryProjectile",
+          "SpawnCharacter:DeliveryRecruit"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElectroDragon",
+      "cards": [
+        "electro-dragon"
+      ],
+      "paths": [
+        [
+          "electro-dragon",
+          "SummonCharacter:ElectroDragon"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 7,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElectroGiant",
+      "cards": [
+        "electro-giant"
+      ],
+      "paths": [
+        [
+          "electro-giant",
+          "SummonCharacter:ElectroGiant"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElectroSpirit",
+      "cards": [
+        "electro-spirit"
+      ],
+      "paths": [
+        [
+          "electro-spirit",
+          "SummonCharacter:ElectroSpirit"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.4,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElectroWizard",
+      "cards": [
+        "electro-wizard"
+      ],
+      "paths": [
+        [
+          "electro-wizard",
+          "SummonCharacter:ElectroWizard"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "EliteArcher",
+      "cards": [
+        "magic-archer"
+      ],
+      "paths": [
+        [
+          "magic-archer",
+          "SummonCharacter:EliteArcher"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElixirCollector",
+      "cards": [
+        "elixir-collector"
+      ],
+      "paths": [
+        [
+          "elixir-collector",
+          "SummonCharacter:ElixirCollector"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 1,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElixirGolem1",
+      "cards": [
+        "elixir-golem"
+      ],
+      "paths": [
+        [
+          "elixir-golem",
+          "SummonCharacter:ElixirGolem1"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.6,
+      "mass": 15,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElixirGolem2",
+      "cards": [
+        "elixir-golem"
+      ],
+      "paths": [
+        [
+          "elixir-golem",
+          "SummonCharacter:ElixirGolem1",
+          "DeathSpawnCharacter:ElixirGolem2"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 10,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ElixirGolem4",
+      "cards": [
+        "elixir-golem"
+      ],
+      "paths": [
+        [
+          "elixir-golem",
+          "SummonCharacter:ElixirGolem1",
+          "DeathSpawnCharacter:ElixirGolem2",
+          "DeathSpawnCharacter:ElixirGolem4"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.4,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Firecracker",
+      "cards": [
+        "firecracker"
+      ],
+      "paths": [
+        [
+          "firecracker",
+          "SummonCharacter:Firecracker"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "FirespiritHut",
+      "cards": [
+        "furnace"
+      ],
+      "paths": [
+        [
+          "furnace",
+          "SummonCharacter:FirespiritHut"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 1,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "FireSpirits",
+      "cards": [
+        "fire-spirits",
+        "furnace"
+      ],
+      "paths": [
+        [
+          "fire-spirits",
+          "SummonCharacter:FireSpirits"
+        ],
+        [
+          "furnace",
+          "SummonCharacter:FirespiritHut",
+          "SpawnCharacter:FireSpirits"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.4,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Fisherman",
+      "cards": [
+        "fisherman"
+      ],
+      "paths": [
+        [
+          "fisherman",
+          "SummonCharacter:Fisherman"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 10,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Ghost",
+      "cards": [
+        "royal-ghost"
+      ],
+      "paths": [
+        [
+          "royal-ghost",
+          "SummonCharacter:Ghost"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": true,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GhostOverlay",
+      "cards": [
+        "royal-ghost"
+      ],
+      "paths": [
+        [
+          "royal-ghost",
+          "SummonCharacter:Ghost",
+          "AttachedCharacter:GhostOverlay"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": true,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": true,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Giant",
+      "cards": [
+        "giant"
+      ],
+      "paths": [
+        [
+          "giant",
+          "SummonCharacter:Giant"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GiantSkeleton",
+      "cards": [
+        "giant-skeleton"
+      ],
+      "paths": [
+        [
+          "giant-skeleton",
+          "SummonCharacter:GiantSkeleton"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 1,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GiantSkeletonBomb",
+      "cards": [
+        "giant-skeleton"
+      ],
+      "paths": [
+        [
+          "giant-skeleton",
+          "SummonCharacter:GiantSkeleton",
+          "DeathSpawnCharacter:GiantSkeletonBomb"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.45,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": true
+    },
+    {
+      "entity": "Goblin",
+      "cards": [
+        "goblins",
+        "goblin-gang",
+        "goblin-barrel"
+      ],
+      "paths": [
+        [
+          "goblins",
+          "SummonCharacter:Goblin"
+        ],
+        [
+          "goblin-gang",
+          "SummonCharacter:Goblin"
+        ],
+        [
+          "goblin-barrel",
+          "Projectile:GoblinBarrelSpell",
+          "SpawnCharacter:Goblin"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.5,
+      "mass": 2,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GoblinBrawler",
+      "cards": [
+        "goblin-cage"
+      ],
+      "paths": [
+        [
+          "goblin-cage",
+          "SummonCharacter:GoblinCage",
+          "DeathSpawnCharacter:GoblinBrawler"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 2,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GoblinCage",
+      "cards": [
+        "goblin-cage"
+      ],
+      "paths": [
+        [
+          "goblin-cage",
+          "SummonCharacter:GoblinCage"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 1,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GoblinGiant",
+      "cards": [
+        "goblin-giant"
+      ],
+      "paths": [
+        [
+          "goblin-giant",
+          "SummonCharacter:GoblinGiant"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "GoblinHut",
+      "cards": [
+        "goblin-hut"
+      ],
+      "paths": [
+        [
+          "goblin-hut",
+          "SummonCharacter:GoblinHut"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 1,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Golem",
+      "cards": [
+        "golem"
+      ],
+      "paths": [
+        [
+          "golem",
+          "SummonCharacter:Golem"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 20,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Golemite",
+      "cards": [
+        "golem"
+      ],
+      "paths": [
+        [
+          "golem",
+          "SummonCharacter:Golem",
+          "DeathSpawnCharacter:Golemite"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "HealSpirit",
+      "cards": [
+        "heal-spirit"
+      ],
+      "paths": [
+        [
+          "heal-spirit",
+          "SummonCharacter:HealSpirit"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.4,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "HogRider",
+      "cards": [
+        "hog-rider"
+      ],
+      "paths": [
+        [
+          "hog-rider",
+          "SummonCharacter:HogRider"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.6,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": true,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Hunter",
+      "cards": [
+        "hunter"
+      ],
+      "paths": [
+        [
+          "hunter",
+          "SummonCharacter:Hunter"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "IceGolemite",
+      "cards": [
+        "ice-golem"
+      ],
+      "paths": [
+        [
+          "ice-golem",
+          "SummonCharacter:IceGolemite"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.7,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "IceSpirits",
+      "cards": [
+        "ice-spirit"
+      ],
+      "paths": [
+        [
+          "ice-spirit",
+          "SummonCharacter:IceSpirits"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.4,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "IceWizard",
+      "cards": [
+        "ice-wizard"
+      ],
+      "paths": [
+        [
+          "ice-wizard",
+          "SummonCharacter:IceWizard"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "InfernoDragon",
+      "cards": [
+        "inferno-dragon"
+      ],
+      "paths": [
+        [
+          "inferno-dragon",
+          "SummonCharacter:InfernoDragon"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "InfernoTower",
+      "cards": [
+        "inferno-tower"
+      ],
+      "paths": [
+        [
+          "inferno-tower",
+          "SummonCharacter:InfernoTower"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.6,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Knight",
+      "cards": [
+        "knight"
+      ],
+      "paths": [
+        [
+          "knight",
+          "SummonCharacter:Knight"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "LavaHound",
+      "cards": [
+        "lava-hound"
+      ],
+      "paths": [
+        [
+          "lava-hound",
+          "SummonCharacter:LavaHound"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 5,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "LavaPups",
+      "cards": [
+        "lava-hound"
+      ],
+      "paths": [
+        [
+          "lava-hound",
+          "SummonCharacter:LavaHound",
+          "DeathSpawnCharacter:LavaPups"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.45,
+      "mass": 5,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "MegaKnight",
+      "cards": [
+        "mega-knight"
+      ],
+      "paths": [
+        [
+          "mega-knight",
+          "SummonCharacter:MegaKnight"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "MegaMinion",
+      "cards": [
+        "mega-minion"
+      ],
+      "paths": [
+        [
+          "mega-minion",
+          "SummonCharacter:MegaMinion"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 6,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Miner",
+      "cards": [
+        "miner"
+      ],
+      "paths": [
+        [
+          "miner",
+          "SummonCharacter:Miner"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Minion",
+      "cards": [
+        "minions",
+        "minion-horde"
+      ],
+      "paths": [
+        [
+          "minions",
+          "SummonCharacter:Minion"
+        ],
+        [
+          "minion-horde",
+          "SummonCharacter:Minion"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 2,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "MiniPekka",
+      "cards": [
+        "mini-pekka"
+      ],
+      "paths": [
+        [
+          "mini-pekka",
+          "SummonCharacter:MiniPekka"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.45,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "MiniZapMachine",
+      "cards": [
+        "zappies"
+      ],
+      "paths": [
+        [
+          "zappies",
+          "SummonCharacter:MiniZapMachine"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Mortar",
+      "cards": [
+        "mortar"
+      ],
+      "paths": [
+        [
+          "mortar",
+          "SummonCharacter:Mortar"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.6,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "MovingCannon",
+      "cards": [
+        "cannon-cart"
+      ],
+      "paths": [
+        [
+          "cannon-cart",
+          "SummonCharacter:MovingCannon"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Musketeer",
+      "cards": [
+        "musketeer"
+      ],
+      "paths": [
+        [
+          "musketeer",
+          "SummonCharacter:Musketeer"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Pekka",
+      "cards": [
+        "pekka"
+      ],
+      "paths": [
+        [
+          "pekka",
+          "SummonCharacter:Pekka"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Prince",
+      "cards": [
+        "prince"
+      ],
+      "paths": [
+        [
+          "prince",
+          "SummonCharacter:Prince"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Princess",
+      "cards": [
+        "princess"
+      ],
+      "paths": [
+        [
+          "princess",
+          "SummonCharacter:Princess"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RageBarbarian",
+      "cards": [
+        "lumberjack"
+      ],
+      "paths": [
+        [
+          "lumberjack",
+          "SummonCharacter:RageBarbarian"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.5,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RageBarbarianBottle",
+      "cards": [
+        "lumberjack"
+      ],
+      "paths": [
+        [
+          "lumberjack",
+          "SummonCharacter:RageBarbarian",
+          "DeathSpawnCharacter:RageBarbarianBottle"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.4,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": true
+    },
+    {
+      "entity": "Ram",
+      "cards": [
+        "ram-rider"
+      ],
+      "paths": [
+        [
+          "ram-rider",
+          "SummonCharacter:Ram"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": true,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RamRider",
+      "cards": [
+        "ram-rider"
+      ],
+      "paths": [
+        [
+          "ram-rider",
+          "SummonCharacter:Ram",
+          "SpawnCharacter:RamRider"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.6,
+      "mass": 3,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": true,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RascalBoy",
+      "cards": [
+        "rascals"
+      ],
+      "paths": [
+        [
+          "rascals",
+          "SummonCharacter:RascalBoy"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.75,
+      "mass": 10,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RascalGirl",
+      "cards": [
+        "rascals"
+      ],
+      "paths": [
+        [
+          "rascals",
+          "SummonCharacterSecond:RascalGirl"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 2,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Recruit",
+      "cards": [
+        "royal-recruits"
+      ],
+      "paths": [
+        [
+          "royal-recruits",
+          "SummonCharacter:Recruit"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RoyalGiant",
+      "cards": [
+        "royal-giant"
+      ],
+      "paths": [
+        [
+          "royal-giant",
+          "SummonCharacter:RoyalGiant"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 0.75,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "RoyalHog",
+      "cards": [
+        "royal-hogs"
+      ],
+      "paths": [
+        [
+          "royal-hogs",
+          "SummonCharacter:RoyalHog"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.6,
+      "mass": 2,
+      "air": false,
+      "hover": false,
+      "riverJump": true,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Skeleton",
+      "cards": [
+        "witch",
+        "skeletons",
+        "skeleton-army",
+        "skeleton-barrel",
+        "tombstone",
+        "graveyard"
+      ],
+      "paths": [
+        [
+          "witch",
+          "SummonCharacter:Witch",
+          "SpawnCharacter:Skeleton"
+        ],
+        [
+          "skeletons",
+          "SummonCharacter:Skeleton"
+        ],
+        [
+          "skeleton-army",
+          "SummonCharacter:Skeleton"
+        ],
+        [
+          "skeleton-barrel",
+          "SummonCharacter:SkeletonBalloon",
+          "DeathSpawnCharacter:SkeletonContainer",
+          "DeathSpawnCharacter:Skeleton"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "SkeletonBalloon",
+      "cards": [
+        "skeleton-barrel"
+      ],
+      "paths": [
+        [
+          "skeleton-barrel",
+          "SummonCharacter:SkeletonBalloon"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 7,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "SkeletonContainer",
+      "cards": [
+        "skeleton-barrel"
+      ],
+      "paths": [
+        [
+          "skeleton-barrel",
+          "SummonCharacter:SkeletonBalloon",
+          "DeathSpawnCharacter:SkeletonContainer"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.4,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": true
+    },
+    {
+      "entity": "SkeletonDragon",
+      "cards": [
+        "skeleton-dragons"
+      ],
+      "paths": [
+        [
+          "skeleton-dragons",
+          "SummonCharacter:SkeletonDragon"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.9,
+      "mass": 4,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "SkeletonWarrior",
+      "cards": [
+        "guards"
+      ],
+      "paths": [
+        [
+          "guards",
+          "SummonCharacter:SkeletonWarrior"
+        ]
+      ],
+      "speedTiles": 1.5,
+      "radiusTiles": 0.5,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "SpearGoblin",
+      "cards": [
+        "spear-goblins",
+        "goblin-gang",
+        "goblin-giant",
+        "goblin-hut"
+      ],
+      "paths": [
+        [
+          "spear-goblins",
+          "SummonCharacter:SpearGoblin"
+        ],
+        [
+          "goblin-gang",
+          "SummonCharacterSecond:SpearGoblin"
+        ],
+        [
+          "goblin-giant",
+          "SummonCharacter:GoblinGiant",
+          "SpawnCharacter:SpearGoblinGiant",
+          "DeathSpawnCharacter:SpearGoblin"
+        ],
+        [
+          "goblin-hut",
+          "SummonCharacter:GoblinHut",
+          "SpawnCharacter:SpearGoblin"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.5,
+      "mass": 1,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "SpearGoblinGiant",
+      "cards": [
+        "goblin-giant"
+      ],
+      "paths": [
+        [
+          "goblin-giant",
+          "SummonCharacter:GoblinGiant",
+          "SpawnCharacter:SpearGoblinGiant"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.5,
+      "mass": 1,
+      "air": true,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": true,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Tesla",
+      "cards": [
+        "tesla"
+      ],
+      "paths": [
+        [
+          "tesla",
+          "SummonCharacter:Tesla"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.5,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ThreeMusketeer",
+      "cards": [
+        "three-musketeers"
+      ],
+      "paths": [
+        [
+          "three-musketeers",
+          "SummonCharacter:ThreeMusketeer"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Tombstone",
+      "cards": [
+        "tombstone"
+      ],
+      "paths": [
+        [
+          "tombstone",
+          "SummonCharacter:Tombstone"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 1,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Valkyrie",
+      "cards": [
+        "valkyrie"
+      ],
+      "paths": [
+        [
+          "valkyrie",
+          "SummonCharacter:Valkyrie"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "VoodooHog",
+      "cards": [
+        "mother-witch"
+      ],
+      "paths": [
+        [
+          "mother-witch",
+          "SummonCharacter:WitchMother",
+          "Projectile:VoodooProjectile",
+          "TargetBuff:VoodooCurse",
+          "DeathSpawn:VoodooHog"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.6,
+      "mass": 2,
+      "air": false,
+      "hover": false,
+      "riverJump": true,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Wallbreaker",
+      "cards": [
+        "wall-breakers"
+      ],
+      "paths": [
+        [
+          "wall-breakers",
+          "SummonCharacter:Wallbreaker"
+        ]
+      ],
+      "speedTiles": 2,
+      "radiusTiles": 0.4,
+      "mass": 4,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Witch",
+      "cards": [
+        "witch"
+      ],
+      "paths": [
+        [
+          "witch",
+          "SummonCharacter:Witch"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 8,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "WitchMother",
+      "cards": [
+        "mother-witch"
+      ],
+      "paths": [
+        [
+          "mother-witch",
+          "SummonCharacter:WitchMother"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 6,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Wizard",
+      "cards": [
+        "wizard"
+      ],
+      "paths": [
+        [
+          "wizard",
+          "SummonCharacter:Wizard"
+        ]
+      ],
+      "speedTiles": 1,
+      "radiusTiles": 0.5,
+      "mass": 5,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "Xbow",
+      "cards": [
+        "x-bow"
+      ],
+      "paths": [
+        [
+          "x-bow",
+          "SummonCharacter:Xbow"
+        ]
+      ],
+      "speedTiles": 0,
+      "radiusTiles": 0.6,
+      "mass": 100,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": true,
+      "attachedOnly": false,
+      "effectCarrier": false
+    },
+    {
+      "entity": "ZapMachine",
+      "cards": [
+        "sparky"
+      ],
+      "paths": [
+        [
+          "sparky",
+          "SummonCharacter:ZapMachine"
+        ]
+      ],
+      "speedTiles": 0.75,
+      "radiusTiles": 1,
+      "mass": 18,
+      "air": false,
+      "hover": false,
+      "riverJump": false,
+      "stationary": false,
+      "attachedOnly": false,
+      "effectCarrier": false
+    }
+  ],
+  "outcomes": [
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AngryBarbarian",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AngryBarbarian",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AngryBarbarian",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AngryBarbarian",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Archer",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Archer",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Archer",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Archer",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Assassin",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.821181972764515,
+        "y": 13.998886270309066
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Assassin",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.178818027235437,
+        "y": 13.998886270309134
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Assassin",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.821181972764536,
+        "y": 18.00111372969088
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Assassin",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.178818027235437,
+        "y": 18.001113729690864
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AxeMan",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8184272434825486,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AxeMan",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517491,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AxeMan",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.818427243482554,
+        "y": 18.049737896546784
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "AxeMan",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517458,
+        "y": 18.04973789654675
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BabyDragon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BabyDragon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BabyDragon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BabyDragon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Balloon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Balloon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Balloon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Balloon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Barbarian",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Barbarian",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Barbarian",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Barbarian",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bat",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097584,
+        "y": 13.968570863290614
+      },
+      "seconds": 4.049999999999994,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bat",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902472,
+        "y": 13.968570863290614
+      },
+      "seconds": 4.049999999999994,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bat",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097586,
+        "y": 18.031429136709384
+      },
+      "seconds": 4.049999999999994,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bat",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902472,
+        "y": 18.031429136709384
+      },
+      "seconds": 4.049999999999994,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleHealer",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleHealer",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleHealer",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleHealer",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleRam",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.699236776357433,
+        "y": 13.950390463232784
+      },
+      "seconds": 6.099999999999986,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleRam",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.300763223642567,
+        "y": 13.950390463232784
+      },
+      "seconds": 6.099999999999986,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleRam",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.699236776357433,
+        "y": 18.049609536767214
+      },
+      "seconds": 6.099999999999986,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BattleRam",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.298109681741565,
+        "y": 18.073467800453148
+      },
+      "seconds": 6.449999999999985,
+      "searches": 14,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BlowdartGoblin",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BlowdartGoblin",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BlowdartGoblin",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "BlowdartGoblin",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bomber",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bomber",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bomber",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bomber",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bowler",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702745114796044,
+        "y": 13.980639422646712
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bowler",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203891,
+        "y": 13.980639422646718
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bowler",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7027451147960435,
+        "y": 18.019360577353368
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Bowler",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203893,
+        "y": 18.019360577353407
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkPrince",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8224030022980333,
+        "y": 13.960507982942968
+      },
+      "seconds": 6.0499999999999865,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkPrince",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.17759699770199,
+        "y": 13.960507982942966
+      },
+      "seconds": 6.0499999999999865,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkPrince",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.822403002298046,
+        "y": 18.03949201705699
+      },
+      "seconds": 6.0499999999999865,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkPrince",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.186901773260821,
+        "y": 18.08926303828154
+      },
+      "seconds": 6.099999999999986,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkWitch",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkWitch",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkWitch",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DarkWitch",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DartBarrell",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DartBarrell",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DartBarrell",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DartBarrell",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DeliveryRecruit",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DeliveryRecruit",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DeliveryRecruit",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "DeliveryRecruit",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroDragon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroDragon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroDragon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroDragon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroGiant",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702745114796044,
+        "y": 13.980639422646712
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroGiant",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203893,
+        "y": 13.980639422646718
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroGiant",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7027451147960435,
+        "y": 18.019360577353368
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroGiant",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203895,
+        "y": 18.019360577353407
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroSpirit",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9849832345850267,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroSpirit",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroSpirit",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.984983234585025,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroSpirit",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroWizard",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroWizard",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroWizard",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElectroWizard",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "EliteArcher",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8184272434825486,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "EliteArcher",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517491,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "EliteArcher",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.818427243482554,
+        "y": 18.049737896546784
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "EliteArcher",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517458,
+        "y": 18.04973789654675
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem1",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8171954508068007,
+        "y": 13.995523473440793
+      },
+      "seconds": 11.400000000000027,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem1",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.182804549193158,
+        "y": 13.995523473440793
+      },
+      "seconds": 11.400000000000027,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem1",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.817195450806775,
+        "y": 18.004476526559287
+      },
+      "seconds": 11.400000000000027,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem1",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.182804549193206,
+        "y": 18.004476526559326
+      },
+      "seconds": 11.400000000000027,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem2",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem2",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446987,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem2",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem2",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446987,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem4",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9731361710057724,
+        "y": 13.98166847650559
+      },
+      "seconds": 5.649999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem4",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.026863828994207,
+        "y": 13.98166847650559
+      },
+      "seconds": 5.649999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem4",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9731361710057724,
+        "y": 18.01833152349441
+      },
+      "seconds": 5.649999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ElixirGolem4",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.026863828994207,
+        "y": 18.018331523494414
+      },
+      "seconds": 5.649999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Firecracker",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Firecracker",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Firecracker",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Firecracker",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "FireSpirits",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9849832345850267,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "FireSpirits",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "FireSpirits",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.984983234585025,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "FireSpirits",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Fisherman",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Fisherman",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Fisherman",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Fisherman",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ghost",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ghost",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ghost",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ghost",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Giant",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702745114796044,
+        "y": 13.980639422646712
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Giant",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203893,
+        "y": 13.980639422646718
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Giant",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7027451147960435,
+        "y": 18.019360577353368
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Giant",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203895,
+        "y": 18.019360577353407
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GiantSkeleton",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.500000033960129,
+        "y": 13.950069707348064
+      },
+      "seconds": 11.900000000000034,
+      "searches": 74,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GiantSkeleton",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.499999966039827,
+        "y": 13.950069707348078
+      },
+      "seconds": 11.900000000000034,
+      "searches": 74,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GiantSkeleton",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.500000033960129,
+        "y": 18.049930292651954
+      },
+      "seconds": 11.900000000000034,
+      "searches": 74,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GiantSkeleton",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.499999966039827,
+        "y": 18.049930292651954
+      },
+      "seconds": 11.900000000000034,
+      "searches": 74,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Goblin",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Goblin",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Goblin",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Goblin",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinBrawler",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinBrawler",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinBrawler",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinBrawler",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinGiant",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7025681164196054,
+        "y": 13.969466035166837
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinGiant",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297431883580394,
+        "y": 13.969466035166832
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinGiant",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702568116419606,
+        "y": 18.03053396483312
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "GoblinGiant",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297431883580394,
+        "y": 18.030533964833076
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golem",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702745114796044,
+        "y": 13.980639422646712
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golem",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203891,
+        "y": 13.980639422646718
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golem",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7027451147960435,
+        "y": 18.019360577353368
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golem",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203893,
+        "y": 18.019360577353407
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golemite",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.904523252203673,
+        "y": 13.990856865756848
+      },
+      "seconds": 11.350000000000026,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golemite",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.09547674779639,
+        "y": 13.990856865756797
+      },
+      "seconds": 11.350000000000026,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golemite",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.904523252203644,
+        "y": 18.00914313424323
+      },
+      "seconds": 11.350000000000026,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Golemite",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.09547674779639,
+        "y": 18.00914313424323
+      },
+      "seconds": 11.350000000000026,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HealSpirit",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9849832345850267,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HealSpirit",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HealSpirit",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.984983234585025,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HealSpirit",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HogRider",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.193937105480698,
+        "y": 13.935519714579845
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HogRider",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.806062894519343,
+        "y": 13.935519714579845
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HogRider",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.193937105480698,
+        "y": 18.064480285420153
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "HogRider",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.806062894519343,
+        "y": 18.064480285420153
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Hunter",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8184272434825486,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Hunter",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517491,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Hunter",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.818427243482554,
+        "y": 18.049737896546784
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Hunter",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517458,
+        "y": 18.04973789654675
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceGolemite",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7425495522283905,
+        "y": 13.971055405082392
+      },
+      "seconds": 11.500000000000028,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceGolemite",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.257450447771605,
+        "y": 13.97105540508241
+      },
+      "seconds": 11.500000000000028,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceGolemite",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7425495522283674,
+        "y": 18.028944594917697
+      },
+      "seconds": 11.500000000000028,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceGolemite",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.257450447771648,
+        "y": 18.02894459491774
+      },
+      "seconds": 11.500000000000028,
+      "searches": 11,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceSpirits",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9849832345850267,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceSpirits",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceSpirits",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.984983234585025,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceSpirits",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceWizard",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceWizard",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceWizard",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "IceWizard",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "InfernoDragon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "InfernoDragon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "InfernoDragon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "InfernoDragon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Knight",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Knight",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Knight",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Knight",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaHound",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 10.800000000000018,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaHound",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.80173476790246,
+        "y": 13.968570863290461
+      },
+      "seconds": 10.800000000000018,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaHound",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.03142913670954
+      },
+      "seconds": 10.800000000000018,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaHound",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.80173476790246,
+        "y": 18.03142913670954
+      },
+      "seconds": 10.800000000000018,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaPups",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaPups",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902346,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaPups",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "LavaPups",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902346,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaKnight",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7025681164196054,
+        "y": 13.969466035166837
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaKnight",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297431883580394,
+        "y": 13.969466035166832
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaKnight",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702568116419606,
+        "y": 18.03053396483312
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaKnight",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297431883580394,
+        "y": 18.030533964833076
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaMinion",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaMinion",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902344,
+        "y": 13.968570863290614
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaMinion",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097529,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MegaMinion",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902346,
+        "y": 18.031429136709384
+      },
+      "seconds": 8.09999999999998,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Miner",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Miner",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Miner",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Miner",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Minion",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Minion",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Minion",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Minion",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniPekka",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.943326464629517,
+        "y": 13.941798637281826
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniPekka",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.056673535370455,
+        "y": 13.941798637281874
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniPekka",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.943326464629517,
+        "y": 18.058201362718172
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniPekka",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.056673535370452,
+        "y": 18.05820136271811
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniZapMachine",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8184272434825486,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniZapMachine",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517491,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniZapMachine",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.818427243482554,
+        "y": 18.049737896546784
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MiniZapMachine",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517458,
+        "y": 18.04973789654675
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MovingCannon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8184272434825486,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MovingCannon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517491,
+        "y": 13.950262103453161
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MovingCannon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.818427243482554,
+        "y": 18.049737896546784
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "MovingCannon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.181572756517458,
+        "y": 18.04973789654675
+      },
+      "seconds": 8.599999999999987,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Musketeer",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Musketeer",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Musketeer",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Musketeer",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Pekka",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702745114796044,
+        "y": 13.980639422646712
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Pekka",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203893,
+        "y": 13.980639422646718
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Pekka",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7027451147960435,
+        "y": 18.019360577353368
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Pekka",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203895,
+        "y": 18.019360577353407
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Prince",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.8224030022980333,
+        "y": 13.960507982942968
+      },
+      "seconds": 6.0499999999999865,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Prince",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.17759699770199,
+        "y": 13.960507982942966
+      },
+      "seconds": 6.0499999999999865,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Prince",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.822403002298046,
+        "y": 18.03949201705699
+      },
+      "seconds": 6.0499999999999865,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Prince",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.186901773260821,
+        "y": 18.08926303828154
+      },
+      "seconds": 6.099999999999986,
+      "searches": 7,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Princess",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Princess",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Princess",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Princess",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RageBarbarian",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RageBarbarian",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RageBarbarian",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RageBarbarian",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ram",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.200429295406007,
+        "y": 13.985096437645954
+      },
+      "seconds": 5.549999999999988,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ram",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.799570704593943,
+        "y": 13.985096437645954
+      },
+      "seconds": 5.549999999999988,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ram",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.200429295406007,
+        "y": 18.014903562354046
+      },
+      "seconds": 5.549999999999988,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Ram",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.799570704593943,
+        "y": 18.014903562354046
+      },
+      "seconds": 5.549999999999988,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalBoy",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7025681805391977,
+        "y": 13.96946928230651
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalBoy",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297431819460794,
+        "y": 13.969469282306502
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalBoy",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702568180539198,
+        "y": 18.030530717693445
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalBoy",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297431819460792,
+        "y": 18.030530717693406
+      },
+      "seconds": 9.55,
+      "searches": 28,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalGirl",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalGirl",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalGirl",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RascalGirl",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Recruit",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Recruit",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Recruit",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Recruit",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalGiant",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.702745114796044,
+        "y": 13.980639422646712
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalGiant",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203891,
+        "y": 13.980639422646718
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalGiant",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.7027451147960435,
+        "y": 18.019360577353368
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalGiant",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.297254885203893,
+        "y": 18.019360577353407
+      },
+      "seconds": 13.950000000000063,
+      "searches": 69,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalHog",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.193937105480698,
+        "y": 13.935519714579845
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalHog",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.806062894519343,
+        "y": 13.935519714579845
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalHog",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.193937105480698,
+        "y": 18.064480285420153
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "RoyalHog",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.806062894519343,
+        "y": 18.064480285420153
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Skeleton",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Skeleton",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Skeleton",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Skeleton",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonBalloon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonBalloon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonBalloon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonBalloon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonDragon",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonDragon",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 13.968570863290461
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonDragon",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.198265232097587,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonDragon",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.801734767902415,
+        "y": 18.031429136709484
+      },
+      "seconds": 5.399999999999989,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonWarrior",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonWarrior",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682441,
+        "y": 13.95345590699784
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonWarrior",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892977998317532,
+        "y": 18.04654409300216
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SkeletonWarrior",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107022001682438,
+        "y": 18.04654409300215
+      },
+      "seconds": 5.699999999999988,
+      "searches": 6,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SpearGoblin",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SpearGoblin",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 13.916232645299436
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SpearGoblin",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.875464246350959,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "SpearGoblin",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.124535753649052,
+        "y": 18.083767354700562
+      },
+      "seconds": 4.299999999999993,
+      "searches": 4,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ThreeMusketeer",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ThreeMusketeer",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ThreeMusketeer",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ThreeMusketeer",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Valkyrie",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Valkyrie",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Valkyrie",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Valkyrie",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "VoodooHog",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.193937105480698,
+        "y": 13.935519714579845
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "VoodooHog",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.806062894519343,
+        "y": 13.935519714579845
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "VoodooHog",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 5.193937105480698,
+        "y": 18.064480285420153
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "VoodooHog",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 12.806062894519343,
+        "y": 18.064480285420153
+      },
+      "seconds": 3.7999999999999945,
+      "searches": 0,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": true,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wallbreaker",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.9849832345850267,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wallbreaker",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 13.954384815166026
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wallbreaker",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.984983234585025,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wallbreaker",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.015016765415002,
+        "y": 18.04561518483398
+      },
+      "seconds": 4.249999999999993,
+      "searches": 5,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Witch",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Witch",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Witch",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Witch",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "WitchMother",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "WitchMother",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "WitchMother",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "WitchMother",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wizard",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 13.961497134162178
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wizard",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 13.961497134162215
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wizard",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.892869865552985,
+        "y": 18.03850286583782
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "Wizard",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.107130134446985,
+        "y": 18.038502865837785
+      },
+      "seconds": 8.549999999999986,
+      "searches": 8,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ZapMachine",
+      "team": 0,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.5000000346928055,
+        "y": 13.962526643988292
+      },
+      "seconds": 15.700000000000088,
+      "searches": 94,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ZapMachine",
+      "team": 0,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.49999996530726,
+        "y": 13.962526643988292
+      },
+      "seconds": 15.700000000000088,
+      "searches": 94,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ZapMachine",
+      "team": 1,
+      "lane": 0,
+      "crossed": true,
+      "position": {
+        "x": 3.5000000346928055,
+        "y": 18.03747335601171
+      },
+      "seconds": 15.700000000000088,
+      "searches": 94,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "oblique-crossing",
+      "entity": "ZapMachine",
+      "team": 1,
+      "lane": 1,
+      "crossed": true,
+      "position": {
+        "x": 14.49999996530726,
+        "y": 18.03747335601171
+      },
+      "seconds": 15.700000000000088,
+      "searches": 94,
+      "illegal": null,
+      "teleport": null,
+      "sawJump": false,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "GiantSkeleton",
+      "team": 0,
+      "lane": 0,
+      "seconds": 16.6000000000001,
+      "edgeDistance": 0.785000000000001,
+      "range": 0.8,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "GiantSkeleton",
+      "team": 0,
+      "lane": 1,
+      "seconds": 16.6000000000001,
+      "edgeDistance": 0.785000000000001,
+      "range": 0.8,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "GiantSkeleton",
+      "team": 1,
+      "lane": 0,
+      "seconds": 16.6000000000001,
+      "edgeDistance": 0.7849999999999993,
+      "range": 0.8,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "GiantSkeleton",
+      "team": 1,
+      "lane": 1,
+      "seconds": 16.6000000000001,
+      "edgeDistance": 0.7849999999999993,
+      "range": 0.8,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "ZapMachine",
+      "team": 0,
+      "lane": 0,
+      "seconds": 16.300000000000097,
+      "edgeDistance": 4.984999999999999,
+      "range": 5,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "ZapMachine",
+      "team": 0,
+      "lane": 1,
+      "seconds": 16.300000000000097,
+      "edgeDistance": 4.984999999999999,
+      "range": 5,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "ZapMachine",
+      "team": 1,
+      "lane": 0,
+      "seconds": 16.300000000000097,
+      "edgeDistance": 4.984999999999997,
+      "range": 5,
+      "ok": true
+    },
+    {
+      "scenario": "real-tower-approach",
+      "entity": "ZapMachine",
+      "team": 1,
+      "lane": 1,
+      "seconds": 16.300000000000097,
+      "edgeDistance": 4.984999999999997,
+      "range": 5,
+      "ok": true
+    },
+    {
+      "scenario": "deterministic-segment-clearance",
+      "checkedSegments": 1250,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "Golem",
+      "team": 0,
+      "lane": 0,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.200000000000024,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "Golem",
+      "team": 0,
+      "lane": 1,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.200000000000024,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "Golem",
+      "team": 1,
+      "lane": 0,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.200000000000024,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "Golem",
+      "team": 1,
+      "lane": 1,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.200000000000024,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "GiantSkeleton",
+      "team": 0,
+      "lane": 0,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.950000000000035,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "GiantSkeleton",
+      "team": 0,
+      "lane": 1,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.950000000000035,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "GiantSkeleton",
+      "team": 1,
+      "lane": 0,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.950000000000035,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "GiantSkeleton",
+      "team": 1,
+      "lane": 1,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 11.950000000000035,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "ZapMachine",
+      "team": 0,
+      "lane": 0,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 13.600000000000058,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "ZapMachine",
+      "team": 0,
+      "lane": 1,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 13.600000000000058,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "ZapMachine",
+      "team": 1,
+      "lane": 0,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 13.600000000000058,
+      "ok": true
+    },
+    {
+      "scenario": "mixed-mass-crowd",
+      "entity": "ZapMachine",
+      "team": 1,
+      "lane": 1,
+      "illegal": null,
+      "remaining": [],
+      "seconds": 13.600000000000058,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "Golem",
+      "childEntity": "Golemite",
+      "team": 0,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 3,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 3.000615512071753,
+          "y": 13.976292694591615
+        },
+        {
+          "x": 3.9993844879282467,
+          "y": 13.976292694591615
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "Golem",
+      "childEntity": "Golemite",
+      "team": 0,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 14,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 14.000615512071752,
+          "y": 13.976292694591615
+        },
+        {
+          "x": 14.999384487928248,
+          "y": 13.976292694591615
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "Golem",
+      "childEntity": "Golemite",
+      "team": 1,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 3,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 3.000615512071753,
+          "y": 18.023707305408387
+        },
+        {
+          "x": 3.9993844879282467,
+          "y": 18.023707305408387
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "Golem",
+      "childEntity": "Golemite",
+      "team": 1,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 14,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 14.000615512071752,
+          "y": 18.023707305408387
+        },
+        {
+          "x": 14.999384487928248,
+          "y": 18.023707305408387
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem1",
+      "childEntity": "ElixirGolem2",
+      "team": 0,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 3,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 3.00082080135802,
+          "y": 13.951309152142676
+        },
+        {
+          "x": 3.99917919864198,
+          "y": 13.951309152142676
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem1",
+      "childEntity": "ElixirGolem2",
+      "team": 0,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 14,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 14.00082080135802,
+          "y": 13.951309152142676
+        },
+        {
+          "x": 14.99917919864198,
+          "y": 13.951309152142676
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem1",
+      "childEntity": "ElixirGolem2",
+      "team": 1,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 3,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 3.00082080135802,
+          "y": 18.048690847857323
+        },
+        {
+          "x": 3.99917919864198,
+          "y": 18.048690847857323
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem1",
+      "childEntity": "ElixirGolem2",
+      "team": 1,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 14,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 14.00082080135802,
+          "y": 18.048690847857323
+        },
+        {
+          "x": 14.99917919864198,
+          "y": 18.048690847857323
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem2",
+      "childEntity": "ElixirGolem4",
+      "team": 0,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 2.9,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4.1,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 2.9809352776564704,
+          "y": 13.976618058588363
+        },
+        {
+          "x": 4.019064722343529,
+          "y": 13.976618058588363
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem2",
+      "childEntity": "ElixirGolem4",
+      "team": 0,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 13.9,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15.1,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 13.980935277656442,
+          "y": 13.976618058588363
+        },
+        {
+          "x": 15.019064722343558,
+          "y": 13.976618058588363
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem2",
+      "childEntity": "ElixirGolem4",
+      "team": 1,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 2.9,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4.1,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 2.9809352776564704,
+          "y": 18.023381941411635
+        },
+        {
+          "x": 4.019064722343529,
+          "y": 18.023381941411635
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "ElixirGolem2",
+      "childEntity": "ElixirGolem4",
+      "team": 1,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 13.9,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15.1,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 13.980935277656442,
+          "y": 18.023381941411635
+        },
+        {
+          "x": 15.019064722343558,
+          "y": 18.023381941411635
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "BattleRam",
+      "childEntity": "Barbarian",
+      "team": 0,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 3,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 3.00082080135802,
+          "y": 13.951309152142676
+        },
+        {
+          "x": 3.99917919864198,
+          "y": 13.951309152142676
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "BattleRam",
+      "childEntity": "Barbarian",
+      "team": 0,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 14,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 14.00082080135802,
+          "y": 13.951309152142676
+        },
+        {
+          "x": 14.99917919864198,
+          "y": 13.951309152142676
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "BattleRam",
+      "childEntity": "Barbarian",
+      "team": 1,
+      "lane": 0,
+      "spawnPositions": [
+        {
+          "x": 3,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 3.00082080135802,
+          "y": 18.048690847857323
+        },
+        {
+          "x": 3.99917919864198,
+          "y": 18.048690847857323
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    },
+    {
+      "scenario": "bridge-death-spawn",
+      "entity": "BattleRam",
+      "childEntity": "Barbarian",
+      "team": 1,
+      "lane": 1,
+      "spawnPositions": [
+        {
+          "x": 14,
+          "y": 16,
+          "legal": true
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "legal": true
+        }
+      ],
+      "finalPositions": [
+        {
+          "x": 14.00082080135802,
+          "y": 18.048690847857323
+        },
+        {
+          "x": 14.99917919864198,
+          "y": 18.048690847857323
+        }
+      ],
+      "legal": true,
+      "crossed": true,
+      "ok": true
+    }
+  ],
+  "summary": {
+    "reachableEntities": 98,
+    "independentMobileEntities": 77,
+    "scenarios": 345,
+    "passed": 345,
+    "failed": 0
+  }
+}

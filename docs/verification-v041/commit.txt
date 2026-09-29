@@ -1,0 +1,24 @@
+[update-v041 b343e3b] Build v0.41 Crown Road, custom 3v3 and Bridge, learning and treasure
+ 52 files changed, 3945 insertions(+), 110 deletions(-)
+ create mode 100644 assets/ui/manifest.json
+ create mode 100644 docs/superpowers/specs/2026-09-24-clash-placement-combat-fidelity-design.md
+ create mode 100644 docs/superpowers/specs/2026-09-25-reference-fidelity.md
+ create mode 100644 docs/verification-v041/VERIFICATION.md
+ create mode 100644 docs/verification-v041/review.md
+ create mode 100644 src/arena-layout.js
+ create mode 100644 src/crown-road.js
+ create mode 100644 src/custom-arena.js
+ create mode 100644 src/training-modes.js
+ create mode 100644 src/v410.css
+ create mode 100644 tests/v041-crown-road.test.cjs
+ create mode 100644 tests/v041-learning.test.cjs
+ create mode 100644 tests/v041-modes.test.cjs
+ create mode 100644 tests/v041-movement.test.cjs
+ create mode 100644 tests/v041-presentation.test.cjs
+ create mode 100644 tests/v041-replay.test.cjs
+ create mode 100644 tests/v041-treasure.test.cjs
+ create mode 100644 tools/audit-v041-movement.cjs
+ create mode 100644 tools/recolor-treasure-chest.py
+ create mode 100644 tools/verify-v041-browser.py
+ create mode 100644 tools/verify-v041-regression-browser.py
+ create mode 100644 tools/verify-v041-workers.cjs

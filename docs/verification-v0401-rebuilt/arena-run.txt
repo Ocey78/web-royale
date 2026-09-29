@@ -1,0 +1,17 @@
+PASS training 3 visual comparisons
+PASS goblin 3 visual comparisons
+PASS bone 3 visual comparisons
+PASS barbarian 3 visual comparisons
+PASS pekka 3 visual comparisons
+PASS spell 3 visual comparisons
+PASS builder 3 visual comparisons
+PASS royal 3 visual comparisons
+PASS frozen 3 visual comparisons
+PASS jungle 3 visual comparisons
+HOG PERFORMANCE {"before": {"meanMilliseconds": 19.570000000003105, "drawCallsPerFrame": 185, "shapeCacheBytes": 149880008}, "after": {"meanMilliseconds": 10.28666666666977, "drawCallsPerFrame": 25, "shapeCacheBytes": 48862592}}
+PASS hog 5 visual comparisons
+PASS electro 3 visual comparisons
+PASS spooky 3 visual comparisons
+PASS rascals 3 visual comparisons
+PASS serenity 3 visual comparisons
+PASS 47 comparisons, no browser errors

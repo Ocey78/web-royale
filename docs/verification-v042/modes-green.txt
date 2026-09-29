@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+ok 1 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 8.422621
+  type: 'test'
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+ok 2 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 5.144222
+  type: 'test'
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+ok 3 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 2.973049
+  type: 'test'
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+ok 4 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 1.435648
+  type: 'test'
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+ok 5 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.142094
+  type: 'test'
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+ok 6 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 4.355347
+  type: 'test'
+  ...
+# Subtest: saved special decks never borrow locked cards and persist separately from regular decks
+ok 7 - saved special decks never borrow locked cards and persist separately from regular decks
+  ---
+  duration_ms: 4.01118
+  type: 'test'
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+ok 8 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 8.216971
+  type: 'test'
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+ok 9 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 2.736574
+  type: 'test'
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+ok 10 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 1.664312
+  type: 'test'
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+ok 11 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 30.183231
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 151.537089

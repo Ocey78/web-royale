@@ -1,0 +1,8 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto');
+const tool=path.resolve(__dirname,'../tools/restore-source.cjs');
+function fixture(t,corrupt=false){const root=fs.mkdtempSync(path.join(os.tmpdir(),'webroyale-source-'));t.after(()=>fs.rmSync(root,{recursive:true,force:true}));fs.mkdirSync(path.join(root,'dist/assets/cards'),{recursive:true});const bytes=Buffer.from('test-fixture-bytes'),name='assets/cards/knight.png';fs.writeFileSync(path.join(root,'dist',name),corrupt?'corrupt':bytes);fs.writeFileSync(path.join(root,'dist/release.json'),JSON.stringify({files:{[name]:crypto.createHash('sha256').update(bytes).digest('hex')}}));return root;}
+test('source image restoration is available in the web-only project',()=>assert.ok(fs.existsSync(tool),'Missing restore-source.cjs'));
+test('clean source tree reuses verified distributed images without a second bundled copy',t=>{const root=fixture(t);const {restore}=require(tool);assert.equal(restore(root),1);assert.equal(fs.readFileSync(path.join(root,'assets/cards/knight.png'),'utf8'),'test-fixture-bytes');assert.equal(restore(root),0);});
+test('restoration detects corrupt distributed images before copying them',t=>{const root=fixture(t,true);assert.throws(()=>require(tool).restore(root),/checksum/i);assert.equal(fs.existsSync(path.join(root,'assets/cards/knight.png')),false);});
+test('restoration rejects a manifest path escaping the project',t=>{const root=fixture(t);fs.writeFileSync(path.join(root,'dist/release.json'),JSON.stringify({files:{'assets/../../escape.png':'a'}}));assert.throws(()=>require(tool).restore(root),/path/i);});

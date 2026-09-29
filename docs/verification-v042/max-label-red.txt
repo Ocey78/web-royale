@@ -1,0 +1,11 @@
+runtime loaded
+UI artwork loaded
+PASS TwentyElixir loaded real battle
+Traceback (most recent call last):
+  File "/mnt/data/qa-max-elixir-red.py", line 83, in <module>
+    check('20 Elixir visible maximum label is Max 20, not Max 1020',page.locator('.elixir-max').inner_text().strip()=='Max 20')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/qa-max-elixir-red.py", line 63, in check
+    assert condition,name
+           ^^^^^^^^^
+AssertionError: 20 Elixir visible maximum label is Max 20, not Max 1020

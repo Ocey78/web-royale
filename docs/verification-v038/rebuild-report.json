@@ -1,0 +1,11 @@
+{
+  "version": "0.38.0",
+  "method": "Fresh copy of actual archive-selected files (no duplicate source PNG/WebP/WAV), then npm run build with verified source restore",
+  "copiedFiles": 1838,
+  "runtimeFiles": 1203,
+  "manifestIdentical": true,
+  "allRuntimeHashesMatch": true,
+  "buildExit": 0,
+  "elapsedSeconds": 5.656,
+  "fontFilesIncluded": 0
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "file": "assets/ui/magic-common-book.png",
+    "sha256": "369b53f82de1df3d8791913b41244c00bd7f88e565f6b9c85aa1c5f7fddb52fe",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      0,
+      0,
+      271,
+      271
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/magic-epic-book.png",
+    "sha256": "96ed79a11ec1e171d549545b6ece90a72c7fb1e761863e340937756636abc3cc",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      249,
+      0,
+      526,
+      273
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/magic-rare-book.png",
+    "sha256": "03e3d5c300f2f362f2cb041545f75c516fced230e25db66a6978850bd071a6ef",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      483,
+      74,
+      756,
+      351
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/magic-book-of-books.png",
+    "sha256": "8aca525aba5b2eaa6be751d8cdde8ab8c660d175504d906c24db76587bf7ca4d",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      185,
+      254,
+      462,
+      531
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/magic-legendary-book.png",
+    "sha256": "11bd87776937e2ab85a10b0f24d6dcb4c4b2b31dc0baf2f446c74dd7ba0003ac",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      445,
+      333,
+      722,
+      610
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/magic-chest-key.png",
+    "sha256": "08da8503355c4aad256e74f4a0eb643a174edb07f574a9574bc04d13c9ebabe3",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      262,
+      508,
+      534,
+      743
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/magic-magic-coin.png",
+    "sha256": "485a604d0f6b4def4d45a443b43642db2daa02e0bfa3d2eb2af91d675c355b10",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "97c68ed7a4ab205b7f1d659852f2dd3292091cbe3f008dd5799da67e73c7be85",
+    "sourceVerified": true,
+    "crop": [
+      0,
+      836,
+      188,
+      1107
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/boat-body.png",
+    "sha256": "ec1655dbc347e4c9285a11dc346eb679856851ea53bde9884ff0e39fdff9be45",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "d9486c616625ba720ebcd1919653892c86269a15a8e01eaadf3cc8d1fddf4a0b",
+    "sourceVerified": true,
+    "crop": [
+      338,
+      0,
+      606,
+      278
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/boat-defense-gun.png",
+    "sha256": "dffc298aaba915014187a0f5b4d20fc809156ad1d3240cbec1615e9f26eeebbb",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "d9486c616625ba720ebcd1919653892c86269a15a8e01eaadf3cc8d1fddf4a0b",
+    "sourceVerified": true,
+    "crop": [
+      664,
+      718,
+      752,
+      860
+    ],
+    "sourceRGBAPreserved": true
+  },
+  {
+    "file": "assets/ui/boat-player-gun.png",
+    "sha256": "f0dffea4e05aec0ab00afe121d54bf1ecd397f6c71288c5c98d5ed3b717c8c45",
+    "sameEncodingAsPrior": false,
+    "sourceSha256": "d9486c616625ba720ebcd1919653892c86269a15a8e01eaadf3cc8d1fddf4a0b",
+    "sourceVerified": true,
+    "crop": [
+      387,
+      741,
+      492,
+      848
+    ],
+    "sourceRGBAPreserved": true
+  }
+]

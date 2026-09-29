@@ -1,0 +1,80 @@
+{
+  "click": {
+    "file": "assets/audio/click.wav"
+  },
+  "select": {
+    "file": "assets/audio/select.wav"
+  },
+  "deploy": {
+    "file": "assets/audio/deploy.wav"
+  },
+  "start": {
+    "file": "assets/audio/start.wav"
+  },
+  "reward": {
+    "file": "assets/audio/reward.wav"
+  },
+  "win": {
+    "file": "assets/audio/win.wav"
+  },
+  "lose": {
+    "file": "assets/audio/lose.wav"
+  },
+  "draw": {
+    "file": "assets/audio/draw.wav"
+  },
+  "crown1": {
+    "file": "assets/audio/crown-one.wav"
+  },
+  "crown2": {
+    "file": "assets/audio/crown-two.wav"
+  },
+  "crown3": {
+    "file": "assets/audio/crown-three.wav"
+  },
+  "crownAppear": {
+    "file": "assets/audio/crown-appear.wav"
+  },
+  "chestOpenWood": {
+    "file": "assets/audio/chest-open-wood.wav",
+    "source": "APK/assets/sfx/wooden_chest_open_01.ogg",
+    "sourceSha256": "f3e065fc17f45d6fe8ac0f15326ce713f7be0735d0a9b7b9666bb82763303e7d",
+    "sha256": "1f48d189c0dc37e4acf48df6e887eee1a44b9971789e1f67671c898521f2facc"
+  },
+  "chestOpenSilver": {
+    "file": "assets/audio/chest-open-silver.wav",
+    "source": "APK/assets/sfx/iron_chest_open_01.ogg",
+    "sourceSha256": "b3864bb13dd13aa7c67ef87455e9142ab134f92c4053e013f1994c76febb3175",
+    "sha256": "a4a8b07b23394b132bb9dc90eb7609593245fcaa7f4d33e949bf73923a82d3bc"
+  },
+  "chestOpenGold": {
+    "file": "assets/audio/chest-open-gold.wav",
+    "source": "APK/assets/sfx/gold_chest_open_01.ogg",
+    "sourceSha256": "9be3d908fa688bed4d71c5575a045af7d54872294af6c5ec59a69fcd85c9210a",
+    "sha256": "b7087606b89d5d79e2ee12f479faeb9e6d79885fd2646ae5736396cea27fb57f"
+  },
+  "chestOpenMagic": {
+    "file": "assets/audio/chest-open-magic.wav",
+    "source": "APK/assets/sfx/magic_chest_open_01.ogg",
+    "sourceSha256": "5a76b9debaecd8351a47fd362ca4ff051004e2c8a92eb80d3d1cae611cfcdd95",
+    "sha256": "1fb3272cf8f9f5c5fa06834a25bac9ef886fb5a8e1e2a0a6ac5d650120be2303"
+  },
+  "chestOpenCrown": {
+    "file": "assets/audio/chest-open-crown.wav",
+    "source": "APK/assets/sfx/star_chest_open_01.ogg",
+    "sourceSha256": "b23412e61c64af5f9efb221902a4375b3d43ace1895eda82c2e309589771a01e",
+    "sha256": "b45d28da61cfa93badc2e825485d05c763c198a88ee436fd3bd2b00097f344a0"
+  },
+  "cardCommon": {
+    "file": "assets/audio/card-common.wav",
+    "source": "APK/assets/sfx/get_card_comon_01.ogg",
+    "sourceSha256": "2eb31d8e41edfeb49df65418dd74135ba807e17d9794e3b0c78608db2368505f",
+    "sha256": "48a32997d25998e3cf644020a685aa9ab68c57f02b00506f8984177e9125e7bb"
+  },
+  "cardRare": {
+    "file": "assets/audio/card-rare.wav",
+    "source": "APK/assets/sfx/get_card_rare_01.ogg",
+    "sourceSha256": "c6d1609fe208c145d01cc7e71aea6dc7baba5eda0b07dfbaf4d90e572a9993a1",
+    "sha256": "4699f0eb572112b006de173402f3deb07dd491e9fd18ba3b82289a3003521576"
+  }
+}

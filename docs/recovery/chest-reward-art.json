@@ -1,0 +1,44 @@
+{
+  "chest-reward-gold": {
+    "file": "assets/ui/chest-reward-gold.png",
+    "source": "assets/sc/ui_chest.sc#war_win_pouch_open[1427]/clip[1426]/shape[883]",
+    "sourceSha256": "407acbbf33fa767b105e38b118e5a199d86590f3600fa5c82b52d578102b7679",
+    "textureSource": "assets/sc/ui_chest_tex.sc",
+    "textureSha256": "3122d6cef2e48febe6591d6a57a3ff9f91a906620219607562112a8a4e720457",
+    "sha256": "9412b57872ba7245fd324c7b78f2e80ba38b4c0a579f05b1e99cb3bde7e6835e",
+    "sourceAtlasIndices": [
+      0
+    ],
+    "render": "original polygon UVs and scene coordinates, transparent canvas",
+    "bounds": {
+      "x": -189.75,
+      "y": -100.9,
+      "width": 308.1,
+      "height": 114.95
+    },
+    "width": 225,
+    "height": 87,
+    "scale": 0.7142857142857143
+  },
+  "chest-reward-gems": {
+    "file": "assets/ui/chest-reward-gems.png",
+    "source": "assets/sc/ui.sc#icon_gems[448]/shape[403]",
+    "sourceSha256": "bb8882d51659442901e658a2e890cae9e231ab74678b741b4176fb308bdcb499",
+    "textureSource": "assets/sc/ui_tex.sc",
+    "textureSha256": "508720bf28913ce145b9faf3a7606e74482070922422bea277e66a9d1cd55d3c",
+    "sha256": "dd0a2053e1da38c4a53b232d45c8ada7d24f97235ef3ee71af0a35e5b9d5534d",
+    "sourceAtlasIndices": [
+      0
+    ],
+    "render": "original polygon UVs and scene coordinates, transparent canvas",
+    "bounds": {
+      "x": -16.5,
+      "y": -22,
+      "width": 32.5,
+      "height": 39.5
+    },
+    "width": 69,
+    "height": 83,
+    "scale": 2
+  }
+}

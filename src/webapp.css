@@ -1,0 +1,60 @@
+/* The outer shell owns iPhone safe areas; the game keeps its logical geometry. */
+:root{--app-safe-top:env(safe-area-inset-top,0px);--app-safe-right:env(safe-area-inset-right,0px);--app-safe-bottom:env(safe-area-inset-bottom,0px);--app-safe-left:env(safe-area-inset-left,0px)}
+#stage{inset:auto;left:calc(var(--app-visual-left,0px) + var(--app-safe-left));top:calc(var(--app-visual-top,0px) + var(--app-safe-top));width:max(1px,calc(var(--app-visual-width,100vw) - var(--app-safe-left) - var(--app-safe-right)));height:max(1px,calc(var(--app-visual-height,100dvh) - var(--app-safe-top) - var(--app-safe-bottom)))}
+@media(pointer:coarse){#viewport input:not([type=checkbox]):not([type=radio]):not([type=range]),#viewport select,#viewport textarea{font-size:16px}}
+
+/* Compact phone composition preserves the arena's aspect, with less decorative
+   scenery and a shorter hand lane. Its uniform camera reduction also fits HUD. */
+#viewport[data-layout=battle][data-battle-frame=compact]{height:960px}
+#viewport[data-battle-frame=compact] #battleCanvas,#viewport[data-battle-frame=compact] #matchResultCanvas{width:540px;height:960px}
+#viewport[data-battle-frame=compact] .battle-top{height:130px}
+#viewport[data-battle-frame=compact] .battle-top:before{height:112px}
+#viewport[data-battle-frame=compact] .battle-top .enemy-badge{left:7px;top:10px;width:32px;height:37px}
+#viewport[data-battle-frame=compact] .battle-top #enemyName{left:43px;top:6px;width:300px;height:33px;line-height:33px}
+#viewport[data-battle-frame=compact] .battle-top #enemyClan{left:43px;top:37px;width:255px;height:23px;line-height:23px}
+#viewport[data-battle-frame=compact] .enemy-trophies{left:8px;top:64px;height:25px;font-size:16px}
+#viewport[data-battle-frame=compact] .enemy-trophies img{width:25px;height:25px}
+#viewport[data-battle-frame=compact] #nativeBattleTimer{top:42px;width:92px;height:116.5333px}
+#viewport[data-battle-frame=compact] .battle-top .square{top:8px}
+#viewport[data-battle-frame=compact] .hand-panel{top:788px;height:172px}
+#viewport[data-battle-frame=compact] .hand{top:6px;height:118px}
+#viewport[data-battle-frame=compact] .hand-card{height:118px}
+#viewport[data-battle-frame=compact] .quick-chat-toggle{top:9px;width:55px;height:55px;left:19px}
+#viewport[data-battle-frame=compact] .next-card{top:65px;font-size:16px}
+#viewport[data-battle-frame=compact] .next-card .next-visual{width:44px;height:58px;margin-top:6px}
+#viewport[data-battle-frame=compact] .elixir-track{bottom:17px;height:22px}
+#viewport[data-battle-frame=compact] .elixir-num{bottom:11px;height:42px;font-size:30px}
+#viewport[data-battle-frame=compact] .elixir-max{bottom:1px;font-size:12px}
+#viewport[data-battle-frame=compact] .battle-score{top:345px}
+#viewport[data-battle-frame=compact] .instruction{top:750px}
+#viewport[data-battle-frame=compact] .quick-chat{bottom:181px}
+#viewport[data-battle-frame=compact] .chat-bubble{top:699px}
+#viewport[data-battle-frame=compact] .ally-panel{bottom:182px}
+#viewport[data-battle-frame=compact] .battle-announcement,#viewport[data-battle-frame=compact] .opening{top:352px}
+#viewport[data-battle-frame=compact] .match-over-text{top:404px}
+#viewport[data-battle-frame=compact] .end-ok{top:757px}
+#viewport[data-battle-frame=compact] .end-enemy{top:335px}
+#viewport[data-battle-frame=compact] .end-player{top:535px}
+#viewport[data-battle-frame=compact] .end-vs{top:486px}
+#viewport[data-battle-frame=compact] .enemy-winner{top:285px}
+#viewport[data-battle-frame=compact] .player-winner{top:685px}
+#viewport[data-battle-frame=compact] .draw-winner{top:476px}
+#viewport[data-battle-frame=compact] .sandbox-header{top:9px}
+#viewport[data-battle-frame=compact] .sandbox-controls{top:788px;height:172px;padding:7px 14px}
+#viewport[data-battle-frame=compact] .sandbox-card-row>label{gap:2px}
+#viewport[data-battle-frame=compact] .sandbox-card-row select,#viewport[data-battle-frame=compact] .sandbox-card-row input,#viewport[data-battle-frame=compact] .sandbox-team{height:36px}
+#viewport[data-battle-frame=compact] #sandboxUI .sandbox-actions .native-button{height:38px;min-height:38px}
+#viewport[data-battle-frame=compact] .sandbox-actions,#viewport[data-battle-frame=compact] .sandbox-foot{margin-top:6px}
+#viewport[data-battle-frame=compact] .sandbox-foot{min-height:26px}
+#viewport[data-battle-frame=compact] .sandbox-towers{top:120px}
+.win-streak-badge{position:absolute;left:16px;right:16px;top:674px;height:27px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#ffeb9a;text-shadow:0 2px #17314e}
+.end-trophy-reward{position:absolute;left:25px;right:25px;top:822px;z-index:5;text-align:center;font-size:17px;line-height:23px;font-weight:900;color:#ffeb9a;text-shadow:0 2px #172638}
+.end-trophy-reward[hidden]{display:none}
+#viewport[data-battle-frame=compact] .end-trophy-reward{top:716px}
+
+/* v0.36: level labels and compact controls use the existing game UI. */
+#viewport .home-trophies .win-streak-badge{position:absolute;left:-12px;right:-12px;top:100%;height:23px;margin-top:4px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#ffe681;text-shadow:0 2px 2px #122c45;white-space:nowrap;pointer-events:none}
+#viewport .win-streak-badge[hidden]{display:none}
+.hand-card .hand-level{position:absolute;left:3px;right:3px;bottom:4px;z-index:5;text-align:center;font:700 13px/19px Arial,sans-serif;color:#fff2a6;text-shadow:0 1px 2px #000;background:#152e46df;border:1px solid #a8bed0;border-radius:3px;pointer-events:none}
+.graphics-settings .graphics-select{width:145px;min-width:145px;max-width:50%;height:36px;margin:0;padding:4px 7px;font-size:15px;color:#173149;background:#f2f5fa}
+#lightningShop .lightning-offers{grid-template-columns:repeat(3,minmax(0,1fr))}

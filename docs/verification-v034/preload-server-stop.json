@@ -1,0 +1,75 @@
+{
+  "verifiedAt": "2026-09-27T23:17:25.183Z",
+  "passed": true,
+  "browser": "26.5",
+  "emulation": "iPhone 13, desktop WebKit",
+  "releaseVersion": "0.34.0",
+  "releaseApp": "app.bfa8e6f023f6.js",
+  "releaseSha256": "93c4a85d4aa0dab8a24359a93b040ad7ffa2b8da95a6fcd4754cf957da63516b",
+  "cold": {
+    "summary": {
+      "status": "ready",
+      "total": 1192,
+      "completed": 1192,
+      "totalBytes": 288006466,
+      "loadedBytes": 288006466,
+      "fromCache": 0,
+      "downloaded": 1192,
+      "cacheMode": "persistent"
+    },
+    "controlled": true,
+    "decodedScenes": 0
+  },
+  "coldMs": 28838,
+  "serverStopped": {
+    "uncachedRequestFailed": true,
+    "normalFetchAssetRead": {
+      "read": 1192,
+      "bytes": 288006466,
+      "failures": []
+    },
+    "readMs": 11467,
+    "newSandboxCard": {
+      "card": "mother-witch",
+      "scenes": [
+        "building_mega_bomb",
+        "building_tombstone",
+        "building_tower",
+        "chr_archer",
+        "chr_barbarian",
+        "chr_barbarian_barrel_dl",
+        "chr_bomber",
+        "chr_giant",
+        "chr_goblin",
+        "chr_hog_rider",
+        "chr_king",
+        "chr_knight",
+        "chr_mini_pekka",
+        "chr_musketeer",
+        "chr_princess",
+        "chr_skeleton",
+        "chr_wall_breaker",
+        "chr_witch",
+        "effects",
+        "level_goblin_arena",
+        "ui_battle_end",
+        "building_clanwars_towers",
+        "chr_mother_witch_dl"
+      ]
+    },
+    "noServerRequests": true
+  },
+  "warm": {
+    "status": "ready",
+    "total": 1192,
+    "completed": 1192,
+    "totalBytes": 288006466,
+    "loadedBytes": 288006466,
+    "fromCache": 1192,
+    "downloaded": 0,
+    "cacheMode": "persistent"
+  },
+  "warmMs": 9888,
+  "warmAssetRequests": [],
+  "errors": []
+}

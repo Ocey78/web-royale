@@ -1,0 +1,29 @@
+PASS: Finds dist next to BAT
+PASS: Supports BAT inside dist
+PASS: Starts on loopback without an HTTP URL reservation
+PASS: Serves index.html
+PASS: HTML MIME type
+PASS: Query-string assets load
+PASS: JavaScript MIME type
+PASS: JSON is available
+PASS: Binary data length
+PASS: Binary data is byte-exact
+PASS: WebP MIME type
+PASS: MIME sniffing disabled
+PASS: Local-only content policy
+PASS: HEAD has no response body
+PASS: Missing files return 404
+PASS: Writes rejected
+PASS: Encoded traversal rejected
+PASS: Backslash traversal rejected
+PASS: NTFS alternate data streams rejected
+PASS: Hidden path rejected
+PASS: Bad percent escaping rejected
+PASS: Foreign Host rejected
+PASS: Foreign Origin rejected
+PASS: Existing opener instance recognized
+PASS: Different site is not treated as the same instance
+PASS: Port conflict does not overwrite another listener
+PASS: Stop closes the listener
+
+27 integration checks passed.

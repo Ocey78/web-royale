@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/mnt/data/work043/Web-Royale/tools/test-v043-reward-caption.py", line 12, in <module>
+    assert ok,'Magic item caption is outside its reward box'
+           ^^
+AssertionError: Magic item caption is outside its reward box

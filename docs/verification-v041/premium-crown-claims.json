@@ -1,0 +1,52 @@
+[
+  {
+    "milestone": 25,
+    "crownLevel": 26,
+    "items": {
+      "rare-book": 1
+    },
+    "gold": 19875,
+    "gems": 165,
+    "chest": null
+  },
+  {
+    "milestone": 50,
+    "crownLevel": 51,
+    "items": {
+      "epic-book": 1
+    },
+    "gold": 161673,
+    "gems": 342,
+    "chest": "treasure"
+  },
+  {
+    "milestone": 75,
+    "crownLevel": 76,
+    "items": {
+      "legendary-book": 1
+    },
+    "gold": 152375,
+    "gems": 530,
+    "chest": null
+  },
+  {
+    "milestone": 100,
+    "crownLevel": 101,
+    "items": {
+      "book-of-books": 2
+    },
+    "gold": 280836,
+    "gems": 726,
+    "chest": "treasure"
+  },
+  {
+    "milestone": 200,
+    "crownLevel": 201,
+    "items": {
+      "book-of-books": 3
+    },
+    "gold": 1105259,
+    "gems": 1562,
+    "chest": "treasure"
+  }
+]

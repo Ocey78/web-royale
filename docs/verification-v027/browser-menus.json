@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "viewport": {
+        "width": 1200,
+        "height": 960
+      },
+      "defenseFontSizes": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "chatButtons": 5
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "defenseFontSizes": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "chatButtons": 5
+    }
+  ],
+  "errors": [],
+  "missing": []
+}

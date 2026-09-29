@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: decisive overtime expiry starts one visible phase before granting the result
+ok 1 - decisive overtime expiry starts one visible phase before granting the result
+  ---
+  duration_ms: 14.337026
+  type: 'test'
+  ...
+# Subtest: freezing the board removes queued ally previews and stops interpolation at current positions
+ok 2 - freezing the board removes queued ally previews and stops interpolation at current positions
+  ---
+  duration_ms: 3.00353
+  type: 'test'
+  ...
+# Subtest: drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+ok 3 - drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+  ---
+  duration_ms: 3.126527
+  type: 'test'
+  ...
+# Subtest: lowest surviving raw HP determines the drain winner and awards one crown once
+ok 4 - lowest surviving raw HP determines the drain winner and awards one crown once
+  ---
+  duration_ms: 4.832868
+  type: 'test'
+  ...
+# Subtest: a lowest King tower awards three crowns and keeps the tiebreak result reason
+ok 5 - a lowest King tower awards three crowns and keeps the tiebreak result reason
+  ---
+  duration_ms: 1.345744
+  type: 'test'
+  ...
+# Subtest: already destroyed towers are excluded and near-equal surviving minima remain draws
+ok 6 - already destroyed towers are excluded and near-equal surviving minima remain draws
+  ---
+  duration_ms: 1.800373
+  type: 'test'
+  ...
+# Subtest: pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+ok 7 - pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+  ---
+  duration_ms: 2.780288
+  type: 'test'
+  ...
+# Subtest: troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+ok 8 - troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+  ---
+  duration_ms: 2.272063
+  type: 'test'
+  ...
+# Subtest: boat battles preserve their own timeout without a crown-tower tiebreak phase
+ok 9 - boat battles preserve their own timeout without a crown-tower tiebreak phase
+  ---
+  duration_ms: 2.077083
+  type: 'test'
+  ...
+# Subtest: new replay records reproduce the drain while older records preserve their immediate result
+ok 10 - new replay records reproduce the drain while older records preserve their immediate result
+  ---
+  duration_ms: 507.222722
+  type: 'test'
+  ...
+# Subtest: replay validation rejects unknown engines and malformed tiebreak rules
+ok 11 - replay validation rejects unknown engines and malformed tiebreak rules
+  ---
+  duration_ms: 1.61303
+  type: 'test'
+  ...
+# Subtest: v130 always-ten-elixir cheat normalizes and never spends player elixir
+ok 12 - v130 always-ten-elixir cheat normalizes and never spends player elixir
+  ---
+  duration_ms: 27.653071
+  type: 'test'
+  ...
+# Subtest: v130 reward learning is always enabled for legal matches
+ok 13 - v130 reward learning is always enabled for legal matches
+  ---
+  duration_ms: 2.881717
+  type: 'test'
+  ...
+# Subtest: v130 2v2 king firing positions are spread wider than v120
+ok 14 - v130 2v2 king firing positions are spread wider than v120
+  ---
+  duration_ms: 2.1205
+  type: 'test'
+  ...
+# Subtest: v130 self-play scheduler supports loop mode in its public plan
+ok 15 - v130 self-play scheduler supports loop mode in its public plan
+  ---
+  duration_ms: 0.298802
+  type: 'test'
+  ...
+# Subtest: v130 training worker generates varied decks beyond fixed presets
+ok 16 - v130 training worker generates varied decks beyond fixed presets
+  ---
+  duration_ms: 5.41919
+  type: 'test'
+  ...
+# Subtest: v130 cog menu only contains four requested actions
+ok 17 - v130 cog menu only contains four requested actions
+  ---
+  duration_ms: 0.966717
+  type: 'test'
+  ...
+# Subtest: v130 Learning Center exposes loop as a real toggle button
+ok 18 - v130 Learning Center exposes loop as a real toggle button
+  ---
+  duration_ms: 0.85369
+  type: 'test'
+  ...
+# Subtest: v130 headless self-play uses a 50ms simulation tick for scalable training
+ok 19 - v130 headless self-play uses a 50ms simulation tick for scalable training
+  ---
+  duration_ms: 0.517901
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 780.514378

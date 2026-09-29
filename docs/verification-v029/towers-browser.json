@@ -1,0 +1,190 @@
+{
+  "url": "http://127.0.0.1:8092",
+  "build": {
+    "scripts": [
+      "http://127.0.0.1:8092/bootstrap.be1c7a8ee107.js",
+      "http://127.0.0.1:8092/app.9edb57ffc491.js"
+    ],
+    "version": "Web Royale · Classic"
+  },
+  "initialGems": 5000,
+  "finalGems": 2750,
+  "styles": [
+    {
+      "id": "source-gold-rush",
+      "spent": 750,
+      "persisted": {
+        "selected": "source-gold-rush",
+        "owned": [
+          "classic",
+          "source-gold-rush"
+        ],
+        "gems": 4250
+      },
+      "prepared": {
+        "normal": true,
+        "queue": "trophy-road",
+        "mode": "Default",
+        "towers": [
+          {
+            "skin": "source-gold-rush",
+            "king": true
+          },
+          {
+            "skin": "source-gold-rush",
+            "king": false
+          },
+          {
+            "skin": "source-gold-rush",
+            "king": false
+          }
+        ],
+        "sceneRetained": true,
+        "expected": [
+          "kingtower_goldrush_01",
+          "princesstower_goldrush_01",
+          "princesstower_goldrush_01_top"
+        ]
+      },
+      "visible": {
+        "width": 1080,
+        "height": 2344,
+        "visible": true,
+        "opaque": 2531520
+      },
+      "sourceExportsDrawn": [
+        "princesstower_goldrush_01",
+        "princesstower_goldrush_01_top",
+        "kingtower_goldrush_01"
+      ],
+      "screenshots": [
+        {
+          "file": "source-gold-rush-battle-1200.png",
+          "sha256": "5a5ba874877fbe00b2713b8cd873fe8c57d84c1bda65def65ee28505237f0458"
+        },
+        {
+          "file": "source-gold-rush-battle-390.png",
+          "sha256": "dcc72a2f1f7c0a4e78396f55df06d963cf59ff7e13137250b1b9ef0ee913e9bf"
+        }
+      ]
+    },
+    {
+      "id": "source-gem-rush",
+      "spent": 750,
+      "persisted": {
+        "selected": "source-gem-rush",
+        "owned": [
+          "classic",
+          "source-gold-rush",
+          "source-gem-rush"
+        ],
+        "gems": 3500
+      },
+      "prepared": {
+        "normal": true,
+        "queue": "trophy-road",
+        "mode": "Default",
+        "towers": [
+          {
+            "skin": "source-gem-rush",
+            "king": true
+          },
+          {
+            "skin": "source-gem-rush",
+            "king": false
+          },
+          {
+            "skin": "source-gem-rush",
+            "king": false
+          }
+        ],
+        "sceneRetained": true,
+        "expected": [
+          "kingtower_gemrush_01",
+          "princesstower_gemrush_01",
+          "princesstower_gemrush_01_top"
+        ]
+      },
+      "visible": {
+        "width": 1080,
+        "height": 2344,
+        "visible": true,
+        "opaque": 2531520
+      },
+      "sourceExportsDrawn": [
+        "princesstower_gemrush_01",
+        "princesstower_gemrush_01_top",
+        "kingtower_gemrush_01"
+      ],
+      "screenshots": [
+        {
+          "file": "source-gem-rush-battle-1200.png",
+          "sha256": "d2872f6aebb34ca5969dba6120927797b7772d5b2f894e7ea481819f81e7e4a7"
+        },
+        {
+          "file": "source-gem-rush-battle-390.png",
+          "sha256": "3de752e2dbde6c75b01bf807a86ecd6eca81b5f8159c278c7d5c38e778b77a76"
+        }
+      ]
+    },
+    {
+      "id": "source-elixir-pump",
+      "spent": 750,
+      "persisted": {
+        "selected": "source-elixir-pump",
+        "owned": [
+          "classic",
+          "source-gold-rush",
+          "source-gem-rush",
+          "source-elixir-pump"
+        ],
+        "gems": 2750
+      },
+      "prepared": {
+        "normal": true,
+        "queue": "trophy-road",
+        "mode": "Default",
+        "towers": [
+          {
+            "skin": "source-elixir-pump",
+            "king": true
+          },
+          {
+            "skin": "source-elixir-pump",
+            "king": false
+          },
+          {
+            "skin": "source-elixir-pump",
+            "king": false
+          }
+        ],
+        "sceneRetained": true,
+        "expected": [
+          "kingtower_pump_01",
+          "princesstower_pump_01"
+        ]
+      },
+      "visible": {
+        "width": 1080,
+        "height": 2344,
+        "visible": true,
+        "opaque": 2531520
+      },
+      "sourceExportsDrawn": [
+        "princesstower_pump_01",
+        "kingtower_pump_01"
+      ],
+      "screenshots": [
+        {
+          "file": "source-elixir-pump-battle-1200.png",
+          "sha256": "c0fb1d33adc14d7df80f1773d13cd2773d37cf203f45c298846b14278fb36e22"
+        },
+        {
+          "file": "source-elixir-pump-battle-390.png",
+          "sha256": "0e85e2e255c048c9aab85ab080f52da5fbf0d3fe94c7dbb74800a10f7966ec30"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

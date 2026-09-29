@@ -1,0 +1,66 @@
+TAP version 13
+# Subtest: v043 replay accepts ten-seat Rumble and reproduces its input stream
+not ok 1 - v043 replay accepts ten-seat Rumble and reproduces its input stream
+  ---
+  duration_ms: 1.296755
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-replay.test.cjs:3:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '0.42' !== '0.43'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '0.43'
+  actual: '0.42'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-replay.test.cjs:3:80)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: v043 retains exact v042 engine including old One Shot Miner permission and custom tower positions
+not ok 2 - v043 retains exact v042 engine including old One Shot Miner permission and custom tower positions
+  ---
+  duration_ms: 0.249536
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-replay.test.cjs:4:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '0.42' !== '0.43'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '0.43'
+  actual: '0.42'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-replay.test.cjs:4:110)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: invalid Rumble seat ownership and pre043 ten-seat records are rejected
+ok 3 - invalid Rumble seat ownership and pre043 ten-seat records are rejected
+  ---
+  duration_ms: 8.546974
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 1
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 172.885346

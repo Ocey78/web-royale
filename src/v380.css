@@ -1,0 +1,7 @@
+/* v0.38: clean saved-deck surface and the purchase-driven Gem Shop. */
+#viewport .reference-cards #deckGrid{background-image:none;background-color:transparent}
+#viewport .gem-offers{grid-template-columns:repeat(3,minmax(0,1fr))}
+#viewport .gem-shop .offer-price{background:linear-gradient(#547255,#334e3b);border-color:#26402f}
+#viewport .gem-shop .offer-price>img{width:28px;height:30px;object-fit:contain}
+#viewport .gem-shop-progress{min-height:26px;line-height:1.4}
+#viewport .gem-shop-progress>b{color:#c4f5b7;white-space:nowrap}

@@ -1,0 +1,12 @@
+
+> web-royale@0.39.1 build
+> node tools/build-web.js
+
+{
+  "version": "0.39.1",
+  "target": "web",
+  "files": 1203,
+  "entryBytes": 13955,
+  "totalBytes": 305073508,
+  "snapshot": "3.2557.2"
+}

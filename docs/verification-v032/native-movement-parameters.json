@@ -1,0 +1,58 @@
+{
+  "source": "Original supplied APK 3.5.0, unpacked characters.csv retained in docs/verification-v031/source/characters.csv",
+  "csv_sha256": "3a2bda280a5e2244851796157d4a1a248707377e7180ab0ac6cc67b7bd5d0ee0",
+  "baby_dragon": {
+    "Name": "BabyDragon",
+    "Speed": "90",
+    "FlyingHeight": "3500",
+    "FlyDirectPaths": "",
+    "RotateAngleSpeed": "",
+    "HasRotationOnTimeline": "",
+    "TurretMovement": "",
+    "WalkingSpeedTweakPercentage": "",
+    "SpawnPathfindSpeed": "",
+    "SpawnAttachMaxRotation": "",
+    "SightRange": "5500",
+    "SightClip": "",
+    "SightClipSide": ""
+  },
+  "explicit_rotate_angle_speed": [
+    {
+      "Name": "ZapMachine",
+      "RotateAngleSpeed": "600",
+      "TurretMovement": "",
+      "HasRotationOnTimeline": ""
+    },
+    {
+      "Name": "MiniZapMachine",
+      "RotateAngleSpeed": "600",
+      "TurretMovement": "",
+      "HasRotationOnTimeline": ""
+    },
+    {
+      "Name": "MovingCannon",
+      "RotateAngleSpeed": "600",
+      "TurretMovement": "",
+      "HasRotationOnTimeline": ""
+    },
+    {
+      "Name": "BrokenCannon",
+      "RotateAngleSpeed": "600",
+      "TurretMovement": "",
+      "HasRotationOnTimeline": "true"
+    },
+    {
+      "Name": "DartBarrell",
+      "RotateAngleSpeed": "224",
+      "TurretMovement": "",
+      "HasRotationOnTimeline": ""
+    }
+  ],
+  "explicit_fly_direct_paths": [
+    {
+      "Name": "SkeletonBalloon",
+      "FlyDirectPaths": "true"
+    }
+  ],
+  "interpretation": "Units, default values, and movement-vs-visual application of RotateAngleSpeed are not established by the CSV. No universal turn rate is inferred."
+}

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+ok 1 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 1.016514
+  type: 'test'
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+ok 2 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 12.81743
+  type: 'test'
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+ok 3 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 1.415767
+  type: 'test'
+  ...
+# Subtest: custom battles do not decode an unused Trophy Road arena
+ok 4 - custom battles do not decode an unused Trophy Road arena
+  ---
+  duration_ms: 782.226326
+  type: 'test'
+  ...
+# Subtest: custom arena quality follows saved background and texture policy
+ok 5 - custom arena quality follows saved background and texture policy
+  ---
+  duration_ms: 11.606973
+  type: 'test'
+  ...
+# Subtest: local King HP is painted above destruction dust rather than covered by it
+ok 6 - local King HP is painted above destruction dust rather than covered by it
+  ---
+  duration_ms: 1.72993
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 886.008149

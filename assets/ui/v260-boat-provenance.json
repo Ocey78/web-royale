@@ -1,0 +1,74 @@
+{
+  "boat-body": {
+    "source": "assets/native/fx-building_clanwars_towers-0.webp",
+    "sourceSha256": "d9486c616625ba720ebcd1919653892c86269a15a8e01eaadf3cc8d1fddf4a0b",
+    "coreBounds": [
+      341,
+      0,
+      262,
+      275
+    ],
+    "cropBounds": [
+      338,
+      0,
+      606,
+      278
+    ],
+    "alphaThreshold": 210,
+    "dilationKernel": [
+      5,
+      5
+    ],
+    "file": "assets/ui/boat-body.png",
+    "sha256": "88b36f39c74ab64efdb58385ccfc867205d0ee90c39d79e60cf0a0271d04c5a5",
+    "pixelsVerified": true
+  },
+  "boat-defense-gun": {
+    "source": "assets/native/fx-building_clanwars_towers-0.webp",
+    "sourceSha256": "d9486c616625ba720ebcd1919653892c86269a15a8e01eaadf3cc8d1fddf4a0b",
+    "coreBounds": [
+      667,
+      721,
+      83,
+      136
+    ],
+    "cropBounds": [
+      664,
+      718,
+      752,
+      860
+    ],
+    "alphaThreshold": 210,
+    "dilationKernel": [
+      5,
+      5
+    ],
+    "file": "assets/ui/boat-defense-gun.png",
+    "sha256": "b21920d521b178d90d70cfbf535406bd0a832ec5788cbd5a074063602cc6a2bd",
+    "pixelsVerified": true
+  },
+  "boat-player-gun": {
+    "source": "assets/native/fx-building_clanwars_towers-0.webp",
+    "sourceSha256": "d9486c616625ba720ebcd1919653892c86269a15a8e01eaadf3cc8d1fddf4a0b",
+    "coreBounds": [
+      390,
+      744,
+      99,
+      101
+    ],
+    "cropBounds": [
+      387,
+      741,
+      492,
+      848
+    ],
+    "alphaThreshold": 210,
+    "dilationKernel": [
+      5,
+      5
+    ],
+    "file": "assets/ui/boat-player-gun.png",
+    "sha256": "c56d3f7cb806253b9db710b003699868331a04217d06ab8238be72f8467aaba8",
+    "pixelsVerified": true
+  }
+}

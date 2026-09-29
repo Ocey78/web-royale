@@ -1,0 +1,38 @@
+{
+  "version": "0.30.0",
+  "fallback": {
+    "target": "KingTower",
+    "king": true,
+    "team": 1,
+    "position": {
+      "x": 94.93985983114852,
+      "y": 356.7139174319592
+    }
+  },
+  "dragon": 26,
+  "knight": 27,
+  "goblin": 30,
+  "reacquired": {
+    "entity": "Goblin",
+    "id": 28
+  },
+  "giant": 26,
+  "nearTroop": 27,
+  "cannon": 28,
+  "electroWizard": {
+    "damage": 91,
+    "primary": 91,
+    "secondary": 91,
+    "third": 0
+  },
+  "checks": [
+    "nearest Crown edge",
+    "tower-navigation distraction",
+    "attack lock",
+    "out-of-range retarget",
+    "buildings-only",
+    "Electro Wizard locked primary bolt"
+  ],
+  "errors": [],
+  "missing": []
+}

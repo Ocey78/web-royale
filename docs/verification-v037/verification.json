@@ -1,0 +1,122 @@
+{
+  "version": "0.37.0",
+  "verifiedAt": "2026-09-28T06:36:37.671959+00:00",
+  "fullSuite": {
+    "command": "npm test",
+    "testFileConcurrency": 2,
+    "tests": 964,
+    "pass": 964,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 373695.664119
+  },
+  "targetedRegressionSuite": {
+    "tests": 69,
+    "pass": 69,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 4634.966069
+  },
+  "browser": {
+    "passed": 51,
+    "checks": [
+      "Generated release is v0.37.0",
+      "Sandbox removed from home",
+      "Sandbox moved into Other Modes",
+      "Four Card and Random Deck modes each have a Play button",
+      "Add deck creates and selects a saved deck",
+      "Removing deck requires confirmation",
+      "Deletion preserves all existing decks",
+      "Ten decks supported and add button disabled at ten",
+      "Tenth deck is selectable",
+      "Deck library written to existing save key",
+      "Four graphics categories retained",
+      "Full particles applies full frame budget immediately",
+      "Full particles persists in saved profile",
+      "Daily Shop exactly nine slots",
+      "Daily Shop top three are free",
+      "Daily Shop bottom six are paid cards",
+      "Hour Shop still has twelve slots",
+      "Lightning Shop still has three slots",
+      "Free Gold Chest grants 100\u201310000 gold in increments of ten",
+      "Gold chest uses actual reward summary",
+      "Collected free Gold Chest cannot be claimed again",
+      "Free Gem Chest grants 5\u2013250 gems in increments of five",
+      "Gem Chest uses dedicated recolored native scene",
+      "Gem reward card amount matches credited balance",
+      "Free Wild Cards credited to profile",
+      "All three free claims stay collected",
+      "Claim receipts stored with saved profile",
+      "Daily Shop columns remain inside phone viewport",
+      "Four-card builder has exactly four slots",
+      "Four-card selection updates saved deck",
+      "Four-card builder leaves normal deck library alone",
+      "Four-card builder remembers last selection when reopened",
+      "Four-card choice persisted under original save key",
+      "Both combatants receive four cards and no next-card queues",
+      "Hand no longer contains level labels",
+      "Four-card mode hides Next preview",
+      "Four-card mode is level nine and non-ranked",
+      "Playing four-card mode retains its four-card hand",
+      "AI handles four-card matches without undefined cards",
+      "Faster OK visible shortly after 2.65 seconds",
+      "Non-ranked win leaves trophies unchanged",
+      "Result rewards reflect actual chest and gold",
+      "OK returns to home",
+      "Random Deck creates eight unique cards on both sides",
+      "Random Deck restores normal Next preview",
+      "Random Deck rerolls for next match",
+      "Random Deck never overwrites saved decks",
+      "Normal battle remains eight cards with four next cards",
+      "Ranked result shows trophy gain without extra streak sentence",
+      "Draw has a visible label and working OK",
+      "No uncaught application errors"
+    ],
+    "errors": [],
+    "environment": "Chromium desktop and 390\u00d7844 viewport; file-backed Canvas/DOM fixture; HTTP navigation blocked by environment policy; not physical iPhone testing"
+  },
+  "cleanRebuild": {
+    "status": "passed",
+    "version": "0.37.0",
+    "runtimeFiles": 1203,
+    "rebuildDirectory": "clean source archive selection with no duplicate raw artwork",
+    "command": "node tools/build-web.js --compact-scenes",
+    "hashesEqual": true,
+    "stdout": "{\n  \"version\": \"0.37.0\",\n  \"target\": \"web\",\n  \"files\": 1203,\n  \"entryBytes\": 13955,\n  \"totalBytes\": 264546277,\n  \"snapshot\": \"3.2557.2\"\n}\n"
+  },
+  "gemArt": [
+    {
+      "source": "assets/ui/gold-chest.png",
+      "gem": "assets/ui/gem-chest.png",
+      "shape": [
+        162,
+        177,
+        4
+      ],
+      "alphaUnchanged": true,
+      "differentRGBPixels": 22121
+    },
+    {
+      "source": "assets/native/chest-opening-0.webp",
+      "gem": "assets/native/gem-chest-opening-0.webp",
+      "shape": [
+        3824,
+        2494,
+        4
+      ],
+      "alphaUnchanged": true,
+      "differentRGBPixels": 6525348
+    }
+  ],
+  "limitations": [
+    "The supplied Pinterest end-screen image was not retrievable; pixel-exact matching to that image is not verified.",
+    "Browser QA uses Chromium with a file-backed HTTP/storage adapter because ordinary HTTP browser navigation is blocked by this environment.",
+    "390x844 viewport checks are not physical iPhone/Safari tests.",
+    "Existing Windows offline launchers were preserved but not executed on Windows.",
+    "This archive has not been deployed to the live ChatGPT Site."
+  ]
+}

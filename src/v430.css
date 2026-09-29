@@ -1,0 +1,30 @@
+/* v043: compact paged decks, larger road arenas, native-style Mirror and rewards. */
+.reference-cards .deck-toolbar{gap:5px;align-items:center}.reference-cards .deck-tabs{display:flex;flex:1;min-width:0;gap:4px;align-items:center;justify-content:center;overflow:visible}.reference-cards .deck-tabs .deck-tab{flex:1 1 0;min-width:0;max-width:42px;width:auto;padding:0 0 3px;height:35px}.reference-cards .deck-tabs .deck-add{flex:0 0 27px;width:27px;max-width:27px}
+.deck-page-arrow{border:0;border-radius:5px;background:#215a85;color:#eaf9ff;font:bold 27px Arial;flex:0 0 20px;width:20px;height:34px;padding:0}.deck-page-arrow:disabled{opacity:.3}.deck-page-arrow:active{background:#4b9dcc}.reference-cards .deck-toolbar>.tool-square{flex:0 0 31px;width:31px;height:34px;min-width:0}
+.deck-name-label{display:flex;align-items:center;flex:1;min-width:0;max-width:252px;margin:0 8px;gap:5px}.deck-name-label input{width:100%;min-width:0;max-width:220px;background:#0f31534d;border:0;border-bottom:1px solid #8bb3ca;border-radius:2px;padding:4px 2px;color:#edf4ff;font-size:15px;text-overflow:ellipsis}.deck-name-label>span{color:#b7def1;font-size:16px}.deck-name-label input:focus{background:#103655;outline:1px solid #e1ce80}#deckPageLabel{white-space:nowrap;font-size:11px;color:#a6c4df}
+.road-arena-info{flex-direction:column;gap:3px;width:100%;margin:10px auto 6px}.road-arena-info>img{width:172px;height:150px;max-width:70%;object-fit:contain;filter:drop-shadow(0 5px 2px #09203c66)}.road-arena-info>span{max-width:95%;text-align:center}.road-league .road-arena-info>img{width:100px;height:119px}.road-gate{height:auto!important;min-height:255px;padding-bottom:12px!important}.road-league .road-gate{min-height:228px}
+.hand-card .card-visual.mirrored>.card-frame{filter:sepia(.7) saturate(2.1) hue-rotate(150deg)!important;z-index:2}.hand-card .card-visual.mirrored>.card-portrait{inset:5%!important;width:90%!important;height:90%!important;clip-path:inset(0 round 6px)!important}
+.card-visual.mirrored:after{content:"";position:absolute;inset:1px;border:3px solid transparent;border-radius:10px;background:linear-gradient(130deg,#e8fcff,#7be6ff 22%,#adadff 48%,#e2c7ff 70%,#b5edff) border-box;mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);mask-composite:exclude;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;pointer-events:none;z-index:3}.card-visual.mirrored:before{content:"";position:absolute;inset:6%;background:linear-gradient(135deg,transparent 34%,#e9faff22 35%,#e9faff55 40%,transparent 42%);z-index:2;pointer-events:none;border-radius:6px}
+#tripleTeamStatus.rumble-team{gap:3px;left:10px;right:10px;width:auto}#tripleTeamStatus.rumble-team>span{flex:1;min-width:0;padding:5px 2px;font-size:11px;text-align:center;white-space:nowrap}
+.end-battle-reward.many-rewards{width:420px;left:60px}.end-battle-reward.many-rewards .end-reward-items{gap:6px}.end-battle-reward.many-rewards .end-reward-box{width:89px;min-width:0}.end-reward-magic>small{position:absolute;bottom:2px;font-size:9px;line-height:11px;left:3px;right:3px;text-align:center;color:#e4f3ff}.end-reward-magic .end-reward-amount{bottom:18px}
+.mode-deck-builder .mode-deck-rule{font-size:13px;line-height:1.4}.mode-deck-builder .mode-deck-save-note{color:#31576e;font-weight:bold}
+/* The original toolbar is a grid: reserve columns explicitly rather than only
+   setting flex sizes on its children (which leaves the old 49px tracks). */
+#viewport .reference-cards .deck-toolbar{display:grid;grid-template-columns:31px minmax(0,1fr)31px 31px;gap:5px;padding:8px}
+#viewport .reference-cards .deck-tabs{width:100%;height:42px;margin:0;min-width:0}
+#viewport .reference-cards .deck-toolbar>.tool-square{padding:3px}
+#viewport .reference-cards .deck-toolbar>.tool-square>img{width:23px;height:26px;max-width:23px;max-height:26px}
+#viewport .reference-cards .deck-toolbar .copy-card-icon{transform:scale(.72)}
+
+/* Both result actions appear at the same reveal time; below the reward boxes. */
+#viewport .match-result-board.has-play-again .end-ok{left:92px;width:126px}
+#viewport .match-result-board .end-play-again{position:absolute;top:calc(50% + 351px);left:234px;width:214px;height:60px;min-height:60px;z-index:6;opacity:0;transform:translateY(18px);font-size:23px;padding:7px 10px 13px}
+#viewport .match-end.active .end-play-again:not([hidden]){animation:end-ok-in .16s 0s ease-out forwards;pointer-events:auto}
+#viewport .match-result-board .end-play-again[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){#viewport .match-end.active .end-play-again:not([hidden]){animation:none;opacity:1;transform:none}}
+
+#viewport .end-reward-items>.end-reward-magic{position:relative;padding:3px;gap:0}
+#viewport .end-reward-magic>small{position:static;display:block;width:100%;color:#365775;font-size:10px;line-height:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#viewport .end-reward-magic .end-reward-amount{line-height:18px;font-size:18px}
+
+#viewport .end-reward-items>.end-reward-magic>img{height:44px}

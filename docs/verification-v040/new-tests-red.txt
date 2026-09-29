@@ -1,0 +1,529 @@
+TAP version 13
+# Subtest: v040 gold stack on every ranked win, including between milestones
+not ok 1 - v040 gold stack on every ranked win, including between milestones
+  ---
+  duration_ms: 10.224976
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:10:2'
+  failureType: 'testCodeFailure'
+  error: 'win 4: 0 outside 100–300'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:15:6)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: v040 gold reroll per match within a tier, not when redrawing or loading
+not ok 2 - v040 gold reroll per match within a tier, not when redrawing or loading
+  ---
+  duration_ms: 102.059626
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'rolls should vary for the same tier across games'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:27:5)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: v040 gems stack on every ranked win, including between milestones
+not ok 3 - v040 gems stack on every ranked win, including between milestones
+  ---
+  duration_ms: 1.597928
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:10:2'
+  failureType: 'testCodeFailure'
+  error: 'win 6: 0 outside 1–10'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:15:6)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 gems reroll per match within a tier, not when redrawing or loading
+not ok 4 - v040 gems reroll per match within a tier, not when redrawing or loading
+  ---
+  duration_ms: 75.778037
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'rolls should vary for the same tier across games'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:27:5)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 large streak receipts and result metadata survive save/import beyond old single-tier caps
+not ok 5 - v040 large streak receipts and result metadata survive save/import beyond old single-tier caps
+  ---
+  duration_ms: 9.148227
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(q.gold-p.gold>=2050)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:32:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 ranked loss/draw clear tiers; non-ranked battles neither earn tiers nor break them
+not ok 6 - v040 ranked loss/draw clear tiers; non-ranked battles neither earn tiers nor break them
+  ---
+  duration_ms: 5.243397
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:36:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(next.gold-q.gold>=1050)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:45:57)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 stacked rewards respect wallet caps and the saved result only reports credited currency
+not ok 7 - v040 stacked rewards respect wallet caps and the saved result only reports credited currency
+  ---
+  duration_ms: 1.276212
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:48:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 9999998
+    - 9999999
+            ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 9999999
+  actual: 9999998
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:50:24)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 old saves keep their streak without retrospective payout or receipt recomputation
+not ok 8 - v040 old saves keep their streak without retrospective payout or receipt recomputation
+  ---
+  duration_ms: 2.031986
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:53:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(next.gold-saved.gold>=650)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:56:64)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 every paid emote costs 50 gems and every paid tower style costs 100
+not ok 9 - v040 every paid emote costs 50 gems and every paid tower style costs 100
+  ---
+  duration_ms: 0.777226
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:59:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Emote4
+    
+    250 !== 50
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 50
+  actual: 250
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:61:49)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 emote purchase charges new price exactly once and preserves ownership
+not ok 10 - v040 emote purchase charges new price exactly once and preserves ownership
+  ---
+  duration_ms: 1.887347
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:66:2'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:68:5)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 tower skin purchase charges new price exactly once and preserves ownership
+not ok 11 - v040 tower skin purchase charges new price exactly once and preserves ownership
+  ---
+  duration_ms: 0.657585
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:66:2'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:68:5)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices
+not ok 12 - v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices
+  ---
+  duration_ms: 2.406603
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:76:1'
+  failureType: 'testCodeFailure'
+  error: '{"kind":"card","id":"princess","name":"Princess","rarity":"Legendary","locked":false,"currency":"gems","quantity":1,"price":200}'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:82:61)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload
+ok 13 - v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload
+  ---
+  duration_ms: 3.358524
+  type: 'test'
+  ...
+# Subtest: v040 silver chest can be bought for 15 gems with usable loot and without a battle chest slot
+ok 14 - v040 silver chest can be bought for 15 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.61204
+  type: 'test'
+  ...
+# Subtest: v040 gold chest can be bought for 35 gems with usable loot and without a battle chest slot
+ok 15 - v040 gold chest can be bought for 35 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.366549
+  type: 'test'
+  ...
+# Subtest: v040 magic chest can be bought for 50 gems with usable loot and without a battle chest slot
+not ok 16 - v040 magic chest can be bought for 50 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 0.463842
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:97:2'
+  failureType: 'testCodeFailure'
+  error: |-
+    Not enough gems
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:99:44)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 giant chest can be bought for 65 gems with usable loot and without a battle chest slot
+not ok 17 - v040 giant chest can be bought for 65 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 0.421017
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:97:2'
+  failureType: 'testCodeFailure'
+  error: |-
+    Unknown chest
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:99:44)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 epic chest can be bought for 80 gems with usable loot and without a battle chest slot
+not ok 18 - v040 epic chest can be bought for 80 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 0.381557
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:97:2'
+  failureType: 'testCodeFailure'
+  error: |-
+    Unknown chest
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:99:44)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 legendary chest can be bought for 100 gems with usable loot and without a battle chest slot
+not ok 19 - v040 legendary chest can be bought for 100 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 0.355017
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:97:2'
+  failureType: 'testCodeFailure'
+  error: |-
+    Unknown chest
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:99:44)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 Giant chest has its own Common/Rare loot, not the generic Silver fallback
+not ok 20 - v040 Giant chest has its own Common/Rare loot, not the generic Silver fallback
+  ---
+  duration_ms: 1.072433
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:105:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(giant.gold>silver.gold)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:107:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 Legendary chest cannot charge an early-arena player for an empty reward
+not ok 21 - v040 Legendary chest cannot charge an early-arena player for an empty reward
+  ---
+  duration_ms: 0.850107
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:111:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:113:54)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 Epic and Legendary chests grant only their respective rarity
+not ok 22 - v040 Epic and Legendary chests grant only their respective rarity
+  ---
+  duration_ms: 1.211054
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:115:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:117:55)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: v040 unknown and prototype chest kinds cannot bypass pricing
+not ok 23 - v040 unknown and prototype chest kinds cannot bypass pricing
+  ---
+  duration_ms: 0.710815
+  type: 'test'
+  location: '/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:120:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work040/Web-Royale/tests/v040-economy-stacking.test.cjs:121:141)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 3
+# fail 20
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 339.046354

@@ -1,0 +1,360 @@
+TAP version 13
+# Subtest: 0.26 records retain the historical simulation and reproduce bridge movement
+ok 1 - 0.26 records retain the historical simulation and reproduce bridge movement
+  ---
+  duration_ms: 3523.468332
+  type: 'test'
+  ...
+# Subtest: 0.27 records retain the historical simulation and reproduce bridge movement
+ok 2 - 0.27 records retain the historical simulation and reproduce bridge movement
+  ---
+  duration_ms: 3477.863929
+  type: 'test'
+  ...
+# Subtest: new matches record0.41 and use the current simulation
+ok 3 - new matches record0.41 and use the current simulation
+  ---
+  duration_ms: 398.754345
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+ok 4 - historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+  ---
+  duration_ms: 4.328261
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+ok 5 - release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 967.18645
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+ok 6 - release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 659.807939
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 7 - release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 673.824785
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+ok 8 - release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 326.419801
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+ok 9 - release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 341.026665
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+ok 10 - release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 457.070815
+  type: 'test'
+  ...
+# Subtest: engine0.28 boat playback is independent of live simulation and live boat adapter
+ok 11 - engine0.28 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 123.052686
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and both historical engine globals isolated
+ok 12 - browser loading keeps current and both historical engine globals isolated
+  ---
+  duration_ms: 955.950264
+  type: 'test'
+  ...
+# Subtest: current records use engine0.41 while unsupported engine tags remain rejected
+ok 13 - current records use engine0.41 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 10.78582
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+ok 14 - historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+  ---
+  duration_ms: 10.102673
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+ok 15 - release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 704.657686
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+ok 16 - release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 947.136133
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+ok 17 - release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 808.540704
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 18 - release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 932.317493
+  type: 'test'
+  ...
+# Subtest: engine0.30 boat playback is independent of live simulation and live boat adapter
+ok 19 - engine0.30 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 545.501943
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 20 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 1559.432449
+  type: 'test'
+  ...
+# Subtest: current records use engine0.41 while unsupported engine tags remain rejected
+ok 21 - current records use engine0.41 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 18.703647
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.31 bytes
+ok 22 - historical engine, boat adapter, data and fixtures retain the released v0.31 bytes
+  ---
+  duration_ms: 5.341394
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 baby-dragon-lane.json reproduces its stored outcome through repeated seeks
+ok 23 - release0.31.0 engine0.31 baby-dragon-lane.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 912.997992
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 normal.json reproduces its stored outcome through repeated seeks
+ok 24 - release0.31.0 engine0.31 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 825.14545
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 boat.json reproduces its stored outcome through repeated seeks
+ok 25 - release0.31.0 engine0.31 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 1060.388195
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 26 - release0.31.0 engine0.31 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 757.942421
+  type: 'test'
+  ...
+# Subtest: engine0.31 boat playback is independent of live simulation and live boat adapter
+ok 27 - engine0.31 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 252.927618
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 28 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 832.000276
+  type: 'test'
+  ...
+# Subtest: current records use engine0.41 while unsupported engine tags remain rejected
+ok 29 - current records use engine0.41 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 10.380174
+  type: 'test'
+  ...
+# Subtest: decisive overtime expiry starts one visible phase before granting the result
+ok 30 - decisive overtime expiry starts one visible phase before granting the result
+  ---
+  duration_ms: 17.511037
+  type: 'test'
+  ...
+# Subtest: freezing the board removes queued ally previews and stops interpolation at current positions
+ok 31 - freezing the board removes queued ally previews and stops interpolation at current positions
+  ---
+  duration_ms: 22.680771
+  type: 'test'
+  ...
+# Subtest: drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+ok 32 - drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+  ---
+  duration_ms: 7.434619
+  type: 'test'
+  ...
+# Subtest: lowest surviving raw HP determines the drain winner and awards one crown once
+ok 33 - lowest surviving raw HP determines the drain winner and awards one crown once
+  ---
+  duration_ms: 7.940176
+  type: 'test'
+  ...
+# Subtest: a lowest King tower awards three crowns and keeps the tiebreak result reason
+ok 34 - a lowest King tower awards three crowns and keeps the tiebreak result reason
+  ---
+  duration_ms: 2.11625
+  type: 'test'
+  ...
+# Subtest: already destroyed towers are excluded and near-equal surviving minima remain draws
+ok 35 - already destroyed towers are excluded and near-equal surviving minima remain draws
+  ---
+  duration_ms: 3.568516
+  type: 'test'
+  ...
+# Subtest: pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+ok 36 - pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+  ---
+  duration_ms: 4.152083
+  type: 'test'
+  ...
+# Subtest: troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+ok 37 - troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+  ---
+  duration_ms: 3.209356
+  type: 'test'
+  ...
+# Subtest: boat battles preserve their own timeout without a crown-tower tiebreak phase
+ok 38 - boat battles preserve their own timeout without a crown-tower tiebreak phase
+  ---
+  duration_ms: 2.963324
+  type: 'test'
+  ...
+# Subtest: new replay records reproduce the drain while older records preserve their immediate result
+not ok 39 - new replay records reproduce the drain while older records preserve their immediate result
+  ---
+  duration_ms: 369.690245
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/tiebreak-v270.test.cjs:131:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '0.41' !== '0.38'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '0.38'
+  actual: '0.41'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/tiebreak-v270.test.cjs:140:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: replay validation rejects unknown engines and malformed tiebreak rules
+ok 40 - replay validation rejects unknown engines and malformed tiebreak rules
+  ---
+  duration_ms: 2.915303
+  type: 'test'
+  ...
+# Subtest: v038 records have a new simulation tag for changed spawn and navigation rules
+ok 41 - v038 records have a new simulation tag for changed spawn and navigation rules
+  ---
+  duration_ms: 38.282387
+  type: 'test'
+  ...
+# Subtest: v038 accepts the previous engine0.32 including four-card recordings
+ok 42 - v038 accepts the previous engine0.32 including four-card recordings
+  ---
+  duration_ms: 2.874573
+  type: 'test'
+  ...
+# Subtest: v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+ok 43 - v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+  ---
+  duration_ms: 4.190165
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+ok 44 - v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+  ---
+  duration_ms: 189.216154
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+ok 45 - v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+  ---
+  duration_ms: 3260.844399
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 boat.json reproduces the original digest through seeks
+ok 46 - v038 historical engine0.32 boat.json reproduces the original digest through seeks
+  ---
+  duration_ms: 24.878508
+  type: 'test'
+  ...
+# Subtest: v038 frozen browser replay global does not overwrite live modules
+ok 47 - v038 frozen browser replay global does not overwrite live modules
+  ---
+  duration_ms: 118.953023
+  type: 'test'
+  ...
+# Subtest: v130 always-ten-elixir cheat normalizes and never spends player elixir
+ok 48 - v130 always-ten-elixir cheat normalizes and never spends player elixir
+  ---
+  duration_ms: 57.481812
+  type: 'test'
+  ...
+# Subtest: v130 reward learning is always enabled for legal matches
+ok 49 - v130 reward learning is always enabled for legal matches
+  ---
+  duration_ms: 4.579799
+  type: 'test'
+  ...
+# Subtest: v130 2v2 king firing positions are spread wider than v120
+ok 50 - v130 2v2 king firing positions are spread wider than v120
+  ---
+  duration_ms: 3.865829
+  type: 'test'
+  ...
+# Subtest: v130 self-play scheduler supports loop mode in its public plan
+ok 51 - v130 self-play scheduler supports loop mode in its public plan
+  ---
+  duration_ms: 0.41607
+  type: 'test'
+  ...
+# Subtest: v130 training worker generates varied decks beyond fixed presets
+ok 52 - v130 training worker generates varied decks beyond fixed presets
+  ---
+  duration_ms: 7.905962
+  type: 'test'
+  ...
+# Subtest: v130 cog menu only contains four requested actions
+ok 53 - v130 cog menu only contains four requested actions
+  ---
+  duration_ms: 1.34218
+  type: 'test'
+  ...
+# Subtest: v130 Learning Center exposes loop as a real toggle button
+ok 54 - v130 Learning Center exposes loop as a real toggle button
+  ---
+  duration_ms: 1.455014
+  type: 'test'
+  ...
+# Subtest: v130 headless self-play uses a 50ms simulation tick for scalable training
+ok 55 - v130 headless self-play uses a 50ms simulation tick for scalable training
+  ---
+  duration_ms: 0.385496
+  type: 'test'
+  ...
+1..55
+# tests 55
+# suites 0
+# pass 54
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10710.432239

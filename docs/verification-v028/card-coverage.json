@@ -1,0 +1,3688 @@
+{
+  "snapshot": "3.2557.2",
+  "release": "0.28",
+  "purpose": "Evidence inventory, not universal native parity certification",
+  "generation": "node tests/report-card-coverage-v028.cjs; run cited suites first; generate pathing-report.json with CARD_PATHING_REPORT during the pathing suite",
+  "totals": {
+    "cards": 102,
+    "baselineDeployment": 102,
+    "explicitBehavior": 57,
+    "withoutDedicatedBehavior": 45,
+    "cardsWithIndependentMobileEntities": 82,
+    "primaryBehaviorRepairCards": 13,
+    "additionalDeathSpawnRepairCards": 3,
+    "pathing": {
+      "reachableEntities": 98,
+      "independentMobileEntities": 77,
+      "scenarios": 345,
+      "passed": 345,
+      "failed": 0
+    }
+  },
+  "scopeLimits": [
+    "Passing deployment means the card dispatches and remains finite for three simulated seconds; it does not prove correct combat behavior.",
+    "The route sweep isolates movement from combat. It does not prove every aggro, retarget, push, crowd, building-placement, or battle interaction.",
+    "The engine is an independent interpreter of pinned 3.2557.2 tables, not the native binary. No modern balance values were introduced.",
+    "There is no matched historical video/reference trace for every card; native attack cadence, hit ordering, special interactions and visual identity are not certified.",
+    "Exact Hunter pellet spread, native Tornado attraction/mass response, and Tesla hide/rise timing remain known fidelity gaps.",
+    "The source graph includes attached-only and stationary entities; these are not falsely counted as independently mobile routes.",
+    "Legal spawn settling is a deterministic browser-engine repair, not a claim of exact native collision resolution."
+  ],
+  "evidence": [
+    {
+      "id": "knight-source",
+      "cards": [
+        "knight"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "source speed, health, range, and first-hit timing are used",
+      "kind": "combat",
+      "scope": "Knight source HP/speed/range/first-hit values"
+    },
+    {
+      "id": "ground-targeting",
+      "cards": [
+        "knight"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "ground-only melee cannot select or hit flying troops",
+      "kind": "combat",
+      "scope": "Knight rejects flying targets"
+    },
+    {
+      "id": "air-targeting",
+      "cards": [
+        "musketeer"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "ranged anti-air can acquire a flying target",
+      "kind": "combat",
+      "scope": "Musketeer acquires a flying target"
+    },
+    {
+      "id": "buildings-only",
+      "cards": [
+        "giant"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "building targeters ignore nearby defending troops",
+      "kind": "combat",
+      "scope": "Giant ignores defending troops"
+    },
+    {
+      "id": "shield",
+      "cards": [
+        "guards"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "shield absorbs a whole hit without overflow",
+      "kind": "combat",
+      "scope": "Guards shield absorbs a complete hit without HP overflow"
+    },
+    {
+      "id": "golem-split",
+      "cards": [
+        "golem"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Golem death creates two Golemites",
+      "kind": "spawn",
+      "scope": "Golem creates two Golemites on death"
+    },
+    {
+      "id": "cage-cart-death",
+      "cards": [
+        "goblin-cage",
+        "cannon-cart"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "cage releases Brawler and cart changes to stationary cannon",
+      "kind": "spawn",
+      "scope": "Cage releases Brawler; Cart changes to BrokenCannon"
+    },
+    {
+      "id": "spawner-types",
+      "cards": [
+        "witch",
+        "goblin-hut",
+        "tombstone"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Witch and huts generate their actual unit types",
+      "kind": "spawn",
+      "scope": "Source child type appears during live simulation"
+    },
+    {
+      "id": "collector",
+      "cards": [
+        "elixir-collector"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Elixir Collector generates an elixir at its source interval",
+      "kind": "spawn",
+      "scope": "Collector produces elixir"
+    },
+    {
+      "id": "charge-reset",
+      "cards": [
+        "prince"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "stun stops movement and resets charge",
+      "kind": "combat",
+      "scope": "Prince charge and movement reset under stun"
+    },
+    {
+      "id": "freeze-team",
+      "cards": [
+        "freeze"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Freeze does not debuff friendly troops",
+      "kind": "buff",
+      "scope": "Freeze affects enemies and leaves allied troops unbuffed"
+    },
+    {
+      "id": "mirror-repeat",
+      "cards": [
+        "mirror"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Mirror repeats the last card at +1 elixir and a higher level",
+      "kind": "deployment-rule",
+      "scope": "Mirror repeats last card with cost and level changes"
+    },
+    {
+      "id": "clone",
+      "cards": [
+        "clone"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Clone creates one-HP copies, not buildings",
+      "kind": "spawn",
+      "scope": "Clone creates one-HP troop copies and excludes buildings"
+    },
+    {
+      "id": "curse-death",
+      "cards": [
+        "mother-witch"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Mother Witch curse turns a killed troop into an allied hog",
+      "kind": "spawn",
+      "scope": "Curse death creates an allied Voodoo Hog"
+    },
+    {
+      "id": "blob-elixir",
+      "cards": [
+        "elixir-golem"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Elixir blob death grants the opponent elixir",
+      "kind": "combat",
+      "scope": "Final Elixir Golem stage grants opponent elixir on death"
+    },
+    {
+      "id": "inferno-reset",
+      "cards": [
+        "inferno-dragon"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "ramp-up damage grows only while retaining an uninterrupted target",
+      "kind": "combat",
+      "scope": "Inferno Dragon ramp increases damage and stun resets lock"
+    },
+    {
+      "id": "reflection",
+      "cards": [
+        "electro-giant"
+      ],
+      "file": "tests/expanded-battle.test.cjs",
+      "testTitleContains": "Electro Giant reflects nearby attacks without a reflection loop",
+      "kind": "combat",
+      "scope": "Electro Giant retaliates with damage and stun without recursion"
+    },
+    {
+      "id": "curse-impact",
+      "cards": [
+        "mother-witch"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Mother Witch curse is applied by impact",
+      "kind": "combat",
+      "scope": "No early curse; lethal projectile applies curse even after caster death"
+    },
+    {
+      "id": "snare-choice",
+      "cards": [
+        "ram-rider"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Ram Rider spreads Bola Snare",
+      "kind": "combat",
+      "scope": "Unsnared preference; committed target retained; expired snare ignored"
+    },
+    {
+      "id": "pellet-blocker",
+      "cards": [
+        "hunter"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Hunter pellet hits the first blocker",
+      "kind": "combat",
+      "scope": "Nearest body takes pellet independent of entity insertion order"
+    },
+    {
+      "id": "collector-freeze",
+      "cards": [
+        "elixir-collector",
+        "freeze"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Freeze suspends Elixir Collector production",
+      "kind": "buff",
+      "scope": "Freeze pauses current remaining production time"
+    },
+    {
+      "id": "collector-rage",
+      "cards": [
+        "elixir-collector",
+        "rage"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Rage speeds the current Elixir Collector cycle",
+      "kind": "buff",
+      "scope": "Rage speeds current remaining production time"
+    },
+    {
+      "id": "spawner-freeze",
+      "cards": [
+        "witch",
+        "night-witch",
+        "goblin-hut",
+        "barbarian-hut",
+        "tombstone",
+        "furnace",
+        "freeze"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Freeze suspends the remaining",
+      "kind": "buff",
+      "scope": "Freeze pauses each of six source spawn cycles, retaining remaining time"
+    },
+    {
+      "id": "cart-building",
+      "cards": [
+        "cannon-cart",
+        "clone",
+        "giant"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Cannon Cart becomes a building",
+      "kind": "combat",
+      "scope": "Broken Cart is stationary, attracts Giant, and is excluded by Clone"
+    },
+    {
+      "id": "cart-morph",
+      "cards": [
+        "cannon-cart"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Cannon Cart keeps its target",
+      "kind": "combat",
+      "scope": "Source 150ms morph delay and retained attack target"
+    },
+    {
+      "id": "hook-windup",
+      "cards": [
+        "fisherman"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Fisherman remains stationary",
+      "kind": "combat",
+      "scope": "Source hook windup is stationary; stun/push/death/invisibility cancel it"
+    },
+    {
+      "id": "tornado-rate",
+      "cards": [
+        "tornado"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "Tornado pulls the same distance",
+      "kind": "combat",
+      "scope": "Equal-time displacement at 20Hz, 60Hz, and 10Hz; attacks continue"
+    },
+    {
+      "id": "spawn-terrain",
+      "cards": [
+        "golem",
+        "elixir-golem",
+        "battle-ram"
+      ],
+      "file": "tests/card-pathing-v271.test.cjs",
+      "testTitleContains": "ground death-spawn families remain legal",
+      "kind": "spawn",
+      "scope": "16 bridge death cases cover four split stages, two teams, two lanes"
+    },
+    {
+      "id": "source-spread",
+      "cards": [
+        "golem"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "spawn groups preserve legal source spread",
+      "kind": "spawn",
+      "scope": "Valid Golemite spread retained; whole-body wall bounds repaired"
+    },
+    {
+      "id": "death-payload-origin",
+      "cards": [
+        "balloon",
+        "skeleton-barrel",
+        "lumberjack"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "river death payloads retain their origin",
+      "kind": "spawn",
+      "scope": "Death bomb deals199 damage at origin; skeleton container settles later children; Rage remains at death origin"
+    },
+    {
+      "id": "bank-rounding",
+      "cards": [
+        "mini-pekka",
+        "ice-golem"
+      ],
+      "file": "tests/card-behavior-v271.test.cjs",
+      "testTitleContains": "ground spawn settlement chooses a nearby bank",
+      "kind": "spawn",
+      "scope": "Fractional body radii settle to nearby bank without distant-bridge teleport"
+    },
+    {
+      "id": "windup-period",
+      "cards": [
+        "knight"
+      ],
+      "file": "tests/mechanics.test.cjs",
+      "testTitleContains": "attack period includes windup",
+      "kind": "combat",
+      "scope": "Attack period includes windup without adding it twice"
+    },
+    {
+      "id": "recoil",
+      "cards": [
+        "firecracker",
+        "sparky"
+      ],
+      "file": "tests/mechanics.test.cjs",
+      "testTitleContains": "ranged recoil occurs",
+      "kind": "combat",
+      "scope": "Attack recoil changes caster position"
+    },
+    {
+      "id": "split-bolts",
+      "cards": [
+        "electro-wizard"
+      ],
+      "file": "tests/mechanics.test.cjs",
+      "testTitleContains": "Electro Wizard strikes two targets",
+      "kind": "combat",
+      "scope": "Two enemies split bolts; one enemy receives both"
+    },
+    {
+      "id": "fireball-travel",
+      "cards": [
+        "fireball"
+      ],
+      "file": "tests/mechanics.test.cjs",
+      "testTitleContains": "Fireball damages both flying and ground units after travel",
+      "kind": "combat",
+      "scope": "Delayed Fireball damages ground and air"
+    },
+    {
+      "id": "princess-projectile",
+      "cards": [
+        "princess"
+      ],
+      "file": "tests/projectile-v160.test.cjs",
+      "testTitleContains": "Princess attack lowers a target HP",
+      "kind": "combat",
+      "scope": "Damage-bearing CustomFirstProjectile deals damage"
+    },
+    {
+      "id": "dragon-chain",
+      "cards": [
+        "electro-dragon"
+      ],
+      "file": "tests/source-timing.test.cjs",
+      "testTitleContains": "Electro Dragon source ChainedHitCount",
+      "kind": "combat",
+      "scope": "Chain target count includes primary target"
+    },
+    {
+      "id": "poison-stack",
+      "cards": [
+        "poison"
+      ],
+      "file": "tests/source-timing.test.cjs",
+      "testTitleContains": "two distinct Poison areas stack",
+      "kind": "combat",
+      "scope": "Independent Poison areas stack; refresh of one area does not"
+    },
+    {
+      "id": "earthquake-ticks",
+      "cards": [
+        "earthquake"
+      ],
+      "file": "tests/source-timing.test.cjs",
+      "testTitleContains": "Earthquake delivers three ground-only",
+      "kind": "combat",
+      "scope": "Three ground-only ticks including expiry boundary"
+    },
+    {
+      "id": "balloon-preload",
+      "cards": [
+        "balloon"
+      ],
+      "file": "tests/v250-fidelity.test.cjs",
+      "testTitleContains": "displacement removes Balloon preload",
+      "kind": "combat",
+      "scope": "Displacement clears Balloon preload"
+    },
+    {
+      "id": "dash-contact",
+      "cards": [
+        "bandit"
+      ],
+      "file": "tests/v250-fidelity.test.cjs",
+      "testTitleContains": "dash destination contacts the target edge",
+      "kind": "combat",
+      "scope": "Bandit dash ends at target body edge"
+    },
+    {
+      "id": "hog-jump",
+      "cards": [
+        "hog-rider"
+      ],
+      "file": "tests/v250-fidelity.test.cjs",
+      "testTitleContains": "Hog crosses open river with source jump speed",
+      "kind": "movement",
+      "scope": "Open-river jump uses source speed; bridge crossing stays grounded"
+    },
+    {
+      "id": "ghost-hover",
+      "cards": [
+        "royal-ghost"
+      ],
+      "file": "tests/v250-fidelity.test.cjs",
+      "testTitleContains": "Hog remains grounded across bridges",
+      "kind": "movement",
+      "scope": "Ghost can hover across water without a jump animation"
+    },
+    {
+      "id": "lumberjack-rage",
+      "cards": [
+        "lumberjack"
+      ],
+      "file": "tests/fixes-v120.test.cjs",
+      "testTitleContains": "Lumberjack rage bottle resolves",
+      "kind": "spawn",
+      "scope": "Death bottle resolves Rage after its source delay"
+    },
+    {
+      "id": "rage-team",
+      "cards": [
+        "rage"
+      ],
+      "file": "tests/fixes-v120.test.cjs",
+      "testTitleContains": "Rage area buffs both teammates",
+      "kind": "buff",
+      "scope": "Rage affects both allied seats and creates no targetable bottle"
+    },
+    {
+      "id": "mirror-level",
+      "cards": [
+        "mirror"
+      ],
+      "file": "tests/source-card-rules.test.cjs",
+      "testTitleContains": "Mirror uses its own level",
+      "kind": "deployment-rule",
+      "scope": "Mirror uses own source level offset; opening hand exclusion"
+    },
+    {
+      "id": "own-side-spells",
+      "cards": [
+        "the-log",
+        "barbarian-barrel",
+        "royal-delivery"
+      ],
+      "file": "tests/source-card-rules.test.cjs",
+      "testTitleContains": "SpellAsDeploy rolling cards cannot",
+      "kind": "deployment-rule",
+      "scope": "Own-territory deployment restriction"
+    },
+    {
+      "id": "delivery-tower",
+      "cards": [
+        "royal-delivery"
+      ],
+      "file": "tests/source-card-rules.test.cjs",
+      "testTitleContains": "CanPlaceOnBuildings permits",
+      "kind": "deployment-rule",
+      "scope": "Royal Delivery can be placed on allied tower"
+    },
+    {
+      "id": "archer-formation",
+      "cards": [
+        "archers"
+      ],
+      "file": "tests/v170-movement-formations.test.cjs",
+      "testTitleContains": "Archers preview and live deploy",
+      "kind": "formation",
+      "scope": "Preview/live member count, horizontal placement, source stagger"
+    },
+    {
+      "id": "triangles",
+      "cards": [
+        "skeletons",
+        "goblins",
+        "spear-goblins"
+      ],
+      "file": "tests/v170-movement-formations.test.cjs",
+      "testTitleContains": "Skeletons and Goblins use mirrored triangle",
+      "kind": "formation",
+      "scope": "Three-member mirrored formations"
+    },
+    {
+      "id": "barbs-recruits",
+      "cards": [
+        "barbarians",
+        "royal-recruits"
+      ],
+      "file": "tests/v170-movement-formations.test.cjs",
+      "testTitleContains": "Barbarians form a five-point",
+      "kind": "formation",
+      "scope": "Barbarian radial spread and full-lane Recruits"
+    },
+    {
+      "id": "army-formation",
+      "cards": [
+        "skeleton-army"
+      ],
+      "file": "tests/v170-movement-formations.test.cjs",
+      "testTitleContains": "Skeleton Army scatters",
+      "kind": "formation",
+      "scope": "15 members distributed over multiple radii"
+    },
+    {
+      "id": "secondary-members",
+      "cards": [
+        "goblin-gang",
+        "rascals"
+      ],
+      "file": "tests/v170-movement-formations.test.cjs",
+      "testTitleContains": "Goblin Gang and Rascals preview",
+      "kind": "formation",
+      "scope": "Primary/secondary member composition and front/back roles"
+    },
+    {
+      "id": "bowler-deploying",
+      "cards": [
+        "bowler"
+      ],
+      "file": "tests/deployment-v110.test.cjs",
+      "testTitleContains": "line projectiles hit deploying troops",
+      "kind": "combat",
+      "scope": "Bowler projectile damages a deploying troop"
+    }
+  ],
+  "cards": [
+    {
+      "id": "knight",
+      "name": "Knight",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "knight-source",
+          "ground-targeting",
+          "windup-period"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Knight"
+        ],
+        "independentlyMobile": [
+          "Knight"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "archers",
+      "name": "Archers",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "archer-formation"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Archer"
+        ],
+        "independentlyMobile": [
+          "Archer"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "goblins",
+      "name": "Goblins",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "triangles"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Goblin"
+        ],
+        "independentlyMobile": [
+          "Goblin"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "giant",
+      "name": "Giant",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "buildings-only",
+          "cart-building"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Giant"
+        ],
+        "independentlyMobile": [
+          "Giant"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "pekka",
+      "name": "P.E.K.K.A",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Pekka"
+        ],
+        "independentlyMobile": [
+          "Pekka"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "minions",
+      "name": "Minions",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Minion"
+        ],
+        "independentlyMobile": [
+          "Minion"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "balloon",
+      "name": "Balloon",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "death-payload-origin",
+          "balloon-preload"
+        ],
+        "kinds": [
+          "spawn",
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Balloon",
+          "BalloonBomb"
+        ],
+        "independentlyMobile": [
+          "Balloon"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "BalloonBomb",
+            "reason": "effect carrier"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "witch",
+      "name": "Witch",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawner-types",
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "spawn",
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Skeleton",
+          "Witch"
+        ],
+        "independentlyMobile": [
+          "Skeleton",
+          "Witch"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "barbarians",
+      "name": "Barbarians",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "barbs-recruits"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Barbarian"
+        ],
+        "independentlyMobile": [
+          "Barbarian"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "golem",
+      "name": "Golem",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "golem-split",
+          "spawn-terrain",
+          "source-spread"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Golem",
+          "Golemite"
+        ],
+        "independentlyMobile": [
+          "Golem",
+          "Golemite"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "ground death-spawn terrain repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "skeletons",
+      "name": "Skeletons",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "triangles"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Skeleton"
+        ],
+        "independentlyMobile": [
+          "Skeleton"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "valkyrie",
+      "name": "Valkyrie",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Valkyrie"
+        ],
+        "independentlyMobile": [
+          "Valkyrie"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "skeleton-army",
+      "name": "Skeleton Army",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "army-formation"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Skeleton"
+        ],
+        "independentlyMobile": [
+          "Skeleton"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "bomber",
+      "name": "Bomber",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Bomber"
+        ],
+        "independentlyMobile": [
+          "Bomber"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "musketeer",
+      "name": "Musketeer",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "air-targeting"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Musketeer"
+        ],
+        "independentlyMobile": [
+          "Musketeer"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "baby-dragon",
+      "name": "Baby Dragon",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "BabyDragon"
+        ],
+        "independentlyMobile": [
+          "BabyDragon"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "charge-reset"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Prince"
+        ],
+        "independentlyMobile": [
+          "Prince"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "wizard",
+      "name": "Wizard",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Wizard"
+        ],
+        "independentlyMobile": [
+          "Wizard"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "mini-pekka",
+      "name": "Mini P.E.K.K.A",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "bank-rounding"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "MiniPekka"
+        ],
+        "independentlyMobile": [
+          "MiniPekka"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "spear-goblins",
+      "name": "Spear Goblins",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "triangles"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "SpearGoblin"
+        ],
+        "independentlyMobile": [
+          "SpearGoblin"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "giant-skeleton",
+      "name": "Giant Skeleton",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "GiantSkeleton",
+          "GiantSkeletonBomb"
+        ],
+        "independentlyMobile": [
+          "GiantSkeleton"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "GiantSkeletonBomb",
+            "reason": "effect carrier"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "hog-rider",
+      "name": "Hog Rider",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "hog-jump"
+        ],
+        "kinds": [
+          "movement"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "HogRider"
+        ],
+        "independentlyMobile": [
+          "HogRider"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "minion-horde",
+      "name": "Minion Horde",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Minion"
+        ],
+        "independentlyMobile": [
+          "Minion"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "ice-wizard",
+      "name": "Ice Wizard",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "IceWizard"
+        ],
+        "independentlyMobile": [
+          "IceWizard"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "royal-giant",
+      "name": "Royal Giant",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "RoyalGiant"
+        ],
+        "independentlyMobile": [
+          "RoyalGiant"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "guards",
+      "name": "Guards",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "shield"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "SkeletonWarrior"
+        ],
+        "independentlyMobile": [
+          "SkeletonWarrior"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "princess",
+      "name": "Princess",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "princess-projectile"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Princess"
+        ],
+        "independentlyMobile": [
+          "Princess"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "dark-prince",
+      "name": "Dark Prince",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "DarkPrince"
+        ],
+        "independentlyMobile": [
+          "DarkPrince"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "three-musketeers",
+      "name": "Three Musketeers",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ThreeMusketeer"
+        ],
+        "independentlyMobile": [
+          "ThreeMusketeer"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "lava-hound",
+      "name": "Lava Hound",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "LavaHound",
+          "LavaPups"
+        ],
+        "independentlyMobile": [
+          "LavaHound",
+          "LavaPups"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "ice-spirit",
+      "name": "Ice Spirit",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "IceSpirits"
+        ],
+        "independentlyMobile": [
+          "IceSpirits"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "fire-spirits",
+      "name": "Fire Spirits",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "FireSpirits"
+        ],
+        "independentlyMobile": [
+          "FireSpirits"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "miner",
+      "name": "Miner",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Miner"
+        ],
+        "independentlyMobile": [
+          "Miner"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "sparky",
+      "name": "Sparky",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "recoil"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ZapMachine"
+        ],
+        "independentlyMobile": [
+          "ZapMachine"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "bowler",
+      "name": "Bowler",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "bowler-deploying"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Bowler"
+        ],
+        "independentlyMobile": [
+          "Bowler"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "lumberjack",
+      "name": "Lumberjack",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "death-payload-origin",
+          "lumberjack-rage"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "RageBarbarian",
+          "RageBarbarianBottle"
+        ],
+        "independentlyMobile": [
+          "RageBarbarian"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "RageBarbarianBottle",
+            "reason": "effect carrier"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "battle-ram",
+      "name": "Battle Ram",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawn-terrain"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Barbarian",
+          "BattleRam"
+        ],
+        "independentlyMobile": [
+          "Barbarian",
+          "BattleRam"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "ground death-spawn terrain repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "inferno-dragon",
+      "name": "Inferno Dragon",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "inferno-reset"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "InfernoDragon"
+        ],
+        "independentlyMobile": [
+          "InfernoDragon"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "ice-golem",
+      "name": "Ice Golem",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "bank-rounding"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "IceGolemite"
+        ],
+        "independentlyMobile": [
+          "IceGolemite"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "mega-minion",
+      "name": "Mega Minion",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "MegaMinion"
+        ],
+        "independentlyMobile": [
+          "MegaMinion"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "dart-goblin",
+      "name": "Dart Goblin",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "BlowdartGoblin"
+        ],
+        "independentlyMobile": [
+          "BlowdartGoblin"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "goblin-gang",
+      "name": "Goblin Gang",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "secondary-members"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Goblin",
+          "SpearGoblin"
+        ],
+        "independentlyMobile": [
+          "Goblin",
+          "SpearGoblin"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "electro-wizard",
+      "name": "Electro Wizard",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "split-bolts"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ElectroWizard"
+        ],
+        "independentlyMobile": [
+          "ElectroWizard"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "elite-barbarians",
+      "name": "Elite Barbarians",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "AngryBarbarian"
+        ],
+        "independentlyMobile": [
+          "AngryBarbarian"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "hunter",
+      "name": "Hunter",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "pellet-blocker"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Hunter"
+        ],
+        "independentlyMobile": [
+          "Hunter"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Exact native pellet spread/random delays and every multi-body arrangement remain unverified."
+    },
+    {
+      "id": "executioner",
+      "name": "Executioner",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "AxeMan"
+        ],
+        "independentlyMobile": [
+          "AxeMan"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "bandit",
+      "name": "Bandit",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "dash-contact"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Assassin"
+        ],
+        "independentlyMobile": [
+          "Assassin"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "royal-recruits",
+      "name": "Royal Recruits",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "barbs-recruits"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Recruit"
+        ],
+        "independentlyMobile": [
+          "Recruit"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "night-witch",
+      "name": "Night Witch",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Bat",
+          "DarkWitch"
+        ],
+        "independentlyMobile": [
+          "Bat",
+          "DarkWitch"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Frozen regular spawn cycle is tested; every death-bat and overlap timing case is not."
+    },
+    {
+      "id": "bats",
+      "name": "Bats",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Bat"
+        ],
+        "independentlyMobile": [
+          "Bat"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "royal-ghost",
+      "name": "Royal Ghost",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "ghost-hover"
+        ],
+        "kinds": [
+          "movement"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Ghost",
+          "GhostOverlay"
+        ],
+        "independentlyMobile": [
+          "Ghost"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "GhostOverlay",
+            "reason": "attached-only"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Hover routes are tested; exact invisibility acquire/loss timings and splash interactions remain unverified."
+    },
+    {
+      "id": "ram-rider",
+      "name": "Ram Rider",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "snare-choice"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Ram",
+          "RamRider"
+        ],
+        "independentlyMobile": [
+          "Ram"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "RamRider",
+            "reason": "attached-only"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Snare selection is tested; complete rider/mount attack and movement interaction matrix is not."
+    },
+    {
+      "id": "zappies",
+      "name": "Zappies",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "MiniZapMachine"
+        ],
+        "independentlyMobile": [
+          "MiniZapMachine"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "rascals",
+      "name": "Rascals",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "secondary-members"
+        ],
+        "kinds": [
+          "formation"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "RascalBoy",
+          "RascalGirl"
+        ],
+        "independentlyMobile": [
+          "RascalBoy",
+          "RascalGirl"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "cannon-cart",
+      "name": "Cannon Cart",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "cage-cart-death",
+          "cart-building",
+          "cart-morph"
+        ],
+        "kinds": [
+          "spawn",
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "BrokenCannon",
+          "MovingCannon"
+        ],
+        "independentlyMobile": [
+          "MovingCannon"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "BrokenCannon",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "BrokenCannon building classification and morph delay/target are tested; shield/death/Clone interaction permutations remain incomplete."
+    },
+    {
+      "id": "mega-knight",
+      "name": "Mega Knight",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "MegaKnight"
+        ],
+        "independentlyMobile": [
+          "MegaKnight"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "skeleton-barrel",
+      "name": "Skeleton Barrel",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "death-payload-origin"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Skeleton",
+          "SkeletonBalloon",
+          "SkeletonContainer"
+        ],
+        "independentlyMobile": [
+          "Skeleton",
+          "SkeletonBalloon"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "SkeletonContainer",
+            "reason": "effect carrier"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "flying-machine",
+      "name": "Flying Machine",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "DartBarrell"
+        ],
+        "independentlyMobile": [
+          "DartBarrell"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "wall-breakers",
+      "name": "Wall Breakers",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Wallbreaker"
+        ],
+        "independentlyMobile": [
+          "Wallbreaker"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "royal-hogs",
+      "name": "Royal Hogs",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "RoyalHog"
+        ],
+        "independentlyMobile": [
+          "RoyalHog"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "goblin-giant",
+      "name": "Goblin Giant",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "GoblinGiant",
+          "SpearGoblin",
+          "SpearGoblinGiant"
+        ],
+        "independentlyMobile": [
+          "GoblinGiant",
+          "SpearGoblin"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "SpearGoblinGiant",
+            "reason": "attached-only"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "fisherman",
+      "name": "Fisherman",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "hook-windup"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Fisherman"
+        ],
+        "independentlyMobile": [
+          "Fisherman"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Full hook travel/pull resolution, building self-pull, retargeting, and all interrupt races need matched reference cases."
+    },
+    {
+      "id": "magic-archer",
+      "name": "Magic Archer",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "EliteArcher"
+        ],
+        "independentlyMobile": [
+          "EliteArcher"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "electro-dragon",
+      "name": "Electro Dragon",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "dragon-chain"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ElectroDragon"
+        ],
+        "independentlyMobile": [
+          "ElectroDragon"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "firecracker",
+      "name": "Firecracker",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "recoil"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Firecracker"
+        ],
+        "independentlyMobile": [
+          "Firecracker"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "elixir-golem",
+      "name": "Elixir Golem",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "blob-elixir",
+          "spawn-terrain"
+        ],
+        "kinds": [
+          "combat",
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ElixirGolem1",
+          "ElixirGolem2",
+          "ElixirGolem4"
+        ],
+        "independentlyMobile": [
+          "ElixirGolem1",
+          "ElixirGolem2",
+          "ElixirGolem4"
+        ],
+        "passingObliqueCrossings": 12,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "ground death-spawn terrain repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "battle-healer",
+      "name": "Battle Healer",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "BattleHealer"
+        ],
+        "independentlyMobile": [
+          "BattleHealer"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "skeleton-dragons",
+      "name": "Skeleton Dragons",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "SkeletonDragon"
+        ],
+        "independentlyMobile": [
+          "SkeletonDragon"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "mother-witch",
+      "name": "Mother Witch",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "curse-death",
+          "curse-impact"
+        ],
+        "kinds": [
+          "spawn",
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "VoodooHog",
+          "WitchMother"
+        ],
+        "independentlyMobile": [
+          "VoodooHog",
+          "WitchMother"
+        ],
+        "passingObliqueCrossings": 8,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Projectile curse ordering is tested; curse ownership collisions and every immunity interaction remain incomplete."
+    },
+    {
+      "id": "electro-spirit",
+      "name": "Electro Spirit",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ElectroSpirit"
+        ],
+        "independentlyMobile": [
+          "ElectroSpirit"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "electro-giant",
+      "name": "Electro Giant",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "reflection"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ElectroGiant"
+        ],
+        "independentlyMobile": [
+          "ElectroGiant"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "cannon",
+      "name": "Cannon",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Cannon"
+        ],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "Cannon",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "goblin-hut",
+      "name": "Goblin Hut",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawner-types",
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "spawn",
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "GoblinHut",
+          "SpearGoblin"
+        ],
+        "independentlyMobile": [
+          "SpearGoblin"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "GoblinHut",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "mortar",
+      "name": "Mortar",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Mortar"
+        ],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "Mortar",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "inferno-tower",
+      "name": "Inferno Tower",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "InfernoTower"
+        ],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "InfernoTower",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "bomb-tower",
+      "name": "Bomb Tower",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Bomber",
+          "BombTower",
+          "BombTowerBomb"
+        ],
+        "independentlyMobile": [
+          "Bomber"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "BombTower",
+            "reason": "stationary"
+          },
+          {
+            "entity": "BombTowerBomb",
+            "reason": "effect carrier"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "barbarian-hut",
+      "name": "Barbarian Hut",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Barbarian",
+          "BarbarianHut"
+        ],
+        "independentlyMobile": [
+          "Barbarian"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "BarbarianHut",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Tesla"
+        ],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "Tesla",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Native hide/rise 800ms transitions are not explicitly simulated or verified by a behavior scenario."
+    },
+    {
+      "id": "elixir-collector",
+      "name": "Elixir Collector",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "collector",
+          "collector-freeze",
+          "collector-rage"
+        ],
+        "kinds": [
+          "spawn",
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "ElixirCollector"
+        ],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "ElixirCollector",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "x-bow",
+      "name": "X-Bow",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Xbow"
+        ],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "Xbow",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "tombstone",
+      "name": "Tombstone",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawner-types",
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "spawn",
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Skeleton",
+          "Tombstone"
+        ],
+        "independentlyMobile": [
+          "Skeleton"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "Tombstone",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "furnace",
+      "name": "Furnace",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "FirespiritHut",
+          "FireSpirits"
+        ],
+        "independentlyMobile": [
+          "FireSpirits"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "FirespiritHut",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "goblin-cage",
+      "name": "Goblin Cage",
+      "type": "building",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "cage-cart-death"
+        ],
+        "kinds": [
+          "spawn"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "GoblinBrawler",
+          "GoblinCage"
+        ],
+        "independentlyMobile": [
+          "GoblinBrawler"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": [
+          {
+            "entity": "GoblinCage",
+            "reason": "stationary"
+          }
+        ]
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "fireball",
+      "name": "Fireball",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "fireball-travel"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "arrows",
+      "name": "Arrows",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "rage",
+      "name": "Rage",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "collector-rage",
+          "rage-team"
+        ],
+        "kinds": [
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Collector cycle and team buffs are tested; all attack/spawn buff overlaps and exact tick-boundary timing are not."
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "goblin-barrel",
+      "name": "Goblin Barrel",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Goblin"
+        ],
+        "independentlyMobile": [
+          "Goblin"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "freeze",
+      "name": "Freeze",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "freeze-team",
+          "collector-freeze",
+          "spawner-freeze"
+        ],
+        "kinds": [
+          "buff"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Enemy targeting and production suspension are tested; complete Freeze/Rage/slow overlap and expiry ordering across every entity are not."
+    },
+    {
+      "id": "mirror",
+      "name": "Mirror",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "mirror-repeat",
+          "mirror-level"
+        ],
+        "kinds": [
+          "deployment-rule"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "lightning",
+      "name": "Lightning",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "zap",
+      "name": "Zap",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "poison",
+      "name": "Poison",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "poison-stack"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "graveyard",
+      "name": "Graveyard",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Skeleton"
+        ],
+        "independentlyMobile": [
+          "Skeleton"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "the-log",
+      "name": "The Log",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "own-side-spells"
+        ],
+        "kinds": [
+          "deployment-rule"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "tornado",
+      "name": "Tornado",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "tornado-rate"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": "primary behavior repair",
+      "remainingReferenceWork": "Native attraction curve and mass dependence remain unverified; the fixed speed preserves the previous 60Hz presentation."
+    },
+    {
+      "id": "clone",
+      "name": "Clone",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "clone",
+          "cart-building"
+        ],
+        "kinds": [
+          "spawn",
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "earthquake",
+      "name": "Earthquake",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "earthquake-ticks"
+        ],
+        "kinds": [
+          "combat"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "barbarian-barrel",
+      "name": "Barbarian Barrel",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "own-side-spells"
+        ],
+        "kinds": [
+          "deployment-rule"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "Barbarian"
+        ],
+        "independentlyMobile": [
+          "Barbarian"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    },
+    {
+      "id": "heal-spirit",
+      "name": "Heal Spirit",
+      "type": "troop",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "HealSpirit"
+        ],
+        "independentlyMobile": [
+          "HealSpirit"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "giant-snowball",
+      "name": "Giant Snowball",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": false,
+        "evidence": [],
+        "kinds": []
+      },
+      "movement": {
+        "sourceReachableEntities": [],
+        "independentlyMobile": [],
+        "passingObliqueCrossings": 0,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "No dedicated combat/special-ability assertion mapped in this ledger; requires a targeted source-backed scenario and native reference comparison."
+    },
+    {
+      "id": "royal-delivery",
+      "name": "Royal Delivery",
+      "type": "spell",
+      "baselineDeployment": {
+        "covered": true,
+        "evidence": "tests/expanded-battle.test.cjs",
+        "scope": "Legal deploy followed by three seconds; finite resource, HP and position assertions. Mirror fixture supplies a previous Knight."
+      },
+      "explicitBehavior": {
+        "covered": true,
+        "evidence": [
+          "own-side-spells",
+          "delivery-tower"
+        ],
+        "kinds": [
+          "deployment-rule"
+        ]
+      },
+      "movement": {
+        "sourceReachableEntities": [
+          "DeliveryRecruit"
+        ],
+        "independentlyMobile": [
+          "DeliveryRecruit"
+        ],
+        "passingObliqueCrossings": 4,
+        "excludedFromIndependentRoutes": []
+      },
+      "changedThisPass": null,
+      "remainingReferenceWork": "Listed cases cover selected behavior only; full native interaction/timing and visual parity remain unverified."
+    }
+  ]
+}

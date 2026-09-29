@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: Normal deck deletion survives normalization, and ten saved decks are retained
+ok 1 - Normal deck deletion survives normalization, and ten saved decks are retained
+  ---
+  duration_ms: 4.627224
+  type: 'test'
+  ...
+# Subtest: Add/remove deck operations retain at least one and never mutate the input
+ok 2 - Add/remove deck operations retain at least one and never mutate the input
+  ---
+  duration_ms: 6.780656
+  type: 'test'
+  ...
+# Subtest: Four-card saved deck is independent, legal and persistent
+ok 3 - Four-card saved deck is independent, legal and persistent
+  ---
+  duration_ms: 0.965099
+  type: 'test'
+  ...
+# Subtest: Four-card matches have four real cards on both sides and safely cycle with an empty queue
+ok 4 - Four-card matches have four real cards on both sides and safely cycle with an empty queue
+  ---
+  duration_ms: 21.06727
+  type: 'test'
+  ...
+# Subtest: Random deck generation varies per seed without editing saved decks
+ok 5 - Random deck generation varies per seed without editing saved decks
+  ---
+  duration_ms: 6.587453
+  type: 'test'
+  ...
+# Subtest: Random deck mode remains named and non-ranked without modifying the deck library
+ok 6 - Random deck mode remains named and non-ranked without modifying the deck library
+  ---
+  duration_ms: 3.701892
+  type: 'test'
+  ...
+# Subtest: Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+ok 7 - Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+  ---
+  duration_ms: 21.769148
+  type: 'test'
+  ...
+# Subtest: Gem Chest retains its kind through saves and requires two subsequent wins
+ok 8 - Gem Chest retains its kind through saves and requires two subsequent wins
+  ---
+  duration_ms: 11.246303
+  type: 'test'
+  ...
+# Subtest: Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+ok 9 - Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+  ---
+  duration_ms: 131.318255
+  type: 'test'
+  ...
+# Subtest: Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+ok 10 - Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+  ---
+  duration_ms: 23.537931
+  type: 'test'
+  ...
+# Subtest: Daily Shop has nine stable offers and top three are always free
+ok 11 - Daily Shop has nine stable offers and top three are always free
+  ---
+  duration_ms: 2.752556
+  type: 'test'
+  ...
+# Subtest: Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+ok 12 - Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+  ---
+  duration_ms: 422.786092
+  type: 'test'
+  ...
+# Subtest: Daily claims are atomic and survive JSON save normalization
+ok 13 - Daily claims are atomic and survive JSON save normalization
+  ---
+  duration_ms: 9.483385
+  type: 'test'
+  ...
+# Subtest: Daily paid offers debit gold once and reject insufficient funds or stale identity
+ok 14 - Daily paid offers debit gold once and reject insufficient funds or stale identity
+  ---
+  duration_ms: 2.424954
+  type: 'test'
+  ...
+# Subtest: Full particles survive save normalization and restore the full emitter/frame budget
+ok 15 - Full particles survive save normalization and restore the full emitter/frame budget
+  ---
+  duration_ms: 6.696674
+  type: 'test'
+  ...
+# Subtest: Faster result OK is visible at 2.7 seconds and not at the start
+ok 16 - Faster result OK is visible at 2.7 seconds and not at the start
+  ---
+  duration_ms: 0.632509
+  type: 'test'
+  ...
+# Subtest: Full-health Princess Towers show HP on both sides and King Tower text contains no level
+ok 17 - Full-health Princess Towers show HP on both sides and King Tower text contains no level
+  ---
+  duration_ms: 3.383311
+  type: 'test'
+  ...
+# Subtest: Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+ok 18 - Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+  ---
+  duration_ms: 10.985741
+  type: 'test'
+  ...
+# Subtest: Magic Archer arrow stays at its authored constant height after the original target dies
+ok 19 - Magic Archer arrow stays at its authored constant height after the original target dies
+  ---
+  duration_ms: 4.525693
+  type: 'test'
+  ...
+# Subtest: Magic Archer line hits produce hit feedback at each actual damaged target
+ok 20 - Magic Archer line hits produce hit feedback at each actual damaged target
+  ---
+  duration_ms: 2.964348
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 801.00414

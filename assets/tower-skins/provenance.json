@@ -1,0 +1,86 @@
+{
+  "sourceArchive": "com.supercell.clashroyale-3.5.0-APK4Fun.com.apk",
+  "sourceArchiveSha256": "3f0be34021e3d855c9763d44a5a8cc9204afd96e3bec2a3b019a6c031ed9610d",
+  "sourceVersion": "Clash Royale 3.5.0 (499)",
+  "scene": {
+    "file": "assets/sc/building_tower.sc",
+    "sha256": "d62593ab2a0d94cccadb7db8880c264a8e358769bb6c6b3498c0e548dd63400b",
+    "textureFile": "assets/sc/building_tower_tex.sc",
+    "textureSha256": "290e396a1cdb8ee7f8df3ec3b35084223a56a50ef03a2a8bd7d1738ae4bd3aaa"
+  },
+  "skinDefinitions": {
+    "file": "assets/csv_logic/skins.csv",
+    "sha256": "2dc3dc9d5d9b52d91078a815990a348302e1f12bcc4fe06abd67542a2d72a583"
+  },
+  "skinSets": {
+    "file": "assets/csv_logic/skin_sets.csv",
+    "sha256": "1046273dc83c02480f95de565a813fc717888de59b5c0676427c933cfc504ed7"
+  },
+  "variants": [
+    {
+      "id": "source-gold-rush",
+      "name": "Gold Rush",
+      "sourceSet": "GoldRush",
+      "sourceKind": "original-event",
+      "exports": {
+        "king": [
+          "kingtower_goldrush_01",
+          "kingtower_goldrush_02"
+        ],
+        "princessBase": [
+          "princesstower_goldrush_01",
+          "princesstower_goldrush_02"
+        ],
+        "princessTop": [
+          "princesstower_goldrush_01_top",
+          "princesstower_goldrush_02_top"
+        ]
+      }
+    },
+    {
+      "id": "source-gem-rush",
+      "name": "Gem Rush",
+      "sourceSet": "GemRush",
+      "sourceKind": "original-event",
+      "exports": {
+        "king": [
+          "kingtower_gemrush_01",
+          "kingtower_gemrush_02"
+        ],
+        "princessBase": [
+          "princesstower_gemrush_01",
+          "princesstower_gemrush_02"
+        ],
+        "princessTop": [
+          "princesstower_gemrush_01_top",
+          "princesstower_gemrush_02_top"
+        ]
+      }
+    },
+    {
+      "id": "source-elixir-pump",
+      "name": "Elixir Pump",
+      "sourceSet": "ElixerPump",
+      "sourceKind": "original-event",
+      "exports": {
+        "king": [
+          "kingtower_pump_01",
+          "kingtower_pump_02"
+        ],
+        "princessBase": [
+          "princesstower_pump_01",
+          "princesstower_pump_02"
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "assets/native/tower-skins-0.webp": "05d3e6e243e21955801918e5f0fce6ab7eae6aeb9cacf0be7e58ebe46fd4e155",
+    "assets/tower-skins/scene.json": "cce6251674d94da4332df442a790181048a056b1e32e13071e507917855a2dd7"
+  },
+  "scope": "Original special-mode variants exposed as local cosmetics. This is not the seasonal tower-skin catalogue.",
+  "excluded": [
+    "Xmas: source CSV rows exist but their live tower exports are absent.",
+    "Seasonal tower SC bundles inspected contain debris, not complete equippable assemblies."
+  ]
+}

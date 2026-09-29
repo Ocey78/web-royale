@@ -1,0 +1,24 @@
+[
+  {
+    "source": "assets/ui/gold-chest.png",
+    "gem": "assets/ui/gem-chest.png",
+    "shape": [
+      162,
+      177,
+      4
+    ],
+    "alphaUnchanged": true,
+    "differentRGBPixels": 22121
+  },
+  {
+    "source": "assets/native/chest-opening-0.webp",
+    "gem": "assets/native/gem-chest-opening-0.webp",
+    "shape": [
+      3824,
+      2494,
+      4
+    ],
+    "alphaUnchanged": true,
+    "differentRGBPixels": 6525348
+  }
+]

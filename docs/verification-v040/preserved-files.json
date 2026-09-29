@@ -1,0 +1,19 @@
+{
+  "src/battle.js": "1d11c057564304265da9d7ce0d701b91c7a5a9c46e903247fab095a9a527b0ce",
+  "src/navigation.js": "502dc7b77465bab1d9c695cb10ced912b3654ce93749fda624aeb3e6502c82b0",
+  "src/pathing.js": "743fefc4668bca98227ca9ea1c5cfda23a46042acbdad6ce24e86af7a5b718b5",
+  "src/draw.js": "22355174550368c3363c5524ed12fab148c398a993cadd0f3899b910b42d8c49",
+  "src/fx.js": "75ee3d947cb0b22d1859afae95c0699c172bdb10c49d0896df43f74e2171ebec",
+  "src/replay.js": "6d768d59ca1fc70887b6a4372697d1770ec4f809b3b8f3a363136f7ce9738835",
+  "src/graphics.js": "8ee64af3272056bbb6477ee44eaa0ccad1fed24274c01c4b0f969395d3ada1ef",
+  "src/level-labels.js": "b581065b6de9d5914b9205906b3357d20f74636e172deed9b6f898ae6e9d9130",
+  "src/chest-opening.js": "dd27f927738e67cd4da373dd037725ffd39bbf468186f5bb613ec5b68928c3a3",
+  "src/chest-opening-ui.js": "0d5975f3b352fc1751d23f9fb8ce3513501271b6ea2337c5ace4b228c8822af5",
+  "src/v391.css": "8eda6c12aa0772e1862f81c671f10a02a118b28d808a0b43ae544d8aa61e619a",
+  "src/legacy-core-v037.js": "54489ac2935a6d53d11513299ed5d2f9219aa65bbfeadcae001977a06e8ccaf8",
+  "src/emote-data.js": "3ce7eb1fcc7bfde5d94e4d24735cfa25e545153077af020cb0c1d8ba713afedd",
+  "src/chest-rules.js": "a947cd4f4345d22dfbe0fa8d52ff2863b711b211dfbdd75c1f9a178c9aae322f",
+  "assets/game/data.json": "56c4be256a0690372880b24f26e715ea3eb5f1474834e3227c2d093ad68c6b2a",
+  "open offline.bat": "7c28c10b66a67b170838c6f12ebf5a39e9522c2141d14a2a05668de830831d0d",
+  "offline build opener.bat": "6d092a8c355cb8e5a1ae85964c173fd5dcfd688edaa07411eff3ef44d0f62c44"
+}

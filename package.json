@@ -1,0 +1,18 @@
+{
+  "name": "web-royale",
+  "version": "0.44.0",
+  "private": true,
+  "scripts": {
+    "build": "node tools/build-web.js",
+    "test": "node tools/restore-source.cjs && node --test --test-concurrency=2 tests/*.test.cjs",
+    "serve": "node tools/serve.cjs",
+    "test:browser": "python -m unittest discover -s tests -p browser_v250.py",
+    "test:ai": "node tools/benchmark-ai.cjs",
+    "test:learning": "node tools/benchmark-learning.cjs",
+    "test:browser:current": "node tests/browser_cards_v280.cjs && node tests/browser_gameplay_v280.cjs && node tests/browser_v270.cjs && node tests/browser_menu_recovery.cjs && node tests/browser_ui_v290.cjs && node tests/browser_sandbox_v290.cjs && node tests/browser_chests_v290.cjs && node tests/browser_towers_v290.cjs && node tests/browser_targeting_v300.cjs && node tests/browser_replay_v300.cjs && node tests/browser_pathing_v320.cjs"
+  },
+  "description": "Web Royale: arched castle 5v5, King-only results and synchronized King activation, revised Rumble elixir, mask-independent Mirror border",
+  "engines": {
+    "node": ">=22"
+  }
+}

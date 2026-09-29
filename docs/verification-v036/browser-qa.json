@@ -1,0 +1,22 @@
+{
+  "fixture": "Chromium DOM/Canvas with local file-backed assets on about:blank; HTTP transport and Service Worker tested separately. Desktop 1280x1040, emulated mobile viewport 390x844. Not a physical device/Windows run.",
+  "checks": [
+    "release is v0.36.0",
+    "streak hidden at two wins",
+    "crown chest Ready! without cooldown",
+    "streak nested under trophies",
+    "all four graphics selectors present",
+    "selectors apply rendering policy immediately",
+    "graphics options saved in profile repository",
+    "Hour Shop keeps twelve slots",
+    "Lightning Shop has three slots",
+    "Lightning Shop countdown includes seconds",
+    "three Lightning Shop columns remain within the viewport",
+    "battle hand has four level labels",
+    "two separate untouched three-troop deployments have two group badges",
+    "damaged member gets its own level and two survivors are individual",
+    "Fireball pixel-readback work reduced",
+    "no uncaught page errors"
+  ],
+  "errors": []
+}

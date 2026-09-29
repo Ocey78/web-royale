@@ -1,0 +1,49 @@
+/* Decks retains a pool underneath; Collection keeps its complete independent view. */
+#deckPoolRegion{background:linear-gradient(#15374be0,#143248cc);border-top:3px solid #6cbacf}
+.deck-pool-header{display:flex;align-items:center;gap:9px;min-height:90px;padding:14px 15px;color:#fff;background:linear-gradient(#18405fc9,#102f4dcc);border-bottom:3px solid #315977}
+.deck-pool-header>div{flex:1;min-width:0}.deck-pool-header h2{font-size:21px;line-height:1.25;margin:0 0 4px}.deck-pool-header small{font-size:13px;color:#efb7f7;font-weight:900}
+.deck-pool-header .tool-square{flex:0 0 40px;width:40px;height:41px}.deck-pool-sort{max-width:132px}
+.deck-pool-sort select{display:block;width:100%;padding:9px 5px;color:#fff;background:linear-gradient(#739db8,#3a688c);border:3px solid #1e405e;border-radius:8px;font-weight:900;font-size:15px}
+.deck-pool-sort option{background:#244d70}.reference-cards #deckPoolFilters{padding:12px 15px 0;margin:0;height:auto}
+.reference-cards #deckPoolFilters input{min-width:0;flex:1}.reference-cards #deckPoolFilters select{max-width:143px}
+
+/* Single, source-painted identity labels: no shrink-to-fit/per-word clipping. */
+.native-battle .battle-top{height:86px;background:linear-gradient(180deg,#12243bf2 0,#12243bcc 48px,#12243b00 100%);overflow:visible;z-index:10}
+.native-battle .battle-top .enemy-badge{position:absolute;left:11px;top:11px;width:38px;height:45px;object-fit:contain;filter:drop-shadow(0 2px 1px #0008)}
+.native-battle .battle-top #enemyName,.native-battle .battle-top #enemyClan{position:absolute;left:59px;right:auto;width:242px;max-width:242px;margin:0;padding:0;white-space:nowrap;overflow:visible;text-overflow:clip;text-shadow:none;line-height:1}
+.native-battle .battle-top #enemyName{top:11px;height:29px;font-size:23px}
+.native-battle .battle-top #enemyClan{top:41px;height:19px;font-size:13px}
+.battle-identity-ink{display:block;position:absolute;inset:0;pointer-events:none}
+.native-battle .battle-top .square{top:15px;right:146px;width:34px;height:34px;min-width:34px;padding:3px;border:0;border-radius:7px;font-size:21px;line-height:26px;opacity:1;pointer-events:auto;filter:drop-shadow(0 2px 1px #09182799)}
+.native-battle .battle-top .full{right:187px}.native-battle #nativeBattleTimer{right:8px;top:5px;width:120px;height:152px;z-index:3;pointer-events:none}
+.native-battle .battle-top [data-action=pause]{font-size:22px}
+
+/* Shared speech bubble for collection, picker, shop, previews and live messages. */
+.emote-bubble{position:relative;display:inline-block;isolation:isolate;width:86px;height:92px;flex-shrink:0;vertical-align:middle;overflow:visible;line-height:1;filter:drop-shadow(0 2px 1px #08223977)}
+.emote-bubble:before{content:'';position:absolute;inset:15px 1px 11px;background:#fff;border:2px solid #456377;border-bottom:5px solid #b9c7d2;border-radius:21px;z-index:0;box-shadow:inset 0 2px #fff}
+.emote-bubble:after{content:'';position:absolute;width:18px;height:18px;left:20px;bottom:6px;background:#fff;transform:skewY(-34deg) rotate(18deg);border-left:2px solid #456377;border-bottom:3px solid #b9c7d2;border-radius:0 0 0 5px;z-index:1}
+.emote-portrait{position:absolute;inset:0 8px 15px;display:grid;place-items:center;z-index:2;transform-origin:50% 78%}
+.emote-bubble .emote-portrait img{display:block;width:100%!important;height:100%!important;max-height:none;object-fit:contain;margin:0;filter:none}
+.emote-playing{animation:emote-bubble-enter .3s cubic-bezier(.16,.9,.32,1.23) both}
+.emote-playing .emote-portrait{animation:emote-icon-settle 1.3s .14s ease-in-out both}
+@keyframes emote-bubble-enter{0%{opacity:0;transform:translateY(16px) scale(.55)}70%{opacity:1;transform:translateY(-3px) scale(1.07)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes emote-icon-settle{0%,100%{transform:scale(1) rotate(0)}22%{transform:translateY(-3px) scale(1.04) rotate(-4deg)}46%{transform:translateY(1px) scale(.99) rotate(3deg)}67%{transform:translateY(-2px) rotate(-2deg)}}
+.equipped-emotes>button{height:93px;border:0;box-shadow:none;background:#132d4855}.equipped-emotes .emote-bubble{width:82px;height:88px}
+.emote-collection-tile{min-height:110px}.emote-collection-tile .emote-bubble{width:91px;height:96px}.emote-collection-tile.not-owned .emote-bubble{opacity:.68;filter:grayscale(.85)}
+.emote-collection-tile.not-owned img{filter:none;opacity:1}.emote-collection-tile .equipped-tick{z-index:4;right:0;top:0}
+.reference-shop .emote-preview>.emote-bubble{width:105px;height:116px}.emote-large>.emote-bubble{width:154px;height:161px}.emote-large{display:flex;align-items:center;justify-content:center;min-height:169px}
+.emote-large>.emote-bubble:before{border-radius:31px;inset:26px 0 18px}.emote-large>.emote-bubble:after{width:25px;height:27px;left:37px;bottom:11px}.emote-large .emote-portrait{inset:0 14px 25px}
+.emote-picker button .emote-bubble{width:88px;height:93px}
+#battleEmotes{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-height:222px;overflow-y:auto;padding:6px}
+#battleEmotes button{min-width:0;min-height:70px;display:grid;place-items:center}
+#battleEmotes .emote-bubble{width:65px;height:72px}#battleEmotes .emote-portrait{inset:1px 6px 12px}#battleEmotes .emote-bubble:before{inset:11px 1px 10px;border-radius:16px}#battleEmotes .emote-bubble:after{left:16px;bottom:6px;width:13px;height:13px}
+#battleEmoteMore{grid-column:1/-1;font-size:13px;background:#ddeaf5;border:2px solid #85a4bc;border-radius:6px;padding:7px;color:#234564}
+#chatBubble.emote-message{left:97px;top:634px;max-width:none;width:112px;height:124px;padding:0;border:0;background:none;box-shadow:none;z-index:16}
+#chatBubble.emote-message:after{display:none}#chatBubble.emote-message .emote-bubble{width:112px;height:123px;animation:emote-bubble-enter .3s ease-out both,emote-bubble-exit .23s 2.7s ease-in both}
+#chatBubble.emote-message .emote-portrait{inset:0 8px 18px}#chatBubble.emote-message .emote-bubble:before{inset:20px 0 15px;border-radius:26px}
+.clan-emote-message>.emote-bubble{display:block;width:106px;height:116px;margin:4px 0 6px}
+@keyframes emote-bubble-exit{to{opacity:0;transform:translateY(7px) scale(.9)}}
+@media(prefers-reduced-motion:reduce){.emote-playing,.emote-playing .emote-portrait,#chatBubble.emote-message .emote-bubble{animation:none!important}}
+#battleEmotes #battleEmoteMore{position:sticky;bottom:0;display:grid;place-items:center;height:29px;min-height:29px;padding:3px;background:linear-gradient(#409fdc,#2176b5);border:2px solid #96d5ff;border-radius:6px;box-shadow:0 -2px 4px #183a5855;z-index:4}
+.emote-more-chevron{display:block;width:12px;height:12px;border-right:4px solid white;border-bottom:4px solid white;transform:translateY(-2px) rotate(45deg);filter:drop-shadow(0 2px #215586)}
+[aria-expanded=true]>.emote-more-chevron{transform:translateY(3px) rotate(225deg)}

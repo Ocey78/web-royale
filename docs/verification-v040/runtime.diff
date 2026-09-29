@@ -1,0 +1,168 @@
+--- v0.39.1/src/profile.js
++++ v0.40.0/src/profile.js
+@@ -10,10 +10,13 @@
+ function streakIncrement(resultId,streak){let hash=2166136261;const seed=String(resultId)+'|ranked-streak|'+streak;for(let i=0;i<seed.length;i++)hash=Math.imul(hash^seed.charCodeAt(i),16777619)>>>0;return streak<=9?10+hash%6:5+hash%11;}
+ function streakBonusForMatch(resultId,streak){let bonus=0;for(let tier=1;tier<=Math.floor(streak/3);tier++)bonus+=streakIncrement(String(resultId)+'|tier:'+tier,tier*3);return bonus;}
+-// Receipt-keyed milestone rolls are stable on retries, but vary by completed match.
++// Each unlocked tier increases the range paid on EVERY later ranked win.
++// One receipt-keyed roll across the inclusive range varies by match, never by
++// rendering/reload. This is O(1) even for an imported large streak.
+ function streakCurrencyBonus(resultId,streak,kind){
+- const interval=kind==='gold'?3:5;if(streak<=0||streak%interval!==0)return 0;
++ const gold=kind==='gold',tiers=Math.floor(streak/(gold?3:5));if(tiers<=0)return 0;
+  const seed=String(resultId)+'|ranked-'+kind+'|'+streak;let hash=2166136261;
+  for(let i=0;i<seed.length;i++)hash=Math.imul(hash^seed.charCodeAt(i),16777619)>>>0;
+- return kind==='gold'?100+hash%201:1+hash%10;
++ const low=tiers*(gold?100:1),high=tiers*(gold?300:10);
++ return low+hash%(high-low+1);
+ }
+ function normalizeProfile(raw){
+@@ -74,7 +77,7 @@
+  equippedEmotes,
+  magicItems:Object.fromEntries(Cos.magicItems.filter(x=>x.kind!=='wild').map(x=>[x.id,num(p.magicItems?.[x.id],0,999)])),
+- aiDifficulty:'expert',battleSerial:num(p.battleSerial),name:text(p.name,'Nano',24),experience,starPoints,kingLevel:xpState.level,level:xpState.level,xp:xpState.xpIntoLevel,matches:num(p.matches),wins:num(p.wins),losses:num(p.losses),draws:num(p.draws),winStreak,winStreakBonus,bestWinStreak,lastStreakGoldBonus:num(p.lastStreakGoldBonus,0,300),lastStreakGemBonus:num(p.lastStreakGemBonus,0,10),
++ aiDifficulty:'expert',battleSerial:num(p.battleSerial),name:text(p.name,'Nano',24),experience,starPoints,kingLevel:xpState.level,level:xpState.level,xp:xpState.xpIntoLevel,matches:num(p.matches),wins:num(p.wins),losses:num(p.losses),draws:num(p.draws),winStreak,winStreakBonus,bestWinStreak,lastStreakGoldBonus:num(p.lastStreakGoldBonus,0,Math.min(9999999,Math.floor(winStreak/3)*300)),lastStreakGemBonus:num(p.lastStreakGemBonus,0,Math.min(9999999,Math.floor(winStreak/5)*10)),
+  trophies,gold:num(p.gold,2500),gems,retiredTowerSkinRefunds,towerSkinRefundCredit,laneCounts:Array.isArray(p.laneCounts)&&p.laneCounts.length===2?p.laneCounts.map(x=>num(x,1,100000)):[1,1],sound:p.sound===true,lastResultId:text(p.lastResultId,'',120),processedResultIds,
+- history:Array.isArray(p.history)?p.history.filter(x=>x&&[-1,0,1].includes(x.winner)).slice(0,20).map(x=>({winner:x.winner,crowns:Array.isArray(x.crowns)?x.crowns.slice(0,2).map(n=>num(n,0,3)):[0,0],date:text(x.date,'',40),duration:num(x.duration,0,600),deck:K.normalizeDeck(x.deck,{size:x.mode==='FourCardDeck'?4:8}),mode:text(x.mode,'Default',30),queue:text(x.queue,'',30),replayId:text(x.replayId,'',140),opponent:x.opponent&&WorldState.validPlayer(x.opponent.id)?{id:x.opponent.id,name:text(x.opponent.name,'Opponent',48),trophies:num(x.opponent.trophies,0,10000),clanId:WorldState.validClan(x.opponent.clanId)?x.opponent.clanId:null}:null,practice:x.practice===true,trophyChange:Number.isFinite(x.trophyChange)?clamp(Math.trunc(x.trophyChange),-9999999,9999999):0,streakBonus:num(x.streakBonus,0,Math.floor(num(x.winStreak)/3)*15),winStreak:num(x.winStreak),streakGoldBonus:num(x.streakGoldBonus,0,300),streakGemBonus:num(x.streakGemBonus,0,10),goldEarned:num(x.goldEarned,0,350),gemsEarned:num(x.gemsEarned,0,10)})):[],
++ history:Array.isArray(p.history)?p.history.filter(x=>x&&[-1,0,1].includes(x.winner)).slice(0,20).map(x=>({winner:x.winner,crowns:Array.isArray(x.crowns)?x.crowns.slice(0,2).map(n=>num(n,0,3)):[0,0],date:text(x.date,'',40),duration:num(x.duration,0,600),deck:K.normalizeDeck(x.deck,{size:x.mode==='FourCardDeck'?4:8}),mode:text(x.mode,'Default',30),queue:text(x.queue,'',30),replayId:text(x.replayId,'',140),opponent:x.opponent&&WorldState.validPlayer(x.opponent.id)?{id:x.opponent.id,name:text(x.opponent.name,'Opponent',48),trophies:num(x.opponent.trophies,0,10000),clanId:WorldState.validClan(x.opponent.clanId)?x.opponent.clanId:null}:null,practice:x.practice===true,trophyChange:Number.isFinite(x.trophyChange)?clamp(Math.trunc(x.trophyChange),-9999999,9999999):0,streakBonus:num(x.streakBonus,0,Math.floor(num(x.winStreak)/3)*15),winStreak:num(x.winStreak),streakGoldBonus:num(x.streakGoldBonus,0,Math.min(9999999,Math.floor(num(x.winStreak)/3)*300)),streakGemBonus:num(x.streakGemBonus,0,Math.min(9999999,Math.floor(num(x.winStreak)/5)*10)),goldEarned:num(x.goldEarned,0,Math.min(9999999,50+Math.floor(num(x.winStreak)/3)*300)),gemsEarned:num(x.gemsEarned,0,Math.min(9999999,Math.floor(num(x.winStreak)/5)*10))})):[],
+  decks,fourCardDeck,activeDeck:num(p.activeDeck,0,decks.length-1),cardLevels:levels,copies,arena:arena.id,
+  chests:Array.isArray(p.chests)?p.chests.filter(x=>x&&typeof x==='object').slice(0,4).map(x=>({id:text(x.id,'chest',80),arenaNumber:clamp(num(x.arenaNumber,arena.number,14),1,peakArena.number),...Chest.normalize(x)})):[],
+--- v0.39.1/src/cosmetics.js
++++ v0.40.0/src/cosmetics.js
+@@ -1,5 +1,8 @@
+ /* Offline cosmetic catalogue: expose only assets actually available in this build. */
+ (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleCosmetics=api;})(globalThis,function(){'use strict';
+-const emotes=Object.freeze(typeof module==='object'&&module.exports?require('./emote-data.js'):globalThis.RoyaleEmoteData);
++// Prices are local game economy settings; keep imported historical metadata intact.
++const EMOTE_PRICE=50,TOWER_SKIN_PRICE=100;
++const sourceEmotes=typeof module==='object'&&module.exports?require('./emote-data.js'):globalThis.RoyaleEmoteData;
++const emotes=Object.freeze(sourceEmotes.map(e=>Object.freeze({...e,cost:e.free?0:EMOTE_PRICE})));
+ // Retired v0.19-v0.21 recolors. Used only for once-per-ID local-gem refunds.
+ const retiredTowerSkins=Object.freeze(['lava-fortress','royal-blue','bone-crypt','jungle-ruins','electro-station','frozen-keep']);
+@@ -10,5 +13,5 @@
+   ['source-gem-rush','Gem Rush','gemrush',true,'GemRush'],
+   ['source-elixir-pump','Elixir Pump','pump',false,'ElixerPump']
+- ].map(([id,name,prefix,hasTop,sourceSet])=>({id,name,free:false,cost:750,sourceKind:'original-event',sourceSet,scene:'tower_skins',
++ ].map(([id,name,prefix,hasTop,sourceSet])=>({id,name,free:false,cost:TOWER_SKIN_PRICE,sourceKind:'original-event',sourceSet,scene:'tower_skins',
+   description:'Original '+name+' event towers, available here as a local cosmetic.',
+   exports:{king:[`kingtower_${prefix}_01`,`kingtower_${prefix}_02`],
+@@ -38,3 +41,3 @@
+ const skin=id=>towerSkins.find(s=>s.id===id)||towerSkins[0];
+ const validEmote=id=>emotes.some(e=>e.id===id),validSkin=id=>towerSkins.some(e=>e.id===id);
+-return {emotes,towerSkins,retiredTowerSkins,towerSkinAvailability,magicItems,collectionSections,skin,validEmote,validSkin,resolveEmoteId,rarities};});
++return {EMOTE_PRICE,TOWER_SKIN_PRICE,emotes,towerSkins,retiredTowerSkins,towerSkinAvailability,magicItems,collectionSections,skin,validEmote,validSkin,resolveEmoteId,rarities};});
+--- v0.39.1/src/economy.js
++++ v0.40.0/src/economy.js
+@@ -46,5 +46,10 @@
+ }
+ // Unlike timed shops, this rotation advances only after two successful purchases.
+-const GEM_OFFERS=Object.freeze({Common:{quantity:100,price:20},Rare:{quantity:25,price:50},Epic:{quantity:5,price:100},Legendary:{quantity:1,price:200}});
++const GEM_OFFERS=Object.freeze({
++ Common:Object.freeze({minQuantity:150,maxQuantity:500,price:20}),
++ Rare:Object.freeze({minQuantity:50,maxQuantity:100,price:50}),
++ Epic:Object.freeze({minQuantity:10,maxQuantity:15,price:100}),
++ Legendary:Object.freeze({minQuantity:2,maxQuantity:3,price:200})
++});
+ function gemOffers(rawProfile=null){
+  const p=C.normalizeProfile(rawProfile),random=C.rng(hash('gemshop:'+p.world.seed+':'+p.gemShop.rotation)),pool=cardPool(p,p.gemShop.arenaNumber),used=new Set(),out=[];
+@@ -52,5 +57,8 @@
+   const remaining=pool.filter(c=>!used.has(c.id));if(!remaining.length)break;
+   const rarities=['Common','Rare','Epic','Legendary'].filter(r=>remaining.some(c=>c.rarity===r)),rarity=rarities[Math.floor(random()*rarities.length)],cards=remaining.filter(c=>c.rarity===rarity),card=cards[Math.floor(random()*cards.length)];used.add(card.id);
+-  out.push({kind:'card',id:card.id,name:card.name,rarity,locked:false,currency:'gems',...GEM_OFFERS[rarity]});
++  // Keep quantity randomness separate from card selection so saved partial
++  // rotations retain the same card IDs, slots, prices and purchase markers.
++  const spec=GEM_OFFERS[rarity],quantity=spec.minQuantity+hash('gemshop-quantity:'+p.world.seed+':'+p.gemShop.rotation+':'+slot+':'+card.id)%(spec.maxQuantity-spec.minQuantity+1);
++  out.push({kind:'card',id:card.id,name:card.name,rarity,locked:false,currency:'gems',quantity,price:spec.price});
+  }
+  return out;
+@@ -94,9 +102,37 @@
+ function cardPool(p,arenaNumber=R.highestArena(p).number,rarity){const limit=Math.min(R.highestArena(p).number,Math.max(1,Math.floor(arenaNumber)||1));return C.CARDS.filter(c=>(C.DEFAULT_DECK.includes(c.id)||R.cardArenaNumber(c,C.DATA.arenas)<=limit)&&(!rarity||c.rarity===rarity));}
+ function randomCards(p,arena,rarity,count,seed){const pool=cardPool(p,arena,rarity);if(!pool.length)return [];const random=C.rng(hash(seed));return [{id:pool[Math.floor(random()*pool.length)].id,count}];}
+-function loot(kind,seed,p,arenaNumber=R.highestArena(p).number){if(kind==='gem')return{gold:0,gems:5*(1+Math.floor(C.rng(hash(seed+':gems'))()*50)),cards:[],arenaNumber};if(kind==='legendary')return {gold:0,cards:randomCards(p,arenaNumber,'Legendary',1,seed),arenaNumber};if(kind==='epic')return {gold:0,cards:randomCards(p,arenaNumber,'Epic',20,seed),arenaNumber};const tier=CHART[kind]||CHART.silver,cards=[];for(let i=0;i<3;i++){const rarity=i===2&&kind==='magic'?'Epic':i===1?'Rare':'Common';cards.push(...randomCards(p,arenaNumber,rarity,i===0?tier.cards:i===1?Math.ceil(tier.cards/8):1,String(seed)+':'+i));}return {gold:tier.gold,cards,arenaNumber};}
++// The original Giant base count, gold/card and arena multipliers are bundled
++// with the game. Keep its Common/Rare identity instead of falling back to Silver.
++function giantLoot(seed,p,arenaNumber){
++ const source=C.DATA.chests.find(c=>c.Name==='Giant'),arena=C.DATA.arenas.find(a=>a.Arena===arenaNumber);
++ const count=Math.max(1,Math.floor(source.RandomSpells*(arena?.ChestRewardMultiplier||100)/100));
++ const rare=Math.floor(count/source.RareChance),cards=[...randomCards(p,arenaNumber,'Common',count-rare,String(seed)+':common'),...randomCards(p,arenaNumber,'Rare',rare,String(seed)+':rare')];
++ return {gold:count*source.MinGoldPerCard,cards,arenaNumber};
++}
++function loot(kind,seed,p,arenaNumber=R.highestArena(p).number){if(kind==='giant')return giantLoot(seed,p,arenaNumber);if(kind==='gem')return{gold:0,gems:5*(1+Math.floor(C.rng(hash(seed+':gems'))()*50)),cards:[],arenaNumber};if(kind==='legendary')return {gold:0,cards:randomCards(p,arenaNumber,'Legendary',1,seed),arenaNumber};if(kind==='epic')return {gold:0,cards:randomCards(p,arenaNumber,'Epic',20,seed),arenaNumber};const tier=CHART[kind]||CHART.silver,cards=[];for(let i=0;i<3;i++){const rarity=i===2&&kind==='magic'?'Epic':i===1?'Rare':'Common';cards.push(...randomCards(p,arenaNumber,rarity,i===0?tier.cards:i===1?Math.ceil(tier.cards/8):1,String(seed)+':'+i));}return {gold:tier.gold,cards,arenaNumber};}
+ function grant(p,reward,{discover=true}={}){p.gold=Math.min(9999999,p.gold+(reward.gold||0));p.gems=Math.min(9999999,p.gems+(reward.gems||0));for(const c of reward.cards||[]){if(!C.CARD_BY_ID[c.id]||!Number.isInteger(c.count)||c.count<1||!cardPool(p).some(x=>x.id===c.id))continue;p.copies[c.id]=Math.min(100000,p.copies[c.id]+c.count);const eligible=C.DEFAULT_DECK.includes(c.id)||R.cardArenaNumber(C.CARD_BY_ID[c.id],C.DATA.arenas)<=R.highestArena(p).number;if(discover&&c.count>0&&eligible&&!p.unlockedCards.includes(c.id))p.unlockedCards.push(c.id);}for(const kind of ['wildcards','tradeTokens'])for(const [rarity,n]of Object.entries(reward[kind]||{}))p[kind][rarity]+=n;if(Cos.validEmote(reward.emote)&&!p.ownedEmotes.includes(reward.emote))p.ownedEmotes.push(reward.emote);for(const [id,count] of Object.entries(reward.magicItems||{}))if(Object.hasOwn(p.magicItems,id)&&Number.isInteger(count)&&count>0)p.magicItems[id]=Math.min(999,p.magicItems[id]+count);return p;}
+ function unlockChest(raw,id){const p=C.normalizeProfile(raw),c=p.chests.find(c=>c.id===id);return fail(p,!c?'Chest not found':Chest.ready(c)?'Chest is ready to open':'Win battles to unlock this chest');}
+ function openChest(raw,id){const p=C.normalizeProfile(raw),c=p.chests.find(c=>c.id===id);if(!Chest.ready(c))return fail(p,'Chest is not ready');const reward=loot(c.kind,c.id,p,R.highestArena(p).number);p.chests=p.chests.filter(x=>x.id!==id);grant(p,reward);return {ok:true,profile:p,reward};}
+-function buyChest(raw,kind,seed){const p=C.normalizeProfile(raw),price={silver:15,gold:35,magic:80}[kind];if(!price)return fail(p,'Unknown chest');if(p.gems<price)return fail(p,'Not enough gems');p.gems-=price;const reward=loot(kind,seed,p);grant(p,reward,{discover:true});return {ok:true,profile:p,reward};}
++// A single catalogue drives both shop labels and actual charges.
++const CHEST_OFFERS=Object.freeze([
++ {kind:'silver',name:'Silver Chest',price:15},
++ {kind:'gold',name:'Golden Chest',price:35},
++ {kind:'magic',name:'Magical Chest',price:50},
++ {kind:'giant',name:'Giant Chest',price:65},
++ {kind:'epic',name:'Epic Chest',price:80,rarity:'Epic'},
++ {kind:'legendary',name:'Legendary Chest',price:100,rarity:'Legendary'}
++].map(o=>Object.freeze({...o,icon:Chest.icon(o.kind)})));
++function chestOffers(raw){
++ const p=C.normalizeProfile(raw),rarities=new Set(cardPool(p).map(c=>c.rarity));
++ return CHEST_OFFERS.map(o=>({...o,locked:!!o.rarity&&!rarities.has(o.rarity)}));
++}
++function buyChest(raw,kind,seed){
++ const p=C.normalizeProfile(raw),offer=chestOffers(p).find(o=>o.kind===kind);
++ if(!offer)return fail(p,'Unknown chest');
++ if(offer.locked)return fail(p,'Reach an arena with '+offer.rarity+' cards before buying this chest.');
++ if(p.gems<offer.price)return fail(p,'Not enough gems');
++ const reward=loot(kind,seed,p);p.gems-=offer.price;grant(p,reward,{discover:true});
++ return {ok:true,profile:p,reward};
++}
+ function classicChest(raw,crown=false,now=Date.now()){const p=C.normalizeProfile(raw);if(!Number.isFinite(now)||now<0)return fail(p,'Invalid time');const ready=crown?p.earnedCrowns-p.crownChestClaimed>=10:now>=p.freeChestAt;if(!ready)return fail(p,crown?'Earn 10 crowns for your next chest':'Free chest is not ready');const arena=R.highestArena(p).number,reward={gold:crown?350:50,cards:randomCards(p,arena,'Common',crown?10:3,(crown?'crown:':'free:')+(crown?p.crownChestClaimed:p.freeChestAt)),arenaNumber:arena};grant(p,reward,{discover:true});if(crown){p.crownChestAt=0;p.crownChestClaimed+=10;}else p.freeChestAt=now+600000;return{ok:true,profile:p,reward};}
+ function claimPass(raw,tier){const p=C.normalizeProfile(raw);if(!Number.isInteger(tier)||tier<0||tier>=35)return fail(p,'Invalid tier');if(p.earnedCrowns<(tier+1)*10)return fail(p,'Earn more crowns in battle');if(p.passClaimed.includes(tier))return fail(p,'Reward already collected');p.passClaimed.push(tier);const chest=tier%5===4,reward=chest?loot('magic','pass-'+tier,p):{gold:100+25*tier,cards:[]};grant(p,reward,{discover:chest});return {ok:true,profile:p,reward};}
+@@ -125,3 +161,3 @@
+  if(item.kind==='coin'){if(p.copies[target]<q.copies)return fail(p,'Collect the required card copies first');const before=p.gold;p.gold=Math.max(before,q.gold);const r=C.upgrade(p,target);if(!r.ok)return r;r.profile.gold=before;r.profile.magicItems[itemId]--;return r;}
+  return fail(p,'Unsupported magic item');}
+-return {GEM_OFFERS,gemOffers,purchaseGemCard,DAILY_INTERVAL,dailyWindow,dailyOffers,purchaseDailyOffer,loot,LIGHTNING_INTERVAL,lightningWindow,lightningOffers,purchaseLightningCard,shopWindow,chestReady:Chest.ready,chestIcon:Chest.icon,useMagicItem,CHART,offers,dailyGift,purchaseCard,cardPool,unlockChest,openChest,buyChest,classicChest,claimPass,claimRoad,roadChoices,useWildcards,grant};});
++return {CHEST_OFFERS,chestOffers,GEM_OFFERS,gemOffers,purchaseGemCard,DAILY_INTERVAL,dailyWindow,dailyOffers,purchaseDailyOffer,loot,LIGHTNING_INTERVAL,lightningWindow,lightningOffers,purchaseLightningCard,shopWindow,chestReady:Chest.ready,chestIcon:Chest.icon,useMagicItem,CHART,offers,dailyGift,purchaseCard,cardPool,unlockChest,openChest,buyChest,classicChest,claimPass,claimRoad,roadChoices,useWildcards,grant};});
+--- v0.39.1/src/app.js
++++ v0.40.0/src/app.js
+@@ -152,5 +152,5 @@
+  $('shopContent').innerHTML=`<section id="dailyShop" class="shop-deals-section daily-shop">${referenceBanner('Daily Shop','teal','daily-shop-info')}<p class="shop-countdown">New offers in <b id="dailyRefresh">${U.refreshIn(now,86400000)}</b></p><div class="shop-grid daily-offers">${daily.map((o,i)=>i<3?dailyFreeOffer(o,i,dailyKey):shopOffer(o,i,dailyKey,false,true)).join('')}</div></section><section id="gemShop" class="shop-deals-section gem-shop">${referenceBanner('Gem Shop','purple','gem-shop-info')}<p class="shop-countdown gem-shop-progress">Refreshes after two purchases · <b id="gemShopProgress">${profile.gemShop.purchased.length} / 2</b></p><div class="shop-grid gem-offers">${gemOffers.map((o,i)=>shopOffer(o,i,gemRotation,false,false,true)).join('')}</div></section><section class="shop-deals-section">${referenceBanner('Hour Shop','teal','deals-info')}<p class="shop-countdown">New cards in <b id="shopRefresh">${U.refreshIn(now)}</b></p><div class="shop-grid">${offers.map((o,i)=>shopOffer(o,i,dealKey)).join('')}</div></section>
+  <section id="lightningShop" class="shop-deals-section lightning-shop">${referenceBanner('Lightning Shop','purple','lightning-info')}<p class="shop-countdown">New cards in <b id="lightningRefresh">${U.refreshIn(now,600000)}</b></p><div class="shop-grid lightning-offers">${lightning.map((o,i)=>shopOffer(o,i,lightningKey,true)).join('')}</div></section>
+- <section class="shop-chest-section">${referenceBanner('Treasure Chests','teal')}<div class="shop-grid chests">${[['silver','Silver Chest',15],['gold','Golden Chest',35],['magic','Magical Chest',80]].map(([kind,name,price])=>`<article class="shop-offer chest-offer"><h3>${esc(name)}</h3>${icon(kind+'-chest')}<button class="offer-price" data-action="buy-chest" data-kind="${kind}"><strong>${price}</strong>${icon('gems')}</button></article>`).join('')}</div></section>
++ <section class="shop-chest-section">${referenceBanner('Treasure Chests','teal')}<div class="shop-grid chests">${E.chestOffers(profile).map(({kind,name,price,icon:art,locked,rarity})=>`<article class="shop-offer chest-offer ${locked?'locked-offer':''}"><h3>${esc(name)}</h3>${icon(art,'',name)}<button class="offer-price" data-action="buy-chest" data-kind="${kind}" aria-label="${esc(name+' · '+price+' gems'+(locked?' · Reach an arena with '+rarity+' cards':''))}" ${locked?'disabled title="Reach an arena with '+rarity+' cards"':''}><strong>${price}</strong>${icon('gems')}</button></article>`).join('')}</div></section>
+  <section id="emoteShop" class="shop-emote-section">${referenceBanner('Emotes','purple','emotes-info')}<p class="shop-countdown">New emotes in <b data-hour-countdown>${U.refreshIn(now,3600000)}</b></p><div class="shop-grid emote-offers">${U.rotatingEmotes(now).map(e=>`<article class="shop-offer emote-offer"><button class="emote-preview" data-action="emote-preview" data-id="${e.id}" aria-label="Preview ${esc(e.name)}">${emoteVisual(e.id)}</button><button class="offer-price" data-action="buy-emote" data-id="${e.id}" data-hour="${hour}" ${profile.ownedEmotes.includes(e.id)?'disabled':''}><strong>${profile.ownedEmotes.includes(e.id)?word('Owned'):e.cost}</strong>${profile.ownedEmotes.includes(e.id)?'':icon('gems')}</button></article>`).join('')}</div><div class="shop-shelf" aria-hidden="true"></div></section>
+  <section id="towerSkinShop" class="shop-emote-section">${referenceBanner('Tower Skins','purple')}<div class="shop-grid tower-skin-offers">${U.rotatingTowerSkins(now).map(skin=>`<article class="shop-offer"><button class="tower-shop-preview" data-action="tower-skin-preview" data-id="${skin.id}" aria-label="Preview ${esc(skin.name)}"><canvas data-skin-preview="${skin.id}" width="280" height="300" aria-label="${esc(skin.name)}"></canvas><strong>${esc(skin.name)}</strong></button><button class="offer-price" data-action="buy-tower-skin" data-id="${skin.id}" data-hour="${hour}" ${profile.ownedTowerSkins.includes(skin.id)?'disabled':''}><strong>${profile.ownedTowerSkins.includes(skin.id)?word('Owned'):skin.cost}</strong>${profile.ownedTowerSkins.includes(skin.id)?'':icon('gems')}</button></article>`).join('')}</div>${towerSkinAvailabilityNote()}</section>
+@@ -371,5 +371,5 @@
+  case 'gem-pack':case 'grant-gem-pack':case 'practice-gems':openCurrency();break;
+  case 'emote-replay':{const bubble=$('modalPanel').querySelector('.emote-bubble');if(bubble)RoyaleEmotes.play(bubble);break;}
+- case 'emote-preview':{const em=U.emotes.find(e=>e.id===id);if(em)panel('emote',esc(em.name),`<div class="emote-large">${emoteVisual(id,{play:true})}</div>${button('Replay','emote-replay','blue')}${button(profile.ownedEmotes.includes(id)?'Owned':String(em.cost||250)+' '+icon('gems'),'buy-emote','green',`data-id="${id}" data-hour="${U.hourlyKey()}" ${profile.ownedEmotes.includes(id)?'disabled':''}`)}`);break;}
++ case 'emote-preview':{const em=U.emotes.find(e=>e.id===id);if(em)panel('emote',esc(em.name),`<div class="emote-large">${emoteVisual(id,{play:true})}</div>${button('Replay','emote-replay','blue')}${button(profile.ownedEmotes.includes(id)?'Owned':String(em.cost)+' '+icon('gems'),'buy-emote','green',`data-id="${id}" data-hour="${U.hourlyKey()}" ${profile.ownedEmotes.includes(id)?'disabled':''}`)}`);break;}
+  case 'buy-emote':{const r=U.purchaseEmote(profile,id,Date.now(),Number(el.dataset.hour));if(r.ok){profile=r.profile;save();header();closeModal();renderShop();toast('Emote added to your collection');}else toast(r.reason);break;}
+  case 'join-options':joinOptions();break;case 'clan-chat':if(profile.clan){show('clanChat');$('clanChatContent').scrollTop=$('clanChatContent').scrollHeight;}else joinOptions();break;
+@@ -403,5 +403,5 @@
+  case 'four-card-play':startBattle('FourCardDeck',false,{queue:'challenge'});break;
+  case 'random-mode':startBattle('RandomDeck',false,{queue:'challenge'});break;
+- case 'gem-shop-info':panel('gem-shop-info','Gem Shop','<p>Six card offers bought with earned gems. Each slot can be purchased once. After two successful purchases, all six slots refresh immediately.</p><p>Your offers and 0 / 2 or 1 / 2 purchase progress are saved. There is no timer. Purchases elsewhere in the shop do not count.</p><p>100 Common cards: 20 gems. 25 Rare cards: 50 gems. 5 Epic cards: 100 gems. 1 Legendary card: 200 gems. Offers use the arenas reached when this rotation began.</p>');break;
++ case 'gem-shop-info':panel('gem-shop-info','Gem Shop','<p>Six card offers bought with earned gems. Each slot can be purchased once. After two successful purchases, all six slots refresh immediately.</p><p>Your offers and 0 / 2 or 1 / 2 purchase progress are saved. There is no timer. Purchases elsewhere in the shop do not count.</p><p>150–500 Common cards: 20 gems. 50–100 Rare cards: 50 gems. 10–15 Epic cards: 100 gems. 2–3 Legendary cards: 200 gems. Each offer rolls a quantity when generated and keeps it until the next refresh. Offers use the arenas reached when this rotation began.</p>');break;
+  case 'buy-gem-card':{const r=E.purchaseGemCard(profile,idx,Number(el.dataset.window),el.dataset.card);if(!r.ok){toast(r.reason);renderShop();break;}transaction(r,r.refreshed?'Gem Shop Refreshed':'Cards Purchased');break;}
+  case 'daily-shop-offer':{const r=E.purchaseDailyOffer(profile,idx,Date.now(),el.dataset.window,el.dataset.card||null);if(!r.ok){toast(r.reason);renderShop();break;}const title=idx===0?'Gold Chest':idx===1?'Gem Chest':idx===2?'Daily Wild Cards':'Daily Shop';if(idx<2)chestRewards(r,idx===1?'gem':'gold',title);else transaction(r,title);break;}
+@@ -416,5 +416,5 @@
+  case 'arena':toast('Your battle arena is determined by your trophies');break;case 'arena-info':arenaInfo(id);break;case 'road-reward':roadReward(id);break;case 'claim-road':{const r=E.claimRoad(profile,id,el.dataset.card);if(!r.ok){toast(r.reason);break;}if(r.step.kind==='chest'){chestRewards(r,(/Legendary/.test(r.step.chest)?'legendary':/Epic/.test(r.step.chest)?'epic':/Giant/.test(r.step.chest)?'giant':/Magic/.test(r.step.chest)?'magic':'gold'),roadLabel(r.step),()=>road(true));}else{profile=r.profile;save();header();road(true);rewards(r.reward,'Trophy Road Reward');sound('reward');}break;}case 'road-inventory':roadInventory();break;case 'use-wildcards':{const r=E.useWildcards(profile,$('wildcardCard').value,Number($('wildcardCount').value));if(!r.ok){toast(r.reason);break;}profile=r.profile;save();roadInventory();toast('Wild cards applied');break;}
+  case 'sandbox':startSandbox();break;case 'free-chest':classicChest(false);break;case 'crown-chest':classicChest(true);break;case 'cheats':cheatsMenu();break;case 'cheats-off':profile.cheats=R.cheatFlags();profile=C.normalizeProfile(profile);save();cheatsMenu();break;case 'cheat-level':{const id=$('cheatCard').value,level=Number($('cheatLevel').value);if(!C.CARD_BY_ID[id]||!Number.isInteger(level)||level<1||level>30){toast('Choose a level from 1 to 30');break;}profile.cheatLevels[id]=Math.max(C.baseLevel(C.CARD_BY_ID[id].rarity),level);profile.cheats.overlevels=true;save();cheatsMenu();toast('Practice level saved');break;}case 'daily-gift':transaction(E.dailyGift(profile,today()),'Daily Gift');break;
+- case 'lightning-info':panel('lightning-info','Lightning Shop','<p>Three card offers, drawn from any rarity available in the arenas you have reached. New offers every 10 minutes. Each slot can be purchased once per rotation with gold.</p>');break;case 'buy-lightning-card':transaction(E.purchaseLightningCard(profile,idx,Date.now(),el.dataset.window,el.dataset.card),'Cards Purchased');break;case 'buy-card':transaction(E.purchaseCard(profile,idx,Date.now(),el.dataset.window,el.dataset.card),'Cards Purchased');break;case 'buy-chest':chestRewards(E.buyChest(profile,el.dataset.kind,Date.now()),el.dataset.kind,({gem:'Gem',silver:'Silver',gold:'Golden',magic:'Magical'}[el.dataset.kind]||'Treasure')+' Chest');break;
++ case 'lightning-info':panel('lightning-info','Lightning Shop','<p>Three card offers, drawn from any rarity available in the arenas you have reached. New offers every 10 minutes. Each slot can be purchased once per rotation with gold.</p>');break;case 'buy-lightning-card':transaction(E.purchaseLightningCard(profile,idx,Date.now(),el.dataset.window,el.dataset.card),'Cards Purchased');break;case 'buy-card':transaction(E.purchaseCard(profile,idx,Date.now(),el.dataset.window,el.dataset.card),'Cards Purchased');break;case 'buy-chest':chestRewards(E.buyChest(profile,el.dataset.kind,Date.now()),el.dataset.kind,(E.CHEST_OFFERS.find(o=>o.kind===el.dataset.kind)?.name||'Treasure Chest'));break;
+  case 'currency':openCurrency();break;
+  case 'chest':chest(id);break;case 'unlock-chest':{const c=profile.chests.find(x=>x.id===id);if(c?.unlockAt){chest(id);break;}const r=E.unlockChest(profile,id);if(r.ok){profile=r.profile;save();renderChests();closeModal();toast('Chest unlocking');}else toast(r.reason);break;}
+--- v0.39.1/tools/build-web.js
++++ v0.40.0/tools/build-web.js
+@@ -4,5 +4,5 @@
+ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{gzipSync}=require('node:zlib');
+ const compactScenes=process.argv.includes('--compact-scenes');
+-const root=path.resolve(__dirname,'..'),out=path.join(root,'dist'),VERSION='0.39.1';
++const root=path.resolve(__dirname,'..'),out=path.join(root,'dist'),VERSION='0.40.0';
+ const read=p=>fs.readFileSync(path.join(root,p)),json=p=>JSON.parse(read(p)),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+ require('./restore-source.cjs').restore(root);
+@@ -27,5 +27,5 @@
+ for(const [key,asset]of Object.entries(uiManifest))runtime.uiImages[key]=sourceAsset(asset.file);
+ for(const [key,a] of Object.entries(json('assets/audio/manifest.json'))){if(!/^assets\/audio\/[a-z-]+\.wav$/.test(a.file))throw Error('Invalid audio path');runtime.sounds[key]=write(a.file,read(a.file));}
+-const emotes=json('assets/emotes/catalog.json');runtime.emotes={entries:emotes.entries,scenes:{}};
++const emotes=json('assets/emotes/catalog.json');runtime.emotes={entries:require('../src/cosmetics.js').emotes,scenes:{}};
+ for(const [id,file] of Object.entries(emotes.scenes)){const data=json(file);for(const t of data.textures)t.file=sourceAsset(t.file);runtime.emotes.scenes[id]=write(file,JSON.stringify(data));}
+ runtime.fx=json('assets/game/fx-data.json');

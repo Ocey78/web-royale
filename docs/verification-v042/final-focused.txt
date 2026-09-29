@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: Potato Mode is a persisted render-only override that preserves selected tiers
+ok 1 - Potato Mode is a persisted render-only override that preserves selected tiers
+  ---
+  duration_ms: 7.343547
+  type: 'test'
+  ...
+# Subtest: Potato Mode cannot modify battle simulation results
+ok 2 - Potato Mode cannot modify battle simulation results
+  ---
+  duration_ms: 26.568869
+  type: 'test'
+  ...
+# Subtest: Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+ok 3 - Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+  ---
+  duration_ms: 16.317274
+  type: 'test'
+  ...
+# Subtest: Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+ok 4 - Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+  ---
+  duration_ms: 1.257755
+  type: 'test'
+  ...
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+ok 5 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 15.650494
+  type: 'test'
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+ok 6 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 6.021123
+  type: 'test'
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+ok 7 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 3.354375
+  type: 'test'
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+ok 8 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 2.140466
+  type: 'test'
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+ok 9 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.1592
+  type: 'test'
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+ok 10 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 5.764266
+  type: 'test'
+  ...
+# Subtest: saved special decks never borrow locked cards and persist separately from regular decks
+ok 11 - saved special decks never borrow locked cards and persist separately from regular decks
+  ---
+  duration_ms: 4.984541
+  type: 'test'
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+ok 12 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 9.421187
+  type: 'test'
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+ok 13 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 2.887291
+  type: 'test'
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+ok 14 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 1.827604
+  type: 'test'
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+ok 15 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 38.016629
+  type: 'test'
+  ...
+# Subtest: new modes retain distinct learning experience contexts
+ok 16 - new modes retain distinct learning experience contexts
+  ---
+  duration_ms: 0.362085
+  type: 'test'
+  ...
+# Subtest: old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+ok 17 - old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+  ---
+  duration_ms: 107.120991
+  type: 'test'
+  ...
+# Subtest: all new mode replays retain deck sizes, restrictions and arena selection
+ok 18 - all new mode replays retain deck sizes, restrictions and arena selection
+  ---
+  duration_ms: 48.7512
+  type: 'test'
+  ...
+# Subtest: primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+ok 19 - primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+  ---
+  duration_ms: 19.460486
+  type: 'test'
+  ...
+# Subtest: custom scenery exposes a separately drawn foreground and obeys the animation toggle
+ok 20 - custom scenery exposes a separately drawn foreground and obeys the animation toggle
+  ---
+  duration_ms: 13.169056
+  type: 'test'
+  ...
+# Subtest: 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+ok 21 - 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+  ---
+  duration_ms: 1.609646
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 358.023799

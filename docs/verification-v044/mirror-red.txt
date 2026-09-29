@@ -1,0 +1,6 @@
+[{"card": "knight", "maskDisabledInteriorError": 93.19635897435897, "passed": false}, {"card": "princess", "maskDisabledInteriorError": 105.77082051282052, "passed": false}, {"card": "fireball", "maskDisabledInteriorError": 106.26615384615384, "passed": false}]
+Traceback (most recent call last):
+  File "/mnt/data/work044/Web-Royale/tools/verify-v044-mirror.py", line 22, in <module>
+    (o.output/'report.json').write_text(json.dumps(checks,indent=2));print(json.dumps(checks));assert all(x['passed'] for x in checks),'Mirror border paints over the copied portrait when CSS masks are unavailable'
+                                                                                                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Mirror border paints over the copied portrait when CSS masks are unavailable

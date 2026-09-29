@@ -1,0 +1,22 @@
+{
+  "version": "0.39.1",
+  "releaseManifestIdentical": true,
+  "runtimeFilesVerified": 1203,
+  "mismatchedFiles": [],
+  "sourceAssetsRestoredByStandardBuilder": true,
+  "protectedV038FilesUnchanged": {
+    "open offline.bat": "7c28c10b66a67b170838c6f12ebf5a39e9522c2141d14a2a05668de830831d0d",
+    "offline build opener.bat": "6d092a8c355cb8e5a1ae85964c173fd5dcfd688edaa07411eff3ef44d0f62c44",
+    "src/battle.js": "1d11c057564304265da9d7ce0d701b91c7a5a9c46e903247fab095a9a527b0ce",
+    "src/pathing.js": "743fefc4668bca98227ca9ea1c5cfda23a46042acbdad6ce24e86af7a5b718b5",
+    "src/formations.js": "5464eb1c78da4f6c41a70fd27f93df8c25f3a8554a5a14edc9bff142a96dd213",
+    "src/placement.js": "da018d4950666b208ab4d74b1637023a3d813db7c4c183c8686239658e89e253",
+    "src/native.js": "dcc03c51b135a66eb12fc36e8fa980821f62efae8d1e4498a242717cc8e55885",
+    "src/presentation.js": "6c88cc6ff3dda9688022e69a5ffba6b2ec023955b46e03f7f6fc49805cc49cbe",
+    "src/graphics.js": "8ee64af3272056bbb6477ee44eaa0ccad1fed24274c01c4b0f969395d3ada1ef",
+    "src/legacy-core-v037.js": "54489ac2935a6d53d11513299ed5d2f9219aa65bbfeadcae001977a06e8ccaf8",
+    "src/replay.js": "6d768d59ca1fc70887b6a4372697d1770ec4f809b3b8f3a363136f7ce9738835",
+    "src/economy.js": "1b7336463c01f24bb80759bf9588c6167ffcb9b28fadca32377464920962108e",
+    "assets/game/data.json": "56c4be256a0690372880b24f26e715ea3eb5f1474834e3227c2d093ad68c6b2a"
+  }
+}

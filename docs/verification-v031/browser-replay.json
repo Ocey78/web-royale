@@ -1,0 +1,251 @@
+{
+  "testedAt": "2026-09-27T19:06:03.077Z",
+  "url": "http://127.0.0.1:8092",
+  "version": "0.31.0",
+  "bundles": [
+    {
+      "url": "http://127.0.0.1:8092/bootstrap.24d57d1678f0.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8092/runtime.c812823d26a9.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8092/app.a8f7747f6059.js",
+      "status": 200
+    }
+  ],
+  "fixtureProvenance": [
+    {
+      "group": "replay-v028",
+      "sha256": "e6b884a5d7dce8424b4eed32099fdc17eea85a03cb52cf3bec404bf7c4434a45"
+    },
+    {
+      "group": "replay-v030",
+      "sha256": "fa30805ff89fe8d130d44593f15cb1e1db048fcfe15fc5bdec9eaebad0d90cb1"
+    }
+  ],
+  "passed": 14,
+  "total": 14,
+  "storedHistoricalFixtures": 10,
+  "results": [
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v028",
+      "file": "normal.json",
+      "sourceRelease": "0.29.0",
+      "engine": "0.28",
+      "route": "Legacy028",
+      "duration": 42.99999999999884,
+      "commands": 3,
+      "digestSha256": "10bd544ced54db788260b980a70d86f951124ff341cce9bc9975db0d7e0cea82",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v028",
+      "file": "boat.json",
+      "sourceRelease": "0.29.0",
+      "engine": "0.28",
+      "route": "Legacy028",
+      "duration": 30.349999999999557,
+      "commands": 2,
+      "digestSha256": "df21610992be0c7c5a1c75823fa1e318b4e705d29b36c1d2106b0afbe72f5bec",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v028",
+      "file": "tiebreak.json",
+      "sourceRelease": "0.29.0",
+      "engine": "0.28",
+      "route": "Legacy028",
+      "duration": 304.0000000000558,
+      "commands": 1,
+      "digestSha256": "1d80a1920bc5511faf570d8c6acc74f62a574bb8378308a38e2d6076e5a4a8c5",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v028",
+      "file": "v028-normal.json",
+      "sourceRelease": "0.28.0",
+      "engine": "0.28",
+      "route": "Legacy028",
+      "duration": 42.99999999999884,
+      "commands": 3,
+      "digestSha256": "10bd544ced54db788260b980a70d86f951124ff341cce9bc9975db0d7e0cea82",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v028",
+      "file": "v028-boat.json",
+      "sourceRelease": "0.28.0",
+      "engine": "0.28",
+      "route": "Legacy028",
+      "duration": 30.349999999999557,
+      "commands": 2,
+      "digestSha256": "df21610992be0c7c5a1c75823fa1e318b4e705d29b36c1d2106b0afbe72f5bec",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v028",
+      "file": "v028-tiebreak.json",
+      "sourceRelease": "0.28.0",
+      "engine": "0.28",
+      "route": "Legacy028",
+      "duration": 304.0000000000558,
+      "commands": 1,
+      "digestSha256": "1d80a1920bc5511faf570d8c6acc74f62a574bb8378308a38e2d6076e5a4a8c5",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v030",
+      "file": "baby-dragon-crossing.json",
+      "sourceRelease": "0.30.0",
+      "engine": "0.30",
+      "route": "Legacy030",
+      "duration": 146.80000000000896,
+      "commands": 14,
+      "digestSha256": "91caa65580d014884cc77f571573df6f147e2a98c3ec4c7219174e9dbeb0e589",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v030",
+      "file": "normal.json",
+      "sourceRelease": "0.30.0",
+      "engine": "0.30",
+      "route": "Legacy030",
+      "duration": 42.99999999999884,
+      "commands": 3,
+      "digestSha256": "10bd544ced54db788260b980a70d86f951124ff341cce9bc9975db0d7e0cea82",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v030",
+      "file": "boat.json",
+      "sourceRelease": "0.30.0",
+      "engine": "0.30",
+      "route": "Legacy030",
+      "duration": 30.349999999999557,
+      "commands": 2,
+      "digestSha256": "df21610992be0c7c5a1c75823fa1e318b4e705d29b36c1d2106b0afbe72f5bec",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "stored-release-fixture",
+      "group": "replay-v030",
+      "file": "tiebreak.json",
+      "sourceRelease": "0.30.0",
+      "engine": "0.30",
+      "route": "Legacy030",
+      "duration": 304.0000000000558,
+      "commands": 1,
+      "digestSha256": "1d80a1920bc5511faf570d8c6acc74f62a574bb8378308a38e2d6076e5a4a8c5",
+      "repeatedSeekMatches": true,
+      "readOnly": true,
+      "learningDisabled": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "built-engine-roundtrip",
+      "engine": "0.26",
+      "route": "Legacy027",
+      "duration": 20.000000000000146,
+      "commands": 1,
+      "digestSha256": "299870f276998424f70e0a834f4c527d36377e2b5a602bce80d292bad862b5d0",
+      "repeatedSeekMatches": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "built-engine-roundtrip",
+      "engine": "0.27",
+      "route": "Legacy027",
+      "duration": 20.000000000000146,
+      "commands": 1,
+      "digestSha256": "299870f276998424f70e0a834f4c527d36377e2b5a602bce80d292bad862b5d0",
+      "repeatedSeekMatches": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "built-engine-roundtrip",
+      "engine": "0.30",
+      "route": "Legacy030",
+      "duration": 20.000000000000146,
+      "commands": 1,
+      "digestSha256": "43d12d90da9b5f490fbfed2f51bd5c87465822949640fc15c4faf832b0167d34",
+      "repeatedSeekMatches": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "kind": "built-engine-roundtrip",
+      "engine": "0.31",
+      "route": "Current",
+      "duration": 20.000000000000146,
+      "commands": 1,
+      "digestSha256": "69bb5c3a63c906a0ed7bace8eb1847e9d354f4969600f014067a2b85d4de7cde",
+      "repeatedSeekMatches": true,
+      "error": null,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "missing": [],
+  "unavailableOptionalResources": [
+    {
+      "url": "http://127.0.0.1:8092/favicon.ico",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:8092/__webroyale_ai__/capabilities",
+      "status": 404
+    }
+  ]
+}

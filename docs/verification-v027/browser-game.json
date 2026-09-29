@@ -1,0 +1,14 @@
+{
+  "passed": [
+    "original catalog and custom collection remain available",
+    "Hour Shop keeps twelve rarity slots and no currency purchase controls",
+    "accepted battle frame and reference river location stay intact",
+    "tiebreak clears selected card and disables deployment controls",
+    "real overtime expiry drains towers and produces one crown/result",
+    "all fifteen original arenas load in regulation and overtime",
+    "profile survives a real localhost reload",
+    "no uncaught script errors or missing game files"
+  ],
+  "errors": [],
+  "missing": []
+}

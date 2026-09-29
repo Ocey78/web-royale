@@ -1,0 +1,229 @@
+{
+  "method": "Headless Edge,2500ms live RAF instrumentation plus24 flushed Canvas draws; synthetic48-source-unit scene; timings are local comparisons, not promised device FPS.",
+  "reports": [
+    {
+      "profile": {
+        "name": "desktop-dpr1",
+        "width": 1200,
+        "height": 1000,
+        "dpr": 1
+      },
+      "version": "0.34.0",
+      "errors": [],
+      "workloads": [
+        {
+          "crowded": false,
+          "cacheOff": false,
+          "canvas": {
+            "width": 675,
+            "height": 1465,
+            "cssWidth": 460.7508544921875,
+            "cssHeight": 1000,
+            "density": 1.25,
+            "devicePixelRatio": 1,
+            "viewportScale": 0.8532423208191127,
+            "pixels": 988875
+          },
+          "frames": {
+            "n": 228,
+            "mean": 11.02631578946715,
+            "p50": 8,
+            "p95": 16.099999999999454,
+            "max": 16.100000000000364
+          },
+          "timings": {
+            "battle": {
+              "n": 228,
+              "mean": 0.9929824562481883,
+              "p50": 1,
+              "p95": 1.3999999985098839,
+              "max": 2
+            },
+            "drawArena": {
+              "n": 228,
+              "mean": 0.376315789525969,
+              "p50": 0.3999999985098839,
+              "p95": 0.5999999977648258,
+              "max": 0.7000000029802322
+            },
+            "drawTower": {
+              "n": 1368,
+              "mean": 0.052777777793572136,
+              "p50": 0,
+              "p95": 0.19999999925494194,
+              "max": 0.5
+            },
+            "drawTowerShadow": {
+              "n": 1368,
+              "mean": 0.006213450295120826,
+              "p50": 0,
+              "p95": 0.09999999776482582,
+              "max": 0.10000000149011612
+            },
+            "unit": {
+              "n": 0,
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "presentation.health": {
+              "n": 1368,
+              "mean": 0.0326754385877771,
+              "p50": 0,
+              "p95": 0.10000000149011612,
+              "max": 0.20000000298023224
+            },
+            "presentation.filtered": {
+              "n": 0,
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "presentation.timer": {
+              "n": 39,
+              "mean": 0.05384615340676063,
+              "p50": 0,
+              "p95": 0.19999999925494194,
+              "max": 0.19999999925494194
+            },
+            "ui.hydrate": {
+              "n": 0,
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "max": 0
+            }
+          },
+          "flushedDraw": {
+            "n": 24,
+            "mean": 22.308333333271246,
+            "p50": 22.199999999254942,
+            "p95": 25.699999999254942,
+            "max": 28.399999998509884
+          },
+          "native": {
+            "ready": true,
+            "error": null,
+            "arenas": 15,
+            "units": 185,
+            "textures": 25,
+            "residentTextures": 25,
+            "residentScenes": 23,
+            "shapeCache": 58,
+            "frameSamples": 49
+          },
+          "shapePixels": 6276298,
+          "units": 0
+        },
+        {
+          "crowded": true,
+          "cacheOff": false,
+          "canvas": {
+            "width": 675,
+            "height": 1465,
+            "cssWidth": 460.7508544921875,
+            "cssHeight": 1000,
+            "density": 1.25,
+            "devicePixelRatio": 1,
+            "viewportScale": 0.8532423208191127,
+            "pixels": 988875
+          },
+          "frames": {
+            "n": 164,
+            "mean": 15.304268292673841,
+            "p50": 16,
+            "p95": 23,
+            "max": 24.100000000000364
+          },
+          "timings": {
+            "battle": {
+              "n": 164,
+              "mean": 3.121341463405548,
+              "p50": 2.900000002235174,
+              "p95": 4.600000001490116,
+              "max": 5.300000000745058
+            },
+            "drawArena": {
+              "n": 164,
+              "mean": 0.3896341463778077,
+              "p50": 0.3999999985098839,
+              "p95": 0.6000000014901161,
+              "max": 0.8999999985098839
+            },
+            "drawTower": {
+              "n": 984,
+              "mean": 0.053353658464653946,
+              "p50": 0,
+              "p95": 0.19999999925494194,
+              "max": 0.3999999985098839
+            },
+            "drawTowerShadow": {
+              "n": 984,
+              "mean": 0.005589430890523079,
+              "p50": 0,
+              "p95": 0.09999999776482582,
+              "max": 0.10000000149011612
+            },
+            "unit": {
+              "n": 7872,
+              "mean": 0.01001016260266713,
+              "p50": 0,
+              "p95": 0.10000000149011612,
+              "max": 0.20000000298023224
+            },
+            "presentation.health": {
+              "n": 8856,
+              "mean": 0.01860885276621529,
+              "p50": 0,
+              "p95": 0.10000000149011612,
+              "max": 0.20000000298023224
+            },
+            "presentation.filtered": {
+              "n": 7872,
+              "mean": 0.004941565044246978,
+              "p50": 0,
+              "p95": 0,
+              "max": 0.10000000149011612
+            },
+            "presentation.timer": {
+              "n": 37,
+              "mean": 0.04864864856810183,
+              "p50": 0,
+              "p95": 0.19999999925494194,
+              "max": 0.19999999925494194
+            },
+            "ui.hydrate": {
+              "n": 0,
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "max": 0
+            }
+          },
+          "flushedDraw": {
+            "n": 24,
+            "mean": 28.745833333426464,
+            "p50": 27.900000002235174,
+            "p95": 35.399999998509884,
+            "max": 44.80000000074506
+          },
+          "native": {
+            "ready": true,
+            "error": null,
+            "arenas": 15,
+            "units": 185,
+            "textures": 25,
+            "residentTextures": 25,
+            "residentScenes": 23,
+            "shapeCache": 97,
+            "frameSamples": 87
+          },
+          "shapePixels": 6434057,
+          "units": 48
+        }
+      ]
+    }
+  ]
+}

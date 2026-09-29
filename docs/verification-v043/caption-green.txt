@@ -1,0 +1,1 @@
+PASS magic-item caption remains inside its own reward box

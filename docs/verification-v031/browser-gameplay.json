@@ -1,0 +1,10 @@
+{
+  "pointerDeployment": "knight",
+  "cartPull": true,
+  "golemChildren": 2,
+  "childrenLegal": true,
+  "legacyEngine": true,
+  "replayError": null,
+  "replayMatch": true,
+  "errors": []
+}

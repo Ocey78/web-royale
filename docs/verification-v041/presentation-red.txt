@@ -1,0 +1,79 @@
+TAP version 13
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+not ok 1 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 2.089018
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:2:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    3 !== 6
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 6
+  actual: 3
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:2:114)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+not ok 2 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 1.588564
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:3:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'src/custom-arena.js'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readFileSync (node:fs:442:20)
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:3:456)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+not ok 3 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 3.13678
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:4:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-presentation.test.cjs:4:431)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 0
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 93.874648

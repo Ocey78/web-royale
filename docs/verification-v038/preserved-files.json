@@ -1,0 +1,18 @@
+{
+  "open offline.bat": {
+    "unchanged": true,
+    "sha256": "7c28c10b66a67b170838c6f12ebf5a39e9522c2141d14a2a05668de830831d0d"
+  },
+  "offline build opener.bat": {
+    "unchanged": true,
+    "sha256": "6d092a8c355cb8e5a1ae85964c173fd5dcfd688edaa07411eff3ef44d0f62c44"
+  },
+  "src/game-data.js": {
+    "unchanged": true,
+    "sha256": "65133cbd9f6b62e0b178af44e32c034c9bf7421978e25e9f580a2bf494e92f5b"
+  },
+  "src/graphics.js": {
+    "unchanged": true,
+    "sha256": "8ee64af3272056bbb6477ee44eaa0ccad1fed24274c01c4b0f969395d3ada1ef"
+  }
+}

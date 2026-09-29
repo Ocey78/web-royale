@@ -1,0 +1,544 @@
+TAP version 13
+# Subtest: 0.26 records retain the historical simulation and reproduce bridge movement
+ok 1 - 0.26 records retain the historical simulation and reproduce bridge movement
+  ---
+  duration_ms: 2329.196774
+  type: 'test'
+  ...
+# Subtest: 0.27 records retain the historical simulation and reproduce bridge movement
+ok 2 - 0.27 records retain the historical simulation and reproduce bridge movement
+  ---
+  duration_ms: 1576.975918
+  type: 'test'
+  ...
+# Subtest: new matches record0.41 and use the current simulation
+ok 3 - new matches record0.41 and use the current simulation
+  ---
+  duration_ms: 183.045141
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+ok 4 - historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+  ---
+  duration_ms: 5.051567
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+ok 5 - release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 728.742248
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+ok 6 - release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 641.984538
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 7 - release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 572.37557
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+ok 8 - release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 310.847963
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+ok 9 - release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 281.232989
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+ok 10 - release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 308.463732
+  type: 'test'
+  ...
+# Subtest: engine0.28 boat playback is independent of live simulation and live boat adapter
+ok 11 - engine0.28 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 99.080927
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and both historical engine globals isolated
+ok 12 - browser loading keeps current and both historical engine globals isolated
+  ---
+  duration_ms: 860.907449
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 13 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 8.756939
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+ok 14 - historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+  ---
+  duration_ms: 4.506835
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+ok 15 - release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 367.589623
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+ok 16 - release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 474.241262
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+ok 17 - release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 502.132913
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 18 - release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 587.750002
+  type: 'test'
+  ...
+# Subtest: engine0.30 boat playback is independent of live simulation and live boat adapter
+ok 19 - engine0.30 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 110.1898
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 20 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 597.537701
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 21 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 9.696049
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.31 bytes
+ok 22 - historical engine, boat adapter, data and fixtures retain the released v0.31 bytes
+  ---
+  duration_ms: 3.898837
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 baby-dragon-lane.json reproduces its stored outcome through repeated seeks
+ok 23 - release0.31.0 engine0.31 baby-dragon-lane.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 331.19267
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 normal.json reproduces its stored outcome through repeated seeks
+ok 24 - release0.31.0 engine0.31 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 374.285363
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 boat.json reproduces its stored outcome through repeated seeks
+ok 25 - release0.31.0 engine0.31 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 460.145572
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 26 - release0.31.0 engine0.31 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 436.339634
+  type: 'test'
+  ...
+# Subtest: engine0.31 boat playback is independent of live simulation and live boat adapter
+ok 27 - engine0.31 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 160.703756
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 28 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 778.301376
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 29 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 6.865681
+  type: 'test'
+  ...
+# Subtest: every non-choice road reward maps to an original game icon, not a question-mark placeholder
+ok 30 - every non-choice road reward maps to an original game icon, not a question-mark placeholder
+  ---
+  duration_ms: 2.60191
+  type: 'test'
+  ...
+# Subtest: tokens and wild cards use their own rarity-specific graphics
+ok 31 - tokens and wild cards use their own rarity-specific graphics
+  ---
+  duration_ms: 0.198289
+  type: 'test'
+  ...
+# Subtest: decisive overtime expiry starts one visible phase before granting the result
+ok 32 - decisive overtime expiry starts one visible phase before granting the result
+  ---
+  duration_ms: 10.556066
+  type: 'test'
+  ...
+# Subtest: freezing the board removes queued ally previews and stops interpolation at current positions
+ok 33 - freezing the board removes queued ally previews and stops interpolation at current positions
+  ---
+  duration_ms: 3.099502
+  type: 'test'
+  ...
+# Subtest: drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+ok 34 - drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+  ---
+  duration_ms: 3.353315
+  type: 'test'
+  ...
+# Subtest: lowest surviving raw HP determines the drain winner and awards one crown once
+ok 35 - lowest surviving raw HP determines the drain winner and awards one crown once
+  ---
+  duration_ms: 2.942275
+  type: 'test'
+  ...
+# Subtest: a lowest King tower awards three crowns and keeps the tiebreak result reason
+ok 36 - a lowest King tower awards three crowns and keeps the tiebreak result reason
+  ---
+  duration_ms: 1.892078
+  type: 'test'
+  ...
+# Subtest: already destroyed towers are excluded and near-equal surviving minima remain draws
+ok 37 - already destroyed towers are excluded and near-equal surviving minima remain draws
+  ---
+  duration_ms: 1.82019
+  type: 'test'
+  ...
+# Subtest: pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+ok 38 - pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+  ---
+  duration_ms: 2.566707
+  type: 'test'
+  ...
+# Subtest: troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+ok 39 - troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+  ---
+  duration_ms: 1.843224
+  type: 'test'
+  ...
+# Subtest: boat battles preserve their own timeout without a crown-tower tiebreak phase
+ok 40 - boat battles preserve their own timeout without a crown-tower tiebreak phase
+  ---
+  duration_ms: 1.629792
+  type: 'test'
+  ...
+# Subtest: new replay records reproduce the drain while older records preserve their immediate result
+ok 41 - new replay records reproduce the drain while older records preserve their immediate result
+  ---
+  duration_ms: 516.142798
+  type: 'test'
+  ...
+# Subtest: replay validation rejects unknown engines and malformed tiebreak rules
+ok 42 - replay validation rejects unknown engines and malformed tiebreak rules
+  ---
+  duration_ms: 2.232212
+  type: 'test'
+  ...
+# Subtest: Normal deck deletion survives normalization, and ten saved decks are retained
+ok 43 - Normal deck deletion survives normalization, and ten saved decks are retained
+  ---
+  duration_ms: 6.166275
+  type: 'test'
+  ...
+# Subtest: Add/remove deck operations retain at least one and never mutate the input
+ok 44 - Add/remove deck operations retain at least one and never mutate the input
+  ---
+  duration_ms: 60.743638
+  type: 'test'
+  ...
+# Subtest: Four-card saved deck is independent, legal and persistent
+ok 45 - Four-card saved deck is independent, legal and persistent
+  ---
+  duration_ms: 1.155726
+  type: 'test'
+  ...
+# Subtest: Four-card matches have four real cards on both sides and safely cycle with an empty queue
+ok 46 - Four-card matches have four real cards on both sides and safely cycle with an empty queue
+  ---
+  duration_ms: 15.259071
+  type: 'test'
+  ...
+# Subtest: Random deck generation varies per seed without editing saved decks
+ok 47 - Random deck generation varies per seed without editing saved decks
+  ---
+  duration_ms: 1.104038
+  type: 'test'
+  ...
+# Subtest: Random deck mode remains named and non-ranked without modifying the deck library
+ok 48 - Random deck mode remains named and non-ranked without modifying the deck library
+  ---
+  duration_ms: 3.674181
+  type: 'test'
+  ...
+# Subtest: Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+ok 49 - Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+  ---
+  duration_ms: 15.512614
+  type: 'test'
+  ...
+# Subtest: v038 records have a new simulation tag for changed spawn and navigation rules
+ok 50 - v038 records have a new simulation tag for changed spawn and navigation rules
+  ---
+  duration_ms: 11.374022
+  type: 'test'
+  ...
+# Subtest: v038 accepts the previous engine0.32 including four-card recordings
+ok 51 - v038 accepts the previous engine0.32 including four-card recordings
+  ---
+  duration_ms: 2.240184
+  type: 'test'
+  ...
+# Subtest: v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+ok 52 - v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+  ---
+  duration_ms: 3.60779
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+ok 53 - v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+  ---
+  duration_ms: 87.971364
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+ok 54 - v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+  ---
+  duration_ms: 1966.403478
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 boat.json reproduces the original digest through seeks
+ok 55 - v038 historical engine0.32 boat.json reproduces the original digest through seeks
+  ---
+  duration_ms: 16.152751
+  type: 'test'
+  ...
+# Subtest: v038 frozen browser replay global does not overwrite live modules
+ok 56 - v038 frozen browser replay global does not overwrite live modules
+  ---
+  duration_ms: 61.130548
+  type: 'test'
+  ...
+# Subtest: ranked gold tiers grant 100–300 extra per tier on every win after three
+ok 57 - ranked gold tiers grant 100–300 extra per tier on every win after three
+  ---
+  duration_ms: 25.572266
+  type: 'test'
+  ...
+# Subtest: ranked gems grant 1–10 per tier on every win after five
+ok 58 - ranked gems grant 1–10 per tier on every win after five
+  ---
+  duration_ms: 19.2699
+  type: 'test'
+  ...
+# Subtest: first-tier rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+ok 59 - first-tier rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+  ---
+  duration_ms: 1063.817378
+  type: 'test'
+  ...
+# Subtest: 15th ranked win produces matching chest, gold and gem boxes from the receipt
+ok 60 - 15th ranked win produces matching chest, gold and gem boxes from the receipt
+  ---
+  duration_ms: 3.321106
+  type: 'test'
+  ...
+# Subtest: ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+ok 61 - ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+  ---
+  duration_ms: 1.68194
+  type: 'test'
+  ...
+# Subtest: full chest inventory does not suppress earned currency boxes
+ok 62 - full chest inventory does not suppress earned currency boxes
+  ---
+  duration_ms: 1.561849
+  type: 'test'
+  ...
+# Subtest: loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+ok 63 - loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+  ---
+  duration_ms: 9.206855
+  type: 'test'
+  ...
+# Subtest: non-ranked wins keep the ranked streak and grant base gold without milestone currency
+ok 64 - non-ranked wins keep the ranked streak and grant base gold without milestone currency
+  ---
+  duration_ms: 4.124009
+  type: 'test'
+  ...
+# Subtest: training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+ok 65 - training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+  ---
+  duration_ms: 9.195198
+  type: 'test'
+  ...
+# Subtest: result history survives saves; duplicate settlement and repeated rendering never repay currency
+ok 66 - result history survives saves; duplicate settlement and repeated rendering never repay currency
+  ---
+  duration_ms: 5.725938
+  type: 'test'
+  ...
+# Subtest: display receipts reflect currency actually credited at the save balance caps
+ok 67 - display receipts reflect currency actually credited at the save balance caps
+  ---
+  duration_ms: 1.4569
+  type: 'test'
+  ...
+# Subtest: normalizing an old save does not grant retrospective streak gold or gems
+ok 68 - normalizing an old save does not grant retrospective streak gold or gems
+  ---
+  duration_ms: 0.255997
+  type: 'test'
+  ...
+# Subtest: Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+ok 69 - Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+  ---
+  duration_ms: 0.425092
+  type: 'test'
+  ...
+# Subtest: v041 custom replays retain six seats, slot ownership and deterministic paths
+ok 70 - v041 custom replays retain six seats, slot ownership and deterministic paths
+  ---
+  duration_ms: 91.464132
+  type: 'test'
+  ...
+# Subtest: six-player recordings reject invalid or duplicated per-team tower ownership
+ok 71 - six-player recordings reject invalid or duplicated per-team tower ownership
+  ---
+  duration_ms: 3.132652
+  type: 'test'
+  ...
+# Subtest: v038 recordings stay on their frozen combat interpreter
+ok 72 - v038 recordings stay on their frozen combat interpreter
+  ---
+  duration_ms: 16.090382
+  type: 'test'
+  ...
+# Subtest: a custom Bridge recording cannot be mislabeled as a legacy two-lane battle
+ok 73 - a custom Bridge recording cannot be mislabeled as a legacy two-lane battle
+  ---
+  duration_ms: 1.908423
+  type: 'test'
+  ...
+# Subtest: string slot indices are rejected before they can lose player ownership
+ok 74 - string slot indices are rejected before they can lose player ownership
+  ---
+  duration_ms: 2.227885
+  type: 'test'
+  ...
+# Subtest: six-seat deployments and crowded bridge motion survive replay seek round trips
+ok 75 - six-seat deployments and crowded bridge motion survive replay seek round trips
+  ---
+  duration_ms: 768.284627
+  type: 'test'
+  ...
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+ok 76 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 13.425878
+  type: 'test'
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+ok 77 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 7.403101
+  type: 'test'
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+ok 78 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 16.500852
+  type: 'test'
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+ok 79 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 1.768551
+  type: 'test'
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+ok 80 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.25204
+  type: 'test'
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+ok 81 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 5.036387
+  type: 'test'
+  ...
+# Subtest: saved special decks use full catalog without mutating ownership or regular decks
+ok 82 - saved special decks use full catalog without mutating ownership or regular decks
+  ---
+  duration_ms: 5.418023
+  type: 'test'
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+ok 83 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 13.185104
+  type: 'test'
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+ok 84 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 3.143157
+  type: 'test'
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+ok 85 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 1.634919
+  type: 'test'
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+ok 86 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 45.370284
+  type: 'test'
+  ...
+# Subtest: new modes retain distinct learning experience contexts
+ok 87 - new modes retain distinct learning experience contexts
+  ---
+  duration_ms: 0.436229
+  type: 'test'
+  ...
+# Subtest: old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+ok 88 - old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+  ---
+  duration_ms: 164.288121
+  type: 'test'
+  ...
+# Subtest: all new mode replays retain deck sizes, restrictions and arena selection
+ok 89 - all new mode replays retain deck sizes, restrictions and arena selection
+  ---
+  duration_ms: 58.815852
+  type: 'test'
+  ...
+1..89
+# tests 89
+# suites 0
+# pass 89
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7092.437257

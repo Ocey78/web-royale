@@ -1,0 +1,305 @@
+TAP version 13
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+not ok 1 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 8.94137
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:4:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   180,
+    -   300,
+        120
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 300
+    1: 120
+  actual:
+    0: 180
+    1: 120
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:4:126)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+not ok 2 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 13.669888
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:5:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(Math.abs(b.elixir[0]-.1*10/28*1.5)<1e-8)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:5:176)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+not ok 3 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 2.390073
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Default'
+    - 'TwentyElixir'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'TwentyElixir'
+  actual: 'Default'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:6:152)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+not ok 4 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 1.750811
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 20
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 20
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:7:237)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+not ok 5 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.720313
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(C.validDeck(deck,{size:12}))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:8:134)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+not ok 6 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 0.926984
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:9:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Default'
+    - 'TwelveCardDeck'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'TwelveCardDeck'
+  actual: 'Default'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:9:216)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: saved special decks never borrow locked cards and persist separately from regular decks
+not ok 7 - saved special decks never borrow locked cards and persist separately from regular decks
+  ---
+  duration_ms: 0.439931
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 12
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 12
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:10:131)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+not ok 8 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 0.190236
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:11:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'undefined'
+    - 'function'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'function'
+  actual: 'undefined'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:11:107)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+not ok 9 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 1.067124
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:12:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Default'
+    - 'OneShot'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'OneShot'
+  actual: 'Default'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:12:144)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+not ok 10 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 0.89795
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:13:1'
+  failureType: 'testCodeFailure'
+  error: 'C.allowedInMode is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    /mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:13:175
+    Array.every (<anonymous>)
+    /mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:13:163
+    Array.every (<anonymous>)
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:13:152)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+not ok 11 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 2.125855
+  type: 'test'
+  location: '/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:14:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(M.modes.some(m=>m.id===mode))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work042/Web-Royale/tests/v042-modes.test.cjs:14:193)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 0
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 124.285634

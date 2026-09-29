@@ -1,0 +1,73 @@
+{
+  "baseArchive": "Web-Royale-v0.40.1-Rebuilt-Full-Build.zip",
+  "baseSha256": "c7c26e3b38899a5029113eb235519fe2f068732946fed4a7109aa68679af86f8",
+  "existingArtFilesChecked": 1192,
+  "existingArtFilesChanged": [],
+  "protected": [
+    {
+      "path": "src/graphics.js",
+      "identical": true,
+      "sha256": "8ee64af3272056bbb6477ee44eaa0ccad1fed24274c01c4b0f969395d3ada1ef"
+    },
+    {
+      "path": "src/cosmetics.js",
+      "identical": true,
+      "sha256": "20c105467a0f9d713dd5482942e385d496a68487e5db23ed5c25fba46fccf870"
+    },
+    {
+      "path": "src/menu-model.js",
+      "identical": true,
+      "sha256": "0683432a740050fab0a4aed9d41c7c99d499432a26ff28c981bcd5739aafdf9a"
+    },
+    {
+      "path": "src/deck-manager.js",
+      "identical": true,
+      "sha256": "6239dc273f04eb4db73dfd1b442edb818bf978e357f89ce1ac3792de20823308"
+    },
+    {
+      "path": "src/level-labels.js",
+      "identical": true,
+      "sha256": "b581065b6de9d5914b9205906b3357d20f74636e172deed9b6f898ae6e9d9130"
+    },
+    {
+      "path": "src/legacy-core-v027.js",
+      "identical": true,
+      "sha256": "c18e09b002d8a4f6c3acc5ca94d067a7cef7ab828c788b521ecad5228655fe5c"
+    },
+    {
+      "path": "src/legacy-core-v028.js",
+      "identical": true,
+      "sha256": "ea02816fa9d109d4ad1294a3c62d92bc080a3a161b81a6c28caf033df502be08"
+    },
+    {
+      "path": "src/legacy-core-v030.js",
+      "identical": true,
+      "sha256": "4baaf4f221fb27ee4a6c7bf0e937d98464568e166deee9abfe04aded3788ceea"
+    },
+    {
+      "path": "src/legacy-core-v031.js",
+      "identical": true,
+      "sha256": "e37abcfd1c8035f8eb8c0071bc083b0f1bf12a7f84efd616e640c829ad320121"
+    },
+    {
+      "path": "src/legacy-core-v037.js",
+      "identical": true,
+      "sha256": "54489ac2935a6d53d11513299ed5d2f9219aa65bbfeadcae001977a06e8ccaf8"
+    },
+    {
+      "path": "src/audio.js",
+      "identical": true,
+      "sha256": "8c0066f39fdeada65e6babf794aac5a7096bb8f06b1c162146724e07c41b4ca3"
+    },
+    {
+      "path": "open offline.bat",
+      "identical": true,
+      "sha256": "7c28c10b66a67b170838c6f12ebf5a39e9522c2141d14a2a05668de830831d0d"
+    },
+    {
+      "path": "offline build opener.bat",
+      "identical": true,
+      "sha256": "6d092a8c355cb8e5a1ae85964c173fd5dcfd688edaa07411eff3ef44d0f62c44"
+    }
+  ]
+}

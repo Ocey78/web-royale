@@ -1,0 +1,90 @@
+TAP version 13
+# Subtest: every playable mode has a headless self-play factory using its actual rules
+ok 1 - every playable mode has a headless self-play factory using its actual rules
+  ---
+  duration_ms: 110.552455
+  type: 'test'
+  ...
+# Subtest: unrecognized modes cannot silently turn into ordinary 1v1
+ok 2 - unrecognized modes cannot silently turn into ordinary 1v1
+  ---
+  duration_ms: 0.752524
+  type: 'test'
+  ...
+# Subtest: learning distinguishes mode and three-lane context without discarding saved weights
+ok 3 - learning distinguishes mode and three-lane context without discarding saved weights
+  ---
+  duration_ms: 0.70943
+  type: 'test'
+  ...
+# Subtest: a lost local King does not freeze estimates of living enemy elixir
+not ok 4 - a lost local King does not freeze estimates of living enemy elixir
+  ---
+  duration_ms: 19.908229
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/v041-learning.test.cjs:5:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      A.ok(bot.memory.estimate>v.startingElixir)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-learning.test.cjs:5:311)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: an AI with no remaining Crown Towers can safely observe the final frame
+not ok 5 - an AI with no remaining Crown Towers can safely observe the final frame
+  ---
+  duration_ms: 2.73161
+  type: 'test'
+  location: '/mnt/data/work041/Web-Royale/tests/v041-learning.test.cjs:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Got unwanted exception.
+    Actual message: "Cannot read properties of undefined (reading 'x')"
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+  error: "Cannot read properties of undefined (reading 'x')"
+  name: 'TypeError'
+  stack: |-
+    distance (/mnt/data/work041/Web-Royale/src/ai.js:10:37)
+    /mnt/data/work041/Web-Royale/src/ai.js:47:23
+    Array.map (<anonymous>)
+    TacticalBot.choose (/mnt/data/work041/Web-Royale/src/ai.js:45:68)
+    /mnt/data/work041/Web-Royale/tests/v041-learning.test.cjs:6:289
+    getActual (node:assert:531:5)
+    Function.doesNotThrow (node:assert:697:32)
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-learning.test.cjs:6:262)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+  operator: 'doesNotThrow'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work041/Web-Royale/tests/v041-learning.test.cjs:6:262)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 3
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 261.232403

@@ -1,0 +1,1 @@
+The first image fixture passed training/goblin, then its renderer was killed at the 4 GiB environment limit (memory.events oom_kill=1). It unnecessarily sent the full gameplay data to each new page. The rerun sends only the native-scene manifest and image URLs, which are all the arena-only fixture needs. Product code is unchanged.

@@ -1,0 +1,12 @@
+{
+  "browser": "26.5",
+  "emulation": "iPhone 13; desktop WebKit, not physical iOS",
+  "checks": [
+    "served Home Screen manifest and icons",
+    "notch and home-indicator insets",
+    "touch deployment remains aligned after safe-area fitting",
+    "visual viewport keyboard height and offset",
+    "rotation and changing Safari toolbar height"
+  ],
+  "errors": []
+}

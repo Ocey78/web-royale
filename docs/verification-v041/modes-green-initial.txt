@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: 3v3 creates six independent level-9 seats and six towers per side
+ok 1 - 3v3 creates six independent level-9 seats and six towers per side
+  ---
+  duration_ms: 31.283678
+  type: 'test'
+  ...
+# Subtest: 3v3 seeded assignment is a permutation on each side and unbiased over seeds
+ok 2 - 3v3 seeded assignment is a permutation on each side and unbiased over seeds
+  ---
+  duration_ms: 489.001734
+  type: 'test'
+  ...
+# Subtest: destroyed assigned King stops only its owner passive elixir without deleting bank
+ok 3 - destroyed assigned King stops only its owner passive elixir without deleting bank
+  ---
+  duration_ms: 3.867095
+  type: 'test'
+  ...
+# Subtest: survivor can spend elixir and their existing pump works after King destruction
+ok 4 - survivor can spend elixir and their existing pump works after King destruction
+  ---
+  duration_ms: 4.007598
+  type: 'test'
+  ...
+# Subtest: 3v3 golem descendants retain owner and return generated elixir to that owner
+ok 5 - 3v3 golem descendants retain owner and return generated elixir to that owner
+  ---
+  duration_ms: 3.184242
+  type: 'test'
+  ...
+# Subtest: normal Elixir Golem still gives elixir to opposing side
+ok 6 - normal Elixir Golem still gives elixir to opposing side
+  ---
+  duration_ms: 1.055876
+  type: 'test'
+  ...
+# Subtest: 3v3 needs all three Kings for immediate victory and can record six crowns
+ok 7 - 3v3 needs all three Kings for immediate victory and can record six crowns
+  ---
+  duration_ms: 1.288502
+  type: 'test'
+  ...
+# Subtest: Bridge mode has two seats, one King and one Princess each; off-lane deployment is rejected
+ok 8 - Bridge mode has two seats, one King and one Princess each; off-lane deployment is rejected
+  ---
+  duration_ms: 0.851743
+  type: 'test'
+  ...
+# Subtest: custom layouts drive swept navigation, not just visual backgrounds
+ok 9 - custom layouts drive swept navigation, not just visual backgrounds
+  ---
+  duration_ms: 0.393398
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 655.616796

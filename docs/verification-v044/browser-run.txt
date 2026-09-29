@@ -1,0 +1,41 @@
+runtime loaded
+UI artwork loaded
+PASS v0.44.0 boot
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 230892824, 'totalSize': 303640576, 'embedderHeapUsedSize': 44095904, 'backingStorageSize': 126053128}
+PASS Native royal castle assets prepared
+PASS 20 towers on matched arched foundations
+PASS Five King and Princess positions recede into symmetric arches
+PASS castle-arena remains within screen 1280
+PASS castle-arena remains within screen 390
+PASS castle-arena remains within screen 320
+PASS Extended floor fits scaled input at 390
+PASS Extended floor fits scaled input at 320
+PASS Live clock/multiplier 0
+PASS Live clock/multiplier 120
+PASS Live clock/multiplier 240
+PASS Live clock/multiplier 300
+PASS Live clock/multiplier 420
+PASS Live clock/multiplier 540
+PASS Mirror real copied portrait knight
+PASS Mirror has transparent mask-independent center knight
+PASS Mirror cost intact knight
+PASS Mirror real copied portrait princess
+PASS Mirror has transparent mask-independent center princess
+PASS Mirror cost intact princess
+PASS Mirror real copied portrait fireball
+PASS Mirror has transparent mask-independent center fireball
+PASS Mirror cost intact fireball
+PASS All five allied Kings activate together
+PASS Enemy Kings stay inactive
+PASS Eliminated player retains elixir without passive income
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 242498600, 'totalSize': 305115136, 'embedderHeapUsedSize': 147583816, 'backingStorageSize': 131397342}
+PASS Princess destruction scores zero and permits tied-King OT
+PASS King loss in OT ends real battle
+PASS Result shows one King crown
+PASS Play Again preserves 5v5 and never pays twice
+PASS TeamRumble loaded real battle
+MEMORY TeamRumble {'usedSize': 221960788, 'totalSize': 288251904, 'embedderHeapUsedSize': 40244928, 'backingStorageSize': 98764965}
+PASS Potato retains same arches without native castle effects
+PASS No browser exceptions

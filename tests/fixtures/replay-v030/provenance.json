@@ -1,0 +1,56 @@
+{
+  "sourceRelease": "0.30.0",
+  "sourceEngine": "0.30",
+  "trainingEngine": "training-engine.019d3602debd.js",
+  "trainingEngineSha256": "019d3602debd85a0a0bb3a9cc7669c000cf83fe3999ffad945127d70c13cc529",
+  "boatAdapterSha256": "237ea1d314228b0bfdb3637244f3272616045444f38ae2a5198fb91c4ef34aba",
+  "gameDataSha256": "65133cbd9f6b62e0b178af44e32c034c9bf7421978e25e9f580a2bf494e92f5b",
+  "method": "Generated using unchanged delivered v0.30.0 source core, boat adapter and replay recorder. All state changes are initial options or valid recorded deployments; each outcome was replayed by the delivered engine before migration.",
+  "fixtures": [
+    {
+      "file": "baby-dragon-crossing.json",
+      "sha256": "7bc84243050f448da03f68a8e2ebe0d5f380980f9e68638e63008850274e18ce",
+      "sourceRelease": "0.30.0",
+      "duration": 146.80000000000896,
+      "commands": 14,
+      "result": null,
+      "description": "Recorded spells destroy the left Princess Tower, then a legal Baby Dragon deployment from the left backfield follows the historical opposite-Princess route.",
+      "dragon": {
+        "tileX": 8.402842785369373,
+        "tileY": 15.92287933170195,
+        "target": 22,
+        "targetTileX": 14.5
+      }
+    },
+    {
+      "file": "normal.json",
+      "sha256": "942709c5a4792e8dccada0b203a9bf86ff9f8958320fed141452e61d4107f848",
+      "sourceRelease": "0.30.0",
+      "duration": 42.99999999999884,
+      "commands": 3,
+      "result": null
+    },
+    {
+      "file": "boat.json",
+      "sha256": "8fa151c2492b09bdcc83d182057b34724f317488dff0efc0003630e0493aaf4e",
+      "sourceRelease": "0.30.0",
+      "duration": 30.349999999999557,
+      "commands": 2,
+      "result": {
+        "winner": 1,
+        "reason": "Attacker tower destroyed"
+      }
+    },
+    {
+      "file": "tiebreak.json",
+      "sha256": "25d43e9bcf2539f602c3ee0d740e593460d314243cee1cb32b6279c0eda9b5c8",
+      "sourceRelease": "0.30.0",
+      "duration": 304.0000000000558,
+      "commands": 1,
+      "result": {
+        "winner": 0,
+        "reason": "Tiebreaker"
+      }
+    }
+  ]
+}

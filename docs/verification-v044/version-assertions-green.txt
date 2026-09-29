@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: decisive overtime expiry starts one visible phase before granting the result
+ok 1 - decisive overtime expiry starts one visible phase before granting the result
+  ---
+  duration_ms: 7.178305
+  type: 'test'
+  ...
+# Subtest: freezing the board removes queued ally previews and stops interpolation at current positions
+ok 2 - freezing the board removes queued ally previews and stops interpolation at current positions
+  ---
+  duration_ms: 2.049941
+  type: 'test'
+  ...
+# Subtest: drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+ok 3 - drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+  ---
+  duration_ms: 2.321425
+  type: 'test'
+  ...
+# Subtest: lowest surviving raw HP determines the drain winner and awards one crown once
+ok 4 - lowest surviving raw HP determines the drain winner and awards one crown once
+  ---
+  duration_ms: 2.280064
+  type: 'test'
+  ...
+# Subtest: a lowest King tower awards three crowns and keeps the tiebreak result reason
+ok 5 - a lowest King tower awards three crowns and keeps the tiebreak result reason
+  ---
+  duration_ms: 1.307923
+  type: 'test'
+  ...
+# Subtest: already destroyed towers are excluded and near-equal surviving minima remain draws
+ok 6 - already destroyed towers are excluded and near-equal surviving minima remain draws
+  ---
+  duration_ms: 1.356785
+  type: 'test'
+  ...
+# Subtest: pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+ok 7 - pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+  ---
+  duration_ms: 2.238862
+  type: 'test'
+  ...
+# Subtest: troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+ok 8 - troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+  ---
+  duration_ms: 2.962463
+  type: 'test'
+  ...
+# Subtest: boat battles preserve their own timeout without a crown-tower tiebreak phase
+ok 9 - boat battles preserve their own timeout without a crown-tower tiebreak phase
+  ---
+  duration_ms: 1.411947
+  type: 'test'
+  ...
+# Subtest: new replay records reproduce the drain while older records preserve their immediate result
+ok 10 - new replay records reproduce the drain while older records preserve their immediate result
+  ---
+  duration_ms: 333.301254
+  type: 'test'
+  ...
+# Subtest: replay validation rejects unknown engines and malformed tiebreak rules
+ok 11 - replay validation rejects unknown engines and malformed tiebreak rules
+  ---
+  duration_ms: 1.435423
+  type: 'test'
+  ...
+# Subtest: v038 records have a new simulation tag for changed spawn and navigation rules
+ok 12 - v038 records have a new simulation tag for changed spawn and navigation rules
+  ---
+  duration_ms: 7.57011
+  type: 'test'
+  ...
+# Subtest: v038 accepts the previous engine0.32 including four-card recordings
+ok 13 - v038 accepts the previous engine0.32 including four-card recordings
+  ---
+  duration_ms: 1.269225
+  type: 'test'
+  ...
+# Subtest: v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+ok 14 - v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+  ---
+  duration_ms: 2.506962
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+ok 15 - v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+  ---
+  duration_ms: 47.141125
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+ok 16 - v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+  ---
+  duration_ms: 1266.77057
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 boat.json reproduces the original digest through seeks
+ok 17 - v038 historical engine0.32 boat.json reproduces the original digest through seeks
+  ---
+  duration_ms: 16.422817
+  type: 'test'
+  ...
+# Subtest: v038 frozen browser replay global does not overwrite live modules
+ok 18 - v038 frozen browser replay global does not overwrite live modules
+  ---
+  duration_ms: 60.580026
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1599.217687

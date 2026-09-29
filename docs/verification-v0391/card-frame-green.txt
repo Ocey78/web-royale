@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 1,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 2,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 3,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 4,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 5,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 6,
+    "w": 84.25,
+    "h": 114.5,
+    "nw": 259,
+    "nh": 352,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 7,
+    "w": 84.25,
+    "h": 103.828125,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 0
+  }
+]

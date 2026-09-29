@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: closing during a rejected chest preload never resurrects its receipt
+ok 1 - closing during a rejected chest preload never resurrects its receipt
+  ---
+  duration_ms: 17.374037
+  type: 'test'
+  ...
+# Subtest: closing during a successful delayed preload also remains closed
+ok 2 - closing during a successful delayed preload also remains closed
+  ---
+  duration_ms: 3.829907
+  type: 'test'
+  ...
+# Subtest: an older rejected preload cannot replace a newer opening or suppress its own current failure
+ok 3 - an older rejected preload cannot replace a newer opening or suppress its own current failure
+  ---
+  duration_ms: 4.016091
+  type: 'test'
+  ...
+# Subtest: a current preload failure shows the already committed receipt without granting it twice
+ok 4 - a current preload failure shows the already committed receipt without granting it twice
+  ---
+  duration_ms: 4.110879
+  type: 'test'
+  ...
+# Subtest: the real Trophy Road claim refreshes claimed state before starting asynchronous chest loading
+ok 5 - the real Trophy Road claim refreshes claimed state before starting asynchronous chest loading
+  ---
+  duration_ms: 7.787508
+  type: 'test'
+  ...
+# Subtest: v036 free chest is ready exactly ten minutes after claiming
+ok 6 - v036 free chest is ready exactly ten minutes after claiming
+  ---
+  duration_ms: 7.147301
+  type: 'test'
+  ...
+# Subtest: v036 migrates a v9 four-hour deadline once, preserving last claim
+ok 7 - v036 migrates a v9 four-hour deadline once, preserving last claim
+  ---
+  duration_ms: 1.044212
+  type: 'test'
+  ...
+# Subtest: v036 ten crowns ignore an old crown cooldown and are spent atomically
+ok 8 - v036 ten crowns ignore an old crown cooldown and are spent atomically
+  ---
+  duration_ms: 2.363677
+  type: 'test'
+  ...
+# Subtest: v036 streak bonus rerolls on each win within an unlocked tier
+ok 9 - v036 streak bonus rerolls on each win within an unlocked tier
+  ---
+  duration_ms: 19.18257
+  type: 'test'
+  ...
+# Subtest: v036 the same result pays once and replay/practice cannot change a streak
+ok 10 - v036 the same result pays once and replay/practice cannot change a streak
+  ---
+  duration_ms: 7.489643
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+ok 11 - v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+  ---
+  duration_ms: 3.86333
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop can select every rarity over its rotations
+ok 12 - v036 lightning shop can select every rarity over its rotations
+  ---
+  duration_ms: 18.016076
+  type: 'test'
+  ...
+# Subtest: v036 lightning purchase persists, rejects duplicates and stale offers without charging
+ok 13 - v036 lightning purchase persists, rejects duplicates and stale offers without charging
+  ---
+  duration_ms: 5.207769
+  type: 'test'
+  ...
+# Subtest: ranked gold milestones grant 100–300 extra at 3/6/9 and no extras between
+ok 14 - ranked gold milestones grant 100–300 extra at 3/6/9 and no extras between
+  ---
+  duration_ms: 35.860573
+  type: 'test'
+  ...
+# Subtest: ranked gems grant 1–10 at 5/10/15 and never on intervening wins
+ok 15 - ranked gems grant 1–10 at 5/10/15 and never on intervening wins
+  ---
+  duration_ms: 15.751494
+  type: 'test'
+  ...
+# Subtest: milestone rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+ok 16 - milestone rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+  ---
+  duration_ms: 365.487059
+  type: 'test'
+  ...
+# Subtest: 15th ranked win produces matching chest, gold and gem boxes from the receipt
+ok 17 - 15th ranked win produces matching chest, gold and gem boxes from the receipt
+  ---
+  duration_ms: 4.42039
+  type: 'test'
+  ...
+# Subtest: ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+ok 18 - ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+  ---
+  duration_ms: 3.493993
+  type: 'test'
+  ...
+# Subtest: full chest inventory does not suppress earned currency boxes
+ok 19 - full chest inventory does not suppress earned currency boxes
+  ---
+  duration_ms: 2.722791
+  type: 'test'
+  ...
+# Subtest: loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+ok 20 - loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+  ---
+  duration_ms: 5.998069
+  type: 'test'
+  ...
+# Subtest: non-ranked wins keep the ranked streak and grant base gold without milestone currency
+ok 21 - non-ranked wins keep the ranked streak and grant base gold without milestone currency
+  ---
+  duration_ms: 4.664029
+  type: 'test'
+  ...
+# Subtest: training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+ok 22 - training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+  ---
+  duration_ms: 11.779774
+  type: 'test'
+  ...
+# Subtest: result history survives saves; duplicate settlement and repeated rendering never repay currency
+ok 23 - result history survives saves; duplicate settlement and repeated rendering never repay currency
+  ---
+  duration_ms: 8.433823
+  type: 'test'
+  ...
+# Subtest: display receipts reflect currency actually credited at the save balance caps
+ok 24 - display receipts reflect currency actually credited at the save balance caps
+  ---
+  duration_ms: 1.786013
+  type: 'test'
+  ...
+# Subtest: normalizing an old save does not grant retrospective streak gold or gems
+ok 25 - normalizing an old save does not grant retrospective streak gold or gems
+  ---
+  duration_ms: 0.233648
+  type: 'test'
+  ...
+# Subtest: Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+ok 26 - Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+  ---
+  duration_ms: 0.665824
+  type: 'test'
+  ...
+# Subtest: v150 collection uses arena-plus-ownership card usability instead of deck membership
+ok 27 - v150 collection uses arena-plus-ownership card usability instead of deck membership
+  ---
+  duration_ms: 2.024184
+  type: 'test'
+  ...
+# Subtest: v150 collection distinguishes reached but undiscovered cards
+ok 28 - v150 collection distinguishes reached but undiscovered cards
+  ---
+  duration_ms: 0.414311
+  type: 'test'
+  ...
+# Subtest: v150 chest slot arena label reflects the current expanded pool
+ok 29 - v150 chest slot arena label reflects the current expanded pool
+  ---
+  duration_ms: 0.258095
+  type: 'test'
+  ...
+# Subtest: v210 Decks list excludes all IDs in the active deck without mutating the catalogue
+ok 30 - v210 Decks list excludes all IDs in the active deck without mutating the catalogue
+  ---
+  duration_ms: 17.730163
+  type: 'test'
+  ...
+# Subtest: v210 Collection ignores deck membership and filters remain independent
+ok 31 - v210 Collection ignores deck membership and filters remain independent
+  ---
+  duration_ms: 4.597729
+  type: 'test'
+  ...
+# Subtest: v210 chest label shows the required remaining wins, not progress fractions
+ok 32 - v210 chest label shows the required remaining wins, not progress fractions
+  ---
+  duration_ms: 0.280798
+  type: 'test'
+  ...
+# Subtest: v210 chest labels stay bounded and use actual kind requirements
+ok 33 - v210 chest labels stay bounded and use actual kind requirements
+  ---
+  duration_ms: 0.907409
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 628.461501

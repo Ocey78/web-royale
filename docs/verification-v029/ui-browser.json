@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "viewport": {
+        "width": 1200,
+        "height": 960
+      },
+      "flag": {
+        "top": 143.5,
+        "clipTop": 136,
+        "scale": 1
+      },
+      "items": 3,
+      "emptySlots": 4
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "flag": {
+        "top": 178.9722323263845,
+        "clipTop": 173.55555725097656,
+        "scale": 0.7222222358949723
+      },
+      "items": 3,
+      "emptySlots": 4
+    }
+  ],
+  "errors": []
+}

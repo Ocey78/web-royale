@@ -1,0 +1,15 @@
+/* v0.39.1: equal reward boxes using the existing chest reward panel style. */
+#viewport .end-battle-reward{left:82px;right:82px}
+#viewport .end-reward-items{gap:8px;padding:7px 9px 9px;align-items:stretch}
+#viewport .end-reward-items>.end-reward-box{flex:1 1 0;min-width:0;max-width:132px;min-height:88px;padding:5px 3px 4px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:3px;border:2px solid #50728f;border-radius:6px;background:linear-gradient(#dce8f2,#b5cbdf);box-shadow:inset 0 1px #eff7ff,0 2px #253f5766;color:#203b59;font-weight:900;font-size:20px}
+#viewport .end-reward-items>.end-reward-box>img{flex:none;width:66px;max-width:100%;height:52px;object-fit:contain;filter:drop-shadow(0 2px 1px #19334c50)}
+#viewport .end-reward-caption{width:100%;font-size:12px;line-height:20px;white-space:nowrap}
+#viewport .end-reward-amount{width:100%;font-size:22px;line-height:24px;white-space:nowrap}
+#viewport .end-reward-box .royale-label{max-width:100%}
+
+/* The old portrait filled a tall slot while the frame letterboxed inside it.
+   Give both layers the frame's native aspect. Centering keeps the frame in the
+   same position; anchoring the level inside it keeps text clear of the rail. */
+#viewport .reference-cards .card-tile>.card-visual{top:calc(50% - 10.5px);bottom:auto;height:auto;aspect-ratio:258/318;transform:translateY(-50%)}
+#viewport .reference-cards .card-tile>.card-visual.legendary{aspect-ratio:259/352}
+#viewport .reference-cards .card-tile>.card-visual>.card-level{bottom:4%;left:5%;right:5%;height:23px;line-height:23px}

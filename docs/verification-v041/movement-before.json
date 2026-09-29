@@ -1,0 +1,252 @@
+[
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 0.9,
+    "y": 20,
+    "pack": 1,
+    "searches": 111,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 2,
+    "y": 20,
+    "pack": 1,
+    "searches": 100,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 3,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 3.5,
+    "y": 20,
+    "pack": 1,
+    "searches": 0,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 4,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 4.8,
+    "y": 20,
+    "pack": 1,
+    "searches": 93,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 8,
+    "y": 20,
+    "pack": 1,
+    "searches": 124,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 9,
+    "y": 20,
+    "pack": 1,
+    "searches": 129,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 13,
+    "y": 20,
+    "pack": 1,
+    "searches": 100,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 14.5,
+    "y": 20,
+    "pack": 1,
+    "searches": 0,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 15.5,
+    "y": 20,
+    "pack": 1,
+    "searches": 90,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Giant",
+    "x": 17,
+    "y": 20,
+    "pack": 1,
+    "searches": 114,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 1,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 3,
+    "y": 20,
+    "pack": 1,
+    "searches": 0,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 5,
+    "y": 20,
+    "pack": 1,
+    "searches": 74,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 7,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 9,
+    "y": 20,
+    "pack": 1,
+    "searches": 0,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 11,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 13,
+    "y": 20,
+    "pack": 1,
+    "searches": 74,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 15,
+    "y": 20,
+    "pack": 1,
+    "searches": 0,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Team3v3",
+    "name": "Giant",
+    "x": 17,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "BridgeBattle",
+    "name": "Giant",
+    "x": 7,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "BridgeBattle",
+    "name": "Giant",
+    "x": 9,
+    "y": 20,
+    "pack": 1,
+    "searches": 0,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "BridgeBattle",
+    "name": "Giant",
+    "x": 11,
+    "y": 20,
+    "pack": 1,
+    "searches": 1,
+    "stuck": [],
+    "remaining": 0
+  },
+  {
+    "mode": "Default",
+    "name": "Barbarian",
+    "x": 3.5,
+    "y": 19,
+    "pack": 18,
+    "searches": 32,
+    "stuck": [],
+    "remaining": 0
+  }
+]

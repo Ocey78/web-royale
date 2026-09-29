@@ -1,0 +1,398 @@
+{
+  "scene": "assets/sc/ui_chest.sc",
+  "sha256": "407acbbf33fa767b105e38b118e5a199d86590f3600fa5c82b52d578102b7679",
+  "texture": "assets/sc/ui_chest_tex.sc",
+  "textureSha256": "3122d6cef2e48febe6591d6a57a3ff9f91a906620219607562112a8a4e720457",
+  "exports": {
+    "chest_open_lightning_legendary": {
+      "frames": 126,
+      "fps": 60,
+      "labels": {
+        "popup": 49,
+        "idle": 68,
+        "play": 70,
+        "end": 110
+      }
+    },
+    "chest_open_pass_common": {
+      "frames": 126,
+      "fps": 60,
+      "labels": {
+        "popup": 49,
+        "idle": 68,
+        "play": 70,
+        "end": 110
+      }
+    },
+    "chest_open_pass_epic": {
+      "frames": 126,
+      "fps": 60,
+      "labels": {
+        "popup": 49,
+        "idle": 68,
+        "play": 70,
+        "end": 110
+      }
+    },
+    "chest_open_pass_rare": {
+      "frames": 126,
+      "fps": 60,
+      "labels": {
+        "popup": 49,
+        "idle": 68,
+        "play": 70,
+        "end": 110
+      }
+    },
+    "card_reveal_legendary": {
+      "frames": 5,
+      "fps": 30,
+      "labels": {
+        "stop": 4
+      }
+    },
+    "card_rotate_legendary_short": {
+      "frames": 10,
+      "fps": 30,
+      "labels": {
+        "hidden": 2,
+        "stop": 9
+      }
+    },
+    "card_rotate_common_short": {
+      "frames": 10,
+      "fps": 30,
+      "labels": {
+        "hidden": 2,
+        "stop": 9
+      }
+    },
+    "card_rotate_epic_short": {
+      "frames": 10,
+      "fps": 30,
+      "labels": {
+        "hidden": 2,
+        "stop": 9
+      }
+    },
+    "card_rotate_rare_short": {
+      "frames": 10,
+      "fps": 30,
+      "labels": {
+        "hidden": 2,
+        "stop": 9
+      }
+    },
+    "card_rotate_fortune": {
+      "frames": 112,
+      "fps": 30,
+      "labels": {
+        "hidden": 2,
+        "stop": 111
+      }
+    },
+    "chest_epic_open": {
+      "frames": 120,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_giant_open": {
+      "frames": 1,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_gold_open": {
+      "frames": 70,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_magical_open": {
+      "frames": 80,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_iron_open": {
+      "frames": 50,
+      "fps": 30,
+      "labels": {}
+    },
+    "Chest_wood": {
+      "frames": 1,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_open_draft": {
+      "frames": 63,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 54
+      }
+    },
+    "chest_open_epic": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_giant": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_giant_closed": {
+      "frames": 1,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_open_gold": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "Chest_gold": {
+      "frames": 1,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_open_iron": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "Chest_iron": {
+      "frames": 1,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_open_legendary": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_lightmega": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_loser_wooden": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_magical": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_mega": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_star": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_star_closed": {
+      "frames": 1,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_open_tournament_1_a": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_tournament_1_c": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_tournament_2_a": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_tournament_2_c": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_tournament_3_c": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_tournament_other": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_open_war_pouch": {
+      "frames": 83,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "open_effect": 36,
+        "idle": 57,
+        "play": 58,
+        "end": 75
+      }
+    },
+    "chest_open_wooden": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {
+        "popup": 24,
+        "idle": 34,
+        "play": 35,
+        "end": 52
+      }
+    },
+    "chest_epic_closed": {
+      "frames": 120,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_legendary_closed": {
+      "frames": 120,
+      "fps": 30,
+      "labels": {}
+    },
+    "chest_legendary_open": {
+      "frames": 120,
+      "fps": 30,
+      "labels": {}
+    },
+    "Chest_magical": {
+      "frames": 60,
+      "fps": 30,
+      "labels": {}
+    },
+    "card_rotate_legendary_extended": {
+      "frames": 170,
+      "fps": 30,
+      "labels": {
+        "hidden": 2,
+        "stop": 169
+      }
+    },
+    "card_reveal_epic": {
+      "frames": 8,
+      "fps": 30,
+      "labels": {
+        "stop": 7
+      }
+    },
+    "card_reveal_rare": {
+      "frames": 5,
+      "fps": 30,
+      "labels": {
+        "stop": 4
+      }
+    },
+    "card_reveal_common": {
+      "frames": 8,
+      "fps": 30,
+      "labels": {
+        "stop": 7
+      }
+    },
+    "chest_open_collection_win": {
+      "frames": 119,
+      "fps": 60,
+      "labels": {
+        "popup": 49,
+        "idle": 68,
+        "play": 69,
+        "end": 103
+      }
+    }
+  },
+  "textures": [
+    "chest-opening-0.webp"
+  ]
+}

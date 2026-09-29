@@ -1,0 +1,317 @@
+TAP version 13
+# Subtest: ranked gold milestones grant 100–300 extra at 3/6/9 and no extras between
+not ok 1 - ranked gold milestones grant 100–300 extra at 3/6/9 and no extras between
+  ---
+  duration_ms: 10.017422
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:17:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:20:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: ranked gems grant 1–10 at 5/10/15 and never on intervening wins
+not ok 2 - ranked gems grant 1–10 at 5/10/15 and never on intervening wins
+  ---
+  duration_ms: 1.03113
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:22:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:25:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: milestone rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+not ok 3 - milestone rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+  ---
+  duration_ms: 394.011978
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:27:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 100
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 100
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:30:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 15th ranked win produces matching chest, gold and gem boxes from the receipt
+not ok 4 - 15th ranked win produces matching chest, gold and gem boxes from the receipt
+  ---
+  duration_ms: 3.705485
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:32:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:34:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+not ok 5 - ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+  ---
+  duration_ms: 2.273703
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:40:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /data-reward-kind="gold"/. Input:
+    
+    '<strong>Reward</strong><div class="end-reward-items"><div><img data-ui="silver-chest" class="" alt=""><span>Silver Chest</span></div><div class="end-reward-gold"><img data-ui="gold" class="" alt=""><span>+50</span></div></div>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<strong>Reward</strong><div class="end-reward-items"><div><img data-ui="silver-chest" class="" alt=""><span>Silver Chest</span></div><div class="end-reward-gold"><img data-ui="gold" class="" alt=""><span>+50</span></div></div>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:42:55)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: full chest inventory does not suppress earned currency boxes
+not ok 6 - full chest inventory does not suppress earned currency boxes
+  ---
+  duration_ms: 2.206103
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:44:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /data-reward-kind="gold"/. Input:
+    
+    '<strong>Reward</strong><div class="end-reward-items"><div class="end-reward-gold"><img data-ui="gold" class="" alt=""><span>+50</span></div></div>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<strong>Reward</strong><div class="end-reward-items"><div class="end-reward-gold"><img data-ui="gold" class="" alt=""><span>+50</span></div></div>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:46:88)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+not ok 7 - loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+  ---
+  duration_ms: 0.810193
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:48:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 10
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 10
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:49:210)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: non-ranked wins keep the ranked streak and grant base gold without milestone currency
+not ok 8 - non-ranked wins keep the ranked streak and grant base gold without milestone currency
+  ---
+  duration_ms: 0.796098
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:52:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:53:338)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+ok 9 - training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+  ---
+  duration_ms: 12.478016
+  type: 'test'
+  ...
+# Subtest: result history survives saves; duplicate settlement and repeated rendering never repay currency
+ok 10 - result history survives saves; duplicate settlement and repeated rendering never repay currency
+  ---
+  duration_ms: 10.355713
+  type: 'test'
+  ...
+# Subtest: display receipts reflect currency actually credited at the save balance caps
+not ok 11 - display receipts reflect currency actually credited at the save balance caps
+  ---
+  duration_ms: 1.237497
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:64:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 9
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 9
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:66:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: normalizing an old save does not grant retrospective streak gold or gems
+not ok 12 - normalizing an old save does not grant retrospective streak gold or gems
+  ---
+  duration_ms: 0.332288
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:69:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:70:94)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+not ok 13 - Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+  ---
+  duration_ms: 1.893924
+  type: 'test'
+  location: '/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:72:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input was expected to not match the regular expression /button\('Reward Inventory','road-inventory'/. Input:
+    
+    "function road(preserve=false){const previous=$('roadScroll').scrollTop;show('trophyRoad');$('roadTrophies').textContent=fmt(profile.trophies);const entries=[...R.ARENAS,...R.LEAGUES],current=R.currentArena(profile),peak=profile.highestTrophies;let nearest=null,nearestDiff=Infinity;for(const r of R.ROAD_REWARDS){if(Math.abs(profile.trophies-r.trophies)<nearestDiff){nearest=r;nearestDiff=Math.abs(profile.trophies-r.trophies);}}\n" +
+      " $('roadScroll').innerHTML=entries.map((a,i)=>({a,upper:entries[i+1]?.trophies||8100})).reverse().map(({a,upper})=>{const unlocks=a.number?R.arenaUnlocks(C.CARDS,C.DATA.arenas,a.number):[],steps=R.ROAD_REWARDS.filter(r=>r.trophies>a.trophies&&r.trophies<upper).slice().reverse();const platform=({1:17,2:32,3:37,4:44,5:51,6:58,7:67,8:73,9:79,10:88,11:93,12:98,13:67,14:93})[a.number]??106;\n" +
+      ' const tiles=steps.map((r,j)=>{const state=R.rewardState(profile,r),at=nearest?.id===r.id;return `<div class="road-step ${state} ${at?\'player-step\':\'\'}" data-step-id="${r.id}" data-trophies="${r.trophies}"><span class="road-tick">${fmt(r.trophies)}</span>${at?`<div class="road-player-marker" aria-label="Your trophies: ${profile.trophies}">${icon(\'trophy\')}<b>${fmt(profile.trophies)}</b></div>`:\'\'}<div class="step-connector"></div><div class="step-ground" style="background-image:var(--ui-classic-platform-${a.number===1?[17,18,27,30,31][j%5]:a.number===2?[32,33,34,35,36][j%5]:platform})"></div><button class="road-reward reward-${r.align} ${state}" data-action="road-reward" data-id="${r.id}" aria-label="${esc(roadLabel(r)+\' at \'+r.trophies+\' trophies, \'+state)}"><span class="road-reward-art">${roadArt(r)}</span><b class="road-amount">${r.kind===\'choice\'||r.kind===\'cards\'||r.kind===\'wildcards\'?\'×\':\'\'}${r.kind===\'emote\'?\'Emote\':r.kind===\'chest\'?\'Chest\':fmt(r.amount)}</b><span class="reward-state">${state===\'claimed\'?\'✓\':state===\'available\'?\'Collect\':\'Locked\'}</span>${state===\'locked\'?icon(\'classic-road-lock\',\'reward-lock\'):\'\'}</button></div>`;}).join(\'\');\n' +
+      ' return `<section class="road-stop ${a.number?\'\':\'road-league\'} ${current.id===a.id?\'current\':\'\'}" data-road-id="${esc(a.id||a.name)}">${tiles}<div class="road-gate"><h2>${esc(a.name)}</h2><div class="road-title-strip"><b>${a.number?\'Arena \'+a.number:\'League \'+(R.LEAGUES.findIndex(x=>x.name===a.name)+1)}</b><b>${fmt(a.trophies)}</b></div><div class="road-unlocks ${peak<a.trophies?\'locked\':\'\'}">${unlocks.length?\'<small>Card unlocks</small><div>\'+unlocks.map(c=>`<button data-action="card" data-id="${c.id}" aria-label="${esc(c.name)}">${cardVisual(c.id)}</button>`).join(\'\')+\'</div>\':\'\'}</div><button class="road-arena-info" data-action="arena-info" data-id="${a.id||\'\'}" ${a.number?\'\':\'disabled\'} aria-label="${esc(a.name)} information">${icon(a.image)}<span>${current.id===a.id?\'Your arena\':peak>=a.trophies?\'Reached\':\'Unlocks at \'+fmt(a.trophies)}</span></button></div></section>`;}).join(\'\')+`<div class="road-start-note">Win battles to climb. Rewards can be collected once per save.${button(\'Reward Inventory\',\'road-inventory\',\'blue\')}</div>`;\n' +
+      " const nextGate=[...R.ARENAS,...R.LEAGUES].find(a=>a.trophies>profile.trophies),lower=[...R.ARENAS,...R.LEAGUES].filter(a=>a.trophies<=profile.trophies).at(-1),progress=nextGate?Math.max(0,Math.min(100,(profile.trophies-(lower?.trophies||0))/(nextGate.trophies-(lower?.trophies||0))*100)):100,available=R.ROAD_REWARDS.filter(r=>R.rewardState(profile,r)==='available').length;\n" +
+      ' $(\'roadProgress\').innerHTML=`<div><b>${esc(lower?.name||current.name)}</b><span>${nextGate?fmt(nextGate.trophies-profile.trophies)+\' to \'+esc(nextGate.name):\'Top league reached\'}</span></div><div class="road-progress-track"><i style="width:${progress}%"></i></div><nav><button data-action="road-my-progress">My trophies</button><button data-action="road-next-reward" ${available?\'\':\'disabled\'}>Collect rewards <b>${available}</b></button><select id="roadArenaJump" aria-label="View an arena on Trophy Road"><option value="">View arena / league</option>${entries.map(a=>`<option value="${esc(a.id||a.name)}">${esc(a.name)}</option>`).join(\'\')}</select></nav>`;\n' +
+      ` $('roadArenaJump').onchange=e=>{const el=$('roadScroll').querySelector('[data-road-id="'+CSS.escape(e.target.value)+'"] .road-gate');if(el)$('roadScroll').scrollTop+=el.getBoundingClientRect().top-$('roadScroll').getBoundingClientRect().top-25;};\n` +
+      ` hydrate($('trophyRoad'));requestAnimationFrame(()=>{if(preserve){$('roadScroll').scrollTop=previous;return;}const at=$('roadScroll').querySelector('.player-step')||$('roadScroll').querySelector('[data-road-id="'+current.id+'"]');if(at)$('roadScroll').scrollTop+=at.getBoundingClientRect().top-$('roadScroll').getBoundingClientRect().top-260;});}\n`
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    function road(preserve=false){const previous=$('roadScroll').scrollTop;show('trophyRoad');$('roadTrophies').textContent=fmt(profile.trophies);const entries=[...R.ARENAS,...R.LEAGUES],current=R.currentArena(profile),peak=profile.highestTrophies;let nearest=null,nearestDiff=Infinity;for(const r of R.ROAD_REWARDS){if(Math.abs(profile.trophies-r.trophies)<nearestDiff){nearest=r;nearestDiff=Math.abs(profile.trophies-r.trophies);}}
+     $('roadScroll').innerHTML=entries.map((a,i)=>({a,upper:entries[i+1]?.trophies||8100})).reverse().map(({a,upper})=>{const unlocks=a.number?R.arenaUnlocks(C.CARDS,C.DATA.arenas,a.number):[],steps=R.ROAD_REWARDS.filter(r=>r.trophies>a.trophies&&r.trophies<upper).slice().reverse();const platform=({1:17,2:32,3:37,4:44,5:51,6:58,7:67,8:73,9:79,10:88,11:93,12:98,13:67,14:93})[a.number]??106;
+     const tiles=steps.map((r,j)=>{const state=R.rewardState(profile,r),at=nearest?.id===r.id;return `<div class="road-step ${state} ${at?'player-step':''}" data-step-id="${r.id}" data-trophies="${r.trophies}"><span class="road-tick">${fmt(r.trophies)}</span>${at?`<div class="road-player-marker" aria-label="Your trophies: ${profile.trophies}">${icon('trophy')}<b>${fmt(profile.trophies)}</b></div>`:''}<div class="step-connector"></div><div class="step-ground" style="background-image:var(--ui-classic-platform-${a.number===1?[17,18,27,30,31][j%5]:a.number===2?[32,33,34,35,36][j%5]:platform})"></div><button class="road-reward reward-${r.align} ${state}" data-action="road-reward" data-id="${r.id}" aria-label="${esc(roadLabel(r)+' at '+r.trophies+' trophies, '+state)}"><span class="road-reward-art">${roadArt(r)}</span><b class="road-amount">${r.kind==='choice'||r.kind==='cards'||r.kind==='wildcards'?'×':''}${r.kind==='emote'?'Emote':r.kind==='chest'?'Chest':fmt(r.amount)}</b><span class="reward-state">${state==='claimed'?'✓':state==='available'?'Collect':'Locked'}</span>${state==='locked'?icon('classic-road-lock','reward-lock'):''}</button></div>`;}).join('');
+     return `<section class="road-stop ${a.number?'':'road-league'} ${current.id===a.id?'current':''}" data-road-id="${esc(a.id||a.name)}">${tiles}<div class="road-gate"><h2>${esc(a.name)}</h2><div class="road-title-strip"><b>${a.number?'Arena '+a.number:'League '+(R.LEAGUES.findIndex(x=>x.name===a.name)+1)}</b><b>${fmt(a.trophies)}</b></div><div class="road-unlocks ${peak<a.trophies?'locked':''}">${unlocks.length?'<small>Card unlocks</small><div>'+unlocks.map(c=>`<button data-action="card" data-id="${c.id}" aria-label="${esc(c.name)}">${cardVisual(c.id)}</button>`).join('')+'</div>':''}</div><button class="road-arena-info" data-action="arena-info" data-id="${a.id||''}" ${a.number?'':'disabled'} aria-label="${esc(a.name)} information">${icon(a.image)}<span>${current.id===a.id?'Your arena':peak>=a.trophies?'Reached':'Unlocks at '+fmt(a.trophies)}</span></button></div></section>`;}).join('')+`<div class="road-start-note">Win battles to climb. Rewards can be collected once per save.${button('Reward Inventory','road-inventory','blue')}</div>`;
+     const nextGate=[...R.ARENAS,...R.LEAGUES].find(a=>a.trophies>profile.trophies),lower=[...R.ARENAS,...R.LEAGUES].filter(a=>a.trophies<=profile.trophies).at(-1),progress=nextGate?Math.max(0,Math.min(100,(profile.trophies-(lower?.trophies||0))/(nextGate.trophies-(lower?.trophies||0))*100)):100,available=R.ROAD_REWARDS.filter(r=>R.rewardState(profile,r)==='available').length;
+     $('roadProgress').innerHTML=`<div><b>${esc(lower?.name||current.name)}</b><span>${nextGate?fmt(nextGate.trophies-profile.trophies)+' to '+esc(nextGate.name):'Top league reached'}</span></div><div class="road-progress-track"><i style="width:${progress}%"></i></div><nav><button data-action="road-my-progress">My trophies</button><button data-action="road-next-reward" ${available?'':'disabled'}>Collect rewards <b>${available}</b></button><select id="roadArenaJump" aria-label="View an arena on Trophy Road"><option value="">View arena / league</option>${entries.map(a=>`<option value="${esc(a.id||a.name)}">${esc(a.name)}</option>`).join('')}</select></nav>`;
+     $('roadArenaJump').onchange=e=>{const el=$('roadScroll').querySelector('[data-road-id="'+CSS.escape(e.target.value)+'"] .road-gate');if(el)$('roadScroll').scrollTop+=el.getBoundingClientRect().top-$('roadScroll').getBoundingClientRect().top-25;};
+     hydrate($('trophyRoad'));requestAnimationFrame(()=>{if(preserve){$('roadScroll').scrollTop=previous;return;}const at=$('roadScroll').querySelector('.player-step')||$('roadScroll').querySelector('[data-road-id="'+current.id+'"]');if(at)$('roadScroll').scrollTop+=at.getBoundingClientRect().top-$('roadScroll').getBoundingClientRect().top-260;});}
+    
+  operator: 'doesNotMatch'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work0391/Web-Royale/tests/v039-reward-boxes.test.cjs:74:19)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 2
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 600.829442

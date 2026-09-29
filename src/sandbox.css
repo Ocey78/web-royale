@@ -1,0 +1,20 @@
+/* Sandbox occupies the ordinary 212px hand lane; the accepted arena and camera
+   retain their original 540x1172 battle frame. */
+#battle.sandbox-view .hand-panel,#battle.sandbox-view .battle-score,#battle.sandbox-view .player-name-battle,#battle.sandbox-view #instruction,#battle.sandbox-view #opening,#battle.sandbox-view #battleAnnouncement{display:none!important}
+#battle.sandbox-view .battle-top{visibility:hidden}
+#sandboxUI{position:absolute;inset:0;pointer-events:none;z-index:25}
+.sandbox-header{position:absolute;left:16px;right:16px;top:17px;display:flex;align-items:center;justify-content:space-between;gap:16px;pointer-events:auto}
+.sandbox-header h1{font-size:27px;color:#fff;margin:0 0 4px}.sandbox-header small{font-size:15px;color:#c6eafa;text-shadow:0 2px #13253c}
+#sandboxUI .native-button{min-width:0;height:46px;min-height:46px;border-width:8px;border-image-width:8px;font-size:17px;padding:0 7px 4px}
+.sandbox-header>.native-button{width:90px}
+.sandbox-controls{position:absolute;left:0;right:0;top:960px;height:212px;padding:10px 14px;background:linear-gradient(#2e5e84,#163c60);border-top:4px solid #89b5d1;box-shadow:inset 0 3px #142d4e;pointer-events:auto;color:#fff}
+.sandbox-card-row{display:grid;grid-template-columns:minmax(0,1fr) 65px 122px;gap:10px;align-items:end}.sandbox-card-row>label{display:flex;flex-direction:column;gap:4px;min-width:0;font-size:13px;color:#cde7ff}
+.sandbox-card-row select,.sandbox-card-row input{display:block;min-width:0;width:100%;height:42px;background:#163251;color:#fff;border:2px solid #81b3d2;border-radius:6px;padding:5px;font-size:16px}
+.sandbox-team{display:grid;grid-template-columns:1fr 1fr;gap:4px;height:42px}.sandbox-team button{min-width:0;font-size:15px;border:2px solid #90aed2;border-radius:6px;background:#204d74;box-shadow:0 2px #10253c;padding:4px}.sandbox-team button[data-sandbox-team="1"]{background:#742d42}.sandbox-team button[aria-pressed=true]{border-color:#ffe688;box-shadow:0 0 0 2px #e8bd54,inset 0 2px #ffffff44}
+.sandbox-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.sandbox-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;min-height:33px;font-size:12px;line-height:1.35;color:#d9edff}.sandbox-foot>span{flex:1;min-width:0}.sandbox-foot>label{display:flex;align-items:center;gap:4px;white-space:nowrap}.sandbox-foot input{width:19px;height:19px;accent-color:#59c6f2}
+.sandbox-towers{position:absolute;inset:180px 18px auto;background:linear-gradient(#dce7f1,#b9cde0);border:4px solid #749dbd;border-radius:10px;padding:20px;color:#25425f;box-shadow:0 8px 35px #06182bcf;pointer-events:auto}.sandbox-towers[hidden]{display:none}.sandbox-towers h2{font-size:25px;color:#fff;margin:0 0 12px}.sandbox-towers p{font-size:15px;margin-bottom:14px}.sandbox-tower-teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sandbox-tower-teams fieldset{min-width:0;border:2px solid #6a92b7;border-radius:6px;padding:13px 9px}.sandbox-tower-teams legend{font-weight:bold;font-size:16px}.sandbox-tower-teams label{display:flex;align-items:center;gap:6px;margin-bottom:11px;font-size:15px}.sandbox-tower-teams input{width:22px;height:22px;accent-color:#258bc7}.sandbox-tower-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.tower-shop-preview canvas{max-width:100%}
+#viewport .classic-home>.sandbox-launch{position:absolute;left:397px;top:588px;width:128px;height:54px;min-height:54px;min-width:0;border-width:8px;border-image-width:8px;font-size:16px;padding:0 4px 4px}
+
+.sandbox-tower-level{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:15px}.sandbox-tower-level input{width:76px;height:38px;border:2px solid #729abb;border-radius:5px;padding:4px;background:#f2f7fc;color:#23415f}

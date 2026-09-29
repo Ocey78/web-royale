@@ -1,0 +1,821 @@
+[
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 0,
+    "x": 1.15,
+    "startY": 28,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 1.15,
+        "y": 21.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 0,
+    "x": 16.85,
+    "startY": 28,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 16.85,
+        "y": 21.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 1,
+    "x": 1.15,
+    "startY": 4,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 1.15,
+        "y": 10.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 1,
+    "x": 16.85,
+    "startY": 4,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 16.85,
+        "y": 10.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "team": 0,
+    "x": 1.15,
+    "startY": 28,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 1.15,
+        "y": 21.4875,
+        "reach": 1.5,
+        "distance": 1.4875,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "team": 0,
+    "x": 16.85,
+    "startY": 28,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 16.85,
+        "y": 21.4875,
+        "reach": 1.5,
+        "distance": 1.4875,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "team": 1,
+    "x": 1.15,
+    "startY": 4,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 1.15,
+        "y": 10.5125,
+        "reach": 1.5,
+        "distance": 1.4875,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "team": 1,
+    "x": 16.85,
+    "startY": 4,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 16.85,
+        "y": 10.5125,
+        "reach": 1.5,
+        "distance": 1.4875,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "team": 0,
+    "x": 1.15,
+    "startY": 28,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 1.15,
+        "y": 21.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "team": 0,
+    "x": 16.85,
+    "startY": 28,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 16.85,
+        "y": 21.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "team": 1,
+    "x": 1.15,
+    "startY": 4,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 1.15,
+        "y": 10.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "team": 1,
+    "x": 16.85,
+    "startY": 4,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 16.85,
+        "y": 10.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Default",
+    "entity": "Giant",
+    "team": 0,
+    "x": 3.5,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 3.5,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Default",
+    "entity": "Giant",
+    "team": 0,
+    "x": 14.5,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 14.5,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Default",
+    "entity": "Giant",
+    "team": 1,
+    "x": 3.5,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 3.5,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Default",
+    "entity": "Giant",
+    "team": 1,
+    "x": 14.5,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 14.5,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 0,
+    "x": 3.5,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 3.5,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 0,
+    "x": 9,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 9,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 0,
+    "x": 14.5,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 14.5,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 1,
+    "x": 3.5,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 3.5,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 1,
+    "x": 9,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 9,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "team": 1,
+    "x": 14.5,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 14.5,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Giant",
+    "team": 0,
+    "x": 9,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 9,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Giant",
+    "team": 1,
+    "x": 9,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 9,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 0,
+    "x": 2.8,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 2.8000000000000003,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 0,
+    "x": 5.9,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 5.9,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 0,
+    "x": 9,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 9,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 0,
+    "x": 12.1,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 12.1,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 0,
+    "x": 15.2,
+    "startY": 19,
+    "targetY": 12,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 15.2,
+        "y": 13.9375,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 1,
+    "x": 2.8,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 2.8000000000000003,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 1,
+    "x": 5.9,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 5.9,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 1,
+    "x": 9,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 9,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 1,
+    "x": 12.1,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 12.1,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "team": 1,
+    "x": 15.2,
+    "startY": 13,
+    "targetY": 20,
+    "pack": 1,
+    "stuck": [],
+    "last": [
+      {
+        "x": 15.2,
+        "y": 18.0625,
+        "reach": 1.95,
+        "distance": 1.9375,
+        "delta": 0
+      }
+    ],
+    "searches": 0
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Barbarian",
+    "team": 0,
+    "x": 3.5,
+    "startY": 20,
+    "targetY": 12,
+    "pack": 18,
+    "stuck": [],
+    "last": [
+      {
+        "x": 4.711307083743579,
+        "y": 13.08471957039902,
+        "reach": 1.2,
+        "distance": 1.6260016597574576,
+        "delta": 0.6088821543369112
+      },
+      {
+        "x": 3.9477294231153195,
+        "y": 13.749650352662155,
+        "reach": 1.2,
+        "distance": 1.806028237014577,
+        "delta": 0.6836002877351686
+      },
+      {
+        "x": 3.000676645829044,
+        "y": 13.413065315320361,
+        "reach": 1.2,
+        "distance": 1.4986918954147865,
+        "delta": 0.5583476559443441
+      },
+      {
+        "x": 4.691733103317581,
+        "y": 12.086995683148324,
+        "reach": 1.2,
+        "distance": 1.1949041963393536,
+        "delta": 0.4513859714345699
+      },
+      {
+        "x": 3.76456834805987,
+        "y": 12.769452284997111,
+        "reach": 1.2,
+        "distance": 0.8136665346948979,
+        "delta": 0.3003449850319522
+      },
+      {
+        "x": 2.0619104716580474,
+        "y": 13.07775498878507,
+        "reach": 1.2,
+        "distance": 1.7971247333943985,
+        "delta": 0.6679775605215336
+      },
+      {
+        "x": 3.585867552700806,
+        "y": 11.78903980801231,
+        "reach": 1.2,
+        "distance": 0.22776619417795183,
+        "delta": 0.08597642057289555
+      },
+      {
+        "x": 2.824255749220038,
+        "y": 12.431702508408879,
+        "reach": 1.2,
+        "distance": 0.801871154381233,
+        "delta": 0.29755123529723043
+      },
+      {
+        "x": 1.886012327148607,
+        "y": 12.095973591332843,
+        "reach": 1.2,
+        "distance": 1.6168386247085944,
+        "delta": 0.6012848230967689
+      },
+      {
+        "x": 5.334401746356482,
+        "y": 11.310063876120626,
+        "reach": 1.2,
+        "distance": 1.9598575514739345,
+        "delta": 0.7429627859656088
+      },
+      {
+        "x": 2.648574531355232,
+        "y": 11.449618430591844,
+        "reach": 1.2,
+        "distance": 1.0138270072360211,
+        "delta": 0.3777466618355303
+      },
+      {
+        "x": 3.410716275489071,
+        "y": 10.803525353236592,
+        "reach": 1.2,
+        "distance": 1.1998013018038294,
+        "delta": 0.4498216027206782
+      },
+      {
+        "x": 3.231441258203887,
+        "y": 9.820048708552173,
+        "reach": 1.2,
+        "distance": 2.196431522010226,
+        "delta": 0.8187376364660066
+      },
+      {
+        "x": 4.349113860830216,
+        "y": 11.148068267377738,
+        "reach": 1.2,
+        "distance": 1.2028225246073356,
+        "delta": 0.45221079676664183
+      },
+      {
+        "x": 4.183725374924674,
+        "y": 10.16278439696805,
+        "reach": 1.2,
+        "distance": 1.960316698990227,
+        "delta": 0.7391105079821167
+      },
+      {
+        "x": 2.4705777267488327,
+        "y": 10.466517268666323,
+        "reach": 1.2,
+        "distance": 1.8469649438915179,
+        "delta": 0.6891456246787154
+      },
+      {
+        "x": 1.5271130307774763,
+        "y": 10.132655892812638,
+        "reach": 1.2,
+        "distance": 2.7164787884272914,
+        "delta": 1.013478494601276
+      },
+      {
+        "x": 1.7096251919316032,
+        "y": 11.112932225661476,
+        "reach": 1.2,
+        "distance": 1.998081877610588,
+        "delta": 0.7454438698898624
+      }
+    ],
+    "searches": 354
+  }
+]

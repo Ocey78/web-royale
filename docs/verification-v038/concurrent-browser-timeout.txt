@@ -1,0 +1,82 @@
+runtime loaded
+UI artwork loaded
+PASS Generated release is v0.38.0
+PASS Sandbox removed from home
+PASS Sandbox moved into Other Modes
+PASS Four Card and Random Deck modes each have a Play button
+PASS Add deck creates and selects a saved deck
+PASS Removing deck requires confirmation
+PASS Deletion preserves all existing decks
+PASS Ten decks supported and add button disabled at ten
+PASS Tenth deck is selectable
+PASS Deck library written to existing save key
+PASS Stretched deck wood background removed
+PASS Mobile deck has no stretched background
+PASS Four graphics categories retained
+PASS Full particles applies full frame budget immediately
+PASS Full particles persists in saved profile
+PASS Gem Shop has six cards priced in gems
+PASS Gem Shop starts at zero of two purchases
+PASS Daily paid quantities are fivefold
+PASS Fivefold quantities rendered on daily offer cards
+PASS First Gem Shop purchase deducts gems, not gold
+PASS First purchase grants advertised cards
+PASS First purchase does not refresh and is marked collected
+PASS Reloaded saved profile retains offers and one purchase
+PASS Second purchase resets the entire Gem Shop
+PASS Second purchase grants old offer before refresh
+PASS Refresh produces new offers
+PASS Gem Shop fits mobile viewport
+PASS Insufficient gems do not grant a card or advance refresh
+PASS Daily Shop exactly nine slots
+PASS Daily Shop top three are free
+PASS Daily Shop bottom six are paid cards
+PASS Hour Shop still has twelve slots
+PASS Lightning Shop still has three slots
+PASS Free Gold Chest grants 100–10000 gold in increments of ten
+PASS Gold chest uses actual reward summary
+PASS Collected free Gold Chest cannot be claimed again
+PASS Free Gem Chest grants 5–250 gems in increments of five
+PASS Gem Chest uses dedicated recolored native scene
+PASS Gem reward card amount matches credited balance
+PASS Free Wild Cards credited to profile
+PASS All three free claims stay collected
+PASS Claim receipts stored with saved profile
+PASS Daily Shop columns remain inside phone viewport
+PASS Four-card builder has exactly four slots
+PASS Four-card selection updates saved deck
+PASS Four-card builder leaves normal deck library alone
+PASS Four-card builder remembers last selection when reopened
+PASS Four-card choice persisted under original save key
+FAIL Page.wait_for_function: Timeout 90000ms exceeded. []
+Traceback (most recent call last):
+  File "/mnt/data/work038/Web-Royale/tools/verify-v038-browser.py", line 176, in <module>
+    page.wait_for_function("RoyaleDemo.battle?.mode==='FourCardDeck' && !RoyaleDemo.preparing",timeout=90000)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 11595, in wait_for_function
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_function(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_page.py", line 1110, in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 878, in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 90000ms exceeded.

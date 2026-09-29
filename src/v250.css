@@ -1,0 +1,49 @@
+/* Source-reference battle composition. Menus retain their existing 9:16 layout. */
+#viewport[data-layout=battle]{height:1172px}
+#viewport[data-layout=battle] #battleCanvas,#viewport[data-layout=battle] #matchResultCanvas{width:540px;height:1172px}
+#viewport[data-layout=battle] .battle-top{height:180px;background:none;border:0;box-shadow:none;pointer-events:none;overflow:visible}
+#viewport[data-layout=battle] .battle-top:before{content:'';position:absolute;left:0;right:0;top:0;height:163px;background:linear-gradient(#0006,transparent);pointer-events:none}
+#viewport[data-layout=battle] .battle-top .enemy-badge{left:8px;top:89px;width:39px;height:43px;object-fit:contain}
+#viewport[data-layout=battle] .battle-top #enemyName{left:50px;top:83px;width:300px;max-width:300px;height:37px;line-height:37px;color:#ff3981}
+#viewport[data-layout=battle] .battle-top #enemyClan{left:50px;top:120px;width:255px;max-width:255px;height:28px;line-height:28px;color:#fff1bd}
+#viewport[data-layout=battle] .battle-top #enemyName canvas,#viewport[data-layout=battle] .battle-top #enemyClan canvas{position:static;max-width:100%}
+#viewport[data-layout=battle] .enemy-trophies{position:absolute;left:8px;top:147px;display:flex;align-items:center;gap:8px;height:30px;color:#fff1bd;font-size:19px;font-weight:900;text-shadow:0 2px 2px #000}
+#viewport[data-layout=battle] .enemy-trophies img{width:31px;height:31px;object-fit:contain}
+#viewport[data-layout=battle] #nativeBattleTimer{right:0;top:76px;width:100px;height:126.6667px;z-index:4}
+#viewport[data-layout=battle] .battle-top .square{top:18px;width:28px;height:28px;pointer-events:auto;opacity:.82}
+#viewport[data-layout=battle] .battle-top .full{right:51px}
+#viewport[data-layout=battle] .battle-top [data-action=pause]{right:17px}
+#viewport[data-layout=battle] .player-name-battle{display:none}
+#viewport[data-layout=battle] .hand-panel{top:960px;bottom:auto;height:212px;border-top:5px solid #5ccbff;box-shadow:0 -3px 0 #0a3760;background:linear-gradient(#159ee4,#006dbd 73%,#074785)}
+#viewport[data-layout=battle] .hand-panel:before{content:'';position:absolute;left:0;top:0;bottom:0;width:93px;background:linear-gradient(#146ca3,#09386d);border-right:5px solid #07416f;box-shadow:inset -3px 0 0 #2289bc}
+#viewport[data-layout=battle] .quick-chat-toggle{left:18px;top:16px;width:65px;height:65px}
+#viewport[data-layout=battle] .next-card{left:21px;top:82px;width:58px;font-size:19px}
+#viewport[data-layout=battle] .next-card .next-visual{width:46px;height:61px;margin:13px auto 0}
+#viewport[data-layout=battle] .next-card img{width:100%;height:100%;object-fit:contain}
+#viewport[data-layout=battle] .hand{left:119px;right:13px;top:17px;height:126px;gap:9px}
+#viewport[data-layout=battle] .hand-card{height:126px}
+#viewport[data-layout=battle] .hand-card .card-visual{inset:0;width:100%;height:100%}
+#viewport[data-layout=battle] .hand-card .cost{top:auto;bottom:-5px;left:50%;transform:translateX(-50%);width:33px;height:37px;font-size:23px}
+#viewport[data-layout=battle] .hand-card .cost canvas{max-width:27px;max-height:30px}
+#viewport[data-layout=battle] .elixir-track{left:145px;right:16px;bottom:31px;height:27px;border:3px solid #002c63;border-radius:6px}
+#viewport[data-layout=battle] .elixir-num{left:108px;bottom:29px;width:44px;height:48px;font-size:32px}
+#viewport[data-layout=battle] .elixir-max{display:block;left:145px;right:auto;bottom:9px;font-size:16px;color:#eea4ff}
+#viewport[data-layout=battle] .battle-score{top:470px;right:2px;gap:60px}
+#viewport[data-layout=battle] .instruction{bottom:auto;top:922px}
+#viewport[data-layout=battle] .quick-chat{bottom:221px}
+#viewport[data-layout=battle] .chat-bubble{top:824px}
+#viewport[data-layout=battle] .ally-panel{top:auto;bottom:222px}
+#viewport[data-layout=battle] .battle-announcement{top:477px}
+#viewport[data-layout=battle] .opening{top:477px}
+#viewport[data-layout=battle] .match-over-text{top:510px}
+#viewport[data-layout=battle] .end-ok{top:863px}
+#viewport[data-layout=battle] .end-enemy{top:441px}
+#viewport[data-layout=battle] .end-player{top:641px}
+#viewport[data-layout=battle] .end-vs{top:592px}
+#viewport[data-layout=battle] .enemy-winner{top:391px}
+#viewport[data-layout=battle] .player-winner{top:791px}
+#viewport[data-layout=battle] .draw-winner{top:582px}
+
+/* The reference uses bright red-player names over the scenery, not a navy banner. */
+#viewport[data-layout=battle] .enemy-name{color:#ff3382}
+#viewport[data-layout=battle] .enemy-clan{color:#fff5b3}

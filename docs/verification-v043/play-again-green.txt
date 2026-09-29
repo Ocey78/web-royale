@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: Play Again retains mode, queue and a copy of the selected deck
+ok 1 - Play Again retains mode, queue and a copy of the selected deck
+  ---
+  duration_ms: 1.504418
+  type: 'test'
+  ...
+# Subtest: casual 1v1 repeat cannot become a ranked match
+ok 2 - casual 1v1 repeat cannot become a ranked match
+  ---
+  duration_ms: 0.163626
+  type: 'test'
+  ...
+# Subtest: Random Deck repeat requests fresh generation instead of reusing either deck
+ok 3 - Random Deck repeat requests fresh generation instead of reusing either deck
+  ---
+  duration_ms: 0.112179
+  type: 'test'
+  ...
+# Subtest: all selectable deck sizes are preserved by repeat
+ok 4 - all selectable deck sizes are preserved by repeat
+  ---
+  duration_ms: 4.030007
+  type: 'test'
+  ...
+# Subtest: practice repeat keeps practice rewards disabled
+ok 5 - practice repeat keeps practice rewards disabled
+  ---
+  duration_ms: 0.185039
+  type: 'test'
+  ...
+# Subtest: unfinished, sandbox, replay and war-ticket matches cannot be repeated from results
+ok 6 - unfinished, sandbox, replay and war-ticket matches cannot be repeated from results
+  ---
+  duration_ms: 0.250928
+  type: 'test'
+  ...
+# Subtest: repeat request does not modify or repay the completed match
+ok 7 - repeat request does not modify or repay the completed match
+  ---
+  duration_ms: 9.899316
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 103.03344

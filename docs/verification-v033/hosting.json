@@ -1,0 +1,11 @@
+{
+  "project_id": "appgprj_6ab98c4d865c81919518b1941c5577e5",
+  "deployment_id": "appgdep_6ab992308fb88191801cb23be0bb1e3a",
+  "version_id": "appgprj_6ab98c4d865c81919518b1941c5577e5~appgver_7865ba7974808191b826c7e8b4dbb42b",
+  "commit_sha": "a8ffd5d8b1270cb2bb253324682ef2928004b945",
+  "checkout": "C:/Users/Oceyi/Documents/Codex/2026-09-27/im/work/web-royale-iphone",
+  "status": "succeeded",
+  "url": "https://web-royale-iphone.oceyt.chatgpt.site",
+  "static_bytes": 258492659,
+  "packaging": "Managed build fallback: the bundled local packager requires bash, which is unavailable in this Windows runtime."
+}

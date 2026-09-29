@@ -1,0 +1,83 @@
+runtime loaded
+UI artwork loaded
+PASS v0.42.0 generated release boots
+PASS Menu badge shows King Level not Crown Level
+PASS Badge retains Crown Road reward highlight
+PASS King Level button opens Crown Road
+PASS Crown Level remains inside the road
+PASS TwelveCardDeck listed in Other Modes
+PASS TwentyElixir listed in Other Modes
+PASS OneShot listed in Other Modes
+PASS Starter collection sees incomplete twelve-slot deck
+PASS No locked cards silently granted
+PASS twelve-locked remains within screen 1280
+PASS twelve-locked remains within screen 390
+PASS twelve-locked remains within screen 320
+PASS Unlocked twelve-slot builder can play
+PASS Twelve-card deck edit saves in separate array
+PASS twelve-builder remains within screen 1280
+PASS twelve-builder remains within screen 390
+PASS twelve-builder remains within screen 320
+PASS Twelve builder play and search remain inside panel
+PASS Actual twelve-card battle has four hand and eight queue
+PASS Twelve-card hand has no card level labels
+PASS One Shot has eight separate slots
+PASS One Shot pool excludes all spells and Mortar/X-Bow
+PASS One Shot changes do not overwrite twelve or regular decks
+PASS oneshot-builder remains within screen 1280
+PASS oneshot-builder remains within screen 390
+PASS oneshot-builder remains within screen 320
+PASS Actual One Shot towers all have 1 HP with sudden death active
+PASS Actual One Shot bot deck has no restricted cards
+PASS First tower ends One Shot and displays results
+PASS TwentyElixir loaded real battle
+PASS 20 Elixir visible maximum label is Max 20
+PASS 20 Elixir HUD has capacity twenty
+PASS 18 elixir fills 90 percent rather than overflowing
+PASS 20 Elixir accessible meter shows real current value
+PASS twenty-elixir remains within screen 1280
+PASS twenty-elixir remains within screen 390
+PASS twenty-elixir remains within screen 320
+PASS Casual arena selected from standard pool and stored in replay
+PASS Team3v3 loaded real battle
+PASS 3v3 starts with a five-minute clock
+PASS 3v3 real phase at 3:00 elapsed 120
+PASS 3v3 real phase at 1:00 elapsed 240
+PASS 3v3 real phase at 2:00 elapsed 300
+PASS 3v3 custom arena uses cached background and foreground surfaces
+PASS 3v3-polished remains within screen 1280
+PASS 3v3-polished remains within screen 390
+PASS 3v3-polished remains within screen 320
+PASS BridgeBattle loaded real battle
+PASS Bridge retains single-route geometry
+PASS bridge-polished remains within screen 1280
+PASS bridge-polished remains within screen 390
+PASS bridge-polished remains within screen 320
+PASS Sandbox selector contains fifteen standard and two custom maps
+PASS Sandbox map switch resets into BridgeBattle
+PASS Sandbox switch keeps pause and persists BridgeBattle
+PASS Sandbox map switch resets into Team3v3
+PASS Sandbox switch keeps pause and persists Team3v3
+PASS Sandbox map switch resets into hog
+PASS Sandbox switch keeps pause and persists hog
+PASS Daily free chest ranges removed from visible descriptions
+PASS Daily Wild Card amount description remains
+PASS daily-clean remains within screen 1280
+PASS daily-clean remains within screen 390
+PASS daily-clean remains within screen 320
+PASS Potato switch saved and enabled
+PASS Potato bypasses decorative particle budgets
+PASS Potato card portraits are actually reduced to 40-pixel texture width
+PASS Team3v3 loaded real battle
+PASS Potato battle does not render native arena/troop/tower sprites
+PASS potato-3v3 remains within screen 1280
+PASS potato-3v3 remains within screen 390
+PASS potato-3v3 remains within screen 320
+PASS Switching Potato off restores all prior quality selections
+PASS BridgeBattle loaded real battle
+PASS Normal native assets restored after Potato is disabled
+PASS Learning Center lists all fifteen match modes
+PASS TwelveCardDeck available to train
+PASS TwentyElixir available to train
+PASS OneShot available to train
+PASS No uncaught browser errors

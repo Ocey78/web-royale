@@ -1,0 +1,3026 @@
+[
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": -0.75
+    },
+    "end": {
+      "x": 3.136903681703269,
+      "y": 14.094203028567582
+    },
+    "distance": 1.9400775841913165,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": -0.75
+    },
+    "end": {
+      "x": 9.689016203262108,
+      "y": 14.182618373655563
+    },
+    "distance": 1.9436098641785295,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 23,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": -0.75
+    },
+    "end": {
+      "x": 14.86309631829684,
+      "y": 14.094203028567573
+    },
+    "distance": 1.9400775841913456,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 4.65
+    },
+    "end": {
+      "x": 3.136526057738717,
+      "y": 14.092635492647243
+    },
+    "distance": 1.9416880981795144,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 4.65
+    },
+    "end": {
+      "x": 8.63652605773868,
+      "y": 14.092635492647215
+    },
+    "distance": 1.9416880981795492,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 4.65
+    },
+    "end": {
+      "x": 14.136526057738585,
+      "y": 14.092635492647213
+    },
+    "distance": 1.9416880981795699,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": 32.75
+    },
+    "end": {
+      "x": 3.1369036817031266,
+      "y": 17.90579697143327
+    },
+    "distance": 1.940077584192181,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 32.75
+    },
+    "end": {
+      "x": 8.310983796738023,
+      "y": 17.81738162634384
+    },
+    "distance": 1.9436098641779214,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 23,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": 32.75
+    },
+    "end": {
+      "x": 14.863096318296797,
+      "y": 17.90579697143327
+    },
+    "distance": 1.9400775841921667,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 27.35
+    },
+    "end": {
+      "x": 3.8634739422612325,
+      "y": 17.90736450735206
+    },
+    "distance": 1.9416880981788212,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 27.35
+    },
+    "end": {
+      "x": 8.636526057738815,
+      "y": 17.907364507352053
+    },
+    "distance": 1.9416880981788063,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 27.35
+    },
+    "end": {
+      "x": 14.136526057738717,
+      "y": 17.90736450735211
+    },
+    "distance": 1.9416880981788807,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": -0.75
+    },
+    "end": {
+      "x": 3.2211236863901664,
+      "y": 14.536251658031071
+    },
+    "distance": 1.490077584191306,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": -0.75
+    },
+    "end": {
+      "x": 9.529489696846168,
+      "y": 14.603393009001795
+    },
+    "distance": 1.4936098641784974,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 23,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": -0.75
+    },
+    "end": {
+      "x": 14.77887631360992,
+      "y": 14.536251658031063
+    },
+    "distance": 1.4900775841913307,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 4.65
+    },
+    "end": {
+      "x": 3.220763724010114,
+      "y": 14.534680756824084
+    },
+    "distance": 1.4916880981794878,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 4.65
+    },
+    "end": {
+      "x": 8.720763724010075,
+      "y": 14.534680756824056
+    },
+    "distance": 1.4916880981795226,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 4.65
+    },
+    "end": {
+      "x": 14.779236275989991,
+      "y": 14.534680756824054
+    },
+    "distance": 1.491688098179538,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": 32.75
+    },
+    "end": {
+      "x": 3.221123686390019,
+      "y": 17.463748341969783
+    },
+    "distance": 1.4900775841921716,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 32.75
+    },
+    "end": {
+      "x": 8.470510303153992,
+      "y": 17.396606990997604
+    },
+    "distance": 1.4936098641778797,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 23,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": 32.75
+    },
+    "end": {
+      "x": 14.778876313609919,
+      "y": 17.463748341969783
+    },
+    "distance": 1.4900775841921596,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 27.35
+    },
+    "end": {
+      "x": 3.7792362759898204,
+      "y": 17.46531924317522
+    },
+    "distance": 1.4916880981787912,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 27.35
+    },
+    "end": {
+      "x": 8.720763724010219,
+      "y": 17.465319243175212
+    },
+    "distance": 1.4916880981787783,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 27.35
+    },
+    "end": {
+      "x": 14.779236275989865,
+      "y": 17.46531924317527
+    },
+    "distance": 1.4916880981788498,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": -0.75
+    },
+    "end": {
+      "x": 3.136903681703269,
+      "y": 14.094203028567582
+    },
+    "distance": 1.9400775841913165,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": -0.75
+    },
+    "end": {
+      "x": 9.689016203262108,
+      "y": 14.182618373655563
+    },
+    "distance": 1.9436098641785295,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 23,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": -0.75
+    },
+    "end": {
+      "x": 14.86309631829684,
+      "y": 14.094203028567573
+    },
+    "distance": 1.9400775841913456,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 4.65
+    },
+    "end": {
+      "x": 3.136526057738717,
+      "y": 14.092635492647243
+    },
+    "distance": 1.9416880981795144,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 4.65
+    },
+    "end": {
+      "x": 8.63652605773868,
+      "y": 14.092635492647215
+    },
+    "distance": 1.9416880981795492,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 4.65
+    },
+    "end": {
+      "x": 14.136526057738585,
+      "y": 14.092635492647213
+    },
+    "distance": 1.9416880981795699,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": 32.75
+    },
+    "end": {
+      "x": 3.1369036817031266,
+      "y": 17.90579697143327
+    },
+    "distance": 1.940077584192181,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 32.75
+    },
+    "end": {
+      "x": 8.310983796738023,
+      "y": 17.81738162634384
+    },
+    "distance": 1.9436098641779214,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 23,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": 32.75
+    },
+    "end": {
+      "x": 14.863096318296797,
+      "y": 17.90579697143327
+    },
+    "distance": 1.9400775841921667,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 27.35
+    },
+    "end": {
+      "x": 3.8634739422612325,
+      "y": 17.90736450735206
+    },
+    "distance": 1.9416880981788212,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 27.35
+    },
+    "end": {
+      "x": 8.636526057738815,
+      "y": 17.907364507352053
+    },
+    "distance": 1.9416880981788063,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 27.35
+    },
+    "end": {
+      "x": 14.136526057738717,
+      "y": 17.90736450735211
+    },
+    "distance": 1.9416880981788807,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": -1
+    },
+    "end": {
+      "x": 3.118910549415769,
+      "y": 14.25378488594547
+    },
+    "distance": 1.7873154153363828,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": -1
+    },
+    "end": {
+      "x": 8.462052799057647,
+      "y": 14.29699430633139
+    },
+    "distance": 1.7859494907945783,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 26,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": -1
+    },
+    "end": {
+      "x": 14.881089450584188,
+      "y": 14.253784885945496
+    },
+    "distance": 1.787315415336349,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 4.4
+    },
+    "end": {
+      "x": 3.880547969962275,
+      "y": 14.25603662809175
+    },
+    "distance": 1.785000000000001,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 4.4
+    },
+    "end": {
+      "x": 9.380547969962343,
+      "y": 14.256036628091767
+    },
+    "distance": 1.784999999999999,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 4.4
+    },
+    "end": {
+      "x": 14.119452030037651,
+      "y": 14.256036628091767
+    },
+    "distance": 1.7850000000000001,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 5.6000000000000005,
+      "y": 33
+    },
+    "end": {
+      "x": 3.1189105494157263,
+      "y": 17.74621511405475
+    },
+    "distance": 1.7873154153366058,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 33
+    },
+    "end": {
+      "x": 9.537947200942167,
+      "y": 17.70300569366801
+    },
+    "distance": 1.7859494907939535,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 26,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 12.4,
+      "y": 33
+    },
+    "end": {
+      "x": 14.881089450584234,
+      "y": 17.74621511405472
+    },
+    "distance": 1.7873154153365693,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 3.5,
+      "y": 27.6
+    },
+    "end": {
+      "x": 3.119452030037724,
+      "y": 17.74396337190825
+    },
+    "distance": 1.7850000000000015,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 9,
+      "y": 27.6
+    },
+    "end": {
+      "x": 9.380547969962343,
+      "y": 17.743963371908237
+    },
+    "distance": 1.785000000000002,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "Team3v3",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 14.5,
+      "y": 27.6
+    },
+    "end": {
+      "x": 14.88054796996235,
+      "y": 17.743963371908233
+    },
+    "distance": 1.7850000000000006,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 0.75
+    },
+    "end": {
+      "x": 9.431453131995156,
+      "y": 14.104642198709485
+    },
+    "distance": 1.9438449012257242,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 6.15
+    },
+    "end": {
+      "x": 9.432170183077396,
+      "y": 14.1007711623778
+    },
+    "distance": 1.9477785410043225,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 7,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 31.25
+    },
+    "end": {
+      "x": 9.431453131995005,
+      "y": 17.895357801289574
+    },
+    "distance": 1.9438449012247736,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 25.85
+    },
+    "end": {
+      "x": 8.567829816922513,
+      "y": 17.899228837622186
+    },
+    "distance": 1.9477785410043282,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 7,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 0.75
+    },
+    "end": {
+      "x": 8.668428247056896,
+      "y": 14.543417437435062
+    },
+    "distance": 1.4938449012256942,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 6.15
+    },
+    "end": {
+      "x": 9.332324857599811,
+      "y": 14.539554606664689
+    },
+    "distance": 1.4977785410043327,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 7,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 31.25
+    },
+    "end": {
+      "x": 9.33157175294289,
+      "y": 17.456582562563998
+    },
+    "distance": 1.4938449012247297,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 25.85
+    },
+    "end": {
+      "x": 9.332324857599806,
+      "y": 17.4604453933353
+    },
+    "distance": 1.4977785410043178,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 7,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 0.75
+    },
+    "end": {
+      "x": 9.431453131995156,
+      "y": 14.104642198709485
+    },
+    "distance": 1.9438449012257242,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 6.15
+    },
+    "end": {
+      "x": 9.432170183077396,
+      "y": 14.1007711623778
+    },
+    "distance": 1.9477785410043225,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 7,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 31.25
+    },
+    "end": {
+      "x": 9.431453131995005,
+      "y": 17.895357801289574
+    },
+    "distance": 1.9438449012247736,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 18,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 25.85
+    },
+    "end": {
+      "x": 8.567829816922513,
+      "y": 17.899228837622186
+    },
+    "distance": 1.9477785410043282,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 7,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 0.5
+    },
+    "end": {
+      "x": 9.452481963750788,
+      "y": 14.27190987240363
+    },
+    "distance": 1.7863469474365312,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 14,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 5.9
+    },
+    "end": {
+      "x": 8.546898657017515,
+      "y": 14.268265016702287
+    },
+    "distance": 1.7900298543291564,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 31.5
+    },
+    "end": {
+      "x": 9.452481963750774,
+      "y": 17.72809012759631
+    },
+    "distance": 1.7863469474364697,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 14,
+    "passed": true
+  },
+  {
+    "mode": "BridgeBattle",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": 9,
+      "y": 26.1
+    },
+    "end": {
+      "x": 8.5468986570176,
+      "y": 17.73173498329735
+    },
+    "distance": 1.790029854328786,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 1.75
+    },
+    "end": {
+      "x": -1.5752605717468002,
+      "y": 14.142873104093942
+    },
+    "distance": 1.9441823558771751,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": -0.55
+    },
+    "end": {
+      "x": 3.5849863599594194,
+      "y": 14.104823037895219
+    },
+    "distance": 1.9400855752034347,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": -1.25
+    },
+    "end": {
+      "x": 9.384258443493113,
+      "y": 14.090526672426398
+    },
+    "distance": 1.9477533057630154,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": -0.55
+    },
+    "end": {
+      "x": 13.584986359959377,
+      "y": 14.10482303789522
+    },
+    "distance": 1.940085575203441,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 1.75
+    },
+    "end": {
+      "x": 18.42473942825332,
+      "y": 14.142873104093923
+    },
+    "distance": 1.9441823558771583,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 8.15
+    },
+    "end": {
+      "x": -1.5768285486748668,
+      "y": 14.142886195495114
+    },
+    "distance": 1.9446343762900427,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 5.85
+    },
+    "end": {
+      "x": 3.5839759316434763,
+      "y": 14.100347617808628
+    },
+    "distance": 1.944673545512785,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 5.15
+    },
+    "end": {
+      "x": 8.617583720808996,
+      "y": 14.099587285041244
+    },
+    "distance": 1.9385073375582564,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 5.85
+    },
+    "end": {
+      "x": 13.5839759316435,
+      "y": 14.100347617808604
+    },
+    "distance": 1.9446735455128046,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 8.15
+    },
+    "end": {
+      "x": 18.423171451325217,
+      "y": 14.142886195495105
+    },
+    "distance": 1.944634376290026,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 30.25
+    },
+    "end": {
+      "x": -1.575260571746952,
+      "y": 17.857126895906895
+    },
+    "distance": 1.9441823558780211,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 32.55
+    },
+    "end": {
+      "x": 3.5849863599593075,
+      "y": 17.895176962105303
+    },
+    "distance": 1.9400855752039667,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 33.25
+    },
+    "end": {
+      "x": 8.615741556506688,
+      "y": 17.909473327574567
+    },
+    "distance": 1.9477533057639993,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 32.55
+    },
+    "end": {
+      "x": 13.58498635995926,
+      "y": 17.895176962105317
+    },
+    "distance": 1.9400855752039934,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 30.25
+    },
+    "end": {
+      "x": 18.424739428253133,
+      "y": 17.857126895906912
+    },
+    "distance": 1.9441823558780122,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 23.85
+    },
+    "end": {
+      "x": -1.5768285486748763,
+      "y": 17.857113804504955
+    },
+    "distance": 1.9446343762901133,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 26.150000000000002
+    },
+    "end": {
+      "x": 3.583975931643611,
+      "y": 17.89965238219076
+    },
+    "distance": 1.9446735455121562,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 26.85
+    },
+    "end": {
+      "x": 8.61758372080901,
+      "y": 17.90041271495869
+    },
+    "distance": 1.9385073375581898,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 26.150000000000002
+    },
+    "end": {
+      "x": 13.58397593164348,
+      "y": 17.89965238219076
+    },
+    "distance": 1.9446735455121844,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Giant",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 23.85
+    },
+    "end": {
+      "x": 18.42317145132519,
+      "y": 17.857113804504976
+    },
+    "distance": 1.944634376290113,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 1.75
+    },
+    "end": {
+      "x": -1.4420894527504091,
+      "y": 14.572535053273416
+    },
+    "distance": 1.494355800459277,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": -0.55
+    },
+    "end": {
+      "x": 3.68128059043338,
+      "y": 14.54434642661344
+    },
+    "distance": 1.4901373721061937,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": -1.25
+    },
+    "end": {
+      "x": 9.295469750555139,
+      "y": 14.531664750846733
+    },
+    "distance": 1.497768599416847,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": -0.55
+    },
+    "end": {
+      "x": 13.68128059043328,
+      "y": 14.544346426613444
+    },
+    "distance": 1.490137372106212,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 1.75
+    },
+    "end": {
+      "x": 18.557910547249705,
+      "y": 14.572535053273395
+    },
+    "distance": 1.4943558004592628,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 8.15
+    },
+    "end": {
+      "x": -1.4433469800733165,
+      "y": 14.572633412872566
+    },
+    "distance": 1.494634376290051,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 5.85
+    },
+    "end": {
+      "x": 3.680244444778974,
+      "y": 14.539929661776213
+    },
+    "distance": 1.4946735455127416,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 5.15
+    },
+    "end": {
+      "x": 8.70635683107884,
+      "y": 14.540744099442922
+    },
+    "distance": 1.4885073375582374,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 5.85
+    },
+    "end": {
+      "x": 13.68024444477898,
+      "y": 14.539929661776188
+    },
+    "distance": 1.494673545512765,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 8.15
+    },
+    "end": {
+      "x": 18.556653019926742,
+      "y": 14.572633412872557
+    },
+    "distance": 1.494634376290042,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 30.25
+    },
+    "end": {
+      "x": -1.4420894527505137,
+      "y": 17.427464946727078
+    },
+    "distance": 1.494355800459778,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 32.55
+    },
+    "end": {
+      "x": 3.6812805904333996,
+      "y": 17.455653573386464
+    },
+    "distance": 1.4901373721060975,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 33.25
+    },
+    "end": {
+      "x": 8.704530249444803,
+      "y": 17.46833524915356
+    },
+    "distance": 1.4977685994171455,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 32.55
+    },
+    "end": {
+      "x": 13.681280590433296,
+      "y": 17.45565357338648
+    },
+    "distance": 1.4901373721061366,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 30.25
+    },
+    "end": {
+      "x": 18.55791054724956,
+      "y": 17.427464946727092
+    },
+    "distance": 1.4943558004597726,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 23.85
+    },
+    "end": {
+      "x": -1.4433469800733325,
+      "y": 17.427366587127505
+    },
+    "distance": 1.4946343762901235,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 26.150000000000002
+    },
+    "end": {
+      "x": 3.680244444779112,
+      "y": 17.460070338223172
+    },
+    "distance": 1.4946735455121125,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 26.85
+    },
+    "end": {
+      "x": 8.706356831078853,
+      "y": 17.459255900557014
+    },
+    "distance": 1.4885073375581708,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 26.150000000000002
+    },
+    "end": {
+      "x": 13.68024444477901,
+      "y": 17.460070338223172
+    },
+    "distance": 1.4946735455121343,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Golem",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 23.85
+    },
+    "end": {
+      "x": 18.556653019926717,
+      "y": 17.427366587127526
+    },
+    "distance": 1.4946343762901275,
+    "reach": 1.5,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 1.75
+    },
+    "end": {
+      "x": -1.5752605717468002,
+      "y": 14.142873104093942
+    },
+    "distance": 1.9441823558771751,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": -0.55
+    },
+    "end": {
+      "x": 3.5849863599594194,
+      "y": 14.104823037895219
+    },
+    "distance": 1.9400855752034347,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": -1.25
+    },
+    "end": {
+      "x": 9.384258443493113,
+      "y": 14.090526672426398
+    },
+    "distance": 1.9477533057630154,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": -0.55
+    },
+    "end": {
+      "x": 13.584986359959377,
+      "y": 14.10482303789522
+    },
+    "distance": 1.940085575203441,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 1.75
+    },
+    "end": {
+      "x": 18.42473942825332,
+      "y": 14.142873104093923
+    },
+    "distance": 1.9441823558771583,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 8.15
+    },
+    "end": {
+      "x": -1.5768285486748668,
+      "y": 14.142886195495114
+    },
+    "distance": 1.9446343762900427,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 5.85
+    },
+    "end": {
+      "x": 3.5839759316434763,
+      "y": 14.100347617808628
+    },
+    "distance": 1.944673545512785,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 5.15
+    },
+    "end": {
+      "x": 8.617583720808996,
+      "y": 14.099587285041244
+    },
+    "distance": 1.9385073375582564,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 5.85
+    },
+    "end": {
+      "x": 13.5839759316435,
+      "y": 14.100347617808604
+    },
+    "distance": 1.9446735455128046,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 8.15
+    },
+    "end": {
+      "x": 18.423171451325217,
+      "y": 14.142886195495105
+    },
+    "distance": 1.944634376290026,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 30.25
+    },
+    "end": {
+      "x": -1.575260571746952,
+      "y": 17.857126895906895
+    },
+    "distance": 1.9441823558780211,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 32.55
+    },
+    "end": {
+      "x": 3.5849863599593075,
+      "y": 17.895176962105303
+    },
+    "distance": 1.9400855752039667,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 33.25
+    },
+    "end": {
+      "x": 8.615741556506688,
+      "y": 17.909473327574567
+    },
+    "distance": 1.9477533057639993,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 32.55
+    },
+    "end": {
+      "x": 13.58498635995926,
+      "y": 17.895176962105317
+    },
+    "distance": 1.9400855752039934,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 30.25
+    },
+    "end": {
+      "x": 18.424739428253133,
+      "y": 17.857126895906912
+    },
+    "distance": 1.9441823558780122,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 20,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 23.85
+    },
+    "end": {
+      "x": -1.5768285486748763,
+      "y": 17.857113804504955
+    },
+    "distance": 1.9446343762901133,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 26.150000000000002
+    },
+    "end": {
+      "x": 3.583975931643611,
+      "y": 17.89965238219076
+    },
+    "distance": 1.9446735455121562,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 26.85
+    },
+    "end": {
+      "x": 8.61758372080901,
+      "y": 17.90041271495869
+    },
+    "distance": 1.9385073375581898,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 26.150000000000002
+    },
+    "end": {
+      "x": 13.58397593164348,
+      "y": 17.89965238219076
+    },
+    "distance": 1.9446735455121844,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "Pekka",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 23.85
+    },
+    "end": {
+      "x": 18.42317145132519,
+      "y": 17.857113804504976
+    },
+    "distance": 1.944634376290113,
+    "reach": 1.95,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 1.5
+    },
+    "end": {
+      "x": -1.6078565893883794,
+      "y": 14.307070613936725
+    },
+    "distance": 1.798749437653686,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 16,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": -0.8
+    },
+    "end": {
+      "x": 3.562246082956556,
+      "y": 14.260539601223972
+    },
+    "distance": 1.793697569490727,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": -1.5
+    },
+    "end": {
+      "x": 10.228511213757931,
+      "y": 14.689784438091596
+    },
+    "distance": 1.7960803492594493,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 25,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": -0.8
+    },
+    "end": {
+      "x": 14.437753917043553,
+      "y": 14.2605396012239
+    },
+    "distance": 1.7936975694908222,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 1.5
+    },
+    "end": {
+      "x": 18.39214341061156,
+      "y": 14.307070613936691
+    },
+    "distance": 1.7987494376537385,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 16,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 7.9
+    },
+    "end": {
+      "x": -1.6044083145407024,
+      "y": 14.316414619645931
+    },
+    "distance": 1.78878985451838,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 5.6
+    },
+    "end": {
+      "x": 3.5611540313433743,
+      "y": 14.256229416543174
+    },
+    "distance": 1.7981439408277435,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 4.9
+    },
+    "end": {
+      "x": 8.595229041277909,
+      "y": 14.248582285492043
+    },
+    "distance": 1.7975826934294503,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 5.6
+    },
+    "end": {
+      "x": 13.561154031343266,
+      "y": 14.256229416543126
+    },
+    "distance": 1.7981439408278168,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 1,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 7.9
+    },
+    "end": {
+      "x": 18.39559168545938,
+      "y": 14.316414619645935
+    },
+    "distance": 1.7887898545183496,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 30.5
+    },
+    "end": {
+      "x": -1.607856589388314,
+      "y": 17.692929386063057
+    },
+    "distance": 1.7987494376534578,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 16,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 32.8
+    },
+    "end": {
+      "x": 3.5622460829566203,
+      "y": 17.739460398775776
+    },
+    "distance": 1.7936975694904658,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 33.5
+    },
+    "end": {
+      "x": 7.7714887862420685,
+      "y": 17.310215561908397
+    },
+    "distance": 1.7960803492594422,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 25,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 32.8
+    },
+    "end": {
+      "x": 14.437753917043489,
+      "y": 17.739460398775854
+    },
+    "distance": 1.7936975694905692,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 15,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "KingTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 30.5
+    },
+    "end": {
+      "x": 18.39214341061161,
+      "y": 17.692929386063057
+    },
+    "distance": 1.7987494376534838,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 16,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 0,
+    "start": {
+      "x": -1,
+      "y": 24.1
+    },
+    "end": {
+      "x": -1.6044083145407166,
+      "y": 17.68358538035411
+    },
+    "distance": 1.7887898545184246,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 1,
+    "start": {
+      "x": 4,
+      "y": 26.400000000000002
+    },
+    "end": {
+      "x": 3.561154031343386,
+      "y": 17.743770583456776
+    },
+    "distance": 1.798143940827694,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 2,
+    "start": {
+      "x": 9,
+      "y": 27.1
+    },
+    "end": {
+      "x": 8.59522904127781,
+      "y": 17.751417714508385
+    },
+    "distance": 1.7975826934298882,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 3,
+    "start": {
+      "x": 14,
+      "y": 26.400000000000002
+    },
+    "end": {
+      "x": 13.56115403134329,
+      "y": 17.743770583456804
+    },
+    "distance": 1.7981439408277446,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 5,
+    "passed": true
+  },
+  {
+    "mode": "TeamRumble",
+    "entity": "GiantSkeleton",
+    "tower": "PrincessTower",
+    "team": 0,
+    "slot": 4,
+    "start": {
+      "x": 19,
+      "y": 24.1
+    },
+    "end": {
+      "x": 18.39559168545938,
+      "y": 17.683585380354103
+    },
+    "distance": 1.7887898545183842,
+    "reach": 1.8,
+    "drift": 0,
+    "invalid": 0,
+    "searches": 6,
+    "passed": true
+  }
+]

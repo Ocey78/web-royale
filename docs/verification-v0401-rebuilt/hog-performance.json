@@ -1,0 +1,12 @@
+{
+  "before": {
+    "meanMilliseconds": 19.570000000003105,
+    "drawCallsPerFrame": 185,
+    "shapeCacheBytes": 149880008
+  },
+  "after": {
+    "meanMilliseconds": 10.28666666666977,
+    "drawCallsPerFrame": 25,
+    "shapeCacheBytes": 48862592
+  }
+}

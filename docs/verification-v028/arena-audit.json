@@ -1,0 +1,182 @@
+[
+  {
+    "id": "training",
+    "ot": false,
+    "ok": true,
+    "visible": 518400
+  },
+  {
+    "id": "training",
+    "ot": true,
+    "ok": true,
+    "visible": 518400
+  },
+  {
+    "id": "goblin",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "goblin",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "bone",
+    "ot": false,
+    "ok": true,
+    "visible": 552180
+  },
+  {
+    "id": "bone",
+    "ot": true,
+    "ok": true,
+    "visible": 552180
+  },
+  {
+    "id": "barbarian",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "barbarian",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "pekka",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "pekka",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "spell",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "spell",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "builder",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "builder",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "royal",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "royal",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "frozen",
+    "ot": false,
+    "ok": true,
+    "visible": 518400
+  },
+  {
+    "id": "frozen",
+    "ot": true,
+    "ok": true,
+    "visible": 518400
+  },
+  {
+    "id": "jungle",
+    "ot": false,
+    "ok": true,
+    "visible": 518400
+  },
+  {
+    "id": "jungle",
+    "ot": true,
+    "ok": true,
+    "visible": 518400
+  },
+  {
+    "id": "hog",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "hog",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "electro",
+    "ot": false,
+    "ok": true,
+    "visible": 584455
+  },
+  {
+    "id": "electro",
+    "ot": true,
+    "ok": true,
+    "visible": 584455
+  },
+  {
+    "id": "spooky",
+    "ot": false,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "spooky",
+    "ot": true,
+    "ok": true,
+    "visible": 632880
+  },
+  {
+    "id": "rascals",
+    "ot": false,
+    "ok": true,
+    "visible": 518510
+  },
+  {
+    "id": "rascals",
+    "ot": true,
+    "ok": true,
+    "visible": 518510
+  },
+  {
+    "id": "serenity",
+    "ot": false,
+    "ok": true,
+    "visible": 532895
+  },
+  {
+    "id": "serenity",
+    "ot": true,
+    "ok": true,
+    "visible": 532895
+  }
+]

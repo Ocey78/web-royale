@@ -1,0 +1,71 @@
+[
+  {
+    "id": 0,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 655
+  },
+  {
+    "id": 1,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 654
+  },
+  {
+    "id": 2,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 654
+  },
+  {
+    "id": 3,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 655
+  },
+  {
+    "id": 4,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 655
+  },
+  {
+    "id": 5,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 654
+  },
+  {
+    "id": 6,
+    "w": 84.25,
+    "h": 129,
+    "nw": 259,
+    "nh": 352,
+    "redPixelsOutsideFrame": 0
+  },
+  {
+    "id": 7,
+    "w": 84.25,
+    "h": 129,
+    "nw": 258,
+    "nh": 318,
+    "redPixelsOutsideFrame": 655
+  }
+]
+Traceback (most recent call last):
+  File "/mnt/data/work0391/Web-Royale/tools/verify-v0391-card-frames.py", line 33, in <module>
+    assert all(x['redPixelsOutsideFrame']==0 for x in out), 'Portrait pixels spill beyond the native frame silhouette'
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Portrait pixels spill beyond the native frame silhouette

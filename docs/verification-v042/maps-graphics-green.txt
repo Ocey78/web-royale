@@ -1,0 +1,34 @@
+TAP version 13
+# Subtest: Potato Mode is a persisted render-only override that preserves selected tiers
+ok 1 - Potato Mode is a persisted render-only override that preserves selected tiers
+  ---
+  duration_ms: 4.167028
+  type: 'test'
+  ...
+# Subtest: Potato Mode cannot modify battle simulation results
+ok 2 - Potato Mode cannot modify battle simulation results
+  ---
+  duration_ms: 16.122795
+  type: 'test'
+  ...
+# Subtest: Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+ok 3 - Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+  ---
+  duration_ms: 6.770995
+  type: 'test'
+  ...
+# Subtest: Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+ok 4 - Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+  ---
+  duration_ms: 0.846423
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 105.042363

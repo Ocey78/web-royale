@@ -1,0 +1,110 @@
+TAP version 13
+# Subtest: Princess rows line up front to back and stay mirrored on both team arenas
+not ok 1 - Princess rows line up front to back and stay mirrored on both team arenas
+  ---
+  duration_ms: 8.61379
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:5:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Team3v3
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:6:109)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+not ok 2 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 10.48305
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      a.ok(l.top<0&&l.bottom>32)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:9:49)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+not ok 3 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 2.633795
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:13:1'
+  failureType: 'testCodeFailure'
+  error: 'legal rear start 20'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:15:4)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+not ok 4 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 3.447663
+  type: 'test'
+  location: '/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:18:1'
+  failureType: 'testCodeFailure'
+  error: 'Place inside the arena'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/work043/Web-Royale/tests/v043-clearance.test.cjs:20:131)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 5 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.549149
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 1
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 110.402827

@@ -1,0 +1,19 @@
+#modalPanel[data-kind="chest-opening"]{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;padding:0;border:0;border-radius:0;overflow:hidden;background:#07528a var(--ui-background) center/100% auto;box-shadow:none}
+#viewport #modalPanel[data-kind="chest-opening"]>.modal-title{display:none}
+.chest-opening-view{position:absolute;inset:0;color:white;background:radial-gradient(ellipse at 50% 43%,#2687b1a0,transparent 58%),linear-gradient(#001329a0,transparent 40%,#001c38a0)}
+.chest-opening-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.chest-opening-title{position:absolute;top:7%;left:7%;right:7%;font-size:34px;text-align:center}
+.chest-loading{position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:27px}
+.chest-opening-title,.chest-reward-badge,.chest-reward-name,.chest-reward-amount,.chest-remaining{pointer-events:none}
+.chest-reward-badge{position:absolute;top:19%;left:6%;right:6%;text-align:center;font-size:24px;color:#f7da6d}
+.chest-reward-name{position:absolute;top:53%;left:8%;right:8%;font-size:29px;text-align:center}
+.chest-reward-amount{position:absolute;top:59%;left:8%;right:8%;font-size:35px;text-align:center}
+.chest-remaining{position:absolute;top:73%;left:72%;min-width:36px;height:38px;line-height:38px;text-align:center;font-size:27px;color:#fff;background:#af1d17;border:3px solid #ffd889;border-radius:7px;box-shadow:0 2px 3px #0016}
+.chest-remaining:empty{display:none}
+.chest-tap.native-button{position:absolute;bottom:5%;left:17%;width:66%;min-height:60px;font-size:24px}
+.chest-skip{position:absolute;right:18px;top:16px;padding:8px 16px;border:1px solid #81b8d8;border-radius:6px;background:#06375abb;color:white;font:inherit;font-size:17px}
+.chest-summary{position:absolute;top:17%;left:5%;right:5%;bottom:16%;overflow:auto;text-align:center}
+.chest-summary h3{font-size:27px;margin:5px 0 22px}.chest-summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 10px}
+.chest-summary-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 5px;border:1px solid #86cbe788;border-radius:8px;background:#062f5799;min-width:0}
+.chest-summary-item>.card-visual{width:92px;height:120px}.chest-summary-item>img{width:90px;height:115px;object-fit:contain}.chest-summary-item strong{font-size:25px}.chest-summary-item small{font-size:14px}
+.tower-shop-preview{width:100%;padding:8px;border:0;background:transparent;color:inherit;display:flex;flex-direction:column;align-items:center;min-width:0}.tower-shop-preview canvas{max-width:100%;height:auto}.tower-shop-preview strong{font-size:16px}

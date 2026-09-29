@@ -1,0 +1,7 @@
+{
+  "method": "Clean source reconstruction using the exact archive file-selection rules, then npm run build",
+  "copiedFiles": 1951,
+  "runtimeFilesMatched": 1203,
+  "releaseManifestIdentical": true,
+  "buildExitCode": 0
+}

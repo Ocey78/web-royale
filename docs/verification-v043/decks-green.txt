@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: Every selectable casual mode has its own complete full-catalog deck
+ok 1 - Every selectable casual mode has its own complete full-catalog deck
+  ---
+  duration_ms: 10.548832
+  type: 'test'
+  ...
+# Subtest: Casual edits and imports do not unlock collection or alter ranked or other decks
+ok 2 - Casual edits and imports do not unlock collection or alter ranked or other decks
+  ---
+  duration_ms: 3.482707
+  type: 'test'
+  ...
+# Subtest: One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+ok 3 - One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+  ---
+  duration_ms: 1.812526
+  type: 'test'
+  ...
+# Subtest: Decks paginate by five and new pages are available beyond ten
+ok 4 - Decks paginate by five and new pages are available beyond ten
+  ---
+  duration_ms: 3.987289
+  type: 'test'
+  ...
+# Subtest: Deck names persist and follow a deck through deletion without reassigning cards
+ok 5 - Deck names persist and follow a deck through deletion without reassigning cards
+  ---
+  duration_ms: 1.672174
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 108.348648

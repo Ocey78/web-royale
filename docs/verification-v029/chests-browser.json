@@ -1,0 +1,23 @@
+{
+  "revealed": [
+    {
+      "kind": "gold",
+      "count": 50,
+      "name": "Gold",
+      "rarity": "Common"
+    },
+    {
+      "kind": "card",
+      "id": "knight",
+      "count": 3,
+      "name": "Knight",
+      "rarity": "Common",
+      "isNew": false
+    }
+  ],
+  "exactlyOnce": true,
+  "reload": true,
+  "legendary": true,
+  "phone": true,
+  "errors": []
+}

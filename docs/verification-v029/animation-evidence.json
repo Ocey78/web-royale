@@ -1,0 +1,123 @@
+{
+  "snapshot": "3.2557.2",
+  "normalMechanicsEngine": "0.28",
+  "purpose": "Source animation/FX evidence; no universal native parity claim",
+  "sourceActionMarkers": [
+    {
+      "entity": "Knight",
+      "sourceClip": "Knight_attack1_1",
+      "fps": 30,
+      "frames": 35,
+      "actionFrame": 22,
+      "baseWindupSeconds": 0.5,
+      "hitIntervalSeconds": 1.2
+    },
+    {
+      "entity": "Giant",
+      "sourceClip": "giant1_attack1_1",
+      "fps": 30,
+      "frames": 28,
+      "actionFrame": 13,
+      "baseWindupSeconds": 0.5,
+      "hitIntervalSeconds": 1.5
+    },
+    {
+      "entity": "Musketeer",
+      "sourceClip": "chr_musketeer_blue_attack1_1",
+      "fps": 30,
+      "frames": 30,
+      "actionFrame": 14,
+      "baseWindupSeconds": 0.8,
+      "hitIntervalSeconds": 1.1
+    },
+    {
+      "entity": "Witch",
+      "sourceClip": "witch1_attack1_1",
+      "fps": 30,
+      "frames": 17,
+      "actionFrame": 7,
+      "baseWindupSeconds": 0.7000000000000001,
+      "hitIntervalSeconds": 1.1
+    },
+    {
+      "entity": "Hunter",
+      "sourceClip": "hunter_attack1_1",
+      "fps": 60,
+      "frames": 66,
+      "actionFrame": 30,
+      "baseWindupSeconds": 1.1,
+      "hitIntervalSeconds": 2.2
+    },
+    {
+      "entity": "BrokenCannon",
+      "sourceClip": "broken_cannon_attack1_1",
+      "fps": 60,
+      "frames": 53,
+      "actionFrame": 17,
+      "baseWindupSeconds": 0.6,
+      "hitIntervalSeconds": 1
+    }
+  ],
+  "focusedVerification": {
+    "tests": 117,
+    "passed": 117,
+    "failed": 0,
+    "newAnimationCases": 19,
+    "newTowerRendererCases": 6,
+    "newStatPolicyCases": 3
+  },
+  "mechanicalComparison": {
+    "baseline": "outputs/Web-Royale-v0.28.0/Web-Royale",
+    "seeds": [
+      7,
+      42,
+      91
+    ],
+    "secondsPerSeed": 60,
+    "seedSampleSeconds": 1,
+    "scriptedCards": 102,
+    "secondsPerCard": 5,
+    "cardComparedEveryStep": true,
+    "stepSeconds": 0.016666666666666666,
+    "result": "identical compared mechanical states",
+    "exclusions": [
+      "visual effects",
+      "new presentation metadata"
+    ]
+  },
+  "babyDragonCase": {
+    "changed": false,
+    "dragon": {
+      "team": 0,
+      "x": 3.5,
+      "y": 18
+    },
+    "enemyLeftPrincessHp": 0,
+    "selected": {
+      "entity": "PrincessTower",
+      "x": 14.5,
+      "y": 6.5,
+      "centerDistance": 15.91383046283955,
+      "edgeDistance": 14.41383046283955
+    },
+    "other": {
+      "entity": "KingTower",
+      "x": 9,
+      "y": 3,
+      "centerDistance": 15.976545308670458,
+      "edgeDistance": 14.076545308670458
+    },
+    "explanation": "Tower fallback sorts center distance. Exact native priority is unverified, so no targeting change."
+  },
+  "remainingLimits": [
+    "Giant StopMovementAfterMS/WaitMS native semantics unverified",
+    "Fisherman full native pull/movement coordination unverified",
+    "Continuous VisualHitSpeed and clips without action_frame retain existing playback",
+    "Exact particle force/attachment behavior not universally established"
+  ],
+  "tests": [
+    "tests/animation-sync-v290.test.cjs",
+    "tests/tower-skin-render-v290.test.cjs",
+    "tests/battle-stat-policy-v290.test.cjs"
+  ]
+}

@@ -1,0 +1,274 @@
+TAP version 13
+# Subtest: streamed scenes preserve animation values in ordinary and compressed delivery
+ok 1 - streamed scenes preserve animation values in ordinary and compressed delivery
+  ---
+  duration_ms: 34.5954
+  type: 'test'
+  ...
+# Subtest: platform has explicit local repository and match-session interfaces
+ok 2 - platform has explicit local repository and match-session interfaces
+  ---
+  duration_ms: 1.2487
+  type: 'test'
+  ...
+# Subtest: repository migrates the existing v4 local save without changing its key
+ok 3 - repository migrates the existing v4 local save without changing its key
+  ---
+  duration_ms: 2.5143
+  type: 'test'
+  ...
+# Subtest: blocked browser storage remains an honest session-only repository
+ok 4 - blocked browser storage remains an honest session-only repository
+  ---
+  duration_ms: 0.715
+  type: 'test'
+  ...
+# Subtest: corrupted save is normalized instead of crashing the application
+ok 5 - corrupted save is normalized instead of crashing the application
+  ---
+  duration_ms: 0.2926
+  type: 'test'
+  ...
+# Subtest: match commands are sequenced and replaying the same command cannot deploy twice
+ok 6 - match commands are sequenced and replaying the same command cannot deploy twice
+  ---
+  duration_ms: 5.4379
+  type: 'test'
+  ...
+# Subtest: malformed and non-finite commands cannot mutate a match
+ok 7 - malformed and non-finite commands cannot mutate a match
+  ---
+  duration_ms: 0.9403
+  type: 'test'
+  ...
+# Subtest: fixed-step session advances reproduce equivalent simulated time and pause freezes it
+ok 8 - fixed-step session advances reproduce equivalent simulated time and pause freezes it
+  ---
+  duration_ms: 6.2544
+  type: 'test'
+  ...
+# Subtest: session snapshot is an independent view, not mutable game authority
+ok 9 - session snapshot is an independent view, not mutable game authority
+  ---
+  duration_ms: 1.6971
+  type: 'test'
+  ...
+# Subtest: v110: menus expose 2v2, learning controls and trophy road navigation
+ok 10 - v110: menus expose 2v2, learning controls and trophy road navigation
+  ---
+  duration_ms: 1.3275
+  type: 'test'
+  ...
+# Subtest: v260: range preview uses the engine forecast and hints cannot be disabled
+ok 11 - v260: range preview uses the engine forecast and hints cannot be disabled
+  ---
+  duration_ms: 47.3223
+  type: 'test'
+  ...
+# Subtest: v110: build emits an offline training worker and all new runtime modules
+ok 12 - v110: build emits an offline training worker and all new runtime modules
+  ---
+  duration_ms: 0.2744
+  type: 'test'
+  ...
+# Subtest: v110: training runs without the browser DOM or any remote game service
+ok 13 - v110: training runs without the browser DOM or any remote game service
+  ---
+  duration_ms: 0.4624
+  type: 'test'
+  ...
+# Subtest: settings has its own scrollable content area and persistent header
+ok 14 - settings has its own scrollable content area and persistent header
+  ---
+  duration_ms: 0.9324
+  type: 'test'
+  ...
+# Subtest: level emblems outside the home screen are no longer polygon-clipped
+ok 15 - level emblems outside the home screen are no longer polygon-clipped
+  ---
+  duration_ms: 0.1484
+  type: 'test'
+  ...
+# Subtest: collection progress uses original source atlas rather than generic CSS fill
+ok 16 - collection progress uses original source atlas rather than generic CSS fill
+  ---
+  duration_ms: 1.6836
+  type: 'test'
+  ...
+# Subtest: training UI exposes 5000 total and active matches with high-concurrency warning
+ok 17 - training UI exposes 5000 total and active matches with high-concurrency warning
+  ---
+  duration_ms: 0.2791
+  type: 'test'
+  ...
+# Subtest: browser uses the real AppData adapter, not an unused implementation
+ok 18 - browser uses the real AppData adapter, not an unused implementation
+  ---
+  duration_ms: 0.1996
+  type: 'test'
+  ...
+# Subtest: card-count text is vertically centered in the source progress-bar fill
+ok 19 - card-count text is vertically centered in the source progress-bar fill
+  ---
+  duration_ms: 0.2881
+  type: 'test'
+  ...
+# Subtest: failed live-match writes remain retryable and the Learning Center still opens offline
+ok 20 - failed live-match writes remain retryable and the Learning Center still opens offline
+  ---
+  duration_ms: 0.2471
+  type: 'test'
+  ...
+# Subtest: a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+ok 21 - a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+  ---
+  duration_ms: 40.3169
+  type: 'test'
+  ...
+# Subtest: renderer consumes placement forecast without full debug grid
+ok 22 - renderer consumes placement forecast without full debug grid
+  ---
+  duration_ms: 1.0175
+  type: 'test'
+  ...
+# Subtest: target warning is a floating outlined exclamation without a badge box
+ok 23 - target warning is a floating outlined exclamation without a badge box
+  ---
+  duration_ms: 0.4546
+  type: 'test'
+  ...
+# Subtest: v160 release declares placement engine modules in visible and training bundles
+ok 24 - v160 release declares placement engine modules in visible and training bundles
+  ---
+  duration_ms: 1.4486
+  type: 'test'
+  ...
+# Subtest: package version is v0.33.0
+ok 25 - package version is v0.33.0
+  ---
+  duration_ms: 0.2804
+  type: 'test'
+  ...
+# Subtest: v250 camera projects the measured reference river and field edges
+ok 26 - v250 camera projects the measured reference river and field edges
+  ---
+  duration_ms: 0.8589
+  type: 'test'
+  ...
+# Subtest: v250 battle view retains reference aspect ratio without stretching menus
+ok 27 - v250 battle view retains reference aspect ratio without stretching menus
+  ---
+  duration_ms: 0.243
+  type: 'test'
+  ...
+# Subtest: v250 a swept move cannot jump completely over a small body
+ok 28 - v250 a swept move cannot jump completely over a small body
+  ---
+  duration_ms: 5.906
+  type: 'test'
+  ...
+# Subtest: v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+ok 29 - v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+  ---
+  duration_ms: 1.7698
+  type: 'test'
+  ...
+# Subtest: v250 moving contact does not let a following troop erase the front troop footprint
+ok 30 - v250 moving contact does not let a following troop erase the front troop footprint
+  ---
+  duration_ms: 12.5987
+  type: 'test'
+  ...
+# Subtest: committed hit retains a target within source grace and reacquires beyond it
+ok 31 - committed hit retains a target within source grace and reacquires beyond it
+  ---
+  duration_ms: 1.8117
+  type: 'test'
+  ...
+# Subtest: v250 displacement removes Balloon preload rather than granting another fast first hit
+ok 32 - v250 displacement removes Balloon preload rather than granting another fast first hit
+  ---
+  duration_ms: 0.8264
+  type: 'test'
+  ...
+# Subtest: v250 dash destination contacts the target edge rather than its center
+ok 33 - v250 dash destination contacts the target edge rather than its center
+  ---
+  duration_ms: 1.5227
+  type: 'test'
+  ...
+# Subtest: v250 original tower art pivots align with registered source tower landmarks
+ok 34 - v250 original tower art pivots align with registered source tower landmarks
+  ---
+  duration_ms: 0.1732
+  type: 'test'
+  ...
+# Subtest: v250 Hog crosses open river with source jump speed and a visible arc
+ok 35 - v250 Hog crosses open river with source jump speed and a visible arc
+  ---
+  duration_ms: 1.6811
+  type: 'test'
+  ...
+# Subtest: v250 Hog remains grounded across bridges while hovering Ghost does not jump
+ok 36 - v250 Hog remains grounded across bridges while hovering Ghost does not jump
+  ---
+  duration_ms: 2.0372
+  type: 'test'
+  ...
+# Subtest: v250 Princess is attached at the authored height rather than double that height
+ok 37 - v250 Princess is attached at the authored height rather than double that height
+  ---
+  duration_ms: 0.1177
+  type: 'test'
+  ...
+# Subtest: v250 high resolution source caches stay bounded for giant arena backdrops
+ok 38 - v250 high resolution source caches stay bounded for giant arena backdrops
+  ---
+  duration_ms: 0.29
+  type: 'test'
+  ...
+# Subtest: v250 King activation follows its source timeline instead of popping to an idle cannon
+ok 39 - v250 King activation follows its source timeline instead of popping to an idle cannon
+  ---
+  duration_ms: 0.1387
+  type: 'test'
+  ...
+# Subtest: battle dependency planning does not require the full texture collection
+ok 40 - battle dependency planning does not require the full texture collection
+  ---
+  duration_ms: 1.3921
+  type: 'test'
+  ...
+# Subtest: local artwork URLs are allowed but other origins and executable URLs are not
+ok 41 - local artwork URLs are allowed but other origins and executable URLs are not
+  ---
+  duration_ms: 0.4458
+  type: 'test'
+  ...
+# Subtest: streamed native loading has a battle preparation interface
+ok 42 - streamed native loading has a battle preparation interface
+  ---
+  duration_ms: 0.1083
+  type: 'test'
+  ...
+# Subtest: unused scenes and their decoded textures can be released without evicting the current deck
+ok 43 - unused scenes and their decoded textures can be released without evicting the current deck
+  ---
+  duration_ms: 0.2497
+  type: 'test'
+  ...
+# Subtest: arena rendering waits for all referenced scenes instead of caching an incomplete arena
+ok 44 - arena rendering waits for all referenced scenes instead of caching an incomplete arena
+  ---
+  duration_ms: 0.3625
+  type: 'test'
+  ...
+1..44
+# tests 44
+# suites 0
+# pass 44
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 549.2168

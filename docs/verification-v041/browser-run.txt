@@ -1,0 +1,41 @@
+runtime loaded
+UI artwork loaded
+PASS v0.41.0 generated release boots
+PASS Old account migrates to Crown Level 26
+PASS Unclaimed crown rewards outline level button yellow
+PASS Level button opens Crown Road instead of profile
+PASS Road is bounded to 25 visible rewards
+PASS Crown claim grants gold and preserves crowns and King Level
+PASS Claimed level is disabled and permanently saved
+PASS Crown Road stays inside viewport 1280
+PASS Crown Road stays inside viewport 390
+PASS Crown Road stays inside viewport 320
+PASS Yellow outline clears after every reached reward is claimed
+PASS Player profile remains accessible by player name
+PASS Team3v3 is selectable in Other Modes
+PASS BridgeBattle is selectable in Other Modes
+PASS Team3v3 runs actual custom topology
+PASS Team3v3 geometry art is cached
+PASS Six independent decks and banks
+PASS Local King is identified regardless of randomized position
+PASS Two teammate banks and local bank fit HUD
+PASS Team3v3 battle is within screen 1280
+PASS Team3v3 battle is within screen 390
+PASS Team3v3 battle is within screen 320
+PASS Team3v3 actual AI produces legal card deployments
+PASS Local King loss retains stored elixir and match continues
+PASS Team3v3 result OK remains actionable
+PASS Six crowns preserved in history and lifetime progression
+PASS BridgeBattle runs actual custom topology
+PASS BridgeBattle geometry art is cached
+PASS BridgeBattle battle is within screen 1280
+PASS BridgeBattle battle is within screen 390
+PASS BridgeBattle battle is within screen 320
+PASS BridgeBattle actual AI produces legal card deployments
+PASS BridgeBattle result OK remains actionable
+PASS Learning Center exposes every playable mode
+PASS 3v3 and Bridge selectable for self-play
+PASS Treasure chest uses the recolored wooden artwork
+PASS Treasure opening uses dedicated gold-trim scene
+PASS Treasure claim removed occupied chest slot once
+PASS No uncaught browser errors

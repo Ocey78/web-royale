@@ -1,0 +1,8 @@
+{
+  "version": "0.37.0",
+  "target": "web",
+  "files": 1203,
+  "entryBytes": 13955,
+  "totalBytes": 264546277,
+  "snapshot": "3.2557.2"
+}

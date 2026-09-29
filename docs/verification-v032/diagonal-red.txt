@@ -1,0 +1,540 @@
+✖ BabyDragon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (12.4894ms)
+✖ BabyDragon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (3.0815ms)
+✖ BabyDragon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (2.5656ms)
+✖ BabyDragon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (1.6995ms)
+✖ Balloon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (2.1033ms)
+✖ Balloon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (2.1148ms)
+✖ Balloon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (1.7289ms)
+✖ Balloon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (1.0849ms)
+✖ Knight team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (3.9077ms)
+✖ Knight team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (2.7785ms)
+✖ Knight team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (1.8648ms)
+✖ Knight team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (1.9775ms)
+✖ BabyDragon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (20.9824ms)
+✖ BabyDragon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (23.3927ms)
+✖ BabyDragon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (13.1898ms)
+✖ BabyDragon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (14.5427ms)
+✖ BabyDragon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (11.4184ms)
+✖ BabyDragon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (12.7007ms)
+✖ BabyDragon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (9.8966ms)
+✖ BabyDragon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (11.1799ms)
+✖ Balloon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (16.8912ms)
+✖ Balloon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (17.8354ms)
+✖ Balloon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (20.6828ms)
+✖ Balloon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (23.8789ms)
+✖ Balloon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (15.5573ms)
+✖ Balloon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (19.7631ms)
+✖ Balloon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (15.0238ms)
+✖ Balloon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (13.5652ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 0
+ℹ fail 28
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 442.6213
+
+✖ failing tests:
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ BabyDragon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (12.4894ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.start (node:internal/test_runner/test:1257:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ BabyDragon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (3.0815ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ BabyDragon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (2.5656ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ BabyDragon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (1.6995ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Balloon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (2.1033ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Balloon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (2.1148ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Balloon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (1.7289ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Balloon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (1.0849ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Knight team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (3.9077ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Knight team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (2.7785ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Knight team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg (1.8648ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:11:2
+✖ Knight team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg (1.9775ms)
+  AssertionError [ERR_ASSERTION]: Make forward progress immediately instead of first sliding sideways
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:15:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (20.9824ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90.00000000000001 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (23.3927ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90.00000000000001 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (13.1898ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (14.5427ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (11.4184ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (12.7007ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (9.8966ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ BabyDragon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (11.1799ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (16.8912ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90.00000000000001 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (17.8354ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90.00000000000001 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (20.6828ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (23.8789ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (15.5573ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (19.7631ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight (15.0238ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\diagonal-advance-v320.test.cjs:20:2
+✖ Balloon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight (13.5652ms)
+  AssertionError [ERR_ASSERTION]: Unchanged clear target must not produce a 90 degree corner
+      at TestContext.<anonymous> (C:\Users\Oceyi\Documents\Codex\2026-09-27\im\work\baseline\Web-Royale\tests\diagonal-advance-v320.test.cjs:33:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

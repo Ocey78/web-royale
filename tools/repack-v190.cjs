@@ -1,0 +1,28 @@
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'..'),dist=path.join(root,'dist'),VERSION='0.19.0';
+const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
+const read=p=>fs.readFileSync(path.join(root,p));
+const rel=JSON.parse(fs.readFileSync(path.join(dist,'release.json'),'utf8'));
+const old={app:rel.app,runtime:rel.runtime,bootstrap:rel.bootstrap};
+const runtime=JSON.parse(fs.readFileSync(path.join(dist,rel.runtime),'utf8'));
+const oldEngine=(runtime.training.engine||'').split('?')[0],oldWorker=(runtime.training.worker||'').split('?')[0];
+function writeHashed(prefix,ext,bytes){const h=hash(bytes),name=`${prefix}.${h.slice(0,12)}.${ext}`;fs.writeFileSync(path.join(dist,name),bytes);return{name,h};}
+const trainingModules=['catalog','arena-grid','formations','placement','pathing','road-data','progression','player-xp','profile','level-model','navigation','learning','training-decks','training-scheduler','ai','battle','core'];
+const trainingEngine=Buffer.from(trainingModules.map(m=>read(`src/${m}.js`).toString()).join('\n;\n'));
+const engine=writeHashed('training-engine','js',trainingEngine),worker=writeHashed('training-worker','js',read('src/training-worker.js'));
+const appModules=['catalog','arena-grid','formations','placement','pathing','road-data','progression','player-xp','profile','level-model','navigation','learning','learning-store','appdata-store','training-scheduler','ai','audio','training-decks','battle','core','economy','assets','native','text','presentation','platform','menu-model','fx','draw','app'];
+const app=writeHashed('app','js',Buffer.from(appModules.map(m=>read(`src/${m}.js`).toString()).join('\n;\n')));
+runtime.version=VERSION;if(runtime.native)runtime.native.version=VERSION;
+runtime.training.engine=`${engine.name}?v=${engine.h.slice(0,12)}`;runtime.training.worker=`${worker.name}?v=${worker.h.slice(0,12)}`;
+const runtimeBytes=Buffer.from(JSON.stringify(runtime)),run=writeHashed('runtime','json',runtimeBytes);
+let bootstrap=fs.readFileSync(path.join(dist,old.bootstrap),'utf8');
+bootstrap=bootstrap.replace(/Web Royale 0\.18\.0/g,`Web Royale ${VERSION}`).replaceAll(old.runtime,run.name).replaceAll(old.app,app.name);
+const boot=writeHashed('bootstrap','js',Buffer.from(bootstrap));
+let index=fs.readFileSync(path.join(dist,'index.html'),'utf8');index=index.replaceAll(old.bootstrap,boot.name);fs.writeFileSync(path.join(dist,'index.html'),index);
+rel.version=VERSION;rel.files['index.html']=hash(Buffer.from(index));rel.runtime=run.name;rel.app=app.name;rel.bootstrap=boot.name;
+for(const name of [old.app,old.runtime,old.bootstrap,oldEngine,oldWorker])delete rel.files[name];
+for(const x of [engine,worker,app,run,boot])rel.files[x.name]=x.h;
+fs.writeFileSync(path.join(dist,'release.json'),JSON.stringify(rel,null,2)+'\n');
+const currentGenerated=new Set([app.name,run.name,boot.name,engine.name,worker.name]);for(const name of [old.app,old.runtime,old.bootstrap,oldEngine,oldWorker])if(name&&!currentGenerated.has(name)&&fs.existsSync(path.join(dist,name)))fs.rmSync(path.join(dist,name));
+console.log(JSON.stringify({version:VERSION,app:app.name,runtime:run.name,bootstrap:boot.name,engine:engine.name,worker:worker.name,files:Object.keys(rel.files).length},null,2));

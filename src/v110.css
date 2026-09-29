@@ -1,0 +1,26 @@
+/* v0.11.0 — shared learning, 2v2 information, and navigable Trophy Road. */
+.road-heading{height:76px;padding:10px 16px 6px}
+.road-progress{position:absolute;top:76px;left:0;right:0;height:102px;padding:8px 17px;background:linear-gradient(#164b77,#093452);border-bottom:3px solid #4b9ccc;z-index:4;box-shadow:0 3px 8px #021a3455}
+.road-progress>div:first-child{display:flex;justify-content:space-between;align-items:center;gap:7px;font-size:13px;color:#cbeafa;height:21px}
+.road-progress>div:first-child>b{color:#fff3a8;font-size:16px}.road-progress>div:first-child>span{font-size:11px;text-align:right}
+.road-progress-track{height:10px;border:1px solid #031c30;border-radius:5px;background:#092339;overflow:hidden;margin:3px 0 10px;box-shadow:0 1px #538bab}
+.road-progress-track i{height:100%;display:block;background:linear-gradient(#fff28c,#d6a523);border-top:1px solid #fff7ba}
+.road-progress nav{display:flex;align-items:center;gap:6px;height:32px}
+.road-progress nav button,.road-progress nav select{height:32px;padding:3px 7px;border:1px solid #6fafd5;border-radius:5px;background:linear-gradient(#347fb0,#19517c);color:#fff;font-size:11px;min-width:0}
+.road-progress nav select{flex:1;width:140px;background:#15436a}.road-progress nav button:disabled{opacity:.45}.road-progress nav b{color:#ffea78}
+#roadScroll{top:178px;scroll-padding-top:20px}.road-scroll::before{top:178px}
+.ally-panel{position:absolute;z-index:5;top:748px;left:25px;right:25px;height:38px;display:flex;align-items:center;gap:9px;padding:4px 9px;background:linear-gradient(90deg,#163e619c,#234966e0);border:1px solid #76afd077;border-radius:6px;pointer-events:none}
+.ally-panel[hidden]{display:none}.ally-panel>span{font-size:12px;color:#bfebff;width:92px;white-space:nowrap}
+#allyHand{display:flex;gap:6px;height:36px}#allyHand>span{position:relative;display:block;width:27px;height:36px}#allyHand .card-visual{position:absolute;inset:0;width:100%;height:100%}
+.ally-elixir{height:10px;flex:1;background:#151d3d;border:1px solid #deb4ff;border-radius:4px;overflow:hidden}.ally-elixir>i{display:block;height:100%;background:linear-gradient(#f5afff,#b736d6)}#allyElixir{font-size:15px;color:#f4d4ff;width:17px;text-align:right}
+.team-battle .player-name-battle{display:none}.team-battle .battle-top .enemy-name{font-size:14px;max-width:215px}.team-battle .enemy-clan{font-size:11px}
+.learning-hero{display:flex;gap:14px;align-items:center;padding:12px;border:2px solid #5689ae;border-radius:9px;background:linear-gradient(#295c87,#163e61);color:#eaf6ff;margin-bottom:14px}.learning-hero>img{height:64px;width:57px;object-fit:contain}.learning-hero h3{margin:0 0 5px;font-size:22px}.learning-hero p{margin:0;font-size:12px;color:#bde4fb}
+.learning-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.learning-stats>div{padding:12px 8px;border:1px solid #84a4bb;border-radius:6px;background:#c3d7e7;text-align:center}.learning-stats b{font-size:24px;display:block;color:#194d71}.learning-stats span{font-size:11px;display:block;margin-top:4px;color:#284d6b}
+.modal-panel .small{font-size:12px;line-height:1.5;margin:8px 0}.training-box{padding:13px;border:2px solid #94b0c5;border-radius:8px;margin:13px 0;background:#d8e5ed}.training-box h3{font-size:19px}.training-options{display:flex;gap:8px;margin:12px 0}.training-options select{flex:1;min-width:0;height:35px;background:#fff;color:#1a4268;border:2px solid #80a3bd;border-radius:5px;padding:4px 9px}.training-box .native-button{width:46%;height:48px;min-height:48px;font-size:20px}.training-box .native-button+button{margin-left:6%}#trainingStatus{min-height:34px;font-size:12px;color:#225275;line-height:1.5}
+.learning-actions{display:grid;gap:6px;grid-template-columns:1fr 1fr}.learning-actions .native-button{font-size:15px;padding:5px 7px 10px;min-width:0;height:46px;min-height:46px}.learning-actions .danger{grid-column:1/-1}
+.learning-history h3{margin:18px 0 7px;font-size:20px}.learning-record{display:flex;gap:10px;align-items:center;justify-content:space-between;border-bottom:1px solid #a7c0d2;padding:10px 2px;font-size:14px}.learning-record small{display:block;margin-top:4px;color:#52738b;font-size:11px}.learning-record button{font-size:13px}
+.match-learning-note{font-size:12px;text-align:center;margin:8px 0 12px;color:#365f78}.match-learning-note .native-button{display:block;width:100%;font-size:17px;min-height:43px;height:43px;margin-top:9px}
+
+.ally-panel>span{overflow:hidden;text-overflow:ellipsis}
+
+.training-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}.training-box .training-buttons .native-button{width:100%;margin:0;display:block;min-width:0}.training-box .training-buttons .native-button+button{margin:0}
