@@ -1,0 +1,268 @@
+TAP version 13
+# Subtest: Potato Mode is a persisted render-only override that preserves selected tiers
+ok 1 - Potato Mode is a persisted render-only override that preserves selected tiers
+  ---
+  duration_ms: 5.762069
+  type: 'test'
+  ...
+# Subtest: Potato Mode cannot modify battle simulation results
+ok 2 - Potato Mode cannot modify battle simulation results
+  ---
+  duration_ms: 19.665042
+  type: 'test'
+  ...
+# Subtest: Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+ok 3 - Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+  ---
+  duration_ms: 10.383091
+  type: 'test'
+  ...
+# Subtest: Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+ok 4 - Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+  ---
+  duration_ms: 1.033289
+  type: 'test'
+  ...
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+ok 5 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 9.579424
+  type: 'test'
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+ok 6 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 6.857291
+  type: 'test'
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+ok 7 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 2.535746
+  type: 'test'
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+ok 8 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 2.307445
+  type: 'test'
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+ok 9 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.189262
+  type: 'test'
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+ok 10 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 5.306111
+  type: 'test'
+  ...
+# Subtest: saved special decks use full catalog without mutating ownership or regular decks
+ok 11 - saved special decks use full catalog without mutating ownership or regular decks
+  ---
+  duration_ms: 8.15264
+  type: 'test'
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+ok 12 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 12.711698
+  type: 'test'
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+ok 13 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 2.076432
+  type: 'test'
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+ok 14 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 1.04732
+  type: 'test'
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+ok 15 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 37.594841
+  type: 'test'
+  ...
+# Subtest: new modes retain distinct learning experience contexts
+ok 16 - new modes retain distinct learning experience contexts
+  ---
+  duration_ms: 0.300437
+  type: 'test'
+  ...
+# Subtest: old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+ok 17 - old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+  ---
+  duration_ms: 193.425392
+  type: 'test'
+  ...
+# Subtest: all new mode replays retain deck sizes, restrictions and arena selection
+ok 18 - all new mode replays retain deck sizes, restrictions and arena selection
+  ---
+  duration_ms: 49.683151
+  type: 'test'
+  ...
+# Subtest: primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+ok 19 - primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+  ---
+  duration_ms: 14.839617
+  type: 'test'
+  ...
+# Subtest: custom scenery exposes a separately drawn foreground and obeys the animation toggle
+ok 20 - custom scenery exposes a separately drawn foreground and obeys the animation toggle
+  ---
+  duration_ms: 9.379015
+  type: 'test'
+  ...
+# Subtest: 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+ok 21 - 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+  ---
+  duration_ms: 1.57121
+  type: 'test'
+  ...
+# Subtest: Team Rumble constructs ten independent seats, mirrored twenty towers and river-free field
+ok 22 - Team Rumble constructs ten independent seats, mirrored twenty towers and river-free field
+  ---
+  duration_ms: 10.473795
+  type: 'test'
+  ...
+# Subtest: Team Rumble exact five plus five minute timeline, multiplier boundaries and real income
+ok 23 - Team Rumble exact five plus five minute timeline, multiplier boundaries and real income
+  ---
+  duration_ms: 8.333329
+  type: 'test'
+  ...
+# Subtest: Rumble destroyed King stops only its owners passive income; stored/pump/golem payouts retained
+ok 24 - Rumble destroyed King stops only its owners passive income; stored/pump/golem payouts retained
+  ---
+  duration_ms: 4.662282
+  type: 'test'
+  ...
+# Subtest: Team Rumble slots are seeded unique shuffles with all five positions possible
+ok 25 - Team Rumble slots are seeded unique shuffles with all five positions possible
+  ---
+  duration_ms: 76.504129
+  type: 'test'
+  ...
+# Subtest: Large bodies have symmetric outboard clearance in 3v3 and mapped crowns use centered art
+ok 26 - Large bodies have symmetric outboard clearance in 3v3 and mapped crowns use centered art
+  ---
+  duration_ms: 3.583015
+  type: 'test'
+  ...
+# Subtest: Firecracker impact fans five damaging line projectiles with intact ownership and visible effects
+ok 27 - Firecracker impact fans five damaging line projectiles with intact ownership and visible effects
+  ---
+  duration_ms: 3.730965
+  type: 'test'
+  ...
+# Subtest: Rumble Learning Center creates actual ten-seat matches
+ok 28 - Rumble Learning Center creates actual ten-seat matches
+  ---
+  duration_ms: 1.850446
+  type: 'test'
+  ...
+# Subtest: Ten-minute Rumble training records retain late tiebreak duration when the learner reloads
+ok 29 - Ten-minute Rumble training records retain late tiebreak duration when the learner reloads
+  ---
+  duration_ms: 0.525142
+  type: 'test'
+  ...
+# Subtest: 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+ok 30 - 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+  ---
+  duration_ms: 12.207138
+  type: 'test'
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+ok 31 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 4.700709
+  type: 'test'
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+ok 32 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 47.836728
+  type: 'test'
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+ok 33 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 5.4932
+  type: 'test'
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 34 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.457441
+  type: 'test'
+  ...
+# Subtest: Bridge has a real outboard route past the King for the largest ground body
+ok 35 - Bridge has a real outboard route past the King for the largest ground body
+  ---
+  duration_ms: 3.07589
+  type: 'test'
+  ...
+# Subtest: Sandbox accepts extended Rumble corners without teleporting placements to old borders
+ok 36 - Sandbox accepts extended Rumble corners without teleporting placements to old borders
+  ---
+  duration_ms: 5.008447
+  type: 'test'
+  ...
+# Subtest: largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+ok 37 - largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+  ---
+  duration_ms: 51.226069
+  type: 'test'
+  ...
+# Subtest: air units in narrow Bridge mode keep their outboard movement permission
+ok 38 - air units in narrow Bridge mode keep their outboard movement permission
+  ---
+  duration_ms: 1.654504
+  type: 'test'
+  ...
+# Subtest: Every selectable casual mode has its own complete full-catalog deck
+ok 39 - Every selectable casual mode has its own complete full-catalog deck
+  ---
+  duration_ms: 16.968637
+  type: 'test'
+  ...
+# Subtest: Casual edits and imports do not unlock collection or alter ranked or other decks
+ok 40 - Casual edits and imports do not unlock collection or alter ranked or other decks
+  ---
+  duration_ms: 7.383204
+  type: 'test'
+  ...
+# Subtest: One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+ok 41 - One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+  ---
+  duration_ms: 5.503921
+  type: 'test'
+  ...
+# Subtest: Decks paginate by five and new pages are available beyond ten
+ok 42 - Decks paginate by five and new pages are available beyond ten
+  ---
+  duration_ms: 8.041333
+  type: 'test'
+  ...
+# Subtest: Deck names persist and follow a deck through deletion without reassigning cards
+ok 43 - Deck names persist and follow a deck through deletion without reassigning cards
+  ---
+  duration_ms: 3.18946
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 659.384849

@@ -1,0 +1,922 @@
+TAP version 13
+# Subtest: card art module provides the store factory
+ok 1 - card art module provides the store factory
+  ---
+  duration_ms: 0.798321
+  type: 'test'
+  ...
+# Subtest: bundled real-image data takes priority and needs no HTTP
+ok 2 - bundled real-image data takes priority and needs no HTTP
+  ---
+  duration_ms: 0.525794
+  type: 'test'
+  ...
+# Subtest: downloaded images are cached by revision and reused offline
+ok 3 - downloaded images are cached by revision and reused offline
+  ---
+  duration_ms: 0.223183
+  type: 'test'
+  ...
+# Subtest: broken cached PNG is discarded and re-downloaded
+ok 4 - broken cached PNG is discarded and re-downloaded
+  ---
+  duration_ms: 0.951188
+  type: 'test'
+  ...
+# Subtest: blocked localStorage does not prevent downloaded art
+ok 5 - blocked localStorage does not prevent downloaded art
+  ---
+  duration_ms: 0.287389
+  type: 'test'
+  ...
+# Subtest: duplicate requests share one download and one decoded image
+ok 6 - duplicate requests share one download and one decoded image
+  ---
+  duration_ms: 11.167951
+  type: 'test'
+  ...
+# Subtest: an unavailable source is exposed as error and can be retried
+ok 7 - an unavailable source is exposed as error and can be retried
+  ---
+  duration_ms: 0.569529
+  type: 'test'
+  ...
+# Subtest: retry leaves already-ready images alone
+ok 8 - retry leaves already-ready images alone
+  ---
+  duration_ms: 0.571752
+  type: 'test'
+  ...
+# Subtest: failed network/decode does not cache unusable images
+ok 9 - failed network/decode does not cache unusable images
+  ---
+  duration_ms: 0.466676
+  type: 'test'
+  ...
+# Subtest: state notifications allow existing canvases to redraw after loading
+ok 10 - state notifications allow existing canvases to redraw after loading
+  ---
+  duration_ms: 0.996315
+  type: 'test'
+  ...
+# Subtest: unknown IDs cannot trigger an arbitrary fetch
+ok 11 - unknown IDs cannot trigger an arbitrary fetch
+  ---
+  duration_ms: 0.443972
+  type: 'test'
+  ...
+# Subtest: fitting artwork preserves its source aspect ratio
+ok 12 - fitting artwork preserves its source aspect ratio
+  ---
+  duration_ms: 0.229602
+  type: 'test'
+  ...
+# Subtest: local manifest maps every source card to an original PNG with no network dependency
+ok 13 - local manifest maps every source card to an original PNG with no network dependency
+  ---
+  duration_ms: 75.481186
+  type: 'test'
+  ...
+# Subtest: viewport contract exists
+ok 14 - viewport contract exists
+  ---
+  duration_ms: 1.138517
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 1920x1080
+ok 15 - 9:16 centered contain at 1920x1080
+  ---
+  duration_ms: 0.309942
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 1280x720
+ok 16 - 9:16 centered contain at 1280x720
+  ---
+  duration_ms: 0.152647
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 3440x1440
+ok 17 - 9:16 centered contain at 3440x1440
+  ---
+  duration_ms: 0.074732
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 768x1024
+ok 18 - 9:16 centered contain at 768x1024
+  ---
+  duration_ms: 0.640685
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 390x844
+ok 19 - 9:16 centered contain at 390x844
+  ---
+  duration_ms: 0.090094
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 540x960
+ok 20 - 9:16 centered contain at 540x960
+  ---
+  duration_ms: 0.116594
+  type: 'test'
+  ...
+# Subtest: 9:16 centered contain at 280x300
+ok 21 - 9:16 centered contain at 280x300
+  ---
+  duration_ms: 0.056634
+  type: 'test'
+  ...
+# Subtest: invalid viewport sizes are rejected
+ok 22 - invalid viewport sizes are rejected
+  ---
+  duration_ms: 0.405254
+  type: 'test'
+  ...
+# Subtest: coordinates exclude black bars and map center
+ok 23 - coordinates exclude black bars and map center
+  ---
+  duration_ms: 0.612904
+  type: 'test'
+  ...
+# Subtest: profile validates malformed saves and persists lane memory
+ok 24 - profile validates malformed saves and persists lane memory
+  ---
+  duration_ms: 3.399859
+  type: 'test'
+  ...
+# Subtest: 102 cards, unique eight-card deck, four-card hand and four-card queue
+ok 25 - 102 cards, unique eight-card deck, four-card hand and four-card queue
+  ---
+  duration_ms: 5.846016
+  type: 'test'
+  ...
+# Subtest: uses source starting elixir, spends once, cycles played card to queue tail
+ok 26 - uses source starting elixir, spends once, cycles played card to queue tail
+  ---
+  duration_ms: 3.813516
+  type: 'test'
+  ...
+# Subtest: deployment rejects enemy half, tower footprints, NaN and invalid hand slot
+ok 27 - deployment rejects enemy half, tower footprints, NaN and invalid hand slot
+  ---
+  duration_ms: 1.422271
+  type: 'test'
+  ...
+# Subtest: insufficient elixir never cycles or deploys
+ok 28 - insufficient elixir never cycles or deploys
+  ---
+  duration_ms: 1.398555
+  type: 'test'
+  ...
+# Subtest: archers spawn as a pair
+ok 29 - archers spawn as a pair
+  ---
+  duration_ms: 1.445225
+  type: 'test'
+  ...
+# Subtest: spells can hit enemy territory and deal reduced tower damage
+ok 30 - spells can hit enemy territory and deal reduced tower damage
+  ---
+  duration_ms: 12.815466
+  type: 'test'
+  ...
+# Subtest: elixir regenerates at normal and double rates, capped at ten
+ok 31 - elixir regenerates at normal and double rates, capped at ten
+  ---
+  duration_ms: 40.229013
+  type: 'test'
+  ...
+# Subtest: pause freezes rules and deployment
+ok 32 - pause freezes rules and deployment
+  ---
+  duration_ms: 2.062125
+  type: 'test'
+  ...
+# Subtest: king destruction yields three crowns and one final result
+ok 33 - king destruction yields three crowns and one final result
+  ---
+  duration_ms: 2.727656
+  type: 'test'
+  ...
+# Subtest: regulation crown lead wins; ties enter overtime
+ok 34 - regulation crown lead wins; ties enter overtime
+  ---
+  duration_ms: 3.015295
+  type: 'test'
+  ...
+# Subtest: overtime next crown ends the match
+ok 35 - overtime next crown ends the match
+  ---
+  duration_ms: 0.95875
+  type: 'test'
+  ...
+# Subtest: equal tiebreak towers create a draw
+ok 36 - equal tiebreak towers create a draw
+  ---
+  duration_ms: 1.370113
+  type: 'test'
+  ...
+# Subtest: troops path through a bridge rather than the river
+ok 37 - troops path through a bridge rather than the river
+  ---
+  duration_ms: 99.210385
+  type: 'test'
+  ...
+# Subtest: practice opponent plays using real elixir and hand
+ok 38 - practice opponent plays using real elixir and hand
+  ---
+  duration_ms: 49.660831
+  type: 'test'
+  ...
+# Subtest: result updates profile once, history is bounded and losses clamp trophies
+ok 39 - result updates profile once, history is bounded and losses clamp trophies
+  ---
+  duration_ms: 3.235244
+  type: 'test'
+  ...
+# Subtest: bounded step rejects negative or nonfinite time
+ok 40 - bounded step rejects negative or nonfinite time
+  ---
+  duration_ms: 0.752592
+  type: 'test'
+  ...
+# Subtest: king artwork and health fit below HUD and above hand
+ok 41 - king artwork and health fit below HUD and above hand
+  ---
+  duration_ms: 0.793473
+  type: 'test'
+  ...
+# Subtest: repeated result processing cannot duplicate rewards
+ok 42 - repeated result processing cannot duplicate rewards
+  ---
+  duration_ms: 3.142555
+  type: 'test'
+  ...
+# Subtest: history sanitization cannot inject markup or nonnumeric crowns
+ok 43 - history sanitization cannot inject markup or nonnumeric crowns
+  ---
+  duration_ms: 0.668938
+  type: 'test'
+  ...
+# Subtest: an unattended match ends naturally with a bot victory
+ok 44 - an unattended match ends naturally with a bot victory
+  ---
+  duration_ms: 304.863294
+  type: 'test'
+  ...
+# Subtest: v130 learned action experience persists and contributes a bounded preference
+ok 45 - v130 learned action experience persists and contributes a bounded preference
+  ---
+  duration_ms: 2.474219
+  type: 'test'
+  ...
+# Subtest: v130 empirical experience merges across self-play packets
+ok 46 - v130 empirical experience merges across self-play packets
+  ---
+  duration_ms: 2.006953
+  type: 'test'
+  ...
+# Subtest: v130 experience key distinguishes visible enemy archetypes and battle phase
+ok 47 - v130 experience key distinguishes visible enemy archetypes and battle phase
+  ---
+  duration_ms: 2.635279
+  type: 'test'
+  ...
+# Subtest: v130 reward shaping values surviving board advantage, not only tower damage
+ok 48 - v130 reward shaping values surviving board advantage, not only tower damage
+  ---
+  duration_ms: 0.411453
+  type: 'test'
+  ...
+# Subtest: v130 experience memory distinguishes the specific visible threat card
+ok 49 - v130 experience memory distinguishes the specific visible threat card
+  ---
+  duration_ms: 0.350994
+  type: 'test'
+  ...
+# Subtest: v130 matchup memory distinguishes the visible threat while keeping a generic fallback
+ok 50 - v130 matchup memory distinguishes the visible threat while keeping a generic fallback
+  ---
+  duration_ms: 0.40227
+  type: 'test'
+  ...
+# Subtest: web build has a small external-script entry point instead of a 149 MB payload
+ok 51 - web build has a small external-script entry point instead of a 149 MB payload
+  ---
+  duration_ms: 2.741317
+  type: 'test'
+  ...
+# Subtest: web release is complete and cannot contain desktop executables, installers or fonts
+ok 52 - web release is complete and cannot contain desktop executables, installers or fonts
+  ---
+  duration_ms: 332.011618
+  type: 'test'
+  ...
+# Subtest: split scene metadata and images resolve to packaged files with cache-busting revisions
+ok 53 - split scene metadata and images resolve to packaged files with cache-busting revisions
+  ---
+  duration_ms: 84.778042
+  type: 'test'
+  ...
+# Subtest: web build bundles no remote script, remote image host, or account impersonation endpoint
+ok 54 - web build bundles no remote script, remote image host, or account impersonation endpoint
+  ---
+  duration_ms: 63.115738
+  type: 'test'
+  ...
+# Subtest: the web build-info dialog does not advertise the old native bundle version
+ok 55 - the web build-info dialog does not advertise the old native bundle version
+  ---
+  duration_ms: 15.535184
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+ok 56 - historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+  ---
+  duration_ms: 3.876571
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+ok 57 - release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 208.006211
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+ok 58 - release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 257.836731
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+ok 59 - release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 290.752725
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 60 - release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 368.813767
+  type: 'test'
+  ...
+# Subtest: engine0.30 boat playback is independent of live simulation and live boat adapter
+ok 61 - engine0.30 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 129.325412
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 62 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 573.737591
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 63 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 7.865617
+  type: 'test'
+  ...
+# Subtest: Mortar cancels an unlaunched shot when its target enters the source minimum range
+ok 64 - Mortar cancels an unlaunched shot when its target enters the source minimum range
+  ---
+  duration_ms: 8.605512
+  type: 'test'
+  ...
+# Subtest: Mortar can reacquire a legal target and starts its full new windup
+ok 65 - Mortar can reacquire a legal target and starts its full new windup
+  ---
+  duration_ms: 2.671473
+  type: 'test'
+  ...
+# Subtest: minimum-range forecasting is pure, even while a real attack is pending
+ok 66 - minimum-range forecasting is pure, even while a real attack is pending
+  ---
+  duration_ms: 1.404915
+  type: 'test'
+  ...
+# Subtest: Mortar still acquires targets at the exact minimum-range boundary
+ok 67 - Mortar still acquires targets at the exact minimum-range boundary
+  ---
+  duration_ms: 1.399427
+  type: 'test'
+  ...
+# Subtest: losing a dead target clears its pending attack presentation
+ok 68 - losing a dead target clears its pending attack presentation
+  ---
+  duration_ms: 1.553396
+  type: 'test'
+  ...
+# Subtest: source maximum-distance grace still preserves an already-started shot
+ok 69 - source maximum-distance grace still preserves an already-started shot
+  ---
+  duration_ms: 1.875677
+  type: 'test'
+  ...
+# Subtest: a target beyond the source maximum-distance grace cancels and clears its pending pose immediately
+ok 70 - a target beyond the source maximum-distance grace cancels and clears its pending pose immediately
+  ---
+  duration_ms: 1.045028
+  type: 'test'
+  ...
+# Subtest: a canceled hit can keep the same navigation target without retaining its pending attack
+ok 71 - a canceled hit can keep the same navigation target without retaining its pending attack
+  ---
+  duration_ms: 1.969346
+  type: 'test'
+  ...
+# Subtest: normal team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 72 - normal team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 1.81776
+  type: 'test'
+  ...
+# Subtest: normal team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 73 - normal team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 4.436164
+  type: 'test'
+  ...
+# Subtest: normal team 0: source ground/air and buildings-only categories remain hard restrictions
+ok 74 - normal team 0: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 0.958178
+  type: 'test'
+  ...
+# Subtest: normal team 0: source sight excludes just-outside enemies and no enemy means idle
+ok 75 - normal team 0: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 1.046069
+  type: 'test'
+  ...
+# Subtest: normal team 0: an opened default lane leads toward King instead of the opposite Princess
+ok 76 - normal team 0: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 1.202533
+  type: 'test'
+  ...
+# Subtest: normal team 0: visible King acquisition is separate from same-lane Princess fallback
+ok 77 - normal team 0: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 0.973722
+  type: 'test'
+  ...
+# Subtest: normal team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 78 - normal team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 1.421499
+  type: 'test'
+  ...
+# Subtest: normal team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 79 - normal team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 1.097347
+  type: 'test'
+  ...
+# Subtest: normal team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 80 - normal team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 3.289524
+  type: 'test'
+  ...
+# Subtest: normal team 1: source ground/air and buildings-only categories remain hard restrictions
+ok 81 - normal team 1: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 1.430744
+  type: 'test'
+  ...
+# Subtest: normal team 1: source sight excludes just-outside enemies and no enemy means idle
+ok 82 - normal team 1: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 9.151345
+  type: 'test'
+  ...
+# Subtest: normal team 1: an opened default lane leads toward King instead of the opposite Princess
+ok 83 - normal team 1: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 1.769258
+  type: 'test'
+  ...
+# Subtest: normal team 1: visible King acquisition is separate from same-lane Princess fallback
+ok 84 - normal team 1: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 1.379917
+  type: 'test'
+  ...
+# Subtest: normal team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 85 - normal team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 1.469622
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 86 - sandbox team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 2.901396
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 87 - sandbox team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 10.436301
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: source ground/air and buildings-only categories remain hard restrictions
+ok 88 - sandbox team 0: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 0.993281
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: source sight excludes just-outside enemies and no enemy means idle
+ok 89 - sandbox team 0: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 1.072579
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: an opened default lane leads toward King instead of the opposite Princess
+ok 90 - sandbox team 0: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 1.201681
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: visible King acquisition is separate from same-lane Princess fallback
+ok 91 - sandbox team 0: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 1.527688
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 92 - sandbox team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 1.075584
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 93 - sandbox team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 1.336783
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 94 - sandbox team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 3.803811
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: source ground/air and buildings-only categories remain hard restrictions
+ok 95 - sandbox team 1: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 1.115433
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: source sight excludes just-outside enemies and no enemy means idle
+ok 96 - sandbox team 1: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 1.317204
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: an opened default lane leads toward King instead of the opposite Princess
+ok 97 - sandbox team 1: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 0.943857
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: visible King acquisition is separate from same-lane Princess fallback
+ok 98 - sandbox team 1: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 0.934483
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 99 - sandbox team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 0.681677
+  type: 'test'
+  ...
+# Subtest: duo King team 0: each barrel preserves its own pending target within grace and reacquires beyond it
+ok 100 - duo King team 0: each barrel preserves its own pending target within grace and reacquires beyond it
+  ---
+  duration_ms: 1.566686
+  type: 'test'
+  ...
+# Subtest: duo King team 1: each barrel preserves its own pending target within grace and reacquires beyond it
+ok 101 - duo King team 1: each barrel preserves its own pending target within grace and reacquires beyond it
+  ---
+  duration_ms: 1.078198
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: two closer arrivals cannot steal the locked primary bolt
+ok 102 - Electro Wizard team 0: two closer arrivals cannot steal the locked primary bolt
+  ---
+  duration_ms: 1.493096
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: secondary bolt chooses the nearer collision boundary, not the nearer center
+ok 103 - Electro Wizard team 0: secondary bolt chooses the nearer collision boundary, not the nearer center
+  ---
+  duration_ms: 1.329803
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: committed primary in source grace still receives its bolt
+ok 104 - Electro Wizard team 0: committed primary in source grace still receives its bolt
+  ---
+  duration_ms: 0.996015
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: one eligible enemy receives both bolts despite hidden or attached neighbors
+ok 105 - Electro Wizard team 0: one eligible enemy receives both bolts despite hidden or attached neighbors
+  ---
+  duration_ms: 0.943737
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: two closer arrivals cannot steal the locked primary bolt
+ok 106 - Electro Wizard team 1: two closer arrivals cannot steal the locked primary bolt
+  ---
+  duration_ms: 0.999991
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: secondary bolt chooses the nearer collision boundary, not the nearer center
+ok 107 - Electro Wizard team 1: secondary bolt chooses the nearer collision boundary, not the nearer center
+  ---
+  duration_ms: 1.045129
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: committed primary in source grace still receives its bolt
+ok 108 - Electro Wizard team 1: committed primary in source grace still receives its bolt
+  ---
+  duration_ms: 0.838771
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: one eligible enemy receives both bolts despite hidden or attached neighbors
+ok 109 - Electro Wizard team 1: one eligible enemy receives both bolts despite hidden or attached neighbors
+  ---
+  duration_ms: 0.779232
+  type: 'test'
+  ...
+# Subtest: settings has its own scrollable content area and persistent header
+ok 110 - settings has its own scrollable content area and persistent header
+  ---
+  duration_ms: 1.082955
+  type: 'test'
+  ...
+# Subtest: level emblems outside the home screen are no longer polygon-clipped
+ok 111 - level emblems outside the home screen are no longer polygon-clipped
+  ---
+  duration_ms: 0.202161
+  type: 'test'
+  ...
+# Subtest: collection progress uses original source atlas rather than generic CSS fill
+ok 112 - collection progress uses original source atlas rather than generic CSS fill
+  ---
+  duration_ms: 1.749658
+  type: 'test'
+  ...
+# Subtest: training UI exposes 5000 total and active matches with high-concurrency warning
+ok 113 - training UI exposes 5000 total and active matches with high-concurrency warning
+  ---
+  duration_ms: 0.325445
+  type: 'test'
+  ...
+# Subtest: browser uses the real AppData adapter, not an unused implementation
+ok 114 - browser uses the real AppData adapter, not an unused implementation
+  ---
+  duration_ms: 0.200659
+  type: 'test'
+  ...
+# Subtest: card-count text is vertically centered in the source progress-bar fill
+ok 115 - card-count text is vertically centered in the source progress-bar fill
+  ---
+  duration_ms: 0.215491
+  type: 'test'
+  ...
+# Subtest: failed live-match writes remain retryable and the Learning Center still opens offline
+ok 116 - failed live-match writes remain retryable and the Learning Center still opens offline
+  ---
+  duration_ms: 0.272026
+  type: 'test'
+  ...
+# Subtest: a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+ok 117 - a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+  ---
+  duration_ms: 33.553446
+  type: 'test'
+  ...
+# Subtest: v038 records have a new simulation tag for changed spawn and navigation rules
+ok 118 - v038 records have a new simulation tag for changed spawn and navigation rules
+  ---
+  duration_ms: 10.851109
+  type: 'test'
+  ...
+# Subtest: v038 accepts the previous engine0.32 including four-card recordings
+ok 119 - v038 accepts the previous engine0.32 including four-card recordings
+  ---
+  duration_ms: 2.256915
+  type: 'test'
+  ...
+# Subtest: v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+ok 120 - v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+  ---
+  duration_ms: 3.243115
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+ok 121 - v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+  ---
+  duration_ms: 58.932498
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+ok 122 - v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+  ---
+  duration_ms: 1425.237703
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 boat.json reproduces the original digest through seeks
+ok 123 - v038 historical engine0.32 boat.json reproduces the original digest through seeks
+  ---
+  duration_ms: 23.235151
+  type: 'test'
+  ...
+# Subtest: v038 frozen browser replay global does not overwrite live modules
+ok 124 - v038 frozen browser replay global does not overwrite live modules
+  ---
+  duration_ms: 70.116658
+  type: 'test'
+  ...
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+ok 125 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 11.761174
+  type: 'test'
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+ok 126 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 7.202348
+  type: 'test'
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+ok 127 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 2.936138
+  type: 'test'
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+ok 128 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 1.847795
+  type: 'test'
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+ok 129 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.192908
+  type: 'test'
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+ok 130 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 4.690403
+  type: 'test'
+  ...
+# Subtest: saved special decks use full catalog without mutating ownership or regular decks
+ok 131 - saved special decks use full catalog without mutating ownership or regular decks
+  ---
+  duration_ms: 8.673411
+  type: 'test'
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+ok 132 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 21.984526
+  type: 'test'
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+ok 133 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 2.848967
+  type: 'test'
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+ok 134 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 1.753615
+  type: 'test'
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+ok 135 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 32.377152
+  type: 'test'
+  ...
+# Subtest: new modes retain distinct learning experience contexts
+ok 136 - new modes retain distinct learning experience contexts
+  ---
+  duration_ms: 0.426836
+  type: 'test'
+  ...
+# Subtest: old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+ok 137 - old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+  ---
+  duration_ms: 171.79526
+  type: 'test'
+  ...
+# Subtest: all new mode replays retain deck sizes, restrictions and arena selection
+ok 138 - all new mode replays retain deck sizes, restrictions and arena selection
+  ---
+  duration_ms: 37.918693
+  type: 'test'
+  ...
+# Subtest: v0441 Rumble kings are pushed deeper into enlarged castle ends with safe rear clearance
+ok 139 - v0441 Rumble kings are pushed deeper into enlarged castle ends with safe rear clearance
+  ---
+  duration_ms: 9.474065
+  type: 'test'
+  ...
+# Subtest: v0441 custom king health presentation uses a detached safe label above the tower art
+ok 140 - v0441 custom king health presentation uses a detached safe label above the tower art
+  ---
+  duration_ms: 0.400998
+  type: 'test'
+  ...
+# Subtest: v0441 custom arena source contains rear-courtyard detail layers for 3v3 and 5v5
+ok 141 - v0441 custom arena source contains rear-courtyard detail layers for 3v3 and 5v5
+  ---
+  duration_ms: 0.272857
+  type: 'test'
+  ...
+# Subtest: v150 player card use requires both reached arena and permanent ownership
+ok 142 - v150 player card use requires both reached arena and permanent ownership
+  ---
+  duration_ms: 7.233425
+  type: 'test'
+  ...
+# Subtest: v150 illegal saved deck card is removed until both requirements are met
+ok 143 - v150 illegal saved deck card is removed until both requirements are met
+  ---
+  duration_ms: 0.707524
+  type: 'test'
+  ...
+# Subtest: v150 old chest uses highest reached arena pool when opened, not earned arena
+ok 144 - v150 old chest uses highest reached arena pool when opened, not earned arena
+  ---
+  duration_ms: 141.206645
+  type: 'test'
+  ...
+# Subtest: v150 chest pool expands when highest arena increases even before opening
+ok 145 - v150 chest pool expands when highest arena increases even before opening
+  ---
+  duration_ms: 0.890267
+  type: 'test'
+  ...
+# Subtest: v150 normal bot decks are arena legal without chest ownership simulation
+ok 146 - v150 normal bot decks are arena legal without chest ownership simulation
+  ---
+  duration_ms: 77.707205
+  type: 'test'
+  ...
+# Subtest: v150 self-play deck generator accepts an arena limit
+ok 147 - v150 self-play deck generator accepts an arena limit
+  ---
+  duration_ms: 8.519312
+  type: 'test'
+  ...
+# Subtest: v190 any eligible first-copy grant discovers a card, not only chests
+ok 148 - v190 any eligible first-copy grant discovers a card, not only chests
+  ---
+  duration_ms: 1.244636
+  type: 'test'
+  ...
+# Subtest: v150 exact Bats example: arena reach makes Bats chest-eligible, first chest copy unlocks use
+ok 149 - v150 exact Bats example: arena reach makes Bats chest-eligible, first chest copy unlocks use
+  ---
+  duration_ms: 1.129995
+  type: 'test'
+  ...
+# Subtest: polish retains all 206 source animations instead of reverting to nine icons
+ok 150 - polish retains all 206 source animations instead of reverting to nine icons
+  ---
+  duration_ms: 1.069064
+  type: 'test'
+  ...
+# Subtest: v250 camera preserves uniform asset scale and an independently sized battle frame
+ok 151 - v250 camera preserves uniform asset scale and an independently sized battle frame
+  ---
+  duration_ms: 0.22147
+  type: 'test'
+  ...
+# Subtest: each imported emote has original paired scene clips and an existing texture
+ok 152 - each imported emote has original paired scene clips and an existing texture
+  ---
+  duration_ms: 479.605417
+  type: 'test'
+  ...
+1..152
+# tests 152
+# suites 0
+# pass 152
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3668.717929

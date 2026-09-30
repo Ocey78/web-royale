@@ -1,0 +1,472 @@
+TAP version 13
+# Subtest: phone battle occupies the same width as the menu, including shorter Safari viewports
+ok 1 - phone battle occupies the same width as the menu, including shorter Safari viewports
+  ---
+  duration_ms: 0.876427
+  type: 'test'
+  ...
+# Subtest: compact composition preserves world aspect and every world boundary above the hand
+ok 2 - compact composition preserves world aspect and every world boundary above the hand
+  ---
+  duration_ms: 0.357733
+  type: 'test'
+  ...
+# Subtest: complete source Crown Tower health exports fit the phone arena, asleep and active
+ok 3 - complete source Crown Tower health exports fit the phone arena, asleep and active
+  ---
+  duration_ms: 62.392905
+  type: 'test'
+  ...
+# Subtest: desktop framing and camera restore exactly after phone rotation or layout changes
+ok 4 - desktop framing and camera restore exactly after phone rotation or layout changes
+  ---
+  duration_ms: 0.432675
+  type: 'test'
+  ...
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+ok 5 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 0.991548
+  type: 'test'
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+ok 6 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 13.235186
+  type: 'test'
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+ok 7 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 1.383162
+  type: 'test'
+  ...
+# Subtest: custom battles do not decode an unused Trophy Road arena
+ok 8 - custom battles do not decode an unused Trophy Road arena
+  ---
+  duration_ms: 958.60781
+  type: 'test'
+  ...
+# Subtest: custom arena quality follows saved background and texture policy
+ok 9 - custom arena quality follows saved background and texture policy
+  ---
+  duration_ms: 13.540742
+  type: 'test'
+  ...
+# Subtest: local King HP is painted above destruction dust rather than covered by it
+ok 10 - local King HP is painted above destruction dust rather than covered by it
+  ---
+  duration_ms: 1.674065
+  type: 'test'
+  ...
+# Subtest: primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+ok 11 - primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+  ---
+  duration_ms: 12.954008
+  type: 'test'
+  ...
+# Subtest: custom scenery exposes a separately drawn foreground and obeys the animation toggle
+ok 12 - custom scenery exposes a separately drawn foreground and obeys the animation toggle
+  ---
+  duration_ms: 9.524005
+  type: 'test'
+  ...
+# Subtest: 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+ok 13 - 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+  ---
+  duration_ms: 1.477602
+  type: 'test'
+  ...
+# Subtest: 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+ok 14 - 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+  ---
+  duration_ms: 14.205343
+  type: 'test'
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+ok 15 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 2.961334
+  type: 'test'
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+ok 16 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 47.21362
+  type: 'test'
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+ok 17 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 4.027874
+  type: 'test'
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 18 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.415599
+  type: 'test'
+  ...
+# Subtest: Bridge has a real outboard route past the King for the largest ground body
+ok 19 - Bridge has a real outboard route past the King for the largest ground body
+  ---
+  duration_ms: 1.90579
+  type: 'test'
+  ...
+# Subtest: Sandbox accepts extended Rumble corners without teleporting placements to old borders
+ok 20 - Sandbox accepts extended Rumble corners without teleporting placements to old borders
+  ---
+  duration_ms: 4.145629
+  type: 'test'
+  ...
+# Subtest: largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+ok 21 - largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+  ---
+  duration_ms: 72.446003
+  type: 'test'
+  ...
+# Subtest: air units in narrow Bridge mode keep their outboard movement permission
+ok 22 - air units in narrow Bridge mode keep their outboard movement permission
+  ---
+  duration_ms: 1.722027
+  type: 'test'
+  ...
+# Subtest: v045 Trophy Road reports league progression past Serenity Peak
+ok 23 - v045 Trophy Road reports league progression past Serenity Peak
+  ---
+  duration_ms: 7.217968
+  type: 'test'
+  ...
+# Subtest: v045 custom map families expose three 5v5, three 3v3 and three bridge geometries
+ok 24 - v045 custom map families expose three 5v5, three 3v3 and three bridge geometries
+  ---
+  duration_ms: 0.361479
+  type: 'test'
+  ...
+# Subtest: v045 custom map selection is deterministic and uses true geometry variants
+ok 25 - v045 custom map selection is deterministic and uses true geometry variants
+  ---
+  duration_ms: 1.116184
+  type: 'test'
+  ...
+# Subtest: v045 custom modes have multiple named decks paged five at a time
+ok 26 - v045 custom modes have multiple named decks paged five at a time
+  ---
+  duration_ms: 24.780785
+  type: 'test'
+  ...
+# Subtest: v045 touchdown modes use towerless purpose-built maps and team sizes
+ok 27 - v045 touchdown modes use towerless purpose-built maps and team sizes
+  ---
+  duration_ms: 12.741872
+  type: 'test'
+  ...
+# Subtest: v045 touchdown scores when a troop crosses goal and ends at three
+ok 28 - v045 touchdown scores when a troop crosses goal and ends at three
+  ---
+  duration_ms: 4.007748
+  type: 'test'
+  ...
+# Subtest: v045 FFA has four teams and only last King ends it before time
+ok 29 - v045 FFA has four teams and only last King ends it before time
+  ---
+  duration_ms: 8.512257
+  type: 'test'
+  ...
+# Subtest: v045 FFA normal timer enters overtime instead of comparing only blue and red
+ok 30 - v045 FFA normal timer enters overtime instead of comparing only blue and red
+  ---
+  duration_ms: 3.076425
+  type: 'test'
+  ...
+# Subtest: v045 FFA losses remain losses and four-team receipts survive normalization
+ok 31 - v045 FFA losses remain losses and four-team receipts survive normalization
+  ---
+  duration_ms: 13.710445
+  type: 'test'
+  ...
+# Subtest: v045 other-mode builders expose full catalog without unlocking ranked collection
+ok 32 - v045 other-mode builders expose full catalog without unlocking ranked collection
+  ---
+  duration_ms: 7.382063
+  type: 'test'
+  ...
+# Subtest: v045 themed 3v3 maps retain the proven Bastion collision geometry
+ok 33 - v045 themed 3v3 maps retain the proven Bastion collision geometry
+  ---
+  duration_ms: 1.574928
+  type: 'test'
+  ...
+# Subtest: v045 themed Bridge maps retain the proven Causeway collision geometry
+ok 34 - v045 themed Bridge maps retain the proven Causeway collision geometry
+  ---
+  duration_ms: 0.238225
+  type: 'test'
+  ...
+# Subtest: v045 reverse-arch Rumble has swept rear routes behind every tower
+ok 35 - v045 reverse-arch Rumble has swept rear routes behind every tower
+  ---
+  duration_ms: 63.134104
+  type: 'test'
+  ...
+# Subtest: v045 four-bridge Rumble exposes four genuinely two-tile-wide crossings for large troops
+ok 36 - v045 four-bridge Rumble exposes four genuinely two-tile-wide crossings for large troops
+  ---
+  duration_ms: 0.792241
+  type: 'test'
+  ...
+# Subtest: v045 touchdown lanes are unobstructed on Touchdown
+ok 37 - v045 touchdown lanes are unobstructed on Touchdown
+  ---
+  duration_ms: 0.232988
+  type: 'test'
+  ...
+# Subtest: v045 touchdown lanes are unobstructed on Touchdown3v3
+ok 38 - v045 touchdown lanes are unobstructed on Touchdown3v3
+  ---
+  duration_ms: 0.206738
+  type: 'test'
+  ...
+# Subtest: v046 current arena registry retires the v045 FFA geometry
+ok 39 - v046 current arena registry retires the v045 FFA geometry
+  ---
+  duration_ms: 0.120539
+  type: 'test'
+  ...
+# Subtest: v045 every custom expansion map advertises layered themed presentation
+ok 40 - v045 every custom expansion map advertises layered themed presentation
+  ---
+  duration_ms: 88.445296
+  type: 'test'
+  ...
+# Subtest: v045 touchdown retains its dedicated presentation layer after FFA retirement
+ok 41 - v045 touchdown retains its dedicated presentation layer after FFA retirement
+  ---
+  duration_ms: 2.642088
+  type: 'test'
+  ...
+# Subtest: v045 historical FFA replays preserve four-team state through frozen engine
+ok 42 - v045 historical FFA replays preserve four-team state through frozen engine
+  ---
+  duration_ms: 10.296016
+  type: 'test'
+  ...
+# Subtest: v045 historical 3v3 touchdown replay validates six seats
+ok 43 - v045 historical 3v3 touchdown replay validates six seats
+  ---
+  duration_ms: 6.329204
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 Rumble replays use the frozen v044 engine
+ok 44 - v045 historical 0.44 Rumble replays use the frozen v044 engine
+  ---
+  duration_ms: 36.448756
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 cannot claim support for Touchdown
+ok 45 - v045 historical 0.44 cannot claim support for Touchdown
+  ---
+  duration_ms: 1.710259
+  type: 'test'
+  ...
+# Subtest: v046 six-card mode has a six-card saved cycle with four-card hand
+ok 46 - v046 six-card mode has a six-card saved cycle with four-card hand
+  ---
+  duration_ms: 12.369967
+  type: 'test'
+  ...
+# Subtest: v046 uncapped elixir stores beyond ten with normal generation timing
+ok 47 - v046 uncapped elixir stores beyond ten with normal generation timing
+  ---
+  duration_ms: 81.337872
+  type: 'test'
+  ...
+# Subtest: v046 removes FFA from current mode registries while keeping touchdown modes
+ok 48 - v046 removes FFA from current mode registries while keeping touchdown modes
+  ---
+  duration_ms: 0.227579
+  type: 'test'
+  ...
+# Subtest: v046 training supports Six Card and Uncapped Elixir
+ok 49 - v046 training supports Six Card and Uncapped Elixir
+  ---
+  duration_ms: 5.379828
+  type: 'test'
+  ...
+# Subtest: v046 Touchdown camera exposes the official-style stadium sidelines around the field
+ok 50 - v046 Touchdown camera exposes the official-style stadium sidelines around the field
+  ---
+  duration_ms: 0.89218
+  type: 'test'
+  ...
+# Subtest: v046 replaces Clan navigation with Online Play coming soon
+ok 51 - v046 replaces Clan navigation with Online Play coming soon
+  ---
+  duration_ms: 0.900312
+  type: 'test'
+  ...
+# Subtest: v046 reorganizes Other Modes groups and removes FFA card
+ok 52 - v046 reorganizes Other Modes groups and removes FFA card
+  ---
+  duration_ms: 0.393006
+  type: 'test'
+  ...
+# Subtest: v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+ok 53 - v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+  ---
+  duration_ms: 0.357473
+  type: 'test'
+  ...
+# Subtest: v250 reference replaces the earlier fixed menu-aspect camera
+ok 54 - v250 reference replaces the earlier fixed menu-aspect camera
+  ---
+  duration_ms: 0.969065
+  type: 'test'
+  ...
+# Subtest: v220 both camera directions round-trip tile centres and every board edge
+ok 55 - v220 both camera directions round-trip tile centres and every board edge
+  ---
+  duration_ms: 0.669648
+  type: 'test'
+  ...
+# Subtest: v220 arena world clip maps exactly to the unchanged HUD-safe viewport
+ok 56 - v220 arena world clip maps exactly to the unchanged HUD-safe viewport
+  ---
+  duration_ms: 0.182292
+  type: 'test'
+  ...
+# Subtest: v220 imitation skins cannot be bought, equipped, or offered as actual skins
+ok 57 - v220 imitation skins cannot be bought, equipped, or offered as actual skins
+  ---
+  duration_ms: 20.623459
+  type: 'test'
+  ...
+# Subtest: v220 retired recolor ownership is refunded once, deduplicated and preserved as a receipt
+ok 58 - v220 retired recolor ownership is refunded once, deduplicated and preserved as a receipt
+  ---
+  duration_ms: 5.583252
+  type: 'test'
+  ...
+# Subtest: v220 refund overflow is saved as credit instead of vanishing at the gem cap
+ok 59 - v220 refund overflow is saved as credit instead of vanishing at the gem cap
+  ---
+  duration_ms: 4.516221
+  type: 'test'
+  ...
+# Subtest: v220 malformed refund fields do not create currency or remove unrelated progress
+ok 60 - v220 malformed refund fields do not create currency or remove unrelated progress
+  ---
+  duration_ms: 1.761205
+  type: 'test'
+  ...
+# Subtest: polish retains all 206 source animations instead of reverting to nine icons
+ok 61 - polish retains all 206 source animations instead of reverting to nine icons
+  ---
+  duration_ms: 0.966621
+  type: 'test'
+  ...
+# Subtest: v250 camera preserves uniform asset scale and an independently sized battle frame
+ok 62 - v250 camera preserves uniform asset scale and an independently sized battle frame
+  ---
+  duration_ms: 0.15484
+  type: 'test'
+  ...
+# Subtest: each imported emote has original paired scene clips and an existing texture
+ok 63 - each imported emote has original paired scene clips and an existing texture
+  ---
+  duration_ms: 441.007885
+  type: 'test'
+  ...
+# Subtest: v250 camera projects the measured reference river and field edges
+ok 64 - v250 camera projects the measured reference river and field edges
+  ---
+  duration_ms: 1.555218
+  type: 'test'
+  ...
+# Subtest: v250 battle view retains reference aspect ratio without stretching menus
+ok 65 - v250 battle view retains reference aspect ratio without stretching menus
+  ---
+  duration_ms: 0.315801
+  type: 'test'
+  ...
+# Subtest: v250 a swept move cannot jump completely over a small body
+ok 66 - v250 a swept move cannot jump completely over a small body
+  ---
+  duration_ms: 8.528942
+  type: 'test'
+  ...
+# Subtest: v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+ok 67 - v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+  ---
+  duration_ms: 2.840844
+  type: 'test'
+  ...
+# Subtest: v250 moving contact does not let a following troop erase the front troop footprint
+ok 68 - v250 moving contact does not let a following troop erase the front troop footprint
+  ---
+  duration_ms: 19.880181
+  type: 'test'
+  ...
+# Subtest: committed hit retains a target within source grace and reacquires beyond it
+ok 69 - committed hit retains a target within source grace and reacquires beyond it
+  ---
+  duration_ms: 2.24753
+  type: 'test'
+  ...
+# Subtest: v250 displacement removes Balloon preload rather than granting another fast first hit
+ok 70 - v250 displacement removes Balloon preload rather than granting another fast first hit
+  ---
+  duration_ms: 1.558203
+  type: 'test'
+  ...
+# Subtest: v250 dash destination contacts the target edge rather than its center
+ok 71 - v250 dash destination contacts the target edge rather than its center
+  ---
+  duration_ms: 1.477302
+  type: 'test'
+  ...
+# Subtest: v250 original tower art pivots align with registered source tower landmarks
+ok 72 - v250 original tower art pivots align with registered source tower landmarks
+  ---
+  duration_ms: 0.356401
+  type: 'test'
+  ...
+# Subtest: v250 Hog crosses open river with source jump speed and a visible arc
+ok 73 - v250 Hog crosses open river with source jump speed and a visible arc
+  ---
+  duration_ms: 2.857118
+  type: 'test'
+  ...
+# Subtest: v250 Hog remains grounded across bridges while hovering Ghost does not jump
+ok 74 - v250 Hog remains grounded across bridges while hovering Ghost does not jump
+  ---
+  duration_ms: 2.655988
+  type: 'test'
+  ...
+# Subtest: v250 Princess is attached at the authored height rather than double that height
+ok 75 - v250 Princess is attached at the authored height rather than double that height
+  ---
+  duration_ms: 0.131466
+  type: 'test'
+  ...
+# Subtest: v250 high resolution source caches stay bounded for giant arena backdrops
+ok 76 - v250 high resolution source caches stay bounded for giant arena backdrops
+  ---
+  duration_ms: 0.285986
+  type: 'test'
+  ...
+# Subtest: v250 King activation follows its source timeline instead of popping to an idle cannon
+ok 77 - v250 King activation follows its source timeline instead of popping to an idle cannon
+  ---
+  duration_ms: 0.130244
+  type: 'test'
+  ...
+1..77
+# tests 77
+# suites 0
+# pass 77
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1299.274654

@@ -1,0 +1,772 @@
+TAP version 13
+# Subtest: spawn groups preserve legal source spread and settle whole bodies inside arena walls
+ok 1 - spawn groups preserve legal source spread and settle whole bodies inside arena walls
+  ---
+  duration_ms: 12.351436
+  type: 'test'
+  ...
+# Subtest: spawn settling retains airborne and source hover permissions over water
+ok 2 - spawn settling retains airborne and source hover permissions over water
+  ---
+  duration_ms: 2.791522
+  type: 'test'
+  ...
+# Subtest: river death payloads retain their origin while later mobile children settle on land
+ok 3 - river death payloads retain their origin while later mobile children settle on land
+  ---
+  duration_ms: 7.320425
+  type: 'test'
+  ...
+# Subtest: ground spawn settlement chooses a nearby bank despite fractional-radius tangency
+ok 4 - ground spawn settlement chooses a nearby bank despite fractional-radius tangency
+  ---
+  duration_ms: 1.861736
+  type: 'test'
+  ...
+# Subtest: Mother Witch curse is applied by impact, never by an unarrived projectile
+ok 5 - Mother Witch curse is applied by impact, never by an unarrived projectile
+  ---
+  duration_ms: 1.886142
+  type: 'test'
+  ...
+# Subtest: Mother Witch lethal projectile curses before death and survives the caster dying
+ok 6 - Mother Witch lethal projectile curses before death and survives the caster dying
+  ---
+  duration_ms: 2.990088
+  type: 'test'
+  ...
+# Subtest: Ram Rider spreads Bola Snare to an unsnared troop between attacks
+ok 7 - Ram Rider spreads Bola Snare to an unsnared troop between attacks
+  ---
+  duration_ms: 2.006141
+  type: 'test'
+  ...
+# Subtest: Hunter pellet hits the first blocker along its path: near-first
+ok 8 - Hunter pellet hits the first blocker along its path: near-first
+  ---
+  duration_ms: 1.490412
+  type: 'test'
+  ...
+# Subtest: Hunter pellet hits the first blocker along its path: far-first
+ok 9 - Hunter pellet hits the first blocker along its path: far-first
+  ---
+  duration_ms: 1.711712
+  type: 'test'
+  ...
+# Subtest: Freeze suspends Elixir Collector production and its remaining production time
+ok 10 - Freeze suspends Elixir Collector production and its remaining production time
+  ---
+  duration_ms: 4.187644
+  type: 'test'
+  ...
+# Subtest: Rage speeds the current Elixir Collector cycle when applied partway through it
+ok 11 - Rage speeds the current Elixir Collector cycle when applied partway through it
+  ---
+  duration_ms: 3.077228
+  type: 'test'
+  ...
+# Subtest: Freeze suspends the remaining Witch spawn cycle
+ok 12 - Freeze suspends the remaining Witch spawn cycle
+  ---
+  duration_ms: 8.168159
+  type: 'test'
+  ...
+# Subtest: Freeze suspends the remaining DarkWitch spawn cycle
+ok 13 - Freeze suspends the remaining DarkWitch spawn cycle
+  ---
+  duration_ms: 5.722292
+  type: 'test'
+  ...
+# Subtest: Freeze suspends the remaining GoblinHut spawn cycle
+ok 14 - Freeze suspends the remaining GoblinHut spawn cycle
+  ---
+  duration_ms: 1.679844
+  type: 'test'
+  ...
+# Subtest: Freeze suspends the remaining BarbarianHut spawn cycle
+ok 15 - Freeze suspends the remaining BarbarianHut spawn cycle
+  ---
+  duration_ms: 4.038932
+  type: 'test'
+  ...
+# Subtest: Freeze suspends the remaining Tombstone spawn cycle
+ok 16 - Freeze suspends the remaining Tombstone spawn cycle
+  ---
+  duration_ms: 2.195504
+  type: 'test'
+  ...
+# Subtest: Freeze suspends the remaining FirespiritHut spawn cycle
+ok 17 - Freeze suspends the remaining FirespiritHut spawn cycle
+  ---
+  duration_ms: 3.528241
+  type: 'test'
+  ...
+# Subtest: Cannon Cart becomes a building that pulls Giant after its moving stage is destroyed
+ok 18 - Cannon Cart becomes a building that pulls Giant after its moving stage is destroyed
+  ---
+  duration_ms: 2.279809
+  type: 'test'
+  ...
+# Subtest: Fisherman remains stationary while charging his source-timed hook
+ok 19 - Fisherman remains stationary while charging his source-timed hook
+  ---
+  duration_ms: 1.934354
+  type: 'test'
+  ...
+# Subtest: Fisherman hook windup cancels on stun
+ok 20 - Fisherman hook windup cancels on stun
+  ---
+  duration_ms: 1.510222
+  type: 'test'
+  ...
+# Subtest: Fisherman hook windup cancels on push
+ok 21 - Fisherman hook windup cancels on push
+  ---
+  duration_ms: 1.658463
+  type: 'test'
+  ...
+# Subtest: Fisherman hook windup cancels on target gone
+ok 22 - Fisherman hook windup cancels on target gone
+  ---
+  duration_ms: 1.889487
+  type: 'test'
+  ...
+# Subtest: Fisherman refuses to complete a charged hook on a newly invisible target
+ok 23 - Fisherman refuses to complete a charged hook on a newly invisible target
+  ---
+  duration_ms: 2.994855
+  type: 'test'
+  ...
+# Subtest: Cannon Cart keeps its target through the source 150ms morph delay
+ok 24 - Cannon Cart keeps its target through the source 150ms morph delay
+  ---
+  duration_ms: 1.588288
+  type: 'test'
+  ...
+# Subtest: Tornado pulls the same distance over equal time in visible and headless simulation steps
+ok 25 - Tornado pulls the same distance over equal time in visible and headless simulation steps
+  ---
+  duration_ms: 5.777214
+  type: 'test'
+  ...
+# Subtest: Tornado attraction does not repeatedly cancel an in-range attack
+ok 26 - Tornado attraction does not repeatedly cancel an in-range attack
+  ---
+  duration_ms: 3.408492
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 27 - BabyDragon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 14.501943
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 28 - BabyDragon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 4.214834
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 29 - BabyDragon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 3.266701
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 30 - BabyDragon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 3.254092
+  type: 'test'
+  ...
+# Subtest: Balloon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 31 - Balloon team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 4.320131
+  type: 'test'
+  ...
+# Subtest: Balloon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 32 - Balloon team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 3.797101
+  type: 'test'
+  ...
+# Subtest: Balloon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 33 - Balloon team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 3.134073
+  type: 'test'
+  ...
+# Subtest: Balloon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 34 - Balloon team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 2.002816
+  type: 'test'
+  ...
+# Subtest: Knight team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 35 - Knight team 0 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 7.891927
+  type: 'test'
+  ...
+# Subtest: Knight team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 36 - Knight team 0 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 4.492599
+  type: 'test'
+  ...
+# Subtest: Knight team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 37 - Knight team 1 lane 0: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 5.271926
+  type: 'test'
+  ...
+# Subtest: Knight team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+ok 38 - Knight team 1 lane 1: clear off-lane deployment advances diagonally without a sideways-only leg
+  ---
+  duration_ms: 5.113965
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 39 - BabyDragon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 28.699812
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 40 - BabyDragon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 32.330705
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 41 - BabyDragon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 14.416045
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 42 - BabyDragon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 16.833608
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 43 - BabyDragon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 9.732031
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 44 - BabyDragon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 10.927844
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 45 - BabyDragon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 8.116292
+  type: 'test'
+  ...
+# Subtest: BabyDragon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 46 - BabyDragon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 7.563358
+  type: 'test'
+  ...
+# Subtest: Balloon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 47 - Balloon team 0 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 14.843593
+  type: 'test'
+  ...
+# Subtest: Balloon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 48 - Balloon team 0 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 22.741818
+  type: 'test'
+  ...
+# Subtest: Balloon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 49 - Balloon team 0 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 15.987188
+  type: 'test'
+  ...
+# Subtest: Balloon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 50 - Balloon team 0 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 13.335363
+  type: 'test'
+  ...
+# Subtest: Balloon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 51 - Balloon team 1 lane 0, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 10.788846
+  type: 'test'
+  ...
+# Subtest: Balloon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 52 - Balloon team 1 lane 0, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 12.431855
+  type: 'test'
+  ...
+# Subtest: Balloon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+ok 53 - Balloon team 1 lane 1, Princess alive: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 11.199088
+  type: 'test'
+  ...
+# Subtest: Balloon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+ok 54 - Balloon team 1 lane 1, Princess absent: empty-board flight has no artificial corner when the same Crown enters sight
+  ---
+  duration_ms: 13.808439
+  type: 'test'
+  ...
+# Subtest: movement converts source tiles per minute to tiles per second
+ok 55 - movement converts source tiles per minute to tiles per second
+  ---
+  duration_ms: 0.743007
+  type: 'test'
+  ...
+# Subtest: unobstructed one-second movement equals the converted source distance
+ok 56 - unobstructed one-second movement equals the converted source distance
+  ---
+  duration_ms: 8.863826
+  type: 'test'
+  ...
+# Subtest: projectiles use the same source speed unit conversion
+ok 57 - projectiles use the same source speed unit conversion
+  ---
+  duration_ms: 2.868056
+  type: 'test'
+  ...
+# Subtest: Miner stays untargetable during source-speed underground travel plus deployment
+ok 58 - Miner stays untargetable during source-speed underground travel plus deployment
+  ---
+  duration_ms: 7.401937
+  type: 'test'
+  ...
+# Subtest: Royal Hogs and Royal Recruits use source summon width
+ok 59 - Royal Hogs and Royal Recruits use source summon width
+  ---
+  duration_ms: 3.617303
+  type: 'test'
+  ...
+# Subtest: platform has explicit local repository and match-session interfaces
+ok 60 - platform has explicit local repository and match-session interfaces
+  ---
+  duration_ms: 0.935595
+  type: 'test'
+  ...
+# Subtest: repository migrates the existing v4 local save without changing its key
+ok 61 - repository migrates the existing v4 local save without changing its key
+  ---
+  duration_ms: 7.131553
+  type: 'test'
+  ...
+# Subtest: blocked browser storage remains an honest session-only repository
+ok 62 - blocked browser storage remains an honest session-only repository
+  ---
+  duration_ms: 2.346048
+  type: 'test'
+  ...
+# Subtest: corrupted save is normalized instead of crashing the application
+ok 63 - corrupted save is normalized instead of crashing the application
+  ---
+  duration_ms: 3.375533
+  type: 'test'
+  ...
+# Subtest: match commands are sequenced and replaying the same command cannot deploy twice
+ok 64 - match commands are sequenced and replaying the same command cannot deploy twice
+  ---
+  duration_ms: 8.723247
+  type: 'test'
+  ...
+# Subtest: malformed and non-finite commands cannot mutate a match
+ok 65 - malformed and non-finite commands cannot mutate a match
+  ---
+  duration_ms: 2.723431
+  type: 'test'
+  ...
+# Subtest: fixed-step session advances reproduce equivalent simulated time and pause freezes it
+ok 66 - fixed-step session advances reproduce equivalent simulated time and pause freezes it
+  ---
+  duration_ms: 8.802645
+  type: 'test'
+  ...
+# Subtest: session snapshot is an independent view, not mutable game authority
+ok 67 - session snapshot is an independent view, not mutable game authority
+  ---
+  duration_ms: 3.375654
+  type: 'test'
+  ...
+# Subtest: every non-choice road reward maps to an original game icon, not a question-mark placeholder
+ok 68 - every non-choice road reward maps to an original game icon, not a question-mark placeholder
+  ---
+  duration_ms: 2.739805
+  type: 'test'
+  ...
+# Subtest: tokens and wild cards use their own rarity-specific graphics
+ok 69 - tokens and wild cards use their own rarity-specific graphics
+  ---
+  duration_ms: 0.196162
+  type: 'test'
+  ...
+# Subtest: tiebreak message immediately replaces queued overtime and elixir announcements
+ok 70 - tiebreak message immediately replaces queued overtime and elixir announcements
+  ---
+  duration_ms: 1.069224
+  type: 'test'
+  ...
+# Subtest: tiebreak announcement survives pauses until resolution and resets for another match
+ok 71 - tiebreak announcement survives pauses until resolution and resets for another match
+  ---
+  duration_ms: 0.151126
+  type: 'test'
+  ...
+# Subtest: native timer shows tiebreak label without an elixir regeneration badge
+ok 72 - native timer shows tiebreak label without an elixir regeneration badge
+  ---
+  duration_ms: 0.241501
+  type: 'test'
+  ...
+# Subtest: v036 graphics defaults and invalid values normalize independently
+ok 73 - v036 graphics defaults and invalid values normalize independently
+  ---
+  duration_ms: 1.378705
+  type: 'test'
+  ...
+# Subtest: v036 profile exports and imports all four graphics options
+ok 74 - v036 profile exports and imports all four graphics options
+  ---
+  duration_ms: 4.81534
+  type: 'test'
+  ...
+# Subtest: v036 quality tiers control texture rasterization and animation cadence
+ok 75 - v036 quality tiers control texture rasterization and animation cadence
+  ---
+  duration_ms: 0.191826
+  type: 'test'
+  ...
+# Subtest: v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+ok 76 - v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+  ---
+  duration_ms: 0.108622
+  type: 'test'
+  ...
+# Subtest: v036 particle sampler honors a pre-sampling budget
+ok 77 - v036 particle sampler honors a pre-sampling budget
+  ---
+  duration_ms: 0.700745
+  type: 'test'
+  ...
+# Subtest: v040 gold stack on every ranked win, including between milestones
+ok 78 - v040 gold stack on every ranked win, including between milestones
+  ---
+  duration_ms: 46.2032
+  type: 'test'
+  ...
+# Subtest: v040 gold reroll per match within a tier, not when redrawing or loading
+ok 79 - v040 gold reroll per match within a tier, not when redrawing or loading
+  ---
+  duration_ms: 214.186786
+  type: 'test'
+  ...
+# Subtest: v040 gems stack on every ranked win, including between milestones
+ok 80 - v040 gems stack on every ranked win, including between milestones
+  ---
+  duration_ms: 22.819134
+  type: 'test'
+  ...
+# Subtest: v040 gems reroll per match within a tier, not when redrawing or loading
+ok 81 - v040 gems reroll per match within a tier, not when redrawing or loading
+  ---
+  duration_ms: 210.926194
+  type: 'test'
+  ...
+# Subtest: v040 large streak receipts and result metadata survive save/import beyond old single-tier caps
+ok 82 - v040 large streak receipts and result metadata survive save/import beyond old single-tier caps
+  ---
+  duration_ms: 1.371745
+  type: 'test'
+  ...
+# Subtest: v040 ranked loss/draw clear tiers; non-ranked battles neither earn tiers nor break them
+ok 83 - v040 ranked loss/draw clear tiers; non-ranked battles neither earn tiers nor break them
+  ---
+  duration_ms: 5.078493
+  type: 'test'
+  ...
+# Subtest: v040 stacked rewards respect wallet caps and the saved result only reports credited currency
+ok 84 - v040 stacked rewards respect wallet caps and the saved result only reports credited currency
+  ---
+  duration_ms: 0.889766
+  type: 'test'
+  ...
+# Subtest: v040 old saves keep their streak without retrospective payout or receipt recomputation
+ok 85 - v040 old saves keep their streak without retrospective payout or receipt recomputation
+  ---
+  duration_ms: 1.424964
+  type: 'test'
+  ...
+# Subtest: v040 every paid emote costs 50 gems and every paid tower style costs 100
+ok 86 - v040 every paid emote costs 50 gems and every paid tower style costs 100
+  ---
+  duration_ms: 0.455449
+  type: 'test'
+  ...
+# Subtest: v040 emote purchase charges new price exactly once and preserves ownership
+ok 87 - v040 emote purchase charges new price exactly once and preserves ownership
+  ---
+  duration_ms: 3.105391
+  type: 'test'
+  ...
+# Subtest: v040 tower skin purchase charges new price exactly once and preserves ownership
+ok 88 - v040 tower skin purchase charges new price exactly once and preserves ownership
+  ---
+  duration_ms: 2.225348
+  type: 'test'
+  ...
+# Subtest: v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices
+ok 89 - v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices
+  ---
+  duration_ms: 2173.115891
+  type: 'test'
+  ...
+# Subtest: v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload
+ok 90 - v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload
+  ---
+  duration_ms: 4.360355
+  type: 'test'
+  ...
+# Subtest: v040 silver chest can be bought for 15 gems with usable loot and without a battle chest slot
+ok 91 - v040 silver chest can be bought for 15 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 2.240073
+  type: 'test'
+  ...
+# Subtest: v040 gold chest can be bought for 35 gems with usable loot and without a battle chest slot
+ok 92 - v040 gold chest can be bought for 35 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.989649
+  type: 'test'
+  ...
+# Subtest: v040 magic chest can be bought for 50 gems with usable loot and without a battle chest slot
+ok 93 - v040 magic chest can be bought for 50 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.831001
+  type: 'test'
+  ...
+# Subtest: v040 giant chest can be bought for 65 gems with usable loot and without a battle chest slot
+ok 94 - v040 giant chest can be bought for 65 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 2.223387
+  type: 'test'
+  ...
+# Subtest: v040 epic chest can be bought for 80 gems with usable loot and without a battle chest slot
+ok 95 - v040 epic chest can be bought for 80 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.840045
+  type: 'test'
+  ...
+# Subtest: v040 legendary chest can be bought for 100 gems with usable loot and without a battle chest slot
+ok 96 - v040 legendary chest can be bought for 100 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 2.618727
+  type: 'test'
+  ...
+# Subtest: v040 Giant chest has its own Common/Rare loot, not the generic Silver fallback
+ok 97 - v040 Giant chest has its own Common/Rare loot, not the generic Silver fallback
+  ---
+  duration_ms: 0.58955
+  type: 'test'
+  ...
+# Subtest: v040 Legendary chest cannot charge an early-arena player for an empty reward
+ok 98 - v040 Legendary chest cannot charge an early-arena player for an empty reward
+  ---
+  duration_ms: 2.339109
+  type: 'test'
+  ...
+# Subtest: v040 Epic and Legendary chests grant only their respective rarity
+ok 99 - v040 Epic and Legendary chests grant only their respective rarity
+  ---
+  duration_ms: 3.522334
+  type: 'test'
+  ...
+# Subtest: v040 unknown and prototype chest kinds cannot bypass pricing
+ok 100 - v040 unknown and prototype chest kinds cannot bypass pricing
+  ---
+  duration_ms: 5.734365
+  type: 'test'
+  ...
+# Subtest: 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+ok 101 - 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+  ---
+  duration_ms: 12.344807
+  type: 'test'
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+ok 102 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 5.840017
+  type: 'test'
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+ok 103 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 38.614204
+  type: 'test'
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+ok 104 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 4.060905
+  type: 'test'
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 105 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.442069
+  type: 'test'
+  ...
+# Subtest: Bridge has a real outboard route past the King for the largest ground body
+ok 106 - Bridge has a real outboard route past the King for the largest ground body
+  ---
+  duration_ms: 1.614587
+  type: 'test'
+  ...
+# Subtest: Sandbox accepts extended Rumble corners without teleporting placements to old borders
+ok 107 - Sandbox accepts extended Rumble corners without teleporting placements to old borders
+  ---
+  duration_ms: 3.81605
+  type: 'test'
+  ...
+# Subtest: largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+ok 108 - largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+  ---
+  duration_ms: 57.275578
+  type: 'test'
+  ...
+# Subtest: air units in narrow Bridge mode keep their outboard movement permission
+ok 109 - air units in narrow Bridge mode keep their outboard movement permission
+  ---
+  duration_ms: 1.718242
+  type: 'test'
+  ...
+# Subtest: v045 every custom expansion map advertises layered themed presentation
+ok 110 - v045 every custom expansion map advertises layered themed presentation
+  ---
+  duration_ms: 56.217897
+  type: 'test'
+  ...
+# Subtest: v045 touchdown retains its dedicated presentation layer after FFA retirement
+ok 111 - v045 touchdown retains its dedicated presentation layer after FFA retirement
+  ---
+  duration_ms: 2.147311
+  type: 'test'
+  ...
+# Subtest: Fireball uses source projectile, trail, gravity and impact graph
+ok 112 - Fireball uses source projectile, trail, gravity and impact graph
+  ---
+  duration_ms: 1.265467
+  type: 'test'
+  ...
+# Subtest: Fireball stays a moving projectile before impact and carries source visual names
+ok 113 - Fireball stays a moving projectile before impact and carries source visual names
+  ---
+  duration_ms: 13.873266
+  type: 'test'
+  ...
+# Subtest: v250 camera projects the measured reference river and field edges
+ok 114 - v250 camera projects the measured reference river and field edges
+  ---
+  duration_ms: 2.066031
+  type: 'test'
+  ...
+# Subtest: v250 battle view retains reference aspect ratio without stretching menus
+ok 115 - v250 battle view retains reference aspect ratio without stretching menus
+  ---
+  duration_ms: 0.290313
+  type: 'test'
+  ...
+# Subtest: v250 a swept move cannot jump completely over a small body
+ok 116 - v250 a swept move cannot jump completely over a small body
+  ---
+  duration_ms: 8.325704
+  type: 'test'
+  ...
+# Subtest: v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+ok 117 - v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+  ---
+  duration_ms: 2.809999
+  type: 'test'
+  ...
+# Subtest: v250 moving contact does not let a following troop erase the front troop footprint
+ok 118 - v250 moving contact does not let a following troop erase the front troop footprint
+  ---
+  duration_ms: 19.459665
+  type: 'test'
+  ...
+# Subtest: committed hit retains a target within source grace and reacquires beyond it
+ok 119 - committed hit retains a target within source grace and reacquires beyond it
+  ---
+  duration_ms: 2.601839
+  type: 'test'
+  ...
+# Subtest: v250 displacement removes Balloon preload rather than granting another fast first hit
+ok 120 - v250 displacement removes Balloon preload rather than granting another fast first hit
+  ---
+  duration_ms: 1.52203
+  type: 'test'
+  ...
+# Subtest: v250 dash destination contacts the target edge rather than its center
+ok 121 - v250 dash destination contacts the target edge rather than its center
+  ---
+  duration_ms: 1.458725
+  type: 'test'
+  ...
+# Subtest: v250 original tower art pivots align with registered source tower landmarks
+ok 122 - v250 original tower art pivots align with registered source tower landmarks
+  ---
+  duration_ms: 0.352876
+  type: 'test'
+  ...
+# Subtest: v250 Hog crosses open river with source jump speed and a visible arc
+ok 123 - v250 Hog crosses open river with source jump speed and a visible arc
+  ---
+  duration_ms: 2.398245
+  type: 'test'
+  ...
+# Subtest: v250 Hog remains grounded across bridges while hovering Ghost does not jump
+ok 124 - v250 Hog remains grounded across bridges while hovering Ghost does not jump
+  ---
+  duration_ms: 3.105611
+  type: 'test'
+  ...
+# Subtest: v250 Princess is attached at the authored height rather than double that height
+ok 125 - v250 Princess is attached at the authored height rather than double that height
+  ---
+  duration_ms: 0.121781
+  type: 'test'
+  ...
+# Subtest: v250 high resolution source caches stay bounded for giant arena backdrops
+ok 126 - v250 high resolution source caches stay bounded for giant arena backdrops
+  ---
+  duration_ms: 0.281039
+  type: 'test'
+  ...
+# Subtest: v250 King activation follows its source timeline instead of popping to an idle cannon
+ok 127 - v250 King activation follows its source timeline instead of popping to an idle cannon
+  ---
+  duration_ms: 0.129523
+  type: 'test'
+  ...
+1..127
+# tests 127
+# suites 0
+# pass 127
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3294.606744

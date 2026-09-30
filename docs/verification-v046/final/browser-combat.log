@@ -1,0 +1,18 @@
+runtime loaded
+UI artwork loaded
+PASS v0.46.0 boot
+PASS Online Play coming soon replaces Clan navigation
+PASS Custom Modes grouped into clean sections
+PASS Practice heading removed
+PASS FFA card removed
+PASS Six Card mode visible
+PASS Uncapped Elixir visible
+PASS 3v3-jungle uses requested geometry
+PASS 3v3-jungle canvas fits phone
+PASS 3v3-volcano uses requested geometry
+PASS 3v3-volcano canvas fits phone
+PASS bridge-frozen uses requested geometry
+PASS bridge-frozen canvas fits phone
+PASS bridge-lava uses requested geometry
+PASS bridge-lava canvas fits phone
+PASS No browser exceptions

@@ -1,0 +1,13 @@
+runtime loaded
+UI artwork loaded
+PASS v0.46.0 boot
+PASS Online Play coming soon replaces Clan navigation
+PASS Custom Modes grouped into clean sections
+PASS Practice heading removed
+PASS FFA card removed
+PASS Six Card mode visible
+PASS Uncapped Elixir visible
+PASS Six Card builder has six slots
+PASS Uncapped Elixir retains more than ten
+PASS Trophy Road shows league after Serenity Peak
+PASS No browser exceptions

@@ -1,8 +1,9 @@
 'use strict';
 const test=require('node:test'),A=require('node:assert/strict');
-const C=require('../src/core.js'),P=require('../src/progression.js'),S=require('../src/arena-selection.js'),L=require('../src/arena-layout.js'),D=require('../src/deck-manager.js');
+const C=require('../src/core.js'),P=require('../src/progression.js'),S=require('../src/arena-selection.js'),L=require('../src/arena-layout.js'),D=require('../src/deck-manager.js'),Old45=require('../src/legacy-core-v045.js');
 
 function rich(extra={}){return C.normalizeProfile({trophies:5200,highestTrophies:5200,unlockedCards:C.CARDS.map(c=>c.id),copies:Object.fromEntries(C.CARDS.map(c=>[c.id,100])),cardLevels:Object.fromEntries(C.CARDS.map(c=>[c.id,9])),...extra});}
+function rich45(extra={}){return Old45.normalizeProfile({trophies:5200,highestTrophies:5200,unlockedCards:Old45.CARDS.map(c=>c.id),copies:Object.fromEntries(Old45.CARDS.map(c=>[c.id,100])),cardLevels:Object.fromEntries(Old45.CARDS.map(c=>[c.id,9])),...extra});}
 
 test('v045 Trophy Road reports league progression past Serenity Peak',()=>{
  const p=rich({trophies:5200,highestTrophies:5200});
@@ -52,7 +53,7 @@ test('v045 touchdown scores when a troop crosses goal and ends at three',()=>{
 });
 
 test('v045 FFA has four teams and only last King ends it before time',()=>{
- const b=new C.Battle({mode:'FreeForAll',queue:'ffa',profile:rich(),ai:false,seed:9});
+ const b=new Old45.Battle({mode:'FreeForAll',queue:'ffa',profile:rich45(),ai:false,seed:9});
  A.equal(b.seatCount,4);A.equal(b.teamCount,4);A.equal(b.towers.filter(t=>t.king).length,4);
  A.deepEqual(b.seats.map(s=>b.teamOf(s)),[0,1,2,3]);
  for(const team of [1,2]){const k=b.towers.find(t=>t.king&&t.team===team);k.hp=0;k.dead=true;}
@@ -61,23 +62,23 @@ test('v045 FFA has four teams and only last King ends it before time',()=>{
 });
 
 test('v045 FFA normal timer enters overtime instead of comparing only blue and red',()=>{
- const b=new C.Battle({mode:'FreeForAll',queue:'ffa',profile:rich(),ai:false,seed:10});
+ const b=new Old45.Battle({mode:'FreeForAll',queue:'ffa',profile:rich45(),ai:false,seed:10});
  const normal=b.timeline.SectionLength[0];b.time=normal+.01;b.checkResult();
  A.equal(b.result,null);A.equal(b.overtime,true);
 });
 
 test('v045 FFA losses remain losses and four-team receipts survive normalization',()=>{
- const p=rich({gold:0,wins:0,losses:0,draws:0});
- const b=new C.Battle({mode:'FreeForAll',queue:'ffa',profile:p,ai:false,seed:31});
+ const p=rich45({gold:0,wins:0,losses:0,draws:0});
+ const b=new Old45.Battle({mode:'FreeForAll',queue:'ffa',profile:p,ai:false,seed:31});
  b.crowns=[0,0,0,0];b.result={winner:2,reason:'Last King standing'};b.time=90;
- const q=C.applyResult(p,b);A.equal(q.losses,1);A.equal(q.draws,0);A.equal(q.history[0].winner,2);A.equal(q.history[0].crowns.length,4);
- const round=C.normalizeProfile(JSON.parse(JSON.stringify(q)));A.equal(round.history[0].winner,2);A.equal(round.history[0].crowns.length,4);
+ const q=Old45.applyResult(p,b);A.equal(q.losses,1);A.equal(q.draws,0);A.equal(q.history[0].winner,2);A.equal(q.history[0].crowns.length,4);
+ const round=Old45.normalizeProfile(JSON.parse(JSON.stringify(q)));A.equal(round.history[0].winner,2);A.equal(round.history[0].crowns.length,4);
 });
 
 test('v045 other-mode builders expose full catalog without unlocking ranked collection',()=>{
  const p=C.normalizeProfile({trophies:0,highestTrophies:0});
  A.ok(p.unlockedCards.length<C.CARDS.length);
- for(const mode of ['TeamVsTeam','Team3v3','TeamRumble','BridgeBattle','Touchdown','Touchdown2v2','Touchdown3v3','FreeForAll','DoubleElixir']){
+ for(const mode of ['TeamVsTeam','Team3v3','TeamRumble','BridgeBattle','Touchdown','Touchdown2v2','Touchdown3v3','DoubleElixir']){
   const state=D.modeState(p,mode);A.equal(state.eligible.length,C.CARDS.filter(c=>C.allowedInMode(c.id,mode)).length,mode);
  }
  const after=D.modeState(p,'TeamRumble');A.deepEqual(C.normalizeProfile(p).unlockedCards,p.unlockedCards);A.ok(after.eligible.length>p.unlockedCards.length);

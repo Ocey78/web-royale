@@ -1,0 +1,12 @@
+runtime loaded
+UI artwork loaded
+PASS v0.46.0 boot
+PASS Online Play coming soon replaces Clan navigation
+PASS Custom Modes grouped into clean sections
+PASS Practice heading removed
+PASS FFA card removed
+PASS Six Card mode visible
+PASS Uncapped Elixir visible
+PASS rumble-reverse uses requested geometry
+PASS rumble-reverse canvas fits phone
+PASS No browser exceptions

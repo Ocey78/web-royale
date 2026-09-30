@@ -69,7 +69,7 @@ test('browser loading keeps current and all historical engine globals isolated',
  assert.equal(context.RoyaleLegacyCore028,Legacy028);
  assert.equal(context.RoyaleLegacyCore030,Legacy030);
  assert.notEqual(context.RoyaleLegacyCore031.Battle,Current.Battle);
- assert.equal(context.RoyaleReplay.ENGINE,'0.45');
+ assert.equal(context.RoyaleReplay.ENGINE,'0.46');
  const record=require('./fixtures/replay-v031/boat.json'),session=new context.RoyaleReplay.Session(record);
  assert.ok(session.battle instanceof context.RoyaleLegacyCore031.Battle);
  session.seek(record.duration);
@@ -80,7 +80,7 @@ test('browser loading keeps current and all historical engine globals isolated',
 test('current records use engine0.43 while unsupported engine tags remain rejected',()=>{
  const b=new Current.Battle({ai:false,seed:422});Replay.captureInitial(b);
  const record=Replay.pack(b);
- assert.equal(record.engine,'0.45');
+ assert.equal(record.engine,'0.46');
  assert.ok(new Replay.Session(record).battle instanceof Current.Battle);
  for(const engine of ['0.29','0.33','0.99'])assert.throws(()=>Replay.validate({...record,engine}),/different simulation version/);
 });

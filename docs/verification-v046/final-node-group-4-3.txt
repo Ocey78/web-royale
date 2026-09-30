@@ -1,0 +1,1024 @@
+TAP version 13
+# Subtest: source traversal includes secondary, death, projectile, area, and attached entities
+ok 1 - source traversal includes secondary, death, projectile, area, and attached entities
+  ---
+  duration_ms: 1.753955
+  type: 'test'
+  ...
+# Subtest: AngryBarbarian follows legal movement across both lanes in both directions
+ok 2 - AngryBarbarian follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 57.795888
+  type: 'test'
+  ...
+# Subtest: Archer follows legal movement across both lanes in both directions
+ok 3 - Archer follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 22.756708
+  type: 'test'
+  ...
+# Subtest: Assassin follows legal movement across both lanes in both directions
+ok 4 - Assassin follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 16.638131
+  type: 'test'
+  ...
+# Subtest: AxeMan follows legal movement across both lanes in both directions
+ok 5 - AxeMan follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 13.762518
+  type: 'test'
+  ...
+# Subtest: BabyDragon follows legal movement across both lanes in both directions
+ok 6 - BabyDragon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 4.361493
+  type: 'test'
+  ...
+# Subtest: Balloon follows legal movement across both lanes in both directions
+ok 7 - Balloon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 4.176106
+  type: 'test'
+  ...
+# Subtest: Barbarian follows legal movement across both lanes in both directions
+ok 8 - Barbarian follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 15.105471
+  type: 'test'
+  ...
+# Subtest: Bat follows legal movement across both lanes in both directions
+ok 9 - Bat follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 2.828026
+  type: 'test'
+  ...
+# Subtest: BattleHealer follows legal movement across both lanes in both directions
+ok 10 - BattleHealer follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 5.149337
+  type: 'test'
+  ...
+# Subtest: BattleRam follows legal movement across both lanes in both directions
+ok 11 - BattleRam follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.809967
+  type: 'test'
+  ...
+# Subtest: BlowdartGoblin follows legal movement across both lanes in both directions
+ok 12 - BlowdartGoblin follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 7.721762
+  type: 'test'
+  ...
+# Subtest: Bomber follows legal movement across both lanes in both directions
+ok 13 - Bomber follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 10.213647
+  type: 'test'
+  ...
+# Subtest: Bowler follows legal movement across both lanes in both directions
+ok 14 - Bowler follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 33.232006
+  type: 'test'
+  ...
+# Subtest: DarkPrince follows legal movement across both lanes in both directions
+ok 15 - DarkPrince follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 8.161468
+  type: 'test'
+  ...
+# Subtest: DarkWitch follows legal movement across both lanes in both directions
+ok 16 - DarkWitch follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.561487
+  type: 'test'
+  ...
+# Subtest: DartBarrell follows legal movement across both lanes in both directions
+ok 17 - DartBarrell follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.359729
+  type: 'test'
+  ...
+# Subtest: DeliveryRecruit follows legal movement across both lanes in both directions
+ok 18 - DeliveryRecruit follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.689648
+  type: 'test'
+  ...
+# Subtest: ElectroDragon follows legal movement across both lanes in both directions
+ok 19 - ElectroDragon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.148454
+  type: 'test'
+  ...
+# Subtest: ElectroGiant follows legal movement across both lanes in both directions
+ok 20 - ElectroGiant follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 42.57213
+  type: 'test'
+  ...
+# Subtest: ElectroSpirit follows legal movement across both lanes in both directions
+ok 21 - ElectroSpirit follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 9.750017
+  type: 'test'
+  ...
+# Subtest: ElectroWizard follows legal movement across both lanes in both directions
+ok 22 - ElectroWizard follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.377192
+  type: 'test'
+  ...
+# Subtest: EliteArcher follows legal movement across both lanes in both directions
+ok 23 - EliteArcher follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 10.206336
+  type: 'test'
+  ...
+# Subtest: ElixirGolem1 follows legal movement across both lanes in both directions
+ok 24 - ElixirGolem1 follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 21.151395
+  type: 'test'
+  ...
+# Subtest: ElixirGolem2 follows legal movement across both lanes in both directions
+ok 25 - ElixirGolem2 follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 13.615279
+  type: 'test'
+  ...
+# Subtest: ElixirGolem4 follows legal movement across both lanes in both directions
+ok 26 - ElixirGolem4 follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 18.467032
+  type: 'test'
+  ...
+# Subtest: Firecracker follows legal movement across both lanes in both directions
+ok 27 - Firecracker follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 15.161555
+  type: 'test'
+  ...
+# Subtest: FireSpirits follows legal movement across both lanes in both directions
+ok 28 - FireSpirits follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 14.046952
+  type: 'test'
+  ...
+# Subtest: Fisherman follows legal movement across both lanes in both directions
+ok 29 - Fisherman follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 18.886297
+  type: 'test'
+  ...
+# Subtest: Ghost follows legal movement across both lanes in both directions
+ok 30 - Ghost follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.766786
+  type: 'test'
+  ...
+# Subtest: Giant follows legal movement across both lanes in both directions
+ok 31 - Giant follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 65.974832
+  type: 'test'
+  ...
+# Subtest: GiantSkeleton follows legal movement across both lanes in both directions
+ok 32 - GiantSkeleton follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 36.983169
+  type: 'test'
+  ...
+# Subtest: Goblin follows legal movement across both lanes in both directions
+ok 33 - Goblin follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 6.967978
+  type: 'test'
+  ...
+# Subtest: GoblinBrawler follows legal movement across both lanes in both directions
+ok 34 - GoblinBrawler follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 9.848543
+  type: 'test'
+  ...
+# Subtest: GoblinGiant follows legal movement across both lanes in both directions
+ok 35 - GoblinGiant follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.258776
+  type: 'test'
+  ...
+# Subtest: Golem follows legal movement across both lanes in both directions
+ok 36 - Golem follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 45.868906
+  type: 'test'
+  ...
+# Subtest: Golemite follows legal movement across both lanes in both directions
+ok 37 - Golemite follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 13.154412
+  type: 'test'
+  ...
+# Subtest: HealSpirit follows legal movement across both lanes in both directions
+ok 38 - HealSpirit follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 8.757537
+  type: 'test'
+  ...
+# Subtest: HogRider follows legal movement across both lanes in both directions
+ok 39 - HogRider follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.847085
+  type: 'test'
+  ...
+# Subtest: Hunter follows legal movement across both lanes in both directions
+ok 40 - Hunter follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 12.625614
+  type: 'test'
+  ...
+# Subtest: IceGolemite follows legal movement across both lanes in both directions
+ok 41 - IceGolemite follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 14.617374
+  type: 'test'
+  ...
+# Subtest: IceSpirits follows legal movement across both lanes in both directions
+ok 42 - IceSpirits follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 9.891868
+  type: 'test'
+  ...
+# Subtest: IceWizard follows legal movement across both lanes in both directions
+ok 43 - IceWizard follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 10.867803
+  type: 'test'
+  ...
+# Subtest: InfernoDragon follows legal movement across both lanes in both directions
+ok 44 - InfernoDragon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.419458
+  type: 'test'
+  ...
+# Subtest: Knight follows legal movement across both lanes in both directions
+ok 45 - Knight follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 16.783422
+  type: 'test'
+  ...
+# Subtest: LavaHound follows legal movement across both lanes in both directions
+ok 46 - LavaHound follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.287822
+  type: 'test'
+  ...
+# Subtest: LavaPups follows legal movement across both lanes in both directions
+ok 47 - LavaPups follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 2.717822
+  type: 'test'
+  ...
+# Subtest: MegaKnight follows legal movement across both lanes in both directions
+ok 48 - MegaKnight follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 10.603098
+  type: 'test'
+  ...
+# Subtest: MegaMinion follows legal movement across both lanes in both directions
+ok 49 - MegaMinion follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.099361
+  type: 'test'
+  ...
+# Subtest: Miner follows legal movement across both lanes in both directions
+ok 50 - Miner follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.705872
+  type: 'test'
+  ...
+# Subtest: Minion follows legal movement across both lanes in both directions
+ok 51 - Minion follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 2.672865
+  type: 'test'
+  ...
+# Subtest: MiniPekka follows legal movement across both lanes in both directions
+ok 52 - MiniPekka follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 8.709635
+  type: 'test'
+  ...
+# Subtest: MiniZapMachine follows legal movement across both lanes in both directions
+ok 53 - MiniZapMachine follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 9.084344
+  type: 'test'
+  ...
+# Subtest: MovingCannon follows legal movement across both lanes in both directions
+ok 54 - MovingCannon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 14.515713
+  type: 'test'
+  ...
+# Subtest: Musketeer follows legal movement across both lanes in both directions
+ok 55 - Musketeer follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.493225
+  type: 'test'
+  ...
+# Subtest: Pekka follows legal movement across both lanes in both directions
+ok 56 - Pekka follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 39.795171
+  type: 'test'
+  ...
+# Subtest: Prince follows legal movement across both lanes in both directions
+ok 57 - Prince follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 9.712501
+  type: 'test'
+  ...
+# Subtest: Princess follows legal movement across both lanes in both directions
+ok 58 - Princess follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 8.455657
+  type: 'test'
+  ...
+# Subtest: RageBarbarian follows legal movement across both lanes in both directions
+ok 59 - RageBarbarian follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 8.099536
+  type: 'test'
+  ...
+# Subtest: Ram follows legal movement across both lanes in both directions
+ok 60 - Ram follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.174243
+  type: 'test'
+  ...
+# Subtest: RascalBoy follows legal movement across both lanes in both directions
+ok 61 - RascalBoy follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 10.785591
+  type: 'test'
+  ...
+# Subtest: RascalGirl follows legal movement across both lanes in both directions
+ok 62 - RascalGirl follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.380998
+  type: 'test'
+  ...
+# Subtest: Recruit follows legal movement across both lanes in both directions
+ok 63 - Recruit follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 11.931929
+  type: 'test'
+  ...
+# Subtest: RoyalGiant follows legal movement across both lanes in both directions
+ok 64 - RoyalGiant follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 27.051241
+  type: 'test'
+  ...
+# Subtest: RoyalHog follows legal movement across both lanes in both directions
+ok 65 - RoyalHog follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.929068
+  type: 'test'
+  ...
+# Subtest: Skeleton follows legal movement across both lanes in both directions
+ok 66 - Skeleton follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 13.034208
+  type: 'test'
+  ...
+# Subtest: SkeletonBalloon follows legal movement across both lanes in both directions
+ok 67 - SkeletonBalloon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 3.657183
+  type: 'test'
+  ...
+# Subtest: SkeletonDragon follows legal movement across both lanes in both directions
+ok 68 - SkeletonDragon follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 2.712969
+  type: 'test'
+  ...
+# Subtest: SkeletonWarrior follows legal movement across both lanes in both directions
+ok 69 - SkeletonWarrior follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 10.673673
+  type: 'test'
+  ...
+# Subtest: SpearGoblin follows legal movement across both lanes in both directions
+ok 70 - SpearGoblin follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 7.172363
+  type: 'test'
+  ...
+# Subtest: ThreeMusketeer follows legal movement across both lanes in both directions
+ok 71 - ThreeMusketeer follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 12.525775
+  type: 'test'
+  ...
+# Subtest: Valkyrie follows legal movement across both lanes in both directions
+ok 72 - Valkyrie follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 17.846207
+  type: 'test'
+  ...
+# Subtest: VoodooHog follows legal movement across both lanes in both directions
+ok 73 - VoodooHog follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 6.033055
+  type: 'test'
+  ...
+# Subtest: Wallbreaker follows legal movement across both lanes in both directions
+ok 74 - Wallbreaker follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 17.316087
+  type: 'test'
+  ...
+# Subtest: Witch follows legal movement across both lanes in both directions
+ok 75 - Witch follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 15.110208
+  type: 'test'
+  ...
+# Subtest: WitchMother follows legal movement across both lanes in both directions
+ok 76 - WitchMother follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 13.262774
+  type: 'test'
+  ...
+# Subtest: Wizard follows legal movement across both lanes in both directions
+ok 77 - Wizard follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 18.439241
+  type: 'test'
+  ...
+# Subtest: ZapMachine follows legal movement across both lanes in both directions
+ok 78 - ZapMachine follows legal movement across both lanes in both directions
+  ---
+  duration_ms: 14.342564
+  type: 'test'
+  ...
+# Subtest: navigation and execution agree on whole-body arena boundaries
+ok 79 - navigation and execution agree on whole-body arena boundaries
+  ---
+  duration_ms: 0.270884
+  type: 'test'
+  ...
+# Subtest: planner cannot smooth a route across a narrow river-bank corner collision
+ok 80 - planner cannot smooth a route across a narrow river-bank corner collision
+  ---
+  duration_ms: 0.951799
+  type: 'test'
+  ...
+# Subtest: source movement speed is preserved for every independent mobile entity
+ok 81 - source movement speed is preserved for every independent mobile entity
+  ---
+  duration_ms: 51.562906
+  type: 'test'
+  ...
+# Subtest: radius-one troops reach real enemy tower range from oblique approaches
+ok 82 - radius-one troops reach real enemy tower range from oblique approaches
+  ---
+  duration_ms: 27.86909
+  type: 'test'
+  ...
+# Subtest: deterministic angled routes keep planned and executed segment clearance consistent
+ok 83 - deterministic angled routes keep planned and executed segment clearance consistent
+  ---
+  duration_ms: 313.984501
+  type: 'test'
+  ...
+# Subtest: large knockbacks cannot tunnel across the river or live buildings
+ok 84 - large knockbacks cannot tunnel across the river or live buildings
+  ---
+  duration_ms: 6.569153
+  type: 'test'
+  ...
+# Subtest: air, hover, and jump families preserve their source water permissions
+ok 85 - air, hover, and jump families preserve their source water permissions
+  ---
+  duration_ms: 9.379554
+  type: 'test'
+  ...
+# Subtest: hover and jumping ground units still detour around solid buildings
+ok 86 - hover and jumping ground units still detour around solid buildings
+  ---
+  duration_ms: 18.863404
+  type: 'test'
+  ...
+# Subtest: a crowd of mixed source masses can follow a heavy unit over either bridge
+ok 87 - a crowd of mixed source masses can follow a heavy unit over either bridge
+  ---
+  duration_ms: 720.474936
+  type: 'test'
+  ...
+# Subtest: ground death-spawn families remain legal and mobile when their parent dies on a bridge
+ok 88 - ground death-spawn families remain legal and mobile when their parent dies on a bridge
+  ---
+  duration_ms: 34.667841
+  type: 'test'
+  ...
+# Subtest: local menus expose transactional economy actions
+ok 89 - local menus expose transactional economy actions
+  ---
+  duration_ms: 0.669719
+  type: 'test'
+  ...
+# Subtest: daily gift is granted only once per calendar day
+ok 90 - daily gift is granted only once per calendar day
+  ---
+  duration_ms: 5.867648
+  type: 'test'
+  ...
+# Subtest: shop never permits negative balances or duplicate daily purchases
+ok 91 - shop never permits negative balances or duplicate daily purchases
+  ---
+  duration_ms: 6.111031
+  type: 'test'
+  ...
+# Subtest: chest contents use real catalog IDs and do not re-grant after consumption
+ok 92 - chest contents use real catalog IDs and do not re-grant after consumption
+  ---
+  duration_ms: 3.327892
+  type: 'test'
+  ...
+# Subtest: chest wins are respected regardless of wall clock
+ok 93 - chest wins are respected regardless of wall clock
+  ---
+  duration_ms: 3.320381
+  type: 'test'
+  ...
+# Subtest: pass claim requires earned crowns and cannot repeat
+ok 94 - pass claim requires earned crowns and cannot repeat
+  ---
+  duration_ms: 2.09264
+  type: 'test'
+  ...
+# Subtest: invalid shop input cannot create card entries or currency
+ok 95 - invalid shop input cannot create card entries or currency
+  ---
+  duration_ms: 3.780867
+  type: 'test'
+  ...
+# Subtest: stationary Cannon Cart faces a left-hand target with one horizontal reflection
+ok 96 - stationary Cannon Cart faces a left-hand target with one horizontal reflection
+  ---
+  duration_ms: 1.350073
+  type: 'test'
+  ...
+# Subtest: all assets preload once with bounded concurrency, then reuse persisted bytes
+ok 97 - all assets preload once with bounded concurrency, then reuse persisted bytes
+  ---
+  duration_ms: 35.315532
+  type: 'test'
+  ...
+# Subtest: interrupted preload resumes validated entries and retries a transient asset
+ok 98 - interrupted preload resumes validated entries and retries a transient asset
+  ---
+  duration_ms: 3.924851
+  type: 'test'
+  ...
+# Subtest: login HTML or corrupt assets never enter the cache
+ok 99 - login HTML or corrupt assets never enter the cache
+  ---
+  duration_ms: 0.727975
+  type: 'test'
+  ...
+# Subtest: storage denial falls back to bounded HTTP preloading without blocking play
+ok 100 - storage denial falls back to bounded HTTP preloading without blocking play
+  ---
+  duration_ms: 1.092349
+  type: 'test'
+  ...
+# Subtest: legacy or poisoned cache metadata is evicted and repaired before an asset counts as ready
+ok 101 - legacy or poisoned cache metadata is evicted and repaired before an asset counts as ready
+  ---
+  duration_ms: 3.787216
+  type: 'test'
+  ...
+# Subtest: quota exhaustion after a successful cache write completes through HTTP and preserves resumable entries
+ok 102 - quota exhaustion after a successful cache write completes through HTTP and preserves resumable entries
+  ---
+  duration_ms: 4.208494
+  type: 'test'
+  ...
+# Subtest: preload catalog cannot fetch documents, external origins or unversioned URLs
+ok 103 - preload catalog cannot fetch documents, external origins or unversioned URLs
+  ---
+  duration_ms: 0.609419
+  type: 'test'
+  ...
+# Subtest: all102 sandbox cards expose finite Level0 and99 stats and match their spawned entity definitions
+ok 104 - all102 sandbox cards expose finite Level0 and99 stats and match their spawned entity definitions
+  ---
+  duration_ms: 3.984901
+  type: 'test'
+  ...
+# Subtest: Level0 real Fireball damage uses the same scale as its card stats
+ok 105 - Level0 real Fireball damage uses the same scale as its card stats
+  ---
+  duration_ms: 11.996606
+  type: 'test'
+  ...
+# Subtest: Level0 Poison area and direct area buffs preserve their level and damage
+ok 106 - Level0 Poison area and direct area buffs preserve their level and damage
+  ---
+  duration_ms: 5.727659
+  type: 'test'
+  ...
+# Subtest: Level0 Golem splits preserve child levels and power stats
+ok 107 - Level0 Golem splits preserve child levels and power stats
+  ---
+  duration_ms: 2.568339
+  type: 'test'
+  ...
+# Subtest: Level0 goblin-giant propagates its level through the live child-spawn chain
+ok 108 - Level0 goblin-giant propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.459077
+  type: 'test'
+  ...
+# Subtest: Level0 witch propagates its level through the live child-spawn chain
+ok 109 - Level0 witch propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 22.242046
+  type: 'test'
+  ...
+# Subtest: Level0 graveyard propagates its level through the live child-spawn chain
+ok 110 - Level0 graveyard propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.93046
+  type: 'test'
+  ...
+# Subtest: Level0 goblin-barrel propagates its level through the live child-spawn chain
+ok 111 - Level0 goblin-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.295584
+  type: 'test'
+  ...
+# Subtest: Level0 barbarian-barrel propagates its level through the live child-spawn chain
+ok 112 - Level0 barbarian-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.587579
+  type: 'test'
+  ...
+# Subtest: Level0 royal-delivery propagates its level through the live child-spawn chain
+ok 113 - Level0 royal-delivery propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.467941
+  type: 'test'
+  ...
+# Subtest: Level0 crown towers use their requested isolated definitions
+ok 114 - Level0 crown towers use their requested isolated definitions
+  ---
+  duration_ms: 2.085219
+  type: 'test'
+  ...
+# Subtest: Level99 real Fireball damage uses the same scale as its card stats
+ok 115 - Level99 real Fireball damage uses the same scale as its card stats
+  ---
+  duration_ms: 2.308031
+  type: 'test'
+  ...
+# Subtest: Level99 Poison area and direct area buffs preserve their level and damage
+ok 116 - Level99 Poison area and direct area buffs preserve their level and damage
+  ---
+  duration_ms: 3.979964
+  type: 'test'
+  ...
+# Subtest: Level99 Golem splits preserve child levels and power stats
+ok 117 - Level99 Golem splits preserve child levels and power stats
+  ---
+  duration_ms: 1.359747
+  type: 'test'
+  ...
+# Subtest: Level99 goblin-giant propagates its level through the live child-spawn chain
+ok 118 - Level99 goblin-giant propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 1.723079
+  type: 'test'
+  ...
+# Subtest: Level99 witch propagates its level through the live child-spawn chain
+ok 119 - Level99 witch propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 21.244754
+  type: 'test'
+  ...
+# Subtest: Level99 graveyard propagates its level through the live child-spawn chain
+ok 120 - Level99 graveyard propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 4.060273
+  type: 'test'
+  ...
+# Subtest: Level99 goblin-barrel propagates its level through the live child-spawn chain
+ok 121 - Level99 goblin-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 4.796372
+  type: 'test'
+  ...
+# Subtest: Level99 barbarian-barrel propagates its level through the live child-spawn chain
+ok 122 - Level99 barbarian-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.263696
+  type: 'test'
+  ...
+# Subtest: Level99 royal-delivery propagates its level through the live child-spawn chain
+ok 123 - Level99 royal-delivery propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 2.257285
+  type: 'test'
+  ...
+# Subtest: Level99 crown towers use their requested isolated definitions
+ok 124 - Level99 crown towers use their requested isolated definitions
+  ---
+  duration_ms: 1.682128
+  type: 'test'
+  ...
+# Subtest: Clone preserves the copied troop level while Mirror caps its bonus at99
+ok 125 - Clone preserves the copied troop level while Mirror caps its bonus at99
+  ---
+  duration_ms: 2.487018
+  type: 'test'
+  ...
+# Subtest: extended sandbox definitions never change normal catalog caches, saved caps, or another sandbox
+ok 126 - extended sandbox definitions never change normal catalog caches, saved caps, or another sandbox
+  ---
+  duration_ms: 6.028457
+  type: 'test'
+  ...
+# Subtest: decisive overtime expiry starts one visible phase before granting the result
+ok 127 - decisive overtime expiry starts one visible phase before granting the result
+  ---
+  duration_ms: 9.434977
+  type: 'test'
+  ...
+# Subtest: freezing the board removes queued ally previews and stops interpolation at current positions
+ok 128 - freezing the board removes queued ally previews and stops interpolation at current positions
+  ---
+  duration_ms: 2.536642
+  type: 'test'
+  ...
+# Subtest: drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+ok 129 - drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+  ---
+  duration_ms: 3.344226
+  type: 'test'
+  ...
+# Subtest: lowest surviving raw HP determines the drain winner and awards one crown once
+ok 130 - lowest surviving raw HP determines the drain winner and awards one crown once
+  ---
+  duration_ms: 4.243447
+  type: 'test'
+  ...
+# Subtest: a lowest King tower awards three crowns and keeps the tiebreak result reason
+ok 131 - a lowest King tower awards three crowns and keeps the tiebreak result reason
+  ---
+  duration_ms: 1.492035
+  type: 'test'
+  ...
+# Subtest: already destroyed towers are excluded and near-equal surviving minima remain draws
+ok 132 - already destroyed towers are excluded and near-equal surviving minima remain draws
+  ---
+  duration_ms: 1.547477
+  type: 'test'
+  ...
+# Subtest: pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+ok 133 - pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+  ---
+  duration_ms: 3.076396
+  type: 'test'
+  ...
+# Subtest: troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+ok 134 - troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+  ---
+  duration_ms: 2.215032
+  type: 'test'
+  ...
+# Subtest: boat battles preserve their own timeout without a crown-tower tiebreak phase
+ok 135 - boat battles preserve their own timeout without a crown-tower tiebreak phase
+  ---
+  duration_ms: 2.038289
+  type: 'test'
+  ...
+# Subtest: new replay records reproduce the drain while older records preserve their immediate result
+ok 136 - new replay records reproduce the drain while older records preserve their immediate result
+  ---
+  duration_ms: 369.010986
+  type: 'test'
+  ...
+# Subtest: replay validation rejects unknown engines and malformed tiebreak rules
+ok 137 - replay validation rejects unknown engines and malformed tiebreak rules
+  ---
+  duration_ms: 1.756879
+  type: 'test'
+  ...
+# Subtest: v036 untouched troops share one badge; damage moves only that troop to individual
+ok 138 - v036 untouched troops share one badge; damage moves only that troop to individual
+  ---
+  duration_ms: 1.056815
+  type: 'test'
+  ...
+# Subtest: v036 two surviving troops both use individual badges
+ok 139 - v036 two surviving troops both use individual badges
+  ---
+  duration_ms: 0.742107
+  type: 'test'
+  ...
+# Subtest: v036 shield damage counts, dead/hidden units do not, deployments stay separate
+ok 140 - v036 shield damage counts, dead/hidden units do not, deployments stay separate
+  ---
+  duration_ms: 0.481157
+  type: 'test'
+  ...
+# Subtest: v036 separate casts of a swarm have distinct persistent visual group IDs
+ok 141 - v036 separate casts of a swarm have distinct persistent visual group IDs
+  ---
+  duration_ms: 8.200336
+  type: 'test'
+  ...
+# Subtest: v036 mixed-unit card formations share a group ID without changing entity sequence
+ok 142 - v036 mixed-unit card formations share a group ID without changing entity sequence
+  ---
+  duration_ms: 2.794486
+  type: 'test'
+  ...
+# Subtest: Crown Level is one plus lifetime crowns divided by ten, with automatic old save migration
+ok 143 - Crown Level is one plus lifetime crowns divided by ten, with automatic old save migration
+  ---
+  duration_ms: 18.417119
+  type: 'test'
+  ...
+# Subtest: existing Crown Chest claims neither lower Crown Level nor consume Crown Road progress
+ok 144 - existing Crown Chest claims neither lower Crown Level nor consume Crown Road progress
+  ---
+  duration_ms: 2.925351
+  type: 'test'
+  ...
+# Subtest: Crown Road claims pay once, reject future claims, and preserve old inventory
+ok 145 - Crown Road claims pay once, reject future claims, and preserve old inventory
+  ---
+  duration_ms: 9.996895
+  type: 'test'
+  ...
+# Subtest: higher Crown Road milestones have much better gold, gems and premium rewards
+ok 146 - higher Crown Road milestones have much better gold, gems and premium rewards
+  ---
+  duration_ms: 2.640947
+  type: 'test'
+  ...
+# Subtest: all six earned 3v3 crowns reach lifetime and result history, duplicate results cannot repay
+ok 147 - all six earned 3v3 crowns reach lifetime and result history, duplicate results cannot repay
+  ---
+  duration_ms: 3.914526
+  type: 'test'
+  ...
+# Subtest: claim normalization merges ranges, discards future/invalid intervals and does not backdate rewards
+ok 148 - claim normalization merges ranges, discards future/invalid intervals and does not backdate rewards
+  ---
+  duration_ms: 0.56995
+  type: 'test'
+  ...
+# Subtest: Every selectable casual mode has its own complete full-catalog deck
+ok 149 - Every selectable casual mode has its own complete full-catalog deck
+  ---
+  duration_ms: 15.092542
+  type: 'test'
+  ...
+# Subtest: Casual edits and imports do not unlock collection or alter ranked or other decks
+ok 150 - Casual edits and imports do not unlock collection or alter ranked or other decks
+  ---
+  duration_ms: 5.475484
+  type: 'test'
+  ...
+# Subtest: One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+ok 151 - One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+  ---
+  duration_ms: 2.954204
+  type: 'test'
+  ...
+# Subtest: Decks paginate by five and new pages are available beyond ten
+ok 152 - Decks paginate by five and new pages are available beyond ten
+  ---
+  duration_ms: 4.653698
+  type: 'test'
+  ...
+# Subtest: Deck names persist and follow a deck through deletion without reassigning cards
+ok 153 - Deck names persist and follow a deck through deletion without reassigning cards
+  ---
+  duration_ms: 1.987994
+  type: 'test'
+  ...
+# Subtest: v045 historical FFA replays preserve four-team state through frozen engine
+ok 154 - v045 historical FFA replays preserve four-team state through frozen engine
+  ---
+  duration_ms: 11.024487
+  type: 'test'
+  ...
+# Subtest: v045 historical 3v3 touchdown replay validates six seats
+ok 155 - v045 historical 3v3 touchdown replay validates six seats
+  ---
+  duration_ms: 6.040275
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 Rumble replays use the frozen v044 engine
+ok 156 - v045 historical 0.44 Rumble replays use the frozen v044 engine
+  ---
+  duration_ms: 39.806457
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 cannot claim support for Touchdown
+ok 157 - v045 historical 0.44 cannot claim support for Touchdown
+  ---
+  duration_ms: 2.385677
+  type: 'test'
+  ...
+# Subtest: v170 formations module exposes source-driven cardMembers
+ok 158 - v170 formations module exposes source-driven cardMembers
+  ---
+  duration_ms: 2.338496
+  type: 'test'
+  ...
+# Subtest: Archers preview and live deploy show both horizontal members with source stagger
+ok 159 - Archers preview and live deploy show both horizontal members with source stagger
+  ---
+  duration_ms: 10.884438
+  type: 'test'
+  ...
+# Subtest: Skeletons and Goblins use mirrored triangle formations
+ok 160 - Skeletons and Goblins use mirrored triangle formations
+  ---
+  duration_ms: 0.553656
+  type: 'test'
+  ...
+# Subtest: Barbarians form a five-point source-radius star and Recruits span the arena
+ok 161 - Barbarians form a five-point source-radius star and Recruits span the arena
+  ---
+  duration_ms: 0.276452
+  type: 'test'
+  ...
+# Subtest: Skeleton Army scatters across multiple radii rather than one ring
+ok 162 - Skeleton Army scatters across multiple radii rather than one ring
+  ---
+  duration_ms: 0.331064
+  type: 'test'
+  ...
+# Subtest: Goblin Gang and Rascals preview every primary and secondary troop in the real front/back roles
+ok 163 - Goblin Gang and Rascals preview every primary and secondary troop in the real front/back roles
+  ---
+  duration_ms: 1.049985
+  type: 'test'
+  ...
+# Subtest: ground troops are soft bodies during movement but buildings remain hard obstacles
+ok 164 - ground troops are soft bodies during movement but buildings remain hard obstacles
+  ---
+  duration_ms: 20.661134
+  type: 'test'
+  ...
+# Subtest: visible deploying troops participate in spawn push while future stagger members do not
+ok 165 - visible deploying troops participate in spawn push while future stagger members do not
+  ---
+  duration_ms: 1.6901
+  type: 'test'
+  ...
+# Subtest: every summonable card has original native animation mappings
+ok 166 - every summonable card has original native animation mappings
+  ---
+  duration_ms: 4.026764
+  type: 'test'
+  ...
+# Subtest: animated exports use mappings rather than constructing guessed names
+ok 167 - animated exports use mappings rather than constructing guessed names
+  ---
+  duration_ms: 0.258275
+  type: 'test'
+  ...
+# Subtest: all source textures and card portraits are bundled locally
+ok 168 - all source textures and card portraits are bundled locally
+  ---
+  duration_ms: 1.08681
+  type: 'test'
+  ...
+# Subtest: renderer exposes source projectile rendering
+ok 169 - renderer exposes source projectile rendering
+  ---
+  duration_ms: 0.099979
+  type: 'test'
+  ...
+1..169
+# tests 169
+# suites 0
+# pass 169
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3227.54767

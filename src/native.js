@@ -265,6 +265,16 @@ function sceneDependencies(data,game,decks,arenaId){
  if(arenaId!=='custom'){const arena=data.arenas.find(a=>a.id===arenaId)||data.arenas[0];found.add(arena.scene);for(const ob of arena.objects)if(ob.scene)found.add(ob.scene);}
  return [...found].filter(name=>data.scenes[name]).sort();
 }
+function customSourceArenaId(layout){
+ const theme=layout?.theme||'';
+ if(theme==='jungle'||theme==='garden')return'jungle';
+ if(theme==='volcano'||theme==='lava')return'pekka';
+ if(theme==='ice')return'frozen';
+ if(theme==='moon-castle')return'serenity';
+ if(theme==='touchdown'||theme==='touchdown-wide')return'barbarian';
+ if(theme==='river-fort'||theme==='castle'||theme==='bastion')return'royal';
+ return'royal';
+}
 function arenaLayers(a,overtime=false){const layers={Base:0,Ground:1,Object:2,Above:3};return[{name:a.export,x:0,y:0,scene:a.scene,layer:'Base'},...a.objects.filter(o=>!o.visibility||o.visibility==='Always'||(overtime?o.visibility==='Overtime':o.visibility==='NormalTime')).slice().sort((x,y)=>(layers[x.layer]??2)-(layers[y.layer]??2)||(x.sort||0)-(y.sort||0)||x.y-y.y)];}
 class Library{
  constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
@@ -287,7 +297,7 @@ class Library{
  }
  async ensureScenes(names){const queue=[...new Set(names)];let index=0;const worker=async()=>{while(index<queue.length){const name=queue[index++];await this.fetchScene(name);}};await Promise.all(Array.from({length:Math.min(4,queue.length)},worker));return this;}
  retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.metricCache?.clear();}
- async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom)names.push(battle.mode==='TeamRumble'?'level_royal_arena':battle.mode==='BridgeBattle'?'level_ice_arena':'level_spooky_arena');try{await this.ensureScenes(names);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}if(battle.initialDecks?.flat().includes('fireball'))await this.fx?.prewarmFireball?.();}return this;}catch(e){this.error=e.message;throw e;}}
+ async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}try{await this.ensureScenes(names);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}if(battle.initialDecks?.flat().includes('fireball'))await this.fx?.prewarmFireball?.();}return this;}catch(e){this.error=e.message;throw e;}}
  async loadHUD(urls){this.ui={};await Promise.all(['level-crown'].map(async key=>{if(urls[key])this.ui[key]=await imageFrom(urls[key]);}));}
  async load(){try{if(!this.data.streamed)await this.ensureScenes(Object.keys(this.data.scenes));this.ready=true;return this;}catch(e){this.error=e.message;throw e;}}
  setArena(id){if(!this.data.arenas.some(a=>a.id===id))throw RangeError('Unknown arena');if(this.arenaId!==id)this.releaseArenaCache();this.arenaId=id;}
@@ -374,6 +384,12 @@ class Library{
   }
   while(this.arenaCache.size>=2){const old=this.arenaCache.keys().next().value;for(const r of this.arenaCache.get(old))if(r.image){r.image.width=1;r.image.height=1;}this.arenaCache.delete(old);}
   this.arenaCache.set(key,cached);return cached;
+ }
+ drawArenaById(c,arenaId,time=0,overtime=false){
+  const previous=this.arenaId;this.arenaId=arenaId;const cached=this.arenaRuns(overtime);this.arenaId=previous;if(!cached)return false;
+  const g=globalThis.RoyaleGraphics?.current;time=g?.arenaAnimated===false?0:Math.floor(time*(g?.arenaFps||60))/(g?.arenaFps||60);
+  for(const run of cached){if(run.image)c.drawImage(run.image,run.x,run.y,run.w,run.h);else{const op=run.dynamic;c.save();c.transform(...op.m);if(op.blend)c.globalCompositeOperation=op.blend;op.sc.draw(c,op.id,time,{initialColor:op.color,arena:true,still:!op.dynamic,...(op.frame!==undefined?{frame:op.frame}: {})});c.restore();}}
+  return true;
  }
  drawArena(c,time=0,overtime=false){
   const cached=this.arenaRuns(overtime);if(!cached)return false;

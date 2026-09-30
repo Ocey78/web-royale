@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: v046 six-card mode has a six-card saved cycle with four-card hand
+ok 1 - v046 six-card mode has a six-card saved cycle with four-card hand
+  ---
+  duration_ms: 8.32719
+  type: 'test'
+  ...
+# Subtest: v046 uncapped elixir stores beyond ten with normal generation timing
+ok 2 - v046 uncapped elixir stores beyond ten with normal generation timing
+  ---
+  duration_ms: 72.649878
+  type: 'test'
+  ...
+# Subtest: v046 removes FFA from current mode registries while keeping touchdown modes
+ok 3 - v046 removes FFA from current mode registries while keeping touchdown modes
+  ---
+  duration_ms: 0.429761
+  type: 'test'
+  ...
+# Subtest: v046 training supports Six Card and Uncapped Elixir
+ok 4 - v046 training supports Six Card and Uncapped Elixir
+  ---
+  duration_ms: 4.015514
+  type: 'test'
+  ...
+# Subtest: v046 Touchdown camera exposes the official-style stadium sidelines around the field
+ok 5 - v046 Touchdown camera exposes the official-style stadium sidelines around the field
+  ---
+  duration_ms: 1.056935
+  type: 'test'
+  ...
+# Subtest: v046 records use simulation tag 0.46 and preserve six-card cycles
+ok 6 - v046 records use simulation tag 0.46 and preserve six-card cycles
+  ---
+  duration_ms: 9.887686
+  type: 'test'
+  ...
+# Subtest: v046 loads v045 FFA replays through the frozen legacy engine after FFA removal
+ok 7 - v046 loads v045 FFA replays through the frozen legacy engine after FFA removal
+  ---
+  duration_ms: 9.185558
+  type: 'test'
+  ...
+# Subtest: v046 replaces Clan navigation with Online Play coming soon
+ok 8 - v046 replaces Clan navigation with Online Play coming soon
+  ---
+  duration_ms: 1.194641
+  type: 'test'
+  ...
+# Subtest: v046 reorganizes Other Modes groups and removes FFA card
+ok 9 - v046 reorganizes Other Modes groups and removes FFA card
+  ---
+  duration_ms: 0.445955
+  type: 'test'
+  ...
+# Subtest: v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+ok 10 - v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+  ---
+  duration_ms: 0.501497
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 241.771869

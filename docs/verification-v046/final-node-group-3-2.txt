@@ -1,0 +1,538 @@
+TAP version 13
+# Subtest: asset worker activates without downloading or caching any document
+ok 1 - asset worker activates without downloading or caching any document
+  ---
+  duration_ms: 24.403176
+  type: 'test'
+  ...
+# Subtest: exact versioned artwork, compressed scenes, audio, emotes and training URLs reuse cached responses
+ok 2 - exact versioned artwork, compressed scenes, audio, emotes and training URLs reuse cached responses
+  ---
+  duration_ms: 10.131797
+  type: 'test'
+  ...
+# Subtest: documents, authentication, APIs and requests outside the exact asset scope pass through untouched
+ok 3 - documents, authentication, APIs and requests outside the exact asset scope pass through untouched
+  ---
+  duration_ms: 1.766303
+  type: 'test'
+  ...
+# Subtest: a different asset version cannot reuse an old cache entry
+ok 4 - a different asset version cannot reuse an old cache entry
+  ---
+  duration_ms: 1.645153
+  type: 'test'
+  ...
+# Subtest: cache misses retain the original request and use the network without writing
+ok 5 - cache misses retain the original request and use the network without writing
+  ---
+  duration_ms: 1.204145
+  type: 'test'
+  ...
+# Subtest: cache storage denial or cache read failure falls back to one normal network request
+ok 6 - cache storage denial or cache read failure falls back to one normal network request
+  ---
+  duration_ms: 1.995475
+  type: 'test'
+  ...
+# Subtest: cached failed responses are not served as game assets
+ok 7 - cached failed responses are not served as game assets
+  ---
+  duration_ms: 1.251306
+  type: 'test'
+  ...
+# Subtest: network authorization redirects and failures are returned without persistence or rewriting
+ok 8 - network authorization redirects and failures are returned without persistence or rewriting
+  ---
+  duration_ms: 1.997829
+  type: 'test'
+  ...
+# Subtest: streamed scenes preserve animation values in ordinary and compressed delivery
+ok 9 - streamed scenes preserve animation values in ordinary and compressed delivery
+  ---
+  duration_ms: 36.648774
+  type: 'test'
+  ...
+# Subtest: v110: persistent reward learner and recorder are implemented
+ok 10 - v110: persistent reward learner and recorder are implemented
+  ---
+  duration_ms: 1.103485
+  type: 'test'
+  ...
+# Subtest: reward changes actual action values; neutral logs alone do not train
+ok 11 - reward changes actual action values; neutral logs alone do not train
+  ---
+  duration_ms: 3.959984
+  type: 'test'
+  ...
+# Subtest: negative reward decreases a selected action and updates survive JSON reload
+ok 12 - negative reward decreases a selected action and updates survive JSON reload
+  ---
+  duration_ms: 2.361051
+  type: 'test'
+  ...
+# Subtest: model rejects mismatched snapshots, NaN and infinite weights
+ok 13 - model rejects mismatched snapshots, NaN and infinite weights
+  ---
+  duration_ms: 0.433727
+  type: 'test'
+  ...
+# Subtest: clipped rewards and gradients cannot explode over long runs
+ok 14 - clipped rewards and gradients cannot explode over long runs
+  ---
+  duration_ms: 47.071775
+  type: 'test'
+  ...
+# Subtest: match records retain actions even after the visual event ring rolls over
+ok 15 - match records retain actions even after the visual event ring rolls over
+  ---
+  duration_ms: 6.581172
+  type: 'test'
+  ...
+# Subtest: every bot in a 2v2 match uses the same learned weights
+ok 16 - every bot in a 2v2 match uses the same learned weights
+  ---
+  duration_ms: 180.744272
+  type: 'test'
+  ...
+# Subtest: cheat matches are recorded but cannot train the shared policy
+ok 17 - cheat matches are recorded but cannot train the shared policy
+  ---
+  duration_ms: 53.728641
+  type: 'test'
+  ...
+# Subtest: summoning units does not manufacture a positive damage/trade reward
+ok 18 - summoning units does not manufacture a positive damage/trade reward
+  ---
+  duration_ms: 4.524286
+  type: 'test'
+  ...
+# Subtest: record and policy merge are idempotent and combine independent sessions
+ok 19 - record and policy merge are idempotent and combine independent sessions
+  ---
+  duration_ms: 3.534891
+  type: 'test'
+  ...
+# Subtest: abandoned matches do not receive a false victory reward
+ok 20 - abandoned matches do not receive a false victory reward
+  ---
+  duration_ms: 1.469321
+  type: 'test'
+  ...
+# Subtest: learned policy does not access opponent hand queue or exact resources
+ok 21 - learned policy does not access opponent hand queue or exact resources
+  ---
+  duration_ms: 2.122355
+  type: 'test'
+  ...
+# Subtest: v110: learned action values can distinguish anti-air decisions in an air attack from an empty board
+ok 22 - v110: learned action values can distinguish anti-air decisions in an air attack from an empty board
+  ---
+  duration_ms: 1.282111
+  type: 'test'
+  ...
+# Subtest: v110: repeated healing cannot mint unbounded damage-trade rewards
+ok 23 - v110: repeated healing cannot mint unbounded damage-trade rewards
+  ---
+  duration_ms: 1.570702
+  type: 'test'
+  ...
+# Subtest: source excludes Mirror and Elixir Collector from both opening hands
+ok 24 - source excludes Mirror and Elixir Collector from both opening hands
+  ---
+  duration_ms: 38.513886
+  type: 'test'
+  ...
+# Subtest: shuffled opening differs across seeds and replays identically for a fixed seed
+ok 25 - shuffled opening differs across seeds and replays identically for a fixed seed
+  ---
+  duration_ms: 15.887889
+  type: 'test'
+  ...
+# Subtest: ordered fixtures preserve explicit unshuffled deck order except forbidden openings
+ok 26 - ordered fixtures preserve explicit unshuffled deck order except forbidden openings
+  ---
+  duration_ms: 0.696338
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+ok 27 - historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+  ---
+  duration_ms: 2.95152
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+ok 28 - release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 311.455194
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+ok 29 - release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 305.192487
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 30 - release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 363.144829
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+ok 31 - release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 211.930922
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+ok 32 - release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 214.637267
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+ok 33 - release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 326.1536
+  type: 'test'
+  ...
+# Subtest: engine0.28 boat playback is independent of live simulation and live boat adapter
+ok 34 - engine0.28 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 99.998905
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and both historical engine globals isolated
+ok 35 - browser loading keeps current and both historical engine globals isolated
+  ---
+  duration_ms: 576.803667
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 36 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 8.789425
+  type: 'test'
+  ...
+# Subtest: Mortar placement forecast excludes its blind spot but includes a legal farther target
+ok 37 - Mortar placement forecast excludes its blind spot but includes a legal farther target
+  ---
+  duration_ms: 10.108552
+  type: 'test'
+  ...
+# Subtest: a troop placed in enemy Mortar blind spot is not forecast as immediately attackable
+ok 38 - a troop placed in enemy Mortar blind spot is not forecast as immediately attackable
+  ---
+  duration_ms: 2.511445
+  type: 'test'
+  ...
+# Subtest: v110: menus expose 2v2, learning controls and trophy road navigation
+ok 39 - v110: menus expose 2v2, learning controls and trophy road navigation
+  ---
+  duration_ms: 1.718091
+  type: 'test'
+  ...
+# Subtest: v260: range preview uses the engine forecast and hints cannot be disabled
+ok 40 - v260: range preview uses the engine forecast and hints cannot be disabled
+  ---
+  duration_ms: 41.183586
+  type: 'test'
+  ...
+# Subtest: v110: build emits an offline training worker and all new runtime modules
+ok 41 - v110: build emits an offline training worker and all new runtime modules
+  ---
+  duration_ms: 0.280718
+  type: 'test'
+  ...
+# Subtest: v110: training runs without the browser DOM or any remote game service
+ok 42 - v110: training runs without the browser DOM or any remote game service
+  ---
+  duration_ms: 0.265506
+  type: 'test'
+  ...
+# Subtest: v038 real goblins deployment uses every adjusted preview position
+ok 43 - v038 real goblins deployment uses every adjusted preview position
+  ---
+  duration_ms: 24.113234
+  type: 'test'
+  ...
+# Subtest: v038 real guards deployment uses every adjusted preview position
+ok 44 - v038 real guards deployment uses every adjusted preview position
+  ---
+  duration_ms: 9.11807
+  type: 'test'
+  ...
+# Subtest: v038 real skeleton-army deployment uses every adjusted preview position
+ok 45 - v038 real skeleton-army deployment uses every adjusted preview position
+  ---
+  duration_ms: 15.202196
+  type: 'test'
+  ...
+# Subtest: v038 real rascals deployment uses every adjusted preview position
+ok 46 - v038 real rascals deployment uses every adjusted preview position
+  ---
+  duration_ms: 6.99511
+  type: 'test'
+  ...
+# Subtest: v038 real royal-recruits deployment uses every adjusted preview position
+ok 47 - v038 real royal-recruits deployment uses every adjusted preview position
+  ---
+  duration_ms: 11.610051
+  type: 'test'
+  ...
+# Subtest: v038 real barbarians deployment uses every adjusted preview position
+ok 48 - v038 real barbarians deployment uses every adjusted preview position
+  ---
+  duration_ms: 5.478393
+  type: 'test'
+  ...
+# Subtest: v038 real archers deployment uses every adjusted preview position
+ok 49 - v038 real archers deployment uses every adjusted preview position
+  ---
+  duration_ms: 5.194114
+  type: 'test'
+  ...
+# Subtest: v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 0
+ok 50 - v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 0
+  ---
+  duration_ms: 16.211031
+  type: 'test'
+  ...
+# Subtest: v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 1
+ok 51 - v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 1
+  ---
+  duration_ms: 17.026287
+  type: 'test'
+  ...
+# Subtest: v038 static tower routes are reused instead of recomputing every 650ms
+ok 52 - v038 static tower routes are reused instead of recomputing every 650ms
+  ---
+  duration_ms: 25.722748
+  type: 'test'
+  ...
+# Subtest: v038 Goblin Barrel spreads three goblins around each tower, not through it team 0
+ok 53 - v038 Goblin Barrel spreads three goblins around each tower, not through it team 0
+  ---
+  duration_ms: 7.547073
+  type: 'test'
+  ...
+# Subtest: v038 Goblin Barrel spreads three goblins around each tower, not through it team 1
+ok 54 - v038 Goblin Barrel spreads three goblins around each tower, not through it team 1
+  ---
+  duration_ms: 3.861538
+  type: 'test'
+  ...
+# Subtest: v038 Goblin Barrel landing by banks, arena walls, and a building gives legal separated bodies
+ok 55 - v038 Goblin Barrel landing by banks, arena walls, and a building gives legal separated bodies
+  ---
+  duration_ms: 6.755984
+  type: 'test'
+  ...
+# Subtest: v038 Mirror uses the mirrored troop safe placement rather than a spell anchor
+ok 56 - v038 Mirror uses the mirrored troop safe placement rather than a spell anchor
+  ---
+  duration_ms: 1.157276
+  type: 'test'
+  ...
+# Subtest: v038 an exhausted cached detour retries after a bounded delay
+ok 57 - v038 an exhausted cached detour retries after a bounded delay
+  ---
+  duration_ms: 1.895276
+  type: 'test'
+  ...
+# Subtest: Potato Mode is a persisted render-only override that preserves selected tiers
+ok 58 - Potato Mode is a persisted render-only override that preserves selected tiers
+  ---
+  duration_ms: 8.436268
+  type: 'test'
+  ...
+# Subtest: Potato Mode cannot modify battle simulation results
+ok 59 - Potato Mode cannot modify battle simulation results
+  ---
+  duration_ms: 22.688263
+  type: 'test'
+  ...
+# Subtest: Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+ok 60 - Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+  ---
+  duration_ms: 8.541235
+  type: 'test'
+  ...
+# Subtest: Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+ok 61 - Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+  ---
+  duration_ms: 0.916737
+  type: 'test'
+  ...
+# Subtest: v044 Rumble has two spacious symmetric arches, each with five distinct owners
+ok 62 - v044 Rumble has two spacious symmetric arches, each with five distinct owners
+  ---
+  duration_ms: 10.295621
+  type: 'test'
+  ...
+# Subtest: v044 Rumble multiplier boundaries match remaining regulation and overtime clock
+ok 63 - v044 Rumble multiplier boundaries match remaining regulation and overtime clock
+  ---
+  duration_ms: 8.773611
+  type: 'test'
+  ...
+# Subtest: v044 Princess losses neither score crowns nor decide Rumble regulation
+ok 64 - v044 Princess losses neither score crowns nor decide Rumble regulation
+  ---
+  duration_ms: 3.616943
+  type: 'test'
+  ...
+# Subtest: v044 only King advantage decides regulation even when Princess advantage is opposite
+ok 65 - v044 only King advantage decides regulation even when Princess advantage is opposite
+  ---
+  duration_ms: 3.884782
+  type: 'test'
+  ...
+# Subtest: v044 tied Kings go to overtime despite uneven Princess losses and next King ends match
+ok 66 - v044 tied Kings go to overtime despite uneven Princess losses and next King ends match
+  ---
+  duration_ms: 2.016377
+  type: 'test'
+  ...
+# Subtest: v044 all Kings lost can finish before regulation but Princess destruction in OT never wins
+ok 67 - v044 all Kings lost can finish before regulation but Princess destruction in OT never wins
+  ---
+  duration_ms: 5.431648
+  type: 'test'
+  ...
+# Subtest: v044 final tiebreak compares and drains Kings only
+ok 68 - v044 final tiebreak compares and drains Kings only
+  ---
+  duration_ms: 3.155204
+  type: 'test'
+  ...
+# Subtest: v044 a damaged King schedules all living allied Kings for the same activation time
+ok 69 - v044 a damaged King schedules all living allied Kings for the same activation time
+  ---
+  duration_ms: 3.292339
+  type: 'test'
+  ...
+# Subtest: v044 losing a Princess activates the entire same-side King row, without resurrecting dead Kings
+ok 70 - v044 losing a Princess activates the entire same-side King row, without resurrecting dead Kings
+  ---
+  duration_ms: 2.829479
+  type: 'test'
+  ...
+# Subtest: v044 activation requests never delay an existing activation countdown
+ok 71 - v044 activation requests never delay an existing activation countdown
+  ---
+  duration_ms: 1.9119
+  type: 'test'
+  ...
+# Subtest: v044 all-kings simultaneous destruction is a draw, not an order-dependent win
+ok 72 - v044 all-kings simultaneous destruction is a draw, not an order-dependent win
+  ---
+  duration_ms: 2.094463
+  type: 'test'
+  ...
+# Subtest: v044 non-Rumble modes keep Princess scoring and independent 3v3 King activation
+ok 73 - v044 non-Rumble modes keep Princess scoring and independent 3v3 King activation
+  ---
+  duration_ms: 3.659136
+  type: 'test'
+  ...
+# Subtest: v044 large-body rear starts and gap-to-midfield routes are all swept-clear
+ok 74 - v044 large-body rear starts and gap-to-midfield routes are all swept-clear
+  ---
+  duration_ms: 50.338235
+  type: 'test'
+  ...
+# Subtest: v044 Rumble AI can actually deploy toward both new outer arch lanes
+ok 75 - v044 Rumble AI can actually deploy toward both new outer arch lanes
+  ---
+  duration_ms: 8.563439
+  type: 'test'
+  ...
+# Subtest: v140 fresh profile starts at zero trophies with only starter eight unlocked at base rarity levels
+ok 76 - v140 fresh profile starts at zero trophies with only starter eight unlocked at base rarity levels
+  ---
+  duration_ms: 5.077942
+  type: 'test'
+  ...
+# Subtest: v140 old saves infer ownership without deleting existing cards
+ok 77 - v140 old saves infer ownership without deleting existing cards
+  ---
+  duration_ms: 1.24063
+  type: 'test'
+  ...
+# Subtest: v140 chest discovery unlocks newly received cards
+ok 78 - v140 chest discovery unlocks newly received cards
+  ---
+  duration_ms: 1.946272
+  type: 'test'
+  ...
+# Subtest: v140 Electro Giant reflection ignores spell proxy attackers instead of crashing on ZapFreeze
+ok 79 - v140 Electro Giant reflection ignores spell proxy attackers instead of crashing on ZapFreeze
+  ---
+  duration_ms: 206.636879
+  type: 'test'
+  ...
+# Subtest: v140 addBuff safely rejects non-entity spell proxies
+ok 80 - v140 addBuff safely rejects non-entity spell proxies
+  ---
+  duration_ms: 1.602239
+  type: 'test'
+  ...
+# Subtest: v140 loop restarts preserve high-concurrency acknowledgement
+ok 81 - v140 loop restarts preserve high-concurrency acknowledgement
+  ---
+  duration_ms: 0.606734
+  type: 'test'
+  ...
+# Subtest: v250 reference replaces the earlier fixed menu-aspect camera
+ok 82 - v250 reference replaces the earlier fixed menu-aspect camera
+  ---
+  duration_ms: 0.721465
+  type: 'test'
+  ...
+# Subtest: v220 both camera directions round-trip tile centres and every board edge
+ok 83 - v220 both camera directions round-trip tile centres and every board edge
+  ---
+  duration_ms: 0.486925
+  type: 'test'
+  ...
+# Subtest: v220 arena world clip maps exactly to the unchanged HUD-safe viewport
+ok 84 - v220 arena world clip maps exactly to the unchanged HUD-safe viewport
+  ---
+  duration_ms: 0.136033
+  type: 'test'
+  ...
+# Subtest: v220 imitation skins cannot be bought, equipped, or offered as actual skins
+ok 85 - v220 imitation skins cannot be bought, equipped, or offered as actual skins
+  ---
+  duration_ms: 14.458488
+  type: 'test'
+  ...
+# Subtest: v220 retired recolor ownership is refunded once, deduplicated and preserved as a receipt
+ok 86 - v220 retired recolor ownership is refunded once, deduplicated and preserved as a receipt
+  ---
+  duration_ms: 3.683503
+  type: 'test'
+  ...
+# Subtest: v220 refund overflow is saved as credit instead of vanishing at the gem cap
+ok 87 - v220 refund overflow is saved as credit instead of vanishing at the gem cap
+  ---
+  duration_ms: 4.852004
+  type: 'test'
+  ...
+# Subtest: v220 malformed refund fields do not create currency or remove unrelated progress
+ok 88 - v220 malformed refund fields do not create currency or remove unrelated progress
+  ---
+  duration_ms: 1.826894
+  type: 'test'
+  ...
+1..88
+# tests 88
+# suites 0
+# pass 88
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2941.137018

@@ -5,7 +5,7 @@ function root(){let made=0;const ctx=new Proxy({canvas:{},createLinearGradient:(
 
 test('v045 every custom expansion map advertises layered themed presentation',()=>{
  const {r}=root();
- for(const id of ['TeamRumble','TeamRumbleArcReverse','TeamRumbleRiverLine','Team3v3','Team3v3Jungle','Team3v3Volcano','BridgeBattle','BridgeBattleLava','BridgeBattleGarden','Touchdown','Touchdown3v3','FreeForAll']){
+ for(const id of ['TeamRumble','TeamRumbleArcReverse','TeamRumbleRiverLine','Team3v3','Team3v3Jungle','Team3v3Volcano','BridgeBattle','BridgeBattleLava','BridgeBattleGarden','Touchdown','Touchdown3v3']){
   const cv=r.RoyaleCustomArena.prepare({arenaLayout:L.get(id)},null);
   A.ok(cv.layers.includes('backdrop'),id);
   A.ok(cv.layers.includes('playfield'),id);
@@ -15,11 +15,9 @@ test('v045 every custom expansion map advertises layered themed presentation',()
  }
 });
 
-test('v045 touchdown and FFA expose their dedicated presentation layers',()=>{
+test('v045 touchdown retains its dedicated presentation layer after FFA retirement',()=>{
  const {r}=root();
  const td=r.RoyaleCustomArena.prepare({arenaLayout:L.get('Touchdown3v3')},null);
  A.ok(td.layers.includes('touchdown-stands'));
- r.RoyaleCustomArena.clear();
- const ffa=r.RoyaleCustomArena.prepare({arenaLayout:L.get('FreeForAll')},null);
- A.ok(ffa.layers.includes('ffa-corner-forts'));
+ A.equal(L.get('FreeForAll').id,'classic');
 });

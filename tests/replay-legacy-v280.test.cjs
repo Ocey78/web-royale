@@ -14,7 +14,7 @@ for(const version of ['0.26','0.27'])test(`${version} records retain the histori
 test('new matches record0.41 and use the current simulation',()=>{
  const b=new Current.Battle({ai:false,seed:122,deck});Replay.captureInitial(b);
  assert.equal(b.deploy(0,0,123,430).ok,true);for(let n=0;n<1200;n++)b.step(1/60);
- const record=Replay.pack(b);assert.equal(record.engine,'0.45');
+ const record=Replay.pack(b);assert.equal(record.engine,'0.46');
  const session=new Replay.Session(record);assert.ok(session.battle instanceof Current.Battle);
  session.seek(record.duration);assert.equal(session.error,null);assert.deepEqual(Replay.digest(session.battle),record.expected);
 });

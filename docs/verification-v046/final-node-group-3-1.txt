@@ -1,0 +1,370 @@
+TAP version 13
+# Subtest: current full release matches package version and content-addressed app integrity
+ok 1 - current full release matches package version and content-addressed app integrity
+  ---
+  duration_ms: 6.972837
+  type: 'test'
+  ...
+# Subtest: all runtime assets match their current release hashes
+ok 2 - all runtime assets match their current release hashes
+  ---
+  duration_ms: 282.847029
+  type: 'test'
+  ...
+# Subtest: recovered social, war, replay and fixed queue modules are available
+ok 3 - recovered social, war, replay and fixed queue modules are available
+  ---
+  duration_ms: 193.883407
+  type: 'test'
+  ...
+# Subtest: re-extracted magic and boat art have real locally packaged PNG images
+ok 4 - re-extracted magic and boat art have real locally packaged PNG images
+  ---
+  duration_ms: 1.14664
+  type: 'test'
+  ...
+# Subtest: closing during a rejected chest preload never resurrects its receipt
+ok 5 - closing during a rejected chest preload never resurrects its receipt
+  ---
+  duration_ms: 10.137395
+  type: 'test'
+  ...
+# Subtest: closing during a successful delayed preload also remains closed
+ok 6 - closing during a successful delayed preload also remains closed
+  ---
+  duration_ms: 2.708769
+  type: 'test'
+  ...
+# Subtest: an older rejected preload cannot replace a newer opening or suppress its own current failure
+ok 7 - an older rejected preload cannot replace a newer opening or suppress its own current failure
+  ---
+  duration_ms: 2.145228
+  type: 'test'
+  ...
+# Subtest: a current preload failure shows the already committed receipt without granting it twice
+ok 8 - a current preload failure shows the already committed receipt without granting it twice
+  ---
+  duration_ms: 4.247072
+  type: 'test'
+  ...
+# Subtest: the real Trophy Road claim refreshes claimed state before starting asynchronous chest loading
+ok 9 - the real Trophy Road claim refreshes claimed state before starting asynchronous chest loading
+  ---
+  duration_ms: 7.503598
+  type: 'test'
+  ...
+# Subtest: source particle sampler exists and is deterministic without using combat RNG
+ok 10 - source particle sampler exists and is deterministic without using combat RNG
+  ---
+  duration_ms: 1.791251
+  type: 'test'
+  ...
+# Subtest: source particle lifetime and fade end fully at expiry
+ok 11 - source particle lifetime and fade end fully at expiry
+  ---
+  duration_ms: 2.263195
+  type: 'test'
+  ...
+# Subtest: looping emitter particle budget is bounded even at huge times
+ok 12 - looping emitter particle budget is bounded even at huge times
+  ---
+  duration_ms: 1.182453
+  type: 'test'
+  ...
+# Subtest: projectile arc rises then lands without changing gameplay position
+ok 13 - projectile arc rises then lands without changing gameplay position
+  ---
+  duration_ms: 0.205476
+  type: 'test'
+  ...
+# Subtest: rolling log projectiles are on the ground not suspended at a troop muzzle
+ok 14 - rolling log projectiles are on the ground not suspended at a troop muzzle
+  ---
+  duration_ms: 10.689718
+  type: 'test'
+  ...
+# Subtest: projectile impact records the actual source hit effect rather than a generic blast
+ok 15 - projectile impact records the actual source hit effect rather than a generic blast
+  ---
+  duration_ms: 2.743541
+  type: 'test'
+  ...
+# Subtest: arrows produce a separate visual volley for each damage wave
+ok 16 - arrows produce a separate visual volley for each damage wave
+  ---
+  duration_ms: 3.247242
+  type: 'test'
+  ...
+# Subtest: royal delivery retains its visual descent until the damage actually happens
+ok 17 - royal delivery retains its visual descent until the damage actually happens
+  ---
+  duration_ms: 7.475336
+  type: 'test'
+  ...
+# Subtest: effect event IDs do not consume the gameplay entity sequence
+ok 18 - effect event IDs do not consume the gameplay entity sequence
+  ---
+  duration_ms: 1.597552
+  type: 'test'
+  ...
+# Subtest: source effect resolution chooses red variants and retains true layer and timing
+ok 19 - source effect resolution chooses red variants and retains true layer and timing
+  ---
+  duration_ms: 0.55652
+  type: 'test'
+  ...
+# Subtest: non-looping source clips disappear at their own end rather than lingering for the event TTL
+ok 20 - non-looping source clips disappear at their own end rather than lingering for the event TTL
+  ---
+  duration_ms: 0.693233
+  type: 'test'
+  ...
+# Subtest: spawn, attack start and muzzle events use each entity original effect names
+ok 21 - spawn, attack start and muzzle events use each entity original effect names
+  ---
+  duration_ms: 1.532275
+  type: 'test'
+  ...
+# Subtest: Tesla and Electro Wizard use their original targeted hit beam exports
+ok 22 - Tesla and Electro Wizard use their original targeted hit beam exports
+  ---
+  duration_ms: 2.925932
+  type: 'test'
+  ...
+# Subtest: native frame index preserves fps, looping and clamp
+ok 23 - native frame index preserves fps, looping and clamp
+  ---
+  duration_ms: 0.856447
+  type: 'test'
+  ...
+# Subtest: direction resolution covers original nine facing exports
+ok 24 - direction resolution covers original nine facing exports
+  ---
+  duration_ms: 0.638362
+  type: 'test'
+  ...
+# Subtest: UV affine maps rotated texture corners to their vertices
+ok 25 - UV affine maps rotated texture corners to their vertices
+  ---
+  duration_ms: 0.274399
+  type: 'test'
+  ...
+# Subtest: collinear texture coordinates are rejected
+ok 26 - collinear texture coordinates are rejected
+  ---
+  duration_ms: 0.105928
+  type: 'test'
+  ...
+# Subtest: clip resolution uses per-team source prefixes
+ok 27 - clip resolution uses per-team source prefixes
+  ---
+  duration_ms: 0.124867
+  type: 'test'
+  ...
+# Subtest: battle publishes movement and attack animation states
+ok 28 - battle publishes movement and attack animation states
+  ---
+  duration_ms: 23.468508
+  type: 'test'
+  ...
+# Subtest: paused battle freezes native animation time
+ok 29 - paused battle freezes native animation time
+  ---
+  duration_ms: 3.143037
+  type: 'test'
+  ...
+# Subtest: bundled native data includes original tower-princess animations for both teams
+ok 30 - bundled native data includes original tower-princess animations for both teams
+  ---
+  duration_ms: 788.687113
+  type: 'test'
+  ...
+# Subtest: Princess volley uses CustomFirstProjectile for the damage-bearing projectile
+ok 31 - Princess volley uses CustomFirstProjectile for the damage-bearing projectile
+  ---
+  duration_ms: 0.719543
+  type: 'test'
+  ...
+# Subtest: Princess entity damage derives from the damage-bearing projectile
+ok 32 - Princess entity damage derives from the damage-bearing projectile
+  ---
+  duration_ms: 0.160009
+  type: 'test'
+  ...
+# Subtest: Princess attack lowers a target HP
+ok 33 - Princess attack lowers a target HP
+  ---
+  duration_ms: 14.827158
+  type: 'test'
+  ...
+# Subtest: ordinary projectile users keep their source projectile
+ok 34 - ordinary projectile users keep their source projectile
+  ---
+  duration_ms: 0.144756
+  type: 'test'
+  ...
+# Subtest: Sudden Death starts in the uploaded overtime section and ends on first tower
+ok 35 - Sudden Death starts in the uploaded overtime section and ends on first tower
+  ---
+  duration_ms: 13.502593
+  type: 'test'
+  ...
+# Subtest: timeline section lengths control the displayed clock
+ok 36 - timeline section lengths control the displayed clock
+  ---
+  duration_ms: 2.625004
+  type: 'test'
+  ...
+# Subtest: Electro Dragon source ChainedHitCount includes the primary target
+ok 37 - Electro Dragon source ChainedHitCount includes the primary target
+  ---
+  duration_ms: 4.41921
+  type: 'test'
+  ...
+# Subtest: a periodic buff includes a hit scheduled at its expiry boundary
+ok 38 - a periodic buff includes a hit scheduled at its expiry boundary
+  ---
+  duration_ms: 13.545997
+  type: 'test'
+  ...
+# Subtest: two distinct Poison areas stack their damage, same area refresh does not stack
+ok 39 - two distinct Poison areas stack their damage, same area refresh does not stack
+  ---
+  duration_ms: 22.140781
+  type: 'test'
+  ...
+# Subtest: Earthquake delivers three ground-only source damage ticks
+ok 40 - Earthquake delivers three ground-only source damage ticks
+  ---
+  duration_ms: 15.246943
+  type: 'test'
+  ...
+# Subtest: v130 self-play decks are varied and tactically complete
+ok 41 - v130 self-play decks are varied and tactically complete
+  ---
+  duration_ms: 16.90801
+  type: 'test'
+  ...
+# Subtest: Normal deck deletion survives normalization, and ten saved decks are retained
+ok 42 - Normal deck deletion survives normalization, and ten saved decks are retained
+  ---
+  duration_ms: 6.562865
+  type: 'test'
+  ...
+# Subtest: Add/remove deck operations retain at least one and never mutate the input
+ok 43 - Add/remove deck operations retain at least one and never mutate the input
+  ---
+  duration_ms: 81.590963
+  type: 'test'
+  ...
+# Subtest: Four-card saved deck is independent, legal and persistent
+ok 44 - Four-card saved deck is independent, legal and persistent
+  ---
+  duration_ms: 1.754646
+  type: 'test'
+  ...
+# Subtest: Four-card matches have four real cards on both sides and safely cycle with an empty queue
+ok 45 - Four-card matches have four real cards on both sides and safely cycle with an empty queue
+  ---
+  duration_ms: 16.162949
+  type: 'test'
+  ...
+# Subtest: Random deck generation varies per seed without editing saved decks
+ok 46 - Random deck generation varies per seed without editing saved decks
+  ---
+  duration_ms: 1.60245
+  type: 'test'
+  ...
+# Subtest: Random deck mode remains named and non-ranked without modifying the deck library
+ok 47 - Random deck mode remains named and non-ranked without modifying the deck library
+  ---
+  duration_ms: 4.517045
+  type: 'test'
+  ...
+# Subtest: Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+ok 48 - Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+  ---
+  duration_ms: 17.027588
+  type: 'test'
+  ...
+# Subtest: bridge corner waypoint is not consumed early when the next shortcut clips the bank
+ok 49 - bridge corner waypoint is not consumed early when the next shortcut clips the bank
+  ---
+  duration_ms: 8.034389
+  type: 'test'
+  ...
+# Subtest: off-angle Giant bridge approach no longer repeatedly searches the same blocked corner
+ok 50 - off-angle Giant bridge approach no longer repeatedly searches the same blocked corner
+  ---
+  duration_ms: 53.023118
+  type: 'test'
+  ...
+# Subtest: faster friendly follower gradually yields sideways rather than pushing in a straight-line lock
+ok 51 - faster friendly follower gradually yields sideways rather than pushing in a straight-line lock
+  ---
+  duration_ms: 19.08086
+  type: 'test'
+  ...
+# Subtest: custom three-lane and bridge crossings stay on their actual walkable terrain
+ok 52 - custom three-lane and bridge crossings stay on their actual walkable terrain
+  ---
+  duration_ms: 41.840895
+  type: 'test'
+  ...
+# Subtest: v043 replay accepts ten-seat Rumble and reproduces its input stream
+ok 53 - v043 replay accepts ten-seat Rumble and reproduces its input stream
+  ---
+  duration_ms: 123.006439
+  type: 'test'
+  ...
+# Subtest: v043 retains exact v042 engine including old One Shot Miner permission and custom tower positions
+ok 54 - v043 retains exact v042 engine including old One Shot Miner permission and custom tower positions
+  ---
+  duration_ms: 30.005519
+  type: 'test'
+  ...
+# Subtest: invalid Rumble seat ownership and pre043 ten-seat records are rejected
+ok 55 - invalid Rumble seat ownership and pre043 ten-seat records are rejected
+  ---
+  duration_ms: 2.664012
+  type: 'test'
+  ...
+# Subtest: v046 replaces Clan navigation with Online Play coming soon
+ok 56 - v046 replaces Clan navigation with Online Play coming soon
+  ---
+  duration_ms: 1.17377
+  type: 'test'
+  ...
+# Subtest: v046 reorganizes Other Modes groups and removes FFA card
+ok 57 - v046 reorganizes Other Modes groups and removes FFA card
+  ---
+  duration_ms: 0.478113
+  type: 'test'
+  ...
+# Subtest: v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+ok 58 - v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+  ---
+  duration_ms: 0.406976
+  type: 'test'
+  ...
+# Subtest: v180 clustered same-direction troops spread sideways without orbiting or spinning
+ok 59 - v180 clustered same-direction troops spread sideways without orbiting or spinning
+  ---
+  duration_ms: 54.914408
+  type: 'test'
+  ...
+# Subtest: v180 soft separation is time-step scaled rather than frame-rate dependent
+ok 60 - v180 soft separation is time-step scaled rather than frame-rate dependent
+  ---
+  duration_ms: 59.336482
+  type: 'test'
+  ...
+1..60
+# tests 60
+# suites 0
+# pass 60
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1672.277266

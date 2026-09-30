@@ -1,0 +1,508 @@
+TAP version 13
+# Subtest: arena grid is 18 by 32 and tile centers round-trip
+ok 1 - arena grid is 18 by 32 and tile centers round-trip
+  ---
+  duration_ms: 1.714448
+  type: 'test'
+  ...
+# Subtest: river rejects ground while bridge cells remain passable
+ok 2 - river rejects ground while bridge cells remain passable
+  ---
+  duration_ms: 0.467888
+  type: 'test'
+  ...
+# Subtest: tower footprint cells are blocked
+ok 3 - tower footprint cells are blocked
+  ---
+  duration_ms: 0.156593
+  type: 'test'
+  ...
+# Subtest: destroyed princess tower extends only its lane
+ok 4 - destroyed princess tower extends only its lane
+  ---
+  duration_ms: 0.348219
+  type: 'test'
+  ...
+# Subtest: place anywhere bypasses team zone but not immutable terrain
+ok 5 - place anywhere bypasses team zone but not immutable terrain
+  ---
+  duration_ms: 0.197415
+  type: 'test'
+  ...
+# Subtest: chest reveals summarize actual rewards without changing the supplied receipt
+ok 6 - chest reveals summarize actual rewards without changing the supplied receipt
+  ---
+  duration_ms: 1.655029
+  type: 'test'
+  ...
+# Subtest: opening and legendary reveal timing comes from original frame labels
+ok 7 - opening and legendary reveal timing comes from original frame labels
+  ---
+  duration_ms: 0.217204
+  type: 'test'
+  ...
+# Subtest: closing or skipping an opening cannot grant or claim a chest twice
+ok 8 - closing or skipping an opening cannot grant or claim a chest twice
+  ---
+  duration_ms: 9.820942
+  type: 'test'
+  ...
+# Subtest: every supported chest uses an existing original opening export
+ok 9 - every supported chest uses an existing original opening export
+  ---
+  duration_ms: 0.610501
+  type: 'test'
+  ...
+# Subtest: v130 particle sampling preserves directional data for trails
+ok 10 - v130 particle sampling preserves directional data for trails
+  ---
+  duration_ms: 1.186631
+  type: 'test'
+  ...
+# Subtest: v130 renderer consumes source particle shadows and trail sprites
+ok 11 - v130 renderer consumes source particle shadows and trail sprites
+  ---
+  duration_ms: 0.34146
+  type: 'test'
+  ...
+# Subtest: v130 start-area scatter uses an independent direction from travel
+ok 12 - v130 start-area scatter uses an independent direction from travel
+  ---
+  duration_ms: 1.330896
+  type: 'test'
+  ...
+# Subtest: v130 parent-relative particle angle rotates with the source
+ok 13 - v130 parent-relative particle angle rotates with the source
+  ---
+  duration_ms: 0.169913
+  type: 'test'
+  ...
+# Subtest: v130 angle-selected resources choose a deterministic directional sprite
+ok 14 - v130 angle-selected resources choose a deterministic directional sprite
+  ---
+  duration_ms: 0.155802
+  type: 'test'
+  ...
+# Subtest: v130 particle radius uses source coordinates without a tenfold expansion
+ok 15 - v130 particle radius uses source coordinates without a tenfold expansion
+  ---
+  duration_ms: 0.202272
+  type: 'test'
+  ...
+# Subtest: v130 relative emitter angle rotates source motion with its parent
+ok 16 - v130 relative emitter angle rotates source motion with its parent
+  ---
+  duration_ms: 0.351234
+  type: 'test'
+  ...
+# Subtest: v130 melee hits use source DamageEffect instead of generic slash when available
+ok 17 - v130 melee hits use source DamageEffect instead of generic slash when available
+  ---
+  duration_ms: 45.277443
+  type: 'test'
+  ...
+# Subtest: v110: ground navigation takes a legal bridge without teleporting
+ok 18 - v110: ground navigation takes a legal bridge without teleporting
+  ---
+  duration_ms: 34.266121
+  type: 'test'
+  ...
+# Subtest: v110: path routes around a friendly building instead of walking through it
+ok 19 - v110: path routes around a friendly building instead of walking through it
+  ---
+  duration_ms: 14.33801
+  type: 'test'
+  ...
+# Subtest: v110: air navigation crosses water directly and does not choose a bridge
+ok 20 - v110: air navigation crosses water directly and does not choose a bridge
+  ---
+  duration_ms: 1.923159
+  type: 'test'
+  ...
+# Subtest: v110: deterministic routes and opposite-team symmetry
+ok 21 - v110: deterministic routes and opposite-team symmetry
+  ---
+  duration_ms: 18.007776
+  type: 'test'
+  ...
+# Subtest: v110: navigation invalidates a cached route when a building is deployed
+ok 22 - v110: navigation invalidates a cached route when a building is deployed
+  ---
+  duration_ms: 5.319987
+  type: 'test'
+  ...
+# Subtest: v110: units just outside attack range continue moving instead of stalling
+ok 23 - v110: units just outside attack range continue moving instead of stalling
+  ---
+  duration_ms: 1.061653
+  type: 'test'
+  ...
+# Subtest: v110: HogRider crosses the river but still routes around buildings
+ok 24 - v110: HogRider crosses the river but still routes around buildings
+  ---
+  duration_ms: 5.425454
+  type: 'test'
+  ...
+# Subtest: v110: Ghost crosses the river but still routes around buildings
+ok 25 - v110: Ghost crosses the river but still routes around buildings
+  ---
+  duration_ms: 6.40848
+  type: 'test'
+  ...
+# Subtest: reference menus preserve the classic roster and level cap
+ok 26 - reference menus preserve the classic roster and level cap
+  ---
+  duration_ms: 1.570113
+  type: 'test'
+  ...
+# Subtest: deck slot swaps preserve unique cards and do not mutate stored input
+ok 27 - deck slot swaps preserve unique cards and do not mutate stored input
+  ---
+  duration_ms: 0.89162
+  type: 'test'
+  ...
+# Subtest: collection filters use source rarity and never invent missing cards
+ok 28 - collection filters use source rarity and never invent missing cards
+  ---
+  duration_ms: 9.441646
+  type: 'test'
+  ...
+# Subtest: hour shop countdown includes seconds and rolls over on the hour
+ok 29 - hour shop countdown includes seconds and rolls over on the hour
+  ---
+  duration_ms: 0.370953
+  type: 'test'
+  ...
+# Subtest: new menu text is escaped before HTML rendering
+ok 30 - new menu text is escaped before HTML rendering
+  ---
+  duration_ms: 0.227249
+  type: 'test'
+  ...
+# Subtest: classic emote purchases persist, reject duplicates and insufficient gems
+ok 31 - classic emote purchases persist, reject duplicates and insufficient gems
+  ---
+  duration_ms: 7.621931
+  type: 'test'
+  ...
+# Subtest: removed gem packs cannot grant currency through former entry points
+ok 32 - removed gem packs cannot grant currency through former entry points
+  ---
+  duration_ms: 4.136812
+  type: 'test'
+  ...
+# Subtest: clan posts retain safe typed emotes across saves and drop unsupported emotes
+ok 33 - clan posts retain safe typed emotes across saves and drop unsupported emotes
+  ---
+  duration_ms: 0.858461
+  type: 'test'
+  ...
+# Subtest: deck menu uses screenshot-style segmented tabs and a full-width OK tray
+ok 34 - deck menu uses screenshot-style segmented tabs and a full-width OK tray
+  ---
+  duration_ms: 0.770309
+  type: 'test'
+  ...
+# Subtest: screenshot chrome is not bundled as a page backdrop or phone status bar
+ok 35 - screenshot chrome is not bundled as a page backdrop or phone status bar
+  ---
+  duration_ms: 2.117289
+  type: 'test'
+  ...
+# Subtest: clan message import tolerates null and malformed entries without losing progress
+ok 36 - clan message import tolerates null and malformed entries without losing progress
+  ---
+  duration_ms: 0.950418
+  type: 'test'
+  ...
+# Subtest: clan history timestamps never display NaN for imported dates
+ok 37 - clan history timestamps never display NaN for imported dates
+  ---
+  duration_ms: 0.280559
+  type: 'test'
+  ...
+# Subtest: every visible source card retains all raw behavior fields and rarity levels
+ok 38 - every visible source card retains all raw behavior fields and rarity levels
+  ---
+  duration_ms: 8.473452
+  type: 'test'
+  ...
+# Subtest: full UI skin and fixed word labels are bundled images, not downloadable fonts
+ok 39 - full UI skin and fixed word labels are bundled images, not downloadable fonts
+  ---
+  duration_ms: 1.36768
+  type: 'test'
+  ...
+# Subtest: four actual concurrent 2v2 simulations finish through two packaged workers with unique learned packets
+ok 40 - four actual concurrent 2v2 simulations finish through two packaged workers with unique learned packets
+  ---
+  duration_ms: 13672.005241
+  type: 'test'
+  ...
+# Subtest: Gem Chest retains its kind through saves and requires two subsequent wins
+ok 41 - Gem Chest retains its kind through saves and requires two subsequent wins
+  ---
+  duration_ms: 11.44208
+  type: 'test'
+  ...
+# Subtest: Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+ok 42 - Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+  ---
+  duration_ms: 240.702535
+  type: 'test'
+  ...
+# Subtest: Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+ok 43 - Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+  ---
+  duration_ms: 30.333945
+  type: 'test'
+  ...
+# Subtest: Daily Shop has nine stable offers and top three are always free
+ok 44 - Daily Shop has nine stable offers and top three are always free
+  ---
+  duration_ms: 2.173252
+  type: 'test'
+  ...
+# Subtest: Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+ok 45 - Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+  ---
+  duration_ms: 872.028304
+  type: 'test'
+  ...
+# Subtest: Daily claims are atomic and survive JSON save normalization
+ok 46 - Daily claims are atomic and survive JSON save normalization
+  ---
+  duration_ms: 7.959024
+  type: 'test'
+  ...
+# Subtest: Daily paid offers debit gold once and reject insufficient funds or stale identity
+ok 47 - Daily paid offers debit gold once and reject insufficient funds or stale identity
+  ---
+  duration_ms: 2.831394
+  type: 'test'
+  ...
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+ok 48 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 1.316223
+  type: 'test'
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+ok 49 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 21.522411
+  type: 'test'
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+ok 50 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 1.778582
+  type: 'test'
+  ...
+# Subtest: custom battles do not decode an unused Trophy Road arena
+ok 51 - custom battles do not decode an unused Trophy Road arena
+  ---
+  duration_ms: 939.265237
+  type: 'test'
+  ...
+# Subtest: custom arena quality follows saved background and texture policy
+ok 52 - custom arena quality follows saved background and texture policy
+  ---
+  duration_ms: 20.382592
+  type: 'test'
+  ...
+# Subtest: local King HP is painted above destruction dust rather than covered by it
+ok 53 - local King HP is painted above destruction dust rather than covered by it
+  ---
+  duration_ms: 2.643522
+  type: 'test'
+  ...
+# Subtest: Legendary battle chest has exact 0.1% weight without reducing Gem/Treasure odds
+ok 54 - Legendary battle chest has exact 0.1% weight without reducing Gem/Treasure odds
+  ---
+  duration_ms: 0.70451
+  type: 'test'
+  ...
+# Subtest: Wild cards books and magic coins all have real very rare receipt-keyed battle awards
+ok 55 - Wild cards books and magic coins all have real very rare receipt-keyed battle awards
+  ---
+  duration_ms: 43.090059
+  type: 'test'
+  ...
+# Subtest: Battle items credit once, persist, and pay with full chest slots but never in practice or on loss
+ok 56 - Battle items credit once, persist, and pay with full chest slots but never in practice or on loss
+  ---
+  duration_ms: 25.786639
+  type: 'test'
+  ...
+# Subtest: Trophy Road adds new independently claimable books, coins, and wild milestones without removing old claims
+ok 57 - Trophy Road adds new independently claimable books, coins, and wild milestones without removing old claims
+  ---
+  duration_ms: 20.989066
+  type: 'test'
+  ...
+# Subtest: Crown Road increases book/coin frequency and preserves old claims
+ok 58 - Crown Road increases book/coin frequency and preserves old claims
+  ---
+  duration_ms: 2.572075
+  type: 'test'
+  ...
+# Subtest: A rare battle Legendary chest never opens empty before the first Legendary arena
+ok 59 - A rare battle Legendary chest never opens empty before the first Legendary arena
+  ---
+  duration_ms: 1.054042
+  type: 'test'
+  ...
+# Subtest: v050: attack animation survives the damage frame
+ok 60 - v050: attack animation survives the damage frame
+  ---
+  duration_ms: 18.361067
+  type: 'test'
+  ...
+# Subtest: v050: a walking tower target does not block a closer defender
+ok 61 - v050: a walking tower target does not block a closer defender
+  ---
+  duration_ms: 1.889788
+  type: 'test'
+  ...
+# Subtest: v050: an attacker already hitting a tower keeps that target
+ok 62 - v050: an attacker already hitting a tower keeps that target
+  ---
+  duration_ms: 1.614016
+  type: 'test'
+  ...
+# Subtest: v050: Inferno ramp resets when the target leaves beam range
+ok 63 - v050: Inferno ramp resets when the target leaves beam range
+  ---
+  duration_ms: 5.042518
+  type: 'test'
+  ...
+# Subtest: v050: placed Skeleton Army cannot spill into river
+ok 64 - v050: placed Skeleton Army cannot spill into river
+  ---
+  duration_ms: 4.364488
+  type: 'test'
+  ...
+# Subtest: v050: original single-direction attack is reused before idle
+ok 65 - v050: original single-direction attack is reused before idle
+  ---
+  duration_ms: 802.050163
+  type: 'test'
+  ...
+# Subtest: v050: airborne source height is separated from ground coordinates
+ok 66 - v050: airborne source height is separated from ground coordinates
+  ---
+  duration_ms: 0.428409
+  type: 'test'
+  ...
+# Subtest: v050: transient effect envelope ends transparent
+ok 67 - v050: transient effect envelope ends transparent
+  ---
+  duration_ms: 0.25456
+  type: 'test'
+  ...
+# Subtest: v050: visual animation clock freezes during Freeze
+ok 68 - v050: visual animation clock freezes during Freeze
+  ---
+  duration_ms: 4.236507
+  type: 'test'
+  ...
+# Subtest: v190 uses the build Trophy Road: Master I begins at 6000
+ok 69 - v190 uses the build Trophy Road: Master I begins at 6000
+  ---
+  duration_ms: 1.894184
+  type: 'test'
+  ...
+# Subtest: Master I AI decks are all 12/13 with at most four level-12 cards
+ok 70 - Master I AI decks are all 12/13 with at most four level-12 cards
+  ---
+  duration_ms: 7.868812
+  type: 'test'
+  ...
+# Subtest: higher ranks progressively squeeze level-12 cards out
+ok 71 - higher ranks progressively squeeze level-12 cards out
+  ---
+  duration_ms: 8.34331
+  type: 'test'
+  ...
+# Subtest: rarity floors and scarcity matter below Master I
+ok 72 - rarity floors and scarcity matter below Master I
+  ---
+  duration_ms: 0.277063
+  type: 'test'
+  ...
+# Subtest: normal Battle no longer mirrors the human card-level map into bots
+ok 73 - normal Battle no longer mirrors the human card-level map into bots
+  ---
+  duration_ms: 7.847491
+  type: 'test'
+  ...
+# Subtest: Ultimate Champion AI decks and King Towers are level 13
+ok 74 - Ultimate Champion AI decks and King Towers are level 13
+  ---
+  duration_ms: 19.397283
+  type: 'test'
+  ...
+# Subtest: Master I King Towers remain dynamic 12/13
+ok 75 - Master I King Towers remain dynamic 12/13
+  ---
+  duration_ms: 1.357284
+  type: 'test'
+  ...
+# Subtest: first eligible card copy unlocks from a generic non-chest grant
+ok 76 - first eligible card copy unlocks from a generic non-chest grant
+  ---
+  duration_ms: 1.186379
+  type: 'test'
+  ...
+# Subtest: legacy eligible non-chest copies migrate into ownership
+ok 77 - legacy eligible non-chest copies migrate into ownership
+  ---
+  duration_ms: 0.787564
+  type: 'test'
+  ...
+# Subtest: Shop can sell and unlock arena-eligible cards that were not previously owned
+ok 78 - Shop can sell and unlock arena-eligible cards that were not previously owned
+  ---
+  duration_ms: 2.324766
+  type: 'test'
+  ...
+# Subtest: Trophy Road direct card rewards discover their granted card
+ok 79 - Trophy Road direct card rewards discover their granted card
+  ---
+  duration_ms: 1.045629
+  type: 'test'
+  ...
+# Subtest: player XP thresholds drive King Level 1-13
+ok 80 - player XP thresholds drive King Level 1-13
+  ---
+  duration_ms: 0.466245
+  type: 'test'
+  ...
+# Subtest: card upgrade awards source rarity UpgradeExp instead of flat battle XP
+ok 81 - card upgrade awards source rarity UpgradeExp instead of flat battle XP
+  ---
+  duration_ms: 1.56938
+  type: 'test'
+  ...
+# Subtest: donation XP uses the source rarity table, including Legendary 25 XP
+ok 82 - donation XP uses the source rarity table, including Legendary 25 XP
+  ---
+  duration_ms: 1.035124
+  type: 'test'
+  ...
+# Subtest: fresh profiles start in Collection mode and King Level 1
+ok 83 - fresh profiles start in Collection mode and King Level 1
+  ---
+  duration_ms: 0.305836
+  type: 'test'
+  ...
+1..83
+# tests 83
+# suites 0
+# pass 83
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14081.895403

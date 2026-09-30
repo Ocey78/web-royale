@@ -1,0 +1,1018 @@
+TAP version 13
+# Subtest: source-gold-rush renders both source tower assemblies and retains King/Princess attachment order
+ok 1 - source-gold-rush renders both source tower assemblies and retains King/Princess attachment order
+  ---
+  duration_ms: 2.062784
+  type: 'test'
+  ...
+# Subtest: source-gem-rush renders both source tower assemblies and retains King/Princess attachment order
+ok 2 - source-gem-rush renders both source tower assemblies and retains King/Princess attachment order
+  ---
+  duration_ms: 0.398063
+  type: 'test'
+  ...
+# Subtest: source-elixir-pump renders both source tower assemblies and retains King/Princess attachment order
+ok 3 - source-elixir-pump renders both source tower assemblies and retains King/Princess attachment order
+  ---
+  duration_ms: 0.445153
+  type: 'test'
+  ...
+# Subtest: absent skin scene falls back to unchanged Classic and ruins always use source destroyed artwork
+ok 4 - absent skin scene falls back to unchanged Classic and ruins always use source destroyed artwork
+  ---
+  duration_ms: 0.22147
+  type: 'test'
+  ...
+# Subtest: battle preparation retains the selected skin scene for live towers
+ok 5 - battle preparation retains the selected skin scene for live towers
+  ---
+  duration_ms: 10.855007
+  type: 'test'
+  ...
+# Subtest: Princess tower source action marker is aligned with the real release
+ok 6 - Princess tower source action marker is aligned with the real release
+  ---
+  duration_ms: 3.840223
+  type: 'test'
+  ...
+# Subtest: three genuine source event variants are offered alongside Classic
+ok 7 - three genuine source event variants are offered alongside Classic
+  ---
+  duration_ms: 2.244075
+  type: 'test'
+  ...
+# Subtest: genuine skins can be purchased once, equipped, and preserved through a save reload
+ok 8 - genuine skins can be purchased once, equipped, and preserved through a save reload
+  ---
+  duration_ms: 30.365432
+  type: 'test'
+  ...
+# Subtest: skin ownership, insufficient funds, stale offers, and retired recolor rejection remain enforced
+ok 9 - skin ownership, insufficient funds, stale offers, and retired recolor rejection remain enforced
+  ---
+  duration_ms: 7.845883
+  type: 'test'
+  ...
+# Subtest: skin mappings resolve both original team assemblies and their activation timelines
+ok 10 - skin mappings resolve both original team assemblies and their activation timelines
+  ---
+  duration_ms: 3.806052
+  type: 'test'
+  ...
+# Subtest: skin scene has complete drawable dependencies and hash-verified original texture output
+ok 11 - skin scene has complete drawable dependencies and hash-verified original texture output
+  ---
+  duration_ms: 6.824741
+  type: 'test'
+  ...
+# Subtest: v130 self-play decks are varied and tactically complete
+ok 12 - v130 self-play decks are varied and tactically complete
+  ---
+  duration_ms: 17.58047
+  type: 'test'
+  ...
+# Subtest: four actual concurrent 2v2 simulations finish through two packaged workers with unique learned packets
+ok 13 - four actual concurrent 2v2 simulations finish through two packaged workers with unique learned packets
+  ---
+  duration_ms: 14109.156334
+  type: 'test'
+  ...
+# Subtest: 5000 concurrent games are assigned to at most eight workers without truncation
+ok 14 - 5000 concurrent games are assigned to at most eight workers without truncation
+  ---
+  duration_ms: 3.222222
+  type: 'test'
+  ...
+# Subtest: invalid or excessive training settings are rejected, not silently clipped
+ok 15 - invalid or excessive training settings are rejected, not silently clipped
+  ---
+  duration_ms: 0.339506
+  type: 'test'
+  ...
+# Subtest: cooperative scheduler actually holds 5000 active instances and advances them round robin
+ok 16 - cooperative scheduler actually holds 5000 active instances and advances them round robin
+  ---
+  duration_ms: 7.188133
+  type: 'test'
+  ...
+# Subtest: cancelling stops unfinished simulations, never reports them completed
+ok 17 - cancelling stops unfinished simulations, never reports them completed
+  ---
+  duration_ms: 0.967181
+  type: 'test'
+  ...
+# Subtest: self-play compact recording bounds detailed history and retains aggregate metrics
+ok 18 - self-play compact recording bounds detailed history and retains aggregate metrics
+  ---
+  duration_ms: 14.969008
+  type: 'test'
+  ...
+# Subtest: 5000 batched records remain idempotent over the entire run
+ok 19 - 5000 batched records remain idempotent over the entire run
+  ---
+  duration_ms: 679.279848
+  type: 'test'
+  ...
+# Subtest: compact per-seat totals consume the real deploy event seat field
+ok 20 - compact per-seat totals consume the real deploy event seat field
+  ---
+  duration_ms: 4.483862
+  type: 'test'
+  ...
+# Subtest: v110: packaged self-play worker completes 1v1 with actual learned gradients
+ok 21 - v110: packaged self-play worker completes 1v1 with actual learned gradients
+  ---
+  duration_ms: 6353.259245
+  type: 'test'
+  ...
+# Subtest: v110: packaged self-play worker completes 2v2 with all four players
+ok 22 - v110: packaged self-play worker completes 2v2 with all four players
+  ---
+  duration_ms: 9279.960524
+  type: 'test'
+  ...
+# Subtest: v110: self-play can be cancelled without pretending an unfinished match completed
+ok 23 - v110: self-play can be cancelled without pretending an unfinished match completed
+  ---
+  duration_ms: 69.692648
+  type: 'test'
+  ...
+# Subtest: v110: training worker rejects external resource origins
+ok 24 - v110: training worker rejects external resource origins
+  ---
+  duration_ms: 32.586993
+  type: 'test'
+  ...
+# Subtest: v110: menus expose 2v2, learning controls and trophy road navigation
+ok 25 - v110: menus expose 2v2, learning controls and trophy road navigation
+  ---
+  duration_ms: 1.641436
+  type: 'test'
+  ...
+# Subtest: v260: range preview uses the engine forecast and hints cannot be disabled
+ok 26 - v260: range preview uses the engine forecast and hints cannot be disabled
+  ---
+  duration_ms: 42.173899
+  type: 'test'
+  ...
+# Subtest: v110: build emits an offline training worker and all new runtime modules
+ok 27 - v110: build emits an offline training worker and all new runtime modules
+  ---
+  duration_ms: 0.272116
+  type: 'test'
+  ...
+# Subtest: v110: training runs without the browser DOM or any remote game service
+ok 28 - v110: training runs without the browser DOM or any remote game service
+  ---
+  duration_ms: 0.29513
+  type: 'test'
+  ...
+# Subtest: settings has its own scrollable content area and persistent header
+ok 29 - settings has its own scrollable content area and persistent header
+  ---
+  duration_ms: 0.880212
+  type: 'test'
+  ...
+# Subtest: level emblems outside the home screen are no longer polygon-clipped
+ok 30 - level emblems outside the home screen are no longer polygon-clipped
+  ---
+  duration_ms: 0.183874
+  type: 'test'
+  ...
+# Subtest: collection progress uses original source atlas rather than generic CSS fill
+ok 31 - collection progress uses original source atlas rather than generic CSS fill
+  ---
+  duration_ms: 1.893352
+  type: 'test'
+  ...
+# Subtest: training UI exposes 5000 total and active matches with high-concurrency warning
+ok 32 - training UI exposes 5000 total and active matches with high-concurrency warning
+  ---
+  duration_ms: 0.290363
+  type: 'test'
+  ...
+# Subtest: browser uses the real AppData adapter, not an unused implementation
+ok 33 - browser uses the real AppData adapter, not an unused implementation
+  ---
+  duration_ms: 0.335009
+  type: 'test'
+  ...
+# Subtest: card-count text is vertically centered in the source progress-bar fill
+ok 34 - card-count text is vertically centered in the source progress-bar fill
+  ---
+  duration_ms: 0.224644
+  type: 'test'
+  ...
+# Subtest: failed live-match writes remain retryable and the Learning Center still opens offline
+ok 35 - failed live-match writes remain retryable and the Learning Center still opens offline
+  ---
+  duration_ms: 0.255901
+  type: 'test'
+  ...
+# Subtest: a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+ok 36 - a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+  ---
+  duration_ms: 32.775334
+  type: 'test'
+  ...
+# Subtest: renderer consumes placement forecast without full debug grid
+ok 37 - renderer consumes placement forecast without full debug grid
+  ---
+  duration_ms: 0.941864
+  type: 'test'
+  ...
+# Subtest: target warning is a floating outlined exclamation without a badge box
+ok 38 - target warning is a floating outlined exclamation without a badge box
+  ---
+  duration_ms: 0.246928
+  type: 'test'
+  ...
+# Subtest: offline asset unpacker has an explicit API
+ok 39 - offline asset unpacker has an explicit API
+  ---
+  duration_ms: 1.488298
+  type: 'test'
+  ...
+# Subtest: decodes the compressed playable HTML payload
+ok 40 - decodes the compressed playable HTML payload
+  ---
+  duration_ms: 1.692913
+  type: 'test'
+  ...
+# Subtest: restores original image bytes and native metadata
+ok 41 - restores original image bytes and native metadata
+  ---
+  duration_ms: 3.051898
+  type: 'test'
+  ...
+# Subtest: invalid compressed payload cannot be treated as assets
+ok 42 - invalid compressed payload cannot be treated as assets
+  ---
+  duration_ms: 0.312936
+  type: 'test'
+  ...
+# Subtest: asset path traversal is rejected before any write
+ok 43 - asset path traversal is rejected before any write
+  ---
+  duration_ms: 0.51
+  type: 'test'
+  ...
+# Subtest: HTML content masquerading as PNG is rejected
+ok 44 - HTML content masquerading as PNG is rejected
+  ---
+  duration_ms: 0.379886
+  type: 'test'
+  ...
+# Subtest: extraction refuses an asset-directory symlink
+ok 45 - extraction refuses an asset-directory symlink
+  ---
+  duration_ms: 0.572463
+  type: 'test'
+  ...
+# Subtest: identical existing image bytes are not rewritten
+ok 46 - identical existing image bytes are not rewritten
+  ---
+  duration_ms: 2.632844
+  type: 'test'
+  ...
+# Subtest: v036 graphics defaults and invalid values normalize independently
+ok 47 - v036 graphics defaults and invalid values normalize independently
+  ---
+  duration_ms: 1.693063
+  type: 'test'
+  ...
+# Subtest: v036 profile exports and imports all four graphics options
+ok 48 - v036 profile exports and imports all four graphics options
+  ---
+  duration_ms: 6.700205
+  type: 'test'
+  ...
+# Subtest: v036 quality tiers control texture rasterization and animation cadence
+ok 49 - v036 quality tiers control texture rasterization and animation cadence
+  ---
+  duration_ms: 0.242421
+  type: 'test'
+  ...
+# Subtest: v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+ok 50 - v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+  ---
+  duration_ms: 0.134451
+  type: 'test'
+  ...
+# Subtest: v036 particle sampler honors a pre-sampling budget
+ok 51 - v036 particle sampler honors a pre-sampling budget
+  ---
+  duration_ms: 0.949545
+  type: 'test'
+  ...
+# Subtest: v036 untouched troops share one badge; damage moves only that troop to individual
+ok 52 - v036 untouched troops share one badge; damage moves only that troop to individual
+  ---
+  duration_ms: 1.298515
+  type: 'test'
+  ...
+# Subtest: v036 two surviving troops both use individual badges
+ok 53 - v036 two surviving troops both use individual badges
+  ---
+  duration_ms: 0.855685
+  type: 'test'
+  ...
+# Subtest: v036 shield damage counts, dead/hidden units do not, deployments stay separate
+ok 54 - v036 shield damage counts, dead/hidden units do not, deployments stay separate
+  ---
+  duration_ms: 0.189893
+  type: 'test'
+  ...
+# Subtest: v036 separate casts of a swarm have distinct persistent visual group IDs
+ok 55 - v036 separate casts of a swarm have distinct persistent visual group IDs
+  ---
+  duration_ms: 8.374431
+  type: 'test'
+  ...
+# Subtest: v036 mixed-unit card formations share a group ID without changing entity sequence
+ok 56 - v036 mixed-unit card formations share a group ID without changing entity sequence
+  ---
+  duration_ms: 2.256412
+  type: 'test'
+  ...
+# Subtest: animated alpha is composited without generating a separate tint texture per fade frame
+ok 57 - animated alpha is composited without generating a separate tint texture per fade frame
+  ---
+  duration_ms: 1.253458
+  type: 'test'
+  ...
+# Subtest: particle Off retains core spell artwork but skips emitter sprite work
+ok 58 - particle Off retains core spell artwork but skips emitter sprite work
+  ---
+  duration_ms: 1.588137
+  type: 'test'
+  ...
+# Subtest: Spells only skips movement particles but permits marked spell particles within the frame cap
+ok 59 - Spells only skips movement particles but permits marked spell particles within the frame cap
+  ---
+  duration_ms: 3.210355
+  type: 'test'
+  ...
+# Subtest: undamaged enemy troops draw a native level badge, not a health bar
+ok 60 - undamaged enemy troops draw a native level badge, not a health bar
+  ---
+  duration_ms: 1.948294
+  type: 'test'
+  ...
+# Subtest: Low texture tier really permits half-size raster textures
+ok 61 - Low texture tier really permits half-size raster textures
+  ---
+  duration_ms: 0.197905
+  type: 'test'
+  ...
+# Subtest: effect prewarming is bounded, yields, and never changes combat state
+ok 62 - effect prewarming is bounded, yields, and never changes combat state
+  ---
+  duration_ms: 0.49003
+  type: 'test'
+  ...
+# Subtest: v036 free chest is ready exactly ten minutes after claiming
+ok 63 - v036 free chest is ready exactly ten minutes after claiming
+  ---
+  duration_ms: 10.066071
+  type: 'test'
+  ...
+# Subtest: v036 migrates a v9 four-hour deadline once, preserving last claim
+ok 64 - v036 migrates a v9 four-hour deadline once, preserving last claim
+  ---
+  duration_ms: 1.933442
+  type: 'test'
+  ...
+# Subtest: v036 ten crowns ignore an old crown cooldown and are spent atomically
+ok 65 - v036 ten crowns ignore an old crown cooldown and are spent atomically
+  ---
+  duration_ms: 6.318406
+  type: 'test'
+  ...
+# Subtest: v036 streak bonus rerolls on each win within an unlocked tier
+ok 66 - v036 streak bonus rerolls on each win within an unlocked tier
+  ---
+  duration_ms: 25.504909
+  type: 'test'
+  ...
+# Subtest: v036 the same result pays once and replay/practice cannot change a streak
+ok 67 - v036 the same result pays once and replay/practice cannot change a streak
+  ---
+  duration_ms: 8.568429
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+ok 68 - v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+  ---
+  duration_ms: 3.28769
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop can select every rarity over its rotations
+ok 69 - v036 lightning shop can select every rarity over its rotations
+  ---
+  duration_ms: 19.293052
+  type: 'test'
+  ...
+# Subtest: v036 lightning purchase persists, rejects duplicates and stale offers without charging
+ok 70 - v036 lightning purchase persists, rejects duplicates and stale offers without charging
+  ---
+  duration_ms: 5.481499
+  type: 'test'
+  ...
+# Subtest: Normal deck deletion survives normalization, and ten saved decks are retained
+ok 71 - Normal deck deletion survives normalization, and ten saved decks are retained
+  ---
+  duration_ms: 8.229591
+  type: 'test'
+  ...
+# Subtest: Add/remove deck operations retain at least one and never mutate the input
+ok 72 - Add/remove deck operations retain at least one and never mutate the input
+  ---
+  duration_ms: 82.146233
+  type: 'test'
+  ...
+# Subtest: Four-card saved deck is independent, legal and persistent
+ok 73 - Four-card saved deck is independent, legal and persistent
+  ---
+  duration_ms: 1.682838
+  type: 'test'
+  ...
+# Subtest: Four-card matches have four real cards on both sides and safely cycle with an empty queue
+ok 74 - Four-card matches have four real cards on both sides and safely cycle with an empty queue
+  ---
+  duration_ms: 14.622657
+  type: 'test'
+  ...
+# Subtest: Random deck generation varies per seed without editing saved decks
+ok 75 - Random deck generation varies per seed without editing saved decks
+  ---
+  duration_ms: 1.060109
+  type: 'test'
+  ...
+# Subtest: Random deck mode remains named and non-ranked without modifying the deck library
+ok 76 - Random deck mode remains named and non-ranked without modifying the deck library
+  ---
+  duration_ms: 3.704179
+  type: 'test'
+  ...
+# Subtest: Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+ok 77 - Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+  ---
+  duration_ms: 17.73902
+  type: 'test'
+  ...
+# Subtest: Gem Chest retains its kind through saves and requires two subsequent wins
+ok 78 - Gem Chest retains its kind through saves and requires two subsequent wins
+  ---
+  duration_ms: 11.712471
+  type: 'test'
+  ...
+# Subtest: Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+ok 79 - Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+  ---
+  duration_ms: 159.907903
+  type: 'test'
+  ...
+# Subtest: Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+ok 80 - Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+  ---
+  duration_ms: 18.702926
+  type: 'test'
+  ...
+# Subtest: Daily Shop has nine stable offers and top three are always free
+ok 81 - Daily Shop has nine stable offers and top three are always free
+  ---
+  duration_ms: 2.232216
+  type: 'test'
+  ...
+# Subtest: Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+ok 82 - Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+  ---
+  duration_ms: 861.206285
+  type: 'test'
+  ...
+# Subtest: Daily claims are atomic and survive JSON save normalization
+ok 83 - Daily claims are atomic and survive JSON save normalization
+  ---
+  duration_ms: 6.99377
+  type: 'test'
+  ...
+# Subtest: Daily paid offers debit gold once and reject insufficient funds or stale identity
+ok 84 - Daily paid offers debit gold once and reject insufficient funds or stale identity
+  ---
+  duration_ms: 2.936405
+  type: 'test'
+  ...
+# Subtest: Full particles survive save normalization and restore the full emitter/frame budget
+ok 85 - Full particles survive save normalization and restore the full emitter/frame budget
+  ---
+  duration_ms: 4.427496
+  type: 'test'
+  ...
+# Subtest: Faster result OK is visible at 2.7 seconds and not at the start
+ok 86 - Faster result OK is visible at 2.7 seconds and not at the start
+  ---
+  duration_ms: 0.282671
+  type: 'test'
+  ...
+# Subtest: Full-health Princess Towers show HP on both sides and King Tower text contains no level
+ok 87 - Full-health Princess Towers show HP on both sides and King Tower text contains no level
+  ---
+  duration_ms: 1.904187
+  type: 'test'
+  ...
+# Subtest: Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+ok 88 - Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+  ---
+  duration_ms: 6.235511
+  type: 'test'
+  ...
+# Subtest: Magic Archer arrow stays at its authored constant height after the original target dies
+ok 89 - Magic Archer arrow stays at its authored constant height after the original target dies
+  ---
+  duration_ms: 2.109323
+  type: 'test'
+  ...
+# Subtest: Magic Archer line hits produce hit feedback at each actual damaged target
+ok 90 - Magic Archer line hits produce hit feedback at each actual damaged target
+  ---
+  duration_ms: 1.74501
+  type: 'test'
+  ...
+# Subtest: Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+ok 91 - Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+  ---
+  duration_ms: 735.689907
+  type: 'test'
+  ...
+# Subtest: v038 Daily Shop paid cards have five times the old quantities at unchanged prices
+ok 92 - v038 Daily Shop paid cards have five times the old quantities at unchanged prices
+  ---
+  duration_ms: 5.287448
+  type: 'test'
+  ...
+# Subtest: v038 Daily Shop free wildcards multiply by five, not currency or claim count
+ok 93 - v038 Daily Shop free wildcards multiply by five, not currency or claim count
+  ---
+  duration_ms: 215.451922
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop has six distinct persistent eligible gem-priced offers
+ok 94 - v038 Gem Shop has six distinct persistent eligible gem-priced offers
+  ---
+  duration_ms: 3.791609
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop rotates all six slots on the second successful purchase, not the first
+ok 95 - v038 Gem Shop rotates all six slots on the second successful purchase, not the first
+  ---
+  duration_ms: 4.972068
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop rejects duplicate, unfunded, stale, and invalid purchases without state changes
+ok 96 - v038 Gem Shop rejects duplicate, unfunded, stale, and invalid purchases without state changes
+  ---
+  duration_ms: 9.598621
+  type: 'test'
+  ...
+# Subtest: v038 legacy profiles keep currency/decks and new gem rotation normalization is bounded
+ok 97 - v038 legacy profiles keep currency/decks and new gem rotation normalization is bounded
+  ---
+  duration_ms: 1.038827
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop does not reroll on arena unlock before two purchases
+ok 98 - v038 Gem Shop does not reroll on arena unlock before two purchases
+  ---
+  duration_ms: 3.717549
+  type: 'test'
+  ...
+# Subtest: v038 real goblins deployment uses every adjusted preview position
+ok 99 - v038 real goblins deployment uses every adjusted preview position
+  ---
+  duration_ms: 24.124103
+  type: 'test'
+  ...
+# Subtest: v038 real guards deployment uses every adjusted preview position
+ok 100 - v038 real guards deployment uses every adjusted preview position
+  ---
+  duration_ms: 9.274819
+  type: 'test'
+  ...
+# Subtest: v038 real skeleton-army deployment uses every adjusted preview position
+ok 101 - v038 real skeleton-army deployment uses every adjusted preview position
+  ---
+  duration_ms: 13.379936
+  type: 'test'
+  ...
+# Subtest: v038 real rascals deployment uses every adjusted preview position
+ok 102 - v038 real rascals deployment uses every adjusted preview position
+  ---
+  duration_ms: 10.229682
+  type: 'test'
+  ...
+# Subtest: v038 real royal-recruits deployment uses every adjusted preview position
+ok 103 - v038 real royal-recruits deployment uses every adjusted preview position
+  ---
+  duration_ms: 5.869905
+  type: 'test'
+  ...
+# Subtest: v038 real barbarians deployment uses every adjusted preview position
+ok 104 - v038 real barbarians deployment uses every adjusted preview position
+  ---
+  duration_ms: 6.095952
+  type: 'test'
+  ...
+# Subtest: v038 real archers deployment uses every adjusted preview position
+ok 105 - v038 real archers deployment uses every adjusted preview position
+  ---
+  duration_ms: 9.350777
+  type: 'test'
+  ...
+# Subtest: v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 0
+ok 106 - v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 0
+  ---
+  duration_ms: 17.663047
+  type: 'test'
+  ...
+# Subtest: v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 1
+ok 107 - v038 old bank-stranded troop walks back onto terrain and crosses a bridge team 1
+  ---
+  duration_ms: 9.461878
+  type: 'test'
+  ...
+# Subtest: v038 static tower routes are reused instead of recomputing every 650ms
+ok 108 - v038 static tower routes are reused instead of recomputing every 650ms
+  ---
+  duration_ms: 23.361928
+  type: 'test'
+  ...
+# Subtest: v038 Goblin Barrel spreads three goblins around each tower, not through it team 0
+ok 109 - v038 Goblin Barrel spreads three goblins around each tower, not through it team 0
+  ---
+  duration_ms: 4.337793
+  type: 'test'
+  ...
+# Subtest: v038 Goblin Barrel spreads three goblins around each tower, not through it team 1
+ok 110 - v038 Goblin Barrel spreads three goblins around each tower, not through it team 1
+  ---
+  duration_ms: 3.60359
+  type: 'test'
+  ...
+# Subtest: v038 Goblin Barrel landing by banks, arena walls, and a building gives legal separated bodies
+ok 111 - v038 Goblin Barrel landing by banks, arena walls, and a building gives legal separated bodies
+  ---
+  duration_ms: 4.494306
+  type: 'test'
+  ...
+# Subtest: v038 Mirror uses the mirrored troop safe placement rather than a spell anchor
+ok 112 - v038 Mirror uses the mirrored troop safe placement rather than a spell anchor
+  ---
+  duration_ms: 1.193819
+  type: 'test'
+  ...
+# Subtest: v038 an exhausted cached detour retries after a bounded delay
+ok 113 - v038 an exhausted cached detour retries after a bounded delay
+  ---
+  duration_ms: 1.605032
+  type: 'test'
+  ...
+# Subtest: v038 records have a new simulation tag for changed spawn and navigation rules
+ok 114 - v038 records have a new simulation tag for changed spawn and navigation rules
+  ---
+  duration_ms: 13.433876
+  type: 'test'
+  ...
+# Subtest: v038 accepts the previous engine0.32 including four-card recordings
+ok 115 - v038 accepts the previous engine0.32 including four-card recordings
+  ---
+  duration_ms: 1.807352
+  type: 'test'
+  ...
+# Subtest: v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+ok 116 - v038 frozen v037 engine, boat adapter and fixture bytes match their original provenance
+  ---
+  duration_ms: 2.444843
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+ok 117 - v038 historical engine0.32 goblin-barrel.json reproduces the original digest through seeks
+  ---
+  duration_ms: 79.683394
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+ok 118 - v038 historical engine0.32 four-card.json reproduces the original digest through seeks
+  ---
+  duration_ms: 1436.740423
+  type: 'test'
+  ...
+# Subtest: v038 historical engine0.32 boat.json reproduces the original digest through seeks
+ok 119 - v038 historical engine0.32 boat.json reproduces the original digest through seeks
+  ---
+  duration_ms: 16.368398
+  type: 'test'
+  ...
+# Subtest: v038 frozen browser replay global does not overwrite live modules
+ok 120 - v038 frozen browser replay global does not overwrite live modules
+  ---
+  duration_ms: 69.748902
+  type: 'test'
+  ...
+# Subtest: v038 DarkPrince team 0 shield badge exactly tracks live shield, including group labels
+ok 121 - v038 DarkPrince team 0 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 10.879419
+  type: 'test'
+  ...
+# Subtest: v038 DarkPrince team 1 shield badge exactly tracks live shield, including group labels
+ok 122 - v038 DarkPrince team 1 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 5.05363
+  type: 'test'
+  ...
+# Subtest: v038 SkeletonWarrior team 0 shield badge exactly tracks live shield, including group labels
+ok 123 - v038 SkeletonWarrior team 0 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 2.14156
+  type: 'test'
+  ...
+# Subtest: v038 SkeletonWarrior team 1 shield badge exactly tracks live shield, including group labels
+ok 124 - v038 SkeletonWarrior team 1 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 1.942945
+  type: 'test'
+  ...
+# Subtest: v038 Recruit team 0 shield badge exactly tracks live shield, including group labels
+ok 125 - v038 Recruit team 0 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 2.065888
+  type: 'test'
+  ...
+# Subtest: v038 Recruit team 1 shield badge exactly tracks live shield, including group labels
+ok 126 - v038 Recruit team 1 shield badge exactly tracks live shield, including group labels
+  ---
+  duration_ms: 1.767303
+  type: 'test'
+  ...
+# Subtest: ranked gold tiers grant 100–300 extra per tier on every win after three
+ok 127 - ranked gold tiers grant 100–300 extra per tier on every win after three
+  ---
+  duration_ms: 26.985287
+  type: 'test'
+  ...
+# Subtest: ranked gems grant 1–10 per tier on every win after five
+ok 128 - ranked gems grant 1–10 per tier on every win after five
+  ---
+  duration_ms: 13.305174
+  type: 'test'
+  ...
+# Subtest: first-tier rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+ok 129 - first-tier rolls vary across matches, stay stable for the same receipt, and include both range endpoints
+  ---
+  duration_ms: 1392.887224
+  type: 'test'
+  ...
+# Subtest: 15th ranked win produces matching chest, gold and gem boxes from the receipt
+ok 130 - 15th ranked win produces matching chest, gold and gem boxes from the receipt
+  ---
+  duration_ms: 3.290262
+  type: 'test'
+  ...
+# Subtest: ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+ok 131 - ordinary win has chest and base gold boxes but no zero-gem or stale-streak box
+  ---
+  duration_ms: 1.950486
+  type: 'test'
+  ...
+# Subtest: full chest inventory does not suppress earned currency boxes
+ok 132 - full chest inventory does not suppress earned currency boxes
+  ---
+  duration_ms: 1.946179
+  type: 'test'
+  ...
+# Subtest: loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+ok 133 - loss/draw reset ranked streak, show actual base gold only, and restart rewards at three wins
+  ---
+  duration_ms: 7.053449
+  type: 'test'
+  ...
+# Subtest: non-ranked wins keep the ranked streak and grant base gold without milestone currency
+ok 134 - non-ranked wins keep the ranked streak and grant base gold without milestone currency
+  ---
+  duration_ms: 4.782205
+  type: 'test'
+  ...
+# Subtest: training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+ok 135 - training/friendly/replay/sandbox screens cannot show or pay normal currency rewards
+  ---
+  duration_ms: 11.273497
+  type: 'test'
+  ...
+# Subtest: result history survives saves; duplicate settlement and repeated rendering never repay currency
+ok 136 - result history survives saves; duplicate settlement and repeated rendering never repay currency
+  ---
+  duration_ms: 8.608516
+  type: 'test'
+  ...
+# Subtest: display receipts reflect currency actually credited at the save balance caps
+ok 137 - display receipts reflect currency actually credited at the save balance caps
+  ---
+  duration_ms: 1.749127
+  type: 'test'
+  ...
+# Subtest: normalizing an old save does not grant retrospective streak gold or gems
+ok 138 - normalizing an old save does not grant retrospective streak gold or gems
+  ---
+  duration_ms: 0.42286
+  type: 'test'
+  ...
+# Subtest: Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+ok 139 - Trophy Road no longer renders its old wild-card inventory shortcut; reward tiles remain
+  ---
+  duration_ms: 0.43572
+  type: 'test'
+  ...
+# Subtest: v040 gold stack on every ranked win, including between milestones
+ok 140 - v040 gold stack on every ranked win, including between milestones
+  ---
+  duration_ms: 45.467764
+  type: 'test'
+  ...
+# Subtest: v040 gold reroll per match within a tier, not when redrawing or loading
+ok 141 - v040 gold reroll per match within a tier, not when redrawing or loading
+  ---
+  duration_ms: 238.929751
+  type: 'test'
+  ...
+# Subtest: v040 gems stack on every ranked win, including between milestones
+ok 142 - v040 gems stack on every ranked win, including between milestones
+  ---
+  duration_ms: 20.622817
+  type: 'test'
+  ...
+# Subtest: v040 gems reroll per match within a tier, not when redrawing or loading
+ok 143 - v040 gems reroll per match within a tier, not when redrawing or loading
+  ---
+  duration_ms: 169.514007
+  type: 'test'
+  ...
+# Subtest: v040 large streak receipts and result metadata survive save/import beyond old single-tier caps
+ok 144 - v040 large streak receipts and result metadata survive save/import beyond old single-tier caps
+  ---
+  duration_ms: 1.405724
+  type: 'test'
+  ...
+# Subtest: v040 ranked loss/draw clear tiers; non-ranked battles neither earn tiers nor break them
+ok 145 - v040 ranked loss/draw clear tiers; non-ranked battles neither earn tiers nor break them
+  ---
+  duration_ms: 5.211855
+  type: 'test'
+  ...
+# Subtest: v040 stacked rewards respect wallet caps and the saved result only reports credited currency
+ok 146 - v040 stacked rewards respect wallet caps and the saved result only reports credited currency
+  ---
+  duration_ms: 0.937036
+  type: 'test'
+  ...
+# Subtest: v040 old saves keep their streak without retrospective payout or receipt recomputation
+ok 147 - v040 old saves keep their streak without retrospective payout or receipt recomputation
+  ---
+  duration_ms: 1.437001
+  type: 'test'
+  ...
+# Subtest: v040 every paid emote costs 50 gems and every paid tower style costs 100
+ok 148 - v040 every paid emote costs 50 gems and every paid tower style costs 100
+  ---
+  duration_ms: 0.461338
+  type: 'test'
+  ...
+# Subtest: v040 emote purchase charges new price exactly once and preserves ownership
+ok 149 - v040 emote purchase charges new price exactly once and preserves ownership
+  ---
+  duration_ms: 2.743798
+  type: 'test'
+  ...
+# Subtest: v040 tower skin purchase charges new price exactly once and preserves ownership
+ok 150 - v040 tower skin purchase charges new price exactly once and preserves ownership
+  ---
+  duration_ms: 2.512684
+  type: 'test'
+  ...
+# Subtest: v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices
+ok 151 - v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices
+  ---
+  duration_ms: 2157.866927
+  type: 'test'
+  ...
+# Subtest: v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload
+ok 152 - v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload
+  ---
+  duration_ms: 3.552613
+  type: 'test'
+  ...
+# Subtest: v040 silver chest can be bought for 15 gems with usable loot and without a battle chest slot
+ok 153 - v040 silver chest can be bought for 15 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 2.294208
+  type: 'test'
+  ...
+# Subtest: v040 gold chest can be bought for 35 gems with usable loot and without a battle chest slot
+ok 154 - v040 gold chest can be bought for 35 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.906691
+  type: 'test'
+  ...
+# Subtest: v040 magic chest can be bought for 50 gems with usable loot and without a battle chest slot
+ok 155 - v040 magic chest can be bought for 50 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 2.215691
+  type: 'test'
+  ...
+# Subtest: v040 giant chest can be bought for 65 gems with usable loot and without a battle chest slot
+ok 156 - v040 giant chest can be bought for 65 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.960992
+  type: 'test'
+  ...
+# Subtest: v040 epic chest can be bought for 80 gems with usable loot and without a battle chest slot
+ok 157 - v040 epic chest can be bought for 80 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.738761
+  type: 'test'
+  ...
+# Subtest: v040 legendary chest can be bought for 100 gems with usable loot and without a battle chest slot
+ok 158 - v040 legendary chest can be bought for 100 gems with usable loot and without a battle chest slot
+  ---
+  duration_ms: 1.59704
+  type: 'test'
+  ...
+# Subtest: v040 Giant chest has its own Common/Rare loot, not the generic Silver fallback
+ok 159 - v040 Giant chest has its own Common/Rare loot, not the generic Silver fallback
+  ---
+  duration_ms: 0.628376
+  type: 'test'
+  ...
+# Subtest: v040 Legendary chest cannot charge an early-arena player for an empty reward
+ok 160 - v040 Legendary chest cannot charge an early-arena player for an empty reward
+  ---
+  duration_ms: 1.016605
+  type: 'test'
+  ...
+# Subtest: v040 Epic and Legendary chests grant only their respective rarity
+ok 161 - v040 Epic and Legendary chests grant only their respective rarity
+  ---
+  duration_ms: 2.254409
+  type: 'test'
+  ...
+# Subtest: v040 unknown and prototype chest kinds cannot bypass pricing
+ok 162 - v040 unknown and prototype chest kinds cannot bypass pricing
+  ---
+  duration_ms: 5.232175
+  type: 'test'
+  ...
+# Subtest: Crown Level is one plus lifetime crowns divided by ten, with automatic old save migration
+ok 163 - Crown Level is one plus lifetime crowns divided by ten, with automatic old save migration
+  ---
+  duration_ms: 16.753532
+  type: 'test'
+  ...
+# Subtest: existing Crown Chest claims neither lower Crown Level nor consume Crown Road progress
+ok 164 - existing Crown Chest claims neither lower Crown Level nor consume Crown Road progress
+  ---
+  duration_ms: 2.673474
+  type: 'test'
+  ...
+# Subtest: Crown Road claims pay once, reject future claims, and preserve old inventory
+ok 165 - Crown Road claims pay once, reject future claims, and preserve old inventory
+  ---
+  duration_ms: 13.844868
+  type: 'test'
+  ...
+# Subtest: higher Crown Road milestones have much better gold, gems and premium rewards
+ok 166 - higher Crown Road milestones have much better gold, gems and premium rewards
+  ---
+  duration_ms: 3.192336
+  type: 'test'
+  ...
+# Subtest: all six earned 3v3 crowns reach lifetime and result history, duplicate results cannot repay
+ok 167 - all six earned 3v3 crowns reach lifetime and result history, duplicate results cannot repay
+  ---
+  duration_ms: 4.816506
+  type: 'test'
+  ...
+# Subtest: claim normalization merges ranges, discards future/invalid intervals and does not backdate rewards
+ok 168 - claim normalization merges ranges, discards future/invalid intervals and does not backdate rewards
+  ---
+  duration_ms: 0.964287
+  type: 'test'
+  ...
+1..168
+# tests 168
+# suites 0
+# pass 168
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 22408.705638

@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: every playable mode has a headless self-play factory using its actual rules
+ok 1 - every playable mode has a headless self-play factory using its actual rules
+  ---
+  duration_ms: 79.309119
+  type: 'test'
+  ...
+# Subtest: unrecognized modes cannot silently turn into ordinary 1v1
+ok 2 - unrecognized modes cannot silently turn into ordinary 1v1
+  ---
+  duration_ms: 0.51003
+  type: 'test'
+  ...
+# Subtest: learning distinguishes mode and three-lane context without discarding saved weights
+ok 3 - learning distinguishes mode and three-lane context without discarding saved weights
+  ---
+  duration_ms: 0.380547
+  type: 'test'
+  ...
+# Subtest: a lost local King does not freeze estimates of living enemy elixir
+ok 4 - a lost local King does not freeze estimates of living enemy elixir
+  ---
+  duration_ms: 1.83879
+  type: 'test'
+  ...
+# Subtest: an AI with no remaining Crown Towers can safely observe the final frame
+ok 5 - an AI with no remaining Crown Towers can safely observe the final frame
+  ---
+  duration_ms: 1.63707
+  type: 'test'
+  ...
+# Subtest: 3v3 creates six independent level-9 seats and six towers per side
+ok 6 - 3v3 creates six independent level-9 seats and six towers per side
+  ---
+  duration_ms: 13.09905
+  type: 'test'
+  ...
+# Subtest: 3v3 seeded assignment is a permutation on each side and unbiased over seeds
+ok 7 - 3v3 seeded assignment is a permutation on each side and unbiased over seeds
+  ---
+  duration_ms: 529.098838
+  type: 'test'
+  ...
+# Subtest: destroyed assigned King stops only its owner passive elixir without deleting bank
+ok 8 - destroyed assigned King stops only its owner passive elixir without deleting bank
+  ---
+  duration_ms: 3.559154
+  type: 'test'
+  ...
+# Subtest: survivor can spend elixir and their existing pump works after King destruction
+ok 9 - survivor can spend elixir and their existing pump works after King destruction
+  ---
+  duration_ms: 3.504212
+  type: 'test'
+  ...
+# Subtest: 3v3 golem descendants retain owner and return generated elixir to that owner
+ok 10 - 3v3 golem descendants retain owner and return generated elixir to that owner
+  ---
+  duration_ms: 2.163003
+  type: 'test'
+  ...
+# Subtest: normal Elixir Golem still gives elixir to opposing side
+ok 11 - normal Elixir Golem still gives elixir to opposing side
+  ---
+  duration_ms: 0.895365
+  type: 'test'
+  ...
+# Subtest: 3v3 needs all three Kings for immediate victory and can record six crowns
+ok 12 - 3v3 needs all three Kings for immediate victory and can record six crowns
+  ---
+  duration_ms: 1.435379
+  type: 'test'
+  ...
+# Subtest: Bridge mode has two seats, one King and one Princess each; off-lane deployment is rejected
+ok 13 - Bridge mode has two seats, one King and one Princess each; off-lane deployment is rejected
+  ---
+  duration_ms: 0.863196
+  type: 'test'
+  ...
+# Subtest: custom layouts drive swept navigation, not just visual backgrounds
+ok 14 - custom layouts drive swept navigation, not just visual backgrounds
+  ---
+  duration_ms: 0.339236
+  type: 'test'
+  ...
+# Subtest: bridge corner waypoint is not consumed early when the next shortcut clips the bank
+ok 15 - bridge corner waypoint is not consumed early when the next shortcut clips the bank
+  ---
+  duration_ms: 10.151999
+  type: 'test'
+  ...
+# Subtest: off-angle Giant bridge approach no longer repeatedly searches the same blocked corner
+ok 16 - off-angle Giant bridge approach no longer repeatedly searches the same blocked corner
+  ---
+  duration_ms: 71.481074
+  type: 'test'
+  ...
+# Subtest: faster friendly follower gradually yields sideways rather than pushing in a straight-line lock
+ok 17 - faster friendly follower gradually yields sideways rather than pushing in a straight-line lock
+  ---
+  duration_ms: 26.331621
+  type: 'test'
+  ...
+# Subtest: custom three-lane and bridge crossings stay on their actual walkable terrain
+ok 18 - custom three-lane and bridge crossings stay on their actual walkable terrain
+  ---
+  duration_ms: 59.781463
+  type: 'test'
+  ...
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+ok 19 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 1.250824
+  type: 'test'
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+ok 20 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 14.370991
+  type: 'test'
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+ok 21 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 1.39577
+  type: 'test'
+  ...
+# Subtest: custom battles do not decode an unused Trophy Road arena
+ok 22 - custom battles do not decode an unused Trophy Road arena
+  ---
+  duration_ms: 964.953348
+  type: 'test'
+  ...
+# Subtest: custom arena quality follows saved background and texture policy
+ok 23 - custom arena quality follows saved background and texture policy
+  ---
+  duration_ms: 15.000216
+  type: 'test'
+  ...
+# Subtest: local King HP is painted above destruction dust rather than covered by it
+ok 24 - local King HP is painted above destruction dust rather than covered by it
+  ---
+  duration_ms: 2.193777
+  type: 'test'
+  ...
+# Subtest: v041 custom replays retain six seats, slot ownership and deterministic paths
+ok 25 - v041 custom replays retain six seats, slot ownership and deterministic paths
+  ---
+  duration_ms: 92.420139
+  type: 'test'
+  ...
+# Subtest: six-player recordings reject invalid or duplicated per-team tower ownership
+ok 26 - six-player recordings reject invalid or duplicated per-team tower ownership
+  ---
+  duration_ms: 2.288157
+  type: 'test'
+  ...
+# Subtest: v038 recordings stay on their frozen combat interpreter
+ok 27 - v038 recordings stay on their frozen combat interpreter
+  ---
+  duration_ms: 11.539403
+  type: 'test'
+  ...
+# Subtest: a custom Bridge recording cannot be mislabeled as a legacy two-lane battle
+ok 28 - a custom Bridge recording cannot be mislabeled as a legacy two-lane battle
+  ---
+  duration_ms: 1.499352
+  type: 'test'
+  ...
+# Subtest: string slot indices are rejected before they can lose player ownership
+ok 29 - string slot indices are rejected before they can lose player ownership
+  ---
+  duration_ms: 1.775424
+  type: 'test'
+  ...
+# Subtest: six-seat deployments and crowded bridge motion survive replay seek round trips
+ok 30 - six-seat deployments and crowded bridge motion survive replay seek round trips
+  ---
+  duration_ms: 567.866743
+  type: 'test'
+  ...
+# Subtest: Treasure has a nonzero weight just below Gem, and old Gem/Magic probabilities stay 1/12
+ok 31 - Treasure has a nonzero weight just below Gem, and old Gem/Magic probabilities stay 1/12
+  ---
+  duration_ms: 31.856697
+  type: 'test'
+  ...
+# Subtest: Treasure survives save migration, takes five wins, and opens once for only 10000-100000 gold
+ok 32 - Treasure survives save migration, takes five wins, and opens once for only 10000-100000 gold
+  ---
+  duration_ms: 7.929307
+  type: 'test'
+  ...
+# Subtest: Treasure is the wooden model opening, not the Gold Chest or a renamed Silver chest
+ok 33 - Treasure is the wooden model opening, not the Gold Chest or a renamed Silver chest
+  ---
+  duration_ms: 2.745278
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1631.695651

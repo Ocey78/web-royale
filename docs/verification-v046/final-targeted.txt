@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: v046 six-card mode has a six-card saved cycle with four-card hand
+ok 1 - v046 six-card mode has a six-card saved cycle with four-card hand
+  ---
+  duration_ms: 10.928669
+  type: 'test'
+  ...
+# Subtest: v046 uncapped elixir stores beyond ten with normal generation timing
+ok 2 - v046 uncapped elixir stores beyond ten with normal generation timing
+  ---
+  duration_ms: 70.749931
+  type: 'test'
+  ...
+# Subtest: v046 removes FFA from current mode registries while keeping touchdown modes
+ok 3 - v046 removes FFA from current mode registries while keeping touchdown modes
+  ---
+  duration_ms: 0.196963
+  type: 'test'
+  ...
+# Subtest: v046 training supports Six Card and Uncapped Elixir
+ok 4 - v046 training supports Six Card and Uncapped Elixir
+  ---
+  duration_ms: 3.323357
+  type: 'test'
+  ...
+# Subtest: v046 records use simulation tag 0.46 and preserve six-card cycles
+ok 5 - v046 records use simulation tag 0.46 and preserve six-card cycles
+  ---
+  duration_ms: 13.084134
+  type: 'test'
+  ...
+# Subtest: v046 loads v045 FFA replays through the frozen legacy engine after FFA removal
+ok 6 - v046 loads v045 FFA replays through the frozen legacy engine after FFA removal
+  ---
+  duration_ms: 11.997603
+  type: 'test'
+  ...
+# Subtest: v046 replaces Clan navigation with Online Play coming soon
+ok 7 - v046 replaces Clan navigation with Online Play coming soon
+  ---
+  duration_ms: 1.094352
+  type: 'test'
+  ...
+# Subtest: v046 reorganizes Other Modes groups and removes FFA card
+ok 8 - v046 reorganizes Other Modes groups and removes FFA card
+  ---
+  duration_ms: 0.407057
+  type: 'test'
+  ...
+# Subtest: v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+ok 9 - v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+  ---
+  duration_ms: 0.310473
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 284.15606

@@ -1,0 +1,19 @@
+runtime loaded
+UI artwork loaded
+PASS v0.46.0 boot
+PASS Online Play coming soon replaces Clan navigation
+PASS Custom Modes grouped into clean sections
+PASS Practice heading removed
+PASS FFA card removed
+PASS Six Card mode visible
+PASS Uncapped Elixir visible
+PASS rumble-castle uses requested geometry
+PASS rumble-castle canvas fits phone
+Traceback (most recent call last):
+  File "/mnt/data/work046/Web-Royale/tools/verify-v046-browser.py", line 118, in <module>
+    check(name+' uses requested geometry',page.evaluate('RoyaleDemo.battle.arenaLayout.id')==arena)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/work046/Web-Royale/tools/verify-v046-browser.py", line 64, in check
+    assert condition,name
+           ^^^^^^^^^
+AssertionError: rumble-reverse uses requested geometry

@@ -21,7 +21,11 @@ const reference=composition(false),compact=composition(true);
 function customComposition(base,id){
  const a=L.get(id),v=base.viewport,top=Math.min(a.top*20-24,Math.min(...(a.kingYs||[a.kingY??3]))*20-125),bottom=a.bottom*20+24;
  const wide=(a.right-a.left)>18,maxScale=wide?Infinity:base.camera.scale*(id.startsWith('Team3v3')?.84:1);
- const scale=Math.min(maxScale,(base.layout.width-(wide?32:16))/((Math.max(18,a.right)-Math.min(0,a.left))*480/18),(v.height-18)/(bottom-top));
+ // Touchdown's real stadium identity lives outside the legal turf: grandstands,
+ // statues and trapdoors flank the field. Reserve camera width for that scenery
+ // instead of stretching the green play area nearly edge-to-edge.
+ const stadiumPad=a.touchdown?105:0,worldWidth=(Math.max(18,a.right)-Math.min(0,a.left))*480/18+stadiumPad*2;
+ const scale=Math.min(maxScale,(base.layout.width-(wide?32:16))/worldWidth,(v.height-18)/(bottom-top));
  const camera=Object.freeze({x:270-240*scale,y:(v.height-scale*(bottom-top))/2-top*scale,scale});
  return Object.freeze({...base,camera,board:a,worldClip:Object.freeze({x:(v.x-camera.x)/scale,y:(v.y-camera.y)/scale,width:v.width/scale,height:v.height/scale})});
 }

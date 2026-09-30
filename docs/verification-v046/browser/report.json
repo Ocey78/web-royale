@@ -1,0 +1,23 @@
+{
+  "version": "0.46.0",
+  "passed": 16,
+  "checks": [
+    "v0.46.0 boot",
+    "Online Play coming soon replaces Clan navigation",
+    "Custom Modes grouped into clean sections",
+    "Practice heading removed",
+    "FFA card removed",
+    "Six Card mode visible",
+    "Uncapped Elixir visible",
+    "3v3-jungle uses requested geometry",
+    "3v3-jungle canvas fits phone",
+    "3v3-volcano uses requested geometry",
+    "3v3-volcano canvas fits phone",
+    "bridge-frozen uses requested geometry",
+    "bridge-frozen canvas fits phone",
+    "bridge-lava uses requested geometry",
+    "bridge-lava canvas fits phone",
+    "No browser exceptions"
+  ],
+  "errors": []
+}
