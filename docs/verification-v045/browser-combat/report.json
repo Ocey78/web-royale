@@ -1,0 +1,18 @@
+{
+  "version": "0.45.0",
+  "passed": 11,
+  "checks": [
+    "v0.45.0 boot",
+    "Custom Modes grouped into sections",
+    "bridge-lava uses requested geometry",
+    "bridge-lava canvas fits phone",
+    "bridge-garden uses requested geometry",
+    "bridge-garden canvas fits phone",
+    "touchdown uses requested geometry",
+    "touchdown canvas fits phone",
+    "touchdown-3v3 uses requested geometry",
+    "touchdown-3v3 canvas fits phone",
+    "No browser exceptions"
+  ],
+  "errors": []
+}

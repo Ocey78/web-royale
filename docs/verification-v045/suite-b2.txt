@@ -1,0 +1,190 @@
+TAP version 13
+# Subtest: sandbox has no opponents, recorder, result or time limit
+ok 1 - sandbox has no opponents, recorder, result or time limit
+  ---
+  duration_ms: 9.981058
+  type: 'test'
+  ...
+# Subtest: each of 102 cards can be cast for either team without a deck, elixir or territory gate
+ok 2 - each of 102 cards can be cast for either team without a deck, elixir or territory gate
+  ---
+  duration_ms: 135.591554
+  type: 'test'
+  ...
+# Subtest: sandbox Mirror requires and copies the previous card for its selected team
+ok 3 - sandbox Mirror requires and copies the previous card for its selected team
+  ---
+  duration_ms: 1.266217
+  type: 'test'
+  ...
+# Subtest: tower selection removes only the chosen towers and reset restores their health
+ok 4 - tower selection removes only the chosen towers and reset restores their health
+  ---
+  duration_ms: 1.759532
+  type: 'test'
+  ...
+# Subtest: clear removes pending spells and units, pause freezes combat but permits arranging units
+ok 5 - clear removes pending spells and units, pause freezes combat but permits arranging units
+  ---
+  duration_ms: 1.190595
+  type: 'test'
+  ...
+# Subtest: Baby Dragon has no target and stays idle when every enemy is absent
+ok 6 - Baby Dragon has no target and stays idle when every enemy is absent
+  ---
+  duration_ms: 4.07905
+  type: 'test'
+  ...
+# Subtest: invalid sandbox commands have no side effects and regular battles keep normal rules
+ok 7 - invalid sandbox commands have no side effects and regular battles keep normal rules
+  ---
+  duration_ms: 2.584392
+  type: 'test'
+  ...
+# Subtest: sandbox levels 0, 1, 13, 30 and 99 scale troop health, attacks and shields consistently
+ok 8 - sandbox levels 0, 1, 13, 30 and 99 scale troop health, attacks and shields consistently
+  ---
+  duration_ms: 4.306199
+  type: 'test'
+  ...
+# Subtest: sandbox levels pass through spells, death spawns, towers and Mirror without normal caps
+ok 9 - sandbox levels pass through spells, death spawns, towers and Mirror without normal caps
+  ---
+  duration_ms: 17.216251
+  type: 'test'
+  ...
+# Subtest: source global excludes Mirror from both opening hands without changing the saved deck
+ok 10 - source global excludes Mirror from both opening hands without changing the saved deck
+  ---
+  duration_ms: 7.284147
+  type: 'test'
+  ...
+# Subtest: Mirror uses its own level plus the source offset rather than the preceding card level
+ok 11 - Mirror uses its own level plus the source offset rather than the preceding card level
+  ---
+  duration_ms: 3.512205
+  type: 'test'
+  ...
+# Subtest: SpellAsDeploy rolling cards cannot be cast in enemy territory with intact towers
+ok 12 - SpellAsDeploy rolling cards cannot be cast in enemy territory with intact towers
+  ---
+  duration_ms: 4.035635
+  type: 'test'
+  ...
+# Subtest: CanPlaceOnBuildings permits a Royal Delivery on an allied tower
+ok 13 - CanPlaceOnBuildings permits a Royal Delivery on an allied tower
+  ---
+  duration_ms: 1.11367
+  type: 'test'
+  ...
+# Subtest: spell damage resolves the original secondary projectile and area projectile
+ok 14 - spell damage resolves the original secondary projectile and area projectile
+  ---
+  duration_ms: 0.186638
+  type: 'test'
+  ...
+# Subtest: card detail metadata identifies spell ticks, durations and delivered troops
+ok 15 - card detail metadata identifies spell ticks, durations and delivered troops
+  ---
+  duration_ms: 0.139218
+  type: 'test'
+  ...
+# Subtest: Heal Spirit is classified as a troop despite its original spells table
+ok 16 - Heal Spirit is classified as a troop despite its original spells table
+  ---
+  duration_ms: 0.117255
+  type: 'test'
+  ...
+# Subtest: Sudden Death starts in the uploaded overtime section and ends on first tower
+ok 17 - Sudden Death starts in the uploaded overtime section and ends on first tower
+  ---
+  duration_ms: 9.839416
+  type: 'test'
+  ...
+# Subtest: timeline section lengths control the displayed clock
+ok 18 - timeline section lengths control the displayed clock
+  ---
+  duration_ms: 1.731011
+  type: 'test'
+  ...
+# Subtest: Electro Dragon source ChainedHitCount includes the primary target
+ok 19 - Electro Dragon source ChainedHitCount includes the primary target
+  ---
+  duration_ms: 3.087582
+  type: 'test'
+  ...
+# Subtest: a periodic buff includes a hit scheduled at its expiry boundary
+ok 20 - a periodic buff includes a hit scheduled at its expiry boundary
+  ---
+  duration_ms: 8.931143
+  type: 'test'
+  ...
+# Subtest: two distinct Poison areas stack their damage, same area refresh does not stack
+ok 21 - two distinct Poison areas stack their damage, same area refresh does not stack
+  ---
+  duration_ms: 15.044864
+  type: 'test'
+  ...
+# Subtest: Earthquake delivers three ground-only source damage ticks
+ok 22 - Earthquake delivers three ground-only source damage ticks
+  ---
+  duration_ms: 9.81495
+  type: 'test'
+  ...
+# Subtest: every visible source card retains all raw behavior fields and rarity levels
+ok 23 - every visible source card retains all raw behavior fields and rarity levels
+  ---
+  duration_ms: 7.834632
+  type: 'test'
+  ...
+# Subtest: full UI skin and fixed word labels are bundled images, not downloadable fonts
+ok 24 - full UI skin and fixed word labels are bundled images, not downloadable fonts
+  ---
+  duration_ms: 1.425144
+  type: 'test'
+  ...
+# Subtest: static host serves the exact web entry with restrictive headers
+ok 25 - static host serves the exact web entry with restrictive headers
+  ---
+  duration_ms: 45.175125
+  type: 'test'
+  ...
+# Subtest: hashed scripts have immutable cache headers and gzip round trips
+ok 26 - hashed scripts have immutable cache headers and gzip round trips
+  ---
+  duration_ms: 104.301255
+  type: 'test'
+  ...
+# Subtest: HEAD returns file length without the body
+ok 27 - HEAD returns file length without the body
+  ---
+  duration_ms: 2.201862
+  type: 'test'
+  ...
+# Subtest: static host rejects writes and cannot expose parent source files
+ok 28 - static host rejects writes and cannot expose parent source files
+  ---
+  duration_ms: 3.720856
+  type: 'test'
+  ...
+# Subtest: text variants vary on accepted encoding, even when uncompressed
+ok 29 - text variants vary on accepted encoding, even when uncompressed
+  ---
+  duration_ms: 2.245597
+  type: 'test'
+  ...
+# Subtest: gzip explicitly refused by the client is not sent
+ok 30 - gzip explicitly refused by the client is not sent
+  ---
+  duration_ms: 1.990547
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 482.944387

@@ -39,7 +39,9 @@ const MODE_DECKS=Object.freeze(Object.fromEntries([
  ['OneShot','oneShotDeck','One Shot'],['DoubleElixir','doubleElixirDeck','Double Elixir'],
  ['TripleElixir','tripleElixirDeck','Triple Elixir'],['RampUp','rampDeck','Ramp Up'],
  ['SuddenDeath','suddenDeck','Sudden Death'],['7xElixir','infiniteDeck','Infinite Elixir'],
- ['ClanWar_BoatBattle','boatPracticeDeck','Boat Battle']
+ ['ClanWar_BoatBattle','boatPracticeDeck','Boat Battle'],['Touchdown','touchdownDeck','Touchdown'],
+ ['Touchdown2v2','touchdown2v2Deck','2v2 Touchdown'],['Touchdown3v3','touchdown3v3Deck','3v3 Touchdown'],
+ ['FreeForAll','ffaDeck','1v1v1v1 FFA']
 ].map(([mode,key,name])=>[mode,Object.freeze({key,name,size:modeDeckSize(mode)})])));
 function deckName(value,index=0){return (typeof value==='string'?value.replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,24):'')||'Deck '+(index+1);}
 function normalizeDeck(deck,options={}){const size=[4,12].includes(options.size)?options.size:8;return validDeck(deck,options)?[...deck]:[...new Set([...DEFAULT_DECK,...CARDS.map(c=>c.id)])].slice(0,size);}

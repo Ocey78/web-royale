@@ -1,6 +1,6 @@
 {
   "name": "web-royale",
-  "version": "0.44.0",
+  "version": "0.45.0",
   "private": true,
   "scripts": {
     "build": "node tools/build-web.js",
@@ -11,7 +11,7 @@
     "test:learning": "node tools/benchmark-learning.cjs",
     "test:browser:current": "node tests/browser_cards_v280.cjs && node tests/browser_gameplay_v280.cjs && node tests/browser_v270.cjs && node tests/browser_menu_recovery.cjs && node tests/browser_ui_v290.cjs && node tests/browser_sandbox_v290.cjs && node tests/browser_chests_v290.cjs && node tests/browser_towers_v290.cjs && node tests/browser_targeting_v300.cjs && node tests/browser_replay_v300.cjs && node tests/browser_pathing_v320.cjs"
   },
-  "description": "Web Royale: arched castle 5v5, King-only results and synchronized King activation, revised Rumble elixir, mask-independent Mirror border",
+  "description": "Web Royale: expanded detailed custom arenas, Touchdown teams, four-team FFA, league progression fix, and named multi-deck custom modes",
   "engines": {
     "node": ">=22"
   }

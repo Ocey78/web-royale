@@ -1,0 +1,62 @@
+[
+  {
+    "id": "TeamRumble",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "id": "TeamRumbleArcReverse",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "id": "TeamRumbleRiverLine",
+    "width": 886.953125,
+    "height": 1200
+  },
+  {
+    "id": "Team3v3",
+    "width": 803.875,
+    "height": 1200
+  },
+  {
+    "id": "Team3v3Jungle",
+    "width": 803.875,
+    "height": 1200
+  },
+  {
+    "id": "Team3v3Volcano",
+    "width": 803.875,
+    "height": 1200
+  },
+  {
+    "id": "BridgeBattle",
+    "width": 477.65625,
+    "height": 1200
+  },
+  {
+    "id": "BridgeBattleLava",
+    "width": 477.65625,
+    "height": 1200
+  },
+  {
+    "id": "BridgeBattleGarden",
+    "width": 477.65625,
+    "height": 1200
+  },
+  {
+    "id": "Touchdown",
+    "width": 836.359375,
+    "height": 1200
+  },
+  {
+    "id": "Touchdown3v3",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "id": "FreeForAll",
+    "width": 900,
+    "height": 1200
+  }
+]

@@ -1,0 +1,6 @@
+runtime loaded
+UI artwork loaded
+PASS v0.45.0 boot
+PASS Custom Modes grouped into sections
+PASS rumble-reverse uses requested geometry
+PASS rumble-reverse canvas fits phone

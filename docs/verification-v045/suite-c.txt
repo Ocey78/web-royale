@@ -1,0 +1,1180 @@
+TAP version 13
+# Subtest: tactical policy exposes a restricted public observation
+ok 1 - tactical policy exposes a restricted public observation
+  ---
+  duration_ms: 8.199
+  type: 'test'
+  ...
+# Subtest: policy does not read the opposing hand queue or exact elixir
+ok 2 - policy does not read the opposing hand queue or exact elixir
+  ---
+  duration_ms: 5.51561
+  type: 'test'
+  ...
+# Subtest: invisible enemy units are absent from observation
+ok 3 - invisible enemy units are absent from observation
+  ---
+  duration_ms: 1.52965
+  type: 'test'
+  ...
+# Subtest: waits instead of spending the starting bank without a threat
+ok 4 - waits instead of spending the starting bank without a threat
+  ---
+  duration_ms: 1.39597
+  type: 'test'
+  ...
+# Subtest: saves single-elixir budget for a coherent heavy opening
+ok 5 - saves single-elixir budget for a coherent heavy opening
+  ---
+  duration_ms: 1.50291
+  type: 'test'
+  ...
+# Subtest: avoids leaking at full elixir
+ok 6 - avoids leaking at full elixir
+  ---
+  duration_ms: 1.505403
+  type: 'test'
+  ...
+# Subtest: selects anti-air instead of a ground-only counter against Balloon
+ok 7 - selects anti-air instead of a ground-only counter against Balloon
+  ---
+  duration_ms: 1.732372
+  type: 'test'
+  ...
+# Subtest: uses splash against a clustered skeleton swarm
+ok 8 - uses splash against a clustered skeleton swarm
+  ---
+  duration_ms: 2.671912
+  type: 'test'
+  ...
+# Subtest: chooses a tank killer against a Giant
+ok 9 - chooses a tank killer against a Giant
+  ---
+  duration_ms: 2.451974
+  type: 'test'
+  ...
+# Subtest: central defensive building pulls an approaching building-targeter
+ok 10 - central defensive building pulls an approaching building-targeter
+  ---
+  duration_ms: 2.111016
+  type: 'test'
+  ...
+# Subtest: does not use a ground-only spell against Minions
+ok 11 - does not use a ground-only spell against Minions
+  ---
+  duration_ms: 1.826142
+  type: 'test'
+  ...
+# Subtest: spells target valuable clusters rather than a naked healthy tower
+ok 12 - spells target valuable clusters rather than a naked healthy tower
+  ---
+  duration_ms: 1.958344
+  type: 'test'
+  ...
+# Subtest: finishes a lethal princess tower with a damage spell
+ok 13 - finishes a lethal princess tower with a damage spell
+  ---
+  duration_ms: 1.06695
+  type: 'test'
+  ...
+# Subtest: never wastes a standalone spell on a healthy sleeping king
+ok 14 - never wastes a standalone spell on a healthy sleeping king
+  ---
+  duration_ms: 1.1474
+  type: 'test'
+  ...
+# Subtest: does not rage empty ground
+ok 15 - does not rage empty ground
+  ---
+  duration_ms: 0.851159
+  type: 'test'
+  ...
+# Subtest: refuses unavailable or unaffordable hand slots
+ok 16 - refuses unavailable or unaffordable hand slots
+  ---
+  duration_ms: 0.893772
+  type: 'test'
+  ...
+# Subtest: returns deterministic choices and reasons for a fixed observation
+ok 17 - returns deterministic choices and reasons for a fixed observation
+  ---
+  duration_ms: 2.285866
+  type: 'test'
+  ...
+# Subtest: observation does not mutate the battle
+ok 18 - observation does not mutate the battle
+  ---
+  duration_ms: 0.888084
+  type: 'test'
+  ...
+# Subtest: attack policy supports either side with legal symmetric placement
+ok 19 - attack policy supports either side with legal symmetric placement
+  ---
+  duration_ms: 1.065929
+  type: 'test'
+  ...
+# Subtest: public deployment costs update remembered enemy elixir without hidden reads
+ok 20 - public deployment costs update remembered enemy elixir without hidden reads
+  ---
+  duration_ms: 1.012489
+  type: 'test'
+  ...
+# Subtest: default battle uses tactical policy and still only spends legal elixir
+ok 21 - default battle uses tactical policy and still only spends legal elixir
+  ---
+  duration_ms: 63.494352
+  type: 'test'
+  ...
+# Subtest: fresh deployments respect the humanized observation delay
+ok 22 - fresh deployments respect the humanized observation delay
+  ---
+  duration_ms: 1.195491
+  type: 'test'
+  ...
+# Subtest: Mortar placement forecast excludes its blind spot but includes a legal farther target
+ok 23 - Mortar placement forecast excludes its blind spot but includes a legal farther target
+  ---
+  duration_ms: 9.399389
+  type: 'test'
+  ...
+# Subtest: a troop placed in enemy Mortar blind spot is not forecast as immediately attackable
+ok 24 - a troop placed in enemy Mortar blind spot is not forecast as immediately attackable
+  ---
+  duration_ms: 2.218987
+  type: 'test'
+  ...
+# Subtest: Mortar cancels an unlaunched shot when its target enters the source minimum range
+ok 25 - Mortar cancels an unlaunched shot when its target enters the source minimum range
+  ---
+  duration_ms: 10.086653
+  type: 'test'
+  ...
+# Subtest: Mortar can reacquire a legal target and starts its full new windup
+ok 26 - Mortar can reacquire a legal target and starts its full new windup
+  ---
+  duration_ms: 4.332868
+  type: 'test'
+  ...
+# Subtest: minimum-range forecasting is pure, even while a real attack is pending
+ok 27 - minimum-range forecasting is pure, even while a real attack is pending
+  ---
+  duration_ms: 1.490011
+  type: 'test'
+  ...
+# Subtest: Mortar still acquires targets at the exact minimum-range boundary
+ok 28 - Mortar still acquires targets at the exact minimum-range boundary
+  ---
+  duration_ms: 1.4359
+  type: 'test'
+  ...
+# Subtest: losing a dead target clears its pending attack presentation
+ok 29 - losing a dead target clears its pending attack presentation
+  ---
+  duration_ms: 1.759943
+  type: 'test'
+  ...
+# Subtest: source maximum-distance grace still preserves an already-started shot
+ok 30 - source maximum-distance grace still preserves an already-started shot
+  ---
+  duration_ms: 1.613805
+  type: 'test'
+  ...
+# Subtest: a target beyond the source maximum-distance grace cancels and clears its pending pose immediately
+ok 31 - a target beyond the source maximum-distance grace cancels and clears its pending pose immediately
+  ---
+  duration_ms: 3.843839
+  type: 'test'
+  ...
+# Subtest: a canceled hit can keep the same navigation target without retaining its pending attack
+ok 32 - a canceled hit can keep the same navigation target without retaining its pending attack
+  ---
+  duration_ms: 2.136064
+  type: 'test'
+  ...
+# Subtest: normal team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 33 - normal team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 2.03986
+  type: 'test'
+  ...
+# Subtest: normal team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 34 - normal team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 4.549751
+  type: 'test'
+  ...
+# Subtest: normal team 0: source ground/air and buildings-only categories remain hard restrictions
+ok 35 - normal team 0: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 0.949194
+  type: 'test'
+  ...
+# Subtest: normal team 0: source sight excludes just-outside enemies and no enemy means idle
+ok 36 - normal team 0: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 0.833402
+  type: 'test'
+  ...
+# Subtest: normal team 0: an opened default lane leads toward King instead of the opposite Princess
+ok 37 - normal team 0: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 1.051187
+  type: 'test'
+  ...
+# Subtest: normal team 0: visible King acquisition is separate from same-lane Princess fallback
+ok 38 - normal team 0: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 0.943036
+  type: 'test'
+  ...
+# Subtest: normal team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 39 - normal team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 1.112538
+  type: 'test'
+  ...
+# Subtest: normal team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 40 - normal team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 0.944868
+  type: 'test'
+  ...
+# Subtest: normal team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 41 - normal team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 2.899811
+  type: 'test'
+  ...
+# Subtest: normal team 1: source ground/air and buildings-only categories remain hard restrictions
+ok 42 - normal team 1: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 1.023135
+  type: 'test'
+  ...
+# Subtest: normal team 1: source sight excludes just-outside enemies and no enemy means idle
+ok 43 - normal team 1: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 0.762767
+  type: 'test'
+  ...
+# Subtest: normal team 1: an opened default lane leads toward King instead of the opposite Princess
+ok 44 - normal team 1: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 1.01294
+  type: 'test'
+  ...
+# Subtest: normal team 1: visible King acquisition is separate from same-lane Princess fallback
+ok 45 - normal team 1: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 0.819311
+  type: 'test'
+  ...
+# Subtest: normal team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 46 - normal team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 0.923426
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 47 - sandbox team 0: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 1.716068
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 48 - sandbox team 0: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 3.931139
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: source ground/air and buildings-only categories remain hard restrictions
+ok 49 - sandbox team 0: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 0.756237
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: source sight excludes just-outside enemies and no enemy means idle
+ok 50 - sandbox team 0: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 0.695336
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: an opened default lane leads toward King instead of the opposite Princess
+ok 51 - sandbox team 0: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 0.72447
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: visible King acquisition is separate from same-lane Princess fallback
+ok 52 - sandbox team 0: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 0.642147
+  type: 'test'
+  ...
+# Subtest: sandbox team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 53 - sandbox team 0: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 0.840012
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+ok 54 - sandbox team 1: a walking troop freely selects a closer valid enemy, including a 0.1-tile improvement
+  ---
+  duration_ms: 1.296593
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+ok 55 - sandbox team 1: engaged lock survives distraction but releases on death, concealment, or lost range
+  ---
+  duration_ms: 2.331274
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: source ground/air and buildings-only categories remain hard restrictions
+ok 56 - sandbox team 1: source ground/air and buildings-only categories remain hard restrictions
+  ---
+  duration_ms: 0.727284
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: source sight excludes just-outside enemies and no enemy means idle
+ok 57 - sandbox team 1: source sight excludes just-outside enemies and no enemy means idle
+  ---
+  duration_ms: 0.635567
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: an opened default lane leads toward King instead of the opposite Princess
+ok 58 - sandbox team 1: an opened default lane leads toward King instead of the opposite Princess
+  ---
+  duration_ms: 0.803738
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: visible King acquisition is separate from same-lane Princess fallback
+ok 59 - sandbox team 1: visible King acquisition is separate from same-lane Princess fallback
+  ---
+  duration_ms: 0.948493
+  type: 'test'
+  ...
+# Subtest: sandbox team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+ok 60 - sandbox team 1: Crown-only and King-only constraints also apply to acquisition and fallback
+  ---
+  duration_ms: 0.683369
+  type: 'test'
+  ...
+# Subtest: duo King team 0: each barrel preserves its own pending target within grace and reacquires beyond it
+ok 61 - duo King team 0: each barrel preserves its own pending target within grace and reacquires beyond it
+  ---
+  duration_ms: 1.27471
+  type: 'test'
+  ...
+# Subtest: duo King team 1: each barrel preserves its own pending target within grace and reacquires beyond it
+ok 62 - duo King team 1: each barrel preserves its own pending target within grace and reacquires beyond it
+  ---
+  duration_ms: 0.890748
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: two closer arrivals cannot steal the locked primary bolt
+ok 63 - Electro Wizard team 0: two closer arrivals cannot steal the locked primary bolt
+  ---
+  duration_ms: 1.490872
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: secondary bolt chooses the nearer collision boundary, not the nearer center
+ok 64 - Electro Wizard team 0: secondary bolt chooses the nearer collision boundary, not the nearer center
+  ---
+  duration_ms: 1.055894
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: committed primary in source grace still receives its bolt
+ok 65 - Electro Wizard team 0: committed primary in source grace still receives its bolt
+  ---
+  duration_ms: 0.890678
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 0: one eligible enemy receives both bolts despite hidden or attached neighbors
+ok 66 - Electro Wizard team 0: one eligible enemy receives both bolts despite hidden or attached neighbors
+  ---
+  duration_ms: 1.385165
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: two closer arrivals cannot steal the locked primary bolt
+ok 67 - Electro Wizard team 1: two closer arrivals cannot steal the locked primary bolt
+  ---
+  duration_ms: 1.14736
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: secondary bolt chooses the nearer collision boundary, not the nearer center
+ok 68 - Electro Wizard team 1: secondary bolt chooses the nearer collision boundary, not the nearer center
+  ---
+  duration_ms: 0.841624
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: committed primary in source grace still receives its bolt
+ok 69 - Electro Wizard team 1: committed primary in source grace still receives its bolt
+  ---
+  duration_ms: 0.753413
+  type: 'test'
+  ...
+# Subtest: Electro Wizard team 1: one eligible enemy receives both bolts despite hidden or attached neighbors
+ok 70 - Electro Wizard team 1: one eligible enemy receives both bolts despite hidden or attached neighbors
+  ---
+  duration_ms: 0.711841
+  type: 'test'
+  ...
+# Subtest: v110: 2v2 bot announces a placement before spending its own elixir
+ok 71 - v110: 2v2 bot announces a placement before spending its own elixir
+  ---
+  duration_ms: 11.778024
+  type: 'test'
+  ...
+# Subtest: v110: only allied declared intentions cross the observation boundary
+ok 72 - v110: only allied declared intentions cross the observation boundary
+  ---
+  duration_ms: 1.928774
+  type: 'test'
+  ...
+# Subtest: v110: a second ally discounts a redundant area spell
+ok 73 - v110: a second ally discounts a redundant area spell
+  ---
+  duration_ms: 7.306539
+  type: 'test'
+  ...
+# Subtest: v110: 2v2 has four distinct seats, decks and elixir banks
+ok 74 - v110: 2v2 has four distinct seats, decks and elixir banks
+  ---
+  duration_ms: 9.620669
+  type: 'test'
+  ...
+# Subtest: v110: source team elixir timeline applies separately to all players
+ok 75 - v110: source team elixir timeline applies separately to all players
+  ---
+  duration_ms: 6.075285
+  type: 'test'
+  ...
+# Subtest: v110: red teammate may not place ordinary troops in blue territory
+ok 76 - v110: red teammate may not place ordinary troops in blue territory
+  ---
+  duration_ms: 1.980382
+  type: 'test'
+  ...
+# Subtest: v110: Mirror follows its own seat instead of the teammate
+ok 77 - v110: Mirror follows its own seat instead of the teammate
+  ---
+  duration_ms: 1.935204
+  type: 'test'
+  ...
+# Subtest: v110: collector elixir belongs to its player, not both allies
+ok 78 - v110: collector elixir belongs to its player, not both allies
+  ---
+  duration_ms: 1.722196
+  type: 'test'
+  ...
+# Subtest: v110: delayed summons retain the deploying seat ownership
+ok 79 - v110: delayed summons retain the deploying seat ownership
+  ---
+  duration_ms: 15.618958
+  type: 'test'
+  ...
+# Subtest: v110: two teams share king health but have two firing positions
+ok 80 - v110: two teams share king health but have two firing positions
+  ---
+  duration_ms: 8.795599
+  type: 'test'
+  ...
+# Subtest: v110: all three bots act without draining human resources
+ok 81 - v110: all three bots act without draining human resources
+  ---
+  duration_ms: 143.251203
+  type: 'test'
+  ...
+# Subtest: v110: second bot observes its own hand and visible teammates only
+ok 82 - v110: second bot observes its own hand and visible teammates only
+  ---
+  duration_ms: 1.325696
+  type: 'test'
+  ...
+# Subtest: v110: 2v2 does not alter trophies but can earn normal party rewards
+ok 83 - v110: 2v2 does not alter trophies but can earn normal party rewards
+  ---
+  duration_ms: 6.958651
+  type: 'test'
+  ...
+# Subtest: tiebreak message immediately replaces queued overtime and elixir announcements
+ok 84 - tiebreak message immediately replaces queued overtime and elixir announcements
+  ---
+  duration_ms: 0.930978
+  type: 'test'
+  ...
+# Subtest: tiebreak announcement survives pauses until resolution and resets for another match
+ok 85 - tiebreak announcement survives pauses until resolution and resets for another match
+  ---
+  duration_ms: 0.139488
+  type: 'test'
+  ...
+# Subtest: native timer shows tiebreak label without an elixir regeneration badge
+ok 86 - native timer shows tiebreak label without an elixir regeneration badge
+  ---
+  duration_ms: 0.190754
+  type: 'test'
+  ...
+# Subtest: decisive overtime expiry starts one visible phase before granting the result
+ok 87 - decisive overtime expiry starts one visible phase before granting the result
+  ---
+  duration_ms: 9.954842
+  type: 'test'
+  ...
+# Subtest: freezing the board removes queued ally previews and stops interpolation at current positions
+ok 88 - freezing the board removes queued ally previews and stops interpolation at current positions
+  ---
+  duration_ms: 3.129495
+  type: 'test'
+  ...
+# Subtest: drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+ok 89 - drain subtracts equal absolute HP, freezes combat and rejects every seat deployment
+  ---
+  duration_ms: 2.870978
+  type: 'test'
+  ...
+# Subtest: lowest surviving raw HP determines the drain winner and awards one crown once
+ok 90 - lowest surviving raw HP determines the drain winner and awards one crown once
+  ---
+  duration_ms: 2.697421
+  type: 'test'
+  ...
+# Subtest: a lowest King tower awards three crowns and keeps the tiebreak result reason
+ok 91 - a lowest King tower awards three crowns and keeps the tiebreak result reason
+  ---
+  duration_ms: 4.964449
+  type: 'test'
+  ...
+# Subtest: already destroyed towers are excluded and near-equal surviving minima remain draws
+ok 92 - already destroyed towers are excluded and near-equal surviving minima remain draws
+  ---
+  duration_ms: 1.31475
+  type: 'test'
+  ...
+# Subtest: pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+ok 93 - pausing the drain freezes health and elapsed time; headless stepping has the same outcome
+  ---
+  duration_ms: 2.340168
+  type: 'test'
+  ...
+# Subtest: troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+ok 94 - troops still deploying at expiry cannot appear or increase terminal board rewards during drain
+  ---
+  duration_ms: 1.894173
+  type: 'test'
+  ...
+# Subtest: boat battles preserve their own timeout without a crown-tower tiebreak phase
+ok 95 - boat battles preserve their own timeout without a crown-tower tiebreak phase
+  ---
+  duration_ms: 3.371004
+  type: 'test'
+  ...
+# Subtest: new replay records reproduce the drain while older records preserve their immediate result
+ok 96 - new replay records reproduce the drain while older records preserve their immediate result
+  ---
+  duration_ms: 420.190561
+  type: 'test'
+  ...
+# Subtest: replay validation rejects unknown engines and malformed tiebreak rules
+ok 97 - replay validation rejects unknown engines and malformed tiebreak rules
+  ---
+  duration_ms: 1.627235
+  type: 'test'
+  ...
+# Subtest: source-gold-rush renders both source tower assemblies and retains King/Princess attachment order
+ok 98 - source-gold-rush renders both source tower assemblies and retains King/Princess attachment order
+  ---
+  duration_ms: 1.541198
+  type: 'test'
+  ...
+# Subtest: source-gem-rush renders both source tower assemblies and retains King/Princess attachment order
+ok 99 - source-gem-rush renders both source tower assemblies and retains King/Princess attachment order
+  ---
+  duration_ms: 0.244784
+  type: 'test'
+  ...
+# Subtest: source-elixir-pump renders both source tower assemblies and retains King/Princess attachment order
+ok 100 - source-elixir-pump renders both source tower assemblies and retains King/Princess attachment order
+  ---
+  duration_ms: 0.310462
+  type: 'test'
+  ...
+# Subtest: absent skin scene falls back to unchanged Classic and ruins always use source destroyed artwork
+ok 101 - absent skin scene falls back to unchanged Classic and ruins always use source destroyed artwork
+  ---
+  duration_ms: 0.172187
+  type: 'test'
+  ...
+# Subtest: battle preparation retains the selected skin scene for live towers
+ok 102 - battle preparation retains the selected skin scene for live towers
+  ---
+  duration_ms: 7.889719
+  type: 'test'
+  ...
+# Subtest: Princess tower source action marker is aligned with the real release
+ok 103 - Princess tower source action marker is aligned with the real release
+  ---
+  duration_ms: 2.330653
+  type: 'test'
+  ...
+# Subtest: three genuine source event variants are offered alongside Classic
+ok 104 - three genuine source event variants are offered alongside Classic
+  ---
+  duration_ms: 1.939481
+  type: 'test'
+  ...
+# Subtest: genuine skins can be purchased once, equipped, and preserved through a save reload
+ok 105 - genuine skins can be purchased once, equipped, and preserved through a save reload
+  ---
+  duration_ms: 21.046608
+  type: 'test'
+  ...
+# Subtest: skin ownership, insufficient funds, stale offers, and retired recolor rejection remain enforced
+ok 106 - skin ownership, insufficient funds, stale offers, and retired recolor rejection remain enforced
+  ---
+  duration_ms: 6.799123
+  type: 'test'
+  ...
+# Subtest: skin mappings resolve both original team assemblies and their activation timelines
+ok 107 - skin mappings resolve both original team assemblies and their activation timelines
+  ---
+  duration_ms: 2.441749
+  type: 'test'
+  ...
+# Subtest: skin scene has complete drawable dependencies and hash-verified original texture output
+ok 108 - skin scene has complete drawable dependencies and hash-verified original texture output
+  ---
+  duration_ms: 5.201553
+  type: 'test'
+  ...
+# Subtest: v130 self-play decks are varied and tactically complete
+ok 109 - v130 self-play decks are varied and tactically complete
+  ---
+  duration_ms: 16.83481
+  type: 'test'
+  ...
+# Subtest: four actual concurrent 2v2 simulations finish through two packaged workers with unique learned packets
+ok 110 - four actual concurrent 2v2 simulations finish through two packaged workers with unique learned packets
+  ---
+  duration_ms: 12473.618366
+  type: 'test'
+  ...
+# Subtest: 5000 concurrent games are assigned to at most eight workers without truncation
+ok 111 - 5000 concurrent games are assigned to at most eight workers without truncation
+  ---
+  duration_ms: 2.749427
+  type: 'test'
+  ...
+# Subtest: invalid or excessive training settings are rejected, not silently clipped
+ok 112 - invalid or excessive training settings are rejected, not silently clipped
+  ---
+  duration_ms: 0.266998
+  type: 'test'
+  ...
+# Subtest: cooperative scheduler actually holds 5000 active instances and advances them round robin
+ok 113 - cooperative scheduler actually holds 5000 active instances and advances them round robin
+  ---
+  duration_ms: 6.554038
+  type: 'test'
+  ...
+# Subtest: cancelling stops unfinished simulations, never reports them completed
+ok 114 - cancelling stops unfinished simulations, never reports them completed
+  ---
+  duration_ms: 0.996014
+  type: 'test'
+  ...
+# Subtest: self-play compact recording bounds detailed history and retains aggregate metrics
+ok 115 - self-play compact recording bounds detailed history and retains aggregate metrics
+  ---
+  duration_ms: 18.731207
+  type: 'test'
+  ...
+# Subtest: 5000 batched records remain idempotent over the entire run
+ok 116 - 5000 batched records remain idempotent over the entire run
+  ---
+  duration_ms: 648.801564
+  type: 'test'
+  ...
+# Subtest: compact per-seat totals consume the real deploy event seat field
+ok 117 - compact per-seat totals consume the real deploy event seat field
+  ---
+  duration_ms: 4.082935
+  type: 'test'
+  ...
+# Subtest: v110: packaged self-play worker completes 1v1 with actual learned gradients
+ok 118 - v110: packaged self-play worker completes 1v1 with actual learned gradients
+  ---
+  duration_ms: 5164.969586
+  type: 'test'
+  ...
+# Subtest: v110: packaged self-play worker completes 2v2 with all four players
+ok 119 - v110: packaged self-play worker completes 2v2 with all four players
+  ---
+  duration_ms: 8963.611617
+  type: 'test'
+  ...
+# Subtest: v110: self-play can be cancelled without pretending an unfinished match completed
+ok 120 - v110: self-play can be cancelled without pretending an unfinished match completed
+  ---
+  duration_ms: 104.641779
+  type: 'test'
+  ...
+# Subtest: v110: training worker rejects external resource origins
+ok 121 - v110: training worker rejects external resource origins
+  ---
+  duration_ms: 32.344746
+  type: 'test'
+  ...
+# Subtest: v110: menus expose 2v2, learning controls and trophy road navigation
+ok 122 - v110: menus expose 2v2, learning controls and trophy road navigation
+  ---
+  duration_ms: 1.53635
+  type: 'test'
+  ...
+# Subtest: v260: range preview uses the engine forecast and hints cannot be disabled
+ok 123 - v260: range preview uses the engine forecast and hints cannot be disabled
+  ---
+  duration_ms: 55.285881
+  type: 'test'
+  ...
+# Subtest: v110: build emits an offline training worker and all new runtime modules
+ok 124 - v110: build emits an offline training worker and all new runtime modules
+  ---
+  duration_ms: 0.400176
+  type: 'test'
+  ...
+# Subtest: v110: training runs without the browser DOM or any remote game service
+ok 125 - v110: training runs without the browser DOM or any remote game service
+  ---
+  duration_ms: 0.374648
+  type: 'test'
+  ...
+# Subtest: settings has its own scrollable content area and persistent header
+ok 126 - settings has its own scrollable content area and persistent header
+  ---
+  duration_ms: 1.101691
+  type: 'test'
+  ...
+# Subtest: level emblems outside the home screen are no longer polygon-clipped
+ok 127 - level emblems outside the home screen are no longer polygon-clipped
+  ---
+  duration_ms: 0.203333
+  type: 'test'
+  ...
+# Subtest: collection progress uses original source atlas rather than generic CSS fill
+ok 128 - collection progress uses original source atlas rather than generic CSS fill
+  ---
+  duration_ms: 2.668166
+  type: 'test'
+  ...
+# Subtest: training UI exposes 5000 total and active matches with high-concurrency warning
+ok 129 - training UI exposes 5000 total and active matches with high-concurrency warning
+  ---
+  duration_ms: 0.370542
+  type: 'test'
+  ...
+# Subtest: browser uses the real AppData adapter, not an unused implementation
+ok 130 - browser uses the real AppData adapter, not an unused implementation
+  ---
+  duration_ms: 0.247929
+  type: 'test'
+  ...
+# Subtest: card-count text is vertically centered in the source progress-bar fill
+ok 131 - card-count text is vertically centered in the source progress-bar fill
+  ---
+  duration_ms: 0.267288
+  type: 'test'
+  ...
+# Subtest: failed live-match writes remain retryable and the Learning Center still opens offline
+ok 132 - failed live-match writes remain retryable and the Learning Center still opens offline
+  ---
+  duration_ms: 0.393706
+  type: 'test'
+  ...
+# Subtest: a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+ok 133 - a deliberate slow horizontal menu swipe still works while vertical scrolling does not switch tabs
+  ---
+  duration_ms: 47.331548
+  type: 'test'
+  ...
+# Subtest: renderer consumes placement forecast without full debug grid
+ok 134 - renderer consumes placement forecast without full debug grid
+  ---
+  duration_ms: 0.77861
+  type: 'test'
+  ...
+# Subtest: target warning is a floating outlined exclamation without a badge box
+ok 135 - target warning is a floating outlined exclamation without a badge box
+  ---
+  duration_ms: 0.286777
+  type: 'test'
+  ...
+# Subtest: offline asset unpacker has an explicit API
+ok 136 - offline asset unpacker has an explicit API
+  ---
+  duration_ms: 2.011758
+  type: 'test'
+  ...
+# Subtest: decodes the compressed playable HTML payload
+ok 137 - decodes the compressed playable HTML payload
+  ---
+  duration_ms: 2.619323
+  type: 'test'
+  ...
+# Subtest: restores original image bytes and native metadata
+ok 138 - restores original image bytes and native metadata
+  ---
+  duration_ms: 3.801585
+  type: 'test'
+  ...
+# Subtest: invalid compressed payload cannot be treated as assets
+ok 139 - invalid compressed payload cannot be treated as assets
+  ---
+  duration_ms: 0.896165
+  type: 'test'
+  ...
+# Subtest: asset path traversal is rejected before any write
+ok 140 - asset path traversal is rejected before any write
+  ---
+  duration_ms: 0.501036
+  type: 'test'
+  ...
+# Subtest: HTML content masquerading as PNG is rejected
+ok 141 - HTML content masquerading as PNG is rejected
+  ---
+  duration_ms: 0.339366
+  type: 'test'
+  ...
+# Subtest: extraction refuses an asset-directory symlink
+ok 142 - extraction refuses an asset-directory symlink
+  ---
+  duration_ms: 0.490101
+  type: 'test'
+  ...
+# Subtest: identical existing image bytes are not rewritten
+ok 143 - identical existing image bytes are not rewritten
+  ---
+  duration_ms: 1.995614
+  type: 'test'
+  ...
+# Subtest: v036 graphics defaults and invalid values normalize independently
+ok 144 - v036 graphics defaults and invalid values normalize independently
+  ---
+  duration_ms: 1.198867
+  type: 'test'
+  ...
+# Subtest: v036 profile exports and imports all four graphics options
+ok 145 - v036 profile exports and imports all four graphics options
+  ---
+  duration_ms: 4.829436
+  type: 'test'
+  ...
+# Subtest: v036 quality tiers control texture rasterization and animation cadence
+ok 146 - v036 quality tiers control texture rasterization and animation cadence
+  ---
+  duration_ms: 0.254709
+  type: 'test'
+  ...
+# Subtest: v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+ok 147 - v036 particle off disables emitters, spells-only rejects unrelated particle graphs
+  ---
+  duration_ms: 0.111076
+  type: 'test'
+  ...
+# Subtest: v036 particle sampler honors a pre-sampling budget
+ok 148 - v036 particle sampler honors a pre-sampling budget
+  ---
+  duration_ms: 0.981383
+  type: 'test'
+  ...
+# Subtest: v036 untouched troops share one badge; damage moves only that troop to individual
+ok 149 - v036 untouched troops share one badge; damage moves only that troop to individual
+  ---
+  duration_ms: 1.418804
+  type: 'test'
+  ...
+# Subtest: v036 two surviving troops both use individual badges
+ok 150 - v036 two surviving troops both use individual badges
+  ---
+  duration_ms: 0.90633
+  type: 'test'
+  ...
+# Subtest: v036 shield damage counts, dead/hidden units do not, deployments stay separate
+ok 151 - v036 shield damage counts, dead/hidden units do not, deployments stay separate
+  ---
+  duration_ms: 0.219136
+  type: 'test'
+  ...
+# Subtest: v036 separate casts of a swarm have distinct persistent visual group IDs
+ok 152 - v036 separate casts of a swarm have distinct persistent visual group IDs
+  ---
+  duration_ms: 10.761325
+  type: 'test'
+  ...
+# Subtest: v036 mixed-unit card formations share a group ID without changing entity sequence
+ok 153 - v036 mixed-unit card formations share a group ID without changing entity sequence
+  ---
+  duration_ms: 2.763668
+  type: 'test'
+  ...
+# Subtest: animated alpha is composited without generating a separate tint texture per fade frame
+ok 154 - animated alpha is composited without generating a separate tint texture per fade frame
+  ---
+  duration_ms: 1.743027
+  type: 'test'
+  ...
+# Subtest: particle Off retains core spell artwork but skips emitter sprite work
+ok 155 - particle Off retains core spell artwork but skips emitter sprite work
+  ---
+  duration_ms: 2.491462
+  type: 'test'
+  ...
+# Subtest: Spells only skips movement particles but permits marked spell particles within the frame cap
+ok 156 - Spells only skips movement particles but permits marked spell particles within the frame cap
+  ---
+  duration_ms: 3.82558
+  type: 'test'
+  ...
+# Subtest: undamaged enemy troops draw a native level badge, not a health bar
+ok 157 - undamaged enemy troops draw a native level badge, not a health bar
+  ---
+  duration_ms: 2.296933
+  type: 'test'
+  ...
+# Subtest: Low texture tier really permits half-size raster textures
+ok 158 - Low texture tier really permits half-size raster textures
+  ---
+  duration_ms: 0.249401
+  type: 'test'
+  ...
+# Subtest: effect prewarming is bounded, yields, and never changes combat state
+ok 159 - effect prewarming is bounded, yields, and never changes combat state
+  ---
+  duration_ms: 0.686743
+  type: 'test'
+  ...
+# Subtest: v036 free chest is ready exactly ten minutes after claiming
+ok 160 - v036 free chest is ready exactly ten minutes after claiming
+  ---
+  duration_ms: 8.444222
+  type: 'test'
+  ...
+# Subtest: v036 migrates a v9 four-hour deadline once, preserving last claim
+ok 161 - v036 migrates a v9 four-hour deadline once, preserving last claim
+  ---
+  duration_ms: 1.315761
+  type: 'test'
+  ...
+# Subtest: v036 ten crowns ignore an old crown cooldown and are spent atomically
+ok 162 - v036 ten crowns ignore an old crown cooldown and are spent atomically
+  ---
+  duration_ms: 4.294359
+  type: 'test'
+  ...
+# Subtest: v036 streak bonus rerolls on each win within an unlocked tier
+ok 163 - v036 streak bonus rerolls on each win within an unlocked tier
+  ---
+  duration_ms: 23.42117
+  type: 'test'
+  ...
+# Subtest: v036 the same result pays once and replay/practice cannot change a streak
+ok 164 - v036 the same result pays once and replay/practice cannot change a streak
+  ---
+  duration_ms: 5.814484
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+ok 165 - v036 lightning shop exposes exactly three eligible unique offers for ten minutes
+  ---
+  duration_ms: 2.625272
+  type: 'test'
+  ...
+# Subtest: v036 lightning shop can select every rarity over its rotations
+ok 166 - v036 lightning shop can select every rarity over its rotations
+  ---
+  duration_ms: 15.960712
+  type: 'test'
+  ...
+# Subtest: v036 lightning purchase persists, rejects duplicates and stale offers without charging
+ok 167 - v036 lightning purchase persists, rejects duplicates and stale offers without charging
+  ---
+  duration_ms: 4.118236
+  type: 'test'
+  ...
+# Subtest: Normal deck deletion survives normalization, and ten saved decks are retained
+ok 168 - Normal deck deletion survives normalization, and ten saved decks are retained
+  ---
+  duration_ms: 5.821675
+  type: 'test'
+  ...
+# Subtest: Add/remove deck operations retain at least one and never mutate the input
+ok 169 - Add/remove deck operations retain at least one and never mutate the input
+  ---
+  duration_ms: 75.962761
+  type: 'test'
+  ...
+# Subtest: Four-card saved deck is independent, legal and persistent
+ok 170 - Four-card saved deck is independent, legal and persistent
+  ---
+  duration_ms: 1.608737
+  type: 'test'
+  ...
+# Subtest: Four-card matches have four real cards on both sides and safely cycle with an empty queue
+ok 171 - Four-card matches have four real cards on both sides and safely cycle with an empty queue
+  ---
+  duration_ms: 17.011649
+  type: 'test'
+  ...
+# Subtest: Random deck generation varies per seed without editing saved decks
+ok 172 - Random deck generation varies per seed without editing saved decks
+  ---
+  duration_ms: 1.24815
+  type: 'test'
+  ...
+# Subtest: Random deck mode remains named and non-ranked without modifying the deck library
+ok 173 - Random deck mode remains named and non-ranked without modifying the deck library
+  ---
+  duration_ms: 6.134812
+  type: 'test'
+  ...
+# Subtest: Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+ok 174 - Four-card replay reproduces input cycling and rejects invalid mismatched cycle sizes
+  ---
+  duration_ms: 23.988024
+  type: 'test'
+  ...
+# Subtest: Gem Chest retains its kind through saves and requires two subsequent wins
+ok 175 - Gem Chest retains its kind through saves and requires two subsequent wins
+  ---
+  duration_ms: 9.742196
+  type: 'test'
+  ...
+# Subtest: Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+ok 176 - Gem Chest rewards cover 5–250 in increments of five, never cards or gold
+  ---
+  duration_ms: 187.872572
+  type: 'test'
+  ...
+# Subtest: Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+ok 177 - Gem battle rolls use the same exact weight as Magical and have varied stable outcomes
+  ---
+  duration_ms: 32.75612
+  type: 'test'
+  ...
+# Subtest: Daily Shop has nine stable offers and top three are always free
+ok 178 - Daily Shop has nine stable offers and top three are always free
+  ---
+  duration_ms: 3.307849
+  type: 'test'
+  ...
+# Subtest: Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+ok 179 - Daily free rewards obey requested ranges, include endpoints and super-rare Legendary rolls
+  ---
+  duration_ms: 738.963868
+  type: 'test'
+  ...
+# Subtest: Daily claims are atomic and survive JSON save normalization
+ok 180 - Daily claims are atomic and survive JSON save normalization
+  ---
+  duration_ms: 7.284517
+  type: 'test'
+  ...
+# Subtest: Daily paid offers debit gold once and reject insufficient funds or stale identity
+ok 181 - Daily paid offers debit gold once and reject insufficient funds or stale identity
+  ---
+  duration_ms: 2.205897
+  type: 'test'
+  ...
+# Subtest: Full particles survive save normalization and restore the full emitter/frame budget
+ok 182 - Full particles survive save normalization and restore the full emitter/frame budget
+  ---
+  duration_ms: 5.197626
+  type: 'test'
+  ...
+# Subtest: Faster result OK is visible at 2.7 seconds and not at the start
+ok 183 - Faster result OK is visible at 2.7 seconds and not at the start
+  ---
+  duration_ms: 0.388339
+  type: 'test'
+  ...
+# Subtest: Full-health Princess Towers show HP on both sides and King Tower text contains no level
+ok 184 - Full-health Princess Towers show HP on both sides and King Tower text contains no level
+  ---
+  duration_ms: 2.866592
+  type: 'test'
+  ...
+# Subtest: Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+ok 185 - Magic Archer keeps piercing aligned ground/air units and towers, once each, ignoring allies
+  ---
+  duration_ms: 8.578485
+  type: 'test'
+  ...
+# Subtest: Magic Archer arrow stays at its authored constant height after the original target dies
+ok 186 - Magic Archer arrow stays at its authored constant height after the original target dies
+  ---
+  duration_ms: 3.158507
+  type: 'test'
+  ...
+# Subtest: Magic Archer line hits produce hit feedback at each actual damaged target
+ok 187 - Magic Archer line hits produce hit feedback at each actual damaged target
+  ---
+  duration_ms: 2.416863
+  type: 'test'
+  ...
+# Subtest: Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+ok 188 - Native result binds Winner to the actual TID_WINNER text field and keeps both player/clan names
+  ---
+  duration_ms: 719.931531
+  type: 'test'
+  ...
+# Subtest: v038 Daily Shop paid cards have five times the old quantities at unchanged prices
+ok 189 - v038 Daily Shop paid cards have five times the old quantities at unchanged prices
+  ---
+  duration_ms: 5.275222
+  type: 'test'
+  ...
+# Subtest: v038 Daily Shop free wildcards multiply by five, not currency or claim count
+ok 190 - v038 Daily Shop free wildcards multiply by five, not currency or claim count
+  ---
+  duration_ms: 186.691859
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop has six distinct persistent eligible gem-priced offers
+ok 191 - v038 Gem Shop has six distinct persistent eligible gem-priced offers
+  ---
+  duration_ms: 2.840674
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop rotates all six slots on the second successful purchase, not the first
+ok 192 - v038 Gem Shop rotates all six slots on the second successful purchase, not the first
+  ---
+  duration_ms: 3.834275
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop rejects duplicate, unfunded, stale, and invalid purchases without state changes
+ok 193 - v038 Gem Shop rejects duplicate, unfunded, stale, and invalid purchases without state changes
+  ---
+  duration_ms: 7.229725
+  type: 'test'
+  ...
+# Subtest: v038 legacy profiles keep currency/decks and new gem rotation normalization is bounded
+ok 194 - v038 legacy profiles keep currency/decks and new gem rotation normalization is bounded
+  ---
+  duration_ms: 0.779431
+  type: 'test'
+  ...
+# Subtest: v038 Gem Shop does not reroll on arena unlock before two purchases
+ok 195 - v038 Gem Shop does not reroll on arena unlock before two purchases
+  ---
+  duration_ms: 2.992319
+  type: 'test'
+  ...
+1..195
+# tests 195
+# suites 0
+# pass 195
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16915.666796

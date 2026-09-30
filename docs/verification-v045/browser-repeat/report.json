@@ -1,0 +1,13 @@
+{
+  "version": "0.45.0",
+  "passed": 6,
+  "checks": [
+    "v0.45.0 boot",
+    "Custom Modes grouped into sections",
+    "ffa uses requested geometry",
+    "ffa canvas fits phone",
+    "Trophy Road shows league after Serenity Peak",
+    "No browser exceptions"
+  ],
+  "errors": []
+}

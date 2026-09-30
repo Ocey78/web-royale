@@ -20,15 +20,13 @@ const reference=composition(false),compact=composition(true);
 // stands and animated torches instead of cropping those layers offscreen.
 function customComposition(base,id){
  const a=L.get(id),v=base.viewport,top=Math.min(a.top*20-24,Math.min(...(a.kingYs||[a.kingY??3]))*20-125),bottom=a.bottom*20+24;
- const wide=id==='TeamRumble',maxScale=wide?Infinity:base.camera.scale*(id==='Team3v3'?.84:1);
+ const wide=(a.right-a.left)>18,maxScale=wide?Infinity:base.camera.scale*(id.startsWith('Team3v3')?.84:1);
  const scale=Math.min(maxScale,(base.layout.width-(wide?32:16))/((Math.max(18,a.right)-Math.min(0,a.left))*480/18),(v.height-18)/(bottom-top));
  const camera=Object.freeze({x:270-240*scale,y:(v.height-scale*(bottom-top))/2-top*scale,scale});
  return Object.freeze({...base,camera,board:a,worldClip:Object.freeze({x:(v.x-camera.x)/scale,y:(v.y-camera.y)/scale,width:v.width/scale,height:v.height/scale})});
 }
-const scenicReference=customComposition(reference,'Team3v3'),scenicCompact=customComposition(compact,'Team3v3'),
- bridgeReference=customComposition(reference,'BridgeBattle'),bridgeCompact=customComposition(compact,'BridgeBattle'),
- rumbleReference=customComposition(reference,'TeamRumble'),rumbleCompact=customComposition(compact,'TeamRumble');let frame=reference;
-function configure(options={}){frame=options.arenaId==='TeamRumble'?(options.compact?rumbleCompact:rumbleReference):options.arenaId==='Team3v3'?(options.compact?scenicCompact:scenicReference):options.arenaId==='BridgeBattle'?(options.compact?bridgeCompact:bridgeReference):(options.compact?compact:reference);return frame;}
+let frame=reference;
+function configure(options={}){const base=options.compact?compact:reference,a=L.get(options.arenaId);frame=a.custom?customComposition(base,options.arenaId):base;return frame;}
 function toWorld(p){const c=frame.camera;return {x:(p.x-c.x)/c.scale,y:(p.y-c.y)/c.scale};}
 function toScreen(p){const c=frame.camera;return {x:c.x+p.x*c.scale,y:c.y+p.y*c.scale};}
 function onBoard(p){const c=frame.camera,v=frame.viewport,a=frame.board||L.get('classic');return p.x>=Math.max(v.x,c.x+a.left*480/18*c.scale)&&p.x<=Math.min(v.x+v.width,c.x+a.right*480/18*c.scale)&&p.y>=Math.max(v.y,c.y+a.top*20*c.scale)&&p.y<=Math.min(v.y+v.height,c.y+a.bottom*20*c.scale);}

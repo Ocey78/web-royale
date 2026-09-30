@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: v045 themed 3v3 maps retain the proven Bastion collision geometry
+ok 1 - v045 themed 3v3 maps retain the proven Bastion collision geometry
+  ---
+  duration_ms: 1.123406
+  type: 'test'
+  ...
+# Subtest: v045 themed Bridge maps retain the proven Causeway collision geometry
+ok 2 - v045 themed Bridge maps retain the proven Causeway collision geometry
+  ---
+  duration_ms: 0.212918
+  type: 'test'
+  ...
+# Subtest: v045 reverse-arch Rumble has swept rear routes behind every tower
+ok 3 - v045 reverse-arch Rumble has swept rear routes behind every tower
+  ---
+  duration_ms: 53.369653
+  type: 'test'
+  ...
+# Subtest: v045 four-bridge Rumble exposes four genuinely two-tile-wide crossings for large troops
+ok 4 - v045 four-bridge Rumble exposes four genuinely two-tile-wide crossings for large troops
+  ---
+  duration_ms: 0.986641
+  type: 'test'
+  ...
+# Subtest: v045 touchdown lanes are unobstructed on Touchdown
+ok 5 - v045 touchdown lanes are unobstructed on Touchdown
+  ---
+  duration_ms: 0.432675
+  type: 'test'
+  ...
+# Subtest: v045 touchdown lanes are unobstructed on Touchdown3v3
+ok 6 - v045 touchdown lanes are unobstructed on Touchdown3v3
+  ---
+  duration_ms: 0.271084
+  type: 'test'
+  ...
+# Subtest: v045 FFA has a traversable route from every corner King toward center
+ok 7 - v045 FFA has a traversable route from every corner King toward center
+  ---
+  duration_ms: 10.92626
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 168.380349

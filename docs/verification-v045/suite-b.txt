@@ -1,0 +1,1201 @@
+TAP version 13
+# Subtest: stationary Cannon Cart faces a left-hand target with one horizontal reflection
+ok 1 - stationary Cannon Cart faces a left-hand target with one horizontal reflection
+  ---
+  duration_ms: 1.82451
+  type: 'test'
+  ...
+# Subtest: health-bar crown frame is not selected by combat level
+ok 2 - health-bar crown frame is not selected by combat level
+  ---
+  duration_ms: 0.693504
+  type: 'test'
+  ...
+# Subtest: building lifetime does not invent a source ammo-bar value
+ok 3 - building lifetime does not invent a source ammo-bar value
+  ---
+  duration_ms: 0.134771
+  type: 'test'
+  ...
+# Subtest: source health-bar progress remains the inverse of the clamped fill
+ok 4 - source health-bar progress remains the inverse of the clamped fill
+  ---
+  duration_ms: 0.097084
+  type: 'test'
+  ...
+# Subtest: original timer bindings use source instance names and clamp time
+ok 5 - original timer bindings use source instance names and clamp time
+  ---
+  duration_ms: 0.19424
+  type: 'test'
+  ...
+# Subtest: native column texture strip has a drawable affine map
+ok 6 - native column texture strip has a drawable affine map
+  ---
+  duration_ms: 0.853612
+  type: 'test'
+  ...
+# Subtest: native row texture strip has a drawable affine map
+ok 7 - native row texture strip has a drawable affine map
+  ---
+  duration_ms: 0.114821
+  type: 'test'
+  ...
+# Subtest: native solid texture strip has a drawable affine map
+ok 8 - native solid texture strip has a drawable affine map
+  ---
+  duration_ms: 0.141661
+  type: 'test'
+  ...
+# Subtest: ordinary source UV polygons are left unchanged
+ok 9 - ordinary source UV polygons are left unchanged
+  ---
+  duration_ms: 0.795697
+  type: 'test'
+  ...
+# Subtest: native frame index preserves fps, looping and clamp
+ok 10 - native frame index preserves fps, looping and clamp
+  ---
+  duration_ms: 0.83809
+  type: 'test'
+  ...
+# Subtest: direction resolution covers original nine facing exports
+ok 11 - direction resolution covers original nine facing exports
+  ---
+  duration_ms: 0.663559
+  type: 'test'
+  ...
+# Subtest: UV affine maps rotated texture corners to their vertices
+ok 12 - UV affine maps rotated texture corners to their vertices
+  ---
+  duration_ms: 0.279777
+  type: 'test'
+  ...
+# Subtest: collinear texture coordinates are rejected
+ok 13 - collinear texture coordinates are rejected
+  ---
+  duration_ms: 0.107981
+  type: 'test'
+  ...
+# Subtest: clip resolution uses per-team source prefixes
+ok 14 - clip resolution uses per-team source prefixes
+  ---
+  duration_ms: 0.133619
+  type: 'test'
+  ...
+# Subtest: battle publishes movement and attack animation states
+ok 15 - battle publishes movement and attack animation states
+  ---
+  duration_ms: 16.58828
+  type: 'test'
+  ...
+# Subtest: paused battle freezes native animation time
+ok 16 - paused battle freezes native animation time
+  ---
+  duration_ms: 2.157246
+  type: 'test'
+  ...
+# Subtest: bundled native data includes original tower-princess animations for both teams
+ok 17 - bundled native data includes original tower-princess animations for both teams
+  ---
+  duration_ms: 799.473965
+  type: 'test'
+  ...
+# Subtest: v110: ground navigation takes a legal bridge without teleporting
+ok 18 - v110: ground navigation takes a legal bridge without teleporting
+  ---
+  duration_ms: 33.211913
+  type: 'test'
+  ...
+# Subtest: v110: path routes around a friendly building instead of walking through it
+ok 19 - v110: path routes around a friendly building instead of walking through it
+  ---
+  duration_ms: 16.325659
+  type: 'test'
+  ...
+# Subtest: v110: air navigation crosses water directly and does not choose a bridge
+ok 20 - v110: air navigation crosses water directly and does not choose a bridge
+  ---
+  duration_ms: 2.67645
+  type: 'test'
+  ...
+# Subtest: v110: deterministic routes and opposite-team symmetry
+ok 21 - v110: deterministic routes and opposite-team symmetry
+  ---
+  duration_ms: 17.299009
+  type: 'test'
+  ...
+# Subtest: v110: navigation invalidates a cached route when a building is deployed
+ok 22 - v110: navigation invalidates a cached route when a building is deployed
+  ---
+  duration_ms: 6.616154
+  type: 'test'
+  ...
+# Subtest: v110: units just outside attack range continue moving instead of stalling
+ok 23 - v110: units just outside attack range continue moving instead of stalling
+  ---
+  duration_ms: 5.518267
+  type: 'test'
+  ...
+# Subtest: v110: HogRider crosses the river but still routes around buildings
+ok 24 - v110: HogRider crosses the river but still routes around buildings
+  ---
+  duration_ms: 5.776862
+  type: 'test'
+  ...
+# Subtest: v110: Ghost crosses the river but still routes around buildings
+ok 25 - v110: Ghost crosses the river but still routes around buildings
+  ---
+  duration_ms: 7.993006
+  type: 'test'
+  ...
+# Subtest: BAT embeds exactly the reviewed C\# source and required Framework reference
+ok 26 - BAT embeds exactly the reviewed C\# source and required Framework reference
+  ---
+  duration_ms: 1.946833
+  type: 'test'
+  ...
+# Subtest: AI state lives under LocalApplicationData only with a fixed application folder
+ok 27 - AI state lives under LocalApplicationData only with a fixed application folder
+  ---
+  duration_ms: 0.203374
+  type: 'test'
+  ...
+# Subtest: state writes are token-authorized, bounded, revision-checked and atomic
+ok 28 - state writes are token-authorized, bounded, revision-checked and atomic
+  ---
+  duration_ms: 0.297774
+  type: 'test'
+  ...
+# Subtest: the host still denies arbitrary static POSTs, traversal and hostile origins
+ok 29 - the host still denies arbitrary static POSTs, traversal and hostile origins
+  ---
+  duration_ms: 0.163864
+  type: 'test'
+  ...
+# Subtest: archive names are hashed, raw retention is bounded and API revision distinguishes old hosts
+ok 30 - archive names are hashed, raw retention is bounded and API revision distinguishes old hosts
+  ---
+  duration_ms: 0.179628
+  type: 'test'
+  ...
+# Subtest: missing AppData resolution fails instead of writing alongside the game
+ok 31 - missing AppData resolution fails instead of writing alongside the game
+  ---
+  duration_ms: 0.118126
+  type: 'test'
+  ...
+# Subtest: offline opener MIME switch has no duplicate case labels (CS0152 regression)
+ok 32 - offline opener MIME switch has no duplicate case labels (CS0152 regression)
+  ---
+  duration_ms: 1.068023
+  type: 'test'
+  ...
+# Subtest: offline opener retains one WAV handler and serves every packaged runtime file type
+ok 33 - offline opener retains one WAV handler and serves every packaged runtime file type
+  ---
+  duration_ms: 10.594535
+  type: 'test'
+  ...
+# Subtest: offline opener preserves its Windows payload, loopback binding and save origin
+ok 34 - offline opener preserves its Windows payload, loopback binding and save origin
+  ---
+  duration_ms: 0.239537
+  type: 'test'
+  ...
+# Subtest: source excludes Mirror and Elixir Collector from both opening hands
+ok 35 - source excludes Mirror and Elixir Collector from both opening hands
+  ---
+  duration_ms: 48.050524
+  type: 'test'
+  ...
+# Subtest: shuffled opening differs across seeds and replays identically for a fixed seed
+ok 36 - shuffled opening differs across seeds and replays identically for a fixed seed
+  ---
+  duration_ms: 16.206972
+  type: 'test'
+  ...
+# Subtest: ordered fixtures preserve explicit unshuffled deck order except forbidden openings
+ok 37 - ordered fixtures preserve explicit unshuffled deck order except forbidden openings
+  ---
+  duration_ms: 0.792341
+  type: 'test'
+  ...
+# Subtest: web build has a small external-script entry point instead of a 149 MB payload
+ok 38 - web build has a small external-script entry point instead of a 149 MB payload
+  ---
+  duration_ms: 2.252388
+  type: 'test'
+  ...
+# Subtest: web release is complete and cannot contain desktop executables, installers or fonts
+ok 39 - web release is complete and cannot contain desktop executables, installers or fonts
+  ---
+  duration_ms: 308.485656
+  type: 'test'
+  ...
+# Subtest: split scene metadata and images resolve to packaged files with cache-busting revisions
+ok 40 - split scene metadata and images resolve to packaged files with cache-busting revisions
+  ---
+  duration_ms: 95.768503
+  type: 'test'
+  ...
+# Subtest: web build bundles no remote script, remote image host, or account impersonation endpoint
+ok 41 - web build bundles no remote script, remote image host, or account impersonation endpoint
+  ---
+  duration_ms: 59.131494
+  type: 'test'
+  ...
+# Subtest: the web build-info dialog does not advertise the old native bundle version
+ok 42 - the web build-info dialog does not advertise the old native bundle version
+  ---
+  duration_ms: 9.125144
+  type: 'test'
+  ...
+# Subtest: route crosses the river only inside a bridge corridor
+ok 43 - route crosses the river only inside a bridge corridor
+  ---
+  duration_ms: 3.394581
+  type: 'test'
+  ...
+# Subtest: two opposing ground bodies cannot tunnel through each other on a large step
+ok 44 - two opposing ground bodies cannot tunnel through each other on a large step
+  ---
+  duration_ms: 7.402776
+  type: 'test'
+  ...
+# Subtest: edgeDistance uses source collision radii
+ok 45 - edgeDistance uses source collision radii
+  ---
+  duration_ms: 2.238898
+  type: 'test'
+  ...
+# Subtest: present waiting troop can be targeted and damaged before activation
+ok 46 - present waiting troop can be targeted and damaged before activation
+  ---
+  duration_ms: 2.277766
+  type: 'test'
+  ...
+# Subtest: not-yet-appeared entity remains unavailable
+ok 47 - not-yet-appeared entity remains unavailable
+  ---
+  duration_ms: 1.955936
+  type: 'test'
+  ...
+# Subtest: Battle.move treats troop bodies as soft contacts rather than hard path obstacles
+ok 48 - Battle.move treats troop bodies as soft contacts rather than hard path obstacles
+  ---
+  duration_ms: 8.535115
+  type: 'test'
+  ...
+# Subtest: Cannon snaps to a tile center and exposes source range
+ok 49 - Cannon snaps to a tile center and exposes source range
+  ---
+  duration_ms: 13.916978
+  type: 'test'
+  ...
+# Subtest: ground placement rejects water and tower overlap even with place-anywhere cheat
+ok 50 - ground placement rejects water and tower overlap even with place-anywhere cheat
+  ---
+  duration_ms: 4.244838
+  type: 'test'
+  ...
+# Subtest: The Log forecast is a swept line rather than radial-only
+ok 51 - The Log forecast is a swept line rather than radial-only
+  ---
+  duration_ms: 2.182094
+  type: 'test'
+  ...
+# Subtest: spell forecast affected set matches live resolver predicate
+ok 52 - spell forecast affected set matches live resolver predicate
+  ---
+  duration_ms: 1.902366
+  type: 'test'
+  ...
+# Subtest: preview retarget warning agrees with live target after deploy
+ok 53 - preview retarget warning agrees with live target after deploy
+  ---
+  duration_ms: 11.654875
+  type: 'test'
+  ...
+# Subtest: existing engaged target suppresses false retarget warning
+ok 54 - existing engaged target suppresses false retarget warning
+  ---
+  duration_ms: 2.106781
+  type: 'test'
+  ...
+# Subtest: platform has explicit local repository and match-session interfaces
+ok 55 - platform has explicit local repository and match-session interfaces
+  ---
+  duration_ms: 0.732392
+  type: 'test'
+  ...
+# Subtest: repository migrates the existing v4 local save without changing its key
+ok 56 - repository migrates the existing v4 local save without changing its key
+  ---
+  duration_ms: 5.795079
+  type: 'test'
+  ...
+# Subtest: blocked browser storage remains an honest session-only repository
+ok 57 - blocked browser storage remains an honest session-only repository
+  ---
+  duration_ms: 2.309253
+  type: 'test'
+  ...
+# Subtest: corrupted save is normalized instead of crashing the application
+ok 58 - corrupted save is normalized instead of crashing the application
+  ---
+  duration_ms: 0.653485
+  type: 'test'
+  ...
+# Subtest: match commands are sequenced and replaying the same command cannot deploy twice
+ok 59 - match commands are sequenced and replaying the same command cannot deploy twice
+  ---
+  duration_ms: 5.807148
+  type: 'test'
+  ...
+# Subtest: malformed and non-finite commands cannot mutate a match
+ok 60 - malformed and non-finite commands cannot mutate a match
+  ---
+  duration_ms: 1.701376
+  type: 'test'
+  ...
+# Subtest: fixed-step session advances reproduce equivalent simulated time and pause freezes it
+ok 61 - fixed-step session advances reproduce equivalent simulated time and pause freezes it
+  ---
+  duration_ms: 7.972306
+  type: 'test'
+  ...
+# Subtest: session snapshot is an independent view, not mutable game authority
+ok 62 - session snapshot is an independent view, not mutable game authority
+  ---
+  duration_ms: 1.869347
+  type: 'test'
+  ...
+# Subtest: all assets preload once with bounded concurrency, then reuse persisted bytes
+ok 63 - all assets preload once with bounded concurrency, then reuse persisted bytes
+  ---
+  duration_ms: 35.177853
+  type: 'test'
+  ...
+# Subtest: interrupted preload resumes validated entries and retries a transient asset
+ok 64 - interrupted preload resumes validated entries and retries a transient asset
+  ---
+  duration_ms: 2.468299
+  type: 'test'
+  ...
+# Subtest: login HTML or corrupt assets never enter the cache
+ok 65 - login HTML or corrupt assets never enter the cache
+  ---
+  duration_ms: 0.812261
+  type: 'test'
+  ...
+# Subtest: storage denial falls back to bounded HTTP preloading without blocking play
+ok 66 - storage denial falls back to bounded HTTP preloading without blocking play
+  ---
+  duration_ms: 2.173621
+  type: 'test'
+  ...
+# Subtest: legacy or poisoned cache metadata is evicted and repaired before an asset counts as ready
+ok 67 - legacy or poisoned cache metadata is evicted and repaired before an asset counts as ready
+  ---
+  duration_ms: 3.851382
+  type: 'test'
+  ...
+# Subtest: quota exhaustion after a successful cache write completes through HTTP and preserves resumable entries
+ok 68 - quota exhaustion after a successful cache write completes through HTTP and preserves resumable entries
+  ---
+  duration_ms: 4.705444
+  type: 'test'
+  ...
+# Subtest: preload catalog cannot fetch documents, external origins or unversioned URLs
+ok 69 - preload catalog cannot fetch documents, external origins or unversioned URLs
+  ---
+  duration_ms: 0.39587
+  type: 'test'
+  ...
+# Subtest: source UI timelines accept a named child frame without changing sibling playback
+ok 70 - source UI timelines accept a named child frame without changing sibling playback
+  ---
+  duration_ms: 1.683219
+  type: 'test'
+  ...
+# Subtest: source text fields forward live values to the original glyph painter
+ok 71 - source text fields forward live values to the original glyph painter
+  ---
+  duration_ms: 0.245035
+  type: 'test'
+  ...
+# Subtest: hidden source instances do not render or sample their children
+ok 72 - hidden source instances do not render or sample their children
+  ---
+  duration_ms: 0.331574
+  type: 'test'
+  ...
+# Subtest: source damage/deploy filter nodes can wrap a rendered character
+ok 73 - source damage/deploy filter nodes can wrap a rendered character
+  ---
+  duration_ms: 0.20101
+  type: 'test'
+  ...
+# Subtest: native presentation module and metadata exist rather than fall back to drawn bars
+ok 74 - native presentation module and metadata exist rather than fall back to drawn bars
+  ---
+  duration_ms: 0.175862
+  type: 'test'
+  ...
+# Subtest: XP display uses the uploaded experience-level thresholds
+ok 75 - XP display uses the uploaded experience-level thresholds
+  ---
+  duration_ms: 46.323009
+  type: 'test'
+  ...
+# Subtest: current arena is derived from trophies and ignores saved manual arena selections
+ok 76 - current arena is derived from trophies and ignores saved manual arena selections
+  ---
+  duration_ms: 7.435815
+  type: 'test'
+  ...
+# Subtest: normalization preserves reached trophies but not a fake selected arena unlock
+ok 77 - normalization preserves reached trophies but not a fake selected arena unlock
+  ---
+  duration_ms: 1.050456
+  type: 'test'
+  ...
+# Subtest: chest awards keep the arena in which they were earned
+ok 78 - chest awards keep the arena in which they were earned
+  ---
+  duration_ms: 11.392544
+  type: 'test'
+  ...
+# Subtest: defeats cannot cross the current arena trophy gate
+ok 79 - defeats cannot cross the current arena trophy gate
+  ---
+  duration_ms: 7.417989
+  type: 'test'
+  ...
+# Subtest: every chest reward path is restricted to reached arenas
+ok 80 - every chest reward path is restricted to reached arenas
+  ---
+  duration_ms: 1302.286642
+  type: 'test'
+  ...
+# Subtest: old chests expand to the highest arena reached before they are opened
+ok 81 - old chests expand to the highest arena reached before they are opened
+  ---
+  duration_ms: 1.352316
+  type: 'test'
+  ...
+# Subtest: free and crown chests use the allowed pool rather than the first deck card
+ok 82 - free and crown chests use the allowed pool rather than the first deck card
+  ---
+  duration_ms: 1.664301
+  type: 'test'
+  ...
+# Subtest: road provides uniquely identified claimable reward steps between arena gates and into leagues
+ok 83 - road provides uniquely identified claimable reward steps between arena gates and into leagues
+  ---
+  duration_ms: 0.380537
+  type: 'test'
+  ...
+# Subtest: road currency claims are atomic, persistent and cannot be claimed twice
+ok 84 - road currency claims are atomic, persistent and cannot be claimed twice
+  ---
+  duration_ms: 2.537493
+  type: 'test'
+  ...
+# Subtest: locked and forged road claims cannot mutate inventory
+ok 85 - locked and forged road claims cannot mutate inventory
+  ---
+  duration_ms: 2.24728
+  type: 'test'
+  ...
+# Subtest: choice rewards require an offered card and grant only one choice
+ok 86 - choice rewards require an offered card and grant only one choice
+  ---
+  duration_ms: 1.063375
+  type: 'test'
+  ...
+# Subtest: wildcard rewards are stored and can be applied only to eligible matching cards
+ok 87 - wildcard rewards are stored and can be applied only to eligible matching cards
+  ---
+  duration_ms: 0.846392
+  type: 'test'
+  ...
+# Subtest: all road rewards resolve without future-arena chest leaks
+ok 88 - all road rewards resolve without future-arena chest leaks
+  ---
+  duration_ms: 64.700783
+  type: 'test'
+  ...
+# Subtest: road emotes resolve both source IndexHi and IndexLo and survive saving
+ok 89 - road emotes resolve both source IndexHi and IndexLo and survive saving
+  ---
+  duration_ms: 1.533806
+  type: 'test'
+  ...
+# Subtest: a road Legendary Kings Chest includes an eligible legendary rather than only magical-chest cards
+ok 90 - a road Legendary Kings Chest includes an eligible legendary rather than only magical-chest cards
+  ---
+  duration_ms: 0.671951
+  type: 'test'
+  ...
+# Subtest: Princess volley uses CustomFirstProjectile for the damage-bearing projectile
+ok 91 - Princess volley uses CustomFirstProjectile for the damage-bearing projectile
+  ---
+  duration_ms: 0.761215
+  type: 'test'
+  ...
+# Subtest: Princess entity damage derives from the damage-bearing projectile
+ok 92 - Princess entity damage derives from the damage-bearing projectile
+  ---
+  duration_ms: 0.150765
+  type: 'test'
+  ...
+# Subtest: Princess attack lowers a target HP
+ok 93 - Princess attack lowers a target HP
+  ---
+  duration_ms: 13.665653
+  type: 'test'
+  ...
+# Subtest: ordinary projectile users keep their source projectile
+ok 94 - ordinary projectile users keep their source projectile
+  ---
+  duration_ms: 0.222872
+  type: 'test'
+  ...
+# Subtest: reference menus preserve the classic roster and level cap
+ok 95 - reference menus preserve the classic roster and level cap
+  ---
+  duration_ms: 1.458024
+  type: 'test'
+  ...
+# Subtest: deck slot swaps preserve unique cards and do not mutate stored input
+ok 96 - deck slot swaps preserve unique cards and do not mutate stored input
+  ---
+  duration_ms: 0.673825
+  type: 'test'
+  ...
+# Subtest: collection filters use source rarity and never invent missing cards
+ok 97 - collection filters use source rarity and never invent missing cards
+  ---
+  duration_ms: 9.805569
+  type: 'test'
+  ...
+# Subtest: hour shop countdown includes seconds and rolls over on the hour
+ok 98 - hour shop countdown includes seconds and rolls over on the hour
+  ---
+  duration_ms: 0.311624
+  type: 'test'
+  ...
+# Subtest: new menu text is escaped before HTML rendering
+ok 99 - new menu text is escaped before HTML rendering
+  ---
+  duration_ms: 0.283132
+  type: 'test'
+  ...
+# Subtest: classic emote purchases persist, reject duplicates and insufficient gems
+ok 100 - classic emote purchases persist, reject duplicates and insufficient gems
+  ---
+  duration_ms: 7.469296
+  type: 'test'
+  ...
+# Subtest: removed gem packs cannot grant currency through former entry points
+ok 101 - removed gem packs cannot grant currency through former entry points
+  ---
+  duration_ms: 3.881386
+  type: 'test'
+  ...
+# Subtest: clan posts retain safe typed emotes across saves and drop unsupported emotes
+ok 102 - clan posts retain safe typed emotes across saves and drop unsupported emotes
+  ---
+  duration_ms: 1.159439
+  type: 'test'
+  ...
+# Subtest: deck menu uses screenshot-style segmented tabs and a full-width OK tray
+ok 103 - deck menu uses screenshot-style segmented tabs and a full-width OK tray
+  ---
+  duration_ms: 0.551252
+  type: 'test'
+  ...
+# Subtest: screenshot chrome is not bundled as a page backdrop or phone status bar
+ok 104 - screenshot chrome is not bundled as a page backdrop or phone status bar
+  ---
+  duration_ms: 1.201241
+  type: 'test'
+  ...
+# Subtest: clan message import tolerates null and malformed entries without losing progress
+ok 105 - clan message import tolerates null and malformed entries without losing progress
+  ---
+  duration_ms: 0.748276
+  type: 'test'
+  ...
+# Subtest: clan history timestamps never display NaN for imported dates
+ok 106 - clan history timestamps never display NaN for imported dates
+  ---
+  duration_ms: 0.190694
+  type: 'test'
+  ...
+# Subtest: battle canvas retains a modest1.25x quality floor without using the2x glyph floor
+ok 107 - battle canvas retains a modest1.25x quality floor without using the2x glyph floor
+  ---
+  duration_ms: 2.1598
+  type: 'test'
+  ...
+# Subtest: battle canvas preserves actual Retina and phone device density, including compact battle height
+ok 108 - battle canvas preserves actual Retina and phone device density, including compact battle height
+  ---
+  duration_ms: 2.457584
+  type: 'test'
+  ...
+# Subtest: battle canvas keeps the previous high-DPR cap and restores its logical transform every draw
+ok 109 - battle canvas keeps the previous high-DPR cap and restores its logical transform every draw
+  ---
+  duration_ms: 1.009164
+  type: 'test'
+  ...
+# Subtest: still source draw plans reuse geometry while live text and caller state remain dynamic
+ok 110 - still source draw plans reuse geometry while live text and caller state remain dynamic
+  ---
+  duration_ms: 0.835736
+  type: 'test'
+  ...
+# Subtest: still source plans retain hidden instances and use a bounded cache
+ok 111 - still source plans retain hidden instances and use a bounded cache
+  ---
+  duration_ms: 1.991629
+  type: 'test'
+  ...
+# Subtest: mask and replacement-node clips retain the ordinary interpreter
+ok 112 - mask and replacement-node clips retain the ordinary interpreter
+  ---
+  duration_ms: 0.186778
+  type: 'test'
+  ...
+# Subtest: 0.26 records retain the historical simulation and reproduce bridge movement
+ok 113 - 0.26 records retain the historical simulation and reproduce bridge movement
+  ---
+  duration_ms: 1360.939335
+  type: 'test'
+  ...
+# Subtest: 0.27 records retain the historical simulation and reproduce bridge movement
+ok 114 - 0.27 records retain the historical simulation and reproduce bridge movement
+  ---
+  duration_ms: 1199.957535
+  type: 'test'
+  ...
+# Subtest: new matches record0.41 and use the current simulation
+ok 115 - new matches record0.41 and use the current simulation
+  ---
+  duration_ms: 107.13375
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+ok 116 - historical engine, boat adapter, data and fixtures retain the released v0.29 bytes
+  ---
+  duration_ms: 3.068204
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+ok 117 - release0.29.0 engine0.28 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 294.365095
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+ok 118 - release0.29.0 engine0.28 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 316.366764
+  type: 'test'
+  ...
+# Subtest: release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 119 - release0.29.0 engine0.28 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 337.615292
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+ok 120 - release0.28.0 engine0.28 v028-normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 254.04015
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+ok 121 - release0.28.0 engine0.28 v028-boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 243.504746
+  type: 'test'
+  ...
+# Subtest: release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+ok 122 - release0.28.0 engine0.28 v028-tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 302.716896
+  type: 'test'
+  ...
+# Subtest: engine0.28 boat playback is independent of live simulation and live boat adapter
+ok 123 - engine0.28 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 114.184771
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and both historical engine globals isolated
+ok 124 - browser loading keeps current and both historical engine globals isolated
+  ---
+  duration_ms: 547.654843
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 125 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 7.605909
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+ok 126 - historical engine, boat adapter, data and fixtures retain the released v0.30 bytes
+  ---
+  duration_ms: 2.626566
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+ok 127 - release0.30.0 engine0.30 baby-dragon-crossing.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 206.799296
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+ok 128 - release0.30.0 engine0.30 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 267.731516
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+ok 129 - release0.30.0 engine0.30 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 290.547641
+  type: 'test'
+  ...
+# Subtest: release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 130 - release0.30.0 engine0.30 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 373.082002
+  type: 'test'
+  ...
+# Subtest: engine0.30 boat playback is independent of live simulation and live boat adapter
+ok 131 - engine0.30 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 121.787556
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 132 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 625.510771
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 133 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 9.005575
+  type: 'test'
+  ...
+# Subtest: historical engine, boat adapter, data and fixtures retain the released v0.31 bytes
+ok 134 - historical engine, boat adapter, data and fixtures retain the released v0.31 bytes
+  ---
+  duration_ms: 2.628869
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 baby-dragon-lane.json reproduces its stored outcome through repeated seeks
+ok 135 - release0.31.0 engine0.31 baby-dragon-lane.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 256.505726
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 normal.json reproduces its stored outcome through repeated seeks
+ok 136 - release0.31.0 engine0.31 normal.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 274.349227
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 boat.json reproduces its stored outcome through repeated seeks
+ok 137 - release0.31.0 engine0.31 boat.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 303.442082
+  type: 'test'
+  ...
+# Subtest: release0.31.0 engine0.31 tiebreak.json reproduces its stored outcome through repeated seeks
+ok 138 - release0.31.0 engine0.31 tiebreak.json reproduces its stored outcome through repeated seeks
+  ---
+  duration_ms: 343.801368
+  type: 'test'
+  ...
+# Subtest: engine0.31 boat playback is independent of live simulation and live boat adapter
+ok 139 - engine0.31 boat playback is independent of live simulation and live boat adapter
+  ---
+  duration_ms: 142.811511
+  type: 'test'
+  ...
+# Subtest: browser loading keeps current and all historical engine globals isolated
+ok 140 - browser loading keeps current and all historical engine globals isolated
+  ---
+  duration_ms: 666.322638
+  type: 'test'
+  ...
+# Subtest: current records use engine0.43 while unsupported engine tags remain rejected
+ok 141 - current records use engine0.43 while unsupported engine tags remain rejected
+  ---
+  duration_ms: 7.266963
+  type: 'test'
+  ...
+# Subtest: source image restoration is available in the web-only project
+ok 142 - source image restoration is available in the web-only project
+  ---
+  duration_ms: 0.789717
+  type: 'test'
+  ...
+# Subtest: clean source tree reuses verified distributed images without a second bundled copy
+ok 143 - clean source tree reuses verified distributed images without a second bundled copy
+  ---
+  duration_ms: 4.317636
+  type: 'test'
+  ...
+# Subtest: restoration detects corrupt distributed images before copying them
+ok 144 - restoration detects corrupt distributed images before copying them
+  ---
+  duration_ms: 1.630601
+  type: 'test'
+  ...
+# Subtest: restoration rejects a manifest path escaping the project
+ok 145 - restoration rejects a manifest path escaping the project
+  ---
+  duration_ms: 1.000641
+  type: 'test'
+  ...
+# Subtest: every non-choice road reward maps to an original game icon, not a question-mark placeholder
+ok 146 - every non-choice road reward maps to an original game icon, not a question-mark placeholder
+  ---
+  duration_ms: 2.069385
+  type: 'test'
+  ...
+# Subtest: tokens and wild cards use their own rarity-specific graphics
+ok 147 - tokens and wild cards use their own rarity-specific graphics
+  ---
+  duration_ms: 0.146038
+  type: 'test'
+  ...
+# Subtest: all102 sandbox cards expose finite Level0 and99 stats and match their spawned entity definitions
+ok 148 - all102 sandbox cards expose finite Level0 and99 stats and match their spawned entity definitions
+  ---
+  duration_ms: 5.092652
+  type: 'test'
+  ...
+# Subtest: Level0 real Fireball damage uses the same scale as its card stats
+ok 149 - Level0 real Fireball damage uses the same scale as its card stats
+  ---
+  duration_ms: 12.074249
+  type: 'test'
+  ...
+# Subtest: Level0 Poison area and direct area buffs preserve their level and damage
+ok 150 - Level0 Poison area and direct area buffs preserve their level and damage
+  ---
+  duration_ms: 5.567229
+  type: 'test'
+  ...
+# Subtest: Level0 Golem splits preserve child levels and power stats
+ok 151 - Level0 Golem splits preserve child levels and power stats
+  ---
+  duration_ms: 2.32753
+  type: 'test'
+  ...
+# Subtest: Level0 goblin-giant propagates its level through the live child-spawn chain
+ok 152 - Level0 goblin-giant propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.449322
+  type: 'test'
+  ...
+# Subtest: Level0 witch propagates its level through the live child-spawn chain
+ok 153 - Level0 witch propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 34.418635
+  type: 'test'
+  ...
+# Subtest: Level0 graveyard propagates its level through the live child-spawn chain
+ok 154 - Level0 graveyard propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 4.383936
+  type: 'test'
+  ...
+# Subtest: Level0 goblin-barrel propagates its level through the live child-spawn chain
+ok 155 - Level0 goblin-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 4.241133
+  type: 'test'
+  ...
+# Subtest: Level0 barbarian-barrel propagates its level through the live child-spawn chain
+ok 156 - Level0 barbarian-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 3.685704
+  type: 'test'
+  ...
+# Subtest: Level0 royal-delivery propagates its level through the live child-spawn chain
+ok 157 - Level0 royal-delivery propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 2.748357
+  type: 'test'
+  ...
+# Subtest: Level0 crown towers use their requested isolated definitions
+ok 158 - Level0 crown towers use their requested isolated definitions
+  ---
+  duration_ms: 1.720295
+  type: 'test'
+  ...
+# Subtest: Level99 real Fireball damage uses the same scale as its card stats
+ok 159 - Level99 real Fireball damage uses the same scale as its card stats
+  ---
+  duration_ms: 2.396693
+  type: 'test'
+  ...
+# Subtest: Level99 Poison area and direct area buffs preserve their level and damage
+ok 160 - Level99 Poison area and direct area buffs preserve their level and damage
+  ---
+  duration_ms: 2.630632
+  type: 'test'
+  ...
+# Subtest: Level99 Golem splits preserve child levels and power stats
+ok 161 - Level99 Golem splits preserve child levels and power stats
+  ---
+  duration_ms: 1.085508
+  type: 'test'
+  ...
+# Subtest: Level99 goblin-giant propagates its level through the live child-spawn chain
+ok 162 - Level99 goblin-giant propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 2.476382
+  type: 'test'
+  ...
+# Subtest: Level99 witch propagates its level through the live child-spawn chain
+ok 163 - Level99 witch propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 19.93604
+  type: 'test'
+  ...
+# Subtest: Level99 graveyard propagates its level through the live child-spawn chain
+ok 164 - Level99 graveyard propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 4.220522
+  type: 'test'
+  ...
+# Subtest: Level99 goblin-barrel propagates its level through the live child-spawn chain
+ok 165 - Level99 goblin-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 2.889308
+  type: 'test'
+  ...
+# Subtest: Level99 barbarian-barrel propagates its level through the live child-spawn chain
+ok 166 - Level99 barbarian-barrel propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 1.89841
+  type: 'test'
+  ...
+# Subtest: Level99 royal-delivery propagates its level through the live child-spawn chain
+ok 167 - Level99 royal-delivery propagates its level through the live child-spawn chain
+  ---
+  duration_ms: 1.575168
+  type: 'test'
+  ...
+# Subtest: Level99 crown towers use their requested isolated definitions
+ok 168 - Level99 crown towers use their requested isolated definitions
+  ---
+  duration_ms: 2.45544
+  type: 'test'
+  ...
+# Subtest: Clone preserves the copied troop level while Mirror caps its bonus at99
+ok 169 - Clone preserves the copied troop level while Mirror caps its bonus at99
+  ---
+  duration_ms: 2.807375
+  type: 'test'
+  ...
+# Subtest: extended sandbox definitions never change normal catalog caches, saved caps, or another sandbox
+ok 170 - extended sandbox definitions never change normal catalog caches, saved caps, or another sandbox
+  ---
+  duration_ms: 4.90344
+  type: 'test'
+  ...
+# Subtest: sandbox has no opponents, recorder, result or time limit
+ok 171 - sandbox has no opponents, recorder, result or time limit
+  ---
+  duration_ms: 14.958129
+  type: 'test'
+  ...
+# Subtest: each of 102 cards can be cast for either team without a deck, elixir or territory gate
+ok 172 - each of 102 cards can be cast for either team without a deck, elixir or territory gate
+  ---
+  duration_ms: 203.548951
+  type: 'test'
+  ...
+# Subtest: sandbox Mirror requires and copies the previous card for its selected team
+ok 173 - sandbox Mirror requires and copies the previous card for its selected team
+  ---
+  duration_ms: 1.282723
+  type: 'test'
+  ...
+# Subtest: tower selection removes only the chosen towers and reset restores their health
+ok 174 - tower selection removes only the chosen towers and reset restores their health
+  ---
+  duration_ms: 2.372107
+  type: 'test'
+  ...
+# Subtest: clear removes pending spells and units, pause freezes combat but permits arranging units
+ok 175 - clear removes pending spells and units, pause freezes combat but permits arranging units
+  ---
+  duration_ms: 1.319507
+  type: 'test'
+  ...
+# Subtest: Baby Dragon has no target and stays idle when every enemy is absent
+ok 176 - Baby Dragon has no target and stays idle when every enemy is absent
+  ---
+  duration_ms: 5.973475
+  type: 'test'
+  ...
+# Subtest: invalid sandbox commands have no side effects and regular battles keep normal rules
+ok 177 - invalid sandbox commands have no side effects and regular battles keep normal rules
+  ---
+  duration_ms: 2.954344
+  type: 'test'
+  ...
+# Subtest: sandbox levels 0, 1, 13, 30 and 99 scale troop health, attacks and shields consistently
+ok 178 - sandbox levels 0, 1, 13, 30 and 99 scale troop health, attacks and shields consistently
+  ---
+  duration_ms: 3.730552
+  type: 'test'
+  ...
+# Subtest: sandbox levels pass through spells, death spawns, towers and Mirror without normal caps
+ok 179 - sandbox levels pass through spells, death spawns, towers and Mirror without normal caps
+  ---
+  duration_ms: 11.410921
+  type: 'test'
+  ...
+# Subtest: source global excludes Mirror from both opening hands without changing the saved deck
+ok 180 - source global excludes Mirror from both opening hands without changing the saved deck
+  ---
+  duration_ms: 7.413071
+  type: 'test'
+  ...
+# Subtest: Mirror uses its own level plus the source offset rather than the preceding card level
+ok 181 - Mirror uses its own level plus the source offset rather than the preceding card level
+  ---
+  duration_ms: 3.550934
+  type: 'test'
+  ...
+# Subtest: SpellAsDeploy rolling cards cannot be cast in enemy territory with intact towers
+ok 182 - SpellAsDeploy rolling cards cannot be cast in enemy territory with intact towers
+  ---
+  duration_ms: 4.256034
+  type: 'test'
+  ...
+# Subtest: CanPlaceOnBuildings permits a Royal Delivery on an allied tower
+ok 183 - CanPlaceOnBuildings permits a Royal Delivery on an allied tower
+  ---
+  duration_ms: 1.181612
+  type: 'test'
+  ...
+# Subtest: spell damage resolves the original secondary projectile and area projectile
+ok 184 - spell damage resolves the original secondary projectile and area projectile
+  ---
+  duration_ms: 0.170955
+  type: 'test'
+  ...
+# Subtest: card detail metadata identifies spell ticks, durations and delivered troops
+ok 185 - card detail metadata identifies spell ticks, durations and delivered troops
+  ---
+  duration_ms: 0.14768
+  type: 'test'
+  ...
+# Subtest: Heal Spirit is classified as a troop despite its original spells table
+ok 186 - Heal Spirit is classified as a troop despite its original spells table
+  ---
+  duration_ms: 0.118006
+  type: 'test'
+  ...
+# Subtest: Sudden Death starts in the uploaded overtime section and ends on first tower
+ok 187 - Sudden Death starts in the uploaded overtime section and ends on first tower
+  ---
+  duration_ms: 10.234237
+  type: 'test'
+  ...
+# Subtest: timeline section lengths control the displayed clock
+ok 188 - timeline section lengths control the displayed clock
+  ---
+  duration_ms: 2.217806
+  type: 'test'
+  ...
+# Subtest: Electro Dragon source ChainedHitCount includes the primary target
+ok 189 - Electro Dragon source ChainedHitCount includes the primary target
+  ---
+  duration_ms: 2.991169
+  type: 'test'
+  ...
+# Subtest: a periodic buff includes a hit scheduled at its expiry boundary
+ok 190 - a periodic buff includes a hit scheduled at its expiry boundary
+  ---
+  duration_ms: 11.137033
+  type: 'test'
+  ...
+# Subtest: two distinct Poison areas stack their damage, same area refresh does not stack
+ok 191 - two distinct Poison areas stack their damage, same area refresh does not stack
+  ---
+  duration_ms: 15.631673
+  type: 'test'
+  ...
+# Subtest: Earthquake delivers three ground-only source damage ticks
+ok 192 - Earthquake delivers three ground-only source damage ticks
+  ---
+  duration_ms: 12.646333
+  type: 'test'
+  ...
+# Subtest: every visible source card retains all raw behavior fields and rarity levels
+ok 193 - every visible source card retains all raw behavior fields and rarity levels
+  ---
+  duration_ms: 12.13482
+  type: 'test'
+  ...
+# Subtest: full UI skin and fixed word labels are bundled images, not downloadable fonts
+ok 194 - full UI skin and fixed word labels are bundled images, not downloadable fonts
+  ---
+  duration_ms: 1.799172
+  type: 'test'
+  ...
+# Subtest: static host serves the exact web entry with restrictive headers
+ok 195 - static host serves the exact web entry with restrictive headers
+  ---
+  duration_ms: 41.979861
+  type: 'test'
+  ...
+# Subtest: hashed scripts have immutable cache headers and gzip round trips
+ok 196 - hashed scripts have immutable cache headers and gzip round trips
+  ---
+  duration_ms: 91.30895
+  type: 'test'
+  ...
+# Subtest: HEAD returns file length without the body
+ok 197 - HEAD returns file length without the body
+  ---
+  duration_ms: 2.433057
+  type: 'test'
+  ...
+# Subtest: static host rejects writes and cannot expose parent source files
+ok 198 - static host rejects writes and cannot expose parent source files
+  ---
+  duration_ms: 4.151058
+  type: 'test'
+  ...
+# Subtest: text variants vary on accepted encoding, even when uncompressed
+ok 199 - text variants vary on accepted encoding, even when uncompressed
+  ---
+  duration_ms: 1.983307
+  type: 'test'
+  ...
+# Subtest: gzip explicitly refused by the client is not sent
+ok 200 - gzip explicitly refused by the client is not sent
+  ---
+  duration_ms: 2.477113
+  type: 'test'
+  ...

@@ -14,7 +14,12 @@ const hidden={visible:false};
 function healthInstances(u,fraction){return {bar:{progress:1-Math.max(0,Math.min(1,fraction))},prestige:hidden,buff:hidden,ammo:hidden,crown:{frame:0}};}
 function timerBindings(seconds,multiplier,tiebreaker=false){const remaining=Math.max(0,Math.ceil(Number(seconds)||0));return{frame:0,instances:{elixirRegen:{visible:!tiebreaker&&multiplier>1,frame:15}},texts:{'timeLeft.txt':Math.floor(remaining/60)+':'+String(remaining%60).padStart(2,'0'),'TID_TIME_LEFT.TID_TIME_LEFT_vcenter':tiebreaker?'Tiebreaker':'Time left:','elixirRegen.elixir.txt':'x'+multiplier}};}
 function timer(c,seconds,multiplier,time,tiebreaker=false){if(!ready)return false;c=root.RoyaleUI.prepareCanvas(c.canvas,120,152);c.clearRect(0,0,120,152);c.save();c.translate(109,6);hud.draw(c,'HUD_topRight',time,timerBindings(seconds,multiplier,tiebreaker));c.restore();return true;}
-function health(c,u,time=0,showLevel=true){if(u.localKing){const a=RoyaleNative.towerArtPosition(u),x=a.x,y=a.y+17,hp=Math.max(0,Math.ceil(u.hp)),fraction=Math.max(0,Math.min(1,u.hp/Math.max(1,u.maxHp)));c.save();c.fillStyle='#442e11';c.fillRect(x-31,y-5,62,9);c.fillStyle='#efb837';c.fillRect(x-29,y-3,58*fraction,5);c.strokeStyle='#ffe9a0';c.lineWidth=1;c.strokeRect(x-31,y-5,62,9);RoyaleText.draw(c,String(hp),x,y-14,16,'#ffe16a','center','#392707');c.restore();return true;}if(!ready||u.hp<=0||u.effectCarrier||u.attachedTo||u.hidden||u.burrowing)return false;
+function health(c,u,time=0,showLevel=true){if(u.localKing){const a=RoyaleNative.towerArtPosition(u),x=a.x,y=a.y-66,hp=Math.max(0,Math.ceil(u.hp)),fraction=Math.max(0,Math.min(1,u.hp/Math.max(1,u.maxHp)));c.save();c.fillStyle='#442e11';c.fillRect(x-31,y-5,62,9);c.fillStyle='#efb837';c.fillRect(x-29,y-3,58*fraction,5);c.strokeStyle='#ffe9a0';c.lineWidth=1;c.strokeRect(x-31,y-5,62,9);RoyaleText.draw(c,String(hp),x,y-14,16,'#ffe16a','center','#392707');c.restore();return true;}if(!ready||u.hp<=0||u.effectCarrier||u.attachedTo||u.hidden||u.burrowing)return false;
+ if(u.team>=2){
+  if(!showLevel&&!root.RoyaleLevelLabels?.damaged(u))return false;
+  const tower=u.king!==undefined,anchor=tower?RoyaleNative.towerArtPosition(u):u,x=anchor.x,y=tower?anchor.y-(u.king?68:56):u.y-RoyaleNative.entityElevation(u)-RoyaleNative.library.headHeight(u.entity)-2,w=tower?64:42,h=7,f=Math.max(0,Math.min(1,(u.shield>0?u.shield/u.maxShield:u.hp/u.maxHp))),color=u.team===2?'#4ed36d':'#f1ce42',edge=u.team===2?'#1a6334':'#6d5715';
+  c.save();c.fillStyle='#152232';c.fillRect(x-w/2,y,w,h);c.fillStyle=color;c.fillRect(x-w/2+2,y+2,(w-4)*f,h-4);c.strokeStyle=edge;c.lineWidth=1;c.strokeRect(x-w/2,y,w,h);if(showLevel&&!u.king)root.RoyaleText.draw(c,String(u.level),x-w/2-7,y+3,11,color,'center','#152232');c.restore();stats.healthDraws++;return true;
+ }
  if(!showLevel&&!root.RoyaleLevelLabels?.damaged(u))return false;
  const r=u.def.source,config=metadata.healthBars.find(a=>a.Name===(r.HealthBar||'Medium'))||metadata.healthBars.find(a=>a.Name==='Medium');
  const enemy=u.team===1,tower=u.king!==undefined,full=u.hp>=u.maxHp-.001,shield=u.shield>0;
@@ -30,12 +35,13 @@ function health(c,u,time=0,showLevel=true){if(u.localKing){const a=RoyaleNative.
  if(u.king)opts.instances.level={visible:false};
  if(bar)opts.instances.bar={frame:Math.round((1-fraction)*(bar.frames.length-1))};
  const anchor=tower?RoyaleNative.towerArtPosition(u):u;let x=anchor.x,y;
- if(tower){y=anchor.y+(u.king?(enemy?-4:10):(enemy?-62:-48));}
+ if(tower){y=u.customCrown&&u.king?anchor.y+(enemy?-76:-64):anchor.y+(u.king?(enemy?-4:10):(enemy?-62:-48));}
  else{y=u.y-RoyaleNative.entityElevation(u)-RoyaleNative.library.headHeight(u.entity)-2;}
  c.save();c.translate(x,y);if(tower)c.scale(5/6,5/6);hud.drawStill(c,name,opts);if(tower&&!u.king)root.RoyaleText.draw(c,String(u.level),-33.5,enemy?-7:57,14,'#ffe35e','center','#34230b');c.restore();stats.healthDraws++;return true;
 }
 // Level-only native badges remain visible before the first hit, independently of HP bars.
 function level(c,u,time=0,position=null){if(!ready||u.king===true||u.hp<=0||u.effectCarrier||u.attachedTo||u.hidden||u.burrowing)return false;
+ if(u.team>=2){const anchor=u.king!==undefined?RoyaleNative.towerArtPosition(u):u,x=position?.x??anchor.x,y=position?.y??(u.y-RoyaleNative.entityElevation(u)-RoyaleNative.library.headHeight(u.entity)-2),color=u.team===2?'#4ed36d':'#f1ce42';root.RoyaleText.draw(c,String(u.level),x,y,11,color,'center','#152232');stats.healthDraws++;return true;}
  const enemy=u.team===1,tower=u.king!==undefined,anchor=tower?RoyaleNative.towerArtPosition(u):u;
  const x=position?.x??anchor.x,y=position?.y??(tower?anchor.y+(u.king?(enemy?-12:0):(enemy?-68:-48)):u.y-RoyaleNative.entityElevation(u)-RoyaleNative.library.headHeight(u.entity)-2);
  c.save();c.translate(x,y);if(tower)c.scale(5/6,5/6);hud.drawStill(c,'hp_'+(u.shield>0?'shield_':'')+(enemy?'enemy':'player')+'_number',{frame:0,still:true,instances:{prestige:hidden,buff:hidden,ammo:hidden},texts:{level:String(u.level)}});c.restore();stats.healthDraws++;return true;

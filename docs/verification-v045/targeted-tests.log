@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: v045 Trophy Road reports league progression past Serenity Peak
+ok 1 - v045 Trophy Road reports league progression past Serenity Peak
+  ---
+  duration_ms: 5.546015
+  type: 'test'
+  ...
+# Subtest: v045 custom map families expose three 5v5, three 3v3 and three bridge geometries
+ok 2 - v045 custom map families expose three 5v5, three 3v3 and three bridge geometries
+  ---
+  duration_ms: 0.260117
+  type: 'test'
+  ...
+# Subtest: v045 custom map selection is deterministic and uses true geometry variants
+ok 3 - v045 custom map selection is deterministic and uses true geometry variants
+  ---
+  duration_ms: 0.819301
+  type: 'test'
+  ...
+# Subtest: v045 custom modes have multiple named decks paged five at a time
+ok 4 - v045 custom modes have multiple named decks paged five at a time
+  ---
+  duration_ms: 15.090871
+  type: 'test'
+  ...
+# Subtest: v045 touchdown modes use towerless purpose-built maps and team sizes
+ok 5 - v045 touchdown modes use towerless purpose-built maps and team sizes
+  ---
+  duration_ms: 10.344427
+  type: 'test'
+  ...
+# Subtest: v045 touchdown scores when a troop crosses goal and ends at three
+ok 6 - v045 touchdown scores when a troop crosses goal and ends at three
+  ---
+  duration_ms: 3.15378
+  type: 'test'
+  ...
+# Subtest: v045 FFA has four teams and only last King ends it before time
+ok 7 - v045 FFA has four teams and only last King ends it before time
+  ---
+  duration_ms: 2.882806
+  type: 'test'
+  ...
+# Subtest: v045 FFA normal timer enters overtime instead of comparing only blue and red
+ok 8 - v045 FFA normal timer enters overtime instead of comparing only blue and red
+  ---
+  duration_ms: 2.179248
+  type: 'test'
+  ...
+# Subtest: v045 FFA losses remain losses and four-team receipts survive normalization
+ok 9 - v045 FFA losses remain losses and four-team receipts survive normalization
+  ---
+  duration_ms: 5.505385
+  type: 'test'
+  ...
+# Subtest: v045 other-mode builders expose full catalog without unlocking ranked collection
+ok 10 - v045 other-mode builders expose full catalog without unlocking ranked collection
+  ---
+  duration_ms: 5.564894
+  type: 'test'
+  ...
+# Subtest: v045 every custom expansion map advertises layered themed presentation
+ok 11 - v045 every custom expansion map advertises layered themed presentation
+  ---
+  duration_ms: 99.095627
+  type: 'test'
+  ...
+# Subtest: v045 touchdown and FFA expose their dedicated presentation layers
+ok 12 - v045 touchdown and FFA expose their dedicated presentation layers
+  ---
+  duration_ms: 9.107634
+  type: 'test'
+  ...
+# Subtest: v045 current FFA replays preserve four-team state
+ok 13 - v045 current FFA replays preserve four-team state
+  ---
+  duration_ms: 31.379226
+  type: 'test'
+  ...
+# Subtest: v045 current 3v3 touchdown replay validates six seats
+ok 14 - v045 current 3v3 touchdown replay validates six seats
+  ---
+  duration_ms: 5.924579
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 Rumble replays use the frozen v044 engine
+ok 15 - v045 historical 0.44 Rumble replays use the frozen v044 engine
+  ---
+  duration_ms: 25.817207
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 cannot claim support for expansion-only modes
+ok 16 - v045 historical 0.44 cannot claim support for expansion-only modes
+  ---
+  duration_ms: 1.687044
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 314.919938

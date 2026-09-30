@@ -137,7 +137,7 @@ test('new replay records reproduce the drain while older records preserve their 
   advance(b,305,1/60);
   assert.ok(b.result);
   const packed=Replay.pack(b);
-  assert.equal(packed.engine,'0.44');
+  assert.equal(packed.engine,'0.45');
   if(legacy){packed.engine='0.26';delete packed.initial.tiebreaker;}
   const session=new Replay.Session(packed);session.seek(packed.duration);
   assert.equal(session.error,null);

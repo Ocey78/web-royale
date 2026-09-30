@@ -1,0 +1,16 @@
+/* v0.45 custom-mode organization and compact named-deck paging. */
+#eventsContent .mode-groups{display:flex;flex-direction:column;gap:15px;padding-bottom:14px}
+#eventsContent .mode-group{border:2px solid #587a98;border-radius:10px;background:linear-gradient(#1b3b59cc,#102a43dd);box-shadow:inset 0 1px #a9c7d966,0 3px #10253d;padding:0 10px 11px}
+#eventsContent .mode-group>h2{margin:0 -10px 11px;padding:8px 12px 9px;background:linear-gradient(#6f91ad,#456b8b);border-radius:8px 8px 0 0;border-bottom:2px solid #294b69;color:#fff;font-size:19px;line-height:1.1;text-shadow:0 2px #18334b}
+#eventsContent .mode-group .events-grid{gap:10px}
+#eventsContent .mode-group .event-card{min-height:206px;margin:0;background:linear-gradient(#edf2f5,#c5d4df);border-color:#91aec3;color:#203d58}
+#eventsContent .mode-group .event-card>img{width:62px;height:62px}
+#eventsContent .mode-group .event-card h3{min-height:42px;font-size:18px}
+#eventsContent .mode-group .event-card p{min-height:43px;font-size:11px}
+.mode-deck-tabs{display:flex;align-items:center;justify-content:center;gap:6px;min-height:42px;margin:0 0 8px;flex:none}
+.mode-deck-tabs>button{height:36px;min-width:38px;border:0;border-radius:5px;background:var(--ui-button-blue-fixed) center/100% 100% no-repeat;color:#fff;font-size:19px;font-weight:900;text-shadow:0 2px #173b54;padding:3px 7px 7px}
+.mode-deck-tabs>.deck-tab{min-width:44px;max-width:52px}.mode-deck-tabs>.deck-tab.active{background-image:var(--ui-button-gold-fixed)}
+.mode-deck-tabs>.deck-add{font-size:24px}.mode-deck-tabs>button:disabled{opacity:.4}
+.mode-deck-name-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(115px,.8fr) auto;align-items:end;gap:8px;margin:0 0 9px;font-size:12px;flex:none}
+.mode-deck-name-row label{display:flex;flex-direction:column;gap:3px}.mode-deck-name-row input{height:34px;min-width:0}.mode-deck-name-row>span{padding:0 3px 8px;text-align:center;white-space:nowrap}.mode-deck-name-row>span strong{color:#9c2da8;font-size:18px;margin-left:3px}.mode-deck-name-row>button{height:34px;border:2px solid #8ca4b6;border-radius:5px;background:#d8e2e9;color:#415b6e;font-weight:bold;padding:4px 8px}
+@media(max-width:430px){#eventsContent .mode-group{padding-left:7px;padding-right:7px}#eventsContent .mode-group>h2{margin-left:-7px;margin-right:-7px}.mode-deck-name-row{grid-template-columns:1fr 1fr}.mode-deck-name-row>button{grid-column:2}.mode-deck-name-row>span{grid-column:1;grid-row:2;text-align:left}.mode-deck-tabs{gap:4px}.mode-deck-tabs>button{min-width:32px;padding-left:5px;padding-right:5px}.mode-deck-tabs>.deck-tab{min-width:36px}}

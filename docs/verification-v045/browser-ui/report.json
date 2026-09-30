@@ -1,0 +1,18 @@
+{
+  "version": "0.45.0",
+  "passed": 11,
+  "checks": [
+    "v0.45.0 boot",
+    "Custom Modes grouped into sections",
+    "rumble-reverse uses requested geometry",
+    "rumble-reverse canvas fits phone",
+    "rumble-four-bridges uses requested geometry",
+    "rumble-four-bridges canvas fits phone",
+    "3v3-jungle uses requested geometry",
+    "3v3-jungle canvas fits phone",
+    "3v3-volcano uses requested geometry",
+    "3v3-volcano canvas fits phone",
+    "No browser exceptions"
+  ],
+  "errors": []
+}

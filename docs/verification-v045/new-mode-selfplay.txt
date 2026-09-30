@@ -1,0 +1,4 @@
+{"mode":"Touchdown","seats":2,"arena":"Touchdown","time":281.8,"result":{"winner":1,"reason":"Touchdown sudden death","time":281.7999999999956},"score":[0,1],"updates":0}
+{"mode":"Touchdown2v2","seats":4,"arena":"Touchdown","time":166.2,"result":{"winner":1,"reason":"Three touchdowns","time":166.19999999999484},"score":[0,3],"updates":0}
+{"mode":"Touchdown3v3","seats":6,"arena":"Touchdown3v3","time":300.1,"result":{"winner":-1,"reason":"Touchdown draw","time":300.09999999999974},"score":[0,0],"updates":0}
+{"mode":"FreeForAll","seats":4,"arena":"FreeForAll","time":300.1,"result":{"winner":1,"reason":"FFA tiebreak","time":300.09999999999974},"score":[0,0,0,0],"updates":0}
