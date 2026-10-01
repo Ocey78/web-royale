@@ -1,0 +1,62 @@
+/* v0.49 — clear shop offers, native card frames and readable battle preferences. */
+#viewport .reference-shop .shop-deals-section{padding:10px 10px 15px;margin:10px 0 17px;background:linear-gradient(#315873,#22465f);border:1px solid #7899af;border-radius:9px;box-shadow:inset 0 1px #afcadb50,0 3px #112c41}
+#viewport .reference-shop .shop-countdown{font-size:12px;font-weight:600;color:#d4e7f3;background:#18384e;margin:0 8px 11px;padding:7px 5px;text-shadow:none}
+#viewport .reference-shop .shop-grid{gap:10px}
+#viewport .reference-shop .shop-offer{--offer-accent:#819aae;box-sizing:border-box;min-width:0;position:relative;overflow:hidden;padding:10px 8px 9px;height:290px;border:1px solid #95adbe!important;border-top:3px solid var(--offer-accent)!important;border-radius:8px!important;background:linear-gradient(#f4f7f9,#e0e9ef)!important;box-shadow:inset 0 1px #fff,0 3px #102a40!important;color:#25415a}
+#viewport .reference-shop .shop-offer[data-rarity]{border-color:#95adbe!important;border-top-color:var(--offer-accent)!important}
+#viewport .reference-shop .shop-offer.common{--offer-accent:#819aae}
+#viewport .reference-shop .shop-offer.rare{--offer-accent:#bd8c39}
+#viewport .reference-shop .shop-offer.epic{--offer-accent:#8e5cab}
+#viewport .reference-shop .shop-offer.legendary{--offer-accent:#438879}
+#viewport .reference-shop .shop-offer:before{content:none}
+#viewport .reference-shop .shop-offer h3,#viewport .reference-shop .shop-offer[data-rarity] h3{box-sizing:border-box;display:flex;align-items:center;justify-content:center;height:35px;min-height:35px;width:100%!important;margin:0 0 3px!important;padding:0 2px!important;background:none!important;border:0!important;box-shadow:none;color:#203e57;font-size:14px;font-weight:800;line-height:17px;letter-spacing:0;text-shadow:none;overflow-wrap:break-word}
+#viewport .reference-shop .shop-offer .offer-rarity{width:100%;height:17px;min-height:17px;color:#506a7e;font-size:10px;font-weight:600;line-height:17px}
+#viewport .reference-shop .offer-rarity .royale-label{height:15px;max-width:90px;font-size:10px}
+#viewport .reference-shop .offer-portrait{width:96px;max-width:90%;height:118px;min-height:118px;margin:6px auto 0;padding:0;flex:none;border-radius:7px}
+#viewport .reference-shop .offer-portrait .card-visual{width:100%;height:100%;filter:drop-shadow(0 2px 1px #24405a50)}
+#viewport .reference-shop .offer-quantity{display:flex;align-items:baseline;justify-content:center;gap:4px;height:23px;min-height:23px;margin:4px 0 6px;line-height:23px;color:#203e57;white-space:nowrap}
+#viewport .reference-shop .offer-quantity b{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.4px}
+#viewport .reference-shop .offer-quantity span{font-size:10px;font-weight:600;color:#526c7e}
+#viewport .reference-shop .offer-copy-progress{box-sizing:border-box;width:100%;height:16px;min-height:16px;margin:0 0 7px;border:1px solid #637f93;border-radius:4px;background:#5a7083;box-shadow:inset 0 1px #263f5355;color:#fff;font-size:10px;line-height:14px;text-shadow:0 1px #244057}
+#viewport .reference-shop .offer-copy-progress i{background:linear-gradient(#7bc8ed,#4199c5)}
+#viewport .reference-shop .offer-copy-progress.ready i{background:linear-gradient(#87c657,#54963a)}
+#viewport .reference-shop .offer-copy-progress b{font-size:10px;line-height:14px;font-variant-numeric:tabular-nums}
+#viewport .reference-shop .offer-price{box-sizing:border-box;width:100%;height:40px;min-height:40px;margin-top:auto;padding:3px 6px 7px;gap:6px;background:var(--ui-button-gold-fixed) center/100% 100% no-repeat;border:0;border-radius:6px;line-height:1;color:#fff;font-size:21px;font-weight:900;letter-spacing:0;text-shadow:0 1px #674615;filter:none}
+#viewport .reference-shop .offer-price strong{font-size:21px;max-width:calc(100% - 31px);font-variant-numeric:tabular-nums}
+#viewport .reference-shop .offer-price>img{width:23px;height:25px;flex:0 0 23px;margin:0}
+#viewport .reference-shop .offer-price:hover:not(:disabled){filter:brightness(1.08)}
+#viewport .reference-shop .offer-price:focus-visible,#viewport .reference-shop .offer-portrait:focus-visible{outline:3px solid #1a78a8;outline-offset:1px}
+#viewport .reference-shop .shop-offer.purchased{background:linear-gradient(#edf4ee,#dbe7df)!important}
+#viewport .reference-shop .offer-collected{height:63px;min-height:63px;margin-top:auto;gap:4px;color:#3c6d45;font-size:12px}
+#viewport .reference-shop .offer-collected>img{width:29px;height:23px}
+#viewport .reference-shop .offer-collected .royale-label{height:18px;font-size:12px}
+#viewport .reference-shop .locked-offer{justify-content:flex-start}
+#viewport .reference-shop .locked-offer .locked-offer-art{height:133px;width:100%;display:grid;place-items:center;opacity:.55}
+#viewport .reference-shop .locked-offer-art>img{width:73px;height:90px;object-fit:contain}
+#viewport .reference-shop .locked-offer>strong{font-size:16px;margin:8px 0;color:#456176}
+#viewport .reference-shop .locked-offer>small{height:auto;padding:0 2px;font-size:11px;line-height:16px;white-space:normal;color:#536f82}
+#viewport .reference-shop .daily-free-offer{height:274px;justify-content:flex-start}
+#viewport .reference-shop .daily-free-offer .daily-reward-art{height:130px;min-height:130px;margin:6px 0;display:grid;place-items:center;width:100%}
+#viewport .reference-shop .daily-reward-art>img{width:100%;height:120px;object-fit:contain}
+#viewport .reference-shop .daily-free-offer p{font-size:11px;color:#496678;line-height:15px;margin:0 0 8px}
+#viewport .reference-shop .daily-free-offer .native-button{position:absolute;left:8px;right:8px;bottom:9px;width:calc(100% - 16px);margin:0;height:40px;min-height:40px;font-size:17px}
+#viewport .reference-shop .chest-offer{height:236px}
+#viewport .reference-shop .chest-offer>img{height:129px;width:100%;margin:5px 0 7px;object-fit:contain}
+#viewport .reference-shop .emote-offer{height:218px;gap:10px}
+#viewport .reference-shop .emote-offer .emote-preview{height:134px;min-height:134px}
+#viewport .reference-shop .tower-skin-offers .shop-offer{height:290px}
+#viewport .reference-shop .gem-pack{height:239px}
+#viewport .reference-shop .gem-pack .offer-price,#viewport .reference-shop .gem-pack .offer-price strong{font-size:17px}
+#viewport .swarm-level-setting{align-items:center;gap:12px}
+#viewport .swarm-level-setting>span{flex:1;min-width:0}
+#viewport .swarm-level-setting small{font-size:12px;line-height:1.45;margin-top:4px}
+#viewport .swarm-level-setting .setting-switch{flex:none;min-width:65px;min-height:40px}
+@media(max-width:430px){
+ #viewport .reference-shop .shop-deals-section{padding-left:7px;padding-right:7px}
+ #viewport .reference-shop .shop-grid{gap:7px}
+ #viewport .reference-shop .shop-offer{padding-left:6px;padding-right:6px}
+ #viewport .reference-shop .offer-title{font-size:13px!important}
+ #viewport .reference-shop .shop-emote-section,#viewport .reference-shop .shop-chest-section{padding-left:8px;padding-right:8px}
+ #viewport .swarm-level-setting{gap:8px;font-size:14px}
+ #viewport .swarm-level-setting .setting-switch{min-width:57px}
+}

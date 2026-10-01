@@ -1,0 +1,8 @@
+{
+  "file": "touchdown-stadium-reference.png",
+  "source": "User-supplied Clash Royale Touchdown Stadium reference screenshot",
+  "sourceDimensions": { "width": 551, "height": 647 },
+  "description": "Complete supplied stadium appearance, including spectators, gold statues, horns, team entrances and checker turf. Original source pixels retained; no higher resolution or native 3D stadium export is claimed.",
+  "mapping": "Three columns and five rows anchor the full screenshot to the unchanged playable edges and scoring lines without cropping the field or stands.",
+  "nativeFallback": "level_royal_arena / royal_touchdown_bg is a native pitch export without the complete stadium surroundings. Used when the supplied texture cannot load."
+}

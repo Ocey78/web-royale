@@ -16,7 +16,7 @@ const server=http.createServer(async(req,res)=>{try{
  const versioned=url.searchParams.has('v')||/\.[a-f0-9]{12}\.(js|css|json)$/.test(file);res.setHeader('Cache-Control',versioned?'public, max-age=31536000, immutable':'no-cache');
  const compressible=['.js','.json','.css','.html'].includes(ext);if(compressible)res.setHeader('Vary','Accept-Encoding');
  const gzipToken=(req.headers['accept-encoding']||'').split(',').map(x=>x.trim()).find(x=>/^gzip(?:\s*;|$)/i.test(x)),quality=gzipToken?.match(/;\s*q\s*=\s*([0-9.]+)/i);
- let bytes=fs.readFileSync(file);if(gzipToken&&(!quality||Number(quality[1])>0)&&compressible){if(!compressed.has(file))compressed.set(file,zlib.gzipSync(bytes));bytes=compressed.get(file);res.setHeader('Content-Encoding','gzip');res.setHeader('Vary','Accept-Encoding');}
+ let bytes=fs.readFileSync(file);if(gzipToken&&(!quality||Number(quality[1])>0)&&compressible){let cached=compressed.get(file);if(!cached||!cached.source.equals(bytes)){cached={source:bytes,gzip:zlib.gzipSync(bytes)};compressed.set(file,cached);}bytes=cached.gzip;res.setHeader('Content-Encoding','gzip');res.setHeader('Vary','Accept-Encoding');}
  res.setHeader('Content-Length',bytes.length);res.writeHead(200);res.end(req.method==='HEAD'?undefined:bytes);
  }catch(e){res.writeHead(400);res.end('Invalid request');}});
 server.on('error',e=>{console.error('Static host failed:',e.message);process.exitCode=1;});

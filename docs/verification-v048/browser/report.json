@@ -1,0 +1,20 @@
+{
+  "version": "0.48.0",
+  "passed": 14,
+  "checks": [
+    "generated release boots as v0.48.0",
+    "Safari first launch uses all Medium tiers",
+    "Safari defaults are persisted immediately",
+    "settings exposes Good",
+    "settings exposes High (4\u00d7)",
+    "settings exposes Max (8\u00d7)",
+    "High texture policy is 4x",
+    "Max texture policy is 8x",
+    "High arena policy is 4x",
+    "Max arena policy is 8x",
+    "Safari page has no uncaught errors",
+    "non-Safari fresh launch defaults to Good tiers",
+    "Chromium is not misdetected as Safari",
+    "Chrome page has no uncaught errors"
+  ]
+}

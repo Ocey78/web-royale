@@ -11,5 +11,5 @@ test('v046 reorganizes Other Modes groups and removes FFA card',()=>{
 });
 
 test('v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium',()=>{
- a.match(arena,/sourceArenaBackdrop/);a.match(arena,/Touchdown.*Stadium|touchdown.*stadium/i);a.match(arena,/spectator/i);a.match(arena,/checker|turf/i);a.match(arena,/touchdown trapdoor/i);a.match(arena,/touchdown corner statue/i);
+ a.match(arena,/sourceArenaBackdrop/);a.match(arena,/touchdown-stadium-reference\.png/);a.match(arena,/spectator/i);a.match(arena,/prepareAssets/);a.match(arena,/stadiumAmbient/);
 });

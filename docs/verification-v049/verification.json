@@ -1,0 +1,43 @@
+{
+  "version": "0.49.0",
+  "date": "2026-10-01",
+  "build": {
+    "files": 1207,
+    "app": "app.66b6d0ca8035.js",
+    "styles": "styles.02415febbdc9.css",
+    "snapshot": "3.2557.2",
+    "cards": 102,
+    "sceneCompression": "gzip"
+  },
+  "regressions": {
+    "command": "node --test --test-concurrency=2 tests/*.test.cjs",
+    "tests": 1244,
+    "passed": 1244,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 149706.5788
+  },
+  "browser": {
+    "playerSpells": 17,
+    "enemySpells": 17,
+    "mirror": "Fireball replayed and native impact rendered",
+    "missingSpellEffects": [],
+    "pageErrors": [],
+    "ultraShader": "executed successfully",
+    "settingsAndShop": "interface.json",
+    "customEnvironmentPreviews": 11
+  },
+  "aiDecks": {
+    "total": 11284,
+    "sourcedSeeds": 20,
+    "generatedVariants": 11264,
+    "archetypes": 10
+  },
+  "performance": "render-comparison.json",
+  "limitations": [
+    "Historical source texture and mesh assets remain; modern native 3D models and higher resolution source textures were not available.",
+    "Spell presentation is improved against the videos but is not pixel-perfect with the current Clash Royale app.",
+    "Touchdown uses the supplied 551x647 stadium screenshot mapped to unchanged game geometry.",
+    "Headless browser timing is specific to this machine and workload."
+  ]
+}

@@ -1,17 +1,16 @@
-# Web Royale v0.42.0
+# Web Royale v0.49.0
 
-**Full build:** 12 Card Deck, 20 Elixir and One Shot modes; five-minute 3v3;
-King Level badge opening Crown Road; Sandbox map selection; random casual arenas;
-layered custom-map polish; Potato Mode and menu improvements.
+**Full build:** corrected spell effects, optional individual swarm levels, Ultra
+shader graphics, reduced rendering overhead, distinct animated custom environments,
+the supplied Touchdown stadium, cleaner shop cards and 11,284 opponent decks.
 
 Export your save, close the old game/launcher, extract the entire ZIP, and run
 `open offline.bat`. The ready-to-serve website is in `dist/`. Keep the same browser
 and localhost address to keep accessing the same browser save.
 
-See **BUILD-NOTES-v0.42.0.md** for the exact mode rules and migration details and
-**docs/verification-v042/VERIFICATION.md** for checks and limitations. New replays
-use simulation 0.42; earlier replay engines remain packaged. No live deployment
-is performed by downloading or extracting this archive.
+See **BUILD-NOTES-v0.49.0.md** for changes, measurements and the limits of the
+available historical artwork. Earlier replay engines remain packaged. No live
+deployment is performed by downloading or extracting this archive.
 
 For development, use Node 22+, `npm test`, `npm run build`, and `npm run serve`.
 The source restore step recovers duplicated source image/audio files from the
@@ -21,7 +20,7 @@ verified `dist/` to keep this full-build download smaller.
 
 ## Historical release and project documentation
 
-The sections below describe earlier releases. v0.42.0 build notes take precedence
+The sections below describe earlier releases. v0.49.0 build notes take precedence
 where behavior, versions, prices, mode lists, or timing differ.
 
 # Rebuilt v0.40.1 distribution

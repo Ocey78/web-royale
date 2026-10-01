@@ -1,0 +1,62 @@
+{
+  "report": [
+    {
+      "id": "Team3v3",
+      "width": 690,
+      "height": 1030
+    },
+    {
+      "id": "Team3v3Jungle",
+      "width": 690,
+      "height": 1030
+    },
+    {
+      "id": "Team3v3Volcano",
+      "width": 690,
+      "height": 1030
+    },
+    {
+      "id": "BridgeBattle",
+      "width": 410,
+      "height": 1030
+    },
+    {
+      "id": "BridgeBattleLava",
+      "width": 410,
+      "height": 1030
+    },
+    {
+      "id": "BridgeBattleGarden",
+      "width": 410,
+      "height": 1030
+    },
+    {
+      "id": "TeamRumble",
+      "width": 957,
+      "height": 1270
+    },
+    {
+      "id": "TeamRumbleArcReverse",
+      "width": 957,
+      "height": 1270
+    },
+    {
+      "id": "TeamRumbleRiverLine",
+      "width": 850,
+      "height": 1150
+    },
+    {
+      "id": "Touchdown",
+      "stadiumArt": "supplied-reference",
+      "width": 690,
+      "height": 990
+    },
+    {
+      "id": "Touchdown3v3",
+      "stadiumArt": "supplied-reference",
+      "width": 850,
+      "height": 990
+    }
+  ],
+  "errors": []
+}

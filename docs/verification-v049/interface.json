@@ -1,0 +1,42 @@
+{
+  "drawChecks": {
+    "expected": 18,
+    "checks": [
+      {
+        "compact": false,
+        "individual": 18,
+        "groups": 0
+      },
+      {
+        "compact": true,
+        "individual": 3,
+        "groups": 1
+      }
+    ]
+  },
+  "shopChecks": [
+    {
+      "viewport": {
+        "width": 1200,
+        "height": 1000
+      },
+      "cards": 27
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "cards": 27
+    }
+  ],
+  "settings": [
+    "main",
+    "paused battle",
+    "keyboard toggle",
+    "reload persistence",
+    "graphics independence"
+  ],
+  "purchase": true,
+  "errors": []
+}

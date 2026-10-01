@@ -2,7 +2,7 @@
    Backdrop + floor are cached together; raised scenery is a separate cached
    foreground. Ambient snow/flames animate without rebuilding either surface. */
 (function(root){'use strict';
-const cache=new Map(),SX=480/18,SY=20;
+const cache=new Map(),SX=480/18,SY=20,stadium={image:null,pending:null,url:null};
 function clear(){for(const cv of cache.values()){if(cv.foreground){cv.foreground.width=1;cv.foreground.height=1;}cv.width=1;cv.height=1;}cache.clear();}
 function poly(c,pts,fill,edge,width=1){c.beginPath();pts.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();if(fill){c.fillStyle=fill;c.fill();}if(edge){c.strokeStyle=edge;c.lineWidth=width;c.stroke();}}
 function line(c,x,y,xx,yy,color,w=1){c.strokeStyle=color;c.lineWidth=w;c.beginPath();c.moveTo(x,y);c.lineTo(xx,yy);c.stroke();}
@@ -11,8 +11,30 @@ function ellipse(c,x,y,rx,ry,fill){c.fillStyle=fill;c.beginPath();c.ellipse(x,y,
 function bevel(c,x,y,w,h,fill,light='#fff4',shade='#13233266'){c.fillStyle=fill;c.fillRect(x,y,w,h);line(c,x,y,x+w,y,light,1.2);line(c,x,y,x,y+h,light,1);line(c,x,y+h,x+w,y+h,shade,1.5);line(c,x+w,y,x+w,y+h,shade,1);}
 function plate(c,x,y,w,h,fill,edge,cut=8){poly(c,[[x+cut,y],[x+w-cut,y],[x+w,y+cut],[x+w,y+h-cut],[x+w-cut,y+h],[x+cut,y+h],[x,y+h-cut],[x,y+cut]],fill,edge,2);}
 function prop(c,lib,scene,name,x,y,w,h,flip=false){const sc=lib?.scenes?.[scene];if(!sc?.clip(name))return;const b=sc.bounds(name,0);if(!b?.width||!b.height)return;const scale=Math.min(w/b.width,h/b.height);c.save();c.translate(x,y);if(flip)c.scale(-1,1);c.scale(scale,scale);c.translate(-b.x-b.width/2,-b.y-b.height);sc.draw(c,name,0,{frame:0,still:true});c.restore();}
-function sourceArenaId(l){const theme=l?.theme||'';if(theme==='jungle'||theme==='garden')return'jungle';if(theme==='volcano'||theme==='lava')return'pekka';if(theme==='ice')return'frozen';if(theme==='moon-castle')return'serenity';if(theme==='touchdown'||theme==='touchdown-wide')return'barbarian';if(theme==='castle'||theme==='river-fort'||theme==='bastion')return'royal';return'royal';}
+function sourceArenaId(l){const theme=l?.theme||'';if(theme==='jungle'||theme==='garden')return'jungle';if(theme==='volcano'||theme==='lava')return'pekka';if(theme==='ice')return'frozen';if(theme==='moon-castle')return'serenity';return'royal';}
 function sourceArenaBackdrop(c,lib,l){if(!lib?.drawArenaById)return false;const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left,h=bottom-top;c.save();c.globalAlpha=.94;c.translate(left,top);c.scale(w/480,h/640);const ok=lib.drawArenaById(c,sourceArenaId(l),0,false);c.restore();return ok;}
+async function prepareAssets(b,assetBase){
+ if(!b?.arenaLayout?.touchdown||root.RoyaleGraphics?.current?.potato||!root.Image)return false;
+ const path='assets/ui/touchdown-stadium-reference.png',base=assetBase||root.document?.baseURI||'';
+ const url=root.URL?new root.URL(path,base).href:base.replace(/[^/]*$/,'')+path;
+ if(stadium.image&&stadium.url===url)return true;if(stadium.pending&&stadium.url===url)return stadium.pending;
+ stadium.url=url;stadium.image=null;
+ stadium.pending=new Promise(resolve=>{const img=new root.Image();img.onload=()=>{if(stadium.url===url){stadium.image=img;clear();}resolve(true);};img.onerror=()=>resolve(false);img.src=url;});
+ const ready=await stadium.pending;stadium.pending=null;return ready;
+}
+function stadiumReference(c,l){
+ if(!stadium.image)return false;
+ // The supplied 551 x 647 stadium is split at its field and scoring lines.
+ // This preserves all stands while anchoring the raster to unchanged game geometry.
+ const sx=[0,136,409,551],sy=[0,126,169,484,524,647],dx=[l.left*SX-105,l.left*SX,l.right*SX,l.right*SX+105],dy=[l.top*SY-155,l.top*SY,l.goalTop*SY,l.goalBottom*SY,l.bottom*SY,l.bottom*SY+155];
+ for(let row=0;row<5;row++)for(let col=0;col<3;col++)c.drawImage(stadium.image,sx[col],sy[row],sx[col+1]-sx[col],sy[row+1]-sy[row],dx[col],dy[row],dx[col+1]-dx[col],dy[row+1]-dy[row]);
+ return true;
+}
+function nativeTouchdownPitch(c,l,lib){
+ const sc=lib?.scenes?.level_royal_arena;if(!sc?.clip('royal_touchdown_bg'))return false;
+ const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,scaleX=(right-left)/540,scaleY=(l.goalBottom-l.goalTop)*SY/634;
+ c.save();c.beginPath();c.rect(left,top,right-left,bottom-top);c.clip();c.translate(left+270*scaleX,l.goalTop*SY-68*scaleY);c.scale(scaleX,scaleY);sc.draw(c,'royal_touchdown_bg',0,{frame:0,still:true});c.restore();return true;
+}
 function snow(c,x,y,w,h){c.save();c.translate(x,y);c.fillStyle=gradient(c,-w,0,w,h,[[0,'#a8bad7'],[.4,'#e1eaff'],[.68,'#ffffff'],[1,'#c5d5eb']]);c.beginPath();c.moveTo(-w*.5,h*.2);c.bezierCurveTo(-w*.65,-h*.3,-w*.28,-h*.65,0,-h*.5);c.bezierCurveTo(w*.5,-h*.67,w*.64,-h*.1,w*.43,h*.3);c.bezierCurveTo(w*.47,h*.65,w*.22,h*.7,w*.09,h*.53);c.bezierCurveTo(-w*.08,h*.72,-w*.53,h*.61,-w*.5,h*.2);c.fill();c.restore();}
 function icyBackdrop(c,left,right){
  c.fillStyle=gradient(c,-80,-80,560,720,[[0,'#f0f3ff'],[.3,'#c9d7ef'],[.6,'#a9bbd9'],[1,'#d8e6f5']]);c.fillRect(-80,-80,640,800);
@@ -115,7 +137,7 @@ function themedFloor(c,l,left,right,top,bottom){
  const theme=l.theme||'';if(theme==='jungle')return jungleTempleFloor(c,l,left,right,top,bottom);if(theme==='volcano')return emberForgeFloor(c,l,left,right,top,bottom);if(theme==='garden')return royalGardenFloor(c,l,left,right,top,bottom);if(theme==='lava')return lavaCausewayFloor(c,l,left,right,top,bottom);if(theme==='moon-castle')return moonKeepFloor(c,l,left,right,top,bottom);if(theme==='river-fort')return fourBridgesFloor(c,l,left,right,top,bottom);if(theme==='bastion')return royalBastionFloor(c,l,left,right,top,bottom);if(theme==='castle')return castleCrownFloor(c,l,left,right,top,bottom);return floorTiles(c,left,right,theme==='ice',l.top,l.bottom);
 }
 // Coordinates are shared with the logical tower centers, not a separate art grid.
-function foundationSlots(l){const out=[];if(l.ffaTeams){for(const row of l.ffaTeams){out.push({entity:'KingTower',team:row.team,x:row.king[0]*SX,y:row.king[1]*SY});for(const q of row.princess)out.push({entity:'PrincessTower',team:row.team,x:q[0]*SX,y:q[1]*SY});}return out;}for(const team of [0,1]){const flip=y=>team?y:32-y;for(let i=0;i<l.kings.length;i++)out.push({entity:'KingTower',team,x:l.kings[i]*SX,y:flip(l.kingYs?.[i]??l.kingY??3)*SY});for(let i=0;i<l.lanes.length;i++)out.push({entity:'PrincessTower',team,x:l.lanes[i]*SX,y:flip(l.princessY[i])*SY});}return out;}
+function foundationSlots(l){const out=[];if(l.touchdown)return out;if(l.ffaTeams){for(const row of l.ffaTeams){out.push({entity:'KingTower',team:row.team,x:row.king[0]*SX,y:row.king[1]*SY});for(const q of row.princess)out.push({entity:'PrincessTower',team:row.team,x:q[0]*SX,y:q[1]*SY});}return out;}for(const team of [0,1]){const flip=y=>team?y:32-y;for(let i=0;i<l.kings.length;i++)out.push({entity:'KingTower',team,x:l.kings[i]*SX,y:flip(l.kingYs?.[i]??l.kingY??3)*SY});for(let i=0;i<l.lanes.length;i++)out.push({entity:'PrincessTower',team,x:l.lanes[i]*SX,y:flip(l.princessY[i])*SY});}return out;}
 function foundations(c,slots){for(const t of slots){const king=t.entity==='KingTower',x=t.x,y=t.y,w=king?70:58,h=king?62:54,team=t.team;
  ellipse(c,x,y+8,w*.57,h*.34,'#16233257');plate(c,x-w/2,y-h/2,w,h,'#41455c','#252f44',5);
  plate(c,x-w/2+3,y-h/2+3,w-6,h-6,gradient(c,x,y-h/2,x,y+h/2,[[0,'#d1cdd5'],[.42,'#9899ae'],[1,'#666f88']]),'#ccd0dc',3);
@@ -202,8 +224,8 @@ function castleScenery(c,f,l,lib){
  const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY;
  // All tall props are outside the radius-aware floor; front layers never mask a lane.
  stoneRails(f,l);
- for(const [y,team]of [[top-13,1],[bottom+121,0]])for(const x of [left+38,right-38])prop(c,lib,'level_royal_arena',team?'royal_red_tower1':'royal_blue_tower1',x,y,83,117,x>240);
- for(const y of [120,520])for(const x of [left-33,right+33])prop(c,lib,'level_royal_arena','royal_blocktree',x,y,41,61,x>240);
+ if(l.theme==='moon-castle'){for(const [y,name]of [[top+26,'lunar_mountain_01'],[bottom+45,'lunar_mountain_04']])for(const x of [left-40,right+40])prop(c,lib,'level_lunar_arena_dl',name,x,y,88,135,x>240);for(const y of [top+95,bottom-70])for(const x of [left-26,right+26])prop(c,lib,'level_lunar_arena_dl','lunar_lantern_01',x,y,38,58,x>240);}
+ else{for(const [y,team]of [[top-13,1],[bottom+121,0]])for(const x of [left+38,right-38])prop(c,lib,'level_royal_arena',team?'royal_red_tower1':'royal_blue_tower1',x,y,83,117,x>240);for(const y of [120,520])for(const x of [left-33,right+33])prop(c,lib,'level_royal_arena','royal_blocktree',x,y,41,61,x>240);}
  for(const y of [55,250,390,585])for(const x of [left-12,right+12]){plate(f,x-5,y-3,10,19,'#4b5261','#d7b985',2);ellipse(f,x,y-1,7,3,'#cfab70');}
  for(const [y,team]of [[top-21,1],[bottom+34,0]])for(const x of [left+105,right-105]){plate(f,x-14,y-22,28,46,team?'#8c4155':'#2b6695','#d7bb7c',4);castleCrown(f,x,y-4,.58);}
 }
@@ -236,9 +258,45 @@ function crossings(c,l,icy){if(l.river===false)return;const left=l.left*SX,right
   for(const xx of [x+4,x+w-4])for(const yy of [y-10,y+h+10]){ellipse(c,xx,yy,3,3,icy?'#ffe6a8':'#cad4dd');ellipse(c,xx,yy,1,1,'#76687a');}
  }
 }
-function stoneRails(c,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY;
- for(const x of [left-15,right+3])for(let y=top-6,row=0;y<bottom+5;y+=31,row++){bevel(c,x,y,12,29,'#7e879a','#c6cbd4','#354255');if(row%3===0)bevel(c,x-4,y,20,13,'#9ba6b6','#e8e9e9','#3d4a61');}
- for(const y of [top-10,bottom+4])for(let x=left-14;x<right+16;x+=31)bevel(c,x,y,29,13,'#717e90','#c8d0d6','#323e56');
+function stoneRails(c,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,theme=l.theme;
+ const p=theme==='jungle'?['#53664d','#a9b58b','#263e2b']:theme==='volcano'||theme==='lava'?['#30242a','#bd7245','#100e14']:theme==='moon-castle'?['#46416a','#b0a0e1','#1c1935']:theme==='river-fort'?['#536e79','#d5c58d','#253c48']:theme==='bastion'?['#776777','#dfc992','#3c3247']:['#8895a1','#ead4a3','#394e63'];
+ for(const x of [left-15,right+3])for(let y=top-6,row=0;y<bottom+5;y+=31,row++){bevel(c,x,y,12,29,...p);if(row%3===0)bevel(c,x-4,y,20,13,p[0],p[1],p[2]);
+  if(theme==='jungle'){ellipse(c,x+6,y+7,9,4,'#365d32');line(c,x+5,y+8,x+8,y+26,'#8da85d',1.4);}else if(theme==='volcano'||theme==='lava'){poly(c,[[x+2,y+6],[x+8,y+12],[x+3,y+20]],null,'#f38740',1.2);}else if(theme==='moon-castle'){poly(c,[[x+6,y+6],[x+10,y+13],[x+6,y+20],[x+2,y+13]],'#9d8acf','#d1c4ff',1);}else if(theme==='river-fort'){ellipse(c,x+6,y+18,2.5,2.5,'#d5bf73');}else{line(c,x+1,y+6,x+11,y+6,p[1],1.5);}
+ }
+ for(const y of [top-10,bottom+4])for(let x=left-14;x<right+16;x+=31)bevel(c,x,y,29,13,...p);
+}
+function outerEnvironment(c,l){
+ const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,theme=l.theme;
+ c.save();
+ // Dense scenery fills the rear and side margins. It is cached once, and
+ // remains outside the walkable rectangle shared with the battle simulation.
+ for(let y=top-143,row=0;y<bottom+151;y+=67,row++)for(let x=left-88,col=0;x<right+105;x+=74,col++){
+  if(x>left-32&&x<right+32&&y>top-25&&y<bottom+25)continue;
+  const xx=x+(row%2)*16,yy=y+Math.sin(col*3+row)*9;
+  if(theme==='jungle'||theme==='garden'){
+   ellipse(c,xx+5,yy+18,37,12,'#162f2c66');line(c,xx,yy+5,xx+5,yy+30,'#5a5137',7);ellipse(c,xx,yy,35,22,theme==='jungle'?'#234d32':'#346346');ellipse(c,xx-10,yy-13,24,17,theme==='jungle'?'#38694a':'#588c50');ellipse(c,xx+13,yy-20,18,13,theme==='jungle'?'#477e50':'#78a55e');
+   if(theme==='garden')for(let i=0;i<4;i++)ellipse(c,xx-17+i*11,yy-8+(i%2)*6,3,2,['#ef9ab8','#ebd785'][i%2]);else line(c,xx-13,yy+8,xx-18,yy+34,'#708d4a',2);
+  }else if(theme==='volcano'||theme==='lava'){
+   ellipse(c,xx,yy+20,31,11,'#f4662655');poly(c,[[xx-32,yy+16],[xx-21,yy-14],[xx+3,yy-32],[xx+29,yy+9],[xx+16,yy+24]],'#282027','#614039',1.5);poly(c,[[xx-21,yy-14],[xx+3,yy-32],[xx-2,yy+9]],'#443137');line(c,xx-10,yy+3,xx+4,yy-3,'#ed693f',1.6);line(c,xx+4,yy-3,xx+11,yy+13,'#b04430',1.2);
+  }else if(theme==='ice'){
+   poly(c,[[xx-32,yy+26],[xx-12,yy-23],[xx+5,yy-37],[xx+30,yy+23]],'#8aa7cc','#d8e7f8',1.5);poly(c,[[xx-12,yy-23],[xx+5,yy-37],[xx+11,yy+16]],'#d4e4f6');snow(c,xx,yy+23,59,19);
+  }else if(theme==='moon-castle'){
+   poly(c,[[xx-35,yy+23],[xx-19,yy-18],[xx,yy-43],[xx+33,yy+25]],'#252c4b','#535575',1);poly(c,[[xx,yy-43],[xx+33,yy+25],[xx+4,yy+11]],'#3a3e62');ellipse(c,xx-10,yy-24,1.7,1.7,'#c4c2ff');
+  }else if(theme==='river-fort'){
+   ellipse(c,xx,yy+14,35,11,'#2a566b66');ellipse(c,xx,yy+12,27,6,'#8cb3bd55');plate(c,xx-17,yy-15,34,27,'#5c727b','#a9af9a',5);line(c,xx-10,yy-2,xx+10,yy-2,'#d3c18b',1);
+  }else{
+   ellipse(c,xx+5,yy+22,34,10,'#14253c55');plate(c,xx-25,yy-16,50,36,theme==='bastion'?'#4b4f66':'#4a6074','#8792a0',6);poly(c,[[xx-30,yy-17],[xx,yy-39],[xx+30,yy-17]],theme==='bastion'?'#6f4660':'#36506c','#aba187',1);for(const xx1 of [xx-13,xx+13])bevel(c,xx1-3,yy-8,6,14,'#26394d','#ac9b78','#1b2a3b');
+  }
+ }
+ c.restore();
+}
+function themedSourceScenery(c,l,lib){
+ const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,theme=l.theme;
+ for(const side of [-1,1]){const x=side<0?left-43:right+43;
+  if(theme==='jungle'){for(const y of [top+20,bottom+30])prop(c,lib,'level_jungle_arena','jungle_statue_01',x,y,63,89,side>0);for(const [y,team] of [[top+(bottom-top)*.3,'red'],[top+(bottom-top)*.76,'blue']])prop(c,lib,'level_jungle_arena',`jungle_stand_01_${team}_${side<0?'left':'right'}`,x,y,70,105,side>0);}
+  else if(theme==='volcano'){for(const [y,team] of [[top+18,'top'],[bottom+40,'bottom']])prop(c,lib,'level_dark_arena',`dark_pekka_${team}_${side<0?'left':'right'}`,x,y,66,92);for(const [y,team] of [[top+(bottom-top)*.3,'red'],[top+(bottom-top)*.76,'blue']])prop(c,lib,'level_dark_arena',side<0?(team==='red'?'dark_stand_left_red':'dark_stand_blue_left'):`dark_stand_${team}_right`,x,y,72,105);}
+  else{for(const [y,team] of [[top+19,'red'],[bottom+70,'blue']])prop(c,lib,'level_royal_arena',`royal_${team}_tower1`,x,y,68,96,side>0);for(const y of [top+(bottom-top)*.35,top+(bottom-top)*.75])prop(c,lib,'level_royal_arena',side<0?'royal_sidestand_left':'royal_sidestand_right',x,y,71,106,side>0);}
+ }
 }
 function makeSurface(density,l){const custom=l?.custom,rect=custom?{x:l.left*SX-105,y:l.top*SY-155,width:(l.right-l.left)*SX+210,height:(l.bottom-l.top)*SY+310}:{x:-120,y:-140,width:720,height:920},cv=root.document.createElement('canvas');cv.worldRect=rect;cv.width=Math.round(rect.width*density);cv.height=Math.round(rect.height*density);const c=cv.getContext('2d');c.scale(density,density);c.translate(-rect.x,-rect.y);return[cv,c];}
 
@@ -275,8 +333,8 @@ function themeDetails(c,f,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,
  }
 }
 function touchdownField(c,f,l,lib){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left;
- // Official-style Touchdown Stadium: green checker turf, full sideline stands,
- // blue/red team ends, Barbarian Bowl structures and no Crown Towers or river.
+ if(stadiumReference(c,l))return'supplied-reference';
+ // Graceful fallback: native Touchdown pitch with handcrafted surrounding stands.
  c.fillStyle=gradient(c,left,top,right,bottom,[[0,'#2c5644'],[.45,'#467b54'],[1,'#284a3d']]);c.fillRect(left-105,top-125,w+210,bottom-top+250);
  // Tiered spectator stands are outside the legal field and give the stadium real depth.
  for(const side of [-1,1]){const x=side<0?left-82:right+22;for(let tier=0;tier<4;tier++){plate(c,x-side*tier*8,top-35-tier*8,60+tier*8,bottom-top+70+tier*16,tier%2?'#47586b':'#39495b','#b9a978',10);for(let y=top+12;y<bottom-6;y+=42)for(let n=0;n<3;n++)ellipse(c,x+18+n*13-side*tier*3,y+(n%2)*5,3.2,3.2,['#d85a68','#5c8fcb','#d6b54d'][n]);}}
@@ -284,6 +342,7 @@ function touchdownField(c,f,l,lib){const left=l.left*SX,right=l.right*SX,top=l.t
  const standH=Math.min(176,(bottom-top)*.28);for(const side of [-1,1]){const x=side<0?left-68:right+68;prop(f,lib,'level_barbarian_arena',side<0?'barbarian_blue_sidestand_left':'barbarian_red_sidestand_right',x,(top+bottom)/2-135,118,standH,side>0);prop(f,lib,'level_barbarian_arena',side<0?'barbarian_blue_sidestand_right':'barbarian_red_sidestand_left',x,(top+bottom)/2+135,118,standH,side>0);for(const y of [top+34,bottom-34])prop(f,lib,'level_barbarian_arena','barbarian_tower1',x,y,62,82,side>0);}
  plate(c,left-18,top-14,w+36,bottom-top+28,'#23384a','#cdb974',14);c.fillStyle='#6d9a69';c.fillRect(left,top,w,bottom-top);
  for(let row=Math.floor(l.top);row<l.bottom;row++)for(let col=Math.floor(l.left);col<l.right;col++){c.fillStyle=(row+col)%2?'#75a975':'#6c9e6b';c.fillRect(col*SX,row*SY,SX,SY);}
+ const nativePitch=nativeTouchdownPitch(c,l,lib);
  for(let y=top+40;y<bottom-30;y+=60){line(c,left+8,y,right-8,y,'#e9f0d7aa',2);for(let x=left+24;x<right;x+=80)line(c,x,y-5,x,y+5,'#f7f3d0aa',1);}
  for(const [y,color] of [[l.goalTop*SY,'#507ec1'],[l.goalBottom*SY,'#b84e58']]){c.fillStyle=color+'88';c.fillRect(left,y-27,w,54);line(c,left,y,right,y,'#fff7c9',4);for(let x=left+18;x<right;x+=48)castleCrown(c,x,y,.26,'#f4d879');plate(f,(left+right)/2-44,y-39,88,13,color,'#f1dca3',4);}
  // Midfield crest and side pylons are foreground-only decorations.
@@ -296,6 +355,7 @@ function touchdownField(c,f,l,lib){const left=l.left*SX,right=l.right*SX,top=l.t
  // Touchdown corner statue: four football-Barbarian-style stone figures at the field corners.
  for(const y of [top-47,bottom+47])for(const x of [left+22,right-22]){const sy=y<top?1:-1;plate(f,x-12,y-12,24,24,'#596a78','#d7c891',5);ellipse(f,x,y+sy*5,8,8,'#b9aa83');poly(f,[[x-9,y+sy*2],[x,y+sy*18],[x+9,y+sy*2]],'#8d7b5d','#d6c48d',1.3);ellipse(f,x+7,y-sy*6,4,4,'#d8bc65');}
  for(const team of [0,1]){const y=team?top-22:bottom+22;for(const x of [left+38,right-38]){line(f,x,y-8,x,y+24,'#d5c08f',2);poly(f,[[x,y-6],[x+20,y-2],[x+18,y+18],[x,y+14]],team?'#b64e61':'#3f7db1','#e8d399',1);}}
+ return nativePitch?'native-pitch':'handcrafted-fallback';
 }
 function ffaField(c,f,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left,h=bottom-top;c.fillStyle=gradient(c,left,top,right,bottom,[[0,'#343f55'],[.5,'#60708a'],[1,'#30394c']]);c.fillRect(left-105,top-115,w+210,h+230);plate(c,left-16,top-15,w+32,h+30,'#29394e','#c8b77e',12);floorTiles(c,left,right,false,l.top,l.bottom);const colors=['#327bc1','#ba4858','#3f9b59','#d2af36'];
  // Four independent corner keeps clearly identify the teams without altering collision geometry.
@@ -311,16 +371,51 @@ function ffaField(c,f,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bott
 }
 function build(l,lib,density){const [cv,c]=makeSurface(density,l),[front,f]=makeSurface(density,l),bridgeMap=l.id.startsWith('BridgeBattle'),icy=bridgeMap&&l.theme==='ice',lavaBridge=bridgeMap&&l.theme==='lava',gardenBridge=bridgeMap&&l.theme==='garden',rumble=l.id.startsWith('TeamRumble'),touch=!!l.touchdown,ffa=!!l.ffa,left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY;cv.foreground=front;cv.river=l.river!==false;cv.crossings=cv.river?l.bridges.length:0;cv.foundations=foundationSlots(l);
  c.fillStyle=icy?'#cfdded':lavaBridge?'#24151a':gardenBridge?'#6f936f':'#293d55';c.fillRect(cv.worldRect.x,cv.worldRect.y,cv.worldRect.width,cv.worldRect.height);sourceArenaBackdrop(c,lib,l);
- if(touch){touchdownField(c,f,l,lib);}else if(ffa){ffaField(c,f,l);}else{if(bridgeMap){if(icy){icyBackdrop(c,left,right);goldFrame(c,left,right,top,bottom);}else if(lavaBridge){lavaBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'lava');}else{gardenBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'garden');}}else if(rumble){if(l.theme==='moon-castle')moonKeepBackdrop(c,l);else if(l.theme==='river-fort')fourBridgesBackdrop(c,l);else rumbleBackdrop(c,l);}else{if(l.theme==='jungle')jungleCitadelBackdrop(c,left,right,top,bottom);else if(l.theme==='volcano')emberFortressBackdrop(c,left,right,top,bottom);else royalBastionBackdrop(c,left,right,top,bottom);plate(c,left-18,top-16,right-left+36,bottom-top+33,l.theme==='jungle'?'#3c543f':l.theme==='volcano'?'#34262a':'#26354b',l.theme==='jungle'?'#7f936e':l.theme==='volcano'?'#7e4938':'#151d2d',10);}c.save();c.globalAlpha=rumble?.72:.92;if(icy)floorTiles(c,left,right,true,l.top,l.bottom);else themedFloor(c,l,left,right,top,bottom);c.restore();if(!bridgeMap)rearCourtyard(c,l,rumble);if(icy)frozenInlays(c,left,right);else if(!rumble&&!bridgeMap){for(const lane of l.lanes){const x=lane*SX;for(let y=top+26;y<bottom-20;y+=20)bevel(c,x-14,y,28,18,'#747792','#b1b0c644','#373e5c66');}for(const y of [top+13,bottom-32]){c.fillStyle=y<100?'#9b596c5e':'#386cab5e';c.fillRect(left+40,y,right-left-80,20);}}crossings(c,l,icy);foundations(c,cv.foundations);themeDetails(c,f,l);
- if(icy){diamond(f,left-17,320);diamond(f,right+17,320);for(const y of [top-4,bottom+4]){plate(f,left+5,y-11,right-left-10,20,gradient(f,0,y-11,0,y+9,[[0,'#cf9a56'],[.5,'#8b5b38'],[1,'#e7bc75']]),'#f9d492',6);for(const x of [left+26,right-26]){f.save();f.translate(x,y-1);f.rotate(Math.PI/4);f.strokeStyle='#f5d5a4';f.lineWidth=2;f.strokeRect(-5,-5,10,10);f.restore();}}for(const side of [-1,1])for(const [y,w,h,name]of [[132,100,185,'ice_mountain_01'],[560,142,228,'ice_mountain_02']])prop(c,lib,'level_ice_arena',name,side<0?left-74:right+74,y,w,h,side>0);for(const side of [-1,1])for(const y of [60,140,500,580])snow(f,side<0?left-37:right+37,y,34,55);for(const [x,y]of [[left-57,372],[right+57,372]]){prop(c,lib,'level_ice_arena','ice_cubegroup_02',x,y,78,85);snow(f,x,y-16,38,24);}}else if(lavaBridge){for(const side of [-1,1])for(const y of [75,185,455,565]){const x=side<0?left-40:right+40;poly(f,[[x-18,y+25],[x,y-24],[x+18,y+25]],'#302126','#8c4c37',2);ellipse(f,x,y+15,14,5,'#ff6a2b');}for(const y of [top+3,bottom-3])for(const x of [left+12,right-12]){ellipse(f,x,y,10,6,'#1b161a');ellipse(f,x,y-4,6,9,'#ff8235');}}else if(gardenBridge){for(const side of [-1,1])for(let y=top+35;y<bottom-20;y+=74){const x=side<0?left-33:right+33;ellipse(f,x,y,24,13,'#2f7444');ellipse(f,x,y-8,18,10,'#4f9b57');for(let a=0;a<5;a++){const ang=a*Math.PI*2/5;ellipse(f,x+Math.cos(ang)*15,y-8+Math.sin(ang)*8,3,3,['#ffd36f','#ef91c0','#96cfff'][a%3]);}}for(const y of [top+5,bottom-5]){plate(f,left+4,y-8,right-left-8,16,'#c7b989','#f1e2b5',5);}}else if(rumble){castleScenery(c,f,l,lib);}else{stoneRails(f,l);for(const y of [top,bottom+5])for(const x of [left-35,right+35])prop(c,lib,'level_spooky_arena','spooky_statue_01',x,y+10,60,88,x>240);for(const y of [174,466]){const name=y<320?'spooky_stands_red_01':'spooky_stands_blue_01';prop(c,lib,'level_spooky_arena',name,left-39,y,63,98);prop(c,lib,'level_spooky_arena',name,right+39,y,63,98,true);}for(const y of [88,320,552])for(const x of [left-10,right+10]){plate(f,x-5,y-5,10,22,'#596577','#1e293b',2);ellipse(f,x,y,6,3,'#272b32');}}}
+ if(touch){cv.stadiumArt=touchdownField(c,f,l,lib);}else if(ffa){ffaField(c,f,l);}else{if(bridgeMap){if(icy){icyBackdrop(c,left,right);goldFrame(c,left,right,top,bottom);}else if(lavaBridge){lavaBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'lava');}else{gardenBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'garden');}}else if(rumble){if(l.theme==='moon-castle')moonKeepBackdrop(c,l);else if(l.theme==='river-fort')fourBridgesBackdrop(c,l);else rumbleBackdrop(c,l);}else{if(l.theme==='jungle')jungleCitadelBackdrop(c,left,right,top,bottom);else if(l.theme==='volcano')emberFortressBackdrop(c,left,right,top,bottom);else royalBastionBackdrop(c,left,right,top,bottom);plate(c,left-18,top-16,right-left+36,bottom-top+33,l.theme==='jungle'?'#3c543f':l.theme==='volcano'?'#34262a':'#26354b',l.theme==='jungle'?'#7f936e':l.theme==='volcano'?'#7e4938':'#151d2d',10);}outerEnvironment(c,l);c.save();c.globalAlpha=1;if(icy)floorTiles(c,left,right,true,l.top,l.bottom);else themedFloor(c,l,left,right,top,bottom);c.restore();if(!bridgeMap)rearCourtyard(c,l,rumble);if(icy)frozenInlays(c,left,right);else if(!rumble&&!bridgeMap){for(const lane of l.lanes){const x=lane*SX;for(let y=top+26;y<bottom-20;y+=20)bevel(c,x-14,y,28,18,l.theme==='jungle'?'#768165':l.theme==='volcano'?'#3c3034':'#8f8294',l.theme==='volcano'?'#c07e4955':'#d2c6ac55','#28302d55');}for(const y of [top+13,bottom-32]){c.fillStyle=y<100?'#9b596c5e':'#386cab5e';c.fillRect(left+40,y,right-left-80,20);}}crossings(c,l,icy);foundations(c,cv.foundations);themeDetails(c,f,l);
+ if(icy){diamond(f,left-17,320);diamond(f,right+17,320);for(const y of [top-4,bottom+4]){plate(f,left+5,y-11,right-left-10,20,gradient(f,0,y-11,0,y+9,[[0,'#cf9a56'],[.5,'#8b5b38'],[1,'#e7bc75']]),'#f9d492',6);for(const x of [left+26,right-26]){f.save();f.translate(x,y-1);f.rotate(Math.PI/4);f.strokeStyle='#f5d5a4';f.lineWidth=2;f.strokeRect(-5,-5,10,10);f.restore();}}for(const side of [-1,1])for(const [y,w,h,name]of [[132,100,185,'ice_mountain_01'],[560,142,228,'ice_mountain_02']])prop(c,lib,'level_ice_arena',name,side<0?left-74:right+74,y,w,h,side>0);for(const side of [-1,1])for(const y of [60,140,500,580])snow(f,side<0?left-37:right+37,y,34,55);for(const [x,y]of [[left-57,372],[right+57,372]]){prop(c,lib,'level_ice_arena','ice_cubegroup_02',x,y,78,85);snow(f,x,y-16,38,24);}}else if(lavaBridge){for(const side of [-1,1])for(const y of [75,185,455,565]){const x=side<0?left-40:right+40;poly(f,[[x-18,y+25],[x,y-24],[x+18,y+25]],'#302126','#8c4c37',2);ellipse(f,x,y+15,14,5,'#ff6a2b');}for(const y of [top+3,bottom-3])for(const x of [left+12,right-12]){ellipse(f,x,y,10,6,'#1b161a');ellipse(f,x,y-4,6,9,'#ff8235');}}else if(gardenBridge){for(const side of [-1,1])for(let y=top+35;y<bottom-20;y+=74){const x=side<0?left-33:right+33;ellipse(f,x,y,24,13,'#2f7444');ellipse(f,x,y-8,18,10,'#4f9b57');for(let a=0;a<5;a++){const ang=a*Math.PI*2/5;ellipse(f,x+Math.cos(ang)*15,y-8+Math.sin(ang)*8,3,3,['#ffd36f','#ef91c0','#96cfff'][a%3]);}}for(const y of [top+5,bottom-5]){plate(f,left+4,y-8,right-left-8,16,'#c7b989','#f1e2b5',5);}}else if(rumble){castleScenery(c,f,l,lib);}else{stoneRails(f,l);themedSourceScenery(c,l,lib);for(const y of [88,320,552])for(const x of [left-10,right+10]){plate(f,x-5,y-5,10,22,'#596577','#1e293b',2);ellipse(f,x,y,6,3,'#272b32');}}}
  cv.theme=l.theme||'custom';cv.detailTier='environment-v047';cv.layers=['source-arena-texture','distant-backdrop','perimeter-architecture','unique-floor','tower-foundations','raised-scenery','theme-props','ambient'];if(cv.theme==='castle'||cv.theme==='moon-castle'||cv.theme==='river-fort')cv.layers.push('castle-architecture');if(touch)cv.layers.push('touchdown-stands');if(ffa)cv.layers.push('ffa-corner-forts');return cv;}
-function prepare(b,lib){const l=b.arenaLayout;if(!l?.custom)return null;const g=root.RoyaleGraphics?.current||{},d=Math.max(.5,Math.min(2,(g.arenaScale??2)*(g.textureScale??(g.textures==='low'?.5:1)))),key=l.id+':'+(l.revision||0)+':'+d;let cv=cache.get(key);if(!cv){if(cache.size>=2)clear();cv=build(l,lib,d);cache.set(key,cv);}return cv;}
+function prepare(b,lib){const l=b.arenaLayout;if(!l?.custom)return null;const g=root.RoyaleGraphics?.current||{},rectW=(l.right-l.left)*SX+210,rectH=(l.bottom-l.top)*SY+310,wanted=Math.max(.5,Math.min(8,g.arenaScale??2)),maxPixels=wanted>4?50331648:33554432,d=Math.min(wanted,16383/rectW,16383/rectH,Math.sqrt(maxPixels/(rectW*rectH))),key=l.id+':'+(l.revision||0)+':'+d.toFixed(4);let cv=cache.get(key);if(!cv){if(cache.size>=(d>4?1:2))clear();cv=build(l,lib,d);cache.set(key,cv);}return cv;}
 function draw(c,b,lib){const cv=prepare(b,lib);if(!cv)return false;const r=cv.worldRect;c.drawImage(cv,r.x,r.y,r.width,r.height);return true;}
-function ambient(c,b,time){const g=root.RoyaleGraphics?.current||{};if(g.arenaAnimated===false||g.potato)return;const t=Math.floor(time*(g.arenaFps||30))/(g.arenaFps||30);c.save();
- if(b.arenaLayout.id.startsWith('BridgeBattle')){const theme=b.arenaLayout.theme,count=g.arenaBackgrounds==='med'?18:36;for(let i=0;i<count;i++){const x=i%2===0?52+(i*43)%90:341+(i*37)%95,y=((i*89+t*(theme==='lava'?18:theme==='garden'?7:9+i%4))%760)-60,drift=Math.sin(t*.4+i*3)*9;c.globalAlpha=.22+(i%4)*.12;if(theme==='lava')ellipse(c,x+drift,y,1.4+i%3*.5,2+i%2,'#ff8b43');else if(theme==='garden')ellipse(c,x+drift,y,1.5,1,'#ffe0ef');else ellipse(c,x+drift,y,1.1+i%3*.45,1.1+i%3*.45,'#ffffff');}}
- else{const castle=b.arenaLayout.id.startsWith('TeamRumble');for(const y of castle?[55,250,390,585]:[88,320,552])for(const x of [b.arenaLayout.left*SX-(castle?12:10),b.arenaLayout.right*SX+(castle?12:10)]){const sway=Math.sin(t*7+x+y)*2;c.globalAlpha=.22;ellipse(c,x,y-11,17,21,'#ffb44d');c.globalAlpha=.95;poly(c,[[x-4,y],[x-6,y-9],[x+sway,y-23],[x+2,y-13],[x+6,y-6],[x+4,y]],'#ef9c36');poly(c,[[x-2,y],[x-3,y-8],[x+sway,y-17],[x+3,y-4],[x+2,y]],'#ffec9d');}if(!castle)for(const side of [-1,1]){const x=side<0?b.arenaLayout.left*SX-16:b.arenaLayout.right*SX+16,y=220;c.globalAlpha=.9;poly(c,[[x,y],[x+side*17,y+Math.sin(t*2)*2],[x+side*17,y+36+Math.sin(t*2+.9)*3],[x,y+29]],side<0?'#2571af':'#a84261','#d7b877',1.5);}}
- if(b.arenaLayout.id.startsWith('TeamRumble')){const l=b.arenaLayout;for(const team of [0,1])for(const side of [-1,1]){const x=(side<0?l.left:l.right)*SX+side*31,y=team?158:470,sway=Math.sin(t*1.7+y+side)*2;c.globalAlpha=1;line(c,x,y-9,x,y+48,'#c7b081',2);poly(c,[[x,y],[x+side*(22+sway),y+4],[x+side*(25+sway),y+42],[x+side*13,y+37],[x,y+41]],team?'#b54f62':'#347bac','#e4ca89',1.3);castleCrown(c,x+side*12,y+19,.35);}}
- c.restore();}
+function environmentAmbient(c,l,t,g){
+ const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left,h=bottom-top,theme=l.theme,count=g.arenaBackgrounds==='med'?20:g.arenaBackgrounds==='max'||g.arenaBackgrounds==='ultra'?72:g.arenaBackgrounds==='high'?52:36;
+ c.save();c.beginPath();c.rect(left-105,top-155,w+210,h+310);c.rect(left,top,w,h);c.clip('evenodd');
+ for(let i=0;i<count;i++){
+  const band=i%4,speed=theme==='volcano'||theme==='lava'?26:theme==='river-fort'?12:theme==='ice'?15:6,phase=t*speed;
+  let x,y;if(band===0){x=left-90+(i*17)%65;y=top-143+((i*73+phase)%(h+286));}else if(band===1){x=right+22+(i*19)%65;y=top-143+((i*71+phase)%(h+286));}else if(band===2){x=left-82+((i*43+t*4)%(w+164));y=top-145+(i*13)%110;}else{x=left-82+((i*41+t*4)%(w+164));y=bottom+35+(i*17)%110;}
+  const sway=Math.sin(t*.7+i*2.4)*6,size=1.2+(i%4)*.45;c.globalAlpha=.28+(i%3)*.16;
+  if(theme==='jungle'){ellipse(c,x+sway,y+Math.sin(t+i)*5,size*3,size*3,'#e7c44e22');ellipse(c,x+sway,y+Math.sin(t+i)*5,size*.65,size*.65,'#e6e795');}
+  else if(theme==='volcano'||theme==='lava'){ellipse(c,x+sway,y,size*.6,size*1.4,'#ffb565');if(i%5===0){c.globalAlpha=.14;ellipse(c,x,y+12,9,13,'#ed6528');}}
+  else if(theme==='garden'){ellipse(c,x+sway,y,size*1.6,size*.75,i%2?'#ffe8b5':'#edb3d3');}
+  else if(theme==='ice'){ellipse(c,x+sway,y,size,size,'#f4f8ff');}
+  else if(theme==='moon-castle'){c.globalAlpha=.25+.35*(1+Math.sin(t*1.3+i))*.5;ellipse(c,x,y+Math.sin(t+i)*3,size,size,'#cbc1ff');if(i%7===0){line(c,x-5,y,x+5,y,'#b5ade655',.8);line(c,x,y-5,x,y+5,'#b5ade655',.8);}}
+  else if(theme==='river-fort'){ellipse(c,x+sway,y,9+(i%3)*4,1.3,'#9ed7dd');line(c,x-12+sway,y+5,x+7+sway,y+5,'#99cbd455',1);}
+  else{ellipse(c,x+sway,y,size,size*.8,'#e5d5a7');}
+ }
+ c.restore();
+ // Animated banners follow the enlarged map perimeter instead of a classic art grid.
+ if(theme==='castle'||theme==='bastion'||theme==='river-fort'||theme==='moon-castle')for(const team of [0,1])for(const side of [-1,1]){
+  const x=(side<0?left:right)+side*36,y=team?top+88:bottom-120,sway=Math.sin(t*1.7+y+side)*3;
+  c.globalAlpha=1;line(c,x,y-9,x,y+48,'#c7b081',2);poly(c,[[x,y],[x+side*(21+sway),y+4],[x+side*(24+sway),y+42],[x+side*13,y+37],[x,y+41]],theme==='moon-castle'?(team?'#755080':'#595594'):team?'#b54f62':'#347bac','#dcc18b',1);castleCrown(c,x+side*12,y+19,.3);
+ }
+}
+function stadiumPoint(l,x,y){
+ const sx=[0,136,409,551],sy=[0,126,169,484,524,647],dx=[l.left*SX-105,l.left*SX,l.right*SX,l.right*SX+105],dy=[l.top*SY-155,l.top*SY,l.goalTop*SY,l.goalBottom*SY,l.bottom*SY,l.bottom*SY+155];
+ let col=0,row=0;while(col<2&&x>sx[col+1])col++;while(row<4&&y>sy[row+1])row++;return[dx[col]+(x-sx[col])/(sx[col+1]-sx[col])*(dx[col+1]-dx[col]),dy[row]+(y-sy[row])/(sy[row+1]-sy[row])*(dy[row+1]-dy[row])];
+}
+function stadiumAmbient(c,l,t,g){
+ if(!stadium.image){environmentAmbient(c,l,t,g);return;}
+ // Small crowd, horn glints and pennants animate over the original reference.
+ const crowd=g.arenaBackgrounds==='med'?16:32;for(let i=0;i<crowd;i++){
+  const side=i%2,x=side?448+(i%3)*8:75+(i%3)*8,y=82+(i*43)%480,[xx,yy]=stadiumPoint(l,x,y),bounce=Math.max(0,Math.sin(t*3.5+i*1.7))*1.6;
+  c.globalAlpha=.55;ellipse(c,xx,yy-bounce,1.5,2.2,['#edc847','#e75c90','#86b96d','#d0ad75'][i%4]);
+ }
+ for(const [x,y]of [[72,206],[435,276],[448,337],[430,348]]){const [xx,yy]=stadiumPoint(l,x,y);c.globalAlpha=.1+.07*Math.sin(t*2+x);ellipse(c,xx,yy,7,3,'#ffe6a2');}
+ for(const [x,y,team]of [[111,103,1],[428,101,1],[109,518,0],[429,518,0]]){
+  const [xx,yy]=stadiumPoint(l,x,y),sway=Math.sin(t*2.4+x)*1.3;c.globalAlpha=.7;poly(c,[[xx,yy],[xx+8+sway,yy+1],[xx+7+sway,yy+5],[xx,yy+4]],team?'#b83a54':'#357ab4');
+ }
+ c.globalAlpha=.09+.035*Math.sin(t*2);const [px,py]=stadiumPoint(l,479,244);poly(c,[[px-15,py-30],[px+14,py-24],[px+13+Math.sin(t*2)*2,py+29],[px-14,py+20]],'#c5a0ff');
+}
+function ambient(c,b,time){const g=root.RoyaleGraphics?.current||{};if(g.arenaAnimated===false||g.potato)return;const t=Math.floor(time*(g.arenaFps||30))/(g.arenaFps||30);c.save();if(b.arenaLayout.touchdown)stadiumAmbient(c,b.arenaLayout,t,g);else environmentAmbient(c,b.arenaLayout,t,g);c.restore();}
 function drawForeground(c,b,lib,time=b.visualTime??b.time??0){const cv=prepare(b,lib);if(!cv)return false;const r=cv.worldRect;c.drawImage(cv.foreground,r.x,r.y,r.width,r.height);ambient(c,b,time);return true;}
-root.RoyaleCustomArena={prepare,draw,drawForeground,clear,cacheSize:()=>cache.size};
+root.RoyaleCustomArena={prepareAssets,prepare,draw,drawForeground,clear,cacheSize:()=>cache.size};
 })(globalThis);

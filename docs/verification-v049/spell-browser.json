@@ -1,0 +1,1037 @@
+{
+  "version": "0.49.0",
+  "report": [
+    {
+      "spell": "fireball",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Fireball_explosion",
+            "minion_die"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Fireball_explosion",
+            "minion_die",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 667,
+        "effects": 16,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 77,
+        "particleBudget": 512,
+        "randomCacheEntries": 1016
+      }
+    },
+    {
+      "spell": "arrows",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [
+            "Cast_RainOfArrows",
+            "arrowsFly",
+            "arrowsFly"
+          ],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Cast_RainOfArrows",
+            "arrowsFly",
+            "arrowsFly",
+            "arrowsFly"
+          ],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Cast_RainOfArrows",
+            "arrowsFly",
+            "arrowsFly",
+            "ArrowHitGround",
+            "ArrowHitGround",
+            "minion_die",
+            "goblins_die",
+            "ArrowHitGround"
+          ],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Cast_RainOfArrows",
+            "ArrowHitGround",
+            "ArrowHitGround",
+            "minion_die",
+            "goblins_die",
+            "ArrowHitGround"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Cast_RainOfArrows",
+            "ArrowHitGround",
+            "ArrowHitGround",
+            "minion_die",
+            "goblins_die",
+            "ArrowHitGround"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 1288,
+        "effects": 57,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 55,
+        "particleBudget": 512,
+        "randomCacheEntries": 1128
+      }
+    },
+    {
+      "spell": "rage",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_rage_effect"
+          ],
+          "areas": [
+            "Rage"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_rage_effect",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit"
+          ],
+          "areas": [
+            "Rage"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_rage_effect",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit",
+            "goblins_attack_start",
+            "minion_attack_start",
+            "goblins_hit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack"
+          ],
+          "areas": [
+            "Rage"
+          ]
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_rage_effect",
+            "ArrowHit",
+            "ArrowHit",
+            "ArrowHit",
+            "ArrowHit",
+            "goblins_attack_start",
+            "minion_attack_start",
+            "goblins_hit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "minion_attack",
+            "ArrowHit",
+            "minion_die",
+            "ArrowHit",
+            "ArrowHit",
+            "goblins_attack_start",
+            "knight_attack_start",
+            "ArcherTowerAttack",
+            "goblins_hit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "knight_hit",
+            "ArrowHit"
+          ],
+          "areas": [
+            "Rage"
+          ]
+        }
+      ],
+      "fx": {
+        "sprites": 1657,
+        "effects": 72,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 41,
+        "particleBudget": 512,
+        "randomCacheEntries": 1843
+      }
+    },
+    {
+      "spell": "rocket",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Rocket_explosion",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 2281,
+        "effects": 83,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 123,
+        "particleBudget": 512,
+        "randomCacheEntries": 2182
+      }
+    },
+    {
+      "spell": "goblin-barrel",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [
+            "goblin_barrel_spawn"
+          ],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "goblin_barrel_spawn"
+          ],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "goblin_barrel_spawn"
+          ],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "goblin_barrel_spawn",
+            "goblins_deploy",
+            "goblins_deploy",
+            "goblins_deploy",
+            "goblin_barrel_explosion",
+            "minion_attack_start"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "goblin_barrel_spawn",
+            "goblins_deploy",
+            "goblins_deploy",
+            "goblins_deploy",
+            "goblin_barrel_explosion",
+            "minion_attack_start",
+            "minion_attack",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "knight_attack_start",
+            "minion_attack_start",
+            "goblins_attack_start",
+            "knight_hit",
+            "goblins_die",
+            "goblins_attack_start",
+            "goblins_attack_start",
+            "ArrowHit"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 2669,
+        "effects": 93,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 106,
+        "particleBudget": 512,
+        "randomCacheEntries": 2519
+      }
+    },
+    {
+      "spell": "freeze",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [
+            "Spell_freeze_cast"
+          ],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_freeze_cast"
+          ],
+          "areas": [
+            "Freeze"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_freeze_cast"
+          ],
+          "areas": [
+            "Freeze"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_freeze_cast"
+          ],
+          "areas": [
+            "Freeze"
+          ]
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_freeze_cast"
+          ],
+          "areas": [
+            "Freeze"
+          ]
+        }
+      ],
+      "fx": {
+        "sprites": 3198,
+        "effects": 106,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 134,
+        "particleBudget": 512,
+        "randomCacheEntries": 2684
+      }
+    },
+    {
+      "spell": "lightning",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_lightning_effect"
+          ],
+          "areas": [
+            "Lightning"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_lightning_effect",
+            "Spell_lightning_effect",
+            "Spell_lightning_effect",
+            "minion_die"
+          ],
+          "areas": [
+            "Lightning"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_lightning_effect",
+            "Spell_lightning_effect",
+            "Spell_lightning_effect",
+            "minion_die"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_lightning_effect",
+            "Spell_lightning_effect",
+            "Spell_lightning_effect",
+            "minion_die",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 3679,
+        "effects": 127,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 49,
+        "particleBudget": 512,
+        "randomCacheEntries": 3019
+      }
+    },
+    {
+      "spell": "zap",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_zap_effect"
+          ],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_zap_effect"
+          ],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_zap_effect"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_zap_effect"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 3980,
+        "effects": 137,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 52,
+        "particleBudget": 512,
+        "randomCacheEntries": 3228
+      }
+    },
+    {
+      "spell": "poison",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_poison_effect"
+          ],
+          "areas": [
+            "Poison"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_poison_effect"
+          ],
+          "areas": [
+            "Poison"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_poison_effect"
+          ],
+          "areas": [
+            "Poison"
+          ]
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_poison_effect",
+            "minion_die",
+            "ArcherTowerAttack"
+          ],
+          "areas": [
+            "Poison"
+          ]
+        }
+      ],
+      "fx": {
+        "sprites": 4418,
+        "effects": 156,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 127,
+        "particleBudget": 512,
+        "randomCacheEntries": 3325
+      }
+    },
+    {
+      "spell": "graveyard",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [
+            "Spell_graveyard_cast"
+          ],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_graveyard_cast"
+          ],
+          "areas": [
+            "Graveyard"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_graveyard_cast"
+          ],
+          "areas": [
+            "Graveyard"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_graveyard_cast"
+          ],
+          "areas": [
+            "Graveyard"
+          ]
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_graveyard_cast",
+            "skeleton_deploy",
+            "Graveyard_appear",
+            "knight_attack_start",
+            "skeleton_deploy",
+            "Graveyard_appear",
+            "knight_hit",
+            "skeleton_die",
+            "skeleton_deploy",
+            "Graveyard_appear",
+            "minion_attack_start",
+            "ArcherTowerAttack"
+          ],
+          "areas": [
+            "Graveyard"
+          ]
+        }
+      ],
+      "fx": {
+        "sprites": 4820,
+        "effects": 173,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 150,
+        "particleBudget": 512,
+        "randomCacheEntries": 3626
+      }
+    },
+    {
+      "spell": "the-log",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [
+            "log_deploy",
+            "rollingDeploy"
+          ],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "log_deploy",
+            "goblins_die"
+          ],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "log_deploy",
+            "goblins_die"
+          ],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "log_deploy",
+            "goblins_die"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "log_deploy",
+            "goblins_die",
+            "log_die"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 5332,
+        "effects": 190,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 223,
+        "particleBudget": 512,
+        "randomCacheEntries": 3958
+      }
+    },
+    {
+      "spell": "tornado",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [],
+          "areas": [
+            "Tornado"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [],
+          "areas": [
+            "Tornado"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 5732,
+        "effects": 199,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 49,
+        "particleBudget": 512,
+        "randomCacheEntries": 4096
+      }
+    },
+    {
+      "spell": "clone",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "knight_deploy",
+            "giant_deploy",
+            "minion_deploy",
+            "goblins_deploy"
+          ],
+          "areas": [
+            "Clone"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "knight_deploy",
+            "giant_deploy",
+            "minion_deploy",
+            "goblins_deploy",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit"
+          ],
+          "areas": [
+            "Clone"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "knight_deploy",
+            "giant_deploy",
+            "minion_deploy",
+            "goblins_deploy",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "knight_deploy",
+            "giant_deploy",
+            "minion_deploy",
+            "goblins_deploy",
+            "ArrowHit",
+            "ArrowHit",
+            "ArrowHit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "goblins_attack_start",
+            "ArrowHit",
+            "minion_die",
+            "ArrowHit",
+            "goblins_hit",
+            "minion_attack_start",
+            "ArcherTowerAttack",
+            "goblins_attack_start",
+            "goblins_hit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "minion_attack",
+            "ArrowHit",
+            "ArrowHit",
+            "goblins_attack_start"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 6349,
+        "effects": 217,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 117,
+        "particleBudget": 512,
+        "randomCacheEntries": 4096
+      }
+    },
+    {
+      "spell": "earthquake",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "Spell_earthquake_effect"
+          ],
+          "areas": [
+            "Earthquake"
+          ]
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Spell_earthquake_effect"
+          ],
+          "areas": [
+            "Earthquake"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Spell_earthquake_effect"
+          ],
+          "areas": [
+            "Earthquake"
+          ]
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Spell_earthquake_effect"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 6662,
+        "effects": 230,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 67,
+        "particleBudget": 512,
+        "randomCacheEntries": 4096
+      }
+    },
+    {
+      "spell": "barbarian-barrel",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [
+            "barb_log_deploy",
+            "rollingDeploy"
+          ],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [
+            "barb_log_deploy"
+          ],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "barb_log_deploy"
+          ],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "barb_log_deploy",
+            "barbarian_deploy",
+            "barb_barrel_hit",
+            "barb_barrel_explosion"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "barb_log_deploy",
+            "barbarian_deploy",
+            "barb_barrel_hit",
+            "barb_barrel_explosion",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArrowHit",
+            "ArrowHit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 7073,
+        "effects": 243,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 51,
+        "particleBudget": 512,
+        "randomCacheEntries": 4096
+      }
+    },
+    {
+      "spell": "giant-snowball",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Snowball_ground"
+          ],
+          "areas": []
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Snowball_ground"
+          ],
+          "areas": []
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Snowball_ground",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 7427,
+        "effects": 253,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 49,
+        "particleBudget": 512,
+        "randomCacheEntries": 4096
+      }
+    },
+    {
+      "spell": "royal-delivery",
+      "frames": [
+        {
+          "time": 0.19999999999999998,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 0.6500000000000004,
+          "effects": [],
+          "areas": []
+        },
+        {
+          "time": 1.4,
+          "effects": [
+            "Royale_Delivery_spawn"
+          ],
+          "areas": [
+            "RoyalDeliveryArea"
+          ]
+        },
+        {
+          "time": 2.499999999999996,
+          "effects": [
+            "Royale_Delivery_spawn"
+          ],
+          "areas": [
+            "RoyalDeliveryArea"
+          ]
+        },
+        {
+          "time": 3.9999999999999907,
+          "effects": [
+            "Royale_Delivery_spawn",
+            "royal_delivery_recruit_deploy",
+            "royale_delivery_broken",
+            "recruit_attack_start",
+            "recruit_hit",
+            "ArcherTowerAttack",
+            "ArcherTowerAttack"
+          ],
+          "areas": []
+        }
+      ],
+      "fx": {
+        "sprites": 7809,
+        "effects": 262,
+        "missing": [],
+        "maxFrameParticles": 850,
+        "particlesThisFrame": 175,
+        "particleBudget": 512,
+        "randomCacheEntries": 4096
+      }
+    }
+  ],
+  "shader": {
+    "frames": 7,
+    "error": null
+  },
+  "errors": []
+}

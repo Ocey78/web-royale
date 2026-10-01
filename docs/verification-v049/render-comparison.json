@@ -1,0 +1,168 @@
+{
+  "method": "Fresh browser page per tier; same seeded 40-Knight battle with active Rage and Poison; 810px canvas; 7 warmup +30 frames; completed includes 1px readback",
+  "rows": [
+    {
+      "version": "original",
+      "tier": "good",
+      "coldMs": 480.40000000037253,
+      "submit": {
+        "median": 3.900000000372529,
+        "p95": 4.800000000745058,
+        "max": 7.200000001117587
+      },
+      "complete": {
+        "median": 23.200000001117587,
+        "p95": 25.40000000037253,
+        "max": 26.09999999962747
+      },
+      "particles": 120,
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    },
+    {
+      "version": "original",
+      "tier": "high",
+      "coldMs": 551.9000000003725,
+      "submit": {
+        "median": 105.59999999962747,
+        "p95": 138.69999999925494,
+        "max": 156.2999999988824
+      },
+      "complete": {
+        "median": 126.90000000037253,
+        "p95": 158.09999999962747,
+        "max": 165.19999999925494
+      },
+      "particles": 847,
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    },
+    {
+      "version": "original",
+      "tier": "max",
+      "coldMs": 885.5999999996275,
+      "submit": {
+        "median": 474.09999999962747,
+        "p95": 536.6999999992549,
+        "max": 567.7000000011176
+      },
+      "complete": {
+        "median": 496.5,
+        "p95": 548.5999999996275,
+        "max": 576.7000000011176
+      },
+      "particles": 847,
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    },
+    {
+      "version": "updated",
+      "tier": "good",
+      "coldMs": 411.19999999925494,
+      "submit": {
+        "median": 3.800000000745058,
+        "p95": 4.699999999254942,
+        "max": 5.599999999627471
+      },
+      "complete": {
+        "median": 22.300000000745058,
+        "p95": 24.09999999962747,
+        "max": 25.59999999962747
+      },
+      "particles": 120,
+      "shader": {
+        "frames": 0,
+        "error": null
+      },
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    },
+    {
+      "version": "updated",
+      "tier": "high",
+      "coldMs": 424.59999999962747,
+      "submit": {
+        "median": 5.900000000372529,
+        "p95": 6.599999999627471,
+        "max": 6.599999999627471
+      },
+      "complete": {
+        "median": 28.300000000745058,
+        "p95": 30,
+        "max": 30.09999999962747
+      },
+      "particles": 360,
+      "shader": {
+        "frames": 0,
+        "error": null
+      },
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    },
+    {
+      "version": "updated",
+      "tier": "max",
+      "coldMs": 423.7000000011176,
+      "submit": {
+        "median": 5.900000000372529,
+        "p95": 7.099999999627471,
+        "max": 7.199999999254942
+      },
+      "complete": {
+        "median": 34,
+        "p95": 36.59999999962747,
+        "max": 37.19999999925494
+      },
+      "particles": 512,
+      "shader": {
+        "frames": 0,
+        "error": null
+      },
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    },
+    {
+      "version": "updated",
+      "tier": "ultra",
+      "coldMs": 449,
+      "submit": {
+        "median": 7.400000000372529,
+        "p95": 8.400000000372529,
+        "max": 8.799999998882413
+      },
+      "complete": {
+        "median": 35.29999999888241,
+        "p95": 37.19999999925494,
+        "max": 38.70000000111759
+      },
+      "particles": 640,
+      "shader": {
+        "frames": 37,
+        "error": null
+      },
+      "canvas": [
+        810,
+        1758
+      ],
+      "units": 40
+    }
+  ]
+}

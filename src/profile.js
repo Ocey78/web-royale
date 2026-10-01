@@ -72,7 +72,8 @@ function normalizeProfile(raw){
  const ownedEmotes=[...new Set(['Emote0','Emote1','Emote2','Emote3',...ownedInput.map(Cos.resolveEmoteId).filter(Boolean)])];
  const equippedEmotes=[...new Set(equippedInput.map(Cos.resolveEmoteId).filter(id=>id&&ownedEmotes.includes(id)))].slice(0,8);
  const unresolvedEmotes={owned:[...new Set(ownedInput.filter(id=>!Cos.resolveEmoteId(id)))],equipped:[...new Set(equippedInput.filter(id=>!Cos.resolveEmoteId(id)))]};
- return {version:13,...Crown.normalize(p),graphics:Graphics.normalize(p.graphics),world:WorldState.normalize(p.world),placementHints:true,learningEnabled:true,highestTrophies,unlockedCards,
+ const graphicsInput=num(p.version,0,99)<14?Graphics.migrateLegacy(p.graphics):p.graphics;
+ return {version:14,...Crown.normalize(p),graphics:Graphics.normalize(graphicsInput),compactSwarmLevels:p.compactSwarmLevels!==false,world:WorldState.normalize(p.world),placementHints:true,learningEnabled:true,highestTrophies,unlockedCards,
  roadClaimed:Array.isArray(p.roadClaimed)?[...new Set(p.roadClaimed.filter(id=>R.ROAD_REWARDS.some(s=>s.id===id)))]:[],
  wildcards:Object.fromEntries(RARITIES.map(k=>[k,num(p.wildcards?.[k],0,100000)])),
  tradeTokens:Object.fromEntries(RARITIES.map(k=>[k,num(p.tradeTokens?.[k],0,10000)])),

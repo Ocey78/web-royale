@@ -1,7 +1,7 @@
 /* Source-asset SC movie-clip playback. All coordinates, UVs, frames and FPS
    come from the supplied client. Browser code has no network dependency. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleNative=api;})(globalThis,function(){'use strict';
-const I=[1,0,0,1,0,0],NONE=65535;
+const I=[1,0,0,1,0,0],NONE=65535,TINT_RASTER_PIXELS=16777216;
 function frameAt(seconds,fps,count,loop=true){if(!count)return 0;const f=Math.max(0,Math.floor((Number.isFinite(seconds)?seconds:0)*fps+1e-7));return loop?f%count:Math.min(f,count-1)}
 function direction(dx,dy){if(!Number.isFinite(dx)||!Number.isFinite(dy))return{index:1,flip:false};const a=Math.atan2(Math.abs(dx),-dy);return{index:Math.max(1,Math.min(9,1+Math.round(a/(Math.PI/8)))),flip:dx<0};}
 function teamFilter(team){return team===2?'hue-rotate(105deg) saturate(1.35) brightness(.95)':team===3?'sepia(.82) saturate(2.2) hue-rotate(355deg) brightness(1.08)':'none';}
@@ -29,9 +29,11 @@ function flightOffset(def){return Math.max(0,Number(def?.source?.FlyingHeight)||
 function towerArtPosition(t){return {x:t.x+(t.king||t.preview||t.customCrown?0:t.x<240?55/6:-55/6),y:t.y-(t.preview?0:25/6)};}
 function shapeRasterScale(w,h,requested=1){
  if(!Number.isFinite(w)||!Number.isFinite(h)||w<=0||h<=0||w>262144||h>262144)throw Error('Invalid native shape extent');
- // Validate before allocating. Flat, oversized arena backdrops do not need
- // enormous supersampled bitmaps; small sprites retain the selected texture quality.
- return Math.min(Math.max(.5,Math.min(3,Number(requested)||1)),8191/w,8191/h,Math.sqrt(8380000/(w*h)));
+ // Match useful display density without multiplying every tint operation by 64.
+ // Large authored shapes stay bounded so a single backdrop cannot allocate an
+ // unsafe canvas. This changes raster density only; source UVs/geometry are untouched.
+ const wanted=Math.max(.5,Math.min(3,Number(requested)||1)),maxDim=8191,maxPixels=8380000;
+ return Math.min(wanted,maxDim/w,maxDim/h,Math.sqrt(maxPixels/(w*h)));
 }
 function kingTowerPose(t,time,duration=3.3){
  const activating=Number.isFinite(t.activationAt),progress=t.active?1:activating?Math.max(0,Math.min(1,(time-(t.activationAt-duration))/duration)):0;
@@ -180,7 +182,9 @@ class Scene{
   }
   const result={image:cv,x:lo[0],y:lo[1],w:logicalW,h:logicalH};this.cache.set(id,result);return result;
  }
- coloredShape(id,color){const sh=this.shape(id);if(!sh||!color||color[0]===0&&color[1]===0&&color[2]===0&&color[3]===255&&color[4]===255&&color[5]===255&&color[6]===255)return sh;const key=`${id}:${color.join(',')}`;let painted=this.tintCache.get(key);if(!painted){const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d');ct.drawImage(sh.image,0,0);const px=ct.getImageData(0,0,cv.width,cv.height),p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,p[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,p[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,p[i+2]*color[6]/255+color[2]);p[i+3]*=color[3]/255;}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=128||this.tintPixels+pixels>4194304)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=4194304){this.tintCache.set(key,painted);this.tintPixels+=pixels;}}return painted;}
+ coloredShape(id,color){const sh=this.shape(id);if(!sh||!color||color[0]===0&&color[1]===0&&color[2]===0&&color[3]===255&&color[4]===255&&color[5]===255&&color[6]===255)return sh;const key=`${id}:${color.join(',')}`;let painted=this.tintCache.get(key);if(painted){this.tintCache.delete(key);this.tintCache.set(key,painted);return painted;}
+  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true});ct.drawImage(sh.image,0,0);const px=ct.getImageData(0,0,cv.width,cv.height),p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,p[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,p[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,p[i+2]*color[6]/255+color[2]);p[i+3]*=color[3]/255;}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;}return painted;
+ }
  // Explicitly still HUD assemblies can reuse resolved source geometry. This
  // keeps the original shape textures and live glyph painter; it does not flatten
  // artwork to a lower-resolution bitmap or freeze an animated unit/effect.
@@ -271,7 +275,7 @@ function customSourceArenaId(layout){
  if(theme==='volcano'||theme==='lava')return'pekka';
  if(theme==='ice')return'frozen';
  if(theme==='moon-castle')return'serenity';
- if(theme==='touchdown'||theme==='touchdown-wide')return'barbarian';
+ if(theme==='touchdown'||theme==='touchdown-wide')return'royal';
  if(theme==='river-fort'||theme==='castle'||theme==='bastion')return'royal';
  return'royal';
 }
@@ -297,7 +301,7 @@ class Library{
  }
  async ensureScenes(names){const queue=[...new Set(names)];let index=0;const worker=async()=>{while(index<queue.length){const name=queue[index++];await this.fetchScene(name);}};await Promise.all(Array.from({length:Math.min(4,queue.length)},worker));return this;}
  retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.metricCache?.clear();}
- async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}try{await this.ensureScenes(names);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}if(battle.initialDecks?.flat().includes('fireball'))await this.fx?.prewarmFireball?.();}return this;}catch(e){this.error=e.message;throw e;}}
+ async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}try{await this.ensureScenes(names);await globalThis.RoyaleCustomArena?.prepareAssets?.(battle,this.assetBase);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}await this.fx?.prewarmSpells?.(battle.initialDecks?.flat()||[],game);}return this;}catch(e){this.error=e.message;throw e;}}
  async loadHUD(urls){this.ui={};await Promise.all(['level-crown'].map(async key=>{if(urls[key])this.ui[key]=await imageFrom(urls[key]);}));}
  async load(){try{if(!this.data.streamed)await this.ensureScenes(Object.keys(this.data.scenes));this.ready=true;return this;}catch(e){this.error=e.message;throw e;}}
  setArena(id){if(!this.data.arenas.some(a=>a.id===id))throw RangeError('Unknown arena');if(this.arenaId!==id)this.releaseArenaCache();this.arenaId=id;}
@@ -351,11 +355,10 @@ class Library{
  }
  arenaRuns(overtime=false){
   if(!this.ready)return null;const a=this.arena;if(!a)return null;
-  const g=globalThis.RoyaleGraphics?.current,arenaScale=g?.arenaScale??2,ordered=arenaLayers(a,overtime);
+  const g=globalThis.RoyaleGraphics?.current,view=globalThis.RoyaleBattleView?.worldClip||{x:-120,y:-147,width:720,height:984},wantedArenaScale=g?.arenaScale??2,arenaScale=Math.min(wantedArenaScale,16383/view.width,16383/view.height,Math.sqrt(50331648/(view.width*view.height))),ordered=arenaLayers(a,overtime);
   if(!ordered.every(ob=>this.scenes[ob.scene||a.scene]))return null;
-  const view=globalThis.RoyaleBattleView?.worldClip||{x:-120,y:-147,width:720,height:984};
   const variant=a.objects.some(o=>o.visibility==='NormalTime'||o.visibility==='Overtime')?Number(overtime):0;
-  const key=a.id+':'+variant+':'+(g?.arenaBackgrounds||'high')+':'+(g?.textures||'high')+':'+[view.x,view.y,view.width,view.height].join(',');
+  const key=a.id+':'+variant+':'+(g?.arenaBackgrounds||'good')+':'+(g?.textures||'good')+':'+[view.x,view.y,view.width,view.height].join(',');
   if(this.arenaCache.has(key))return this.arenaCache.get(key);
   const runs=[];let current=null;
   for(const ob of ordered){

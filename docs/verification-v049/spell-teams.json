@@ -1,0 +1,109 @@
+{
+  "checks": [
+    {
+      "spell": "fireball",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "arrows",
+      "team": 1,
+      "maxSourceEffects": 4
+    },
+    {
+      "spell": "rage",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "rocket",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "goblin-barrel",
+      "team": 1,
+      "maxSourceEffects": 11
+    },
+    {
+      "spell": "freeze",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "lightning",
+      "team": 1,
+      "maxSourceEffects": 0
+    },
+    {
+      "spell": "zap",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "poison",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "graveyard",
+      "team": 1,
+      "maxSourceEffects": 18
+    },
+    {
+      "spell": "the-log",
+      "team": 1,
+      "maxSourceEffects": 2
+    },
+    {
+      "spell": "tornado",
+      "team": 1,
+      "maxSourceEffects": 0
+    },
+    {
+      "spell": "clone",
+      "team": 1,
+      "maxSourceEffects": 0
+    },
+    {
+      "spell": "earthquake",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "barbarian-barrel",
+      "team": 1,
+      "maxSourceEffects": 17
+    },
+    {
+      "spell": "giant-snowball",
+      "team": 1,
+      "maxSourceEffects": 1
+    },
+    {
+      "spell": "royal-delivery",
+      "team": 1,
+      "maxSourceEffects": 9
+    }
+  ],
+  "mirror": {
+    "deployment": {
+      "ok": true,
+      "card": "fireball"
+    },
+    "first": [
+      "FireballSpell"
+    ],
+    "fireballHit": true
+  },
+  "fx": {
+    "sprites": 15103,
+    "effects": 1300,
+    "missing": [],
+    "maxFrameParticles": 850,
+    "particlesThisFrame": 1,
+    "particleBudget": 120,
+    "randomCacheEntries": 3746
+  },
+  "errors": []
+}
