@@ -1,13 +1,13 @@
 {
-  "version": "0.46.0",
+  "version": "0.47.0",
   "target": "web",
   "snapshot": "3.2557.2",
   "cards": 102,
   "scenes": 113,
-  "runtime": "runtime.5d9f10fb6bb6.json",
-  "app": "app.9238326deb2e.js",
-  "bootstrap": "bootstrap.67d0d165df52.js",
-  "styles": "styles.c4f64c044312.css",
+  "runtime": "runtime.d0a391a51a83.json",
+  "app": "app.5b8f4f1710e0.js",
+  "bootstrap": "bootstrap.dba6e4f057a2.js",
+  "styles": "styles.c1a19a75ff79.css",
   "files": {
     "assets/cards/knight.png": "a7bcd11d276d7a0696718e7a36104236db540b3c5c8038715bef00a13d07fb1a",
     "assets/cards/archers.png": "ba8a9602dd5a4457bcd02a04d45f97e8682676e72fc1219a261f28a1ccef2568",
@@ -1207,13 +1207,13 @@
     "assets/webapp/icon-180.png": "95d25ecc83f4ae6bbd6b39309963e7afae3d143e32a258dc434cfa99b2689ded",
     "assets/webapp/icon-192.png": "08fa53a097998183ede6d12af2f507f94e5235dc04fcad38448620a553c1dbb5",
     "assets/webapp/icon-512.png": "81577df60036377a5613428ebbd787de1a1954a953a1f00035576b71def08457",
-    "asset-index.9564db9705e6.json": "9564db9705e6274613f29e8f957a43eb6eed809c841df29553bc07d90185b1f4",
+    "asset-index.aeeddd31d48c.json": "aeeddd31d48c5532fca0867cbbd286e3fc45b7d55104d1f6d897281dea543699",
     "asset-worker.js": "c5891e6850f3c9481da0c115420951a7e69b07ced6f4b6a7f16b6d73482c5bc2",
-    "runtime.5d9f10fb6bb6.json": "5d9f10fb6bb6990766b0ee4690833cd06134d49ce2d6de58cedd1c4c088656da",
-    "app.9238326deb2e.js": "9238326deb2eb891e0df148ac2c41155c21534ecd008a518fd2ed742aed29cf1",
+    "runtime.d0a391a51a83.json": "d0a391a51a83d3928030a65d758fac12d314f8701e610b72f35e7ad1da189eb9",
+    "app.5b8f4f1710e0.js": "5b8f4f1710e095149e6bcd0cbbbe1309311ebd1799f4ac5cc5bd0c2316ad7c9f",
     "manifest.json": "ca88e947421b34ed5c5bbdab7d448025c4d809e5e7dcab80dc4f5e0e5c104389",
-    "styles.c4f64c044312.css": "c4f64c044312ec5b1dac721ec4a6d9d57f8cc6515363091910ea913123a2512d",
-    "bootstrap.67d0d165df52.js": "67d0d165df5268053677ce5125e70323a43b85df658f574bc84b4720b6b971d2",
-    "index.html": "80b0fff470ba4315e61f886654d64550fe8ff25777760a64ad1c1f35f3531e25"
+    "styles.c1a19a75ff79.css": "c1a19a75ff79249fa56c0354504c106027f58b64254592c1233768a8e7643b0e",
+    "bootstrap.dba6e4f057a2.js": "dba6e4f057a24deefc1663465376c52923b2fe85f4ae3fa6f2f6b584d54d2ee0",
+    "index.html": "ef2bdbdd7e82554d5b68883195a496b220319282628a17b562719b5d3646283a"
   }
 }

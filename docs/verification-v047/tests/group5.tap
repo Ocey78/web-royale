@@ -1,0 +1,724 @@
+TAP version 13
+# Subtest: 3v3 result progression exposes all six earned crowns before OK
+ok 1 - 3v3 result progression exposes all six earned crowns before OK
+  ---
+  duration_ms: 2.805626
+  type: 'test'
+  ...
+# Subtest: custom arenas share map geometry and cache the stationary drawing
+ok 2 - custom arenas share map geometry and cache the stationary drawing
+  ---
+  duration_ms: 28.794809
+  type: 'test'
+  ...
+# Subtest: local 3v3 King health is gold and readable at full and zero health
+ok 3 - local 3v3 King health is gold and readable at full and zero health
+  ---
+  duration_ms: 2.903525
+  type: 'test'
+  ...
+# Subtest: custom battles do not decode an unused Trophy Road arena
+ok 4 - custom battles do not decode an unused Trophy Road arena
+  ---
+  duration_ms: 2453.353903
+  type: 'test'
+  ...
+# Subtest: custom arena quality follows saved background and texture policy
+ok 5 - custom arena quality follows saved background and texture policy
+  ---
+  duration_ms: 24.489557
+  type: 'test'
+  ...
+# Subtest: local King HP is painted above destruction dust rather than covered by it
+ok 6 - local King HP is painted above destruction dust rather than covered by it
+  ---
+  duration_ms: 3.532686
+  type: 'test'
+  ...
+# Subtest: v041 custom replays retain six seats, slot ownership and deterministic paths
+ok 7 - v041 custom replays retain six seats, slot ownership and deterministic paths
+  ---
+  duration_ms: 287.137239
+  type: 'test'
+  ...
+# Subtest: six-player recordings reject invalid or duplicated per-team tower ownership
+ok 8 - six-player recordings reject invalid or duplicated per-team tower ownership
+  ---
+  duration_ms: 42.988526
+  type: 'test'
+  ...
+# Subtest: v038 recordings stay on their frozen combat interpreter
+ok 9 - v038 recordings stay on their frozen combat interpreter
+  ---
+  duration_ms: 22.049553
+  type: 'test'
+  ...
+# Subtest: a custom Bridge recording cannot be mislabeled as a legacy two-lane battle
+ok 10 - a custom Bridge recording cannot be mislabeled as a legacy two-lane battle
+  ---
+  duration_ms: 3.243765
+  type: 'test'
+  ...
+# Subtest: string slot indices are rejected before they can lose player ownership
+ok 11 - string slot indices are rejected before they can lose player ownership
+  ---
+  duration_ms: 3.28751
+  type: 'test'
+  ...
+# Subtest: six-seat deployments and crowded bridge motion survive replay seek round trips
+ok 12 - six-seat deployments and crowded bridge motion survive replay seek round trips
+  ---
+  duration_ms: 1592.46215
+  type: 'test'
+  ...
+# Subtest: Treasure has a nonzero weight just below Gem, and old Gem/Magic probabilities stay 1/12
+ok 13 - Treasure has a nonzero weight just below Gem, and old Gem/Magic probabilities stay 1/12
+  ---
+  duration_ms: 61.180132
+  type: 'test'
+  ...
+# Subtest: Treasure survives save migration, takes five wins, and opens once for only 10000-100000 gold
+ok 14 - Treasure survives save migration, takes five wins, and opens once for only 10000-100000 gold
+  ---
+  duration_ms: 15.394019
+  type: 'test'
+  ...
+# Subtest: Treasure is the wooden model opening, not the Gold Chest or a renamed Silver chest
+ok 15 - Treasure is the wooden model opening, not the Gold Chest or a renamed Silver chest
+  ---
+  duration_ms: 4.283257
+  type: 'test'
+  ...
+# Subtest: Potato Mode is a persisted render-only override that preserves selected tiers
+ok 16 - Potato Mode is a persisted render-only override that preserves selected tiers
+  ---
+  duration_ms: 10.741692
+  type: 'test'
+  ...
+# Subtest: Potato Mode cannot modify battle simulation results
+ok 17 - Potato Mode cannot modify battle simulation results
+  ---
+  duration_ms: 39.117432
+  type: 'test'
+  ...
+# Subtest: Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+ok 18 - Sandbox resets safely into both custom maps and standard maps while retaining pause and level
+  ---
+  duration_ms: 17.546494
+  type: 'test'
+  ...
+# Subtest: Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+ok 19 - Casual map selection is varied, stable by seed, and preserves dedicated geometry and ranked arena
+  ---
+  duration_ms: 1.344004
+  type: 'test'
+  ...
+# Subtest: 3v3 has five minutes regulation and exact elixir phase boundaries
+ok 20 - 3v3 has five minutes regulation and exact elixir phase boundaries
+  ---
+  duration_ms: 18.08456
+  type: 'test'
+  ...
+# Subtest: 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+ok 21 - 3v3 1.5x is actual income not only a label and destroyed Kings still stop it
+  ---
+  duration_ms: 17.226643
+  type: 'test'
+  ...
+# Subtest: 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+ok 22 - 20 Elixir mode starts normally but stores twenty including grants and overflow metrics
+  ---
+  duration_ms: 7.988055
+  type: 'test'
+  ...
+# Subtest: Twenty Elixir AI observes public cap without seeing enemy hands or bank
+ok 23 - Twenty Elixir AI observes public cap without seeing enemy hands or bank
+  ---
+  duration_ms: 4.722319
+  type: 'test'
+  ...
+# Subtest: 12-card catalog validates twelve unique cards rather than truncating to eight
+ok 24 - 12-card catalog validates twelve unique cards rather than truncating to eight
+  ---
+  duration_ms: 0.346462
+  type: 'test'
+  ...
+# Subtest: 12-card mode has an eight-card queue and cycles all twelve cards
+ok 25 - 12-card mode has an eight-card queue and cycles all twelve cards
+  ---
+  duration_ms: 8.495084
+  type: 'test'
+  ...
+# Subtest: saved special decks use full catalog without mutating ownership or regular decks
+ok 26 - saved special decks use full catalog without mutating ownership or regular decks
+  ---
+  duration_ms: 21.070421
+  type: 'test'
+  ...
+# Subtest: One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+ok 27 - One Shot restricts spells, Mortar and X-Bow for both players, including direct deck injections
+  ---
+  duration_ms: 27.500117
+  type: 'test'
+  ...
+# Subtest: One Shot towers have one max HP and the first Princess destruction immediately wins
+ok 28 - One Shot towers have one max HP and the first Princess destruction immediately wins
+  ---
+  duration_ms: 4.753698
+  type: 'test'
+  ...
+# Subtest: One Shot legal troops still deploy, restricted hand injection cannot cast
+ok 29 - One Shot legal troops still deploy, restricted hand injection cannot cast
+  ---
+  duration_ms: 2.313823
+  type: 'test'
+  ...
+# Subtest: new modes all use their real learning factory and record learning updates
+ok 30 - new modes all use their real learning factory and record learning updates
+  ---
+  duration_ms: 54.355718
+  type: 'test'
+  ...
+# Subtest: new modes retain distinct learning experience contexts
+ok 31 - new modes retain distinct learning experience contexts
+  ---
+  duration_ms: 0.510708
+  type: 'test'
+  ...
+# Subtest: old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+ok 32 - old 3v3 recordings keep 180 seconds regulation; new recordings store 300 and replay exactly
+  ---
+  duration_ms: 365.374028
+  type: 'test'
+  ...
+# Subtest: all new mode replays retain deck sizes, restrictions and arena selection
+ok 33 - all new mode replays retain deck sizes, restrictions and arena selection
+  ---
+  duration_ms: 107.822363
+  type: 'test'
+  ...
+# Subtest: primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+ok 34 - primitive rendering draws real actors, projectiles and placement without native sprite calls or RNG changes
+  ---
+  duration_ms: 23.679776
+  type: 'test'
+  ...
+# Subtest: custom scenery exposes a separately drawn foreground and obeys the animation toggle
+ok 35 - custom scenery exposes a separately drawn foreground and obeys the animation toggle
+  ---
+  duration_ms: 14.370124
+  type: 'test'
+  ...
+# Subtest: 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+ok 36 - 3v3 camera exposes outer scenery while keeping pointer conversion and classic camera intact
+  ---
+  duration_ms: 2.376349
+  type: 'test'
+  ...
+# Subtest: Team Rumble constructs ten independent seats, mirrored twenty towers and river-free field
+ok 37 - Team Rumble constructs ten independent seats, mirrored twenty towers and river-free field
+  ---
+  duration_ms: 19.840211
+  type: 'test'
+  ...
+# Subtest: Team Rumble exact five plus five minute timeline, multiplier boundaries and real income
+ok 38 - Team Rumble exact five plus five minute timeline, multiplier boundaries and real income
+  ---
+  duration_ms: 23.297546
+  type: 'test'
+  ...
+# Subtest: Rumble destroyed King stops only its owners passive income; stored/pump/golem payouts retained
+ok 39 - Rumble destroyed King stops only its owners passive income; stored/pump/golem payouts retained
+  ---
+  duration_ms: 12.694775
+  type: 'test'
+  ...
+# Subtest: Team Rumble slots are seeded unique shuffles with all five positions possible
+ok 40 - Team Rumble slots are seeded unique shuffles with all five positions possible
+  ---
+  duration_ms: 203.010175
+  type: 'test'
+  ...
+# Subtest: Large bodies have symmetric outboard clearance in 3v3 and mapped crowns use centered art
+ok 41 - Large bodies have symmetric outboard clearance in 3v3 and mapped crowns use centered art
+  ---
+  duration_ms: 7.898605
+  type: 'test'
+  ...
+# Subtest: Firecracker impact fans five damaging line projectiles with intact ownership and visible effects
+ok 42 - Firecracker impact fans five damaging line projectiles with intact ownership and visible effects
+  ---
+  duration_ms: 7.734278
+  type: 'test'
+  ...
+# Subtest: Rumble Learning Center creates actual ten-seat matches
+ok 43 - Rumble Learning Center creates actual ten-seat matches
+  ---
+  duration_ms: 3.275862
+  type: 'test'
+  ...
+# Subtest: Ten-minute Rumble training records retain late tiebreak duration when the learner reloads
+ok 44 - Ten-minute Rumble training records retain late tiebreak duration when the learner reloads
+  ---
+  duration_ms: 1.26129
+  type: 'test'
+  ...
+# Subtest: 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+ok 45 - 3v3 rows stay aligned and Rumble arches stay mirrored on both teams
+  ---
+  duration_ms: 25.116363
+  type: 'test'
+  ...
+# Subtest: Rumble gains real rear space and side clearance without shrinking bodies
+ok 46 - Rumble gains real rear space and side clearance without shrinking bodies
+  ---
+  duration_ms: 7.226538
+  type: 'test'
+  ...
+# Subtest: largest bodies behind every Rumble tower have a swept route into midfield
+ok 47 - largest bodies behind every Rumble tower have a swept route into midfield
+  ---
+  duration_ms: 87.205815
+  type: 'test'
+  ...
+# Subtest: Rumble extended deployment tiles and entities are not clamped to the old map
+ok 48 - Rumble extended deployment tiles and entities are not clamped to the old map
+  ---
+  duration_ms: 5.196735
+  type: 'test'
+  ...
+# Subtest: custom board camera input covers the enlarged floor with no hand overlap
+ok 49 - custom board camera input covers the enlarged floor with no hand overlap
+  ---
+  duration_ms: 0.703309
+  type: 'test'
+  ...
+# Subtest: Bridge has a real outboard route past the King for the largest ground body
+ok 50 - Bridge has a real outboard route past the King for the largest ground body
+  ---
+  duration_ms: 2.672218
+  type: 'test'
+  ...
+# Subtest: Sandbox accepts extended Rumble corners without teleporting placements to old borders
+ok 51 - Sandbox accepts extended Rumble corners without teleporting placements to old borders
+  ---
+  duration_ms: 8.64349
+  type: 'test'
+  ...
+# Subtest: largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+ok 52 - largest bodies have routes behind every 3v3 and Bridge tower, not just Rumble
+  ---
+  duration_ms: 154.256601
+  type: 'test'
+  ...
+# Subtest: air units in narrow Bridge mode keep their outboard movement permission
+ok 53 - air units in narrow Bridge mode keep their outboard movement permission
+  ---
+  duration_ms: 3.366847
+  type: 'test'
+  ...
+# Subtest: Every selectable casual mode has its own complete full-catalog deck
+ok 54 - Every selectable casual mode has its own complete full-catalog deck
+  ---
+  duration_ms: 31.207345
+  type: 'test'
+  ...
+# Subtest: Casual edits and imports do not unlock collection or alter ranked or other decks
+ok 55 - Casual edits and imports do not unlock collection or alter ranked or other decks
+  ---
+  duration_ms: 14.593533
+  type: 'test'
+  ...
+# Subtest: One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+ok 56 - One Shot excludes Miner and Goblin Drill, including future catalog-independent banned ID
+  ---
+  duration_ms: 4.546876
+  type: 'test'
+  ...
+# Subtest: Decks paginate by five and new pages are available beyond ten
+ok 57 - Decks paginate by five and new pages are available beyond ten
+  ---
+  duration_ms: 8.998881
+  type: 'test'
+  ...
+# Subtest: Deck names persist and follow a deck through deletion without reassigning cards
+ok 58 - Deck names persist and follow a deck through deletion without reassigning cards
+  ---
+  duration_ms: 4.733502
+  type: 'test'
+  ...
+# Subtest: Play Again retains mode, queue and a copy of the selected deck
+ok 59 - Play Again retains mode, queue and a copy of the selected deck
+  ---
+  duration_ms: 3.073228
+  type: 'test'
+  ...
+# Subtest: casual 1v1 repeat cannot become a ranked match
+ok 60 - casual 1v1 repeat cannot become a ranked match
+  ---
+  duration_ms: 0.312484
+  type: 'test'
+  ...
+# Subtest: Random Deck repeat requests fresh generation instead of reusing either deck
+ok 61 - Random Deck repeat requests fresh generation instead of reusing either deck
+  ---
+  duration_ms: 0.212471
+  type: 'test'
+  ...
+# Subtest: all selectable deck sizes are preserved by repeat
+ok 62 - all selectable deck sizes are preserved by repeat
+  ---
+  duration_ms: 16.036397
+  type: 'test'
+  ...
+# Subtest: practice repeat keeps practice rewards disabled
+ok 63 - practice repeat keeps practice rewards disabled
+  ---
+  duration_ms: 0.243505
+  type: 'test'
+  ...
+# Subtest: unfinished, sandbox, replay and war-ticket matches cannot be repeated from results
+ok 64 - unfinished, sandbox, replay and war-ticket matches cannot be repeated from results
+  ---
+  duration_ms: 0.244824
+  type: 'test'
+  ...
+# Subtest: repeat request does not modify or repay the completed match
+ok 65 - repeat request does not modify or repay the completed match
+  ---
+  duration_ms: 20.657172
+  type: 'test'
+  ...
+# Subtest: Rumble custom renderer has dry continuous middle and geometry-derived tower foundations
+ok 66 - Rumble custom renderer has dry continuous middle and geometry-derived tower foundations
+  ---
+  duration_ms: 32.322336
+  type: 'test'
+  ...
+# Subtest: all custom map surface metadata anchors match real towers and consecutive draws reuse cache
+ok 67 - all custom map surface metadata anchors match real towers and consecutive draws reuse cache
+  ---
+  duration_ms: 25.700745
+  type: 'test'
+  ...
+# Subtest: enlarged Rumble ground is actually drawn to its new playable edges
+ok 68 - enlarged Rumble ground is actually drawn to its new playable edges
+  ---
+  duration_ms: 12.621135
+  type: 'test'
+  ...
+# Subtest: v043 replay accepts ten-seat Rumble and reproduces its input stream
+ok 69 - v043 replay accepts ten-seat Rumble and reproduces its input stream
+  ---
+  duration_ms: 225.024054
+  type: 'test'
+  ...
+# Subtest: v043 retains exact v042 engine including old One Shot Miner permission and custom tower positions
+ok 70 - v043 retains exact v042 engine including old One Shot Miner permission and custom tower positions
+  ---
+  duration_ms: 39.151886
+  type: 'test'
+  ...
+# Subtest: invalid Rumble seat ownership and pre043 ten-seat records are rejected
+ok 71 - invalid Rumble seat ownership and pre043 ten-seat records are rejected
+  ---
+  duration_ms: 5.690934
+  type: 'test'
+  ...
+# Subtest: Legendary battle chest has exact 0.1% weight without reducing Gem/Treasure odds
+ok 72 - Legendary battle chest has exact 0.1% weight without reducing Gem/Treasure odds
+  ---
+  duration_ms: 0.759209
+  type: 'test'
+  ...
+# Subtest: Wild cards books and magic coins all have real very rare receipt-keyed battle awards
+ok 73 - Wild cards books and magic coins all have real very rare receipt-keyed battle awards
+  ---
+  duration_ms: 67.931904
+  type: 'test'
+  ...
+# Subtest: Battle items credit once, persist, and pay with full chest slots but never in practice or on loss
+ok 74 - Battle items credit once, persist, and pay with full chest slots but never in practice or on loss
+  ---
+  duration_ms: 57.96052
+  type: 'test'
+  ...
+# Subtest: Trophy Road adds new independently claimable books, coins, and wild milestones without removing old claims
+ok 75 - Trophy Road adds new independently claimable books, coins, and wild milestones without removing old claims
+  ---
+  duration_ms: 61.895761
+  type: 'test'
+  ...
+# Subtest: Crown Road increases book/coin frequency and preserves old claims
+ok 76 - Crown Road increases book/coin frequency and preserves old claims
+  ---
+  duration_ms: 8.338961
+  type: 'test'
+  ...
+# Subtest: A rare battle Legendary chest never opens empty before the first Legendary arena
+ok 77 - A rare battle Legendary chest never opens empty before the first Legendary arena
+  ---
+  duration_ms: 2.367526
+  type: 'test'
+  ...
+# Subtest: v044 castle surfaces enclose the enlarged playfield, with correctly arched foundations
+ok 78 - v044 castle surfaces enclose the enlarged playfield, with correctly arched foundations
+  ---
+  duration_ms: 27.295524
+  type: 'test'
+  ...
+# Subtest: v044 still castle scenery is cached, with ambience separate and disabled on low
+ok 79 - v044 still castle scenery is cached, with ambience separate and disabled on low
+  ---
+  duration_ms: 20.131405
+  type: 'test'
+  ...
+# Subtest: v044 old replay layouts do not reuse the arched castle geometry cache
+ok 80 - v044 old replay layouts do not reuse the arched castle geometry cache
+  ---
+  duration_ms: 127.039136
+  type: 'test'
+  ...
+# Subtest: v044 new Rumble replays keep arches, independent owners and ten-player input cycles
+ok 81 - v044 new Rumble replays keep arches, independent owners and ten-player input cycles
+  ---
+  duration_ms: 273.075336
+  type: 'test'
+  ...
+# Subtest: v044 keeps the previous flat v043 arena and old elixir intervals for historical 5v5 replays
+ok 82 - v044 keeps the previous flat v043 arena and old elixir intervals for historical 5v5 replays
+  ---
+  duration_ms: 67.89335
+  type: 'test'
+  ...
+# Subtest: v044 legacy twelve-card and One Shot validation still selects the correct prior engine
+ok 83 - v044 legacy twelve-card and One Shot validation still selects the correct prior engine
+  ---
+  duration_ms: 52.795198
+  type: 'test'
+  ...
+# Subtest: v044 Rumble has two spacious symmetric arches, each with five distinct owners
+ok 84 - v044 Rumble has two spacious symmetric arches, each with five distinct owners
+  ---
+  duration_ms: 15.548
+  type: 'test'
+  ...
+# Subtest: v044 Rumble multiplier boundaries match remaining regulation and overtime clock
+ok 85 - v044 Rumble multiplier boundaries match remaining regulation and overtime clock
+  ---
+  duration_ms: 10.798436
+  type: 'test'
+  ...
+# Subtest: v044 Princess losses neither score crowns nor decide Rumble regulation
+ok 86 - v044 Princess losses neither score crowns nor decide Rumble regulation
+  ---
+  duration_ms: 7.701336
+  type: 'test'
+  ...
+# Subtest: v044 only King advantage decides regulation even when Princess advantage is opposite
+ok 87 - v044 only King advantage decides regulation even when Princess advantage is opposite
+  ---
+  duration_ms: 8.549235
+  type: 'test'
+  ...
+# Subtest: v044 tied Kings go to overtime despite uneven Princess losses and next King ends match
+ok 88 - v044 tied Kings go to overtime despite uneven Princess losses and next King ends match
+  ---
+  duration_ms: 3.136854
+  type: 'test'
+  ...
+# Subtest: v044 all Kings lost can finish before regulation but Princess destruction in OT never wins
+ok 89 - v044 all Kings lost can finish before regulation but Princess destruction in OT never wins
+  ---
+  duration_ms: 7.611103
+  type: 'test'
+  ...
+# Subtest: v044 final tiebreak compares and drains Kings only
+ok 90 - v044 final tiebreak compares and drains Kings only
+  ---
+  duration_ms: 3.108531
+  type: 'test'
+  ...
+# Subtest: v044 a damaged King schedules all living allied Kings for the same activation time
+ok 91 - v044 a damaged King schedules all living allied Kings for the same activation time
+  ---
+  duration_ms: 3.176073
+  type: 'test'
+  ...
+# Subtest: v044 losing a Princess activates the entire same-side King row, without resurrecting dead Kings
+ok 92 - v044 losing a Princess activates the entire same-side King row, without resurrecting dead Kings
+  ---
+  duration_ms: 3.712171
+  type: 'test'
+  ...
+# Subtest: v044 activation requests never delay an existing activation countdown
+ok 93 - v044 activation requests never delay an existing activation countdown
+  ---
+  duration_ms: 2.811835
+  type: 'test'
+  ...
+# Subtest: v044 all-kings simultaneous destruction is a draw, not an order-dependent win
+ok 94 - v044 all-kings simultaneous destruction is a draw, not an order-dependent win
+  ---
+  duration_ms: 2.932278
+  type: 'test'
+  ...
+# Subtest: v044 non-Rumble modes keep Princess scoring and independent 3v3 King activation
+ok 95 - v044 non-Rumble modes keep Princess scoring and independent 3v3 King activation
+  ---
+  duration_ms: 4.746929
+  type: 'test'
+  ...
+# Subtest: v044 large-body rear starts and gap-to-midfield routes are all swept-clear
+ok 96 - v044 large-body rear starts and gap-to-midfield routes are all swept-clear
+  ---
+  duration_ms: 95.133778
+  type: 'test'
+  ...
+# Subtest: v044 Rumble AI can actually deploy toward both new outer arch lanes
+ok 97 - v044 Rumble AI can actually deploy toward both new outer arch lanes
+  ---
+  duration_ms: 19.233967
+  type: 'test'
+  ...
+# Subtest: v0441 Rumble kings are pushed deeper into enlarged castle ends with safe rear clearance
+ok 98 - v0441 Rumble kings are pushed deeper into enlarged castle ends with safe rear clearance
+  ---
+  duration_ms: 24.124619
+  type: 'test'
+  ...
+# Subtest: v0441 custom king health presentation uses a detached safe label above the tower art
+ok 99 - v0441 custom king health presentation uses a detached safe label above the tower art
+  ---
+  duration_ms: 0.69767
+  type: 'test'
+  ...
+# Subtest: v0441 custom arena source contains rear-courtyard detail layers for 3v3 and 5v5
+ok 100 - v0441 custom arena source contains rear-courtyard detail layers for 3v3 and 5v5
+  ---
+  duration_ms: 0.305462
+  type: 'test'
+  ...
+# Subtest: v045 Trophy Road reports league progression past Serenity Peak
+ok 101 - v045 Trophy Road reports league progression past Serenity Peak
+  ---
+  duration_ms: 30.542084
+  type: 'test'
+  ...
+# Subtest: v045 custom map families expose three 5v5, three 3v3 and three bridge geometries
+ok 102 - v045 custom map families expose three 5v5, three 3v3 and three bridge geometries
+  ---
+  duration_ms: 0.464929
+  type: 'test'
+  ...
+# Subtest: v045 custom map selection is deterministic and uses true geometry variants
+ok 103 - v045 custom map selection is deterministic and uses true geometry variants
+  ---
+  duration_ms: 1.653875
+  type: 'test'
+  ...
+# Subtest: v045 custom modes have multiple named decks paged five at a time
+ok 104 - v045 custom modes have multiple named decks paged five at a time
+  ---
+  duration_ms: 28.785877
+  type: 'test'
+  ...
+# Subtest: v045 touchdown modes use towerless purpose-built maps and team sizes
+ok 105 - v045 touchdown modes use towerless purpose-built maps and team sizes
+  ---
+  duration_ms: 15.635105
+  type: 'test'
+  ...
+# Subtest: v045 touchdown scores when a troop crosses goal and ends at three
+ok 106 - v045 touchdown scores when a troop crosses goal and ends at three
+  ---
+  duration_ms: 3.552658
+  type: 'test'
+  ...
+# Subtest: v045 FFA has four teams and only last King ends it before time
+ok 107 - v045 FFA has four teams and only last King ends it before time
+  ---
+  duration_ms: 11.188458
+  type: 'test'
+  ...
+# Subtest: v045 FFA normal timer enters overtime instead of comparing only blue and red
+ok 108 - v045 FFA normal timer enters overtime instead of comparing only blue and red
+  ---
+  duration_ms: 4.543527
+  type: 'test'
+  ...
+# Subtest: v045 FFA losses remain losses and four-team receipts survive normalization
+ok 109 - v045 FFA losses remain losses and four-team receipts survive normalization
+  ---
+  duration_ms: 8.718813
+  type: 'test'
+  ...
+# Subtest: v045 other-mode builders expose full catalog without unlocking ranked collection
+ok 110 - v045 other-mode builders expose full catalog without unlocking ranked collection
+  ---
+  duration_ms: 6.511523
+  type: 'test'
+  ...
+# Subtest: v045 themed 3v3 maps retain the proven Bastion collision geometry
+ok 111 - v045 themed 3v3 maps retain the proven Bastion collision geometry
+  ---
+  duration_ms: 1.754648
+  type: 'test'
+  ...
+# Subtest: v045 themed Bridge maps retain the proven Causeway collision geometry
+ok 112 - v045 themed Bridge maps retain the proven Causeway collision geometry
+  ---
+  duration_ms: 0.300112
+  type: 'test'
+  ...
+# Subtest: v045 reverse-arch Rumble has swept rear routes behind every tower
+ok 113 - v045 reverse-arch Rumble has swept rear routes behind every tower
+  ---
+  duration_ms: 84.725682
+  type: 'test'
+  ...
+# Subtest: v045 four-bridge Rumble exposes four genuinely two-tile-wide crossings for large troops
+ok 114 - v045 four-bridge Rumble exposes four genuinely two-tile-wide crossings for large troops
+  ---
+  duration_ms: 1.076012
+  type: 'test'
+  ...
+# Subtest: v045 touchdown lanes are unobstructed on Touchdown
+ok 115 - v045 touchdown lanes are unobstructed on Touchdown
+  ---
+  duration_ms: 0.304897
+  type: 'test'
+  ...
+# Subtest: v045 touchdown lanes are unobstructed on Touchdown3v3
+ok 116 - v045 touchdown lanes are unobstructed on Touchdown3v3
+  ---
+  duration_ms: 0.291145
+  type: 'test'
+  ...
+# Subtest: v046 current arena registry retires the v045 FFA geometry
+ok 117 - v046 current arena registry retires the v045 FFA geometry
+  ---
+  duration_ms: 0.106664
+  type: 'test'
+  ...
+# Subtest: v045 every custom expansion map advertises layered themed presentation
+ok 118 - v045 every custom expansion map advertises layered themed presentation
+  ---
+  duration_ms: 61.848125
+  type: 'test'
+  ...
+# Subtest: v045 touchdown retains its dedicated presentation layer after FFA retirement
+ok 119 - v045 touchdown retains its dedicated presentation layer after FFA retirement
+  ---
+  duration_ms: 2.832895
+  type: 'test'
+  ...
+1..119
+# tests 119
+# suites 0
+# pass 119
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5754.90834

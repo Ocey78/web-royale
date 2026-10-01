@@ -1,0 +1,12 @@
+runtime loaded
+UI artwork loaded
+PASS v0.47.0 boot
+PASS Daily Shop high-level card counts are substantially larger
+PASS Daily Shop surface has specular treatment
+PASS Gem Shop shows king-scaled quantities
+PASS Hour Shop renders scaled direct card quantities
+PASS Lightning Shop renders scaled direct card quantities
+PASS Custom Modes polished groups
+PASS Settings polished sections visible
+PASS Crown Road polished rewards visible
+PASS No browser exceptions

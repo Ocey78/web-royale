@@ -1,0 +1,724 @@
+TAP version 13
+# Subtest: v045 historical FFA replays preserve four-team state through frozen engine
+ok 1 - v045 historical FFA replays preserve four-team state through frozen engine
+  ---
+  duration_ms: 17.579753
+  type: 'test'
+  ...
+# Subtest: v045 historical 3v3 touchdown replay validates six seats
+ok 2 - v045 historical 3v3 touchdown replay validates six seats
+  ---
+  duration_ms: 12.405689
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 Rumble replays use the frozen v044 engine
+ok 3 - v045 historical 0.44 Rumble replays use the frozen v044 engine
+  ---
+  duration_ms: 58.837003
+  type: 'test'
+  ...
+# Subtest: v045 historical 0.44 cannot claim support for Touchdown
+ok 4 - v045 historical 0.44 cannot claim support for Touchdown
+  ---
+  duration_ms: 3.065512
+  type: 'test'
+  ...
+# Subtest: v046 six-card mode has a six-card saved cycle with four-card hand
+ok 5 - v046 six-card mode has a six-card saved cycle with four-card hand
+  ---
+  duration_ms: 17.714387
+  type: 'test'
+  ...
+# Subtest: v046 uncapped elixir stores beyond ten with normal generation timing
+ok 6 - v046 uncapped elixir stores beyond ten with normal generation timing
+  ---
+  duration_ms: 131.054087
+  type: 'test'
+  ...
+# Subtest: v046 removes FFA from current mode registries while keeping touchdown modes
+ok 7 - v046 removes FFA from current mode registries while keeping touchdown modes
+  ---
+  duration_ms: 0.458239
+  type: 'test'
+  ...
+# Subtest: v046 training supports Six Card and Uncapped Elixir
+ok 8 - v046 training supports Six Card and Uncapped Elixir
+  ---
+  duration_ms: 10.663707
+  type: 'test'
+  ...
+# Subtest: v046 Touchdown camera exposes the official-style stadium sidelines around the field
+ok 9 - v046 Touchdown camera exposes the official-style stadium sidelines around the field
+  ---
+  duration_ms: 1.341529
+  type: 'test'
+  ...
+# Subtest: v046 records use simulation tag 0.46 and preserve six-card cycles
+ok 10 - v046 records use simulation tag 0.46 and preserve six-card cycles
+  ---
+  duration_ms: 17.503357
+  type: 'test'
+  ...
+# Subtest: v046 loads v045 FFA replays through the frozen legacy engine after FFA removal
+ok 11 - v046 loads v045 FFA replays through the frozen legacy engine after FFA removal
+  ---
+  duration_ms: 19.562663
+  type: 'test'
+  ...
+# Subtest: v046 replaces Clan navigation with Online Play coming soon
+ok 12 - v046 replaces Clan navigation with Online Play coming soon
+  ---
+  duration_ms: 2.408192
+  type: 'test'
+  ...
+# Subtest: v046 reorganizes Other Modes groups and removes FFA card
+ok 13 - v046 reorganizes Other Modes groups and removes FFA card
+  ---
+  duration_ms: 0.686255
+  type: 'test'
+  ...
+# Subtest: v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+ok 14 - v046 custom arena renderer uses detailed source-backed arena scenery and official-style touchdown stadium
+  ---
+  duration_ms: 0.691829
+  type: 'test'
+  ...
+# Subtest: v047 shop scaling helper uses 2.5 percent per king level and clean rarity rounding
+ok 15 - v047 shop scaling helper uses 2.5 percent per king level and clean rarity rounding
+  ---
+  duration_ms: 0.949861
+  type: 'test'
+  ...
+# Subtest: v047 Daily paid offers use much higher king-scaled card quantities without changing prices
+ok 16 - v047 Daily paid offers use much higher king-scaled card quantities without changing prices
+  ---
+  duration_ms: 11.890598
+  type: 'test'
+  ...
+# Subtest: v047 timed and gem shops also scale card quantities by king level
+ok 17 - v047 timed and gem shops also scale card quantities by king level
+  ---
+  duration_ms: 12.749684
+  type: 'test'
+  ...
+# Subtest: v047 custom deck editor is a full shared Royale deck screen rather than modal builder
+ok 18 - v047 custom deck editor is a full shared Royale deck screen rather than modal builder
+  ---
+  duration_ms: 0.567447
+  type: 'test'
+  ...
+# Subtest: v047 each custom environment has distinct structural scenery and floor logic
+ok 19 - v047 each custom environment has distinct structural scenery and floor logic
+  ---
+  duration_ms: 0.254966
+  type: 'test'
+  ...
+# Subtest: v050: attack animation survives the damage frame
+ok 20 - v050: attack animation survives the damage frame
+  ---
+  duration_ms: 24.96246
+  type: 'test'
+  ...
+# Subtest: v050: a walking tower target does not block a closer defender
+ok 21 - v050: a walking tower target does not block a closer defender
+  ---
+  duration_ms: 2.754534
+  type: 'test'
+  ...
+# Subtest: v050: an attacker already hitting a tower keeps that target
+ok 22 - v050: an attacker already hitting a tower keeps that target
+  ---
+  duration_ms: 2.555924
+  type: 'test'
+  ...
+# Subtest: v050: Inferno ramp resets when the target leaves beam range
+ok 23 - v050: Inferno ramp resets when the target leaves beam range
+  ---
+  duration_ms: 5.607577
+  type: 'test'
+  ...
+# Subtest: v050: placed Skeleton Army cannot spill into river
+ok 24 - v050: placed Skeleton Army cannot spill into river
+  ---
+  duration_ms: 3.543596
+  type: 'test'
+  ...
+# Subtest: v050: original single-direction attack is reused before idle
+ok 25 - v050: original single-direction attack is reused before idle
+  ---
+  duration_ms: 1322.873524
+  type: 'test'
+  ...
+# Subtest: v050: airborne source height is separated from ground coordinates
+ok 26 - v050: airborne source height is separated from ground coordinates
+  ---
+  duration_ms: 0.249421
+  type: 'test'
+  ...
+# Subtest: v050: transient effect envelope ends transparent
+ok 27 - v050: transient effect envelope ends transparent
+  ---
+  duration_ms: 0.194932
+  type: 'test'
+  ...
+# Subtest: v050: visual animation clock freezes during Freeze
+ok 28 - v050: visual animation clock freezes during Freeze
+  ---
+  duration_ms: 6.010645
+  type: 'test'
+  ...
+# Subtest: v060 diagonal facing uses tile coordinates rather than stretched pixels
+ok 29 - v060 diagonal facing uses tile coordinates rather than stretched pixels
+  ---
+  duration_ms: 9.615683
+  type: 'test'
+  ...
+# Subtest: v060 moving facing and walk distance use the same tile-space direction
+ok 30 - v060 moving facing and walk distance use the same tile-space direction
+  ---
+  duration_ms: 4.183638
+  type: 'test'
+  ...
+# Subtest: v060 homing projectile updates orientation after its target moves
+ok 31 - v060 homing projectile updates orientation after its target moves
+  ---
+  duration_ms: 3.816822
+  type: 'test'
+  ...
+# Subtest: v060 melee attacker respects the source long-distance cancellation allowance
+ok 32 - v060 melee attacker respects the source long-distance cancellation allowance
+  ---
+  duration_ms: 9.686194
+  type: 'test'
+  ...
+# Subtest: v060 visual interpolation never mutates simulation positions
+ok 33 - v060 visual interpolation never mutates simulation positions
+  ---
+  duration_ms: 0.886478
+  type: 'test'
+  ...
+# Subtest: v260 difficulty settings normalize to Expert; automatic streaks are chosen per match
+ok 34 - v260 difficulty settings normalize to Expert; automatic streaks are chosen per match
+  ---
+  duration_ms: 4.371858
+  type: 'test'
+  ...
+# Subtest: v130 always-ten-elixir cheat normalizes and never spends player elixir
+ok 35 - v130 always-ten-elixir cheat normalizes and never spends player elixir
+  ---
+  duration_ms: 48.0476
+  type: 'test'
+  ...
+# Subtest: v130 reward learning is always enabled for legal matches
+ok 36 - v130 reward learning is always enabled for legal matches
+  ---
+  duration_ms: 4.82589
+  type: 'test'
+  ...
+# Subtest: v130 2v2 king firing positions are spread wider than v120
+ok 37 - v130 2v2 king firing positions are spread wider than v120
+  ---
+  duration_ms: 2.436377
+  type: 'test'
+  ...
+# Subtest: v130 self-play scheduler supports loop mode in its public plan
+ok 38 - v130 self-play scheduler supports loop mode in its public plan
+  ---
+  duration_ms: 0.340351
+  type: 'test'
+  ...
+# Subtest: v130 training worker generates varied decks beyond fixed presets
+ok 39 - v130 training worker generates varied decks beyond fixed presets
+  ---
+  duration_ms: 7.318202
+  type: 'test'
+  ...
+# Subtest: v130 cog menu only contains four requested actions
+ok 40 - v130 cog menu only contains four requested actions
+  ---
+  duration_ms: 1.276426
+  type: 'test'
+  ...
+# Subtest: v130 Learning Center exposes loop as a real toggle button
+ok 41 - v130 Learning Center exposes loop as a real toggle button
+  ---
+  duration_ms: 1.157445
+  type: 'test'
+  ...
+# Subtest: v130 headless self-play uses a 50ms simulation tick for scalable training
+ok 42 - v130 headless self-play uses a 50ms simulation tick for scalable training
+  ---
+  duration_ms: 0.256763
+  type: 'test'
+  ...
+# Subtest: v140 fresh profile starts at zero trophies with only starter eight unlocked at base rarity levels
+ok 43 - v140 fresh profile starts at zero trophies with only starter eight unlocked at base rarity levels
+  ---
+  duration_ms: 9.618558
+  type: 'test'
+  ...
+# Subtest: v140 old saves infer ownership without deleting existing cards
+ok 44 - v140 old saves infer ownership without deleting existing cards
+  ---
+  duration_ms: 2.439367
+  type: 'test'
+  ...
+# Subtest: v140 chest discovery unlocks newly received cards
+ok 45 - v140 chest discovery unlocks newly received cards
+  ---
+  duration_ms: 7.381194
+  type: 'test'
+  ...
+# Subtest: v140 Electro Giant reflection ignores spell proxy attackers instead of crashing on ZapFreeze
+ok 46 - v140 Electro Giant reflection ignores spell proxy attackers instead of crashing on ZapFreeze
+  ---
+  duration_ms: 328.176476
+  type: 'test'
+  ...
+# Subtest: v140 addBuff safely rejects non-entity spell proxies
+ok 47 - v140 addBuff safely rejects non-entity spell proxies
+  ---
+  duration_ms: 11.761764
+  type: 'test'
+  ...
+# Subtest: v140 loop restarts preserve high-concurrency acknowledgement
+ok 48 - v140 loop restarts preserve high-concurrency acknowledgement
+  ---
+  duration_ms: 2.067255
+  type: 'test'
+  ...
+# Subtest: v150 player card use requires both reached arena and permanent ownership
+ok 49 - v150 player card use requires both reached arena and permanent ownership
+  ---
+  duration_ms: 10.920452
+  type: 'test'
+  ...
+# Subtest: v150 illegal saved deck card is removed until both requirements are met
+ok 50 - v150 illegal saved deck card is removed until both requirements are met
+  ---
+  duration_ms: 1.281398
+  type: 'test'
+  ...
+# Subtest: v150 old chest uses highest reached arena pool when opened, not earned arena
+ok 51 - v150 old chest uses highest reached arena pool when opened, not earned arena
+  ---
+  duration_ms: 192.664315
+  type: 'test'
+  ...
+# Subtest: v150 chest pool expands when highest arena increases even before opening
+ok 52 - v150 chest pool expands when highest arena increases even before opening
+  ---
+  duration_ms: 1.550995
+  type: 'test'
+  ...
+# Subtest: v150 normal bot decks are arena legal without chest ownership simulation
+ok 53 - v150 normal bot decks are arena legal without chest ownership simulation
+  ---
+  duration_ms: 125.871097
+  type: 'test'
+  ...
+# Subtest: v150 self-play deck generator accepts an arena limit
+ok 54 - v150 self-play deck generator accepts an arena limit
+  ---
+  duration_ms: 13.695139
+  type: 'test'
+  ...
+# Subtest: v190 any eligible first-copy grant discovers a card, not only chests
+ok 55 - v190 any eligible first-copy grant discovers a card, not only chests
+  ---
+  duration_ms: 2.409245
+  type: 'test'
+  ...
+# Subtest: v150 exact Bats example: arena reach makes Bats chest-eligible, first chest copy unlocks use
+ok 56 - v150 exact Bats example: arena reach makes Bats chest-eligible, first chest copy unlocks use
+  ---
+  duration_ms: 1.634954
+  type: 'test'
+  ...
+# Subtest: v150 collection uses arena-plus-ownership card usability instead of deck membership
+ok 57 - v150 collection uses arena-plus-ownership card usability instead of deck membership
+  ---
+  duration_ms: 1.716163
+  type: 'test'
+  ...
+# Subtest: v150 collection distinguishes reached but undiscovered cards
+ok 58 - v150 collection distinguishes reached but undiscovered cards
+  ---
+  duration_ms: 0.216927
+  type: 'test'
+  ...
+# Subtest: v150 chest slot arena label reflects the current expanded pool
+ok 59 - v150 chest slot arena label reflects the current expanded pool
+  ---
+  duration_ms: 0.121725
+  type: 'test'
+  ...
+# Subtest: v160 release declares placement engine modules in visible and training bundles
+ok 60 - v160 release declares placement engine modules in visible and training bundles
+  ---
+  duration_ms: 4.048373
+  type: 'test'
+  ...
+# Subtest: package version agrees with the generated release
+ok 61 - package version agrees with the generated release
+  ---
+  duration_ms: 3.826491
+  type: 'test'
+  ...
+# Subtest: Fireball uses source projectile, trail, gravity and impact graph
+ok 62 - Fireball uses source projectile, trail, gravity and impact graph
+  ---
+  duration_ms: 1.031662
+  type: 'test'
+  ...
+# Subtest: Fireball stays a moving projectile before impact and carries source visual names
+ok 63 - Fireball stays a moving projectile before impact and carries source visual names
+  ---
+  duration_ms: 13.282015
+  type: 'test'
+  ...
+# Subtest: v170 formations module exposes source-driven cardMembers
+ok 64 - v170 formations module exposes source-driven cardMembers
+  ---
+  duration_ms: 1.00311
+  type: 'test'
+  ...
+# Subtest: Archers preview and live deploy show both horizontal members with source stagger
+ok 65 - Archers preview and live deploy show both horizontal members with source stagger
+  ---
+  duration_ms: 14.245302
+  type: 'test'
+  ...
+# Subtest: Skeletons and Goblins use mirrored triangle formations
+ok 66 - Skeletons and Goblins use mirrored triangle formations
+  ---
+  duration_ms: 0.464416
+  type: 'test'
+  ...
+# Subtest: Barbarians form a five-point source-radius star and Recruits span the arena
+ok 67 - Barbarians form a five-point source-radius star and Recruits span the arena
+  ---
+  duration_ms: 0.370861
+  type: 'test'
+  ...
+# Subtest: Skeleton Army scatters across multiple radii rather than one ring
+ok 68 - Skeleton Army scatters across multiple radii rather than one ring
+  ---
+  duration_ms: 0.33675
+  type: 'test'
+  ...
+# Subtest: Goblin Gang and Rascals preview every primary and secondary troop in the real front/back roles
+ok 69 - Goblin Gang and Rascals preview every primary and secondary troop in the real front/back roles
+  ---
+  duration_ms: 0.872889
+  type: 'test'
+  ...
+# Subtest: ground troops are soft bodies during movement but buildings remain hard obstacles
+ok 70 - ground troops are soft bodies during movement but buildings remain hard obstacles
+  ---
+  duration_ms: 29.979268
+  type: 'test'
+  ...
+# Subtest: visible deploying troops participate in spawn push while future stagger members do not
+ok 71 - visible deploying troops participate in spawn push while future stagger members do not
+  ---
+  duration_ms: 3.581378
+  type: 'test'
+  ...
+# Subtest: princess tower destruction emits original crown death graph and crown flight event
+ok 72 - princess tower destruction emits original crown death graph and crown flight event
+  ---
+  duration_ms: 10.606373
+  type: 'test'
+  ...
+# Subtest: king tower destruction emits king crown death graph and awards three crowns
+ok 73 - king tower destruction emits king crown death graph and awards three crowns
+  ---
+  duration_ms: 2.313277
+  type: 'test'
+  ...
+# Subtest: spell cards emit their authored cast effects before resolving
+ok 74 - spell cards emit their authored cast effects before resolving
+  ---
+  duration_ms: 12.645483
+  type: 'test'
+  ...
+# Subtest: end result uses dedicated native-style flow instead of result modal
+ok 75 - end result uses dedicated native-style flow instead of result modal
+  ---
+  duration_ms: 1.928213
+  type: 'test'
+  ...
+# Subtest: graveyard emits its authored skeleton appearance effect for each spawned skeleton
+ok 76 - graveyard emits its authored skeleton appearance effect for each spawned skeleton
+  ---
+  duration_ms: 21.556994
+  type: 'test'
+  ...
+# Subtest: end-of-match source crown and confetti graphs are bundled
+ok 77 - end-of-match source crown and confetti graphs are bundled
+  ---
+  duration_ms: 5.191335
+  type: 'test'
+  ...
+# Subtest: winner confetti waits for the result banners and first crown reveal
+ok 78 - winner confetti waits for the result banners and first crown reveal
+  ---
+  duration_ms: 3.9639
+  type: 'test'
+  ...
+# Subtest: v180 bundles the original ui_battle_end scene for the match result board
+ok 79 - v180 bundles the original ui_battle_end scene for the match result board
+  ---
+  duration_ms: 1137.48912
+  type: 'test'
+  ...
+# Subtest: v180 result timeline matches recorded Match Over -> board -> crowns -> winner cadence
+ok 80 - v180 result timeline matches recorded Match Over -> board -> crowns -> winner cadence
+  ---
+  duration_ms: 0.707635
+  type: 'test'
+  ...
+# Subtest: v180 original crown-award sound cues are packaged
+ok 81 - v180 original crown-award sound cues are packaged
+  ---
+  duration_ms: 0.501623
+  type: 'test'
+  ...
+# Subtest: v180 native library exposes battle-end renderer and battle dependencies include the source scene
+ok 82 - v180 native library exposes battle-end renderer and battle dependencies include the source scene
+  ---
+  duration_ms: 666.04082
+  type: 'test'
+  ...
+# Subtest: v180 clustered same-direction troops spread sideways without orbiting or spinning
+ok 83 - v180 clustered same-direction troops spread sideways without orbiting or spinning
+  ---
+  duration_ms: 84.645042
+  type: 'test'
+  ...
+# Subtest: v180 soft separation is time-step scaled rather than frame-rate dependent
+ok 84 - v180 soft separation is time-step scaled rather than frame-rate dependent
+  ---
+  duration_ms: 41.387544
+  type: 'test'
+  ...
+# Subtest: v190 uses the build Trophy Road: Master I begins at 6000
+ok 85 - v190 uses the build Trophy Road: Master I begins at 6000
+  ---
+  duration_ms: 1.413189
+  type: 'test'
+  ...
+# Subtest: Master I AI decks are all 12/13 with at most four level-12 cards
+ok 86 - Master I AI decks are all 12/13 with at most four level-12 cards
+  ---
+  duration_ms: 12.550256
+  type: 'test'
+  ...
+# Subtest: higher ranks progressively squeeze level-12 cards out
+ok 87 - higher ranks progressively squeeze level-12 cards out
+  ---
+  duration_ms: 13.133222
+  type: 'test'
+  ...
+# Subtest: rarity floors and scarcity matter below Master I
+ok 88 - rarity floors and scarcity matter below Master I
+  ---
+  duration_ms: 0.381734
+  type: 'test'
+  ...
+# Subtest: normal Battle no longer mirrors the human card-level map into bots
+ok 89 - normal Battle no longer mirrors the human card-level map into bots
+  ---
+  duration_ms: 15.09214
+  type: 'test'
+  ...
+# Subtest: Ultimate Champion AI decks and King Towers are level 13
+ok 90 - Ultimate Champion AI decks and King Towers are level 13
+  ---
+  duration_ms: 44.662096
+  type: 'test'
+  ...
+# Subtest: Master I King Towers remain dynamic 12/13
+ok 91 - Master I King Towers remain dynamic 12/13
+  ---
+  duration_ms: 2.182951
+  type: 'test'
+  ...
+# Subtest: first eligible card copy unlocks from a generic non-chest grant
+ok 92 - first eligible card copy unlocks from a generic non-chest grant
+  ---
+  duration_ms: 3.144569
+  type: 'test'
+  ...
+# Subtest: legacy eligible non-chest copies migrate into ownership
+ok 93 - legacy eligible non-chest copies migrate into ownership
+  ---
+  duration_ms: 1.718525
+  type: 'test'
+  ...
+# Subtest: Shop can sell and unlock arena-eligible cards that were not previously owned
+ok 94 - Shop can sell and unlock arena-eligible cards that were not previously owned
+  ---
+  duration_ms: 6.802235
+  type: 'test'
+  ...
+# Subtest: Trophy Road direct card rewards discover their granted card
+ok 95 - Trophy Road direct card rewards discover their granted card
+  ---
+  duration_ms: 2.214933
+  type: 'test'
+  ...
+# Subtest: player XP thresholds drive King Level 1-13
+ok 96 - player XP thresholds drive King Level 1-13
+  ---
+  duration_ms: 0.6717
+  type: 'test'
+  ...
+# Subtest: card upgrade awards source rarity UpgradeExp instead of flat battle XP
+ok 97 - card upgrade awards source rarity UpgradeExp instead of flat battle XP
+  ---
+  duration_ms: 3.024961
+  type: 'test'
+  ...
+# Subtest: donation XP uses the source rarity table, including Legendary 25 XP
+ok 98 - donation XP uses the source rarity table, including Legendary 25 XP
+  ---
+  duration_ms: 1.929644
+  type: 'test'
+  ...
+# Subtest: fresh profiles start in Collection mode and King Level 1
+ok 99 - fresh profiles start in Collection mode and King Level 1
+  ---
+  duration_ms: 0.561004
+  type: 'test'
+  ...
+# Subtest: v260 twelve rarity-row card offers are stable within each hour
+ok 100 - v260 twelve rarity-row card offers are stable within each hour
+  ---
+  duration_ms: 23.371213
+  type: 'test'
+  ...
+# Subtest: v200 stale shop click does not debit currency
+ok 101 - v200 stale shop click does not debit currency
+  ---
+  duration_ms: 3.935441
+  type: 'test'
+  ...
+# Subtest: v200 collection model has the four independent subpages
+ok 102 - v200 collection model has the four independent subpages
+  ---
+  duration_ms: 0.619216
+  type: 'test'
+  ...
+# Subtest: v220 skin equip rejects removed substitutes and retains Classic on reload
+ok 103 - v220 skin equip rejects removed substitutes and retains Classic on reload
+  ---
+  duration_ms: 9.321162
+  type: 'test'
+  ...
+# Subtest: v220 hourly emotes still rotate and tower offers require original assets
+ok 104 - v220 hourly emotes still rotate and tower offers require original assets
+  ---
+  duration_ms: 1.280425
+  type: 'test'
+  ...
+# Subtest: v200 wins chests do not unlock with time or losses
+ok 105 - v200 wins chests do not unlock with time or losses
+  ---
+  duration_ms: 18.309136
+  type: 'test'
+  ...
+# Subtest: v200 all chest families retain their names and required wins
+ok 106 - v200 all chest families retain their names and required wins
+  ---
+  duration_ms: 6.379445
+  type: 'test'
+  ...
+# Subtest: v200 HogRider crosses open river in a straight line
+ok 107 - v200 HogRider crosses open river in a straight line
+  ---
+  duration_ms: 20.24966
+  type: 'test'
+  ...
+# Subtest: v200 Ghost crosses open river in a straight line
+ok 108 - v200 Ghost crosses open river in a straight line
+  ---
+  duration_ms: 8.527726
+  type: 'test'
+  ...
+# Subtest: v200 an exposed nearer King is preferred to the far surviving Princess
+ok 109 - v200 an exposed nearer King is preferred to the far surviving Princess
+  ---
+  duration_ms: 3.675253
+  type: 'test'
+  ...
+# Subtest: v200 ground movement can follow smooth diagonal segments, not only tile centers
+ok 110 - v200 ground movement can follow smooth diagonal segments, not only tile centers
+  ---
+  duration_ms: 7.670935
+  type: 'test'
+  ...
+# Subtest: v200 projectile tangent follows the airborne arc
+ok 111 - v200 projectile tangent follows the airborne arc
+  ---
+  duration_ms: 0.556959
+  type: 'test'
+  ...
+# Subtest: v200 ordinary source projectiles face +X before rotation, so upward travel rotates -90 degrees
+ok 112 - v200 ordinary source projectiles face +X before rotation, so upward travel rotates -90 degrees
+  ---
+  duration_ms: 0.147186
+  type: 'test'
+  ...
+# Subtest: v200 60 seconds message is not overwritten by simultaneous Double Elixir
+ok 113 - v200 60 seconds message is not overwritten by simultaneous Double Elixir
+  ---
+  duration_ms: 3.140709
+  type: 'test'
+  ...
+# Subtest: v200 sudden-death and countdown announcements reset between matches
+ok 114 - v200 sudden-death and countdown announcements reset between matches
+  ---
+  duration_ms: 2.954572
+  type: 'test'
+  ...
+# Subtest: v200 wrong-rarity book and absent magic items cannot consume resources
+ok 115 - v200 wrong-rarity book and absent magic items cannot consume resources
+  ---
+  duration_ms: 4.143737
+  type: 'test'
+  ...
+# Subtest: v210 Decks list excludes all IDs in the active deck without mutating the catalogue
+ok 116 - v210 Decks list excludes all IDs in the active deck without mutating the catalogue
+  ---
+  duration_ms: 15.208584
+  type: 'test'
+  ...
+# Subtest: v210 Collection ignores deck membership and filters remain independent
+ok 117 - v210 Collection ignores deck membership and filters remain independent
+  ---
+  duration_ms: 5.626336
+  type: 'test'
+  ...
+# Subtest: v210 chest label shows the required remaining wins, not progress fractions
+ok 118 - v210 chest label shows the required remaining wins, not progress fractions
+  ---
+  duration_ms: 0.484955
+  type: 'test'
+  ...
+# Subtest: v210 chest labels stay bounded and use actual kind requirements
+ok 119 - v210 chest labels stay bounded and use actual kind requirements
+  ---
+  duration_ms: 0.365499
+  type: 'test'
+  ...
+1..119
+# tests 119
+# suites 0
+# pass 119
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4391.241504

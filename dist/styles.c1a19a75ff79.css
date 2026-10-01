@@ -1064,3 +1064,110 @@
 
 /* v0.46 online placeholder */
 .online-soon-card{margin:52px auto 0;max-width:430px;padding:34px 28px;text-align:center;border:3px solid #b7d7ea;border-radius:14px;background:linear-gradient(#426f99,#254765);box-shadow:0 6px 0 #17324a,inset 0 2px #e9f8ff55;color:white}.online-soon-card>img{width:92px;height:92px;object-fit:contain}.online-soon-card h2{font-size:32px;margin:8px 0}.online-soon-card strong{display:inline-block;font-size:22px;padding:7px 15px;border-radius:8px;background:#163653;border:2px solid #7dbfe2}.online-soon-card p{font-size:16px;line-height:1.45}.online-soon-features{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}.online-soon-features span{padding:8px 2px;border-radius:6px;background:#163b5b;border:1px solid #74a9c8;font-weight:bold}
+
+/* v0.47 — shared Royale-style surfaces, full-screen mode deck editor, shop/deck polish. */
+:root{
+ --royale-blue-top:#7cccf2;--royale-blue-mid:#3a8fc6;--royale-blue-bottom:#205c8d;
+ --royale-gold-top:#fff0a0;--royale-gold-mid:#eeb23e;--royale-gold-bottom:#a86417;
+ --royale-panel-top:#e9f2f8;--royale-panel-mid:#c7d8e6;--royale-panel-bottom:#8faac0;
+ --royale-rim:#d9f3ff;--royale-shadow:#0b2238;--royale-ink:#193b59;
+}
+#viewport .royale-surface,
+#viewport .reference-cards #deckRegion,
+#viewport .reference-shop .shop-deals-section,
+#viewport #eventsContent .mode-group,
+#viewport .settings-section,
+#viewport .crown-road-reward,
+#viewport .road-gate,
+#viewport .online-soon-card{
+ position:relative;border:2px solid #6f91ad;border-top-color:#d8edf9;border-radius:10px;
+ background:linear-gradient(180deg,#f4f8fb 0,#d9e6ef 8%,#bfd0de 72%,#91aabe 100%);
+ box-shadow:inset 0 2px 0 #ffffffc9,inset 0 -4px 0 #68859b66,0 5px 0 #102b43,0 8px 13px #07182b5c;
+ color:var(--royale-ink);
+}
+#viewport .royale-surface:before,
+#viewport .reference-shop .shop-deals-section:before,
+#viewport #eventsContent .mode-group:before,
+#viewport .settings-section:before,
+#viewport .crown-road-reward:before,
+#viewport .road-gate:before{
+ content:"";position:absolute;left:5px;right:5px;top:4px;height:4px;border-radius:7px;
+ background:linear-gradient(90deg,transparent,#ffffffb8 18%,#ffffff70 74%,transparent);pointer-events:none;z-index:1;
+}
+#viewport .native-button,#viewport .tool-square,#viewport .deck-tab,#viewport .deck-page-arrow{
+ filter:drop-shadow(0 3px 0 #0d2a4190);transition:transform .08s ease,filter .08s ease;
+}
+#viewport .native-button:hover:not(:disabled),#viewport .tool-square:hover:not(:disabled),#viewport .deck-tab:hover:not(:disabled){filter:brightness(1.08) drop-shadow(0 3px 0 #0d2a4190)}
+#viewport .native-button:active:not(:disabled),#viewport .tool-square:active:not(:disabled),#viewport .deck-tab:active:not(:disabled){transform:translateY(2px);filter:brightness(.94) drop-shadow(0 1px 0 #0d2a4190)}
+
+/* Standard Battle Deck — use the same polished shell as every mode deck. */
+#viewport .reference-cards #deckRegion{padding:10px 10px 8px;margin:0 0 16px;background:linear-gradient(180deg,#395f82 0,#244a6b 40%,#173852 100%);border-color:#7aa8c7;color:white}
+#viewport .reference-cards #deckRegion:after,.royale-deck-panel:after{content:"";position:absolute;inset:6px;border:1px solid #c4e6f433;border-radius:7px;pointer-events:none}
+#viewport .reference-cards .deck-toolbar{border-radius:8px;background:linear-gradient(#325d82,#183c5d);box-shadow:inset 0 1px #b9e9ff55,inset 0 -2px #0b263d88;margin-bottom:8px}
+#viewport .reference-cards .deck-grid,.shared-mode-deck-grid{background:linear-gradient(#163c60,#0f2a48);border:2px solid #5f8eaf;border-top-color:#9fc8df;box-shadow:inset 0 2px #071c2f,0 3px #071b2d;padding:16px 11px 12px;gap:13px 9px}
+#viewport .reference-cards .deck-footer{margin:4px 1px 0;padding:8px 7px;border-radius:7px;background:linear-gradient(#244f71,#173b58);box-shadow:inset 0 1px #99c8df50;color:#e5f5ff}
+#viewport .reference-cards .average-chip,.mode-average-chip{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:14px;border:1px solid #b98cd0;background:linear-gradient(#553567,#37264e);color:#f7dcff;box-shadow:inset 0 1px #d9bbeb80,0 2px #0a1f34}
+#viewport .reference-cards .average-chip img,.mode-average-chip img{width:20px;height:23px}
+#viewport .reference-cards .deck-name-label input,.royale-deck-screen .deck-name-label input{background:#102d48;border:1px solid #7198b4;border-top-color:#aed5e9;color:white;border-radius:5px;padding:6px 8px;box-shadow:inset 0 2px 3px #06192a}
+#viewport .deck-tab{border:1px solid #78b4d6;background:linear-gradient(#66b8e5 0 10%,#3c90c3 11% 70%,#236290 71%);box-shadow:inset 0 2px #c9edff80,0 3px #102e48}
+#viewport .deck-tab.active{border-color:#ffe693;background:linear-gradient(#fff19d 0 10%,#f4c348 11% 68%,#b8751d 69%);box-shadow:inset 0 2px #fffbd0,0 3px #6e4615}
+#viewport .deck-page-arrow{border:1px solid #72a7c4;background:linear-gradient(#4f8db4,#254e70);box-shadow:inset 0 1px #d6f3ff70,0 3px #102d47}
+#viewport .deck-pool-header,#viewport .mode-card-collection .deck-pool-header{margin:0 0 10px;padding:9px 10px;border-radius:8px;background:linear-gradient(#5e87a8,#3d6484);border:1px solid #a8cadd;border-bottom:3px solid #24455f;color:white;display:flex;align-items:center;gap:8px;justify-content:space-between}
+#viewport .deck-pool-header h2{font-size:20px;text-shadow:0 2px #18344b}.deck-pool-header small{color:#e1f1fb}
+
+/* Full-screen custom mode deck editor, sharing Battle Deck visual grammar. */
+#viewport .royale-deck-screen{background:linear-gradient(#245f91,#174873 38%,#0e355e);background-image:var(--ui-background);background-size:100% 100%}
+#viewport .royale-page-title{color:#fff;text-shadow:0 2px #0a2742}.royale-page-title .mode-deck-back{position:absolute;left:15px;right:auto;top:1px;font:bold 29px Arial}
+#viewport .royale-deck-scroll{top:115px;bottom:84px;padding:0 13px 18px}
+#viewport .royale-deck-panel{padding:13px 10px 10px;margin:0 0 13px;background:linear-gradient(180deg,#3d6688,#244c6d 45%,#163751);border-color:#7fa7c2;color:white;overflow:visible}
+#viewport .royale-panel-rim{position:absolute;left:22px;right:22px;top:-3px;height:7px;background:linear-gradient(90deg,transparent,#d4efff,#77bce3,#d4efff,transparent);border-radius:50%;opacity:.72}
+#viewport .royale-deck-screen .mode-deck-rule{text-align:center;min-height:28px;color:#dceefa;font-size:12px;line-height:1.3;margin:0 3px 7px}
+#viewport .royale-deck-screen .mode-deck-tabs{margin:0 0 8px;gap:5px;display:flex;justify-content:center;align-items:center}
+#viewport .royale-deck-screen .mode-deck-meta{display:grid;grid-template-columns:minmax(0,1fr) auto auto 34px;gap:7px;align-items:center;margin:0 3px 8px}
+#viewport .royale-deck-screen .deck-name-label{margin:0;max-width:none}.royale-deck-screen .deck-name-label>span{color:#bfe4f5}
+#viewport .royale-deck-screen #modeDeckPageLabel{font-size:10px;color:#bdd4e5;min-width:28px;text-align:center}
+#viewport .royale-deck-screen .mode-deck-remove{width:34px;height:34px;font-size:25px;color:#fff}
+#viewport .shared-mode-deck-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative;border-radius:9px;overflow:visible}
+#viewport .shared-mode-deck-grid .card-tile{min-height:114px;aspect-ratio:.72}
+#viewport .shared-mode-deck-grid[style*="--mode-deck-size: 4"]{padding-bottom:14px}
+#viewport .mode-card-tile{border:0;background:none;padding:0;position:relative;overflow:visible}
+#viewport .mode-card-tile>.card-visual{position:absolute;inset:0 4px 20px;width:calc(100% - 8px);height:calc(100% - 20px)}
+#viewport .mode-card-tile .card-level{bottom:5px!important}.mode-card-tile .cost{position:absolute!important;left:-2px!important;top:-5px!important;z-index:5}
+#viewport .mode-card-tile.chosen{outline:3px solid #ffe678;outline-offset:2px;border-radius:8px}.mode-card-tile.in-deck{filter:saturate(.72);opacity:.72}
+#viewport .mode-deck-summary{display:flex;justify-content:space-between;gap:10px;padding:8px 4px 2px;color:#cce4f2;font-size:11px}
+#viewport .mode-card-collection{padding:10px;background:linear-gradient(#dbe8f1,#b7cad9);color:#1d425f;min-height:330px}
+#viewport .mode-card-collection .mode-deck-search{flex:0 0 188px}.mode-card-collection .mode-deck-search input{width:100%;height:34px;font-size:13px}
+#viewport .shared-mode-collection{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 7px;padding:8px 2px 16px}
+#viewport .shared-mode-collection .card-tile{min-height:126px}
+#viewport .mode-deck-done{display:flex;justify-content:center;gap:12px;padding-top:8px}.mode-deck-done .native-button{margin:0!important;min-width:150px!important}
+
+/* Rarity-framed shop surfaces with restrained specular highlights. */
+#viewport .reference-shop .shop-deals-section{padding:9px 9px 16px;margin:10px 0 18px;background:linear-gradient(#315d80,#1f496b 60%,#173953);border-color:#7199b6;color:white}
+#viewport .reference-shop .section-banner{border-radius:7px;margin:0 0 8px;background:linear-gradient(#72a6c6,#416d8e);box-shadow:inset 0 2px #c8edff69,0 3px #102b42}
+#viewport .reference-shop .shop-offer{position:relative;overflow:hidden;border:2px solid #6f8da6!important;border-top-color:#d7e8f1!important;border-radius:9px!important;background:linear-gradient(#f2f6f8,#d9e3ea 55%,#b7cad7)!important;box-shadow:inset 0 2px #fff, inset 0 -4px #7895aa55,0 4px #0d2942!important;color:#1c3e59}
+#viewport .reference-shop .shop-offer:before{content:"";position:absolute;left:5px;right:5px;top:4px;height:5px;background:linear-gradient(90deg,transparent,#fff9,transparent);border-radius:6px;pointer-events:none}
+#viewport .reference-shop .shop-offer.common{border-color:#8797aa!important}.reference-shop .shop-offer.rare{border-color:#d69d34!important}.reference-shop .shop-offer.epic{border-color:#a34cc8!important}.reference-shop .shop-offer.legendary{border-color:#74b6a1!important}
+#viewport .reference-shop .shop-offer.common h3{background:linear-gradient(#8298aa,#596f83)}#viewport .reference-shop .shop-offer.rare h3{background:linear-gradient(#e6b74f,#a86d1e)}#viewport .reference-shop .shop-offer.epic h3{background:linear-gradient(#bd6ddd,#713293)}#viewport .reference-shop .shop-offer.legendary h3{background:linear-gradient(#84d2ba,#408778)}
+#viewport .reference-shop .shop-offer h3{margin:-10px -8px 5px;width:calc(100% + 16px)!important;color:white;text-shadow:0 2px #17324b;border-bottom:2px solid #fff5;box-shadow:0 2px #18364d55}
+#viewport .offer-price{filter:drop-shadow(0 2px #142c3c77)}
+
+/* Shared polished menu surfaces. */
+#viewport #eventsContent .mode-group{background:linear-gradient(#365e7d,#214765 75%,#15364f);border-color:#7098b5;color:white}
+#viewport #eventsContent .mode-group>h2{background:linear-gradient(#7ea9c3,#4b7695 58%,#345c7a);border-bottom-color:#1d405b;box-shadow:inset 0 2px #d8f1ff77,0 3px #102d46}
+#viewport #eventsContent .event-card{position:relative;overflow:hidden;background:linear-gradient(#f4f7f9,#d8e3eb 64%,#b7c9d6)!important;border-color:#91aabd!important;box-shadow:inset 0 2px #fff,0 4px #102d46!important}
+#viewport #eventsContent .event-card:before{content:"";position:absolute;inset:4px 5px auto;height:4px;background:linear-gradient(90deg,transparent,#fff,transparent);opacity:.65;border-radius:5px}
+#viewport .settings-section{overflow:hidden}.settings-section>h3{background:linear-gradient(#719abb,#416c8c)!important;box-shadow:inset 0 2px #d7efff77,0 2px #1b405d;color:white!important;margin:-1px -1px 9px!important}
+#viewport .crown-road-reward{background:linear-gradient(#496c91,#2c5275 65%,#1e405f);border-color:#789ab5;color:white}.crown-road-step.milestone .crown-road-reward{background:linear-gradient(#8664a2,#5a477c 68%,#3b365d)}
+#viewport .road-gate{background:linear-gradient(#e4edf4,#c5d6e3 70%,#9eb5c6);color:#244661}.road-title-strip{box-shadow:inset 0 1px #fff7,0 2px #173b56}
+#viewport .modal-panel{border:3px solid #7898b0!important;border-top-color:#d4edf9!important;background:linear-gradient(#eaf1f6,#c9d8e4 75%,#aebfcd)!important;box-shadow:inset 0 2px #fff,0 8px 0 #0d2941,0 12px 22px #06172899!important}.modal-title{background:linear-gradient(#719bbb,#416d8d)!important;border-bottom:3px solid #254d68!important;color:white!important;box-shadow:inset 0 2px #d6efff6b!important}
+#viewport .end-reward-items>.end-reward-box{border-top-color:#d9eef9!important;background:linear-gradient(#f0f6fa,#d5e2ec 65%,#aec4d5)!important;box-shadow:inset 0 2px #fff,0 3px #183a5577!important}
+#viewport .online-soon-card{background:linear-gradient(#527d9e,#305a79 72%,#21445f);color:white;border-color:#8fb9d1}
+
+/* Mobile safeguards. */
+@media(max-width:430px){
+ #viewport .royale-deck-scroll{padding-left:9px;padding-right:9px}.royale-deck-panel{padding-left:7px!important;padding-right:7px!important}
+ #viewport .royale-deck-screen .mode-deck-meta{grid-template-columns:minmax(0,1fr) auto 28px}.royale-deck-screen #modeDeckPageLabel{display:none}.royale-deck-screen .mode-deck-remove{grid-column:3}
+ #viewport .mode-card-collection .deck-pool-header{align-items:stretch;flex-direction:column}.mode-card-collection .mode-deck-search{flex:auto;width:100%}
+ #viewport .mode-card-collection .mode-deck-search input{width:100%}.shared-mode-deck-grid{gap:10px 6px!important;padding:13px 6px 11px!important}.shared-mode-deck-grid .card-tile{min-height:105px}.shared-mode-collection{gap:12px 5px}.shared-mode-collection .card-tile{min-height:111px}
+ #viewport .mode-deck-done .native-button{min-width:128px!important;font-size:19px}.reference-cards #deckRegion{padding-left:7px;padding-right:7px}
+}

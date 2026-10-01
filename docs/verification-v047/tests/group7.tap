@@ -1,0 +1,244 @@
+TAP version 13
+# Subtest: v250 reference replaces the earlier fixed menu-aspect camera
+ok 1 - v250 reference replaces the earlier fixed menu-aspect camera
+  ---
+  duration_ms: 1.440051
+  type: 'test'
+  ...
+# Subtest: v220 both camera directions round-trip tile centres and every board edge
+ok 2 - v220 both camera directions round-trip tile centres and every board edge
+  ---
+  duration_ms: 1.065555
+  type: 'test'
+  ...
+# Subtest: v220 arena world clip maps exactly to the unchanged HUD-safe viewport
+ok 3 - v220 arena world clip maps exactly to the unchanged HUD-safe viewport
+  ---
+  duration_ms: 0.582625
+  type: 'test'
+  ...
+# Subtest: v220 imitation skins cannot be bought, equipped, or offered as actual skins
+ok 4 - v220 imitation skins cannot be bought, equipped, or offered as actual skins
+  ---
+  duration_ms: 22.856167
+  type: 'test'
+  ...
+# Subtest: v220 retired recolor ownership is refunded once, deduplicated and preserved as a receipt
+ok 5 - v220 retired recolor ownership is refunded once, deduplicated and preserved as a receipt
+  ---
+  duration_ms: 5.74577
+  type: 'test'
+  ...
+# Subtest: v220 refund overflow is saved as credit instead of vanishing at the gem cap
+ok 6 - v220 refund overflow is saved as credit instead of vanishing at the gem cap
+  ---
+  duration_ms: 4.835404
+  type: 'test'
+  ...
+# Subtest: v220 malformed refund fields do not create currency or remove unrelated progress
+ok 7 - v220 malformed refund fields do not create currency or remove unrelated progress
+  ---
+  duration_ms: 2.43765
+  type: 'test'
+  ...
+# Subtest: polish retains all 206 source animations instead of reverting to nine icons
+ok 8 - polish retains all 206 source animations instead of reverting to nine icons
+  ---
+  duration_ms: 0.896191
+  type: 'test'
+  ...
+# Subtest: v250 camera preserves uniform asset scale and an independently sized battle frame
+ok 9 - v250 camera preserves uniform asset scale and an independently sized battle frame
+  ---
+  duration_ms: 0.214228
+  type: 'test'
+  ...
+# Subtest: each imported emote has original paired scene clips and an existing texture
+ok 10 - each imported emote has original paired scene clips and an existing texture
+  ---
+  duration_ms: 643.466708
+  type: 'test'
+  ...
+# Subtest: source-derived emote identifiers survive separator or prefix differences
+ok 11 - source-derived emote identifiers survive separator or prefix differences
+  ---
+  duration_ms: 8.147031
+  type: 'test'
+  ...
+# Subtest: unrecognized imported emote ownership remains archived, without granting a substitute
+ok 12 - unrecognized imported emote ownership remains archived, without granting a substitute
+  ---
+  duration_ms: 7.486345
+  type: 'test'
+  ...
+# Subtest: equipped aliases still require owned originals and invalid values are ignored
+ok 13 - equipped aliases still require owned originals and invalid values are ignored
+  ---
+  duration_ms: 0.945263
+  type: 'test'
+  ...
+# Subtest: fitting a constrained title never squeezes its horizontal axis
+ok 14 - fitting a constrained title never squeezes its horizontal axis
+  ---
+  duration_ms: 0.912156
+  type: 'test'
+  ...
+# Subtest: unconstrained labels keep requested size rather than being enlarged
+ok 15 - unconstrained labels keep requested size rather than being enlarged
+  ---
+  duration_ms: 0.140709
+  type: 'test'
+  ...
+# Subtest: text backing pixels follow device ratio and displayed viewport scale with a bounded budget
+ok 16 - text backing pixels follow device ratio and displayed viewport scale with a bounded budget
+  ---
+  duration_ms: 0.170849
+  type: 'test'
+  ...
+# Subtest: v250 camera projects the measured reference river and field edges
+ok 17 - v250 camera projects the measured reference river and field edges
+  ---
+  duration_ms: 2.793716
+  type: 'test'
+  ...
+# Subtest: v250 battle view retains reference aspect ratio without stretching menus
+ok 18 - v250 battle view retains reference aspect ratio without stretching menus
+  ---
+  duration_ms: 0.369156
+  type: 'test'
+  ...
+# Subtest: v250 a swept move cannot jump completely over a small body
+ok 19 - v250 a swept move cannot jump completely over a small body
+  ---
+  duration_ms: 10.315356
+  type: 'test'
+  ...
+# Subtest: v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+ok 20 - v250 crowded bodies resolve along the contact normal, not a tangential shuffle
+  ---
+  duration_ms: 4.081884
+  type: 'test'
+  ...
+# Subtest: v250 moving contact does not let a following troop erase the front troop footprint
+ok 21 - v250 moving contact does not let a following troop erase the front troop footprint
+  ---
+  duration_ms: 32.258095
+  type: 'test'
+  ...
+# Subtest: committed hit retains a target within source grace and reacquires beyond it
+ok 22 - committed hit retains a target within source grace and reacquires beyond it
+  ---
+  duration_ms: 5.081512
+  type: 'test'
+  ...
+# Subtest: v250 displacement removes Balloon preload rather than granting another fast first hit
+ok 23 - v250 displacement removes Balloon preload rather than granting another fast first hit
+  ---
+  duration_ms: 2.89012
+  type: 'test'
+  ...
+# Subtest: v250 dash destination contacts the target edge rather than its center
+ok 24 - v250 dash destination contacts the target edge rather than its center
+  ---
+  duration_ms: 3.5883
+  type: 'test'
+  ...
+# Subtest: v250 original tower art pivots align with registered source tower landmarks
+ok 25 - v250 original tower art pivots align with registered source tower landmarks
+  ---
+  duration_ms: 0.628206
+  type: 'test'
+  ...
+# Subtest: v250 Hog crosses open river with source jump speed and a visible arc
+ok 26 - v250 Hog crosses open river with source jump speed and a visible arc
+  ---
+  duration_ms: 4.927073
+  type: 'test'
+  ...
+# Subtest: v250 Hog remains grounded across bridges while hovering Ghost does not jump
+ok 27 - v250 Hog remains grounded across bridges while hovering Ghost does not jump
+  ---
+  duration_ms: 6.171274
+  type: 'test'
+  ...
+# Subtest: v250 Princess is attached at the authored height rather than double that height
+ok 28 - v250 Princess is attached at the authored height rather than double that height
+  ---
+  duration_ms: 0.222444
+  type: 'test'
+  ...
+# Subtest: v250 high resolution source caches stay bounded for giant arena backdrops
+ok 29 - v250 high resolution source caches stay bounded for giant arena backdrops
+  ---
+  duration_ms: 0.520226
+  type: 'test'
+  ...
+# Subtest: v250 King activation follows its source timeline instead of popping to an idle cannon
+ok 30 - v250 King activation follows its source timeline instead of popping to an idle cannon
+  ---
+  duration_ms: 0.220271
+  type: 'test'
+  ...
+# Subtest: every summonable card has original native animation mappings
+ok 31 - every summonable card has original native animation mappings
+  ---
+  duration_ms: 14.531569
+  type: 'test'
+  ...
+# Subtest: animated exports use mappings rather than constructing guessed names
+ok 32 - animated exports use mappings rather than constructing guessed names
+  ---
+  duration_ms: 4.453214
+  type: 'test'
+  ...
+# Subtest: all source textures and card portraits are bundled locally
+ok 33 - all source textures and card portraits are bundled locally
+  ---
+  duration_ms: 1.410808
+  type: 'test'
+  ...
+# Subtest: renderer exposes source projectile rendering
+ok 34 - renderer exposes source projectile rendering
+  ---
+  duration_ms: 4.509756
+  type: 'test'
+  ...
+# Subtest: battle dependency planning does not require the full texture collection
+ok 35 - battle dependency planning does not require the full texture collection
+  ---
+  duration_ms: 3.477284
+  type: 'test'
+  ...
+# Subtest: local artwork URLs are allowed but other origins and executable URLs are not
+ok 36 - local artwork URLs are allowed but other origins and executable URLs are not
+  ---
+  duration_ms: 1.467145
+  type: 'test'
+  ...
+# Subtest: streamed native loading has a battle preparation interface
+ok 37 - streamed native loading has a battle preparation interface
+  ---
+  duration_ms: 0.147581
+  type: 'test'
+  ...
+# Subtest: unused scenes and their decoded textures can be released without evicting the current deck
+ok 38 - unused scenes and their decoded textures can be released without evicting the current deck
+  ---
+  duration_ms: 1.292413
+  type: 'test'
+  ...
+# Subtest: arena rendering waits for all referenced scenes instead of caching an incomplete arena
+ok 39 - arena rendering waits for all referenced scenes instead of caching an incomplete arena
+  ---
+  duration_ms: 0.830427
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 39
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2059.73993

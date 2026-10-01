@@ -7,11 +7,12 @@ test('v045 every custom expansion map advertises layered themed presentation',()
  const {r}=root();
  for(const id of ['TeamRumble','TeamRumbleArcReverse','TeamRumbleRiverLine','Team3v3','Team3v3Jungle','Team3v3Volcano','BridgeBattle','BridgeBattleLava','BridgeBattleGarden','Touchdown','Touchdown3v3']){
   const cv=r.RoyaleCustomArena.prepare({arenaLayout:L.get(id)},null);
-  A.ok(cv.layers.includes('backdrop'),id);
-  A.ok(cv.layers.includes('playfield'),id);
+  A.ok(cv.layers.includes('distant-backdrop'),id);
+  A.ok(cv.layers.includes('unique-floor'),id);
   A.ok(cv.layers.includes('raised-scenery'),id);
-  A.ok(cv.layers.includes('theme-detail'),id);
-  A.equal(cv.detailTier,'full',id);
+  A.ok(cv.layers.includes('theme-props'),id);
+  A.ok(cv.layers.includes('ambient'),id);
+  A.equal(cv.detailTier,'environment-v047',id);
  }
 });
 

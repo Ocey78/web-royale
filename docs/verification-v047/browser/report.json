@@ -1,0 +1,17 @@
+{
+  "version": "0.47.0",
+  "passed": 10,
+  "checks": [
+    "v0.47.0 boot",
+    "Daily Shop high-level card counts are substantially larger",
+    "Daily Shop surface has specular treatment",
+    "Gem Shop shows king-scaled quantities",
+    "Hour Shop renders scaled direct card quantities",
+    "Lightning Shop renders scaled direct card quantities",
+    "Custom Modes polished groups",
+    "Settings polished sections visible",
+    "Crown Road polished rewards visible",
+    "No browser exceptions"
+  ],
+  "errors": []
+}

@@ -4,6 +4,10 @@
 const CHART={silver:{gold:120,cards:12,wait:10800000},gold:{gold:350,cards:30,wait:28800000},magic:{gold:800,cards:70,wait:43200000}};
 const hash=s=>{let n=2166136261;for(const ch of String(s))n=Math.imul(n^ch.charCodeAt(0),16777619);return n>>>0;};
 const fail=(p,reason)=>({ok:false,profile:p,reason});
+const SHOP_ROUND=Object.freeze({Common:10,Rare:5,Epic:1,Legendary:1});
+function shopQuantityMultiplier(raw){const level=Math.max(1,Math.min(13,Math.floor(Number(raw?.kingLevel)||1)));return 1+.025*(level-1);}
+function scaleShopQuantity(base,rarity,raw){const step=SHOP_ROUND[rarity]||1,m=shopQuantityMultiplier(raw),scaled=Math.max(base,Math.round((base*m)/step)*step);return Math.max(step,scaled);}
+function scaledDirectQuantity(rarity,raw,baseByRarity){const base=baseByRarity[rarity]??1;return scaleShopQuantity(base,rarity,raw);}
 function shopWindow(now=Date.now()){if(typeof now==='string'){if(/^hourshop-\d+$/.test(now))return now;if(/^\d{4}-\d{2}-\d{2}$/.test(now))now=Date.parse(now+'T00:00:00Z');else return null;}return Number.isFinite(now)&&now>=0?'hourshop-'+Math.floor(now/3600000):null;}
 function offers(now=Date.now(),rawProfile=null){
  const rng=C.rng(hash(shopWindow(now)||'invalid')),p=rawProfile?C.normalizeProfile(rawProfile):null,out=[];
@@ -13,7 +17,7 @@ function offers(now=Date.now(),rawProfile=null){
   for(let n=0;n<3;n++){
    const c=shuffled[n%Math.max(1,shuffled.length)];
    if(!c){out.push({id:null,rarity,locked:true,quantity:0,price:0});continue;}
-   const quantity=rarity==='Common'?20:rarity==='Rare'?5:1,price=rarity==='Common'?100:rarity==='Rare'?250:rarity==='Epic'?500:1000;
+   const quantity=scaledDirectQuantity(rarity,p||{kingLevel:1},{Common:20,Rare:5,Epic:1,Legendary:1}),price=rarity==='Common'?100:rarity==='Rare'?250:rarity==='Epic'?500:1000;
    out.push({id:c.id,rarity,locked:false,quantity,price});
   }
  }
@@ -29,16 +33,16 @@ function lightningOffers(now=Date.now(),rawProfile=null){
   const rarities=['Common','Rare','Epic','Legendary'].filter(r=>available.some(c=>c.rarity===r));
   if(!rarities.length)break;
   const rarity=rarities[Math.floor(random()*rarities.length)],cards=available.filter(c=>c.rarity===rarity),c=cards[Math.floor(random()*cards.length)];used.add(c.id);
-  out.push({id:c.id,rarity,locked:false,quantity:rarity==='Common'?20:rarity==='Rare'?5:1,price:rarity==='Common'?100:rarity==='Rare'?250:rarity==='Epic'?500:1000});
+  out.push({id:c.id,rarity,locked:false,quantity:scaledDirectQuantity(rarity,p,{Common:20,Rare:5,Epic:1,Legendary:1}),price:rarity==='Common'?100:rarity==='Rare'?250:rarity==='Epic'?500:1000});
  }
  return out;
 }
-function purchaseLightningCard(raw,index,now=Date.now(),expectedWindow=null,expectedCard=null){
+function purchaseLightningCard(raw,index,now=Date.now(),expectedWindow=null,expectedCard=null,expectedQuantity=null){
  const p=C.normalizeProfile(raw),window=lightningWindow(now);
  if(!window||!Number.isInteger(index)||index<0||index>=3)return fail(p,'Invalid offer');
  if(expectedWindow!==null&&expectedWindow!==window)return fail(p,'This offer expired. Refresh the shop.');
  const o=lightningOffers(now,p)[index],key=window+':'+index;
- if(!o||expectedCard&&o.id!==expectedCard)return fail(p,'This offer changed. Refresh the shop.');
+ if(!o||expectedCard&&o.id!==expectedCard||expectedQuantity!==null&&Number(expectedQuantity)!==o.quantity)return fail(p,'This offer changed. Refresh the shop.');
  if(p.lightningPurchases[key])return fail(p,'Offer already purchased');
  if(p.gold<o.price)return fail(p,'Not enough gold');
  p.gold-=o.price;const reward={gold:0,cards:[{id:o.id,count:o.quantity}]};grant(p,reward);p.lightningPurchases[key]=1;
@@ -58,16 +62,16 @@ function gemOffers(rawProfile=null){
   const rarities=['Common','Rare','Epic','Legendary'].filter(r=>remaining.some(c=>c.rarity===r)),rarity=rarities[Math.floor(random()*rarities.length)],cards=remaining.filter(c=>c.rarity===rarity),card=cards[Math.floor(random()*cards.length)];used.add(card.id);
   // Keep quantity randomness separate from card selection so saved partial
   // rotations retain the same card IDs, slots, prices and purchase markers.
-  const spec=GEM_OFFERS[rarity],quantity=spec.minQuantity+hash('gemshop-quantity:'+p.world.seed+':'+p.gemShop.rotation+':'+slot+':'+card.id)%(spec.maxQuantity-spec.minQuantity+1);
+  const spec=GEM_OFFERS[rarity],rawQuantity=spec.minQuantity+hash('gemshop-quantity:'+p.world.seed+':'+p.gemShop.rotation+':'+slot+':'+card.id)%(spec.maxQuantity-spec.minQuantity+1),quantity=scaleShopQuantity(rawQuantity,rarity,p);
   out.push({kind:'card',id:card.id,name:card.name,rarity,locked:false,currency:'gems',quantity,price:spec.price});
  }
  return out;
 }
-function purchaseGemCard(raw,index,expectedRotation,expectedCard){
+function purchaseGemCard(raw,index,expectedRotation,expectedCard,expectedQuantity=null){
  const p=C.normalizeProfile(raw);
  if(!Number.isInteger(index)||index<0||index>=6)return fail(p,'Invalid Gem Shop offer');
  if(!Number.isSafeInteger(expectedRotation)||expectedRotation!==p.gemShop.rotation)return fail(p,'The Gem Shop refreshed. Choose a new offer.');
- const offer=gemOffers(p)[index];if(!offer||typeof expectedCard!=='string'||offer.id!==expectedCard)return fail(p,'This offer changed. Refresh the shop.');
+ const offer=gemOffers(p)[index];if(!offer||typeof expectedCard!=='string'||offer.id!==expectedCard||expectedQuantity!==null&&Number(expectedQuantity)!==offer.quantity)return fail(p,'This offer changed. Refresh the shop.');
  if(p.gemShop.purchased.includes(index))return fail(p,'Offer already purchased');
  if(p.gems<offer.price)return fail(p,'Not enough gems');
  p.gems-=offer.price;const reward={gold:0,cards:[{id:offer.id,count:offer.quantity}]};grant(p,reward);
@@ -84,21 +88,21 @@ function dailyOffers(now=Date.now(),rawProfile=null){
  const out=[{kind:'gold-chest',name:'Gold Chest',price:0,icon:'gold-chest',reward:{gold,cards:[]}},{kind:'gem',name:'Gem Chest',price:0,icon:'gem-chest',reward:{gold:0,gems,cards:[]}},{kind:'wildcard',name:rarity+' Wild Cards',rarity,quantity:count,price:0,icon:'road-wild-'+rarity.toLowerCase(),reward:{gold:0,cards:[],wildcards:{[rarity]:count}}}];
  const pool=cardPool(p),used=new Set();for(let slot=3;slot<9;slot++){
   const available=pool.filter(c=>!used.has(c.id)),cards=available.length?available:pool,c=cards[integer(0,cards.length-1)];used.add(c.id);
-  const quantity=c.rarity==='Common'?100:c.rarity==='Rare'?25:5,price=c.rarity==='Common'?100:c.rarity==='Rare'?250:c.rarity==='Epic'?500:1000;
+  const quantity=scaledDirectQuantity(c.rarity,p,{Common:500,Rare:150,Epic:30,Legendary:8}),price=c.rarity==='Common'?100:c.rarity==='Rare'?250:c.rarity==='Epic'?500:1000;
   out.push({kind:'card',id:c.id,name:c.name,rarity:c.rarity,quantity,price,reward:{gold:0,cards:[{id:c.id,count:quantity}]}});
  }
  return out;
 }
-function purchaseDailyOffer(raw,index,now=Date.now(),expectedWindow=null,expectedCard=null){
+function purchaseDailyOffer(raw,index,now=Date.now(),expectedWindow=null,expectedCard=null,expectedQuantity=null){
  const p=C.normalizeProfile(raw),window=dailyWindow(now);if(!window||!Number.isInteger(index)||index<0||index>8)return fail(p,'Invalid daily offer');
  if(expectedWindow!==null&&expectedWindow!==window)return fail(p,'This offer expired. Refresh the shop.');
  const key=window+':'+index;if(p.dailyPurchases[key])return fail(p,'Already collected today');
- const offer=dailyOffers(now,p)[index];if(expectedCard&&expectedCard!==offer.id)return fail(p,'This offer changed. Refresh the shop.');
+ const offer=dailyOffers(now,p)[index];if(expectedCard&&expectedCard!==offer.id||expectedQuantity!==null&&offer.kind==='card'&&Number(expectedQuantity)!==offer.quantity)return fail(p,'This offer changed. Refresh the shop.');
  if(p.gold<offer.price)return fail(p,'Not enough gold');p.gold-=offer.price;grant(p,offer.reward);p.dailyPurchases[key]=1;
  return{ok:true,profile:C.normalizeProfile(p),reward:offer.reward,kind:offer.kind};
 }
 function dailyGift(raw,date){const p=C.normalizeProfile(raw);if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return fail(p,'Invalid date');if(p.dailyClaim===date)return fail(p,'Already collected today');p.dailyClaim=date;p.gold+=250;return {ok:true,profile:p,reward:{gold:250,cards:[]}};}
-function purchaseCard(raw,index,now=Date.now(),expectedWindow=null,expectedCard=null){const p=C.normalizeProfile(raw),window=shopWindow(now);if(!window||!Number.isInteger(index)||index<0||index>=12)return fail(p,'Invalid offer');if(expectedWindow!==null&&expectedWindow!==window)return fail(p,'This offer expired. Refresh the shop.');const o=offers(now,p)[index],key=window+':'+index;if(expectedCard&&o?.id!==expectedCard)return fail(p,'This offer changed. Refresh the shop.');if(!o||o.locked||!o.id)return fail(p,'Reach the required arena to unlock this rarity.');if(p.shopPurchases[key])return fail(p,'Offer already purchased');if(p.gold<o.price)return fail(p,'Not enough gold');p.gold-=o.price;const reward={gold:0,cards:[{id:o.id,count:o.quantity}]};grant(p,reward);p.shopPurchases[key]=1;return {ok:true,profile:p,reward};}
+function purchaseCard(raw,index,now=Date.now(),expectedWindow=null,expectedCard=null,expectedQuantity=null){const p=C.normalizeProfile(raw),window=shopWindow(now);if(!window||!Number.isInteger(index)||index<0||index>=12)return fail(p,'Invalid offer');if(expectedWindow!==null&&expectedWindow!==window)return fail(p,'This offer expired. Refresh the shop.');const o=offers(now,p)[index],key=window+':'+index;if(expectedCard&&o?.id!==expectedCard||expectedQuantity!==null&&o&&Number(expectedQuantity)!==o.quantity)return fail(p,'This offer changed. Refresh the shop.');if(!o||o.locked||!o.id)return fail(p,'Reach the required arena to unlock this rarity.');if(p.shopPurchases[key])return fail(p,'Offer already purchased');if(p.gold<o.price)return fail(p,'Not enough gold');p.gold-=o.price;const reward={gold:0,cards:[{id:o.id,count:o.quantity}]};grant(p,reward);p.shopPurchases[key]=1;return {ok:true,profile:p,reward};}
 function cardPool(p,arenaNumber=R.highestArena(p).number,rarity){const limit=Math.min(R.highestArena(p).number,Math.max(1,Math.floor(arenaNumber)||1));return C.CARDS.filter(c=>(C.DEFAULT_DECK.includes(c.id)||R.cardArenaNumber(c,C.DATA.arenas)<=limit)&&(!rarity||c.rarity===rarity));}
 function randomCards(p,arena,rarity,count,seed){const pool=cardPool(p,arena,rarity);if(!pool.length)return [];const random=C.rng(hash(seed));return [{id:pool[Math.floor(random()*pool.length)].id,count}];}
 // The original Giant base count, gold/card and arena multipliers are bundled
@@ -165,4 +169,4 @@ function useMagicItem(raw,itemId,target){const p=C.normalizeProfile(raw),item=Co
  if(item.kind==='book'){const missing=Math.max(0,q.copies-p.copies[target]);if(!missing)return fail(p,'This card already has enough copies');p.copies[target]+=missing;p.magicItems[itemId]--;return {ok:true,profile:p};}
  if(item.kind==='coin'){if(p.copies[target]<q.copies)return fail(p,'Collect the required card copies first');const before=p.gold;p.gold=Math.max(before,q.gold);const r=C.upgrade(p,target);if(!r.ok)return r;r.profile.gold=before;r.profile.magicItems[itemId]--;return r;}
  return fail(p,'Unsupported magic item');}
-return {crownReward,claimCrown,CHEST_OFFERS,chestOffers,GEM_OFFERS,gemOffers,purchaseGemCard,DAILY_INTERVAL,dailyWindow,dailyOffers,purchaseDailyOffer,loot,LIGHTNING_INTERVAL,lightningWindow,lightningOffers,purchaseLightningCard,shopWindow,chestReady:Chest.ready,chestIcon:Chest.icon,useMagicItem,CHART,offers,dailyGift,purchaseCard,cardPool,unlockChest,openChest,buyChest,classicChest,claimPass,claimRoad,roadChoices,useWildcards,grant};});
+return {crownReward,claimCrown,CHEST_OFFERS,chestOffers,GEM_OFFERS,gemOffers,purchaseGemCard,DAILY_INTERVAL,dailyWindow,dailyOffers,purchaseDailyOffer,loot,LIGHTNING_INTERVAL,lightningWindow,lightningOffers,purchaseLightningCard,shopWindow,shopQuantityMultiplier,scaleShopQuantity,chestReady:Chest.ready,chestIcon:Chest.icon,useMagicItem,CHART,offers,dailyGift,purchaseCard,cardPool,unlockChest,openChest,buyChest,classicChest,claimPass,claimRoad,roadChoices,useWildcards,grant};});

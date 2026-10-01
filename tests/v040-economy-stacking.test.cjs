@@ -73,15 +73,15 @@ for(const [name,offers,purchase,price]of [['emote',U.rotatingEmotes,U.purchaseEm
  });
 }
 
-test('v040 Gem Shop quantity rolls cover all requested ranges and endpoints at unchanged prices',()=>{
+test('v040 Gem Shop quantity rolls preserve requested base ranges while applying current king scaling at unchanged prices',()=>{
  const seen=Object.fromEntries(Object.keys(ranges).map(r=>[r,new Set()]));
  const base=profile({world:{seed:47123}});
  for(let rotation=0;rotation<2000;rotation++){
   const p=profile({...base,gemShop:{rotation,arenaNumber:14,purchased:[]}}),os=E.gemOffers(p);
   A.equal(os.length,6);A.equal(new Set(os.map(o=>o.id)).size,6);A.deepEqual(E.gemOffers(C.normalizeProfile(JSON.parse(JSON.stringify(p)))),os);
-  for(const o of os){const [lo,hi,price]=ranges[o.rarity];A.ok(Number.isInteger(o.quantity)&&o.quantity>=lo&&o.quantity<=hi,JSON.stringify(o));A.equal(o.price,price);seen[o.rarity].add(o.quantity);}
+  for(const o of os){const [lo,hi,price]=ranges[o.rarity],scaledLo=E.scaleShopQuantity(lo,o.rarity,p),scaledHi=E.scaleShopQuantity(hi,o.rarity,p);A.ok(Number.isInteger(o.quantity)&&o.quantity>=scaledLo&&o.quantity<=scaledHi,JSON.stringify(o));A.equal(o.price,price);seen[o.rarity].add(o.quantity);}
  }
- for(const [r,values]of Object.entries(seen)){A.equal(Math.min(...values),ranges[r][0],r+' lower endpoint');A.equal(Math.max(...values),ranges[r][1],r+' upper endpoint');}
+ for(const [r,values]of Object.entries(seen)){const lo=E.scaleShopQuantity(ranges[r][0],r,base),hi=E.scaleShopQuantity(ranges[r][1],r,base);A.equal(Math.min(...values),lo,r+' scaled lower endpoint');A.equal(Math.max(...values),hi,r+' scaled upper endpoint');}
 });
 test('v040 Gem Shop grants the displayed quantity before refreshing on purchase two; price roll is stable on reload',()=>{
  const p=profile(),os=E.gemOffers(p),cycle=p.gemShop.rotation;
