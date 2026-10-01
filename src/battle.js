@@ -108,7 +108,9 @@ class Battle {
    if(r.Projectile)this.schedule({type:'impact',due:this.time+sec(e.DeployTime),name:r.Projectile,team,x,y,level:c.level});
    this.effect({kind:'spawn',x,y,team,ttl:1});return;
   }
-  if(c.id==='arrows'){for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'impact',name:r.CustomFirstProjectile||'ArrowsSpell',team,x,y,level:c.level,due:this.time+1+i*sec(r.ProjectileWaveInterval||200)});for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'visual',kind:'arrowsFly',x,y,startX:9*SX,startY:(team?3:29)*SY,team,ttl:1.35,flightDuration:1,wave:i,count:r.MultipleProjectiles||10,radius:(r.Radius||4000)/1000*SX,due:this.time+i*sec(r.ProjectileWaveInterval||200)});return;}
+  // One second of flight plus the native embedded-arrow maximum life (1.9s).
+  // The visual tail is independent of the three scheduled damage waves.
+  if(c.id==='arrows'){for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'impact',name:r.CustomFirstProjectile||'ArrowsSpell',team,x,y,level:c.level,due:this.time+1+i*sec(r.ProjectileWaveInterval||200)});for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'visual',kind:'arrowsFly',x,y,startX:9*SX,startY:(team?3:29)*SY,team,ttl:2.9,flightDuration:1,wave:i,count:r.MultipleProjectiles||10,radius:(r.Radius||4000)/1000*SX,due:this.time+i*sec(r.ProjectileWaveInterval||200)});return;}
   if(c.id==='the-log'||c.id==='barbarian-barrel'){
    this.effect({kind:'rollingDeploy',projectile:r.Projectile,x,y,team,ttl:.5});this.schedule({type:'rolling',name:c.id==='the-log'?'LogProjectileRolling':'BarbLogProjectileRolling',team,x,y,level:c.level,due:this.time+.5});return;
   }

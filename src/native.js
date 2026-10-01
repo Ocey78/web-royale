@@ -76,6 +76,16 @@ function projectilePosition(p,target){
  const z=(p.launchHeight||0)*(1-progress)+end*progress+arc;
  return {x:p.x,y:p.y-z};
 }
+// Spell bodies were all reduced with the small troop-projectile multiplier.
+// Keep ordinary missiles small; calibrate spell silhouettes against field width.
+function projectileArtScale(name,cfg={}){const scale={RocketSpell:1.2,FireballSpell:1.05,SnowballSpell:.95,GoblinBarrelSpell:.95,LogProjectile:1.1,LogProjectileRolling:1.1,BarbLogProjectile:1,BarbLogProjectileRolling:1}[name]??.65;return scale*(cfg.scale||1);}
+function rocketAtlasPose(pose,count=60){
+ // Atlas0 points vertically up,15 south,30 vertically down,45 north.
+ // Zero pitch therefore selects the long northward barrel at frame45.
+ const south=Math.sin(pose.groundAngle??pose.angle)>1e-6,turn=south?.25+pose.pitch/(Math.PI*2):.75-pose.pitch/(Math.PI*2),frame=((Math.round(turn*count)%count)+count)%count,sourceFrame=frame/count*60;
+ const sourceAxis=sourceFrame>=6&&sourceFrame<=35?Math.PI/2:-Math.PI/2;
+ return{frame,rotation:pose.angle-sourceAxis};
+}
 // Ordinary projectile artwork is authored facing +X. Rocket is a separate
 // pitch atlas authored on the Y axis. Ground and altitude derivatives differ.
 // Fireball/Rocket must
@@ -345,9 +355,9 @@ class Library{
   const h=Math.max(18,Math.min(140,top*(5/6)*cfg.scale))+5;this.metricCache.set(id,h);return h;
  }
  drawProjectile(c,p,time,battle=null){const cfg=this.data.projectiles?.[p.name];if(!this.ready||!cfg)return false;const sc=this.scenes[cfg.scene],sourceTeam=p.team===1?1:0,name=sourceTeam?cfg.redExport:cfg.export;if(!sc||sc.id(name)===undefined)return false;const r=battle?.constructor?globalThis.RoyaleCore?.DATA.projectiles[p.name]||{}:{};
-  const pos=projectilePose(p,battle?.getEntity(p.target)),angle=pos.angle,scale=.65*(cfg.scale||1);
+  const pos=projectilePose(p,battle?.getEntity(p.target)),angle=pos.angle,scale=projectileArtScale(p.name,cfg);
   if(r.ShadowExportName){const shadow=sc.id(r.ShadowExportName)!==undefined?sc:this.scenes.effects;if(shadow?.id(r.ShadowExportName)!==undefined){c.save();c.globalAlpha*=.3;c.translate(p.x,p.y);c.rotate(angle);c.scale(scale,scale*.7);shadow.draw(c,r.ShadowExportName,0);c.restore();}}
-  c.save();c.translate(pos.x,pos.y);c.filter=teamFilter(p.team);const clip=sc.clip(name),count=clip?.frames?.length||1;let options={};if(r.use360Frames&&count>1){options={frame:Math.floor(((pos.pitch/(Math.PI*2))%1+1)%1*count)};c.rotate(pos.groundAngle+Math.PI/2);}else c.rotate(p.line?pos.groundAngle:angle);c.scale(scale,scale);sc.draw(c,name,Math.max(0,time-p.born),options);c.restore();return true;}
+  c.save();c.translate(pos.x,pos.y);c.filter=teamFilter(p.team);const clip=sc.clip(name),count=clip?.frames?.length||1;let options={};if(r.use360Frames&&count>1){if(p.name==='RocketSpell'){const art=rocketAtlasPose(pos,count);options={frame:art.frame};c.rotate(art.rotation);}else{options={frame:Math.floor(((pos.pitch/(Math.PI*2))%1+1)%1*count)};c.rotate(pos.groundAngle+Math.PI/2);}}else c.rotate(p.line?pos.groundAngle:angle);c.scale(scale,scale);sc.draw(c,name,Math.max(0,time-p.born),options);c.restore();return true;}
 
  releaseArenaCache(){
   for(const runs of this.arenaCache.values())for(const run of runs)if(run.image){run.image.width=1;run.image.height=1;}
@@ -446,7 +456,7 @@ class Library{
   c.restore();return true;
  }
  drawEffect(c,e,time){if(!this.ready)return false;const s=this.scenes.effects;if(!s)return false;const age=Math.max(0,time-e.born),p=Math.min(1,age/e.ttl),at=(name,x,y,scale=1,rotation=0)=>{c.save();c.filter=teamFilter(e.team);c.globalAlpha*=effectOpacity(age,e.ttl);c.translate(x,y);c.rotate(rotation);c.scale(scale,scale);s.draw(c,name,age,{loop:false});c.restore();};
-  if(e.kind==='rollingDeploy'){const cfg=this.data.projectiles[e.projectile],scene=cfg&&this.scenes[cfg.scene];if(!scene)return false;const name=e.team===1?cfg.redExport:cfg.export,h=64*(1-p);c.save();c.translate(e.x,e.y-h);c.rotate(e.team===1?Math.PI/2:-Math.PI/2);c.scale(.65,.65);scene.draw(c,name,age,{loop:true});c.restore();return true;}
+  if(e.kind==='rollingDeploy'){const cfg=this.data.projectiles[e.projectile],scene=cfg&&this.scenes[cfg.scene];if(!scene)return false;const name=e.team===1?cfg.redExport:cfg.export,h=64*(1-p),scale=projectileArtScale(e.projectile,cfg);c.save();c.translate(e.x,e.y-h);c.rotate(e.team===1?Math.PI/2:-Math.PI/2);c.scale(scale,scale);scene.draw(c,name,age,{loop:true});c.restore();return true;}
   if(e.kind==='fireballFly'){at('fireball_projectile1',e.x,e.y-(1-p)*300,.7,Math.PI);return true;}
   if(e.kind==='arrowsFly'){for(let i=0;i<9;i++)at(e.team===1?'projectile_arrow_basic_enemy':'projectile_arrow_basic',e.x+Math.sin(i*3)*47,e.y+Math.cos(i*8)*46-(1-p)*190,.7,Math.PI);return true;}
   if(e.kind==='fireball'||e.kind==='blast'){const r=e.radius||45;for(let i=0;i<7;i++)at('FireParticle1',e.x+Math.cos(i*2.4)*p*r*.7,e.y+Math.sin(i*2.4)*p*r*.6,.22+p*.16);at('explosion_cloud_1',e.x,e.y,.20+p*.22);return true;}
@@ -458,4 +468,4 @@ class Library{
  }
  summary(){return{ready:this.ready,error:this.error,arenas:this.data.arenas.length,units:Object.keys(this.data.units).length,textures:this.loadedTextures,residentTextures:this.textureImages.size,residentScenes:Object.keys(this.scenes).length,shapeCache:[...Object.values(this.scenes)].reduce((n,s)=>n+s.cache.size,0),frameSamples:[...Object.values(this.scenes)].reduce((n,s)=>n+s.frameSamples.size,0)}}
 }
-return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,frameAt,direction,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,towerArtPosition,towerAttachmentOffset,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectilePose,affine,mul,Scene,Library};});
+return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,frameAt,direction,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,towerArtPosition,towerAttachmentOffset,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,Scene,Library};});

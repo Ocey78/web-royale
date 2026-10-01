@@ -12,9 +12,10 @@ test('looping projectile trail has no gap between emitter cycles',()=>{
  const r={ParticleCount:50,MinLife:800,MaxLife:800,ParticleMinInterval:5,ParticleMaxInterval:10,ParticleMinLife:200,ParticleMaxLife:200};
  for(const t of [.39,.59,.79,.99,10.79])A.ok(FX.emitterSamples(r,'trail',t,true,{},32).length>=9,'empty trail at '+t);
 });
-test('Earthquake crack artwork fills the spell radius and reaches visible source frames',()=>{
+test('Earthquake cracks fill the radius while retaining their authored delayed appearance',()=>{
  const sc=new N.Scene(data.scenes.effects,[]),r=new FX.Renderer(fx,{scenes:{effects:sc}}),calls=[];r.sprite=(...args)=>{calls.push(args);return true;};
- r.effect({},'Spell_earthquake_loop',240,300,.4,0,{phase:'ground',fitArea:true,radius:3.5,life:3,loop:true});const crack=calls.find(a=>a[2]==='earthquake_cracks_timed');A.ok(crack);A.ok(crack[3]>=1);A.ok(crack[6]>1);
+ r.effect({},'Spell_earthquake_loop',240,300,.4,0,{phase:'ground',fitArea:true,radius:3.5,life:3,loop:true});const crack=calls.find(a=>a[2]==='earthquake_cracks_timed');A.ok(crack);A.ok(crack[3]<.5);A.ok(crack[6]>1);A.ok(sc.bounds('earthquake_cracks_timed',crack[3]).width<=1);
+ calls.length=0;r.effect({},'Spell_earthquake_loop',240,300,1.4,0,{phase:'ground',fitArea:true,radius:3.5,life:3,loop:true});A.ok(calls.some(a=>a[2]==='earthquake_cracks_timed'&&sc.bounds(a[2],a[3]).width>1));
 });
 test('Rage cast burst fades promptly while its separate area remains',()=>{
  const r=new FX.Renderer(fx,{scenes:{}}),calls=[];r.sprite=(...args)=>{calls.push(args);return true;};

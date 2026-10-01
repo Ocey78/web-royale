@@ -1,9 +1,10 @@
 /* Hand-built custom arenas. Every walkable edge is read from ArenaLayout.
    Backdrop + floor are cached together; raised scenery is a separate cached
-   foreground. Ambient snow/flames animate without rebuilding either surface. */
+   foreground. Touchdown caches background, pitch and stadium decorations as
+   separate surfaces. Ambient effects animate without rebuilding these layers. */
 (function(root){'use strict';
 const cache=new Map(),SX=480/18,SY=20,stadium={image:null,pending:null,url:null};
-function clear(){for(const cv of cache.values()){if(cv.foreground){cv.foreground.width=1;cv.foreground.height=1;}cv.width=1;cv.height=1;}cache.clear();}
+function clear(){for(const cv of cache.values()){if(cv.foreground){cv.foreground.width=1;cv.foreground.height=1;}if(cv.background){cv.background.width=1;cv.background.height=1;}cv.width=1;cv.height=1;}cache.clear();}
 function poly(c,pts,fill,edge,width=1){c.beginPath();pts.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();if(fill){c.fillStyle=fill;c.fill();}if(edge){c.strokeStyle=edge;c.lineWidth=width;c.stroke();}}
 function line(c,x,y,xx,yy,color,w=1){c.strokeStyle=color;c.lineWidth=w;c.beginPath();c.moveTo(x,y);c.lineTo(xx,yy);c.stroke();}
 function gradient(c,x,y,xx,yy,stops,radial=false){const g=radial?c.createRadialGradient(x,y,0,x,y,Math.max(1,xx)):c.createLinearGradient(x,y,xx,yy);if(!g?.addColorStop)return stops[0][1];for(const [at,col]of stops)g.addColorStop(at,col);return g;}
@@ -22,12 +23,19 @@ async function prepareAssets(b,assetBase){
  stadium.pending=new Promise(resolve=>{const img=new root.Image();img.onload=()=>{if(stadium.url===url){stadium.image=img;clear();}resolve(true);};img.onerror=()=>resolve(false);img.src=url;});
  const ready=await stadium.pending;stadium.pending=null;return ready;
 }
-function stadiumReference(c,l){
+function stadiumSlice(c,l,x,y,w,h){const [left,top]=stadiumPoint(l,x,y),[right,bottom]=stadiumPoint(l,x+w,y+h);c.drawImage(stadium.image,x,y,w,h,left,top,right-left,bottom-top);}
+function stadiumReference(c,l,front,background){
  if(!stadium.image)return false;
- // The supplied 551 x 647 stadium is split at its field and scoring lines.
- // This preserves all stands while anchoring the raster to unchanged game geometry.
- const sx=[0,136,409,551],sy=[0,126,169,484,524,647],dx=[l.left*SX-105,l.left*SX,l.right*SX,l.right*SX+105],dy=[l.top*SY-155,l.top*SY,l.goalTop*SY,l.goalBottom*SY,l.bottom*SY,l.bottom*SY+155];
- for(let row=0;row<5;row++)for(let col=0;col<3;col++)c.drawImage(stadium.image,sx[col],sy[row],sx[col+1]-sx[col],sy[row+1]-sy[row],dx[col],dy[row],dx[col+1]-dx[col],dy[row+1]-dy[row]);
+ // Turf and end zones belong to the ground surface. Trees and distant scenery
+ // render behind it; stands, horns, statues and entrances render in foreground.
+ // Every crop stays anchored to unchanged playable edges and scoring lines.
+ const sy=[0,126,169,484,524,647];
+ for(let row=0;row<5;row++){
+  const y=sy[row],h=sy[row+1]-y;
+  stadiumSlice(row>0&&row<4?c:front,l,136,y,273,h);
+  stadiumSlice(background,l,0,y,35,h);stadiumSlice(front,l,35,y,101,h);
+  stadiumSlice(front,l,409,y,109,h);stadiumSlice(background,l,518,y,33,h);
+ }
  return true;
 }
 function nativeTouchdownPitch(c,l,lib){
@@ -332,12 +340,12 @@ function themeDetails(c,f,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,
   for(let y=l.riverTop*SY+4;y<l.riverBottom*SY;y+=9)line(c,left+3,y,right-3,y,'#9fd2e733',1);
  }
 }
-function touchdownField(c,f,l,lib){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left;
- if(stadiumReference(c,l))return'supplied-reference';
+function touchdownField(c,f,l,lib,back=c){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left;
+ if(stadiumReference(c,l,f,back))return'supplied-reference';
  // Graceful fallback: native Touchdown pitch with handcrafted surrounding stands.
- c.fillStyle=gradient(c,left,top,right,bottom,[[0,'#2c5644'],[.45,'#467b54'],[1,'#284a3d']]);c.fillRect(left-105,top-125,w+210,bottom-top+250);
+ back.fillStyle=gradient(back,left,top,right,bottom,[[0,'#2c5644'],[.45,'#467b54'],[1,'#284a3d']]);back.fillRect(left-105,top-125,w+210,bottom-top+250);
  // Tiered spectator stands are outside the legal field and give the stadium real depth.
- for(const side of [-1,1]){const x=side<0?left-82:right+22;for(let tier=0;tier<4;tier++){plate(c,x-side*tier*8,top-35-tier*8,60+tier*8,bottom-top+70+tier*16,tier%2?'#47586b':'#39495b','#b9a978',10);for(let y=top+12;y<bottom-6;y+=42)for(let n=0;n<3;n++)ellipse(c,x+18+n*13-side*tier*3,y+(n%2)*5,3.2,3.2,['#d85a68','#5c8fcb','#d6b54d'][n]);}}
+ for(const side of [-1,1]){const x=side<0?left-82:right+22;for(let tier=0;tier<4;tier++){plate(back,x-side*tier*8,top-35-tier*8,60+tier*8,bottom-top+70+tier*16,tier%2?'#47586b':'#39495b','#b9a978',10);for(let y=top+12;y<bottom-6;y+=42)for(let n=0;n<3;n++)ellipse(back,x+18+n*13-side*tier*3,y+(n%2)*5,3.2,3.2,['#d85a68','#5c8fcb','#d6b54d'][n]);}}
  // Original Barbarian Bowl architecture supplies the stadium's textured side stands.
  const standH=Math.min(176,(bottom-top)*.28);for(const side of [-1,1]){const x=side<0?left-68:right+68;prop(f,lib,'level_barbarian_arena',side<0?'barbarian_blue_sidestand_left':'barbarian_red_sidestand_right',x,(top+bottom)/2-135,118,standH,side>0);prop(f,lib,'level_barbarian_arena',side<0?'barbarian_blue_sidestand_right':'barbarian_red_sidestand_left',x,(top+bottom)/2+135,118,standH,side>0);for(const y of [top+34,bottom-34])prop(f,lib,'level_barbarian_arena','barbarian_tower1',x,y,62,82,side>0);}
  plate(c,left-18,top-14,w+36,bottom-top+28,'#23384a','#cdb974',14);c.fillStyle='#6d9a69';c.fillRect(left,top,w,bottom-top);
@@ -370,12 +378,12 @@ function ffaField(c,f,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bott
  for(const row of l.ffaTeams){const [kx,ky]=row.king;const x=kx*SX,y=ky*SY;line(f,x,y-48,x,y-20,'#d5c18c',2);poly(f,[[x,y-46],[x+18,y-42],[x+16,y-25],[x,y-29]],colors[row.team],'#ead69b',1);}
 }
 function build(l,lib,density){const [cv,c]=makeSurface(density,l),[front,f]=makeSurface(density,l),bridgeMap=l.id.startsWith('BridgeBattle'),icy=bridgeMap&&l.theme==='ice',lavaBridge=bridgeMap&&l.theme==='lava',gardenBridge=bridgeMap&&l.theme==='garden',rumble=l.id.startsWith('TeamRumble'),touch=!!l.touchdown,ffa=!!l.ffa,left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY;cv.foreground=front;cv.river=l.river!==false;cv.crossings=cv.river?l.bridges.length:0;cv.foundations=foundationSlots(l);
- c.fillStyle=icy?'#cfdded':lavaBridge?'#24151a':gardenBridge?'#6f936f':'#293d55';c.fillRect(cv.worldRect.x,cv.worldRect.y,cv.worldRect.width,cv.worldRect.height);sourceArenaBackdrop(c,lib,l);
- if(touch){cv.stadiumArt=touchdownField(c,f,l,lib);}else if(ffa){ffaField(c,f,l);}else{if(bridgeMap){if(icy){icyBackdrop(c,left,right);goldFrame(c,left,right,top,bottom);}else if(lavaBridge){lavaBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'lava');}else{gardenBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'garden');}}else if(rumble){if(l.theme==='moon-castle')moonKeepBackdrop(c,l);else if(l.theme==='river-fort')fourBridgesBackdrop(c,l);else rumbleBackdrop(c,l);}else{if(l.theme==='jungle')jungleCitadelBackdrop(c,left,right,top,bottom);else if(l.theme==='volcano')emberFortressBackdrop(c,left,right,top,bottom);else royalBastionBackdrop(c,left,right,top,bottom);plate(c,left-18,top-16,right-left+36,bottom-top+33,l.theme==='jungle'?'#3c543f':l.theme==='volcano'?'#34262a':'#26354b',l.theme==='jungle'?'#7f936e':l.theme==='volcano'?'#7e4938':'#151d2d',10);}outerEnvironment(c,l);c.save();c.globalAlpha=1;if(icy)floorTiles(c,left,right,true,l.top,l.bottom);else themedFloor(c,l,left,right,top,bottom);c.restore();if(!bridgeMap)rearCourtyard(c,l,rumble);if(icy)frozenInlays(c,left,right);else if(!rumble&&!bridgeMap){for(const lane of l.lanes){const x=lane*SX;for(let y=top+26;y<bottom-20;y+=20)bevel(c,x-14,y,28,18,l.theme==='jungle'?'#768165':l.theme==='volcano'?'#3c3034':'#8f8294',l.theme==='volcano'?'#c07e4955':'#d2c6ac55','#28302d55');}for(const y of [top+13,bottom-32]){c.fillStyle=y<100?'#9b596c5e':'#386cab5e';c.fillRect(left+40,y,right-left-80,20);}}crossings(c,l,icy);foundations(c,cv.foundations);themeDetails(c,f,l);
+ if(!touch){c.fillStyle=icy?'#cfdded':lavaBridge?'#24151a':gardenBridge?'#6f936f':'#293d55';c.fillRect(cv.worldRect.x,cv.worldRect.y,cv.worldRect.width,cv.worldRect.height);sourceArenaBackdrop(c,lib,l);}
+ if(touch){const [background,back]=makeSurface(density,l);cv.background=background;back.fillStyle='#172a3b';back.fillRect(cv.worldRect.x,cv.worldRect.y,cv.worldRect.width,cv.worldRect.height);cv.stadiumArt=touchdownField(c,f,l,lib,back);}else if(ffa){ffaField(c,f,l);}else{if(bridgeMap){if(icy){icyBackdrop(c,left,right);goldFrame(c,left,right,top,bottom);}else if(lavaBridge){lavaBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'lava');}else{gardenBackdrop(c,left,right);causewayFrame(c,left,right,top,bottom,'garden');}}else if(rumble){if(l.theme==='moon-castle')moonKeepBackdrop(c,l);else if(l.theme==='river-fort')fourBridgesBackdrop(c,l);else rumbleBackdrop(c,l);}else{if(l.theme==='jungle')jungleCitadelBackdrop(c,left,right,top,bottom);else if(l.theme==='volcano')emberFortressBackdrop(c,left,right,top,bottom);else royalBastionBackdrop(c,left,right,top,bottom);plate(c,left-18,top-16,right-left+36,bottom-top+33,l.theme==='jungle'?'#3c543f':l.theme==='volcano'?'#34262a':'#26354b',l.theme==='jungle'?'#7f936e':l.theme==='volcano'?'#7e4938':'#151d2d',10);}outerEnvironment(c,l);c.save();c.globalAlpha=1;if(icy)floorTiles(c,left,right,true,l.top,l.bottom);else themedFloor(c,l,left,right,top,bottom);c.restore();if(!bridgeMap)rearCourtyard(c,l,rumble);if(icy)frozenInlays(c,left,right);else if(!rumble&&!bridgeMap){for(const lane of l.lanes){const x=lane*SX;for(let y=top+26;y<bottom-20;y+=20)bevel(c,x-14,y,28,18,l.theme==='jungle'?'#768165':l.theme==='volcano'?'#3c3034':'#8f8294',l.theme==='volcano'?'#c07e4955':'#d2c6ac55','#28302d55');}for(const y of [top+13,bottom-32]){c.fillStyle=y<100?'#9b596c5e':'#386cab5e';c.fillRect(left+40,y,right-left-80,20);}}crossings(c,l,icy);foundations(c,cv.foundations);themeDetails(c,f,l);
  if(icy){diamond(f,left-17,320);diamond(f,right+17,320);for(const y of [top-4,bottom+4]){plate(f,left+5,y-11,right-left-10,20,gradient(f,0,y-11,0,y+9,[[0,'#cf9a56'],[.5,'#8b5b38'],[1,'#e7bc75']]),'#f9d492',6);for(const x of [left+26,right-26]){f.save();f.translate(x,y-1);f.rotate(Math.PI/4);f.strokeStyle='#f5d5a4';f.lineWidth=2;f.strokeRect(-5,-5,10,10);f.restore();}}for(const side of [-1,1])for(const [y,w,h,name]of [[132,100,185,'ice_mountain_01'],[560,142,228,'ice_mountain_02']])prop(c,lib,'level_ice_arena',name,side<0?left-74:right+74,y,w,h,side>0);for(const side of [-1,1])for(const y of [60,140,500,580])snow(f,side<0?left-37:right+37,y,34,55);for(const [x,y]of [[left-57,372],[right+57,372]]){prop(c,lib,'level_ice_arena','ice_cubegroup_02',x,y,78,85);snow(f,x,y-16,38,24);}}else if(lavaBridge){for(const side of [-1,1])for(const y of [75,185,455,565]){const x=side<0?left-40:right+40;poly(f,[[x-18,y+25],[x,y-24],[x+18,y+25]],'#302126','#8c4c37',2);ellipse(f,x,y+15,14,5,'#ff6a2b');}for(const y of [top+3,bottom-3])for(const x of [left+12,right-12]){ellipse(f,x,y,10,6,'#1b161a');ellipse(f,x,y-4,6,9,'#ff8235');}}else if(gardenBridge){for(const side of [-1,1])for(let y=top+35;y<bottom-20;y+=74){const x=side<0?left-33:right+33;ellipse(f,x,y,24,13,'#2f7444');ellipse(f,x,y-8,18,10,'#4f9b57');for(let a=0;a<5;a++){const ang=a*Math.PI*2/5;ellipse(f,x+Math.cos(ang)*15,y-8+Math.sin(ang)*8,3,3,['#ffd36f','#ef91c0','#96cfff'][a%3]);}}for(const y of [top+5,bottom-5]){plate(f,left+4,y-8,right-left-8,16,'#c7b989','#f1e2b5',5);}}else if(rumble){castleScenery(c,f,l,lib);}else{stoneRails(f,l);themedSourceScenery(c,l,lib);for(const y of [88,320,552])for(const x of [left-10,right+10]){plate(f,x-5,y-5,10,22,'#596577','#1e293b',2);ellipse(f,x,y,6,3,'#272b32');}}}
  cv.theme=l.theme||'custom';cv.detailTier='environment-v047';cv.layers=['source-arena-texture','distant-backdrop','perimeter-architecture','unique-floor','tower-foundations','raised-scenery','theme-props','ambient'];if(cv.theme==='castle'||cv.theme==='moon-castle'||cv.theme==='river-fort')cv.layers.push('castle-architecture');if(touch)cv.layers.push('touchdown-stands');if(ffa)cv.layers.push('ffa-corner-forts');return cv;}
 function prepare(b,lib){const l=b.arenaLayout;if(!l?.custom)return null;const g=root.RoyaleGraphics?.current||{},rectW=(l.right-l.left)*SX+210,rectH=(l.bottom-l.top)*SY+310,wanted=Math.max(.5,Math.min(8,g.arenaScale??2)),maxPixels=wanted>4?50331648:33554432,d=Math.min(wanted,16383/rectW,16383/rectH,Math.sqrt(maxPixels/(rectW*rectH))),key=l.id+':'+(l.revision||0)+':'+d.toFixed(4);let cv=cache.get(key);if(!cv){if(cache.size>=(d>4?1:2))clear();cv=build(l,lib,d);cache.set(key,cv);}return cv;}
-function draw(c,b,lib){const cv=prepare(b,lib);if(!cv)return false;const r=cv.worldRect;c.drawImage(cv,r.x,r.y,r.width,r.height);return true;}
+function draw(c,b,lib){const cv=prepare(b,lib);if(!cv)return false;const r=cv.worldRect;if(cv.background)c.drawImage(cv.background,r.x,r.y,r.width,r.height);c.drawImage(cv,r.x,r.y,r.width,r.height);return true;}
 function environmentAmbient(c,l,t,g){
  const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,w=right-left,h=bottom-top,theme=l.theme,count=g.arenaBackgrounds==='med'?20:g.arenaBackgrounds==='max'||g.arenaBackgrounds==='ultra'?72:g.arenaBackgrounds==='high'?52:36;
  c.save();c.beginPath();c.rect(left-105,top-155,w+210,h+310);c.rect(left,top,w,h);c.clip('evenodd');

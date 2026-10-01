@@ -1,15 +1,16 @@
-# Web Royale v0.49.0
+# Web Royale v0.50.0
 
-**Full build:** corrected spell effects, optional individual swarm levels, Ultra
-shader graphics, reduced rendering overhead, distinct animated custom environments,
-the supplied Touchdown stadium, cleaner shop cards and 11,284 opponent decks.
+**Full build:** revised spell animation timing, body sizes, Rocket orientation,
+stable fire/smoke trails and impacts, filled area effects, zoomed Touchdown pitch
+with separate stadium decorations, and duplicate practice decks in all saved modes.
+Includes Ultra graphics, individual swarm levels, animated custom environments,
+cleaner shop cards and 11,284 opponent decks from v0.49.
 
 Export your save, close the old game/launcher, extract the entire ZIP, and run
 `open offline.bat`. The ready-to-serve website is in `dist/`. Keep the same browser
 and localhost address to keep accessing the same browser save.
 
-See **BUILD-NOTES-v0.49.0.md** for changes, measurements and the limits of the
-available historical artwork. Earlier replay engines remain packaged. No live
+See **BUILD-NOTES-v0.50.0.md** for changes and validation. Earlier replay engines remain packaged. No live
 deployment is performed by downloading or extracting this archive.
 
 For development, use Node 22+, `npm test`, `npm run build`, and `npm run serve`.
@@ -20,7 +21,7 @@ verified `dist/` to keep this full-build download smaller.
 
 ## Historical release and project documentation
 
-The sections below describe earlier releases. v0.49.0 build notes take precedence
+The sections below describe earlier releases. v0.50.0 build notes take precedence
 where behavior, versions, prices, mode lists, or timing differ.
 
 # Rebuilt v0.40.1 distribution

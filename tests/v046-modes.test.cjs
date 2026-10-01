@@ -24,11 +24,13 @@ test('v046 training supports Six Card and Uncapped Elixir',()=>{
  for(const mode of ['SixCardDeck','UncappedElixir']){a.ok(TM.modes.some(m=>m.id===mode));const b=TM.create(mode,{seed:20260930,ai:false});a.equal(b.mode,mode);}
 });
 
-test('v046 Touchdown camera exposes the official-style stadium sidelines around the field',()=>{
+test('Touchdown camera prioritizes the complete playable field above the hand in both compositions',()=>{
  const V=require('../src/battle-view.js'),L=require('../src/arena-layout.js');
- for(const id of ['Touchdown','Touchdown3v3']){
-  V.configure({compact:true,arenaId:id});const l=L.get(id),c=V.camera;
-  const left=c.x+l.left*480/18*c.scale,right=c.x+l.right*480/18*c.scale;
-  a.ok(left>=70,id+' left stadium margin');a.ok(right<=470,id+' right stadium margin');
- }
+ try{for(const compact of [true,false])for(const id of ['Touchdown','Touchdown3v3']){
+  V.configure({compact,arenaId:id});const l=L.get(id),c=V.camera,left=V.toScreen({x:l.left*480/18,y:l.top*20}),right=V.toScreen({x:l.right*480/18,y:l.bottom*20});
+  a.ok(right.x-left.x>=V.viewport.width*.88,id+' uses most of the frame for playable turf');
+  a.ok(left.x>=0&&right.x<=V.viewport.width,id+' keeps both field edges visible');
+  a.ok(left.y>=0&&right.y<V.layout.handTop,id+' keeps all playable turf above the hand');
+  for(const y of [l.goalTop*20,l.goalBottom*20]){const p={x:240,y},screen=V.toScreen(p);a.ok(V.onBoard(screen));const restored=V.toWorld(screen);a.ok(Math.hypot(restored.x-p.x,restored.y-p.y)<1e-8,id+' pointer and score geometry remain aligned');}
+ }}finally{V.configure({compact:false});}
 });

@@ -1,0 +1,54 @@
+{
+  "version": "0.50.0",
+  "tests": {
+    "total": 1265,
+    "passed": 1265,
+    "failed": 0
+  },
+  "spells": {
+    "count": 17,
+    "missingSourceExports": [],
+    "browserErrors": [],
+    "impactRelativeSampling": true
+  },
+  "touchdown": {
+    "checks": [
+      {
+        "id": "Touchdown",
+        "layout": "Touchdown",
+        "stadiumArt": "supplied-reference",
+        "separateBackground": true,
+        "fieldLeft": 24.375,
+        "fieldRight": 515.625,
+        "fieldTop": 46.03125,
+        "fieldBottom": 741.96875,
+        "handTop": 788,
+        "camera": {
+          "x": 24.375,
+          "y": 66.5,
+          "scale": 1.0234375
+        },
+        "units": 3
+      },
+      {
+        "id": "Touchdown3v3",
+        "layout": "Touchdown3v3",
+        "stadiumArt": "supplied-reference",
+        "separateBackground": true,
+        "fieldLeft": 28.09523809523811,
+        "fieldRight": 511.9047619047619,
+        "fieldTop": 136.97619047619045,
+        "fieldBottom": 651.0238095238094,
+        "handTop": 788,
+        "camera": {
+          "x": 88.57142857142858,
+          "y": 152.09523809523807,
+          "scale": 0.7559523809523809
+        },
+        "units": 3
+      }
+    ],
+    "errors": []
+  },
+  "app": "app.1df5fa7a4511.js"
+}

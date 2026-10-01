@@ -543,7 +543,7 @@ function normalizeProfile(raw){
  // Full catalog eligibility in casual play is independent of inferred ownership.
  // Preserve each existing special deck; initialize the new modes once from the
  // selected ranked deck and store them as independent arrays thereafter.
- const modeSaved=(raw,mode)=>{const size=K.modeDeckSize(mode),out=Array(size).fill(null),seen=new Set();if(Array.isArray(raw))for(let i=0;i<size;i++){const id=raw[i];if(K.allowedInMode(id,mode)&&!seen.has(id)){out[i]=id;seen.add(id);}}for(const id of [...K.DEFAULT_DECK,...K.CARDS.map(c=>c.id)]){if(!out.includes(null))break;if(K.allowedInMode(id,mode)&&!seen.has(id)){out[out.indexOf(null)]=id;seen.add(id);}}return out;};
+ const modeSaved=(raw,mode)=>{const size=K.modeDeckSize(mode),out=Array(size).fill(null),seen=new Set();if(Array.isArray(raw))for(let i=0;i<size;i++){const id=raw[i];if(K.allowedInMode(id,mode)&&(cheats.duplicates||!seen.has(id))){out[i]=id;seen.add(id);}}for(const id of [...K.DEFAULT_DECK,...K.CARDS.map(c=>c.id)]){if(!out.includes(null))break;if(K.allowedInMode(id,mode)&&!seen.has(id)){out[out.indexOf(null)]=id;seen.add(id);}}return out;};
  const casualDecks=Object.fromEntries(Object.entries(K.MODE_DECKS).map(([mode,cfg])=>[cfg.key,modeSaved(p[cfg.key]??decks[num(p.activeDeck,0,decks.length-1)],mode)]));
  const modeDeckSets={};for(const [mode,cfg] of Object.entries(K.MODE_DECKS)){const rawSet=p.modeDeckSets?.[mode],rawDecks=Array.isArray(rawSet?.decks)?rawSet.decks.slice(0,K.MAX_DECKS):[],setDecks=(rawDecks.length?rawDecks:[casualDecks[cfg.key]]).map(d=>modeSaved(d,mode)),active=num(rawSet?.active,0,setDecks.length-1);if(rawDecks.length&&Array.isArray(p[cfg.key]))setDecks[active]=modeSaved(p[cfg.key],mode);const names=setDecks.map((_,i)=>K.deckName(rawSet?.names?.[i],i));modeDeckSets[mode]={active,decks:setDecks,names};casualDecks[cfg.key]=[...setDecks[active]];}
  const experience=X.legacyTotalXp(p,fresh),xpState=X.progressFromTotalXp(experience),starPoints=num(p.starPoints,0,999999999);
@@ -1320,7 +1320,9 @@ class Battle {
    if(r.Projectile)this.schedule({type:'impact',due:this.time+sec(e.DeployTime),name:r.Projectile,team,x,y,level:c.level});
    this.effect({kind:'spawn',x,y,team,ttl:1});return;
   }
-  if(c.id==='arrows'){for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'impact',name:r.CustomFirstProjectile||'ArrowsSpell',team,x,y,level:c.level,due:this.time+1+i*sec(r.ProjectileWaveInterval||200)});for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'visual',kind:'arrowsFly',x,y,startX:9*SX,startY:(team?3:29)*SY,team,ttl:1.35,flightDuration:1,wave:i,count:r.MultipleProjectiles||10,radius:(r.Radius||4000)/1000*SX,due:this.time+i*sec(r.ProjectileWaveInterval||200)});return;}
+  // One second of flight plus the native embedded-arrow maximum life (1.9s).
+  // The visual tail is independent of the three scheduled damage waves.
+  if(c.id==='arrows'){for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'impact',name:r.CustomFirstProjectile||'ArrowsSpell',team,x,y,level:c.level,due:this.time+1+i*sec(r.ProjectileWaveInterval||200)});for(let i=0;i<(r.ProjectileWaves||3);i++)this.schedule({type:'visual',kind:'arrowsFly',x,y,startX:9*SX,startY:(team?3:29)*SY,team,ttl:2.9,flightDuration:1,wave:i,count:r.MultipleProjectiles||10,radius:(r.Radius||4000)/1000*SX,due:this.time+i*sec(r.ProjectileWaveInterval||200)});return;}
   if(c.id==='the-log'||c.id==='barbarian-barrel'){
    this.effect({kind:'rollingDeploy',projectile:r.Projectile,x,y,team,ttl:.5});this.schedule({type:'rolling',name:c.id==='the-log'?'LogProjectileRolling':'BarbLogProjectileRolling',team,x,y,level:c.level,due:this.time+.5});return;
   }

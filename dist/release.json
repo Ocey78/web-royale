@@ -1,12 +1,12 @@
 {
-  "version": "0.49.0",
+  "version": "0.50.0",
   "target": "web",
   "snapshot": "3.2557.2",
   "cards": 102,
   "scenes": 113,
-  "runtime": "runtime.c20788901750.json",
-  "app": "app.66b6d0ca8035.js",
-  "bootstrap": "bootstrap.d1f7a1539a50.js",
+  "runtime": "runtime.cee853c3face.json",
+  "app": "app.1df5fa7a4511.js",
+  "bootstrap": "bootstrap.911412934891.js",
   "styles": "styles.02415febbdc9.css",
   "files": {
     "assets/cards/knight.png": "a7bcd11d276d7a0696718e7a36104236db540b3c5c8038715bef00a13d07fb1a",
@@ -1203,18 +1203,18 @@
     "assets/presentation/ink-body.png": "7ab4304cdabc141c7b7ec7574d88436e239e60a909982775e37204766aa6cb56",
     "assets/presentation/ink-body-outline.png": "e7db1afc8bd63c75cc8ee067a7e7f2cee4100e4634e19555f2bd90f8d7232b67",
     "training-data.56c4be256a06.json": "56c4be256a0690372880b24f26e715ea3eb5f1474834e3227c2d093ad68c6b2a",
-    "training-engine.1f02f08b6635.js": "1f02f08b6635881229c73438853f467ad0d16159edb5db53868d8c62195cefa3",
+    "training-engine.53572954c604.js": "53572954c604aee3ccbe7800e09b469d640cfe6ddf442e96d3535bb78b2fdf75",
     "training-worker.cd1acab64fa1.js": "cd1acab64fa14074f7c8239c23b4d1532e79411e158bf322831a0e191353b149",
     "assets/webapp/icon-180.png": "95d25ecc83f4ae6bbd6b39309963e7afae3d143e32a258dc434cfa99b2689ded",
     "assets/webapp/icon-192.png": "08fa53a097998183ede6d12af2f507f94e5235dc04fcad38448620a553c1dbb5",
     "assets/webapp/icon-512.png": "81577df60036377a5613428ebbd787de1a1954a953a1f00035576b71def08457",
-    "asset-index.be947eccaa22.json": "be947eccaa22f106a8d9d289420a15f5c9c2af3cad4600a964e35bf2e883378a",
+    "asset-index.50934a8bf20b.json": "50934a8bf20b70cc0e60670dc03608ef76601316efcc845aa4705a9063cca3bb",
     "asset-worker.js": "c5891e6850f3c9481da0c115420951a7e69b07ced6f4b6a7f16b6d73482c5bc2",
-    "runtime.c20788901750.json": "c207889017502a885a73a95062aa7d48e0fbc155e3534214954ecf692aaf7c51",
-    "app.66b6d0ca8035.js": "66b6d0ca8035bd91042ee0ddbb88c52df5ea7cf685a06cbbdd9a3c7061742bb5",
+    "runtime.cee853c3face.json": "cee853c3face0ab7e8fe0c5e054f21e05a9c3aa20b276b074975a8edbbf349ee",
+    "app.1df5fa7a4511.js": "1df5fa7a45114dea0eb304ce6cc4a01057707b55551fc0123180d493f1015bea",
     "manifest.json": "ca88e947421b34ed5c5bbdab7d448025c4d809e5e7dcab80dc4f5e0e5c104389",
     "styles.02415febbdc9.css": "02415febbdc9d0ae9226a9ea9b243ea65515754163f03727b2037f42a7329d64",
-    "bootstrap.d1f7a1539a50.js": "d1f7a1539a5088fc2e67916e7a9754cb82aeb718031825ef7387bb579b1d6d8c",
-    "index.html": "8781f58222276df870e7b12813a918c5a612e8036b86b96d33c8ccb0a76f58ea"
+    "bootstrap.911412934891.js": "911412934891c71090fc643d5f99b9b7c702ae0f4c1ffffd8cd2f43fa40e2610",
+    "index.html": "331ae60de9d7cae21381ca48fe1d330d02e1563e32f918fa728cd728f1f36c1e"
   }
 }

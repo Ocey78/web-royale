@@ -7,16 +7,22 @@ function fixture(){
  class Image{constructor(){this.width=551;this.height=647;this.naturalWidth=551;this.naturalHeight=647;}set src(value){this.url=value;queueMicrotask(()=>this.onload?.());}get src(){return this.url;}}
  const root={Image,RoyaleGraphics:{current:{arenaScale:1,arenaAnimated:true,arenaFps:30,arenaBackgrounds:'good'}},document:{baseURI:'http://localhost/',createElement(){const c=context(),cv={width:0,height:0,getContext:()=>c};c.canvas=cv;surfaces.push(cv);return cv;}}};root.globalThis=root;vm.runInNewContext(fs.readFileSync('src/custom-arena.js','utf8'),root);return{root,surfaces,context};
 }
-test('touchdown reference art maps both goal lines and the complete stadium without cropped slices',async()=>{
+test('touchdown keeps its playable pitch separate from background and raised stadium decorations',async()=>{
  const {root,surfaces}=fixture(),b={arenaLayout:L.get('Touchdown')};
  a.equal(await root.RoyaleCustomArena.prepareAssets(b,'http://localhost/game/'),true);
  const cv=root.RoyaleCustomArena.prepare(b,null),draws=surfaces[0].getContext().calls.filter(c=>c[0]==='drawImage');
  a.equal(cv.stadiumArt,'supplied-reference');a.equal(cv.foundations.length,0);a.equal(cv.crossings,0);
- a.equal(draws.length,15,'three columns and five rows preserve every part of the supplied stadium');
- const centre=draws.filter(c=>c[2]===136&&c[4]===273);a.equal(centre.length,5);
+ a.ok(cv.background,'distant stadium scenery has its own cached surface');
+ a.equal(draws.length,3,'the ground surface contains only turf and the two end zones');
+ const centre=draws.filter(c=>c[2]===136&&c[4]===273);a.equal(centre.length,3);
  a.ok(centre.some(c=>c[3]===169&&c[5]===315&&c[7]===25&&c[9]===590),'green goal boundaries match gameplay goals');
- a.equal(Math.min(...draws.map(c=>c[2])),0);a.equal(Math.max(...draws.map(c=>c[2]+c[4])),551);
- a.equal(Math.min(...draws.map(c=>c[3])),0);a.equal(Math.max(...draws.map(c=>c[3]+c[5])),647);
+ const front=cv.foreground.getContext().calls.filter(c=>c[0]==='drawImage'),back=cv.background.getContext().calls.filter(c=>c[0]==='drawImage'),all=[...draws,...front,...back];
+ a.ok(front.length>0&&back.length>0,'both decoration layers contain supplied source crops');
+ for(const q of draws)a.ok(q[6]>=0&&q[6]+q[8]<=480&&q[7]>=-20&&q[7]+q[9]<=660,'ground art stays inside the legal field');
+ for(const q of [...front,...back])a.ok(q[6]+q[8]<=0||q[6]>=480||q[7]+q[9]<=-20||q[7]>=660,'stadium decorations cannot cover a playable lane');
+ a.equal(all.reduce((area,q)=>area+q[4]*q[5],0),551*647,'all original stadium pixels belong to exactly one presentation layer');
+ const output=fixture().context();root.RoyaleCustomArena.draw(output,b,null);a.deepEqual(output.calls.filter(q=>q[0]==='drawImage').map(q=>q[1]),[cv.background,cv],'background renders before the playable ground');
+ root.RoyaleCustomArena.clear();for(const layer of [cv,cv.background,cv.foreground])a.equal(layer.width,1,'clearing custom caches releases every Touchdown layer');
 });
 test('a missing reference falls back to the existing native touchdown pitch',async()=>{
  const {root}=fixture();root.Image=class{set src(value){queueMicrotask(()=>this.onerror?.(new Error('missing')));}};
