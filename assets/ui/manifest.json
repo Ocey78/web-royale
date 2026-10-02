@@ -3274,5 +3274,3328 @@
     "sha256": "fc73e1ce0864ee5c641c6937f32bcac5847bde2a25636c374bc85a499991c043",
     "width": 1866,
     "height": 975
+  },
+  "card-frame-evolution": {
+    "file": "assets/ui/card-frame-evolution.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_evolution",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -80.0,
+      65.0,
+      84.0
+    ],
+    "width": 129,
+    "height": 164,
+    "sha256": "a1262a594aaed0a791afc3f7d58024e507b9a8ff71017c865906f472a5cdebfc",
+    "bytes": 2386,
+    "portraitBounds": [
+      5.0,
+      6.5,
+      118.0,
+      147.0
+    ],
+    "portraitRect": [
+      0.03876,
+      0.039634,
+      0.914729,
+      0.896341
+    ],
+    "portraitPixelPolygon": [
+      [
+        5.0,
+        6.5
+      ],
+      [
+        123.0,
+        6.5
+      ],
+      [
+        123.0,
+        153.5
+      ],
+      [
+        5.0,
+        153.5
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.03876,
+        0.039634
+      ],
+      [
+        0.953488,
+        0.039634
+      ],
+      [
+        0.953488,
+        0.935976
+      ],
+      [
+        0.03876,
+        0.935976
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_normal",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-normal",
+    "portraitMaskBounds": [
+      5.0,
+      6.0,
+      119,
+      149
+    ],
+    "portraitMaskRect": [
+      0.03876,
+      0.036585,
+      0.922481,
+      0.908537
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      -0.003401,
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskSize": [
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      0.25
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-evolution-active": {
+    "file": "assets/ui/card-frame-evolution-active.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_evolution",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 1,
+    "sourceLabel": "1",
+    "nativeBounds": [
+      -80.0,
+      -94.0,
+      80.0,
+      99.0
+    ],
+    "width": 160,
+    "height": 193,
+    "sha256": "ab6eb9b100e36549301b770a6caaeea1aac4c4f5afb38cf04607f4ea8c98dad8",
+    "bytes": 8384,
+    "portraitBounds": [
+      21.0,
+      20.5,
+      118.0,
+      147.0
+    ],
+    "portraitRect": [
+      0.13125,
+      0.106218,
+      0.7375,
+      0.761658
+    ],
+    "portraitPixelPolygon": [
+      [
+        21.0,
+        20.5
+      ],
+      [
+        139.0,
+        20.5
+      ],
+      [
+        139.0,
+        167.5
+      ],
+      [
+        21.0,
+        167.5
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.13125,
+        0.106218
+      ],
+      [
+        0.86875,
+        0.106218
+      ],
+      [
+        0.86875,
+        0.867876
+      ],
+      [
+        0.13125,
+        0.867876
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_normal",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-normal",
+    "portraitMaskBounds": [
+      21.0,
+      20.0,
+      119,
+      149
+    ],
+    "portraitMaskRect": [
+      0.13125,
+      0.103627,
+      0.74375,
+      0.772021
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      -0.003401,
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskSize": [
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      0.25
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-evolution-legendary": {
+    "file": "assets/ui/card-frame-evolution-legendary.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_evolution_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -88.0,
+      65.0,
+      92.0
+    ],
+    "width": 129,
+    "height": 180,
+    "sha256": "46a08e6dfc6f701c9da6c5b1d4582071db4538163e9a223a13424dd4f61f86f1",
+    "bytes": 5201,
+    "portraitBounds": [
+      5.0,
+      6.0,
+      116.0,
+      163.849998
+    ],
+    "portraitRect": [
+      0.03876,
+      0.033333,
+      0.899225,
+      0.910278
+    ],
+    "portraitPixelPolygon": [
+      [
+        5.0,
+        6.0
+      ],
+      [
+        121.0,
+        6.0
+      ],
+      [
+        121.0,
+        169.849998
+      ],
+      [
+        5.0,
+        169.849998
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.03876,
+        0.033333
+      ],
+      [
+        0.937984,
+        0.033333
+      ],
+      [
+        0.937984,
+        0.943611
+      ],
+      [
+        0.03876,
+        0.943611
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_legendary",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-legendary",
+    "portraitMaskBounds": [
+      5.0,
+      6.0,
+      117,
+      165
+    ],
+    "portraitMaskRect": [
+      0.03876,
+      0.033333,
+      0.906977,
+      0.916667
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      0.0,
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskSize": [
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      -0.0
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-evolution-legendary-active": {
+    "file": "assets/ui/card-frame-evolution-legendary-active.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_evolution_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 1,
+    "sourceLabel": "1",
+    "nativeBounds": [
+      -77.0,
+      -99.0,
+      78.0,
+      103.0
+    ],
+    "width": 155,
+    "height": 202,
+    "sha256": "e91984e8beb4aa69ce2be159484e418d06a4e9cabb961f91841aa1f268fedf2d",
+    "bytes": 15512,
+    "portraitBounds": [
+      18.0,
+      17.0,
+      116.0,
+      163.849998
+    ],
+    "portraitRect": [
+      0.116129,
+      0.084158,
+      0.748387,
+      0.811139
+    ],
+    "portraitPixelPolygon": [
+      [
+        18.0,
+        17.0
+      ],
+      [
+        134.0,
+        17.0
+      ],
+      [
+        134.0,
+        180.849998
+      ],
+      [
+        18.0,
+        180.849998
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.116129,
+        0.084158
+      ],
+      [
+        0.864516,
+        0.084158
+      ],
+      [
+        0.864516,
+        0.895297
+      ],
+      [
+        0.116129,
+        0.895297
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_legendary",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-legendary",
+    "portraitMaskBounds": [
+      18.0,
+      17.0,
+      117,
+      165
+    ],
+    "portraitMaskRect": [
+      0.116129,
+      0.084158,
+      0.754839,
+      0.816832
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      0.0,
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskSize": [
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      -0.0
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-hero": {
+    "file": "assets/ui/card-frame-hero.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_hero",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -80.0,
+      65.0,
+      84.0
+    ],
+    "width": 129,
+    "height": 164,
+    "sha256": "233bf2f95609b1e95fe1420ec55ae70daf9614dc96fe903e77ff1296763ec125",
+    "bytes": 2434,
+    "portraitBounds": [
+      5.0,
+      6.5,
+      118.0,
+      147.0
+    ],
+    "portraitRect": [
+      0.03876,
+      0.039634,
+      0.914729,
+      0.896341
+    ],
+    "portraitPixelPolygon": [
+      [
+        5.0,
+        6.5
+      ],
+      [
+        123.0,
+        6.5
+      ],
+      [
+        123.0,
+        153.5
+      ],
+      [
+        5.0,
+        153.5
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.03876,
+        0.039634
+      ],
+      [
+        0.953488,
+        0.039634
+      ],
+      [
+        0.953488,
+        0.935976
+      ],
+      [
+        0.03876,
+        0.935976
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_normal",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-normal",
+    "portraitMaskBounds": [
+      5.0,
+      6.0,
+      119,
+      149
+    ],
+    "portraitMaskRect": [
+      0.03876,
+      0.036585,
+      0.922481,
+      0.908537
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      -0.003401,
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskSize": [
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      0.25
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-hero-active": {
+    "file": "assets/ui/card-frame-hero-active.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_hero",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 1,
+    "sourceLabel": "1",
+    "nativeBounds": [
+      -80.0,
+      -94.0,
+      80.0,
+      99.0
+    ],
+    "width": 160,
+    "height": 193,
+    "sha256": "dde106f7aae2252d11a6185156c396a575d2cc01b49d731a7123316d43a1da5d",
+    "bytes": 7843,
+    "portraitBounds": [
+      21.0,
+      20.5,
+      118.0,
+      147.0
+    ],
+    "portraitRect": [
+      0.13125,
+      0.106218,
+      0.7375,
+      0.761658
+    ],
+    "portraitPixelPolygon": [
+      [
+        21.0,
+        20.5
+      ],
+      [
+        139.0,
+        20.5
+      ],
+      [
+        139.0,
+        167.5
+      ],
+      [
+        21.0,
+        167.5
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.13125,
+        0.106218
+      ],
+      [
+        0.86875,
+        0.106218
+      ],
+      [
+        0.86875,
+        0.867876
+      ],
+      [
+        0.13125,
+        0.867876
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_normal",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-normal",
+    "portraitMaskBounds": [
+      21.0,
+      20.0,
+      119,
+      149
+    ],
+    "portraitMaskRect": [
+      0.13125,
+      0.103627,
+      0.74375,
+      0.772021
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      -0.003401,
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskSize": [
+      1.008475,
+      1.013605
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      0.25
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-hero-legendary": {
+    "file": "assets/ui/card-frame-hero-legendary.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_hero_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -88.0,
+      65.0,
+      92.0
+    ],
+    "width": 129,
+    "height": 180,
+    "sha256": "1cf36432a4548ee12d8e92f66f5660ce48284cd1da76c156dae7b2172e0f4ad8",
+    "bytes": 5066,
+    "portraitBounds": [
+      5.0,
+      6.0,
+      116.0,
+      163.849998
+    ],
+    "portraitRect": [
+      0.03876,
+      0.033333,
+      0.899225,
+      0.910278
+    ],
+    "portraitPixelPolygon": [
+      [
+        5.0,
+        6.0
+      ],
+      [
+        121.0,
+        6.0
+      ],
+      [
+        121.0,
+        169.849998
+      ],
+      [
+        5.0,
+        169.849998
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.03876,
+        0.033333
+      ],
+      [
+        0.937984,
+        0.033333
+      ],
+      [
+        0.937984,
+        0.943611
+      ],
+      [
+        0.03876,
+        0.943611
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_legendary",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-legendary",
+    "portraitMaskBounds": [
+      5.0,
+      6.0,
+      117,
+      165
+    ],
+    "portraitMaskRect": [
+      0.03876,
+      0.033333,
+      0.906977,
+      0.916667
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      0.0,
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskSize": [
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      -0.0
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-hero-legendary-active": {
+    "file": "assets/ui/card-frame-hero-legendary-active.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_hero_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 1,
+    "sourceLabel": "1",
+    "nativeBounds": [
+      -77.0,
+      -99.0,
+      78.0,
+      103.0
+    ],
+    "width": 155,
+    "height": 202,
+    "sha256": "e307f3de02c2f3077d6a37907b6e9821c9a3a9ac0ec9f20ce865dc2876d3d414",
+    "bytes": 14089,
+    "portraitBounds": [
+      18.0,
+      17.0,
+      116.0,
+      163.849998
+    ],
+    "portraitRect": [
+      0.116129,
+      0.084158,
+      0.748387,
+      0.811139
+    ],
+    "portraitPixelPolygon": [
+      [
+        18.0,
+        17.0
+      ],
+      [
+        134.0,
+        17.0
+      ],
+      [
+        134.0,
+        180.849998
+      ],
+      [
+        18.0,
+        180.849998
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.116129,
+        0.084158
+      ],
+      [
+        0.864516,
+        0.084158
+      ],
+      [
+        0.864516,
+        0.895297
+      ],
+      [
+        0.116129,
+        0.895297
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_legendary",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-legendary",
+    "portraitMaskBounds": [
+      18.0,
+      17.0,
+      117,
+      165
+    ],
+    "portraitMaskRect": [
+      0.116129,
+      0.084158,
+      0.754839,
+      0.816832
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      0.0,
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskSize": [
+      1.008621,
+      1.007019
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      -0.0
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-champion": {
+    "file": "assets/ui/card-frame-champion.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_champion",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -65.0,
+      -101.0,
+      65.0,
+      89.0
+    ],
+    "width": 130,
+    "height": 190,
+    "sha256": "a1f1d926f034c7fd47d21505d28bde156b739696ac5b61259d94771bb97d2a72",
+    "bytes": 13980,
+    "portraitBounds": [
+      12.0,
+      33.0,
+      105.599998,
+      143.050003
+    ],
+    "portraitRect": [
+      0.092308,
+      0.173684,
+      0.812308,
+      0.752895
+    ],
+    "portraitPixelPolygon": [
+      [
+        12.0,
+        33.0
+      ],
+      [
+        117.599998,
+        33.0
+      ],
+      [
+        117.599998,
+        176.050003
+      ],
+      [
+        12.0,
+        176.050003
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.092308,
+        0.173684
+      ],
+      [
+        0.904615,
+        0.173684
+      ],
+      [
+        0.904615,
+        0.926579
+      ],
+      [
+        0.092308,
+        0.926579
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_champion",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-champion",
+    "portraitMaskBounds": [
+      12.0,
+      33.0,
+      107,
+      144
+    ],
+    "portraitMaskRect": [
+      0.092308,
+      0.173684,
+      0.823077,
+      0.757895
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      0.0,
+      1.013258,
+      1.006641
+    ],
+    "portraitMaskSize": [
+      1.013258,
+      1.006641
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      -0.0
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-champion-active": {
+    "file": "assets/ui/card-frame-champion-active.png",
+    "source": "sc/ui_card_items.sc#card_item_frame_champion",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 1,
+    "sourceLabel": "1",
+    "nativeBounds": [
+      -68.0,
+      -103.0,
+      68.0,
+      95.0
+    ],
+    "width": 136,
+    "height": 198,
+    "sha256": "b58052080572d6c5c131bfe5b20a0095870fb89586fa62dac43c50d754df9584",
+    "bytes": 15166,
+    "portraitBounds": [
+      15.0,
+      35.0,
+      105.599998,
+      143.050003
+    ],
+    "portraitRect": [
+      0.110294,
+      0.176768,
+      0.776471,
+      0.722475
+    ],
+    "portraitPixelPolygon": [
+      [
+        15.0,
+        35.0
+      ],
+      [
+        120.599998,
+        35.0
+      ],
+      [
+        120.599998,
+        178.050003
+      ],
+      [
+        15.0,
+        178.050003
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.110294,
+        0.176768
+      ],
+      [
+        0.886765,
+        0.176768
+      ],
+      [
+        0.886765,
+        0.899242
+      ],
+      [
+        0.110294,
+        0.899242
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#card_mask_champion",
+    "portraitMaskChild": 0,
+    "portraitMaskKey": "card-mask-champion",
+    "portraitMaskBounds": [
+      15.0,
+      35.0,
+      107,
+      144
+    ],
+    "portraitMaskRect": [
+      0.110294,
+      0.176768,
+      0.786765,
+      0.727273
+    ],
+    "portraitMaskTransform": [
+      0.0,
+      0.0,
+      1.013258,
+      1.006641
+    ],
+    "portraitMaskSize": [
+      1.013258,
+      1.006641
+    ],
+    "portraitMaskPosition": [
+      -0.0,
+      -0.0
+    ],
+    "portraitPolygonRole": "Source geometry bounds; the textured alpha mask defines the visible silhouette."
+  },
+  "card-frame-tower-common": {
+    "file": "assets/ui/card-frame-tower-common.png",
+    "source": "sc/ui_card_items.sc#support_card_common",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -65.0,
+      -92.0,
+      66.0,
+      93.0
+    ],
+    "width": 131,
+    "height": 185,
+    "sha256": "5d8bce2816c5f45e59ba143dfe3d069f27a5bf312063c05702eb4523e5d79bda",
+    "bytes": 11605,
+    "sourceChildren": [
+      {
+        "index": 6,
+        "name": "",
+        "id": 634
+      }
+    ],
+    "portraitBounds": [
+      10.75,
+      34.25,
+      108.5,
+      138.25
+    ],
+    "portraitRect": [
+      0.082061,
+      0.185135,
+      0.828244,
+      0.747297
+    ],
+    "portraitPixelPolygon": [
+      [
+        10.75,
+        34.25
+      ],
+      [
+        119.25,
+        34.25
+      ],
+      [
+        119.25,
+        156.199997
+      ],
+      [
+        94.950001,
+        166.75
+      ],
+      [
+        84.75,
+        166.75
+      ],
+      [
+        84.75,
+        168.25
+      ],
+      [
+        80.8,
+        168.25
+      ],
+      [
+        80.8,
+        172.5
+      ],
+      [
+        53.8,
+        172.5
+      ],
+      [
+        53.8,
+        169.75
+      ],
+      [
+        45.0,
+        169.75
+      ],
+      [
+        45.0,
+        166.5
+      ],
+      [
+        30.549999,
+        166.5
+      ],
+      [
+        30.549999,
+        160.0
+      ],
+      [
+        10.75,
+        160.0
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.082061,
+        0.185135
+      ],
+      [
+        0.910305,
+        0.185135
+      ],
+      [
+        0.910305,
+        0.844324
+      ],
+      [
+        0.724809,
+        0.901351
+      ],
+      [
+        0.646947,
+        0.901351
+      ],
+      [
+        0.646947,
+        0.909459
+      ],
+      [
+        0.616794,
+        0.909459
+      ],
+      [
+        0.616794,
+        0.932432
+      ],
+      [
+        0.410687,
+        0.932432
+      ],
+      [
+        0.410687,
+        0.917568
+      ],
+      [
+        0.343511,
+        0.917568
+      ],
+      [
+        0.343511,
+        0.9
+      ],
+      [
+        0.233206,
+        0.9
+      ],
+      [
+        0.233206,
+        0.864865
+      ],
+      [
+        0.082061,
+        0.864865
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.882098
+      ],
+      [
+        0.776037,
+        0.958409
+      ],
+      [
+        0.682028,
+        0.958409
+      ],
+      [
+        0.682028,
+        0.969259
+      ],
+      [
+        0.645622,
+        0.969259
+      ],
+      [
+        0.645622,
+        1.0
+      ],
+      [
+        0.396774,
+        1.0
+      ],
+      [
+        0.396774,
+        0.980108
+      ],
+      [
+        0.315668,
+        0.980108
+      ],
+      [
+        0.315668,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.909584
+      ],
+      [
+        0.0,
+        0.909584
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#support_card_common",
+    "portraitMaskChild": 1
+  },
+  "card-frame-tower-rare": {
+    "file": "assets/ui/card-frame-tower-rare.png",
+    "source": "sc/ui_card_items.sc#support_card_rare",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -90.0,
+      65.0,
+      91.0
+    ],
+    "width": 129,
+    "height": 181,
+    "sha256": "8d8117cc982e17bdc1177841195d10168c337fa989bf0441411aadc22fdb96f4",
+    "bytes": 11483,
+    "sourceChildren": [
+      {
+        "index": 6,
+        "name": "",
+        "id": 634
+      }
+    ],
+    "portraitBounds": [
+      9.0,
+      32.5,
+      108.5,
+      138.25
+    ],
+    "portraitRect": [
+      0.069767,
+      0.179558,
+      0.841085,
+      0.763812
+    ],
+    "portraitPixelPolygon": [
+      [
+        9.0,
+        32.5
+      ],
+      [
+        117.5,
+        32.5
+      ],
+      [
+        117.5,
+        159.75
+      ],
+      [
+        107.549999,
+        159.75
+      ],
+      [
+        107.549999,
+        165.0
+      ],
+      [
+        79.05,
+        165.0
+      ],
+      [
+        79.05,
+        170.75
+      ],
+      [
+        52.05,
+        170.75
+      ],
+      [
+        52.05,
+        164.75
+      ],
+      [
+        28.799999,
+        164.75
+      ],
+      [
+        28.799999,
+        158.25
+      ],
+      [
+        9.0,
+        158.25
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.069767,
+        0.179558
+      ],
+      [
+        0.910853,
+        0.179558
+      ],
+      [
+        0.910853,
+        0.882597
+      ],
+      [
+        0.833721,
+        0.882597
+      ],
+      [
+        0.833721,
+        0.911602
+      ],
+      [
+        0.612791,
+        0.911602
+      ],
+      [
+        0.612791,
+        0.94337
+      ],
+      [
+        0.403488,
+        0.94337
+      ],
+      [
+        0.403488,
+        0.910221
+      ],
+      [
+        0.223256,
+        0.910221
+      ],
+      [
+        0.223256,
+        0.874309
+      ],
+      [
+        0.069767,
+        0.874309
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.920434
+      ],
+      [
+        0.908295,
+        0.920434
+      ],
+      [
+        0.908295,
+        0.958409
+      ],
+      [
+        0.645622,
+        0.958409
+      ],
+      [
+        0.645622,
+        1.0
+      ],
+      [
+        0.396774,
+        1.0
+      ],
+      [
+        0.396774,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.909584
+      ],
+      [
+        0.0,
+        0.909584
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#support_card_rare",
+    "portraitMaskChild": 1
+  },
+  "card-frame-tower-epic": {
+    "file": "assets/ui/card-frame-tower-epic.png",
+    "source": "sc/ui_card_items.sc#support_card_epic",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -90.0,
+      65.0,
+      91.0
+    ],
+    "width": 129,
+    "height": 181,
+    "sha256": "8d8117cc982e17bdc1177841195d10168c337fa989bf0441411aadc22fdb96f4",
+    "bytes": 11483,
+    "sourceChildren": [
+      {
+        "index": 6,
+        "name": "",
+        "id": 634
+      }
+    ],
+    "portraitBounds": [
+      9.0,
+      30.25,
+      108.5,
+      142.75
+    ],
+    "portraitRect": [
+      0.069767,
+      0.167127,
+      0.841085,
+      0.788674
+    ],
+    "portraitPixelPolygon": [
+      [
+        9.0,
+        30.25
+      ],
+      [
+        117.5,
+        30.25
+      ],
+      [
+        117.5,
+        154.75
+      ],
+      [
+        107.75,
+        154.75
+      ],
+      [
+        107.75,
+        157.5
+      ],
+      [
+        107.549999,
+        157.5
+      ],
+      [
+        107.549999,
+        159.5
+      ],
+      [
+        102.0,
+        159.5
+      ],
+      [
+        102.0,
+        162.75
+      ],
+      [
+        88.5,
+        162.75
+      ],
+      [
+        88.5,
+        163.25
+      ],
+      [
+        86.5,
+        163.25
+      ],
+      [
+        86.5,
+        166.75
+      ],
+      [
+        79.05,
+        166.75
+      ],
+      [
+        79.05,
+        168.5
+      ],
+      [
+        73.25,
+        168.5
+      ],
+      [
+        73.25,
+        173.0
+      ],
+      [
+        54.75,
+        173.0
+      ],
+      [
+        54.75,
+        168.5
+      ],
+      [
+        40.75,
+        168.5
+      ],
+      [
+        40.75,
+        165.0
+      ],
+      [
+        35.25,
+        165.0
+      ],
+      [
+        35.25,
+        162.5
+      ],
+      [
+        32.1,
+        162.5
+      ],
+      [
+        32.1,
+        163.099998
+      ],
+      [
+        27.0,
+        163.099998
+      ],
+      [
+        27.0,
+        160.25
+      ],
+      [
+        18.75,
+        160.25
+      ],
+      [
+        18.75,
+        156.0
+      ],
+      [
+        9.0,
+        156.0
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.069767,
+        0.167127
+      ],
+      [
+        0.910853,
+        0.167127
+      ],
+      [
+        0.910853,
+        0.854972
+      ],
+      [
+        0.835271,
+        0.854972
+      ],
+      [
+        0.835271,
+        0.870166
+      ],
+      [
+        0.833721,
+        0.870166
+      ],
+      [
+        0.833721,
+        0.881215
+      ],
+      [
+        0.790698,
+        0.881215
+      ],
+      [
+        0.790698,
+        0.899171
+      ],
+      [
+        0.686047,
+        0.899171
+      ],
+      [
+        0.686047,
+        0.901934
+      ],
+      [
+        0.670543,
+        0.901934
+      ],
+      [
+        0.670543,
+        0.921271
+      ],
+      [
+        0.612791,
+        0.921271
+      ],
+      [
+        0.612791,
+        0.930939
+      ],
+      [
+        0.567829,
+        0.930939
+      ],
+      [
+        0.567829,
+        0.955801
+      ],
+      [
+        0.424419,
+        0.955801
+      ],
+      [
+        0.424419,
+        0.930939
+      ],
+      [
+        0.315891,
+        0.930939
+      ],
+      [
+        0.315891,
+        0.911602
+      ],
+      [
+        0.273256,
+        0.911602
+      ],
+      [
+        0.273256,
+        0.89779
+      ],
+      [
+        0.248837,
+        0.89779
+      ],
+      [
+        0.248837,
+        0.901105
+      ],
+      [
+        0.209302,
+        0.901105
+      ],
+      [
+        0.209302,
+        0.885359
+      ],
+      [
+        0.145349,
+        0.885359
+      ],
+      [
+        0.145349,
+        0.861878
+      ],
+      [
+        0.069767,
+        0.861878
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.872154
+      ],
+      [
+        0.910138,
+        0.872154
+      ],
+      [
+        0.910138,
+        0.891419
+      ],
+      [
+        0.908295,
+        0.891419
+      ],
+      [
+        0.908295,
+        0.905429
+      ],
+      [
+        0.857143,
+        0.905429
+      ],
+      [
+        0.857143,
+        0.928196
+      ],
+      [
+        0.732719,
+        0.928196
+      ],
+      [
+        0.732719,
+        0.931699
+      ],
+      [
+        0.714286,
+        0.931699
+      ],
+      [
+        0.714286,
+        0.956217
+      ],
+      [
+        0.645622,
+        0.956217
+      ],
+      [
+        0.645622,
+        0.968476
+      ],
+      [
+        0.592166,
+        0.968476
+      ],
+      [
+        0.592166,
+        1.0
+      ],
+      [
+        0.421659,
+        1.0
+      ],
+      [
+        0.421659,
+        0.968476
+      ],
+      [
+        0.292627,
+        0.968476
+      ],
+      [
+        0.292627,
+        0.943958
+      ],
+      [
+        0.241935,
+        0.943958
+      ],
+      [
+        0.241935,
+        0.926445
+      ],
+      [
+        0.212903,
+        0.926445
+      ],
+      [
+        0.212903,
+        0.930648
+      ],
+      [
+        0.165899,
+        0.930648
+      ],
+      [
+        0.165899,
+        0.910683
+      ],
+      [
+        0.089862,
+        0.910683
+      ],
+      [
+        0.089862,
+        0.880911
+      ],
+      [
+        0.0,
+        0.880911
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#support_card_epic",
+    "portraitMaskChild": 1
+  },
+  "card-frame-tower-legendary": {
+    "file": "assets/ui/card-frame-tower-legendary.png",
+    "source": "sc/ui_card_items.sc#support_card_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -90.0,
+      65.0,
+      91.0
+    ],
+    "width": 129,
+    "height": 181,
+    "sha256": "8d8117cc982e17bdc1177841195d10168c337fa989bf0441411aadc22fdb96f4",
+    "bytes": 11483,
+    "sourceChildren": [
+      {
+        "index": 6,
+        "name": "",
+        "id": 634
+      }
+    ],
+    "portraitBounds": [
+      9.0,
+      32.5,
+      108.5,
+      138.25
+    ],
+    "portraitRect": [
+      0.069767,
+      0.179558,
+      0.841085,
+      0.763812
+    ],
+    "portraitPixelPolygon": [
+      [
+        9.0,
+        32.5
+      ],
+      [
+        117.5,
+        32.5
+      ],
+      [
+        117.5,
+        159.75
+      ],
+      [
+        107.549999,
+        159.75
+      ],
+      [
+        107.549999,
+        165.0
+      ],
+      [
+        79.05,
+        165.0
+      ],
+      [
+        79.05,
+        170.75
+      ],
+      [
+        52.05,
+        170.75
+      ],
+      [
+        52.05,
+        164.75
+      ],
+      [
+        28.799999,
+        164.75
+      ],
+      [
+        28.799999,
+        158.25
+      ],
+      [
+        9.0,
+        158.25
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.069767,
+        0.179558
+      ],
+      [
+        0.910853,
+        0.179558
+      ],
+      [
+        0.910853,
+        0.882597
+      ],
+      [
+        0.833721,
+        0.882597
+      ],
+      [
+        0.833721,
+        0.911602
+      ],
+      [
+        0.612791,
+        0.911602
+      ],
+      [
+        0.612791,
+        0.94337
+      ],
+      [
+        0.403488,
+        0.94337
+      ],
+      [
+        0.403488,
+        0.910221
+      ],
+      [
+        0.223256,
+        0.910221
+      ],
+      [
+        0.223256,
+        0.874309
+      ],
+      [
+        0.069767,
+        0.874309
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.920434
+      ],
+      [
+        0.908295,
+        0.920434
+      ],
+      [
+        0.908295,
+        0.958409
+      ],
+      [
+        0.645622,
+        0.958409
+      ],
+      [
+        0.645622,
+        1.0
+      ],
+      [
+        0.396774,
+        1.0
+      ],
+      [
+        0.396774,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.909584
+      ],
+      [
+        0.0,
+        0.909584
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#support_card_legendary",
+    "portraitMaskChild": 1
+  },
+  "card-frame-tower-champion": {
+    "file": "assets/ui/card-frame-tower-champion.png",
+    "source": "sc/ui_card_items.sc#support_card_champion",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -64.0,
+      -90.0,
+      65.0,
+      91.0
+    ],
+    "width": 129,
+    "height": 181,
+    "sha256": "8d8117cc982e17bdc1177841195d10168c337fa989bf0441411aadc22fdb96f4",
+    "bytes": 11483,
+    "sourceChildren": [
+      {
+        "index": 6,
+        "name": "",
+        "id": 634
+      }
+    ],
+    "portraitBounds": [
+      9.0,
+      32.5,
+      108.5,
+      138.25
+    ],
+    "portraitRect": [
+      0.069767,
+      0.179558,
+      0.841085,
+      0.763812
+    ],
+    "portraitPixelPolygon": [
+      [
+        9.0,
+        32.5
+      ],
+      [
+        117.5,
+        32.5
+      ],
+      [
+        117.5,
+        159.75
+      ],
+      [
+        107.549999,
+        159.75
+      ],
+      [
+        107.549999,
+        165.0
+      ],
+      [
+        79.05,
+        165.0
+      ],
+      [
+        79.05,
+        170.75
+      ],
+      [
+        52.05,
+        170.75
+      ],
+      [
+        52.05,
+        164.75
+      ],
+      [
+        28.799999,
+        164.75
+      ],
+      [
+        28.799999,
+        158.25
+      ],
+      [
+        9.0,
+        158.25
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.069767,
+        0.179558
+      ],
+      [
+        0.910853,
+        0.179558
+      ],
+      [
+        0.910853,
+        0.882597
+      ],
+      [
+        0.833721,
+        0.882597
+      ],
+      [
+        0.833721,
+        0.911602
+      ],
+      [
+        0.612791,
+        0.911602
+      ],
+      [
+        0.612791,
+        0.94337
+      ],
+      [
+        0.403488,
+        0.94337
+      ],
+      [
+        0.403488,
+        0.910221
+      ],
+      [
+        0.223256,
+        0.910221
+      ],
+      [
+        0.223256,
+        0.874309
+      ],
+      [
+        0.069767,
+        0.874309
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.920434
+      ],
+      [
+        0.908295,
+        0.920434
+      ],
+      [
+        0.908295,
+        0.958409
+      ],
+      [
+        0.645622,
+        0.958409
+      ],
+      [
+        0.645622,
+        1.0
+      ],
+      [
+        0.396774,
+        1.0
+      ],
+      [
+        0.396774,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.909584
+      ],
+      [
+        0.0,
+        0.909584
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#support_card_champion",
+    "portraitMaskChild": 1
+  },
+  "card-icon-evolution-locked": {
+    "file": "assets/ui/card-icon-evolution-locked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "evo_locked",
+    "nativeBounds": [
+      -49.0,
+      -106.0,
+      50.0,
+      -59.0
+    ],
+    "width": 99,
+    "height": 47,
+    "sha256": "051f403613bbe7407ed297be978b47ca9c38fcfefa79a29382d17ded62064b7c",
+    "bytes": 4571,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1061
+      },
+      {
+        "index": 4,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-evolution-unlocked": {
+    "file": "assets/ui/card-icon-evolution-unlocked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "evo_unlocked",
+    "nativeBounds": [
+      -49.0,
+      -106.0,
+      50.0,
+      -59.0
+    ],
+    "width": 99,
+    "height": 47,
+    "sha256": "21f2d575c2a83f5d8fb785d300524af3e6d4407596103a27d110a1a9934dda5f",
+    "bytes": 4977,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1061
+      },
+      {
+        "index": 4,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-evolution-active": {
+    "file": "assets/ui/card-icon-evolution-active.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "evo_active",
+    "nativeBounds": [
+      -49.0,
+      -106.0,
+      50.0,
+      -53.0
+    ],
+    "width": 99,
+    "height": 53,
+    "sha256": "32a1ae8466f84c076946eda58580457c457857a97457dd9854a73c83763b1fc8",
+    "bytes": 5451,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1061
+      },
+      {
+        "index": 4,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-evolution-legendary-locked": {
+    "file": "assets/ui/card-icon-evolution-legendary-locked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "evo_locked",
+    "nativeBounds": [
+      -50.0,
+      -104.0,
+      53.0,
+      -58.0
+    ],
+    "width": 103,
+    "height": 46,
+    "sha256": "6620b3c06696cba6a9e5aabaa0630469fad92f7c3c630c5bff2131e68c007b0f",
+    "bytes": 5294,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1090
+      },
+      {
+        "index": 4,
+        "name": "diamond_center_behind",
+        "id": 1111
+      },
+      {
+        "index": 5,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-evolution-legendary-unlocked": {
+    "file": "assets/ui/card-icon-evolution-legendary-unlocked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "evo_unlocked",
+    "nativeBounds": [
+      -50.0,
+      -104.0,
+      53.0,
+      -58.0
+    ],
+    "width": 103,
+    "height": 46,
+    "sha256": "3fccf2b4a9634c4ab703d6635a8993ad981a28403cc533935b6e36b98a96617c",
+    "bytes": 5511,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1090
+      },
+      {
+        "index": 4,
+        "name": "diamond_center_behind",
+        "id": 1111
+      },
+      {
+        "index": 5,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-evolution-legendary-active": {
+    "file": "assets/ui/card-icon-evolution-legendary-active.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "evo_active",
+    "nativeBounds": [
+      -50.0,
+      -104.0,
+      53.0,
+      -52.0
+    ],
+    "width": 103,
+    "height": 52,
+    "sha256": "45a157e7d416d04711fc2752af7144f52df2f506950b6dfad8593ac0e63d969b",
+    "bytes": 5898,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1090
+      },
+      {
+        "index": 4,
+        "name": "diamond_center_behind",
+        "id": 1111
+      },
+      {
+        "index": 5,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-hero-locked": {
+    "file": "assets/ui/card-icon-hero-locked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "hero_locked",
+    "nativeBounds": [
+      -49.0,
+      -106.0,
+      50.0,
+      -59.0
+    ],
+    "width": 99,
+    "height": 47,
+    "sha256": "82c13f991cbce997021a95cf5468eb371b8be320b53adb82eb1af48bd70d5ff8",
+    "bytes": 4568,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1061
+      },
+      {
+        "index": 4,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-hero-unlocked": {
+    "file": "assets/ui/card-icon-hero-unlocked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "hero_unlocked",
+    "nativeBounds": [
+      -49.0,
+      -106.0,
+      50.0,
+      -59.0
+    ],
+    "width": 99,
+    "height": 47,
+    "sha256": "881cd35a38196edad7670361f503bb0a09dd589bcc1fbd1b207709df37f0a5fc",
+    "bytes": 5007,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1061
+      },
+      {
+        "index": 4,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-hero-active": {
+    "file": "assets/ui/card-icon-hero-active.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "hero_active",
+    "nativeBounds": [
+      -49.0,
+      -106.0,
+      50.0,
+      -53.0
+    ],
+    "width": 99,
+    "height": 53,
+    "sha256": "efba057343794e9b5cd60d555375ef65ef46d5530be3c67e49664769d5c8d850",
+    "bytes": 5523,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1061
+      },
+      {
+        "index": 4,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-hero-legendary-locked": {
+    "file": "assets/ui/card-icon-hero-legendary-locked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "hero_locked",
+    "nativeBounds": [
+      -50.0,
+      -104.0,
+      53.0,
+      -58.0
+    ],
+    "width": 103,
+    "height": 46,
+    "sha256": "f20b2dd946630e385fbd4e30eabf6d0ebb2e93d8d4fd5b05965bbd59f94bd544",
+    "bytes": 5293,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1090
+      },
+      {
+        "index": 4,
+        "name": "diamond_center_behind",
+        "id": 1111
+      },
+      {
+        "index": 5,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-hero-legendary-unlocked": {
+    "file": "assets/ui/card-icon-hero-legendary-unlocked.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "hero_unlocked",
+    "nativeBounds": [
+      -50.0,
+      -104.0,
+      53.0,
+      -58.0
+    ],
+    "width": 103,
+    "height": 46,
+    "sha256": "5595256f515e1859b5847bd50abaddc1ce0ed0e02dcffa17bf21968fec18603d",
+    "bytes": 5604,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1090
+      },
+      {
+        "index": 4,
+        "name": "diamond_center_behind",
+        "id": 1111
+      },
+      {
+        "index": 5,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-hero-legendary-active": {
+    "file": "assets/ui/card-icon-hero-legendary-active.png",
+    "source": "sc/ui_card_items.sc#card_item_form_top_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "hero_active",
+    "nativeBounds": [
+      -50.0,
+      -104.0,
+      53.0,
+      -52.0
+    ],
+    "width": 103,
+    "height": 52,
+    "sha256": "06ca02eab6d1aac78723d9425bb118e8456bdf9fcfca76ba1fbf53c69f982d67",
+    "bytes": 6011,
+    "sourceChildren": [
+      {
+        "index": 0,
+        "name": "bg_full",
+        "id": 1090
+      },
+      {
+        "index": 4,
+        "name": "diamond_center_behind",
+        "id": 1111
+      },
+      {
+        "index": 5,
+        "name": "diamond_center",
+        "id": 1084
+      }
+    ]
+  },
+  "card-icon-tower-troop": {
+    "file": "assets/ui/card-icon-tower-troop.png",
+    "source": "sc/ui_card_items.sc#icon_btn_card_support",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -13.0,
+      -16.0,
+      14.0,
+      16.0
+    ],
+    "width": 27,
+    "height": 32,
+    "sha256": "39dbe1aa6e1341a4d44e2fda491bc483d1cc4c8126db19a381ac166fc78d2ea3",
+    "bytes": 1391
+  },
+  "card-icon-champion": {
+    "file": "assets/ui/card-icon-champion.png",
+    "source": "sc/ui_card_items.sc#icon_btn_card_champion",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -13.0,
+      -17.0,
+      15.0,
+      17.0
+    ],
+    "width": 28,
+    "height": 34,
+    "sha256": "f6f938c5cf1cafd20324325b4fba56c6ef6745a9128bfecea4207cf46ffbff42",
+    "bytes": 1117
+  },
+  "card-frame-tower": {
+    "file": "assets/ui/card-frame-tower-common.png",
+    "source": "sc/ui_card_items.sc#support_card_common",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -65.0,
+      -92.0,
+      66.0,
+      93.0
+    ],
+    "width": 131,
+    "height": 185,
+    "sha256": "5d8bce2816c5f45e59ba143dfe3d069f27a5bf312063c05702eb4523e5d79bda",
+    "bytes": 11605,
+    "sourceChildren": [
+      {
+        "index": 6,
+        "name": "",
+        "id": 634
+      }
+    ],
+    "portraitBounds": [
+      10.75,
+      34.25,
+      108.5,
+      138.25
+    ],
+    "portraitRect": [
+      0.082061,
+      0.185135,
+      0.828244,
+      0.747297
+    ],
+    "portraitPixelPolygon": [
+      [
+        10.75,
+        34.25
+      ],
+      [
+        119.25,
+        34.25
+      ],
+      [
+        119.25,
+        156.199997
+      ],
+      [
+        94.950001,
+        166.75
+      ],
+      [
+        84.75,
+        166.75
+      ],
+      [
+        84.75,
+        168.25
+      ],
+      [
+        80.8,
+        168.25
+      ],
+      [
+        80.8,
+        172.5
+      ],
+      [
+        53.8,
+        172.5
+      ],
+      [
+        53.8,
+        169.75
+      ],
+      [
+        45.0,
+        169.75
+      ],
+      [
+        45.0,
+        166.5
+      ],
+      [
+        30.549999,
+        166.5
+      ],
+      [
+        30.549999,
+        160.0
+      ],
+      [
+        10.75,
+        160.0
+      ]
+    ],
+    "portraitPolygon": [
+      [
+        0.082061,
+        0.185135
+      ],
+      [
+        0.910305,
+        0.185135
+      ],
+      [
+        0.910305,
+        0.844324
+      ],
+      [
+        0.724809,
+        0.901351
+      ],
+      [
+        0.646947,
+        0.901351
+      ],
+      [
+        0.646947,
+        0.909459
+      ],
+      [
+        0.616794,
+        0.909459
+      ],
+      [
+        0.616794,
+        0.932432
+      ],
+      [
+        0.410687,
+        0.932432
+      ],
+      [
+        0.410687,
+        0.917568
+      ],
+      [
+        0.343511,
+        0.917568
+      ],
+      [
+        0.343511,
+        0.9
+      ],
+      [
+        0.233206,
+        0.9
+      ],
+      [
+        0.233206,
+        0.864865
+      ],
+      [
+        0.082061,
+        0.864865
+      ]
+    ],
+    "portraitClipPolygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.882098
+      ],
+      [
+        0.776037,
+        0.958409
+      ],
+      [
+        0.682028,
+        0.958409
+      ],
+      [
+        0.682028,
+        0.969259
+      ],
+      [
+        0.645622,
+        0.969259
+      ],
+      [
+        0.645622,
+        1.0
+      ],
+      [
+        0.396774,
+        1.0
+      ],
+      [
+        0.396774,
+        0.980108
+      ],
+      [
+        0.315668,
+        0.980108
+      ],
+      [
+        0.315668,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.9566
+      ],
+      [
+        0.182488,
+        0.909584
+      ],
+      [
+        0.0,
+        0.909584
+      ]
+    ],
+    "portraitMaskSource": "sc/ui_card_items.sc#support_card_common",
+    "portraitMaskChild": 1
+  },
+  "card-mask-normal": {
+    "file": "assets/ui/card-mask-normal.png",
+    "source": "sc/ui_card_items.sc#card_mask_normal",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "width": 119,
+    "height": 149,
+    "nativeBounds": [
+      -59.0,
+      -74.0,
+      60.0,
+      75.0
+    ],
+    "maskAlphaMax": 169,
+    "sha256": "f5a1ca8d7a351d6e7f0cf577ab2ef1a0ca70c38cd506a989631e3c6fc68b4540",
+    "bytes": 947
+  },
+  "card-mask-legendary": {
+    "file": "assets/ui/card-mask-legendary.png",
+    "source": "sc/ui_card_items.sc#card_mask_legendary",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "width": 117,
+    "height": 165,
+    "nativeBounds": [
+      -59.0,
+      -82.0,
+      58.0,
+      83.0
+    ],
+    "maskAlphaMax": 178,
+    "sha256": "1e506b7ca00d6d611a582a10e3067ff7366bcec624b05963065ba41168c141f4",
+    "bytes": 2322
+  },
+  "card-mask-champion": {
+    "file": "assets/ui/card-mask-champion.png",
+    "source": "sc/ui_card_items.sc#card_mask_champion",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "width": 107,
+    "height": 144,
+    "nativeBounds": [
+      -53.0,
+      -68.0,
+      54.0,
+      76.0
+    ],
+    "maskAlphaMax": 180,
+    "sha256": "03addfb75e95740e6de640d57cc4b1793b92eb4729637432ee0648a5a750792d",
+    "bytes": 1642
+  },
+  "reward-hero-coins": {
+    "file": "assets/ui/reward-hero-coins.png",
+    "source": "sc/ui_card_items.sc#icon_hero_token",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "8a79e0c00832ae4d5c112c57f62b94266e57f979abe0aee3cee7f066186b12d7",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_card_items_0.sctx",
+        "sha256": "8d483346d652745964402ab308c0c809109421f33a201bd4627d4f1520e16464",
+        "bytes": 637479
+      }
+    ],
+    "sourceFrame": 0,
+    "sourceLabel": "0",
+    "nativeBounds": [
+      -31.0,
+      -32.0,
+      32.0,
+      33.0
+    ],
+    "width": 63,
+    "height": 65,
+    "sha256": "519ddd6c79ea917cabcc309584315eee2b4440ca13ff89bbf5e028c5eca09513",
+    "bytes": 5830,
+    "sourceRole": "Original same-named Hero Coin token export in card UI; consumables points to ui.sc."
+  },
+  "reward-wild-shards": {
+    "file": "assets/ui/reward-wild-shards.png",
+    "source": "sc/ui_evolution_shards.sc#icon_consumable_wild_shard",
+    "sourceVersion": "16.402.2",
+    "sourceSha256": "a60062698f4e4babaee89488d4541cce1128f99a2697a764d51d4c769584eaec",
+    "sourceTextures": [
+      {
+        "file": "sc/ui_evolution_shards_0.sctx",
+        "sha256": "3b6aeeb6b29796ea9d5cbdc011660c1676161af62a7051ec102f03efb19b2969",
+        "bytes": 1812438
+      }
+    ],
+    "sourceFrame": 0,
+    "width": 70,
+    "height": 67,
+    "nativeBounds": [
+      -34.0,
+      -33.0,
+      36.0,
+      34.0
+    ],
+    "sha256": "206533be4e96b086e95f466cc4334869ced87cb2b4c2be8c814eb9d78e524981",
+    "bytes": 5930
   }
 }

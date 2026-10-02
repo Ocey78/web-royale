@@ -5,7 +5,7 @@ function request(battle){
  const mode=battle.mode||'Default',queue=battle.queueType||(battle.is2v2?'2v2':mode==='Default'?'trophy-road':'challenge');
  const extra={queue,practice:battle.practice===true};
  // Do not copy a seed, enemy, arena or old result ID: this is another match.
- if(mode!=='RandomDeck'&&Array.isArray(battle.initialDecks?.[0]))extra.deck=[...battle.initialDecks[0]];
+ if(mode!=='RandomDeck'&&Array.isArray(battle.initialDecks?.[0])){extra.deck=[...battle.initialDecks[0]];if(Array.isArray(battle.seatForms?.[0]))extra.forms=[...battle.seatForms[0]];}
  return{mode,training:queue==='training',extra};
 }
 return{request};});

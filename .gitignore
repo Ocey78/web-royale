@@ -11,11 +11,9 @@ assets/ui/*.webp
 # Restored from the verified lossless source package before rebuilding.
 /assets/native/data.json
 
-# Source binaries are restored from the checksum-verified dist.
 assets/**/*.png
 assets/**/*.webp
 assets/**/*.wav
-# Never upload mobile packages or raw reference media.
 *.xapk
 *.aab
 *.obb

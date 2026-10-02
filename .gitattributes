@@ -1,7 +1,5 @@
 # Preserve the lossless native source archive byte-for-byte on every host.
 /assets/native/source-data.json.gz -text
 
-# Preserve checksum-verified generated output on every host.
+# Preserve generated release bytes.
 dist/** -text
-
-/assets/native/source-data.json.gz -text

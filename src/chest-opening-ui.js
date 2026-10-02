@@ -1,7 +1,7 @@
 /* Original source chest/flip timelines with real, already committed receipts. */
 (function(root){'use strict';
 function create(ctx){
- let sequence=null,scene=null,chestScene=null,canvas=null,host=null,stamp=0,key='',raf=0,closed=false,replaceIds=[];const images=new Map();
+ let sequence=null,scene=null,chestScene=null,canvas=null,host=null,stamp=0,key='',raf=0,closed=false,replaceIds=[];let rewardReceipt=null;const images=new Map();
  async function image(key){if(images.has(key))return images.get(key);const im=new Image();im.src=ctx.uiImages[key];await im.decode();images.set(key,im);return im;}
  function face(c,item){
   const im=item.kind==='card'?ctx.art.get(item.id)?.image:images.get(item.kind==='gold'?'chest-reward-gold':item.kind==='gems'?'chest-reward-gems':item.kind==='wildcard'?'road-wild-'+item.rarity.toLowerCase():'cards');if(!im)return;
@@ -34,7 +34,7 @@ function create(ctx){
   const action=host.querySelector('.chest-tap'),hint=sequence.stage==='closed'?'Tap to open':shown?'Tap to continue':summary?'Done':sequence.stage==='revealing'?'Tap to reveal':'';
   action.disabled=['arriving','opening'].includes(sequence.stage);action.innerHTML=ctx.word(hint||'Opening…');action.setAttribute('aria-label',hint||'Opening chest');
   host.querySelector('.chest-summary').hidden=!summary;host.querySelector('.chest-skip').hidden=summary;
-  if(summary){host.querySelector('.chest-summary').innerHTML='<h3>'+ctx.word('You received')+'</h3><div class="chest-summary-grid">'+sequence.entries.map(e=>'<div class="chest-summary-item">'+(e.kind==='card'?ctx.cardVisual(e.id):ctx.icon(e.kind==='gold'?'chest-reward-gold':e.kind==='gems'?'chest-reward-gems':e.kind==='wildcard'?'road-wild-'+e.rarity.toLowerCase():'cards'))+'<strong>'+ctx.word((e.kind==='card'?'×':'+')+e.count)+'</strong><small>'+ctx.word(e.name)+'</small></div>').join('')+'</div>';}
+  if(summary){host.querySelector('.chest-summary').innerHTML='<h3>'+ctx.word('You received')+'</h3><div class="chest-summary-grid">'+sequence.entries.map(e=>'<div class="chest-summary-item">'+(e.kind==='card'?ctx.cardVisual(e.id):ctx.icon(e.kind==='gold'?'chest-reward-gold':e.kind==='gems'?'chest-reward-gems':e.kind==='wildcard'?'road-wild-'+e.rarity.toLowerCase():'cards'))+'<strong>'+ctx.word((e.kind==='card'?'×':'+')+e.count)+'</strong><small>'+ctx.word(e.name)+'</small></div>').join('')+'</div>'+(ctx.extraRewardMarkup?.(rewardReceipt)||'');ctx.afterRewardMarkup?.(host);}
   if(sequence.stage==='opening')ctx.sound('chestOpen'+({treasure:'Wood',wood:'Wood',crown:'Crown',magic:'Magic',gold:'Gold',gem:'Gold'}[sequence.kind]||'Silver'));
   if(sequence.stage==='shown')ctx.sound(item.rarity==='Rare'||item.rarity==='Epic'?'cardRare':item.kind==='card'?'cardCommon':'reward');
   ctx.hydrate(host);
@@ -42,7 +42,7 @@ function create(ctx){
  function frame(ms){if(closed||!host?.isConnected)return;const dt=stamp?Math.min(.1,(ms-stamp)/1000):0;stamp=ms;if(!document.hidden)sequence.advance(dt);sync();paint();raf=requestAnimationFrame(frame);}
  function close(){api.loading=null;closed=true;cancelAnimationFrame(raf);sequence=null;host=null;canvas=null;}
  async function open(reward,{kind='silver',title='Chest',owned=[]}={}){
-  close();closed=false;const token={};api.loading=token;ctx.panel('chest-opening',title,'<div class="chest-loading">Opening chest…</div>',false);
+  close();rewardReceipt=reward;closed=false;const token={};api.loading=token;ctx.panel('chest-opening',title,'<div class="chest-loading">Opening chest…</div>',false);
   try{await Promise.all([ctx.native.ensureScenes(kind==='gem'?['chest_opening','gem_chest']:kind==='treasure'?['chest_opening','treasure_chest']:['chest_opening']),...['chest-reward-gold','chest-reward-gems','cards','road-wild-common','road-wild-rare','road-wild-epic','road-wild-legendary'].map(image),...(reward.cards||[]).map(x=>ctx.art.load(x.id))]);}catch(error){if(api.loading!==token)return false;throw error;}if(api.loading!==token)return false;
   scene=ctx.native.scenes.chest_opening;chestScene=kind==='gem'?ctx.native.scenes.gem_chest:kind==='treasure'?ctx.native.scenes.treasure_chest:scene;replaceIds=[...new Set(Object.values(scene.data.clips).flatMap(c=>c.children.filter((id,i)=>c.childrenNames[i]==='card_image')))];sequence=new root.RoyaleChestOpening.Sequence(reward,{scene:scene.data,kind,owned});key='';stamp=0;
   ctx.panel('chest-opening',title,`<div class="chest-opening-view"><canvas class="chest-opening-canvas" width="1080" height="1920" aria-hidden="true"></canvas><div class="chest-opening-title">${ctx.word(title)}</div><div class="chest-reward-badge" aria-live="polite"></div><div class="chest-reward-name"></div><div class="chest-reward-amount"></div><b class="chest-remaining" aria-label="Rewards remaining"></b><div class="chest-summary" hidden></div><button class="chest-skip" type="button">Skip</button><button class="chest-tap native-button blue" type="button"></button></div>`,false);

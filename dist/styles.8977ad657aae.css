@@ -1333,3 +1333,49 @@
 .form-inventory-grid .form-owned .form-unlock-progress{color:#b9edb4}
 .form-currencies>span span{background:none;border:0;border-radius:0;padding:0;font:inherit;flex:initial}
 #modalPanel .empty-form-inventory h3{color:#fff}
+
+/* Original category frames and connected, already committed reward receipts. */
+.card-type-tower>.card-portrait{object-fit:contain!important}
+.card-visual[data-source-frame=true]>.card-portrait{left:var(--card-portrait-left)!important;top:var(--card-portrait-top)!important;right:auto!important;bottom:auto!important;width:var(--card-portrait-width)!important;height:var(--card-portrait-height)!important;clip-path:var(--card-portrait-clip)!important;mask-image:var(--card-portrait-mask,none);mask-size:100% 100%;mask-repeat:no-repeat;-webkit-mask-image:var(--card-portrait-mask,none);-webkit-mask-size:100% 100%;-webkit-mask-repeat:no-repeat}
+#viewport .card-visual[data-source-frame=true]>.card-frame{object-fit:fill!important}
+.card-tile.special-slot .card-visual{overflow:visible}
+.form-cycle-count{position:absolute;z-index:5;right:4%;top:18%;padding:2px 4px;background:#3b1b5e;color:#fff;border-radius:4px;font:800 10px Arial,sans-serif}
+.card-visual .card-type-icon{position:absolute;z-index:4;pointer-events:none;left:12%;top:-4%;width:76%;height:28%;object-fit:contain}
+.owned-form-badge>img{width:100%;height:100%;object-fit:contain}
+.content-shop-tabs,.content-shop-pages{display:flex;justify-content:center;align-items:center;gap:8px;margin:12px 0}
+.content-shop-tabs button,.content-shop-pages button{min-height:36px;padding:8px 12px;border:1px solid #8aafc8;border-radius:6px;background:#193e5c;color:#fff;font:700 13px Arial,sans-serif}
+.content-shop-tabs button[aria-pressed=true]{background:#654499;border-color:#dec4ff}
+.content-shop-pages{color:#fff;font:600 13px Arial,sans-serif}
+#viewport .connected-content-shop>h2{font-size:23px;text-align:center;color:#f0f6ff;margin:8px 0}
+#viewport .reference-shop .content-shop-offer{height:315px}
+#viewport .reference-shop .content-shop-offer .native-button{width:100%;min-height:42px;font:700 13px Arial,sans-serif;margin-top:auto;padding:7px 5px}
+#viewport .reference-shop .content-shop-offer .content-offer-state{min-height:31px;font:600 11px/1.35 Arial,sans-serif;color:#29445c;text-align:center;margin:7px 0}
+.content-reward-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0;grid-column:1/-1}
+.content-reward-item{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;padding:10px 6px;border:1px solid #7196ad;border-radius:8px;background:#173650;color:#fff;text-align:center;font:600 13px/1.3 Arial,sans-serif}
+.content-reward-item>span{overflow-wrap:anywhere}.content-reward-item>small{color:#b8eab9;font-size:11px}
+.content-reward-art{position:relative;width:100%;max-width:105px;height:140px}
+.content-reward-art .card-visual{width:100%;height:100%}
+.content-reward-art canvas{width:100%;height:100%;object-fit:contain}
+.content-reward-art .emote-bubble{display:block;width:100%;height:100%}
+.content-reward-item .native-button{width:100%;min-height:37px;font:700 12px Arial,sans-serif;padding:5px}
+.content-currency{display:grid;place-items:center;width:100%;height:100%;color:#efc46a;font:900 42px Arial,sans-serif;text-shadow:0 2px #5e3c12}
+.content-currency.wild-shards{color:#c88cf2}
+.content-currency-icon{width:100%;height:100%;object-fit:contain}
+.content-reward-grid.compact{margin:8px 0;gap:7px}
+.content-reward-grid.compact .content-reward-art{height:90px;max-width:68px}
+.content-reward-grid.compact .content-reward-item{font-size:11px;padding:7px 4px}
+.pass-reward-list{display:grid;gap:13px}.pass-reward-row{padding:12px;border:1px solid #7395b0;border-radius:8px;background:#16364f;color:#fff}
+.pass-reward-row h3{color:#fff;font:700 17px Arial,sans-serif}.pass-reward-row p{font:500 13px Arial,sans-serif}
+.pass-reward-row>.native-button{width:100%;min-height:38px}
+.tower-troop-inventory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}
+.tower-troop-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;background:#173852;border:1px solid #7d9ab1;border-radius:9px;color:#fff;text-align:center;min-width:0}
+.tower-troop-art{position:relative;width:105px;height:148px}
+.tower-troop-card h3{color:#fff;font:700 16px Arial,sans-serif}.tower-troop-card p{font:500 12px/1.35 Arial,sans-serif;margin:0}.tower-troop-card small{font:400 11px/1.35 Arial,sans-serif;color:#d5e2ed}
+.tower-troop-card .native-button{width:100%;font:700 12px Arial,sans-serif;min-height:38px;padding:6px;margin-top:2px}
+.reward-list .card-visual{width:80px;height:104px;margin:auto}
+@media(max-width:520px){.content-reward-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.content-shop-tabs button{font-size:12px;padding:7px}.content-reward-art{height:135px}.content-reward-grid.compact .content-reward-art{height:80px}.tower-troop-art{width:90px;height:129px}}
+
+#viewport .reference-shop .content-shop-offer .offer-portrait{padding-top:25px;box-sizing:content-box}
+#viewport .card-type-evolution>.card-frame,#viewport .card-type-hero>.card-frame,#viewport .card-type-champion>.card-frame,#viewport .card-type-tower>.card-frame{filter:none!important}
+
+.owned-form-badge:has(img){padding:0;border:0;background:none;width:30px;height:18px}
