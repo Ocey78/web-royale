@@ -5,9 +5,9 @@ const C=require('../src/core.js'),P=require('../src/progression.js'),S=require('
 function rich(extra={}){return C.normalizeProfile({trophies:5200,highestTrophies:5200,unlockedCards:C.CARDS.map(c=>c.id),copies:Object.fromEntries(C.CARDS.map(c=>[c.id,100])),cardLevels:Object.fromEntries(C.CARDS.map(c=>[c.id,9])),...extra});}
 function rich45(extra={}){return Old45.normalizeProfile({trophies:5200,highestTrophies:5200,unlockedCards:Old45.CARDS.map(c=>c.id),copies:Object.fromEntries(Old45.CARDS.map(c=>[c.id,100])),cardLevels:Object.fromEntries(Old45.CARDS.map(c=>[c.id,9])),...extra});}
 
-test('v045 Trophy Road reports league progression past Serenity Peak',()=>{
+test('[Classic 0.50.1] v045 Trophy Road reports league progression past Serenity Peak',()=>{
  const p=rich({trophies:5200,highestTrophies:5200});
- const current=P.currentProgression(p);
+ const current=require('./fixtures/classic-v0501/src/progression.js').currentProgression(p);
  A.equal(current.name,'Challenger I');
  A.equal(current.trophies,5000);
 });

@@ -1,11 +1,11 @@
 'use strict';
 const test=require('node:test'),a=require('node:assert/strict'),C=require('../src/core.js'),R=require('../src/replay.js'),L45=require('../src/legacy-core-v045.js');
 
-test('v046 records use simulation tag 0.46 and preserve six-card cycles',()=>{
+test('v046 records use current simulation tag 0.51 and preserve six-card cycles',()=>{
  const deck=['knight','archers','giant','mini-pekka','musketeer','bomber'];
  const b=new C.Battle({mode:'SixCardDeck',deck,enemyDeck:deck,ai:false,seed:4601});
  R.captureInitial(b);const record=R.pack(b);
- a.equal(record.engine,'0.46');
+ a.equal(record.engine,R.ENGINE);
  a.equal(record.initial.decks[0].length,6);
  const s=new R.Session(record);s.seek(0);a.equal(s.error,null);a.equal(s.battle.initialDecks[0].length,6);
 });

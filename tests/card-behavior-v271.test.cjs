@@ -24,15 +24,15 @@ test('spawn settling retains airborne and source hover permissions over water',(
  }
 });
 
-test('river death payloads retain their origin while later mobile children settle on land',()=>{
+test('current river death payloads and historical Skeleton Barrel retain their origins and settle children legally',()=>{
  for(const [name,payload]of [['Balloon','BalloonBomb'],['SkeletonBalloon','SkeletonContainer'],['RageBarbarian','RageBarbarianBottle']]){
-  const b=make();b.towers=[];
+  const b=name==='SkeletonBalloon'?new(require('./fixtures/classic-v0501/src/core').Battle)({ai:false}):make();b.towers=[];
   const parent=troop(b,name,0,9,16),victim=troop(b,'Giant',1,9,19.2);
-  parent.hp=0;b.deaths();
+  parent.hp=0;b.deaths();b.tickAreas();
   const carrier=b.units.find(u=>u.entity===payload);assert.ok(carrier,payload);
   assert.equal(carrier.x,9*SX,payload+' x origin');assert.equal(carrier.y,16*SY,payload+' y origin');
   b.time=3.1;b.tickEntity(carrier,.1);b.deaths();
-  if(name==='Balloon')assert.equal(victim.maxHp-victim.hp,199,'death bomb must damage at its actual death origin');
+  if(name==='Balloon'){b.tickAreas();const source=C.DATA.areas[C.DATA.entities.BalloonBomb.DeathAreaEffect];assert.equal(victim.maxHp-victim.hp,C.scaled(source.Damage,source.Rarity,carrier.level),'death field must damage at its actual origin');}
   if(name==='RageBarbarian')assert.ok(b.areas.some(a=>a.name==='BarbarianRage'&&a.x===9*SX&&a.y===16*SY));
   if(name==='SkeletonBalloon'){
    const children=b.units.filter(u=>u.entity==='Skeleton');assert.ok(children.length>0);
@@ -91,15 +91,15 @@ for(const insertion of ['near-first','far-first'])test('Hunter pellet hits the f
 
 test('Freeze suspends Elixir Collector production and its remaining production time',()=>{
  const b=make(),pump=troop(b,'ElixirCollector',0);b.elixir[0]=0;
- tickOnly(b,pump,8);b.addBuff(pump,'Freeze',2,1,9);
+ tickOnly(b,pump,C.DATA.entities.ElixirCollector.ManaGenerateTimeMs/1000-.5);b.addBuff(pump,'Freeze',2,1,9);
  tickOnly(b,pump,2.2);assert.equal(b.elixir[0],0);
  tickOnly(b,pump,.4);assert.equal(b.elixir[0],1);
 });
 
 test('Rage speeds the current Elixir Collector cycle when applied partway through it',()=>{
  const b=make(),pump=troop(b,'ElixirCollector',0);b.elixir[0]=0;
- tickOnly(b,pump,4);b.addBuff(pump,'Rage',10,0,9);
- tickOnly(b,pump,3.2);assert.equal(b.elixir[0],0);
+ const period=C.DATA.entities.ElixirCollector.ManaGenerateTimeMs/1000;tickOnly(b,pump,period/2);b.addBuff(pump,'Rage',10,0,9);
+ tickOnly(b,pump,period/2/b.buffs(pump).spawn-.1);assert.equal(b.elixir[0],0);
  tickOnly(b,pump,.2);assert.equal(b.elixir[0],1);
 });
 
@@ -115,7 +115,7 @@ for(const name of ['Witch','DarkWitch','GoblinHut','BarbarianHut','Tombstone','F
 test('Cannon Cart becomes a building that pulls Giant after its moving stage is destroyed',()=>{
  const b=make(),giant=troop(b,'Giant',0,5),cart=troop(b,'MovingCannon',1,7);
  assert.notEqual(b.chooseTarget(giant).id,cart.id);
- b.damage(cart,999999);b.deaths();
+ b.damage(cart,Math.ceil(cart.maxHp/2));b.tickEntity(cart,.001);
  const broken=b.units.find(u=>u.entity==='BrokenCannon');assert.ok(broken);
  assert.equal(b.chooseTarget(giant).id,broken.id);
  assert.equal(broken.building,true);assert.equal(broken.def.speedTiles,0);
@@ -155,14 +155,13 @@ test('Fisherman refuses to complete a charged hook on a newly invisible target',
  assert.equal(b.projectiles.length,0);
 });
 
-test('Cannon Cart keeps its target through the source 150ms morph delay',()=>{
+test('Cannon Cart keeps its target through the source half-health transformation',()=>{
  const b=make(),cart=troop(b,'MovingCannon',0),old=troop(b,'Giant',1,9),closer=troop(b,'Knight',1,7);
  cart.targetId=old.id;cart.heading=.7;
- b.damage(cart,999999);b.deaths();
+ b.damage(cart,Math.ceil(cart.maxHp/2));b.modernActions.tickEntity(b,cart,0);
  const broken=b.units.find(u=>u.entity==='BrokenCannon');
  assert.equal(broken.targetId,old.id);assert.equal(broken.heading,.7);
- assert.ok(Math.abs(broken.readyAt-.15)<1e-8);
- tickOnly(b,broken,.1);assert.equal(broken.wait>0,true);
+ assert.equal(broken.readyAt,0);assert.ok(broken.hp>0&&broken.hp<=broken.maxHp/2);
  tickOnly(b,broken,.1);assert.equal(broken.wait,0);
  assert.equal(broken.targetId,old.id);assert.notEqual(broken.targetId,closer.id);
 });

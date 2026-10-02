@@ -1,11 +1,12 @@
+// Historical Classic regression fixture. Modern source assertions are in modern-*-v052 tests.
 'use strict';
 const test=require('node:test'),A=require('node:assert/strict');
-const K=require('../src/catalog'),R=require('../src/progression'),D=require('../src/training-decks');
+const K=require('./fixtures/classic-v0501/src/catalog'),R=require('./fixtures/classic-v0501/src/progression'),D=require('./fixtures/classic-v0501/src/training-decks');
 const signature=cards=>[...cards].sort().join(',');
 const hasAir=cards=>cards.some(id=>{const c=K.CARD_BY_ID[id];return c.entity&&K.entityDef(c.entity,9).targetsAir;});
 const eligible=(id,arena)=>K.DEFAULT_DECK.includes(id)||R.cardArenaNumber(K.CARD_BY_ID[id],K.DATA.arenas)<=arena;
 
-test('the opponent catalogue exposes thousands of unique coherent decks and genuine source seeds',()=>{
+test('[Classic 0.50.1] the opponent catalogue exposes thousands of unique coherent decks and genuine source seeds',()=>{
  A.equal(typeof D.catalogue,'function','opponents need an inspectable shared deck catalogue');
  const pool=D.catalogue(),seen=new Set();
  A.ok(pool.length>=10000,`only ${pool.length} decks`);
@@ -31,7 +32,7 @@ test('the opponent catalogue exposes thousands of unique coherent decks and genu
  A.ok(hog.sources.some(s=>s.provider==='StatsRoyale'));A.ok(hog.sources.some(s=>s.provider==='RoyaleAPI'));
 });
 
-test('battle deck selection reaches the entire catalogue and is reproducible without mutable shared cards',()=>{
+test('[Classic 0.50.1] battle deck selection reaches the entire catalogue and is reproducible without mutable shared cards',()=>{
  A.equal(typeof D.catalogue,'function');const pool=D.catalogue(),picked=new Set();
  for(let seed=0;seed<pool.length;seed++)picked.add(signature(D.build(seed,14)));
  A.equal(picked.size,pool.length,'some catalogue entries cannot be selected by opponents');
@@ -40,16 +41,16 @@ test('battle deck selection reaches the entire catalogue and is reproducible wit
  A.ok(Object.isFrozen(pool));A.ok(Object.isFrozen(pool[0].cards));
 });
 
-test('a fresh browser worker builds the same offline catalogue without a Node dependency loader',()=>{
+test('[Classic 0.50.1] a fresh browser worker builds the same offline catalogue without a Node dependency loader',()=>{
  const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
  const worker={RoyaleCatalog:K,RoyaleProgression:R};vm.createContext(worker);
- for(const file of ['deck-sources','training-decks'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/'+file+'.js'),'utf8'),worker);
+ for(const file of ['deck-sources','training-decks'])vm.runInContext(fs.readFileSync(path.join(__dirname,'./fixtures/classic-v0501/src/'+file+'.js'),'utf8'),worker);
  const fresh=worker.RoyaleTrainingDecks;
  A.deepEqual(Array.from(fresh.catalogue(),row=>signature(row.cards)),D.catalogue().map(row=>signature(row.cards)));
  for(const seed of [0,1,7919,40000,4294967295])A.deepEqual(Array.from(fresh.forMode(seed,8,'OneShot')),D.forMode(seed,8,'OneShot'));
 });
 
-test('arena and special-mode deck generation keeps unlocks, coverage and mode restrictions',()=>{
+test('[Classic 0.50.1] arena and special-mode deck generation keeps unlocks, coverage and mode restrictions',()=>{
  for(let arena=1;arena<=14;arena++)for(const mode of ['Default','FourCardDeck','SixCardDeck','TwelveCardDeck','OneShot'])for(let seed=1;seed<=32;seed++){
   const cards=D.forMode(seed*7919,arena,mode);A.equal(cards.length,K.modeDeckSize(mode));
   A.equal(new Set(cards).size,cards.length);
@@ -62,8 +63,8 @@ test('arena and special-mode deck generation keeps unlocks, coverage and mode re
  }
 });
 
-test('real battle and self-play factories consume catalogue decks',()=>{
- A.equal(typeof D.catalogue,'function');const C=require('../src/core'),M=require('../src/training-modes'),W=require('../src/world');
+test('[Classic 0.50.1] real battle and self-play factories consume catalogue decks',()=>{
+ A.equal(typeof D.catalogue,'function');const C=require('./fixtures/classic-v0501/src/core'),M=require('./fixtures/classic-v0501/src/training-modes'),W=require('./fixtures/classic-v0501/src/world');
  const all=new Set(D.catalogue().map(row=>signature(row.cards)));
  for(const seed of [10,234,9123]){
   const battle=new C.Battle({seed,ai:false,arenaNumber:14});A.ok(all.has(signature(battle.initialDecks[1])));

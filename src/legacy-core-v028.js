@@ -2,7 +2,7 @@
    Verified source training-engine SHA-256: 4a998ff023a5565aac2b9ff8dd5768fe443ad194d95eded73a110ad898f348fd. */
 (function(root){
 const common=typeof module==='object'&&module.exports;
-const legacy={RoyaleGameData:common?require('./game-data.js'):root.RoyaleGameData};
+const legacy={RoyaleGameData:common?require('./historical-game-data.js'):root.RoyaleHistoricalGameData};
 (function(globalThis,module,require){
 /* Source-table interpretation, kept separate from the battle simulation. */
 (function(root,factory){const d=typeof module==='object'&&module.exports?require('./game-data.js'):root.RoyaleGameData;const api=factory(d);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleCatalog=api;})(globalThis,function(DATA){'use strict';

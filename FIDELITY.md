@@ -1,4 +1,53 @@
-# Fidelity update — v0.28.0
+# Fidelity update — Main v0.52.0
+
+Main now uses decoded client snapshot **16.402.2** from the supplied XAPK. Its
+catalogue contains **123 base cards** and **67 special forms**: 17 Heroes,
+42 Evolutions and 8 Champions. Trophy Road uses **32 source arenas** and
+**217 imported reward steps**. Card/Tower Power levels reach **16** and account
+XP levels reach **90**. These are catalogue and progression counts; they do not
+establish complete playability or native-engine parity for every entry.
+
+Original 2D scenes and portraits are supplemented by **36 actual source 3D
+actors**, with original meshes, skinning, textures, complete motion frames,
+prefab transforms and source action markers. Original location files map all
+32 arena fields and decoration layers. **Shark Tank, Sandcastle and Fortress**
+are complete original seasonal tower assemblies for both teams, including all
+98 King activation frames. The source Tombstone debris idle retains its single
+authored static pose. Geometry-free controllers remain distinguished from
+their actual visual actors.
+
+**Full 1:1 fidelity remains incomplete.** Available cards, forms and abilities
+run this browser's own source-data interpreter. Incomplete required behavior
+remains **Unavailable**. Dependency preflight recognizes **121/123 base cards**
+and **51/67 forms** (30/42 Evolutions, 13/17 Heroes and 8/8 Champions). The
+per-entry audit is in
+[`docs/modern-source/source-behavior-coverage.md`](docs/modern-source/source-behavior-coverage.md);
+imported records and recovered artwork alone do not
+prove implementation of every modern action or interaction. Native movement,
+collision, targeting, scheduling and complete ability parity remain unverified.
+
+The live renderer preserves the source team-mask formula, but exact native team
+color constants were unavailable. Local uniforms and Three.js lighting are used.
+The proprietary material shader, some material overrides, normal maps, prefab
+particles and the complete native animation state-machine interpreter are not
+reproduced. Five arena decoration rows with blank initial coordinates remain
+unmapped. These limits prevent a claim of pixel-identical native output.
+
+Client progression tables do not recover all server reward decisions or live
+economy. Rewards, unlocks, shops, opponents, clans and events are local practice
+counterparts. No live online matchmaking, human account service, Supercell ID,
+real payment or cloud account sync is implemented. Historical replay engines
+remain separate from the current modern simulation.
+
+Source provenance and rendering details are in `assets/modern-heroes/README.md`,
+its actor manifest, native scene source records and the seasonal tower manifest.
+The notes below describe earlier releases and are superseded where this update
+or the v0.52.0 build notes differ.
+
+<!-- Final packaged verification is added to the v0.52.0 build notes after
+     integration; no whole-build parity claim is made. -->
+
+# Historical fidelity update — v0.28.0
 
 The deck tray, card-detail frame/elixir/progress artwork and bitmap text are sourced
 from the supplied original assets. All 102 detail sheets are checked for layout fit.

@@ -14,6 +14,7 @@ test('package version agrees with the generated release',()=>{
  const release=JSON.parse(fs.readFileSync(require.resolve('../dist/release.json'),'utf8'));
  A.match(pkg.version,/^\d+\.\d+\.\d+$/);
  const build=fs.readFileSync(require.resolve('../tools/build-web.js'),'utf8');
- A.equal(build.match(/VERSION='([^']+)'/)[1],pkg.version);
+ A.match(build,/VERSION=project\.version/);
+ A.equal(require('../project.json').version,pkg.version);
  A.equal(release.version,pkg.version);
 });

@@ -3,11 +3,14 @@ const test=require('node:test'), A=require('node:assert/strict');
 const C=require('../src/core'), N=require('../src/native');
 function advance(b,t){for(let n=0;n<Math.round(t*60);n++)b.step(1/60);}
 function battle(mode='Default',other={}){return new C.Battle({ai:false,learning:false,mode,seed:91,...other});}
-test('v120: Lumberjack rage bottle resolves after source deploy time without an enemy hit',()=>{
- const b=battle(),p=b.spawn('RageBarbarian',0,230,440,{wait:0});p.hp=0;b.deaths();
+test('[Classic 0.50.1] v120: Lumberjack rage bottle resolves after source deploy time without an enemy hit',()=>{
+ const Historical=require('./fixtures/classic-v0501/src/core'),b=new Historical.Battle({ai:false,learning:false,seed:91}),p=b.spawn('RageBarbarian',0,230,440,{wait:0});p.hp=0;b.deaths();
  const bottle=b.units.find(x=>x.entity==='RageBarbarianBottle');A.ok(bottle);
  advance(b,.6);A.ok(b.areas.some(x=>x.name==='BarbarianRage'));
  A.ok(!b.units.some(x=>x.entity==='RageBarbarianBottle'));
+});
+test('current source Lumberjack death driver creates its authored bottle and rage field without a target',()=>{
+ const b=battle(),u=b.spawn('RageBarbarian',0,230,440,{wait:0}),driverName=u.def.source.DeathAreaEffect;u.hp=0;b.deaths();const driver=b.areas.find(a=>a.name===driverName);A.ok(driver);const action=C.DATA.actions[C.DATA.areas[driverName].OnStartingAction];A.equal(action.SpawnType,'CharacterType');b.tickAreas();const bottle=b.units.find(x=>x.entity===action.SpawnData);A.ok(bottle?.effectCarrier);const field=bottle.def.source.DeathAreaEffect;advance(b,Math.max(0,bottle.expires-b.time)+1/60);A.ok(b.areas.some(x=>x.name===field));A.equal(b.units.includes(bottle),false);
 });
 test('v120: zero-health effect carriers cannot be targeted or counted as combat kills',()=>{
  const b=battle(),bottle=b.spawn('RageBarbarianBottle',0,210,390),enemy=b.spawn('Knight',1,210,380,{wait:0});

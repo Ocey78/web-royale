@@ -5,7 +5,7 @@ function towerConfig(value={}){return Object.fromEntries(['blue','red'].map(team
 function validLevel(value,fallback=9){return Number.isFinite(Number(value))?C.clamp(Math.floor(Number(value)),0,99):fallback;}
 // Source levels retain their recorded multipliers. Debug levels below a
 // rarity's base extrapolate backward with the same 10% growth convention.
-function scaleStat(raw,rarity,level){const n=validLevel(level),base=C.baseLevel(rarity);return n>=base?C.scaled(raw,rarity,n):Math.floor((Number(raw)||0)*Math.pow(1.1,n-base)+1e-7);}
+function scaleStat(raw,rarity,level){const n=validLevel(level),base=C.baseLevel(rarity);return n>=base?C.scaled(raw,rarity,n):Math.floor((Number(raw?.BaseDamage??raw)||0)*Math.pow(1.1,n-base)+1e-7);}
 function entityDefinition(name,level=9){
  const n=validLevel(level),d=C.entityDef(name,Math.max(1,Math.min(30,n))),r=d.source,p=C.projectileDamageDef(C.projectileForAttack(r))||{},tower=['KingTower','PrincessTower'].includes(name);
  const towerStat=(raw,damage=false)=>Math.floor((raw||0)*C.towerFactor(name,Math.max(1,n),damage)*(n===0?1/1.1:1));
@@ -14,10 +14,10 @@ function entityDefinition(name,level=9){
 }
 function cardDefinition(id,level=9){
  const n=validLevel(level),card=C.cardAt(id,n);if(!card)return null;
- if(card.entity){const e=entityDefinition(card.entity,n);return{...card,hp:e.hp,damage:e.damage};}
+ if(card.entity){const e=entityDefinition(card.entity,n);return{...card,level:n,hp:e.hp,damage:e.damage};}
  const r=card.source,a=C.DATA.areas[r.AreaEffectObject]||{},p=C.DATA.projectiles[card.projectileName]||{},buff=C.DATA.buffs[a.Buff]||{};
  const damage=scaleStat(p.Damage??a.Damage??r.InstantDamage??buff.DamagePerSecond??0,p.Rarity||a.Rarity||card.rarity,n),percent=p.CrownTowerDamagePercent??a.CrownTowerDamagePercent??buff.CrownTowerDamagePercent;
- return{...card,damage,crownDamage:percent!==undefined?Math.floor(damage*(100+percent)/100):null};
+ return{...card,level:n,damage,crownDamage:percent!==undefined?Math.floor(damage*(100+percent)/100):null};
 }
 class SandboxBattle extends C.Battle{
  constructor(options={}){

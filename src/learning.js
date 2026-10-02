@@ -67,7 +67,7 @@ class MatchRecorder{
  constructor(b){this.b=b;this.compact=b.compactRecording===true;this.eventCounts={};this.seatPlacements=b.seats.map(()=>0);this.commands=[];this.events=[];this.transitions=[];this.snapshots=[];this.dropped=0;this.nextSample=0;this.closed=false;this.status='running';this.initial=b.brain?.export()||new SharedBrain().export();this.started=new Date().toISOString();}
  event(event){if(this.closed)return;this.eventCounts[event.type]=(this.eventCounts[event.type]||0)+1;
   const e=this.compact?{...event}:JSON.parse(JSON.stringify(event));if(this.compact)delete e.features;
-  if(e.type==='deploy'){this.commands.push(e);const seat=e.seat??e.owner;if(this.seatPlacements[seat]!==undefined)this.seatPlacements[seat]++;if(this.compact&&this.commands.length>64){this.commands.shift();this.dropped++;}}
+  if(e.type==='deploy'||e.type==='ability'){this.commands.push(e);const seat=e.seat??e.owner;if(e.type==='deploy'&&this.seatPlacements[seat]!==undefined)this.seatPlacements[seat]++;if(this.compact&&this.commands.length>64){this.commands.shift();this.dropped++;}}
   if(e.type==='learning'){this.transitions.push(e);if(this.transitions.length>(this.compact?32:3000)){this.transitions.shift();this.dropped++;}}
   else if(!this.compact){this.events.push(e);if(this.events.length>12000){this.events.shift();this.dropped++;}}
  }

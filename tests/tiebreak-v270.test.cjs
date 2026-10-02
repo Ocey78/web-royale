@@ -130,14 +130,15 @@ test('boat battles preserve their own timeout without a crown-tower tiebreak pha
 
 test('new replay records reproduce the drain while older records preserve their immediate result',()=>{
  for(const legacy of [false,true]){
-  const b=new C.Battle({ai:false,seed:89,deck:['fireball','knight','archers','giant','musketeer','arrows','minions','cannon'],...(legacy?{tiebreaker:false}:{})});
+  const Engine=legacy?require('../src/legacy-core-v027'):C;
+  const b=new Engine.Battle({ai:false,seed:89,deck:['fireball','knight','archers','giant','musketeer','arrows','minions','cannon'],...(legacy?{tiebreaker:false}:{})});
   Replay.captureInitial(b);
   const target=b.towers.find(t=>t.team===1&&!t.king);
   assert.equal(b.deploy(0,0,target.x,target.y).ok,true);
   advance(b,305,1/60);
   assert.ok(b.result);
   const packed=Replay.pack(b);
-  assert.equal(packed.engine,'0.46');
+  assert.equal(packed.engine,Replay.ENGINE);
   if(legacy){packed.engine='0.26';delete packed.initial.tiebreaker;}
   const session=new Replay.Session(packed);session.seek(packed.duration);
   assert.equal(session.error,null);

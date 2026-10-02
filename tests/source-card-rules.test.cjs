@@ -1,7 +1,7 @@
 const test=require('node:test'),A=require('node:assert/strict'),C=require('../src/core');
 const mirrorDeck=['mirror','knight','archers','giant','mini-pekka','musketeer','fireball','arrows'];
-test('source global excludes Mirror from both opening hands without changing the saved deck',()=>{
- A.equal(C.DATA.globals.LOGIC_MIRROR_NEVER_ON_OPENING_HAND.BooleanValue,true);
+test('source card excludes Mirror from both opening hands without changing the saved deck',()=>{
+ A.equal(C.CARD_BY_ID.mirror.source.OmitFromStartingHand,true);
  const b=new C.Battle({deck:mirrorDeck,enemyDeck:mirrorDeck,ai:false});
  for(const team of [0,1]){A.ok(!b.hand[team].includes('mirror'));A.ok(b.queue[team].includes('mirror'));A.deepEqual(b.initialDecks[team],mirrorDeck);A.equal(new Set([...b.hand[team],...b.queue[team]]).size,8);}
 });
@@ -20,8 +20,8 @@ test('spell damage resolves the original secondary projectile and area projectil
  for(const [id,entity]of [['the-log','LogProjectileRolling'],['barbarian-barrel','BarbLogProjectileRolling'],['royal-delivery','RoyalDeliveryProjectile']]){const d=C.cardAt(id,9),p=C.DATA.projectiles[entity];A.equal(d.damage,C.scaled(p.Damage,p.Rarity,9),id);}
 });
 test('card detail metadata identifies spell ticks, durations and delivered troops',()=>{
- A.equal(C.cardAt('arrows').damageMode,'per wave');A.equal(C.cardAt('poison').damageMode,'per second');A.equal(C.cardAt('freeze').duration,4);A.equal(C.cardAt('goblin-barrel').spawnEntity,'Goblin');A.equal(C.cardAt('goblin-barrel').count,3);A.equal(C.cardAt('royal-delivery').spawnEntity,'DeliveryRecruit');
+ A.equal(C.cardAt('arrows').damageMode,'per wave');A.equal(C.cardAt('poison').damageMode,'per second');A.equal(C.cardAt('freeze').duration,3.5);A.equal(C.cardAt('goblin-barrel').spawnEntity,'Goblin');A.equal(C.cardAt('goblin-barrel').count,3);A.equal(C.cardAt('royal-delivery').spawnEntity,'DeliveryRecruit');
 });
 test('Heal Spirit is classified as a troop despite its original spells table',()=>{
- A.equal(C.CARDS.filter(c=>c.kind==='Troop').length,72);A.equal(C.CARDS.filter(c=>c.kind==='Building').length,12);A.equal(C.CARDS.filter(c=>c.kind==='Spell').length,18);
+ A.equal(C.CARDS.filter(c=>c.kind==='Troop').length,89);A.equal(C.CARDS.filter(c=>c.kind==='Building').length,13);A.equal(C.CARDS.filter(c=>c.kind==='Spell').length,21);
 });

@@ -3,11 +3,11 @@
 const QUEUES=Object.freeze(['trophy-road','challenge','training','friendly','clan-war','2v2','3v3','5v5','bridge','touchdown','self-play','replay']);
 function mix(n){n=Math.imul(n^(n>>>16),0x45d9f3b);n=Math.imul(n^(n>>>16),0x45d9f3b);return(n^(n>>>16))>>>0;}
 function difficulty(index=0,seed=77137){index=Math.max(0,Math.floor(Number(index)||0));const cycle=Math.floor(index/20),h=mix(cycle^seed),start=4+h%13,length=1+((h>>>12)%2);return index%20>=start&&index%20<start+length?'hard':'expert';}
-function prepare(options,cards){
+function prepare(options,cards,data={}){
  if(!options.queue)return options;
  const queue=QUEUES.includes(options.queue)?options.queue:'challenge',trophy=queue==='trophy-road';
  const clean={...options,profile:options.profile?{...options.profile,cheatLevels:{}}:options.profile,queue,aiDifficulty:difficulty(options.profile?.battleSerial||0,options.profile?.world?.seed||77137)};
- if(!trophy){const levels=Object.fromEntries(cards.map(c=>[c.id,9])),count=options.mode==='TeamRumble'?10:['Team3v3','Touchdown3v3'].includes(options.mode)?6:['TeamVsTeam','Touchdown2v2'].includes(options.mode)?4:2;Object.assign(clean,{levels,seatLevels:Array.from({length:count},()=>({...levels})),kingLevel:9,kingLevels:Array(count).fill(9)});}
+ if(!trophy){const tournament=(data.rarities?.Common?.RelativeLevel||0)+(data.rarities?.Common?.TournamentLevelIndex??8)+1,levels=Object.fromEntries(cards.map(c=>[c.id,tournament])),count=options.mode==='TeamRumble'?10:['Team3v3','Touchdown3v3'].includes(options.mode)?6:['TeamVsTeam','Touchdown2v2'].includes(options.mode)?4:2;Object.assign(clean,{levels,seatLevels:Array.from({length:count},()=>({...levels})),kingLevel:tournament,kingLevels:Array(count).fill(tournament)});}
  else{clean.levels={...options.profile?.cardLevels};clean.seatLevels=[clean.levels,...(options.seatLevels||[]).slice(1)];clean.kingLevel=options.profile?.level||1;clean.kingLevels=[clean.kingLevel,...(options.kingLevels||[]).slice(1)];}
  return clean;
 }

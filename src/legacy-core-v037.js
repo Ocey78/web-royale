@@ -3,7 +3,7 @@
    Source boat adapter SHA-256: 237ea1d314228b0bfdb3637244f3272616045444f38ae2a5198fb91c4ef34aba. */
 (function(root){
 const common=typeof module==='object'&&module.exports;
-const legacy={RoyaleGameData:common?require('./game-data.js'):root.RoyaleGameData};
+const legacy={RoyaleGameData:common?require('./historical-game-data.js'):root.RoyaleHistoricalGameData};
 (function(globalThis,module,require){
 /* Local presentation policy. Never alters combat ticks, stats or random state. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleGraphics=api;})(globalThis,function(){'use strict';

@@ -1,0 +1,12 @@
+{
+  "release": "0.50.0",
+  "engine": "0.46",
+  "generatedBy": "Unmodified v0.50.0 release source, not the new legacy adapter",
+  "sourceHashes": {
+    "battle.js": "113edb1cfa73669cd5b911e3acdf8203278ae5f25bb1ee639c3e1cc3e1e64f24",
+    "arena-layout.js": "637af0c21228d430962ddd68370302aaccedc39adf9a90f100e30822b25ea5ad",
+    "core.js": "db8490f1368d5480340113747c930dc7dbe06687f2b0344ee7b36a4f37a584f2",
+    "replay.js": "b48ac09196b3c20534d0a90b0cbc2f31e00c2b7cfc39c39501a0d478ddf86b0b"
+  },
+  "fixtureSha256": "5b889c44b59bbc77c4123458911ebcaaeca050ba36ef63e106e5201a62081820"
+}

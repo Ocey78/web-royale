@@ -1,4 +1,5 @@
-const test=require('node:test'),A=require('node:assert/strict'),C=require('../src/core.js');
+// Historical June 2021 source regression; modern simulation is covered by modern-battle-integration-v052.
+const test=require('node:test'),A=require('node:assert/strict'),C=require('./fixtures/classic-v0501/src/core.js');
 const run=(b,n)=>{for(let i=0;i<n*60;i++)b.step(1/60)};
 test('source-driven battle exposes full card roster',()=>A.equal(C.CARDS.length,102));
 test('battle source revision is explicit',()=>A.equal(new C.Battle({ai:false}).snapshot,'3.2557.2'));

@@ -37,7 +37,7 @@ test('committed hit retains a target within source grace and reacquires beyond i
 test('v250 displacement removes Balloon preload rather than granting another fast first hit',()=>{
  const b=make(),u=b.spawn('Balloon',0,9*SX,22*SY,{wait:0}),v=b.spawn('Cannon',1,9*SX,21.1*SY,{wait:0});
  u.targetId=v.id;b.startAttack(u,v);A.ok(u.windup.remaining<.21);
- b.push(u,0,SY,.05,true);A.equal(u.windup,null);b.startAttack(u,v);A.ok(u.windup.remaining>=2.9,String(u.windup.remaining));
+ b.push(u,0,SY,.05,true);A.equal(u.windup,null);b.startAttack(u,v);A.ok(Math.abs(u.windup.remaining-u.def.interval)<1e-8,String(u.windup.remaining));
 });
 test('v250 dash destination contacts the target edge rather than its center',()=>{
  const b=make(),u=b.spawn(C.CARD_BY_ID.bandit.entity,0,9*SX,23*SY,{wait:0}),v=b.spawn('Knight',1,9*SX,19*SY,{wait:0});

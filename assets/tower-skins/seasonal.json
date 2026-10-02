@@ -1,0 +1,110 @@
+{
+  "sourceVersion": "16.402.2",
+  "skins": [
+    {
+      "id": "source-season-1",
+      "name": "Shark Tank",
+      "sourceSet": "TowerSkin1",
+      "sourceTID": "TID_CHRONOS_TOWERSKIN1",
+      "scene": "towerskin_season_01_dl",
+      "exports": {
+        "king": [
+          "kingtower_blue",
+          "kingtower_red"
+        ],
+        "princessBase": [
+          "princesstower_blue",
+          "princesstower_red"
+        ],
+        "princessTop": [
+          "princesstower_blue_top",
+          "princesstower_red_top"
+        ]
+      },
+      "sourceKind": "original-seasonal",
+      "source": {
+        "Name": "TowerSkin1",
+        "SC": "sc/towerskin_season_01_dl.sc",
+        "UseChronosId": "True",
+        "Id": "1",
+        "KingDeathFx": "shark_king_death",
+        "PrincessDeathFx": "shark_princess_death",
+        "TID": "TID_CHRONOS_TOWERSKIN1",
+        "HiddenFromClient": "False",
+        "AvailableForShopOffer": "False",
+        "Collectable": "True"
+      },
+      "sourceHash": "930b23d9107f4fcbed7bd85aa2dc31caba5fbb0b9f2df0d8d98a72ba3fcc0cee"
+    },
+    {
+      "id": "source-season-2",
+      "name": "Sandcastle",
+      "sourceSet": "TowerSkin2",
+      "sourceTID": "TID_CHRONOS_TOWERSKIN2",
+      "scene": "towerskin_season_02_dl",
+      "exports": {
+        "king": [
+          "kingtower_blue",
+          "kingtower_red"
+        ],
+        "princessBase": [
+          "princesstower_blue",
+          "princesstower_red"
+        ],
+        "princessTop": [
+          "princesstower_blue_top",
+          "princesstower_red_top"
+        ]
+      },
+      "sourceKind": "original-seasonal",
+      "source": {
+        "Name": "TowerSkin2",
+        "SC": "sc/towerskin_season_02_dl.sc",
+        "UseChronosId": "True",
+        "Id": "2",
+        "KingDeathFx": "King_sand_die",
+        "PrincessDeathFx": "Princess_sand_die",
+        "TID": "TID_CHRONOS_TOWERSKIN2",
+        "HiddenFromClient": "False",
+        "AvailableForShopOffer": "False",
+        "Collectable": "True"
+      },
+      "sourceHash": "ea618474a96cd8d16cf13bfad4fdb8db635be9d34da545d83c0b911c45d7fa2c"
+    },
+    {
+      "id": "source-season-3",
+      "name": "Fortress",
+      "sourceSet": "TowerSkin3",
+      "sourceTID": "TID_CHRONOS_TOWERSKIN3",
+      "scene": "towerskin_season_03_dl",
+      "exports": {
+        "king": [
+          "kingtower_blue",
+          "kingtower_red"
+        ],
+        "princessBase": [
+          "princesstower_blue",
+          "princesstower_red"
+        ],
+        "princessTop": [
+          "princesstower_blue_top",
+          "princesstower_red_top"
+        ]
+      },
+      "sourceKind": "original-seasonal",
+      "source": {
+        "Name": "TowerSkin3",
+        "SC": "sc/towerskin_season_03_dl.sc",
+        "UseChronosId": "True",
+        "Id": "3",
+        "KingDeathFx": "King_LegendaryTower_die",
+        "PrincessDeathFx": "PrincessLegenderyTower_die",
+        "TID": "TID_CHRONOS_TOWERSKIN3",
+        "HiddenFromClient": "False",
+        "AvailableForShopOffer": "False",
+        "Collectable": "True"
+      },
+      "sourceHash": "2f80ac7f2704a2363f79d9aae7f99f8ba12055300e578c97afd998443ffeca3e"
+    }
+  ]
+}

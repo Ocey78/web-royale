@@ -145,7 +145,7 @@ function themedFloor(c,l,left,right,top,bottom){
  const theme=l.theme||'';if(theme==='jungle')return jungleTempleFloor(c,l,left,right,top,bottom);if(theme==='volcano')return emberForgeFloor(c,l,left,right,top,bottom);if(theme==='garden')return royalGardenFloor(c,l,left,right,top,bottom);if(theme==='lava')return lavaCausewayFloor(c,l,left,right,top,bottom);if(theme==='moon-castle')return moonKeepFloor(c,l,left,right,top,bottom);if(theme==='river-fort')return fourBridgesFloor(c,l,left,right,top,bottom);if(theme==='bastion')return royalBastionFloor(c,l,left,right,top,bottom);if(theme==='castle')return castleCrownFloor(c,l,left,right,top,bottom);return floorTiles(c,left,right,theme==='ice',l.top,l.bottom);
 }
 // Coordinates are shared with the logical tower centers, not a separate art grid.
-function foundationSlots(l){const out=[];if(l.touchdown)return out;if(l.ffaTeams){for(const row of l.ffaTeams){out.push({entity:'KingTower',team:row.team,x:row.king[0]*SX,y:row.king[1]*SY});for(const q of row.princess)out.push({entity:'PrincessTower',team:row.team,x:q[0]*SX,y:q[1]*SY});}return out;}for(const team of [0,1]){const flip=y=>team?y:32-y;for(let i=0;i<l.kings.length;i++)out.push({entity:'KingTower',team,x:l.kings[i]*SX,y:flip(l.kingYs?.[i]??l.kingY??3)*SY});for(let i=0;i<l.lanes.length;i++)out.push({entity:'PrincessTower',team,x:l.lanes[i]*SX,y:flip(l.princessY[i])*SY});}return out;}
+function foundationSlots(l){const out=[];if(l.touchdown)return out;if(l.ffaTeams){for(const row of l.ffaTeams){out.push({entity:'KingTower',team:row.team,x:row.king[0]*SX,y:row.king[1]*SY});for(const q of row.princess)out.push({entity:'PrincessTower',team:row.team,x:q[0]*SX,y:q[1]*SY});}return out;}const xs=l.princessXs||l.lanes;for(const team of [0,1]){const flip=y=>team?y:32-y;for(let i=0;i<l.kings.length;i++)out.push({entity:'KingTower',team,x:l.kings[i]*SX,y:flip(l.kingYs?.[i]??l.kingY??3)*SY});for(let i=0;i<xs.length;i++)out.push({entity:'PrincessTower',team,x:xs[i]*SX,y:flip(l.princessY[i])*SY});}return out;}
 function foundations(c,slots){for(const t of slots){const king=t.entity==='KingTower',x=t.x,y=t.y,w=king?70:58,h=king?62:54,team=t.team;
  ellipse(c,x,y+8,w*.57,h*.34,'#16233257');plate(c,x-w/2,y-h/2,w,h,'#41455c','#252f44',5);
  plate(c,x-w/2+3,y-h/2+3,w-6,h-6,gradient(c,x,y-h/2,x,y+h/2,[[0,'#d1cdd5'],[.42,'#9899ae'],[1,'#666f88']]),'#ccd0dc',3);
@@ -309,18 +309,21 @@ function themedSourceScenery(c,l,lib){
 function makeSurface(density,l){const custom=l?.custom,rect=custom?{x:l.left*SX-105,y:l.top*SY-155,width:(l.right-l.left)*SX+210,height:(l.bottom-l.top)*SY+310}:{x:-120,y:-140,width:720,height:920},cv=root.document.createElement('canvas');cv.worldRect=rect;cv.width=Math.round(rect.width*density);cv.height=Math.round(rect.height*density);const c=cv.getContext('2d');c.scale(density,density);c.translate(-rect.x,-rect.y);return[cv,c];}
 
 function themeDetails(c,f,l){const left=l.left*SX,right=l.right*SX,top=l.top*SY,bottom=l.bottom*SY,theme=l.theme||'';
+ // Wide Princess positions need clear HUD space. Keep these raised side
+ // monuments beyond the playable railings, alongside the other scenery.
+ const crownDetailXs=l.id.startsWith('Team3v3')?[left-36,right+36]:[left+48,right-48];
  if(theme==='jungle'){
   c.fillStyle='#2f61355c';c.fillRect(left,top,right-left,bottom-top);
   // Layered canopy, ruined temple blocks and dangling vines keep the jungle map visually distinct.
   for(const side of [-1,1])for(let y=top+12;y<bottom;y+=58){const x=side<0?left-18:right+18;ellipse(f,x,y,24,13,'#285e3a');ellipse(f,x+side*8,y-9,17,10,'#4fa85a');line(f,x,y+8,x+side*18,y+34,'#7a5b36',3);for(let k=0;k<3;k++)line(f,x+side*(6+k*5),y+5,x+side*(10+k*6),y+28+k*3,'#456f39',1.5);}
   for(let x=left+28;x<right-20;x+=72)for(const y of [top+47,bottom-47]){plate(c,x-13,y-8,26,17,'#6f7f68','#a6b095',4);ellipse(c,x,y-11,10,4,'#3d6c3f');line(c,x-7,y-11,x+7,y-11,'#b2d17d',1);}
-  for(const x of [left+48,right-48])for(const y of [top+96,bottom-96]){plate(f,x-12,y-20,24,40,'#69756d','#a8b39b',5);castleCrown(f,x,y-2,.28,'#d7c87a');}
+  for(const x of crownDetailXs)for(const y of [top+96,bottom-96]){plate(f,x-12,y-20,24,40,'#69756d','#a8b39b',5);castleCrown(f,x,y-2,.28,'#d7c87a');}
  }
  else if(theme==='volcano'||theme==='lava'){
   c.fillStyle='#5d241b55';c.fillRect(left,top,right-left,bottom-top);
   for(const side of [-1,1])for(let y=top+20;y<bottom;y+=67){const x=side<0?left-20:right+20;ellipse(f,x,y,20,9,'#251d25');poly(f,[[x-15,y],[x,y-31],[x+15,y]],'#493039','#1b141a',1);poly(f,[[x-5,y-6],[x,y-24],[x+5,y-6]],'#ff7b28');}
   for(let i=0;i<16;i++){const x=left+24+(i*53)%(right-left-48),y=top+35+(i*71)%(bottom-top-70);line(c,x,y,x+14,y+8,'#ff693a88',2);if(i%3===0)ellipse(c,x+5,y+3,3,2,'#ffb34d');}
-  for(const x of [left+48,right-48])for(const y of [top+91,bottom-91]){plate(f,x-11,y-18,22,36,'#33282e','#7b4d3a',4);ellipse(f,x,y-15,8,4,'#ff6a2b');}
+  for(const x of crownDetailXs)for(const y of [top+91,bottom-91]){plate(f,x-11,y-18,22,36,'#33282e','#7b4d3a',4);ellipse(f,x,y-15,8,4,'#ff6a2b');}
  }
  else if(theme==='garden'){
   c.fillStyle='#4f7d4850';c.fillRect(left,top,right-left,bottom-top);

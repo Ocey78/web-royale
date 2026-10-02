@@ -11,7 +11,7 @@ const csharp = text.match(/\$serverCode = @'\r?\n([\s\S]*?)\r?\n'@/);
 assert.ok(csharp, 'The BAT must contain its embedded C# server');
 const mime = csharp[1].match(/private static string Mime\(string ext\)([\s\S]*?)\r?\n    }/);
 assert.ok(mime, 'The embedded server must have its MIME allowlist');
-const labels = [...mime[1].matchAll(/case\s+"([^"]+)"\s*:/g)].map(match => match[1]);
+const labels = [...mime[1].matchAll(/case\s+"([^"]*)"\s*:/g)].map(match => match[1]);
 
 test('offline opener MIME switch has no duplicate case labels (CS0152 regression)', () => {
     const duplicates = labels.filter((label, index) => labels.indexOf(label) !== index);
@@ -41,7 +41,7 @@ test('offline opener preserves its Windows payload, loopback binding and save or
     assert.equal(text.replace(/\r\n/g, '').includes('\n'), false, 'Use Windows CRLF line endings');
     assert.equal(text.split('\r\n:__WEBROYALE_POWERSHELL__\r\n').length, 2);
     assert.match(csharp[1], /new TcpListener\(IPAddress\.Loopback, port\)/);
-    assert.match(text, /\$port = 8080/);
+    assert.ok(text.includes('$port = '+require('../project.json').defaultPort));
     assert.match(text, /http:\/\/127\.0\.0\.1:/);
     assert.match(text, /Add-Type -TypeDefinition \$serverCode -Language CSharp/);
 });

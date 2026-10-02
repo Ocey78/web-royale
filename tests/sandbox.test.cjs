@@ -6,8 +6,8 @@ test('sandbox has no opponents, recorder, result or time limit',()=>{
  b.time=10000;for(let i=0;i<120;i++)s.advance(1/60);
  A.ok(b.time>10001);A.equal(b.result,null);A.equal(b.tiebreaker,null);A.equal(b.units.length,0);A.deepEqual(b.events,[]);
 });
-test('each of 102 cards can be cast for either team without a deck, elixir or territory gate',()=>{
- A.equal(C.CARDS.length,102);
+test('each of 123 cards can be cast for either team without a deck, elixir or territory gate',()=>{
+ A.equal(C.CARDS.length,123);
  for(const team of [0,1])for(const c of C.CARDS){const s=new S.Session({towers:noTowers});s.battle.elixir[team]=0;
   if(c.id==='mirror')A.equal(s.spawn({card:'knight',team,x:240,y:320}).ok,true);
   A.equal(s.spawn({card:c.id,team,x:100,y:team?500:100}).ok,true,c.id+' team '+team);

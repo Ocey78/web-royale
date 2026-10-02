@@ -6,7 +6,9 @@ const sourceEmotes=typeof module==='object'&&module.exports?require('./emote-dat
 const emotes=Object.freeze(sourceEmotes.map(e=>Object.freeze({...e,cost:e.free?0:EMOTE_PRICE})));
 // Retired v0.19-v0.21 recolors. Used only for once-per-ID local-gem refunds.
 const retiredTowerSkins=Object.freeze(['lava-fortress','royal-blue','bone-crypt','jungle-ruins','electro-station','frozen-keep']);
+const seasonalSkins=typeof module==='object'&&module.exports?require('./seasonal-skins.js'):globalThis.RoyaleSeasonalSkins||[];
 const towerSkins=Object.freeze([
+ ...seasonalSkins.map(s=>({...s,free:false,cost:TOWER_SKIN_PRICE,description:'Original '+s.name+' seasonal tower artwork and animation.'})),
  {id:'classic',name:'Classic Tower',free:true,cost:0,sourceKind:'original'},
  ...[
   ['source-gold-rush','Gold Rush','goldrush',true,'GoldRush'],
@@ -19,9 +21,9 @@ const towerSkins=Object.freeze([
    ...(hasTop?{princessTop:[`princesstower_${prefix}_01_top`,`princesstower_${prefix}_02_top`]}:{})}}))
 ]);
 const towerSkinAvailability=Object.freeze({
- message:'Three original event tower styles are available.',
- detail:'Gold Rush, Gem Rush and Elixir Pump use their original artwork and animations. Seasonal tower skins are not included.',
- originalSkinCount:3
+ message:'Six original tower styles are available.',
+ detail:'Gold Rush, Gem Rush, Elixir Pump, Shark Tank, Sandcastle and Fortress use their original artwork and animations.',
+ originalSkinCount:6
 });
 const rarities=['Common','Rare','Epic','Legendary'];
 const magicItems=Object.freeze([
@@ -38,6 +40,6 @@ const emoteIds=new Set(emotes.map(e=>e.id)),compact=id=>String(id).toLowerCase()
 const sourceAliases=emotes.flatMap(e=>[compact(e.scene+e.animation),compact(e.scene.replace(/_dl$/,'')+e.animation)].map(key=>({key,id:e.id})));
 function resolveEmoteId(id){if(typeof id!=='string')return null;if(emoteIds.has(id))return id;if(id.length>180||!/^[a-zA-Z0-9._:/-]+$/.test(id))return null;
  const value=compact(id),matches=[...new Set(sourceAliases.filter(a=>value.endsWith(a.key)).map(a=>a.id))];return matches.length===1?matches[0]:null;}
-const skin=id=>towerSkins.find(s=>s.id===id)||towerSkins[0];
+const skin=id=>towerSkins.find(s=>s.id===id)||towerSkins.find(s=>s.id==="classic");
 const validEmote=id=>emotes.some(e=>e.id===id),validSkin=id=>towerSkins.some(e=>e.id===id);
 return {EMOTE_PRICE,TOWER_SKIN_PRICE,emotes,towerSkins,retiredTowerSkins,towerSkinAvailability,magicItems,collectionSections,skin,validEmote,validSkin,resolveEmoteId,rarities};});

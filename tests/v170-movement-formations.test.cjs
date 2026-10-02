@@ -13,8 +13,8 @@ test('Archers preview and live deploy show both horizontal members with source s
  const b=new B.Battle({ai:false,deck:deckFor('archers')}),p=b.placementPreview(0,0,9*K.SX,24*K.SY);A.equal(p.members.length,2);A.equal(b.deploy(0,0,p.x,p.y).ok,true);const live=b.units.filter(u=>u.card==='archers');A.equal(live.length,2);for(let i=0;i<2;i++){A.ok(near(live[i].x,p.members[i].x,2));A.ok(near(live[i].y,p.members[i].y,2));}
 });
 
-test('Skeletons and Goblins use mirrored triangle formations',()=>{
- for(const id of ['skeletons','goblins','spear-goblins']){const c=K.cardAt(id,9),blue=F.cardMembers(c,9*K.SX,24*K.SY,0),red=F.cardMembers(c,9*K.SX,8*K.SY,1);A.equal(blue.length,3,id);A.equal(new Set(blue.map(m=>`${Math.round(m.x)},${Math.round(m.y)}`)).size,3,id);A.ok(Math.min(...blue.map(m=>m.y))<Math.max(...blue.map(m=>m.y)),id);const by=blue.map(m=>m.y-24*K.SY).sort((a,b)=>a-b),ry=red.map(m=>m.y-8*K.SY).sort((a,b)=>a-b);for(let i=0;i<3;i++)A.ok(Math.abs(by[i]+ry[2-i])<3,id+' mirror');}
+test('Skeletons and Goblins retain their authored member count and mirror each formation',()=>{
+ for(const id of ['skeletons','goblins','spear-goblins']){const c=K.cardAt(id,9),blue=F.cardMembers(c,9*K.SX,24*K.SY,0),red=F.cardMembers(c,9*K.SX,8*K.SY,1),count=c.source.SummonNumber;A.equal(blue.length,count,id);A.equal(new Set(blue.map(m=>Math.round(m.x)+','+Math.round(m.y))).size,count,id);A.ok(Math.min(...blue.map(m=>m.y))<Math.max(...blue.map(m=>m.y)),id);const by=blue.map(m=>m.y-24*K.SY).sort((a,b)=>a-b),ry=red.map(m=>m.y-8*K.SY).sort((a,b)=>a-b);for(let i=0;i<count;i++)A.ok(Math.abs(by[i]+ry[count-1-i])<3,id+' mirror');}
 });
 
 test('Barbarians form a five-point source-radius star and Recruits span the arena',()=>{
@@ -25,7 +25,7 @@ test('Barbarians form a five-point source-radius star and Recruits span the aren
 test('Skeleton Army scatters across multiple radii rather than one ring',()=>{const ms=F.cardMembers(K.cardAt('skeleton-army',9),9*K.SX,24*K.SY,0);A.equal(ms.length,15);const bins=new Set(ms.map(m=>Math.round(Math.hypot((m.x-9*K.SX)/K.SX,(m.y-24*K.SY)/K.SY)*10)));A.ok(bins.size>=3);});
 
 test('Goblin Gang and Rascals preview every primary and secondary troop in the real front/back roles',()=>{
- const gang=F.cardMembers(K.cardAt('goblin-gang',9),9*K.SX,24*K.SY,0);A.equal(gang.length,5);A.deepEqual(gang.map(x=>x.entity).sort(),['Goblin','Goblin','Goblin','SpearGoblin','SpearGoblin'].sort());const gy=gang.filter(x=>x.entity==='Goblin').reduce((n,x)=>n+x.y,0)/3,sy=gang.filter(x=>x.entity==='SpearGoblin').reduce((n,x)=>n+x.y,0)/2;A.ok(gy<sy);
+ const gang=F.cardMembers(K.cardAt('goblin-gang',9),9*K.SX,24*K.SY,0);A.equal(gang.length,5);A.deepEqual(gang.map(x=>x.entity).sort(),['Goblin_Stab','Goblin_Stab','Goblin_Stab','SpearGoblin','SpearGoblin'].sort());const gy=gang.filter(x=>x.entity==='Goblin_Stab').reduce((n,x)=>n+x.y,0)/3,sy=gang.filter(x=>x.entity==='SpearGoblin').reduce((n,x)=>n+x.y,0)/2;A.ok(gy<sy);
  const ras=F.cardMembers(K.cardAt('rascals',9),9*K.SX,24*K.SY,0);A.equal(ras.length,3);const boy=ras.find(x=>x.entity==='RascalBoy'),girls=ras.filter(x=>x.entity==='RascalGirl');A.ok(boy&&girls.length===2);A.ok(boy.y<Math.min(...girls.map(x=>x.y)));
 });
 

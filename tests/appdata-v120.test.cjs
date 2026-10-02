@@ -1,9 +1,9 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const L=require('../src/learning');
+const L=require('../src/learning'),snapshot=require('../src/catalog').DATA.snapshot;
 let A;try{A=require('../src/appdata-store');}catch(_){}
-const empty=()=>({schema:1,snapshot:'3.2557.2',model:L.normalizeModel(),records:[]});
-function packet(id){return{record:{schema:1,id,snapshot:'3.2557.2',status:'completed',mode:'Default',duration:10,trainingEnabled:true},delta:{weights:new Array(L.DIM).fill(.0001),updates:2,reward:1}};}
+const empty=()=>({schema:1,snapshot,model:L.normalizeModel(),records:[]});
+function packet(id){return{record:{schema:1,id,snapshot,status:'completed',mode:'Default',duration:10,trainingEnabled:true},delta:{weights:new Array(L.DIM).fill(.0001),updates:2,reward:1}};}
 function harness(data=null){let revision=0,state=data;const requests=[], disk={get state(){return state;},get revision(){return revision;}};const fetch=async(url,opts={})=>{url=String(url);requests.push([url,opts]);const out=(s,j)=>({ok:s<400,status:s,json:async()=>j});
  if(url.endsWith('capabilities'))return out(200,{app:'Web Royale AI',schema:1,token:'test-token',path:'C:\\Users\\Player\\AppData\\Local\\WebRoyale\\AI',archiveLimitBytes:536870912});
  assert.equal(opts.headers['X-Web-Royale-AI'],'test-token');

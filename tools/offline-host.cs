@@ -34,7 +34,7 @@ public sealed class WebRoyaleOfflineHost : IDisposable
     private static string DefaultAiRoot() {
         string folder=Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         if(String.IsNullOrWhiteSpace(folder)||!Path.IsPathRooted(folder))throw new IOException("AppData path could not be resolved. No alternate folder was used.");
-        return Path.Combine(folder, "WebRoyale", "AI");
+        return Path.Combine(folder, "WebRoyaleMain", "AI");
     }
     public WebRoyaleOfflineHost(string siteRoot, int port) : this(siteRoot, port, DefaultAiRoot()) { }
 
@@ -378,6 +378,9 @@ public sealed class WebRoyaleOfflineHost : IDisposable
             case ".png": return "image/png";
             case ".webp": return "image/webp";
             case ".wav": return "audio/wav";
+            case ".glb": return "model/gltf-binary";
+            case "": return "text/plain; charset=utf-8";
+            case ".md": return "text/plain; charset=utf-8";
             case ".jpg": case ".jpeg": return "image/jpeg";
             case ".gif": return "image/gif";
             case ".svg": return "image/svg+xml";

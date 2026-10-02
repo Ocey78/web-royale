@@ -1,0 +1,9 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),K=require('../src/catalog'),R=require('../src/progression'),Decks=require('../src/training-decks'),F=require('../src/card-forms').defaultRegistry,A=require('../src/modern-actions'),L=require('../src/level-model');
+test('modernAI decks cover source-supported modern cards with legal champion capacity',()=>{const rows=Decks.catalogue(32);assert.ok(rows.length>5000);const modern=new Set(K.CARDS.filter(c=>!require('../src/historical-game-data').cards.some(h=>h.id===c.id)).map(c=>c.id));assert.ok(rows.some(r=>r.cards.some(id=>modern.has(id))));for(const row of rows){assert.ok(K.validDeck(row.cards));assert.ok(row.cards.every(id=>A.canDeployCard(null,K.CARD_BY_ID[id]).ok));assert.ok(row.cards.filter(id=>K.CARD_BY_ID[id].rarity==='Champion').length<=2);}for(let seed=1;seed<=40;seed++){const deck=Decks.forMode(seed,32,'TwelveCardDeck'),forms=Decks.formsForDeck(deck,{arena:32,casual:true,seed});assert.equal(F.qualify(deck,forms,{arena:32,casual:true}).ok,true);}});
+test('modern opponent strength reaches level16 and stays within rarity floors',()=>{assert.equal(L.MAX,16);const cards=K.CARDS,rows=L.deckLevels({arena:32,trophies:13900,cards,rng:K.rng||(()=>.5),accountBias:.1});for(const row of rows){assert.ok(row.level>=K.baseLevel(K.CARD_BY_ID[row.cardId].rarity)&&row.level<=16);}assert.ok(rows.some(r=>r.level===16));assert.equal(Math.round(L.expectedKing(32,13900)),16);assert.equal(R.arenaForTrophies(13900).number,32);});
+test('the native Crazy Arena starter lineup is available with package provenance',()=>{
+ const expected=['giant','knight','musketeer','fireball','the-log','baby-dragon','electro-spirit','tombstone'].sort().join(',');
+ const row=Decks.catalogue(32).find(r=>r.cards.slice().sort().join(',')===expected);
+ assert.ok(row);assert.ok(row.sources.some(s=>s.provider==='SuppliedClashRoyaleXAPK'&&s.deck==='CrazyArena_StarterDeck_V2'));
+});

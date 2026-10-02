@@ -2,7 +2,7 @@
 setlocal EnableExtensions DisableDelayedExpansion
 title Web Royale - Offline
 rem Self-contained local opener. Place beside the dist folder, or inside dist.
-rem Optional: "offline build opener.bat" 8081   (default: 8080)
+rem Optional: "offline build opener.bat" 8081   (default: 8081)
 set "WEBROYALE_OPENER_FILE=%~f0"
 set "WEBROYALE_OPENER_DIR=%~dp0"
 set "WEBROYALE_OPENER_PORT=%~1"
@@ -62,7 +62,7 @@ public sealed class WebRoyaleOfflineHost : IDisposable
     private static string DefaultAiRoot() {
         string folder=Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         if(String.IsNullOrWhiteSpace(folder)||!Path.IsPathRooted(folder))throw new IOException("AppData path could not be resolved. No alternate folder was used.");
-        return Path.Combine(folder, "WebRoyale", "AI");
+        return Path.Combine(folder, "WebRoyaleMain", "AI");
     }
     public WebRoyaleOfflineHost(string siteRoot, int port) : this(siteRoot, port, DefaultAiRoot()) { }
 
@@ -406,6 +406,9 @@ public sealed class WebRoyaleOfflineHost : IDisposable
             case ".png": return "image/png";
             case ".webp": return "image/webp";
             case ".wav": return "audio/wav";
+            case ".glb": return "model/gltf-binary";
+            case "": return "text/plain; charset=utf-8";
+            case ".md": return "text/plain; charset=utf-8";
             case ".jpg": case ".jpeg": return "image/jpeg";
             case ".gif": return "image/gif";
             case ".svg": return "image/svg+xml";
@@ -451,7 +454,7 @@ public sealed class WebRoyaleOfflineHost : IDisposable
 
 Add-Type -TypeDefinition $serverCode -Language CSharp -ReferencedAssemblies 'System.dll','System.Core.dll','System.Web.Extensions.dll'
 $root = [WebRoyaleOfflineHost]::FindRoot($env:WEBROYALE_OPENER_DIR)
-$port = 8080
+$port = 8081
 if (-not [string]::IsNullOrWhiteSpace($env:WEBROYALE_OPENER_PORT)) {
     if (-not [int]::TryParse($env:WEBROYALE_OPENER_PORT, [ref]$port) -or $port -lt 1024 -or $port -gt 65535) {
         throw 'Use a port from 1024 through 65535. Example: "offline build opener.bat" 8081'
@@ -480,7 +483,7 @@ try {
     Write-Host ''
     Write-Host 'Leave this window open while playing. Close it to stop the local host.'
     Write-Host 'Nothing is installed or published. This host only accepts local connections.'
-    Write-Host ('AI data: ' + [IO.Path]::Combine([Environment]::GetFolderPath('LocalApplicationData'),'WebRoyale','AI'))
+    Write-Host ('AI data: ' + [IO.Path]::Combine([Environment]::GetFolderPath('LocalApplicationData'),'WebRoyaleMain','AI'))
     Write-Host ''
     try { [WebRoyaleOfflineHost]::OpenBrowser($port) }
     catch { Write-Warning ('Automatic browser opening failed. Open this address yourself: ' + $url) }

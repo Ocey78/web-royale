@@ -1,4 +1,30 @@
-# Web Royale v0.50.0
+<!-- project-identity -->
+# Web Royale Main — v0.52.0
+
+This is the **web-royale** editable project, forked from Web Royale v0.50.0.
+Main now uses the decoded **16.402.2** client tables and original artwork from
+the supplied Clash Royale XAPK. It includes a catalogue of **123 base cards** and
+**67 special forms** (17 Heroes, 42 Evolutions and 8 Champions), **32 Trophy Road
+arenas**, **217 road reward steps**, card/Tower Power levels through **16**, and
+account XP levels through **90**. Original 3D meshes and motions cover **36 actors**;
+Shark Tank, Sandcastle and Fortress add three complete original seasonal tower styles.
+
+Imported catalogue totals do not mean every choice is playable. Incomplete card,
+form or ability behavior remains unavailable. **Full 1:1 native-game fidelity is
+incomplete.** Battles, rewards, opponents and social features run locally; there
+is no live online matchmaking, Supercell login/service connection or real payment.
+See **BUILD-NOTES-v0.52.0.md** and **FIDELITY.md** for current scope and limits.
+
+Double-click **open offline.bat** to play at `http://127.0.0.1:8081`.
+This project has its own browser profile, learning archive and replays. Offline AI data lives in `%LOCALAPPDATA%\WebRoyaleMain\AI`.
+Classic keeps its historical gameplay in the separate `web-royale-classic` project.
+
+To develop: use Node.js 22 or later, run `npm run build`, then `npm run serve`.
+`npm test` runs the checks. Source image/audio assets omitted from this portable archive are restored from verified `dist/` files by the build/test commands.
+`project.json` defines this project's identity, save namespaces and default port. The launcher includes the matching reviewed host from `tools/offline-host.cs`; run `node tools/sync-offline-host.cjs` after editing that host.
+<!-- /project-identity -->
+
+# Historical baseline — Web Royale v0.50.0
 
 **Full build:** revised spell animation timing, body sizes, Rocket orientation,
 stable fire/smoke trails and impacts, filled area effects, zoomed Touchdown pitch
@@ -21,7 +47,7 @@ verified `dist/` to keep this full-build download smaller.
 
 ## Historical release and project documentation
 
-The sections below describe earlier releases. v0.50.0 build notes take precedence
+The sections below describe earlier releases. v0.52.0 build notes take precedence
 where behavior, versions, prices, mode lists, or timing differ.
 
 # Rebuilt v0.40.1 distribution

@@ -1,6 +1,6 @@
 {
   "name": "web-royale",
-  "version": "0.50.0",
+  "version": "0.52.0",
   "private": true,
   "scripts": {
     "build": "node tools/build-web.js",
@@ -9,9 +9,10 @@
     "test:browser": "python -m unittest discover -s tests -p browser_v250.py",
     "test:ai": "node tools/benchmark-ai.cjs",
     "test:learning": "node tools/benchmark-learning.cjs",
-    "test:browser:current": "node tests/browser_cards_v280.cjs && node tests/browser_gameplay_v280.cjs && node tests/browser_v270.cjs && node tests/browser_menu_recovery.cjs && node tests/browser_ui_v290.cjs && node tests/browser_sandbox_v290.cjs && node tests/browser_chests_v290.cjs && node tests/browser_towers_v290.cjs && node tests/browser_targeting_v300.cjs && node tests/browser_replay_v300.cjs && node tests/browser_pathing_v320.cjs"
+    "test:browser:current": "node tests/browser_cards_v280.cjs && node tests/browser_gameplay_v280.cjs && node tests/browser_v270.cjs && node tests/browser_menu_recovery.cjs && node tests/browser_ui_v290.cjs && node tests/browser_sandbox_v290.cjs && node tests/browser_chests_v290.cjs && node tests/browser_towers_v290.cjs && node tests/browser_targeting_v300.cjs && node tests/browser_replay_v300.cjs && node tests/browser_pathing_v320.cjs",
+    "test:browser:variant": "node tests/browser_built_variant_v051.cjs"
   },
-  "description": "Web Royale: corrected spell effects, Ultra shader graphics, themed stadiums and expanded AI decks",
+  "description": "Modern features, arenas and future online development base",
   "engines": {
     "node": ">=22"
   }

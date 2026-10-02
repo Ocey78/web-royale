@@ -53,7 +53,7 @@ test('graveyard emits its authored skeleton appearance effect for each spawned s
  const b=new B.Battle({ai:false,deck:deck('graveyard')});
  A.equal(b.deploy(0,0,9*K.SX,10*K.SY).ok,true);
  for(let i=0;i<210;i++)b.step(1/60);
- A.ok(b.units.some(u=>u.entity==='Skeleton'),'graveyard should have spawned a Skeleton');
+ A.ok(b.units.some(u=>u.entity==='Graveyard_rework_Skeleton'),'graveyard should have spawned its source skeleton');
  A.ok(b.effects.some(e=>e.sourceEffect==='Graveyard_appear'),'spawned Skeleton should use Graveyard_appear');
 });
 

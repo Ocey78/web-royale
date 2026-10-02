@@ -103,7 +103,7 @@ test('source traversal includes secondary, death, projectile, area, and attached
     'ElixirGolem2', 'ElixirGolem4', 'VoodooHog', 'DeliveryRecruit', 'GoblinBrawler', 'RamRider', 'SpearGoblinGiant']) {
     assert.ok(names.has(name), name);
   }
-  assert.equal(report.catalogCards, 102);
+  assert.equal(report.catalogCards, 123);
 });
 
 for (const {entity} of mobile) test(entity + ' follows legal movement across both lanes in both directions', () => {

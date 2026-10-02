@@ -5,14 +5,14 @@ const C=require('../src/core.js'),Cos=require('../src/cosmetics.js'),U=require('
 const ids=['source-gold-rush','source-gem-rush','source-elixir-pump'];
 const root=path.resolve(__dirname,'..');
 test('three genuine source event variants are offered alongside Classic',()=>{
- assert.deepEqual(Cos.towerSkins.map(s=>s.id),['classic',...ids]);
- assert.equal(Cos.towerSkinAvailability.originalSkinCount,3);
+ assert.deepEqual(Cos.towerSkins.map(s=>s.id),['source-season-1','source-season-2','source-season-3','classic',...ids]);
+ assert.equal(Cos.towerSkinAvailability.originalSkinCount,6);
  for(const id of ids){const skin=Cos.skin(id);assert.equal(skin.sourceKind,'original-event');assert.equal(skin.scene,'tower_skins');assert.equal(skin.cost,100);}
 });
 test('genuine skins can be purchased once, equipped, and preserved through a save reload',()=>{
  const now=1740000000000;
  for(const id of ids){
-  const before=C.normalizeProfile({gems:1000}),r=U.purchaseTowerSkin(before,id,now,U.hourlyKey(now));
+  const offer=[now,now+3600000].find(t=>U.rotatingTowerSkins(t).some(s=>s.id===id)),before=C.normalizeProfile({gems:1000}),r=U.purchaseTowerSkin(before,id,offer,U.hourlyKey(offer));
   assert.equal(r.ok,true,id);assert.equal(r.profile.gems,900);assert.equal(before.gems,1000);
   assert.equal(U.purchaseTowerSkin(r.profile,id,now,U.hourlyKey(now)).ok,false);
   const equip=U.selectTowerSkin(r.profile,id);assert.equal(equip.ok,true);

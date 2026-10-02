@@ -1,6 +1,6 @@
 /* Frozen v0.43 simulation for deterministic pre-v0.44 replays. */
 (function(root){const common=typeof module==='object'&&module.exports;
-const legacy={RoyaleGameData:common?require('./game-data.js'):root.RoyaleGameData};
+const legacy={RoyaleGameData:common?require('./historical-game-data.js'):root.RoyaleHistoricalGameData};
 (function(globalThis,module,require){
 /* Local presentation policy. Never alters combat ticks, stats or random state. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleGraphics=api;})(globalThis,function(){'use strict';

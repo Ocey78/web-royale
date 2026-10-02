@@ -1,16 +1,17 @@
+// Historical Classic regression fixture. Modern source assertions are in modern-*-v052 tests.
 'use strict';
 const test=require('node:test');
 const A=require('node:assert/strict');
-const C=require('../src/core.js');
-const P=require('../src/profile.js');
-const R=require('../src/progression.js');
-const E=require('../src/economy.js');
-const D=require('../src/training-decks.js');
+const C=require('./fixtures/classic-v0501/src/core.js');
+const P=require('./fixtures/classic-v0501/src/profile.js');
+const R=require('./fixtures/classic-v0501/src/progression.js');
+const E=require('./fixtures/classic-v0501/src/economy.js');
+const D=require('./fixtures/classic-v0501/src/training-decks.js');
 
 const starter=new Set(C.DEFAULT_DECK);
 const legalFor=(id,arena)=>starter.has(id)||R.cardArenaNumber(C.CARD_BY_ID[id],C.DATA.arenas)<=arena;
 
-test('v150 player card use requires both reached arena and permanent ownership',()=>{
+test('[Classic 0.50.1] v150 player card use requires both reached arena and permanent ownership',()=>{
   const bats='bats', gate=R.cardArenaNumber(C.CARD_BY_ID[bats],C.DATA.arenas);
   A.equal(gate,5);
   let p=P.normalizeProfile();
@@ -22,7 +23,7 @@ test('v150 player card use requires both reached arena and permanent ownership',
   A.equal(P.canUseCard(p,bats),true,'first obtained copy makes reached card usable');
 });
 
-test('v150 illegal saved deck card is removed until both requirements are met',()=>{
+test('[Classic 0.50.1] v150 illegal saved deck card is removed until both requirements are met',()=>{
   const bats='bats';
   const deck=[...C.DEFAULT_DECK];deck[0]=bats;
   const p=P.normalizeProfile({version:5,trophies:0,highestTrophies:0,unlockedCards:[...C.DEFAULT_DECK,bats],decks:[deck]});
@@ -30,7 +31,7 @@ test('v150 illegal saved deck card is removed until both requirements are met',(
   A.equal(p.decks[0].length,8);
 });
 
-test('v150 old chest uses highest reached arena pool when opened, not earned arena',()=>{
+test('[Classic 0.50.1] v150 old chest uses highest reached arena pool when opened, not earned arena',()=>{
   const gate=5,trophies=R.ARENAS[gate-1].trophies;
   const seen=new Set();
   for(let i=0;i<160;i++){
@@ -43,7 +44,7 @@ test('v150 old chest uses highest reached arena pool when opened, not earned are
   A.ok([...seen].every(id=>legalFor(id,gate)),'pool never exceeds highest reached arena');
 });
 
-test('v150 chest pool expands when highest arena increases even before opening',()=>{
+test('[Classic 0.50.1] v150 chest pool expands when highest arena increases even before opening',()=>{
   const old=P.normalizeProfile({version:5,trophies:0,highestTrophies:0,unlockedCards:[...C.DEFAULT_DECK]});
   const high=P.normalizeProfile({...old,trophies:R.ARENAS[4].trophies,highestTrophies:R.ARENAS[4].trophies});
   const oldPool=new Set(E.cardPool(old).map(c=>c.id));
@@ -52,7 +53,7 @@ test('v150 chest pool expands when highest arena increases even before opening',
   A.ok([...highPool].some(id=>R.cardArenaNumber(C.CARD_BY_ID[id],C.DATA.arenas)===5));
 });
 
-test('v150 normal bot decks are arena legal without chest ownership simulation',()=>{
+test('[Classic 0.50.1] v150 normal bot decks are arena legal without chest ownership simulation',()=>{
   for(const arena of [1,2,5,10,14]){
     const trophies=R.ARENAS[arena-1].trophies;
     const p=P.normalizeProfile({version:5,trophies,highestTrophies:trophies,unlockedCards:[...C.DEFAULT_DECK]});
@@ -63,7 +64,7 @@ test('v150 normal bot decks are arena legal without chest ownership simulation',
   }
 });
 
-test('v150 self-play deck generator accepts an arena limit',()=>{
+test('[Classic 0.50.1] v150 self-play deck generator accepts an arena limit',()=>{
   for(const arena of [1,3,7,14]) for(let seed=1;seed<=30;seed++){
     const deck=D.randomDeck(seed,arena);
     A.equal(deck.length,8);
@@ -72,7 +73,7 @@ test('v150 self-play deck generator accepts an arena limit',()=>{
   }
 });
 
-test('v190 any eligible first-copy grant discovers a card, not only chests',()=>{
+test('[Classic 0.50.1] v190 any eligible first-copy grant discovers a card, not only chests',()=>{
   const trophies=R.ARENAS[4].trophies;
   const p=P.normalizeProfile({version:6,trophies,highestTrophies:trophies,unlockedCards:[...C.DEFAULT_DECK]});
   A.equal(P.canUseCard(p,'bats'),false);
@@ -86,7 +87,7 @@ test('v190 any eligible first-copy grant discovers a card, not only chests',()=>
 });
 
 
-test('v150 exact Bats example: arena reach makes Bats chest-eligible, first chest copy unlocks use',()=>{
+test('[Classic 0.50.1] v150 exact Bats example: arena reach makes Bats chest-eligible, first chest copy unlocks use',()=>{
   const trophies=R.ARENAS[4].trophies;
   const before=P.normalizeProfile({version:6,trophies,highestTrophies:trophies,unlockedCards:[...C.DEFAULT_DECK],chests:[{id:'bats-0',kind:'silver',arenaNumber:1,unlockAt:1}]});
   A.equal(P.canUseCard(before,'bats'),false);

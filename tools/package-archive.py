@@ -23,14 +23,15 @@ def select(root):
     return sorted(paths,key=lambda p:p.relative_to(root).as_posix())
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--folder-name',default='Web-Royale');args=parser.parse_args();
+    if not re.fullmatch(r'[A-Za-z0-9_-]+',args.folder_name):raise ValueError('Invalid archive folder name')
     root=args.root.resolve();output=args.output.resolve();output.parent.mkdir(parents=True,exist_ok=True)
     if output.exists(): raise FileExistsError(f'Refusing to replace {output}')
     temporary=output.with_suffix('.partial');paths=select(root)
     if not (root/'dist/index.html').is_file() or not (root/'open offline.bat').is_file():raise ValueError('Not a complete offline build')
     with zipfile.ZipFile(temporary,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=False) as z:
         for p in paths:
-            name='Web-Royale/'+p.relative_to(root).as_posix()
+            name=args.folder_name+'/'+p.relative_to(root).as_posix()
             info=zipfile.ZipInfo(name,date_time=(2026,9,26,12,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.create_system=0;info.external_attr=0x20;info.file_size=p.stat().st_size
             with p.open('rb') as src,z.open(info,'w') as dst:shutil.copyfileobj(src,dst,1024*1024)
     # Windows requires a writable descriptor for FlushFileBuffers/_commit.
@@ -39,7 +40,7 @@ def main():
         bad=z.testzip()
         if bad:raise ValueError('CRC failed: '+bad)
         if len(z.namelist())!=len(set(z.namelist())):raise ValueError('Duplicate entries')
-        if z.read('Web-Royale/dist/release.json')!=(root/'dist/release.json').read_bytes():raise ValueError('Manifest mismatch')
+        if z.read(args.folder_name+'/dist/release.json')!=(root/'dist/release.json').read_bytes():raise ValueError('Manifest mismatch')
     os.replace(temporary,output)
     sha=hashlib.file_digest(output.open('rb'),'sha256').hexdigest()
     print(json.dumps({'zip':str(output),'sizeBytes':output.stat().st_size,'entries':len(paths),'sha256':sha,'crc':'passed','standardDeflate':True},indent=2),flush=True)

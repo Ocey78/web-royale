@@ -2954,5 +2954,325 @@
   "treasure-chest": {
     "file": "assets/ui/treasure-chest.webp",
     "source": "Palette-only variant of original wooden Free Chest; silver trim recolored gold"
+  },
+  "modern-arena-icon-1": {
+    "file": "assets/ui/modern-arena-icon-1.png",
+    "source": "sc/ui_arena.sc#arena_01",
+    "sourceVersion": "16.402.2",
+    "width": 376,
+    "height": 317,
+    "sha256": "4467debbdf3c17bb4e9a6dcc50db5c462784876012f642ee1c948c75f156f4cc",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-2": {
+    "file": "assets/ui/modern-arena-icon-2.png",
+    "source": "sc/ui_arena.sc#arena_02",
+    "sourceVersion": "16.402.2",
+    "width": 376,
+    "height": 330,
+    "sha256": "a60ac6d0952db79215d75b6940883ce845f05cf343a02c5cea76a85b26707f8e",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-3": {
+    "file": "assets/ui/modern-arena-icon-3.png",
+    "source": "sc/ui_arena.sc#arena_03",
+    "sourceVersion": "16.402.2",
+    "width": 377,
+    "height": 369,
+    "sha256": "cecd1a1a136f51eb590fcba1683f79b4548bbd3b204dfa80a8d1880237006fbf",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-4": {
+    "file": "assets/ui/modern-arena-icon-4.png",
+    "source": "sc/ui_arena.sc#arena_05",
+    "sourceVersion": "16.402.2",
+    "width": 376,
+    "height": 372,
+    "sha256": "bb75ffbfbe86244d78975e0e74baf0197c276ff68f2accd238447b651cd81f79",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-5": {
+    "file": "assets/ui/modern-arena-icon-5.png",
+    "source": "sc/ui_arena.sc#arena_06",
+    "sourceVersion": "16.402.2",
+    "width": 384,
+    "height": 404,
+    "sha256": "b12094769d57b8cfa5ca9d5fbcbe52f268aa8a8ea7fb99e8b49be2374a1a3b3c",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-6": {
+    "file": "assets/ui/modern-arena-icon-6.png",
+    "source": "sc/ui_arena.sc#arena_04",
+    "sourceVersion": "16.402.2",
+    "width": 376,
+    "height": 392,
+    "sha256": "9cef12daae2e5edd4bdc48153de190e4000a9f53e2f78a384d12fb80d1d24506",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-7": {
+    "file": "assets/ui/modern-arena-icon-7.png",
+    "source": "sc/ui_arena.sc#arena_07",
+    "sourceVersion": "16.402.2",
+    "width": 387,
+    "height": 379,
+    "sha256": "9de69f3544cd6260c085b67748c1765805e44687ba11de3d6d1efebe4fbbeb0c",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-8": {
+    "file": "assets/ui/modern-arena-icon-8.png",
+    "source": "sc/ui_arena.sc#arena_08",
+    "sourceVersion": "16.402.2",
+    "width": 373,
+    "height": 425,
+    "sha256": "574279aa2375a486a2fea5157ea9769ee9f93036b050a0cbca471c3fcf8b3afb",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-9": {
+    "file": "assets/ui/modern-arena-icon-9.png",
+    "source": "sc/ui_arena.sc#arena_09",
+    "sourceVersion": "16.402.2",
+    "width": 384,
+    "height": 380,
+    "sha256": "0c976b3f3262875e15fd0bbd07fff21dcffe5351068bc1eb64d31043c9990652",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-10": {
+    "file": "assets/ui/modern-arena-icon-10.png",
+    "source": "sc/ui_arena.sc#arena_legendary",
+    "sourceVersion": "16.402.2",
+    "width": 405,
+    "height": 424,
+    "sha256": "0d3602b30b21f8678f29682e67d6cfe11faa8b7b43b0b14b086743f01c9fb620",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-11": {
+    "file": "assets/ui/modern-arena-icon-11.png",
+    "source": "sc/ui_arena.sc#arena_electric",
+    "sourceVersion": "16.402.2",
+    "width": 360,
+    "height": 392,
+    "sha256": "681d6aa493efb282581b10befb8bf0e128cf8a0ef0aeb88e864ef31e2b5c4ec7",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-12": {
+    "file": "assets/ui/modern-arena-icon-12.png",
+    "source": "sc/ui_arena.sc#arena_spooky",
+    "sourceVersion": "16.402.2",
+    "width": 480,
+    "height": 415,
+    "sha256": "6305638b4a6a06eb29f667bc6dad97f2b214815b9efcd9cf82c61b0ebf1cd3c7",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-13": {
+    "file": "assets/ui/modern-arena-icon-13.png",
+    "source": "sc/ui_arena_icon_season_10.sc#arena_heist_season",
+    "sourceVersion": "16.402.2",
+    "width": 407,
+    "height": 436,
+    "sha256": "e125d1b1d27c492ee24060c8ce4d3abace950629c797f730608e2d6a761257d8",
+    "sourceSha256": "a0d588a79fd1762a96e80aae9ea9cd92182cd277759b5df25ac6ed040735701e"
+  },
+  "modern-arena-icon-14": {
+    "file": "assets/ui/modern-arena-icon-14.png",
+    "source": "sc/ui_arena.sc#arena_lunar_season",
+    "sourceVersion": "16.402.2",
+    "width": 516,
+    "height": 463,
+    "sha256": "1bfbb4568a2d94bcf0954f0d4c0f9fd5399fc7ad5fa991adb2ded072568be480",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-15": {
+    "file": "assets/ui/modern-arena-icon-15.png",
+    "source": "sc/ui_arena_icon_miner.sc#arena_miner",
+    "sourceVersion": "16.402.2",
+    "width": 398,
+    "height": 401,
+    "sha256": "2521d0c3e6052f483470a683c78a66eb4999538b3671b500f920a0496a516a2a",
+    "sourceSha256": "79e51bc386a2f2c8ba44007ec838cb631a6b24d831e4b95dae251287c2ad5a35"
+  },
+  "modern-arena-icon-16": {
+    "file": "assets/ui/modern-arena-icon-16.png",
+    "source": "sc/ui_arena_icon_executioner_kitchen.sc#arena_executioner_kitchen",
+    "sourceVersion": "16.402.2",
+    "width": 373,
+    "height": 434,
+    "sha256": "484420511c563b395203496c3a91210025bc4b5d2b82181658d1b62ac7f49971",
+    "sourceSha256": "d995d0ded7c222c7bc1a9549b9e646ea1b1519fa9d60f2e5c2cc50b1ea72f5a0"
+  },
+  "modern-arena-icon-17": {
+    "file": "assets/ui/modern-arena-icon-17.png",
+    "source": "sc/ui_arena_icon_season_17.sc#arena_tomb_season",
+    "sourceVersion": "16.402.2",
+    "width": 396,
+    "height": 462,
+    "sha256": "9357fbc7cff1b4db75f6b0f0a34df219fde1eab5d4b51bde1915d3a5f921726b",
+    "sourceSha256": "8b1019faca5577308d43300c92341f66e71d14499cd77f2944147d44342271d9"
+  },
+  "modern-arena-icon-18": {
+    "file": "assets/ui/modern-arena-icon-18.png",
+    "source": "sc/ui_arena_icon_monk.sc#arena_monk",
+    "sourceVersion": "16.402.2",
+    "width": 374,
+    "height": 599,
+    "sha256": "9951d576ecde5542eebc75a0d2a1341968cbae0074fd1ee0482f0cf8e6cc735e",
+    "sourceSha256": "e72b10771c14260214877a40ccb67dfa85fbc49d59d086760761a2d3e15bfc88"
+  },
+  "modern-arena-icon-19": {
+    "file": "assets/ui/modern-arena-icon-19.png",
+    "source": "sc/ui_arena_icon_season_11.sc#arena_dragon_season",
+    "sourceVersion": "16.402.2",
+    "width": 373,
+    "height": 404,
+    "sha256": "22690bda645e687081daa049a77770b5210fea024cf0bca6af8bf43f45b79b87",
+    "sourceSha256": "3c3ae91e07b36963b5e9e3b8c6e20c18255864943cd2c1153d7205821bd3c0ec"
+  },
+  "modern-arena-icon-20": {
+    "file": "assets/ui/modern-arena-icon-20.png",
+    "source": "sc/ui_arena_icon_bootcamp.sc#arena_bootcamp",
+    "sourceVersion": "16.402.2",
+    "width": 365,
+    "height": 399,
+    "sha256": "23f985aaa099ce1f0f7097ccad455bc9b413fa0a5409c14fe7372c1bee47f055",
+    "sourceSha256": "f535d50c32b1451d77681a677b99e76e7dcf492ab23e2507e53d1556f8c553cd"
+  },
+  "modern-arena-icon-21": {
+    "file": "assets/ui/modern-arena-icon-21.png",
+    "source": "sc/ui_arena_icon_clash_fest.sc#arena_clashfest",
+    "sourceVersion": "16.402.2",
+    "width": 402,
+    "height": 483,
+    "sha256": "b6adbd3336928d33cbceed150a32078f7abf15fd076965190287379c5f30166e",
+    "sourceSha256": "a01bd1e8da578f6b447149eb725c7db27582e31f1d7db568368c0b3c896648a1"
+  },
+  "modern-arena-icon-22": {
+    "file": "assets/ui/modern-arena-icon-22.png",
+    "source": "sc/ui_arena_icon_pancakes.sc#arena_pancakes",
+    "sourceVersion": "16.402.2",
+    "width": 365,
+    "height": 447,
+    "sha256": "fb479878a57b6459a311a0cd9bc69245683ccdf92bc6953370074cb64ce28a79",
+    "sourceSha256": "fe881152cb352440e67f34b2b0ef5aeb0c2730b13ecae3ee971ac57b50d6f678"
+  },
+  "modern-arena-icon-23": {
+    "file": "assets/ui/modern-arena-icon-23.png",
+    "source": "sc/ui_arena_icon_valhala.sc#arena_valhalla_icon",
+    "sourceVersion": "16.402.2",
+    "width": 394,
+    "height": 448,
+    "sha256": "4bde77a4ea78982ad8ba62b32c1728cb578d989e686065e0a8d3a6695b4d39b5",
+    "sourceSha256": "a906f66829b472a9ca4b4f33b9cb74d3a873d75651f975b4a43edfd13f2d8222"
+  },
+  "modern-arena-icon-24": {
+    "file": "assets/ui/modern-arena-icon-24.png",
+    "source": "sc/ui_arena.sc#arena_champion",
+    "sourceVersion": "16.402.2",
+    "width": 390,
+    "height": 410,
+    "sha256": "aa2e5344916adc661fa911936c275a9a4127491e662ad5a651d43edd36f75d09",
+    "sourceSha256": "8a13e6f53a3cdbe17c68975c33218193eb4312eb61df904300e4060da0fb8bd6"
+  },
+  "modern-arena-icon-25": {
+    "file": "assets/ui/modern-arena-icon-25.png",
+    "source": "sc/ui_arena_icon_lumberlove.sc#arena_lumberlove_icon",
+    "sourceVersion": "16.402.2",
+    "width": 657,
+    "height": 525,
+    "sha256": "ea0da414e79696d72e7b24adc8fced104062be1f551321f2453f6be71c6b04e2",
+    "sourceSha256": "32dd5d580c05a5be722cb2d9e94bd528054ad45640553f27e781188cc711e33b"
+  },
+  "modern-arena-icon-26": {
+    "file": "assets/ui/modern-arena-icon-26.png",
+    "source": "sc/ui_arena_icon_stolencrown.sc#arena_stolencrown_icon",
+    "sourceVersion": "16.402.2",
+    "width": 375,
+    "height": 389,
+    "sha256": "d24f6b76d0821b4a5a139499b553f1345e95e5e89d1b6a1e0a9190c1d6ffd0f9",
+    "sourceSha256": "9fc62d0c1850dad2e5d52cac21b71a7f977e4b0e82bdf3e4380651741314d9bd"
+  },
+  "modern-arena-icon-27": {
+    "file": "assets/ui/modern-arena-icon-27.png",
+    "source": "sc/ui_arena_icon_hogsville.sc#arena_musketeer_icon",
+    "sourceVersion": "16.402.2",
+    "width": 386,
+    "height": 444,
+    "sha256": "a6810bf9ca4c3d60cc63e656899b3e653cbaefcc9ad66d97188ede52d5152e79",
+    "sourceSha256": "36e0d0609b5be110b177fd45ed218ce68ad18983bc2c1405caf3555e925f9cc8"
+  },
+  "modern-arena-icon-28": {
+    "file": "assets/ui/modern-arena-icon-28.png",
+    "source": "sc/ui_arena_icon_heroessummit.sc#arena_heroic_christmas_icon",
+    "sourceVersion": "16.402.2",
+    "width": 365,
+    "height": 388,
+    "sha256": "fbd325d99b13db72709ad0d7ee5a38bacf7d3528b0b82cae5216796151fc749d",
+    "sourceSha256": "f8c06dea39cce1fa619ed7ae00aa40da5b4dad867a47b1b8fd4431b91eefd184"
+  },
+  "modern-arena-icon-29": {
+    "file": "assets/ui/modern-arena-icon-29.png",
+    "source": "sc/ui_arena_icon_lvl16_magicacademy.sc#arena_lvl16_magicAcademy_icon",
+    "sourceVersion": "16.402.2",
+    "width": 622,
+    "height": 471,
+    "sha256": "28efc0460cb62f57a4826171e65804d5002e497196497bfe00972819092af62b",
+    "sourceSha256": "60b9bffb8ca14d5af9e46c5999d9b4476fd9b687202403ea493b145a9abc4539"
+  },
+  "modern-arena-icon-30": {
+    "file": "assets/ui/modern-arena-icon-30.png",
+    "source": "sc/ui_arena_icon_lvl16_ultimateclash.sc#arena_lvl16_ultimateBattle_icon",
+    "sourceVersion": "16.402.2",
+    "width": 382,
+    "height": 431,
+    "sha256": "5ea7b3dca6b16a4d776a3c02ab62259c419930fee36b520c4ee2a3aa7f8d4262",
+    "sourceSha256": "c240940114f01fc46bce90a27c1d71df518926c18d530803611f58742d7d0179"
+  },
+  "modern-arena-icon-31": {
+    "file": "assets/ui/modern-arena-icon-31.png",
+    "source": "sc/ui_arena_icon_lvl16_littleprince.sc#arena_littleprince",
+    "sourceVersion": "16.402.2",
+    "width": 371,
+    "height": 407,
+    "sha256": "81bceae017667ae6cec2116751c08016897f3c8bfa2bf05db5ff075a42c28a2f",
+    "sourceSha256": "ffc5b2bc6442ef7d72e19506ce6ab29897aee450ff3eb68b0ddb1d19cc3955ba"
+  },
+  "modern-arena-icon-32": {
+    "file": "assets/ui/modern-arena-icon-32.png",
+    "source": "sc/ui_arena_icon_lvl16_spiritempress.sc#arena_spiritempress_icon",
+    "sourceVersion": "16.402.2",
+    "width": 365,
+    "height": 380,
+    "sha256": "cfc5a2fe67fed80aee6b8d978150990bef810b2d97b223e739109cdc8029e65c",
+    "sourceSha256": "6d6f8c97b64c280a08b87cc1cc591004de0b3b782eae7043f4b3d81aa58ec2bf"
+  },
+  "modern-tower-King_PrincessTowers": {
+    "file": "assets/ui/modern-tower-King_PrincessTowers.png",
+    "source": "image/chr_support_cards/support_card_hires_princess.png",
+    "sourceVersion": "16.402.2",
+    "sha256": "2db0d75b410770c77e80e0c4ff2d27c9a29e64e95a042341fd745d0fe17ea9d7",
+    "width": 882,
+    "height": 975
+  },
+  "modern-tower-King_CannonTowers": {
+    "file": "assets/ui/modern-tower-King_CannonTowers.png",
+    "source": "image/chr_support_cards/support_card_hires_cannoneer.png",
+    "sourceVersion": "16.402.2",
+    "sha256": "f0c877cbb2809e06727ce84d02d6e42cd5d8f24b4d0ab0778073edd888ccb986",
+    "width": 854,
+    "height": 909
+  },
+  "modern-tower-King_KnifeTowers": {
+    "file": "assets/ui/modern-tower-King_KnifeTowers.png",
+    "source": "image/chr_support_cards/support_card_hires_knives_thrower.png",
+    "sourceVersion": "16.402.2",
+    "sha256": "b4079d5b19288b71684f28f1943ef8be9775e075a0871eb10737248e7faf2ac5",
+    "width": 1018,
+    "height": 975
+  },
+  "modern-tower-King_ChefTowers": {
+    "file": "assets/ui/modern-tower-King_ChefTowers.png",
+    "source": "image/chr_support_cards/support_card_hires_royal_chef.png",
+    "sourceVersion": "16.402.2",
+    "sha256": "fc73e1ce0864ee5c641c6937f32bcac5847bde2a25636c374bc85a499991c043",
+    "width": 1866,
+    "height": 975
   }
 }

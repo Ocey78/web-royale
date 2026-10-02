@@ -1,0 +1,22 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),A=require('node:assert/strict'),{chromium}=require('playwright');
+const root=path.resolve(__dirname,'..'),out=path.resolve(process.env.TESLA_QA_OUT||path.join(root,'docs/qa/v051/tesla'));fs.mkdirSync(out,{recursive:true});
+async function capture(page){return page.evaluate(async()=>{
+ const K=RoyaleCore,deck=['tesla','knight','archers','giant','musketeer','bomber','minions','cannon'],b=new K.Battle({ai:false,deck,enemyDeck:deck}),lib=RoyaleDemo.native;lib.setArena('royal');await lib.prepareBattle(b,K.DATA);b.towers=[];
+ const u=b.spawn('Tesla',0,9*K.SX,22*K.SY,{wait:0});b.effects=[];const sc=lib.scenes.building_tesla,original=sc.draw.bind(sc),cv=document.createElement('canvas');cv.width=180;cv.height=150;const c=cv.getContext('2d'),frames=[],shots=[];
+ let currentFrame=-1;sc.draw=(ctx,name,time,opt)=>{const clip=sc.clip(name);currentFrame=opt.frame??RoyaleNative.frameAt(time,clip.fps,clip.frames.length,opt.loop);return original(ctx,name,time,opt);};
+ const snap=phase=>{c.clearRect(0,0,180,150);c.fillStyle='#426a32';c.fillRect(0,0,180,150);lib.unit(c,'Tesla',90,110,u.team,b.time,u.visualState,u.heading,u.visualStarted,1,{elapsed:u.animationTime,idleTime:u.visualTime,attackDuration:u.visualDuration,entity:u});frames.push({time:b.time,phase,frame:currentFrame,hidden:u.hidden,progress:u.hideVisual?.progress,windup:u.windup?.remaining});shots.push(cv.toDataURL());};
+ const advance=(seconds,phase)=>{for(let i=0;i<Math.round(seconds*60);i++){b.time+=1/60;b.tickEntity(u,1/60);if(i%6===0)snap(phase);}};
+ advance(1.2,'idle');const target=b.spawn('Giant',1,9*K.SX,18*K.SY,{wait:0});target.hp=target.maxHp=100000;advance(3.8,'engaged');target.y=2*K.SY;advance(1.2,'idle-after');sc.draw=original;
+ return{frames,shots,hits:b.events.filter(e=>e.type==='damage'&&e.source===u.id).map(e=>({time:e.time,amount:e.amount})),labels:sc.clip('tesla1_blue').labels};
+});}
+(async()=>{const browser=await chromium.launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{channel:process.env.BROWSER_CHANNEL||'msedge'})});try{
+ const errors=[],before=await browser.newPage(),after=await browser.newPage();for(const p of [before,after])p.on('pageerror',e=>errors.push(e.message));
+ const build=fs.readFileSync(path.join(root,'tools/build-web.js'),'utf8'),modules=JSON.parse(build.match(/const modules=(\[[^;]*\]);/)[1]);modules.unshift('preload');const source=modules.map(name=>fs.readFileSync(path.join(root,'src/'+name+'.js'),'utf8')).join('\n;\n');
+ await after.route(/\/app\.[a-f0-9]+\.js(?:\?|$)/,route=>route.fulfill({contentType:'text/javascript',body:source}));
+ const results={};for(const [name,page]of [['before',before],['after',after]]){await page.goto(process.env.WEB_ROYALE_URL||'http://127.0.0.1:8087');await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:60000});const result=await capture(page);for(const [index,png]of result.shots.entries())fs.writeFileSync(path.join(out,name+'-'+String(index).padStart(2,'0')+'.png'),Buffer.from(png.split(',')[1],'base64'));delete result.shots;results[name]=result;}
+ const raised=results.after.labels.indexOf('appear_end'),idle=results.after.labels.indexOf('idle'),steady=r=>r.frames.filter(f=>f.phase==='engaged'&&f.time>2.1);
+ A.ok(new Set(steady(results.before).map(f=>f.frame)).size>1,'The unchanged v0.50 must reproduce its combined-timeline loop');A.ok(steady(results.after).length>20);A.ok(steady(results.after).every(f=>f.frame===raised&&!f.hidden),'Fixed Tesla holds the raised source frame during every attack and cooldown');
+ A.ok(results.after.frames.filter(f=>f.phase==='idle').every(f=>f.frame===idle&&f.hidden));A.ok(results.after.frames.filter(f=>f.phase==='idle-after'&&f.time>5.9).every(f=>f.frame===idle&&f.hidden));A.deepEqual(results.after.hits,results.before.hits,'Animation correction preserves actual Tesla damage and release timing');A.deepEqual(errors,[]);
+ fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({...results,errors},null,2)+'\n');console.log(JSON.stringify({beforeRaisedFrames:[...new Set(steady(results.before).map(f=>f.frame))],afterRaisedFrames:[...new Set(steady(results.after).map(f=>f.frame))],idleFrame:idle,unchangedHits:results.after.hits,errors},null,2));
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

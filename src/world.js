@@ -1,7 +1,7 @@
 /* Persistent local social simulation. Identities are generated from stable IDs; only
    interactions, membership changes and the player's friends occupy save space. */
 (function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./core.js'):root.RoyaleCore,n?require('./progression.js'):root.RoyaleProgression,n?require('./world-state.js'):root.RoyaleWorldState,n?require('./training-decks.js'):root.RoyaleTrainingDecks,n?require('./level-model.js'):root.RoyaleLevelModel);if(n)module.exports=api;else root.RoyaleWorld=api;})(globalThis,function(C,R,S,Decks,Levels){'use strict';
-const {PLAYER_COUNT,CLAN_COUNT,playerId,validPlayer,validClan}=S,DAY=86400000,HOUR=3600000;
+const {PLAYER_COUNT,CLAN_COUNT,playerId,validPlayer,validClan}=S,DAY=86400000,HOUR=3600000,MAX_TROPHIES=S.MAX_TROPHIES||8000,TROPHY_BANDS=Math.floor(MAX_TROPHIES/10),TROPHY_BUCKETS=TROPHY_BANDS+1;
 const FIRST=['Royal','Moon','Frost','Iron','Crimson','Azure','Emerald','Solar','Golden','Shadow','Storm','Wild','Lucky','Silent','Swift','Ivory','Mighty','Tiny','Brave','Velvet','Neon','Copper','Oak','Misty','Night','Ember','Rogue','Silver','Atomic','Crystal','Pixel','Cobalt','Polar','River','Rising','Jade','Scarlet','Cosmic','Mellow','Flame'];
 const LAST=['Knight','Falcon','Panda','Dragon','Fox','Wizard','Arrow','Tiger','Hawk','Raven','Golem','Hunter','Turtle','Bard','Ghost','Rider','Warden','Sparrow','Wolf','Guard','Phoenix','Otter','Giant','Ace','Sage','King','Queen','Nomad','Comet','Scout','Monarch','Lynx','Nova','Echo','Quill','Moth','Bison','Pilot','Ronin','Peach'];
 const CLAN_NAMES=['Guardians','Royals','Raiders','Legion','Union','Kingdom','Alliance','Order','Voyagers','Sentinels','Brigade','Collective','Knights','Covenant','Warriors','Dynasty','Champions','Sanctuary','Council','Crew','Academy','Guild','Outpost','Squad','Horizons','Vanguard','Phantoms','Dragons','Citadel','Company','Keepers','Circle'];
@@ -19,18 +19,18 @@ function worldOf(p){return p?.world||S.normalize();}
 function norm(p){return C.normalizeProfile(p);}
 function fail(p,reason){return{ok:false,profile:p,reason};}
 function freshTime(w,now){const t=Number.isFinite(now)?Math.max(0,Math.floor(now)):Date.now();return Math.max(w.clock||0,t);}
-function baseClan(p,id,includeMembers=true){if(!validClan(id)||id[0]!=='c')return null;const n=Number(id.slice(1)),seed=worldOf(p).seed,h=hash(seed+':clan:'+n),center=100+(h%7700),count=12+(h>>>9)%37;
+function baseClan(p,id,includeMembers=true){if(!validClan(id)||id[0]!=='c')return null;const n=Number(id.slice(1)),seed=worldOf(p).seed,h=hash(seed+':clan:'+n),center=100+(h%Math.max(100,MAX_TROPHIES-300)),count=12+(h>>>9)%37;
  return{id,tag:tag(n,'C'),name:pick(FIRST,h)+' '+pick(CLAN_NAMES,h>>>6)+' '+(1+Math.floor(n/1280)),badge:pick(BADGES,h>>>13),description:pick(MOOD,h>>>4)+' '+pick(MOOD,h>>>16),region:pick(REGION,h>>>21),type:h%9===0?'Invite Only':h%23===0?'Closed':'Open',requiredTrophies:Math.max(0,Math.floor((center-600)/100)*100),center,count,clanTrophies:Math.floor(center*.32),createdAt:0,custom:false,role:'Member',messages:[],requests:[],trades:[],memberIds:includeMembers?Array.from({length:count},(_,i)=>playerId(n*50+i)):[],departed:[]};
 }
 function identityBase(p,id){if(!validPlayer(id))return null;const n=Number(id.slice(1)),w=worldOf(p),h=hash(w.seed+':player:'+n),home=n<2500000?baseClan(p,clanId(Math.floor(n/50)),false):null;
- const inHome=home&&n%50<home.count,base=inHome?Math.max(0,Math.min(8000,home.center+(n%50===0?260:(h%601)-300))):(n%801)*10;
+ const inHome=home&&n%50<home.count,base=inHome?Math.max(0,Math.min(MAX_TROPHIES,home.center+(n%50===0?260:(h%601)-300))):(n%TROPHY_BUCKETS)*10;
  // Activity varies by identity; deck and acquisition history do not mirror a matchup.
  const name=pick(FIRST,h)+pick(LAST,h>>>8)+(h%4===0?String((h>>>16)%999):h%7===0?'_'+(h%100):'');
  return{id,tag:tag(n),name,trophies:base,clanId:inHome?home.id:null,badge:home?.badge||'clan-badge',region:pick(REGION,h>>>20),seed:h,role:inHome?(n%50===0?'Leader':n%50<3?'Co-leader':n%50<7?'Elder':'Member'):'Member',ageDays:30+h%2000};
 }
 function player(p,id,now=Date.now()){
  const raw=identityBase(p,id);if(!raw)return null;const w=worldOf(p),t=Math.max(0,Number(now)||0),day=Math.floor(t/DAY),h=raw.seed,drift=(hash(h+':day:'+day)%81)-40;
- raw.trophies=Math.max(0,Math.min(8000,raw.trophies+drift+(w.players?.[id]?.trophies||0)));raw.highestTrophies=Math.min(8500,raw.trophies+50+(h%380));
+ raw.trophies=Math.max(0,Math.min(MAX_TROPHIES,raw.trophies+drift+(w.players?.[id]?.trophies||0)));raw.highestTrophies=Math.min(MAX_TROPHIES,raw.trophies+50+(h%380));
  for(const [cid,cl] of Object.entries(w.clans||{})){if((cl.memberIds||[]).includes(id)){raw.clanId=cid;raw.role=cl.roles?.[id]||'Member';}else if(cl.departed?.includes(id)&&raw.clanId===cid)raw.clanId=null;}
  const arena=R.arenaForTrophies(raw.trophies).number;raw.arena=arena;raw.deck=Decks.randomDeck(h,arena);
  raw.levels=Levels.levelMap({arena,trophies:raw.trophies,cards:raw.deck.map(id=>C.CARD_BY_ID[id]),rng:rnd(h+':levels')});raw.kingLevel=Levels.kingLevel({arena,trophies:raw.trophies,rng:rnd(h+':king')});
@@ -48,9 +48,9 @@ function browseClans(p,{query='',page=0,limit=20,now=Date.now()}={}){const out=[
  }return out;
 }
 function matchOpponent(p,serial=worldOf(p).serial,now=Date.now()){
- const random=rnd(worldOf(p).seed+':match:'+serial),target=Math.max(0,Math.min(8000,p.trophies)),band=Math.floor(target/10),candidates=[];
+ const random=rnd(worldOf(p).seed+':match:'+serial),target=Math.max(0,Math.min(MAX_TROPHIES,p.trophies)),band=Math.floor(target/10),candidates=[];
  // The unaffiliated half of the population is indexed by trophy band for O(1) lookup.
- for(let k=0;k<12;k++){const offset=Math.floor(random()*17)-8,b=Math.max(0,Math.min(800,band+offset));const block=3122+Math.floor(random()*1869),n=block*801+b;if(n>=2500000&&n<PLAYER_COUNT)candidates.push(player(p,playerId(n),now));}
+ for(let k=0;k<12;k++){const offset=Math.floor(random()*17)-8,b=Math.max(0,Math.min(TROPHY_BANDS,band+offset)),first=Math.ceil((2500000-b)/TROPHY_BUCKETS),last=Math.floor((PLAYER_COUNT-1-b)/TROPHY_BUCKETS),block=first+Math.floor(random()*(last-first+1)),n=block*TROPHY_BUCKETS+b;if(n>=2500000&&n<PLAYER_COUNT)candidates.push(player(p,playerId(n),now));}
  // Established clan members are also encountered when their ranks are suitable.
  for(let k=0;k<64;k++){const n=Math.floor(random()*2500000),x=identityBase(p,playerId(n));if(Math.abs(x.trophies-target)<130)candidates.push(player(p,x.id,now));}
  candidates.sort((a,b)=>Math.abs(a.trophies-target)-Math.abs(b.trophies-target));return candidates[Math.min(candidates.length-1,Math.floor(random()*Math.min(5,candidates.length)))];
@@ -67,7 +67,7 @@ function seedConversation(p,c,now){const ids=c.memberIds;if(!ids.length)return;
 }
 function joinClan(raw,id,now=Date.now()){let p=norm(raw);const time=freshTime(p.world,now),c=clan(p,id,time);if(p.world.currentClan)return fail(p,'Leave your current clan first');if(!c)return fail(p,'Clan not found');if(c.type!=='Open')return fail(p,c.type==='Closed'?'This clan is closed':'This clan requires an invitation');if(c.count>=50)return fail(p,'This clan is full');if(p.trophies<c.requiredTrophies)return fail(p,'Reach '+c.requiredTrophies+' trophies first');p.world.currentClan=id;p.world.clock=time;if(!p.world.epoch)p.world.epoch=time;if(!p.world.clans[id])seedConversation(p,c,time);c.roles=c.roles||{};c.roles.self='Member';message(c,'system',p.name+' joined the clan.','self',time);saveClan(p,c);return{ok:true,profile:p};}
 function createClan(raw,{name='',description='',badge=0,type='Open',requiredTrophies=0}={},now=Date.now()){const p=norm(raw),time=freshTime(p.world,now);name=String(name).trim().slice(0,24);if(p.world.currentClan)return fail(p,'Leave your current clan first');if(name.length<3)return fail(p,'Clan names need at least 3 characters');if(p.gold<1000)return fail(p,'Creating a clan costs 1,000 gold');p.gold-=1000;const id='new-'+time.toString(36)+'-'+(p.world.serial++).toString(36),h=hash(p.world.seed+':'+id),fast=h%4===0;
- const c={id,tag:tag(h,'N'),name,description:String(description).trim().slice(0,200),badge:BADGES[Math.max(0,Math.floor(Number(badge)||0))%BADGES.length],region:'International',type:['Open','Invite Only','Closed'].includes(type)?type:'Open',requiredTrophies:Math.max(0,Math.min(8000,Number(requiredTrophies)||0)),clanTrophies:0,custom:true,createdAt:time,memberIds:[],departed:[],roles:{self:'Leader'},messages:[],requests:[],trades:[],recruitment:fast?'fast':'steady',nextJoinAt:time+(fast?2:12+(h%48))*HOUR,nextChatAt:time+DAY,nextRequestAt:time+DAY,serial:0};p.world.currentClan=id;p.world.clock=time;if(!p.world.epoch)p.world.epoch=time;saveClan(p,c);return{ok:true,profile:p};}
+ const c={id,tag:tag(h,'N'),name,description:String(description).trim().slice(0,200),badge:BADGES[Math.max(0,Math.floor(Number(badge)||0))%BADGES.length],region:'International',type:['Open','Invite Only','Closed'].includes(type)?type:'Open',requiredTrophies:Math.max(0,Math.min(MAX_TROPHIES,Number(requiredTrophies)||0)),clanTrophies:0,custom:true,createdAt:time,memberIds:[],departed:[],roles:{self:'Leader'},messages:[],requests:[],trades:[],recruitment:fast?'fast':'steady',nextJoinAt:time+(fast?2:12+(h%48))*HOUR,nextChatAt:time+DAY,nextRequestAt:time+DAY,serial:0};p.world.currentClan=id;p.world.clock=time;if(!p.world.epoch)p.world.epoch=time;saveClan(p,c);return{ok:true,profile:p};}
 function leaveClan(raw,now=Date.now()){const p=norm(raw);if(!p.world.currentClan)return fail(p,'No clan joined');const c=clan(p,p.world.currentClan,now);if(c){for(const t of c.trades){if(t.owner==='self'&&t.status==='open'){t.status='cancelled';if(t.tokenReserved){p.tradeTokens[t.rarity]=Math.min(10000,p.tradeTokens[t.rarity]+1);t.tokenReserved=false;}}}message(c,'system',p.name+' left the clan.','self',freshTime(p.world,now));saveClan(p,c);}p.world.currentClan=null;p.clan=null;p.world.war=null;return{ok:true,profile:p};}
 function postMessage(raw,text,now=Date.now(),emote=null){const p=norm(raw),c=clan(p,p.world.currentClan,now);if(!c)return fail(p,'Join a clan first');text=String(text||'').trim().slice(0,240);if(!text&&!emote)return fail(p,'Enter a message');if(emote&&!p.ownedEmotes.includes(emote))return fail(p,'Emote not owned');const time=freshTime(p.world,now);message(c,emote?'emote':'text',text,'self',time,emote?{emote}:{});if(c.memberIds.length){c.replyAt=time+(15+hash(text+time)%90)*1000;c.replyTo=text;}saveClan(p,c);return{ok:true,profile:p};}
 function requestLimit(p){const a=R.highestArena(p).number;return a>=10?40:a>=7?30:a>=4?20:10;}
@@ -98,7 +98,7 @@ function contextLine(p,c,actor,time,index=0){
 function replyTo(text,c){const s=String(text).toLowerCase();if(/hello|hi\b|hey|welcome/.test(s))return 'Hey! Welcome in. What deck are you playing?';if(/donat|request/.test(s))return 'I will check the requests. Thanks for helping out.';if(/war|duel/.test(s))return 'I saved a few decks for war. Good luck with your battles.';if(/trade|token/.test(s))return 'Post the trade and I will take a look when I have the cards.';if(/gg|well played|win/.test(s))return 'Well played! Keep it going.';return pick(CHAT,hash(s+c.id));}
 function recruit(p,c,seed,time){
  const minBand=Math.min(800,Math.ceil((c.requiredTrophies+40)/10));
- for(let i=0;i<30;i++){const h=hash(seed+':candidate:'+i),band=minBand+h%Math.max(1,801-minBand);let n=2500000+h%1499000;n+=(band-n%801+801)%801;const id=playerId(n);
+ for(let i=0;i<30;i++){const h=hash(seed+':candidate:'+i),band=minBand+h%Math.max(1,TROPHY_BUCKETS-minBand);let n=2500000+h%(PLAYER_COUNT-2500000-TROPHY_BUCKETS);n+=(band-n%TROPHY_BUCKETS+TROPHY_BUCKETS)%TROPHY_BUCKETS;const id=playerId(n);
   if(c.memberIds.includes(id)||c.departed?.includes(id)||Object.values(p.world.clans).some(other=>other.id!==c.id&&other.memberIds?.includes(id)))continue;
   const person=player(p,id,time);if(person&&person.trophies>=c.requiredTrophies)return id;
  }return null;
@@ -134,7 +134,7 @@ function advance(raw,now=Date.now()){
 function recordResult(raw,battle){const p=norm(raw),id=battle.opponent?.id;
  if(battle.queueType!=='trophy-road'||battle.practice||battle.isReplay||Object.values(battle.cheats||{}).some(Boolean)||!battle.result||!validPlayer(id)||p.world.lastOpponentResult===battle.id)return p;
  const delta=p.world.players[id]||(p.world.players[id]={trophies:0,wins:0,matches:0,donations:0});
- delta.matches++;if(battle.result.winner===1){delta.wins++;delta.trophies=Math.min(8000,delta.trophies+30);}else if(battle.result.winner===0)delta.trophies=Math.max(-8000,delta.trophies-20);
+ delta.matches++;if(battle.result.winner===1){delta.wins++;delta.trophies=Math.min(MAX_TROPHIES,delta.trophies+30);}else if(battle.result.winner===0)delta.trophies=Math.max(-MAX_TROPHIES,delta.trophies-20);
  p.world.lastOpponentResult=battle.id;return p;
 }
 function recordOpponent(raw,opponent){const p=norm(raw);if(opponent?.id)encounter(p,opponent.id);return p;}

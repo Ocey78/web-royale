@@ -1,0 +1,2595 @@
+{
+  "snapshot": "16.402.2",
+  "cards": {
+    "total": 123,
+    "supported": 121,
+    "unsupported": 2,
+    "rows": [
+      {
+        "id": "knight",
+        "name": "Knight",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Knight"
+        ]
+      },
+      {
+        "id": "archers",
+        "name": "Archers",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Archer",
+          "projectiles:ArcherArrow"
+        ]
+      },
+      {
+        "id": "goblins",
+        "name": "Goblins",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Goblin_Stab"
+        ]
+      },
+      {
+        "id": "giant",
+        "name": "Giant",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Giant"
+        ]
+      },
+      {
+        "id": "pekka",
+        "name": "P.E.K.K.A",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Pekka"
+        ]
+      },
+      {
+        "id": "minions",
+        "name": "Minions",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Minion",
+          "projectiles:MinionSpit"
+        ]
+      },
+      {
+        "id": "balloon",
+        "name": "Balloon",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Balloon",
+          "entities:BalloonBomb",
+          "areas:BalloonBombExplosion"
+        ]
+      },
+      {
+        "id": "witch",
+        "name": "Witch",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Witch",
+          "entities:Skeleton",
+          "projectiles:WitchProjectile"
+        ]
+      },
+      {
+        "id": "barbarians",
+        "name": "Barbarians",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Barbarian"
+        ]
+      },
+      {
+        "id": "golem",
+        "name": "Golem",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Golem",
+          "entities:Golemite",
+          "areas:GolemiteDeathExplosion",
+          "areas:GolemDeathExplosion"
+        ]
+      },
+      {
+        "id": "skeletons",
+        "name": "Skeletons",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Skeleton"
+        ]
+      },
+      {
+        "id": "valkyrie",
+        "name": "Valkyrie",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Valkyrie"
+        ]
+      },
+      {
+        "id": "skeleton-army",
+        "name": "Skeleton Army",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Skeleton"
+        ]
+      },
+      {
+        "id": "bomber",
+        "name": "Bomber",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Bomber",
+          "projectiles:BombSkeletonProjectile"
+        ]
+      },
+      {
+        "id": "musketeer",
+        "name": "Musketeer",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Musketeer",
+          "projectiles:MusketeerProjectile"
+        ]
+      },
+      {
+        "id": "baby-dragon",
+        "name": "Baby Dragon",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BabyDragon",
+          "projectiles:BabyDragonProjectile"
+        ]
+      },
+      {
+        "id": "prince",
+        "name": "Prince",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Prince"
+        ]
+      },
+      {
+        "id": "wizard",
+        "name": "Wizard",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Wizard",
+          "projectiles:chr_wizardProjectile"
+        ]
+      },
+      {
+        "id": "mini-pekka",
+        "name": "Mini P.E.K.K.A",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MiniPekka"
+        ]
+      },
+      {
+        "id": "spear-goblins",
+        "name": "Spear Goblins",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SpearGoblin",
+          "projectiles:SpearGoblinProjectile"
+        ]
+      },
+      {
+        "id": "giant-skeleton",
+        "name": "Giant Skeleton",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GiantSkeleton",
+          "entities:GiantSkeletonBomb",
+          "areas:GiantSkeletonExplosion"
+        ]
+      },
+      {
+        "id": "hog-rider",
+        "name": "Hog Rider",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:HogRider"
+        ]
+      },
+      {
+        "id": "minion-horde",
+        "name": "Minion Horde",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Minion",
+          "projectiles:MinionSpit"
+        ]
+      },
+      {
+        "id": "ice-wizard",
+        "name": "Ice Wizard",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:IceWizard",
+          "projectiles:ice_wizardProjectile",
+          "buffs:IceWizardSlowDown",
+          "areas:IceWizardCold",
+          "buffs:IceWizardCold"
+        ]
+      },
+      {
+        "id": "royal-giant",
+        "name": "Royal Giant",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RoyalGiant",
+          "projectiles:RoyalGiantProjectile"
+        ]
+      },
+      {
+        "id": "guards",
+        "name": "Guards",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonWarrior"
+        ]
+      },
+      {
+        "id": "princess",
+        "name": "Princess",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Princess",
+          "projectiles:PrincessProjectileDeco",
+          "projectiles:PrincessProjectile"
+        ]
+      },
+      {
+        "id": "dark-prince",
+        "name": "Dark Prince",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:DarkPrince"
+        ]
+      },
+      {
+        "id": "three-musketeers",
+        "name": "Three Musketeers",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ThreeMusketeer_Rework_Character_1",
+          "projectiles:ThreeMusketeer_Rework_Projectile",
+          "entities:ThreeMusketeer_Rework_Character_2",
+          "entities:ThreeMusketeer_Rework_Character_3"
+        ]
+      },
+      {
+        "id": "lava-hound",
+        "name": "Lava Hound",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:LavaHound",
+          "entities:LavaPups",
+          "projectiles:LavaPupProjectile",
+          "projectiles:LavaHoundProjectile"
+        ]
+      },
+      {
+        "id": "ice-spirit",
+        "name": "Ice Spirit",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:IceSpirits",
+          "projectiles:IceSpiritsProjectile",
+          "buffs:Freeze"
+        ]
+      },
+      {
+        "id": "fire-spirits",
+        "name": "Fire Spirit",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:FireSpirits",
+          "projectiles:FireSpiritsProjectile"
+        ]
+      },
+      {
+        "id": "miner",
+        "name": "Miner",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Miner"
+        ]
+      },
+      {
+        "id": "sparky",
+        "name": "Sparky",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ZapMachine",
+          "projectiles:ZapMachineProjectile"
+        ]
+      },
+      {
+        "id": "bowler",
+        "name": "Bowler",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Bowler",
+          "projectiles:BowlerProjectile"
+        ]
+      },
+      {
+        "id": "lumberjack",
+        "name": "Lumberjack",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RageBarbarian",
+          "areas:RageBarbarianDummyForSpawn"
+        ]
+      },
+      {
+        "id": "battle-ram",
+        "name": "Battle Ram",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BattleRam",
+          "entities:Barbarian"
+        ]
+      },
+      {
+        "id": "inferno-dragon",
+        "name": "Inferno Dragon",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:InfernoDragon"
+        ]
+      },
+      {
+        "id": "ice-golem",
+        "name": "Ice Golem",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:IceGolemite",
+          "areas:FreezeIceGolemite",
+          "buffs:IceWizardSlowDown"
+        ]
+      },
+      {
+        "id": "mega-minion",
+        "name": "Mega Minion",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MegaMinion",
+          "projectiles:MegaMinionSpit"
+        ]
+      },
+      {
+        "id": "dart-goblin",
+        "name": "Dart Goblin",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BlowdartGoblin",
+          "projectiles:BlowdartGoblinProjectile"
+        ]
+      },
+      {
+        "id": "goblin-gang",
+        "name": "Goblin Gang",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Goblin_Stab",
+          "entities:SpearGoblin",
+          "projectiles:SpearGoblinProjectile"
+        ]
+      },
+      {
+        "id": "electro-wizard",
+        "name": "Electro Wizard",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ElectroWizard",
+          "buffs:ZapFreeze",
+          "areas:ElectroWizardZap"
+        ]
+      },
+      {
+        "id": "elite-barbarians",
+        "name": "Elite Barbarians",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:AngryBarbarian"
+        ]
+      },
+      {
+        "id": "hunter",
+        "name": "Hunter",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Hunter",
+          "projectiles:HunterProjectile"
+        ]
+      },
+      {
+        "id": "executioner",
+        "name": "Executioner",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:AxeMan",
+          "projectiles:AxeManProjectile"
+        ]
+      },
+      {
+        "id": "bandit",
+        "name": "Bandit",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Assassin"
+        ]
+      },
+      {
+        "id": "royal-recruits",
+        "name": "Royal Recruits",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Recruit"
+        ]
+      },
+      {
+        "id": "night-witch",
+        "name": "Night Witch",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:DarkWitch",
+          "entities:Bat"
+        ]
+      },
+      {
+        "id": "bats",
+        "name": "Bats",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Bat"
+        ]
+      },
+      {
+        "id": "royal-ghost",
+        "name": "Royal Ghost",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Ghost",
+          "buffs:Invisibility"
+        ]
+      },
+      {
+        "id": "ram-rider",
+        "name": "Ram Rider",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Ram",
+          "entities:RamRider",
+          "projectiles:RamRiderBola",
+          "buffs:BolaSnare"
+        ]
+      },
+      {
+        "id": "zappies",
+        "name": "Zappies",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MiniZapMachine",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "rascals",
+        "name": "Rascals",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RascalBoy",
+          "entities:RascalGirl",
+          "projectiles:RascalGirlProjectile"
+        ]
+      },
+      {
+        "id": "cannon-cart",
+        "name": "Cannon Cart",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MovingCannon",
+          "projectiles:MovingCannonProjectile"
+        ]
+      },
+      {
+        "id": "mega-knight",
+        "name": "Mega Knight",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MegaKnight",
+          "projectiles:MegaKnightAppear"
+        ]
+      },
+      {
+        "id": "skeleton-barrel",
+        "name": "Skeleton Barrel",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonBalloon",
+          "entities:SkeletonContainerNew",
+          "areas:SkeletonBalloonExplosion"
+        ]
+      },
+      {
+        "id": "flying-machine",
+        "name": "Flying Machine",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:DartBarrell",
+          "projectiles:DartBarrellProjectile"
+        ]
+      },
+      {
+        "id": "wall-breakers",
+        "name": "Wall Breakers",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Wallbreaker",
+          "projectiles:WallbreakerProjectile"
+        ]
+      },
+      {
+        "id": "royal-hogs",
+        "name": "Royal Hogs",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RoyalHog"
+        ]
+      },
+      {
+        "id": "goblin-giant",
+        "name": "Goblin Giant",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinGiant",
+          "entities:SpearGoblinGiant",
+          "entities:SpearGoblin",
+          "projectiles:SpearGoblinProjectile",
+          "projectiles:SpearGoblinGiantProjectile"
+        ]
+      },
+      {
+        "id": "fisherman",
+        "name": "Fisherman",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Fisherman"
+        ]
+      },
+      {
+        "id": "magic-archer",
+        "name": "Magic Archer",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:EliteArcher",
+          "projectiles:EliteArcherArrow"
+        ]
+      },
+      {
+        "id": "electro-dragon",
+        "name": "Electro Dragon",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ElectroDragon",
+          "projectiles:ElectroDragonProjectile",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "firecracker",
+        "name": "Firecracker",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Firecracker",
+          "projectiles:FirecrackerProjectile",
+          "projectiles:FirecrackerExplosion"
+        ]
+      },
+      {
+        "id": "mighty-miner",
+        "name": "Mighty Miner",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MightyMiner"
+        ]
+      },
+      {
+        "id": "elixir-golem",
+        "name": "Elixir Golem",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ElixirGolem1",
+          "entities:ElixirGolem2",
+          "entities:ElixirGolem4"
+        ]
+      },
+      {
+        "id": "battle-healer",
+        "name": "Battle Healer",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BattleHealer",
+          "areas:BattleHealerHeal",
+          "buffs:BattleHealerAll"
+        ]
+      },
+      {
+        "id": "skeleton-king",
+        "name": "Skeleton King",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonKing"
+        ]
+      },
+      {
+        "id": "archer-queen",
+        "name": "Archer Queen",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ArcherQueen",
+          "projectiles:ArcherQueenArrow"
+        ]
+      },
+      {
+        "id": "golden-knight",
+        "name": "Golden Knight",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoldenKnight"
+        ]
+      },
+      {
+        "id": "monk",
+        "name": "Monk",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Monk"
+        ]
+      },
+      {
+        "id": "skeleton-dragons",
+        "name": "Skeleton Dragons",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonDragon",
+          "projectiles:SkeletonDragonProjectile"
+        ]
+      },
+      {
+        "id": "mother-witch",
+        "name": "Mother Witch",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:WitchMother",
+          "projectiles:VoodooProjectile",
+          "buffs:VoodooCurse"
+        ]
+      },
+      {
+        "id": "electro-spirit",
+        "name": "Electro Spirit",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ElectroSpirit",
+          "projectiles:ElectroSpiritProjectile",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "electro-giant",
+        "name": "Electro Giant",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ElectroGiant"
+        ]
+      },
+      {
+        "id": "phoenix",
+        "name": "Phoenix",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Phoenix",
+          "projectiles:PhoenixFireball",
+          "entities:PhoenixEgg",
+          "entities:PhoenixNoRespawn"
+        ]
+      },
+      {
+        "id": "little-prince",
+        "name": "Little Prince",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:LittlePrince",
+          "projectiles:LittlePrinceProjectile"
+        ]
+      },
+      {
+        "id": "goblin-demolisher",
+        "name": "Goblin Demolisher",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinDemolisher",
+          "projectiles:GoblinDemolisherProjectile",
+          "projectiles:GoblinDemolisherDeathProjectile"
+        ]
+      },
+      {
+        "id": "goblin-machine",
+        "name": "Goblin Machine",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinMachine"
+        ]
+      },
+      {
+        "id": "suspicious-bush",
+        "name": "Suspicious Bush",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SuspiciousBush",
+          "areas:SuspiciousBush_DummyAEO",
+          "buffs:BushInvisibility"
+        ]
+      },
+      {
+        "id": "goblinstein",
+        "name": "Goblinstein",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:goblinstein",
+          "entities:goblinstein_doctor",
+          "projectiles:prj_goblinstein_doctor",
+          "buffs:buff_goblinstein_doctor"
+        ]
+      },
+      {
+        "id": "rune-giant",
+        "name": "Rune Giant",
+        "kind": "base",
+        "ok": false,
+        "reason": "Unsupported native action ActionGiantBufferCollectFriends",
+        "unsupported": [
+          "Unsupported native action ActionGiantBufferCollectFriends"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:GiantBuffer"
+        ]
+      },
+      {
+        "id": "berserker",
+        "name": "Berserker",
+        "kind": "base",
+        "ok": false,
+        "reason": "Unsupported native action ActionBerserk",
+        "unsupported": [
+          "Unsupported native action ActionBerserk"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:Berserker"
+        ]
+      },
+      {
+        "id": "boss-bandit",
+        "name": "Boss Bandit",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BossBandit"
+        ]
+      },
+      {
+        "id": "ronin",
+        "name": "Ronin",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Ronin"
+        ]
+      },
+      {
+        "id": "minion-giant",
+        "name": "Minion Giant",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MinionGiant",
+          "projectiles:MinionGiant_Projectile"
+        ]
+      },
+      {
+        "id": "cannon",
+        "name": "Cannon",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Cannon",
+          "projectiles:TowerCannonball"
+        ]
+      },
+      {
+        "id": "goblin-hut",
+        "name": "Goblin Hut",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinHut_Rework",
+          "entities:SpearGoblin",
+          "projectiles:SpearGoblinProjectile"
+        ]
+      },
+      {
+        "id": "mortar",
+        "name": "Mortar",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Mortar",
+          "projectiles:MortarProjectile"
+        ]
+      },
+      {
+        "id": "inferno-tower",
+        "name": "Inferno Tower",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:InfernoTower"
+        ]
+      },
+      {
+        "id": "bomb-tower",
+        "name": "Bomb Tower",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BombTower",
+          "entities:BombTowerBomb",
+          "areas:BombTowerExplosion",
+          "projectiles:BombTowerProjectile"
+        ]
+      },
+      {
+        "id": "barbarian-hut",
+        "name": "Barbarian Hut",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BarbarianHut",
+          "entities:Barbarian"
+        ]
+      },
+      {
+        "id": "tesla",
+        "name": "Tesla",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Tesla"
+        ]
+      },
+      {
+        "id": "elixir-collector",
+        "name": "Elixir Collector",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ElixirCollector"
+        ]
+      },
+      {
+        "id": "x-bow",
+        "name": "X-Bow",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Xbow",
+          "projectiles:xbow_projectile"
+        ]
+      },
+      {
+        "id": "tombstone",
+        "name": "Tombstone",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Tombstone",
+          "entities:Skeleton"
+        ]
+      },
+      {
+        "id": "furnace",
+        "name": "Furnace",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Furnace_rework",
+          "projectiles:Furnace_Rework_Projectile"
+        ]
+      },
+      {
+        "id": "goblin-cage",
+        "name": "Goblin Cage",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinCage",
+          "entities:GoblinBrawler"
+        ]
+      },
+      {
+        "id": "goblin-drill",
+        "name": "Goblin Drill",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinDrillDig"
+        ]
+      },
+      {
+        "id": "fireball",
+        "name": "Fireball",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:FireballSpell"
+        ]
+      },
+      {
+        "id": "arrows",
+        "name": "Arrows",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:ArrowsSpell"
+        ]
+      },
+      {
+        "id": "rage",
+        "name": "Rage",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RageBottle",
+          "areas:Rage",
+          "buffs:Rage"
+        ]
+      },
+      {
+        "id": "rocket",
+        "name": "Rocket",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:RocketSpell"
+        ]
+      },
+      {
+        "id": "goblin-barrel",
+        "name": "Goblin Barrel",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:GoblinBarrelSpell",
+          "entities:Goblin"
+        ]
+      },
+      {
+        "id": "freeze",
+        "name": "Freeze",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Freeze",
+          "buffs:Freeze"
+        ]
+      },
+      {
+        "id": "mirror",
+        "name": "Mirror",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": []
+      },
+      {
+        "id": "lightning",
+        "name": "Lightning",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Lightning",
+          "projectiles:LighningSpell",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "zap",
+        "name": "Zap",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Zap",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "poison",
+        "name": "Poison",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Poison",
+          "buffs:Poison"
+        ]
+      },
+      {
+        "id": "graveyard",
+        "name": "Graveyard",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Graveyard_rework"
+        ]
+      },
+      {
+        "id": "the-log",
+        "name": "The Log",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:LogProjectile",
+          "projectiles:LogProjectileRolling"
+        ]
+      },
+      {
+        "id": "tornado",
+        "name": "Tornado",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Tornado",
+          "buffs:Tornado"
+        ]
+      },
+      {
+        "id": "clone",
+        "name": "Clone",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Clone"
+        ]
+      },
+      {
+        "id": "earthquake",
+        "name": "Earthquake",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Earthquake",
+          "buffs:Earthquake"
+        ]
+      },
+      {
+        "id": "barbarian-barrel",
+        "name": "Barbarian Barrel",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:BarbLogProjectile",
+          "projectiles:BarbLogProjectileRolling",
+          "entities:Barbarian"
+        ]
+      },
+      {
+        "id": "heal-spirit",
+        "name": "Heal Spirit",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:HealSpirit",
+          "projectiles:HealSpiritProjectile",
+          "areas:HealSpirit",
+          "buffs:HealSpiritBuff"
+        ]
+      },
+      {
+        "id": "giant-snowball",
+        "name": "Giant Snowball",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:SnowballSpell",
+          "buffs:IceWizardSlowDown"
+        ]
+      },
+      {
+        "id": "royal-delivery",
+        "name": "Royal Delivery",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:RoyalDeliveryArea",
+          "projectiles:RoyalDeliveryProjectile",
+          "entities:DeliveryRecruit"
+        ]
+      },
+      {
+        "id": "void",
+        "name": "Void",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:DarkMagicAOE"
+        ]
+      },
+      {
+        "id": "goblin-curse",
+        "name": "Goblin Curse",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:GoblinCurse"
+        ]
+      },
+      {
+        "id": "spirit-empress",
+        "name": "Spirit Empress",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": []
+      },
+      {
+        "id": "vines",
+        "name": "Vines",
+        "kind": "base",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Vines_AeO"
+        ]
+      }
+    ]
+  },
+  "forms": {
+    "total": 67,
+    "supported": 51,
+    "unsupported": 16,
+    "rows": [
+      {
+        "id": "Knight_EV1",
+        "baseCardId": "knight",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Knight_EV1",
+          "entities:Knight",
+          "buffs:Knight_Fortify_EV1"
+        ]
+      },
+      {
+        "id": "Archer_EV1",
+        "baseCardId": "archers",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Archer_EV1",
+          "entities:Archer",
+          "projectiles:ArcherArrow",
+          "projectiles:Archer_EV1_Arrow"
+        ]
+      },
+      {
+        "id": "Pekka_EV1",
+        "baseCardId": "pekka",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Pekka_EV1",
+          "entities:Pekka"
+        ]
+      },
+      {
+        "id": "Witch_EV1",
+        "baseCardId": "witch",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Witch_EV1",
+          "entities:Witch_EV1_Healing_Skeleton",
+          "entities:Witch",
+          "entities:Skeleton",
+          "projectiles:WitchProjectile",
+          "projectiles:EV1_Witch_Projectile"
+        ]
+      },
+      {
+        "id": "Barbarians_EV1",
+        "baseCardId": "barbarians",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Barbarian_EV1",
+          "entities:Barbarian"
+        ]
+      },
+      {
+        "id": "Skeletons_EV1",
+        "baseCardId": "skeletons",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Skeleton_EV1",
+          "entities:Skeleton"
+        ]
+      },
+      {
+        "id": "Valkyrie_EV1",
+        "baseCardId": "valkyrie",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Valkyrie_EV1",
+          "entities:Valkyrie"
+        ]
+      },
+      {
+        "id": "SkeletonArmy_EV1",
+        "baseCardId": "skeleton-army",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonArmy_EV1_Soldier",
+          "entities:Skeleton",
+          "entities:SkeletonArmy_EV1_General",
+          "entities:SkeletonArmy_EV1_General_Base"
+        ]
+      },
+      {
+        "id": "Bomber_EV1",
+        "baseCardId": "bomber",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Bomber_EV1",
+          "entities:Bomber",
+          "projectiles:BombSkeletonProjectile",
+          "projectiles:BombSkeletonProjectile_EV1",
+          "projectiles:BombSkeletonProjectile_2_EV1"
+        ]
+      },
+      {
+        "id": "Musketeer_EV1",
+        "baseCardId": "musketeer",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionMusketeerSnipe",
+        "unsupported": [
+          "Unsupported native action ActionMusketeerSnipe"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:Musketeer_EV1",
+          "entities:Musketeer",
+          "projectiles:MusketeerProjectile",
+          "projectiles:Musketeer_EV1_normal_projectile",
+          "projectiles:Musketeer_EV1_snipe_projectile"
+        ]
+      },
+      {
+        "id": "BabyDragon_EV1",
+        "baseCardId": "baby-dragon",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BabyDragon_EV1",
+          "entities:BabyDragon",
+          "projectiles:BabyDragonProjectile",
+          "projectiles:BabyDragon_evo_projectile"
+        ]
+      },
+      {
+        "id": "Wizard_EV1",
+        "baseCardId": "wizard",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Wizard_EV1",
+          "entities:Wizard",
+          "projectiles:chr_wizardProjectile",
+          "projectiles:Wizard_EV1_Projectile"
+        ]
+      },
+      {
+        "id": "MinionHorde_EV1",
+        "baseCardId": "minion-horde",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MinionHorde_EV1",
+          "entities:Minion",
+          "projectiles:MinionSpit",
+          "projectiles:MinionHorde_EV1_spit"
+        ]
+      },
+      {
+        "id": "RoyalGiant_EV1",
+        "baseCardId": "royal-giant",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RoyalGiant_EV1",
+          "entities:RoyalGiant",
+          "projectiles:RoyalGiantProjectile",
+          "projectiles:RoyalGiantProjectile_EV1",
+          "areas:Freeze",
+          "buffs:Freeze"
+        ]
+      },
+      {
+        "id": "Princess_EV1",
+        "baseCardId": "princess",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Princess_EV1",
+          "entities:Princess",
+          "projectiles:PrincessProjectileDeco",
+          "projectiles:PrincessProjectile",
+          "areas:Princess_EV1_DeathFreeze",
+          "buffs:IceWizardSlowDown",
+          "projectiles:Princess_EV1_ProjectileDeco",
+          "projectiles:Princess_EV1_FreezeProjectileDeco"
+        ]
+      },
+      {
+        "id": "IceSpirits_EV1",
+        "baseCardId": "ice-spirit",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:IceSpirits_EV1",
+          "entities:IceSpirits",
+          "projectiles:IceSpiritsProjectile",
+          "buffs:Freeze",
+          "projectiles:IceSpiritsProjectile_EV1",
+          "areas:IceSpiritsAOE_EV1"
+        ]
+      },
+      {
+        "id": "RageBarbarian_EV1",
+        "baseCardId": "lumberjack",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RageBarbarian_EV1",
+          "entities:RageBarbarian",
+          "areas:RageBarbarianDummyForSpawn",
+          "areas:RageBarbarianEvoDummyForSpawn"
+        ]
+      },
+      {
+        "id": "BattleRam_EV1",
+        "baseCardId": "battle-ram",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionDamagingPushBack",
+        "unsupported": [
+          "Unsupported native action ActionDamagingPushBack"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:BattleRam_EV1",
+          "entities:Barbarian_EV1",
+          "entities:Barbarian",
+          "entities:BattleRam"
+        ]
+      },
+      {
+        "id": "InfernoDragon_EV1",
+        "baseCardId": "inferno-dragon",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:InfernoDragon_EV1",
+          "entities:InfernoDragon"
+        ]
+      },
+      {
+        "id": "BlowdartGoblin_EV1",
+        "baseCardId": "dart-goblin",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionBlowdartGoblinEvoDartSelect; Unsupported native action ActionBlowdartGoblinEvoController",
+        "unsupported": [
+          "Unsupported native action ActionBlowdartGoblinEvoDartSelect",
+          "Unsupported native action ActionBlowdartGoblinEvoController"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:BlowdartGoblin_EV1",
+          "entities:BlowdartGoblin",
+          "projectiles:BlowdartGoblinProjectile",
+          "projectiles:BlowdartGoblinEvoProjectile"
+        ]
+      },
+      {
+        "id": "AngryBarbarians_EV1",
+        "baseCardId": "elite-barbarians",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": []
+      },
+      {
+        "id": "Hunter_EV1",
+        "baseCardId": "hunter",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Hunter_EV1",
+          "entities:Hunter",
+          "projectiles:HunterProjectile",
+          "projectiles:Hunter_EV1_shotgun_projectile"
+        ]
+      },
+      {
+        "id": "AxeMan_EV1",
+        "baseCardId": "executioner",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unknown source variable get_ping_pong_projectile_distance; Unsupported live projectile data replacement; Unsupported native action ActionExecutionerEvoProjectile",
+        "unsupported": [
+          "Unknown source variable get_ping_pong_projectile_distance",
+          "Unsupported live projectile data replacement",
+          "Unsupported native action ActionExecutionerEvoProjectile"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:AxeMan_EV1",
+          "entities:AxeMan",
+          "projectiles:AxeManProjectile",
+          "projectiles:AxeMan_EV1_Projectile_Strong1"
+        ]
+      },
+      {
+        "id": "RoyalRecruits_EV1",
+        "baseCardId": "royal-recruits",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Recruit_EV1",
+          "entities:Recruit"
+        ]
+      },
+      {
+        "id": "Bats_EV1",
+        "baseCardId": "bats",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Bat_EV1",
+          "entities:Bat"
+        ]
+      },
+      {
+        "id": "Ghost_EV1",
+        "baseCardId": "royal-ghost",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionGhostEvoAction",
+        "unsupported": [
+          "Unsupported native action ActionGhostEvoAction"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:Ghost_EV1",
+          "entities:Ghost_EV1_Clone",
+          "buffs:Invisibility",
+          "buffs:Ghost_EV1_Invisibility"
+        ]
+      },
+      {
+        "id": "MegaKnight_EV1",
+        "baseCardId": "mega-knight",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionMegaKnightUppercut",
+        "unsupported": [
+          "Unsupported native action ActionMegaKnightUppercut"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:MegaKnight_EV1",
+          "entities:MegaKnight",
+          "projectiles:MegaKnight_EV1_appear"
+        ]
+      },
+      {
+        "id": "SkeletonBalloon_EV1",
+        "baseCardId": "skeleton-barrel",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native Skeleton Barrel evolution containers",
+        "unsupported": [
+          "Unsupported native Skeleton Barrel evolution containers"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonBalloon_EV1",
+          "entities:SkeletonBalloon",
+          "entities:SkeletonContainerNew",
+          "areas:SkeletonBalloonExplosion"
+        ]
+      },
+      {
+        "id": "Wallbreakers_EV1",
+        "baseCardId": "wall-breakers",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Wallbreaker_EV1",
+          "entities:Wallbreaker",
+          "projectiles:WallbreakerProjectile",
+          "projectiles:WallbreakerProjectile_EV1"
+        ]
+      },
+      {
+        "id": "RoyalHogs_EV1",
+        "baseCardId": "royal-hogs",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:RoyalHog_EV1",
+          "entities:RoyalHog"
+        ]
+      },
+      {
+        "id": "GoblinGiant_EV1",
+        "baseCardId": "goblin-giant",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinGiant_EV1",
+          "entities:SpearGoblinGiant_EV1",
+          "entities:SpearGoblin",
+          "projectiles:SpearGoblinProjectile",
+          "projectiles:SpearGoblinGiantProjectile",
+          "entities:GoblinGiant",
+          "entities:SpearGoblinGiant"
+        ]
+      },
+      {
+        "id": "ElectroDragon_EV1",
+        "baseCardId": "electro-dragon",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionChainProjectileAttack",
+        "unsupported": [
+          "Unsupported native action ActionChainProjectileAttack"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:electro_dragon_ev1",
+          "entities:ElectroDragon",
+          "projectiles:ElectroDragonProjectile",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "Firecracker_EV1",
+        "baseCardId": "firecracker",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Firecracker_EV1",
+          "entities:Firecracker",
+          "projectiles:FirecrackerProjectile",
+          "projectiles:FirecrackerExplosion",
+          "projectiles:FirecrackerProjectile_EV1",
+          "projectiles:FirecrackerExplosion_EV1",
+          "areas:FirecrackerFireworksSmall_EV1",
+          "buffs:FirecrackerFireworks_EV1",
+          "areas:FirecrackerFireworksBig_EV1"
+        ]
+      },
+      {
+        "id": "GoblinBarrel_EV1",
+        "baseCardId": "goblin-barrel",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionMirroredExtraSpell",
+        "unsupported": [
+          "Unsupported native action ActionMirroredExtraSpell"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:GoblinBarrelSpell_EV1",
+          "entities:Goblin"
+        ]
+      },
+      {
+        "id": "Zap_EV1",
+        "baseCardId": "zap",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "areas:Zap_EV1",
+          "buffs:ZapFreeze"
+        ]
+      },
+      {
+        "id": "Snowball_EV1",
+        "baseCardId": "giant-snowball",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionCaptureCharacter; Unsupported native action ActionRollingProjectile",
+        "unsupported": [
+          "Unsupported native action ActionCaptureCharacter",
+          "Unsupported native action ActionRollingProjectile"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "projectiles:SnowballSpell_EV1",
+          "projectiles:SnowballSpell_EV1_Rolling"
+        ]
+      },
+      {
+        "id": "Cannon_EV1",
+        "baseCardId": "cannon",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionCannonBarrage",
+        "unsupported": [
+          "Unsupported native action ActionCannonBarrage"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:Cannon_EV1",
+          "projectiles:TowerCannonball"
+        ]
+      },
+      {
+        "id": "Mortar_EV1",
+        "baseCardId": "mortar",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Mortar_EV1",
+          "projectiles:MortarProjectile_EV1",
+          "entities:Goblin"
+        ]
+      },
+      {
+        "id": "Tesla_EV1",
+        "baseCardId": "tesla",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Tesla_EV1"
+        ]
+      },
+      {
+        "id": "FirespiritHut_EV1",
+        "baseCardId": "furnace",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Furnace_EV1",
+          "entities:Furnace_rework",
+          "projectiles:Furnace_Rework_Projectile",
+          "projectiles:Furnace_Evolution_Projectile"
+        ]
+      },
+      {
+        "id": "GoblinCage_EV1",
+        "baseCardId": "goblin-cage",
+        "kind": "evolution",
+        "ok": false,
+        "reason": "Unsupported native action ActionCaptureCharacter",
+        "unsupported": [
+          "Unsupported native action ActionCaptureCharacter"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinCage_EV1_TEMPNAME",
+          "entities:GoblinCage_EV1_GoblinBrawler",
+          "entities:GoblinCage",
+          "entities:GoblinBrawler"
+        ]
+      },
+      {
+        "id": "GoblinDrill_EV1",
+        "baseCardId": "goblin-drill",
+        "kind": "evolution",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinDrill_EV1_Dig"
+        ]
+      },
+      {
+        "id": "Knight_hero",
+        "baseCardId": "knight",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:KnightHero"
+        ]
+      },
+      {
+        "id": "Goblins_hero",
+        "baseCardId": "goblins",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoblinHero",
+          "entities:GoblinHero_Base",
+          "entities:GoblinHero_Flag_Building"
+        ]
+      },
+      {
+        "id": "Giant_hero",
+        "baseCardId": "giant",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GiantHero"
+        ]
+      },
+      {
+        "id": "Balloon_hero",
+        "baseCardId": "balloon",
+        "kind": "hero",
+        "ok": false,
+        "reason": "Unsupported native action ActionOverrideProjectileSpeed",
+        "unsupported": [
+          "Unsupported native action ActionOverrideProjectileSpeed"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:BalloonHero",
+          "entities:BalloonHero_Bomb",
+          "areas:BalloonBombExplosion"
+        ]
+      },
+      {
+        "id": "Valkyrie_hero",
+        "baseCardId": "valkyrie",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ValkyrieHero"
+        ]
+      },
+      {
+        "id": "Musketeer_hero",
+        "baseCardId": "musketeer",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MusketeerHero",
+          "projectiles:MusketeerProjectile"
+        ]
+      },
+      {
+        "id": "Wizard_hero",
+        "baseCardId": "wizard",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:WizardHero",
+          "projectiles:Wizard_hero_ground_projectile"
+        ]
+      },
+      {
+        "id": "MiniPekka_hero",
+        "baseCardId": "mini-pekka",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MiniPekkaHero"
+        ]
+      },
+      {
+        "id": "IceWizard_hero",
+        "baseCardId": "ice-wizard",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:IceWizardHero",
+          "entities:IceWizardHeroFloatingCube",
+          "projectiles:IceWizardHeroProjectile",
+          "buffs:IceWizardHeroSlow",
+          "areas:IceWizardColdHero",
+          "buffs:IceWizardHeroCold"
+        ]
+      },
+      {
+        "id": "DarkPrince_hero",
+        "baseCardId": "dark-prince",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:DarkPrinceHero"
+        ]
+      },
+      {
+        "id": "Bowler_hero",
+        "baseCardId": "bowler",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BowlerHero",
+          "projectiles:BowlerProjectile",
+          "projectiles:BowlerHeroProjectile",
+          "projectiles:BowlerHero_SiegeProjectile",
+          "projectiles:BowlerHero_SiegeProjectile_CloseRange"
+        ]
+      },
+      {
+        "id": "IceGolemite_hero",
+        "baseCardId": "ice-golem",
+        "kind": "hero",
+        "ok": false,
+        "reason": "Unknown has_data source",
+        "unsupported": [
+          "Unknown has_data source"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:IceGolemiteHero",
+          "areas:IceGolemiteHero_Death_Aeo",
+          "buffs:IceWizardSlowDown"
+        ]
+      },
+      {
+        "id": "MegaMinion_hero",
+        "baseCardId": "mega-minion",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MegaMinionHero",
+          "projectiles:MegaMinionHeroProjectile"
+        ]
+      },
+      {
+        "id": "EliteArcher_hero",
+        "baseCardId": "magic-archer",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:EliteArcherHero",
+          "projectiles:EliteArcherHero_arrow_projectile",
+          "projectiles:EliteArcherHero_Ability_Power_Shot_Projectile_Middle"
+        ]
+      },
+      {
+        "id": "Berserker_hero",
+        "baseCardId": "berserker",
+        "kind": "hero",
+        "ok": false,
+        "reason": "Unsupported native action ActionBerserk",
+        "unsupported": [
+          "Unsupported native action ActionBerserk"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:BerserkerHero"
+        ]
+      },
+      {
+        "id": "Tombstone_hero",
+        "baseCardId": "tombstone",
+        "kind": "hero",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:TombstoneHero_visual_dummy",
+          "entities:TombstoneHero",
+          "entities:TombstoneHeroSkeleton",
+          "entities:TombstoneHero_Monster_Passive"
+        ]
+      },
+      {
+        "id": "BarbLog_hero",
+        "baseCardId": "barbarian-barrel",
+        "kind": "hero",
+        "ok": false,
+        "reason": "Unsupported native action ActionBarbBarrelHeroReRoll",
+        "unsupported": [
+          "Unsupported native action ActionBarbBarrelHeroReRoll"
+        ],
+        "visited": 0,
+        "dependencies": [
+          "entities:BarbLogBarbarianHero",
+          "entities:BarbLogBarbarianHeroNaked",
+          "projectiles:BarbLogHeroProjectile",
+          "projectiles:BarbLogHeroProjectileRolling"
+        ]
+      },
+      {
+        "id": "MightyMiner_champion",
+        "baseCardId": "mighty-miner",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:MightyMiner"
+        ]
+      },
+      {
+        "id": "SkeletonKing_champion",
+        "baseCardId": "skeleton-king",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:SkeletonKing"
+        ]
+      },
+      {
+        "id": "ArcherQueen_champion",
+        "baseCardId": "archer-queen",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:ArcherQueen",
+          "projectiles:ArcherQueenArrow"
+        ]
+      },
+      {
+        "id": "GoldenKnight_champion",
+        "baseCardId": "golden-knight",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:GoldenKnight"
+        ]
+      },
+      {
+        "id": "Monk_champion",
+        "baseCardId": "monk",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:Monk"
+        ]
+      },
+      {
+        "id": "LittlePrince_champion",
+        "baseCardId": "little-prince",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:LittlePrince",
+          "projectiles:LittlePrinceProjectile"
+        ]
+      },
+      {
+        "id": "Goblinstein_champion",
+        "baseCardId": "goblinstein",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:goblinstein",
+          "entities:goblinstein_doctor",
+          "projectiles:prj_goblinstein_doctor",
+          "buffs:buff_goblinstein_doctor"
+        ]
+      },
+      {
+        "id": "BossBandit_champion",
+        "baseCardId": "boss-bandit",
+        "kind": "champion",
+        "ok": true,
+        "reason": "",
+        "unsupported": [],
+        "visited": 0,
+        "dependencies": [
+          "entities:BossBandit"
+        ]
+      }
+    ]
+  }
+}

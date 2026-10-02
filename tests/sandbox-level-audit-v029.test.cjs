@@ -7,7 +7,7 @@ function place(session,card,level,team=0){const result=session.spawn({card,level
 function advance(session,seconds){for(let i=0;i<seconds*4;i++)session.advance(.25);}
 function checkUnit(unit,level){A.equal(unit.level,level,unit.entity+' level');A.equal(unit.def.level,level,unit.entity+' definition');const expected=S.entityDefinition(unit.entity,level);A.equal(unit.maxHp,unit.cloned?1:expected.hp||1,unit.entity+' max HP');A.equal(unit.def.damage,expected.damage,unit.entity+' damage');}
 
-test('all102 sandbox cards expose finite Level0 and99 stats and match their spawned entity definitions',()=>{
+test('all source sandbox cards expose finite Level0 and99 stats and match their spawned entity definitions',()=>{
  for(const card of C.CARDS)for(const level of [0,99]){
   const def=S.cardDefinition(card.id,level);A.equal(def.level,level,card.id);
   for(const field of ['hp','damage','duration'])A.ok(Number.isFinite(def[field])&&def[field]>=0,card.id+' '+field);
@@ -34,7 +34,7 @@ for(const level of [0,99]){
   const s=make(level),b=s.battle;place(s,'golem',level);const parent=b.units.find(u=>u.entity==='Golem');checkUnit(parent,level);parent.hp=0;b.deaths();
   const children=b.units.filter(u=>u.entity==='Golemite');A.equal(children.length,2);for(const child of children)checkUnit(child,level);
  });
- for(const [card,child,seconds]of [['goblin-giant','SpearGoblinGiant',2],['witch','Skeleton',12],['graveyard','Skeleton',5],['goblin-barrel','Goblin',5],['barbarian-barrel','Barbarian',6],['royal-delivery','DeliveryRecruit',5]]){
+ for(const [card,child,seconds]of [['goblin-giant','SpearGoblinGiant',2],['witch','Skeleton',12],['graveyard','Graveyard_rework_Skeleton',5],['goblin-barrel','Goblin',5],['barbarian-barrel','Barbarian',6],['royal-delivery','DeliveryRecruit',5]]){
   test('Level'+level+' '+card+' propagates its level through the live child-spawn chain',()=>{
    const s=make(level);place(s,card,level);advance(s,seconds);const children=s.battle.units.filter(u=>u.entity===child);A.ok(children.length>0,child+' actually spawned');for(const unit of children)checkUnit(unit,level);
   });
@@ -57,6 +57,6 @@ test('extended sandbox definitions never change normal catalog caches, saved cap
  A.ok(low.battle.units[0].maxHp<C.entityDef('Knight',1).hp);A.ok(high.battle.units[0].maxHp>normal.hp);
  A.strictEqual(C.entityDef('Knight',30),normal);A.equal(C.entityDef('Knight',99).level,30);A.equal(C.entityDef('Knight',0).level,9);
  A.equal(JSON.stringify(C.CARDS.map(c=>C.cardAt(c.id,9))),before);
- A.equal(C.normalizeProfile({cardLevels:{knight:99},level:99}).cardLevels.knight,13);
- const battle=new C.Battle({kingLevel:99,kingLevels:[99,99],ai:false});A.deepEqual(battle.kingLevels,[13,13]);
+ A.equal(C.normalizeProfile({cardLevels:{knight:99},level:99}).cardLevels.knight,C.MAX_CARD_LEVEL);
+ const battle=new C.Battle({kingLevel:99,kingLevels:[99,99],ai:false});A.deepEqual(battle.kingLevels,[C.MAX_CARD_LEVEL,C.MAX_CARD_LEVEL]);
 });

@@ -1,6 +1,6 @@
 /* Bounded save shape for the lazy offline world. No population-sized arrays. */
-(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleWorldState=api;})(globalThis,function(){'use strict';
-const PLAYER_COUNT=4000000,CLAN_COUNT=50000;
+(function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./game-data.js'):root.RoyaleGameData);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleWorldState=api;})(globalThis,function(DATA){'use strict';
+const PLAYER_COUNT=4000000,CLAN_COUNT=50000,MAX_TROPHIES=Number(DATA?.modernProgression?.maxTrophies)||8000;
 const integer=(n,d=0,max=Number.MAX_SAFE_INTEGER)=>Number.isFinite(n)?Math.max(0,Math.min(max,Math.floor(n))):d;
 const playerId=n=>'p'+String(n).padStart(7,'0');
 const validPlayer=id=>typeof id==='string'&&/^p\d{7}$/.test(id)&&Number(id.slice(1))<PLAYER_COUNT;
@@ -24,7 +24,7 @@ function cleanClan(value,id){
  return c;
 }
 function normalize(raw){const r=raw&&typeof raw==='object'?raw:{},clans={};for(const [id,value] of Object.entries(r.clans||{}).slice(-12)){if(validClan(id)&&value&&typeof value==='object')clans[id]=cleanClan(value,id);}
- const players={};for(const [id,d] of Object.entries(record(r.players)?r.players:{}).slice(-4000)){if(validPlayer(id)&&record(d))players[id]={trophies:Number.isFinite(d.trophies)?Math.max(-8000,Math.min(8000,Math.floor(d.trophies))):0,wins:integer(d.wins,0,1000000),matches:integer(d.matches,0,1000000),donations:integer(d.donations,0,1000000)};}
+ const players={};for(const [id,d] of Object.entries(record(r.players)?r.players:{}).slice(-4000)){if(validPlayer(id)&&record(d))players[id]={trophies:Number.isFinite(d.trophies)?Math.max(-MAX_TROPHIES,Math.min(MAX_TROPHIES,Math.floor(d.trophies))):0,wins:integer(d.wins,0,1000000),matches:integer(d.matches,0,1000000),donations:integer(d.donations,0,1000000)};}
  return {version:1,players,lastOpponentResult:typeof r.lastOpponentResult==='string'?r.lastOpponentResult.slice(0,120):'',seed:integer(r.seed,77137,0xffffffff)||77137,epoch:integer(r.epoch),clock:integer(r.clock),serial:integer(r.serial),
  friends:[...new Set((Array.isArray(r.friends)?r.friends:[]).filter(validPlayer))].slice(0,200),
  encountered:[...new Set((Array.isArray(r.encountered)?r.encountered:[]).filter(validPlayer))].slice(-200),
@@ -32,4 +32,4 @@ function normalize(raw){const r=raw&&typeof raw==='object'?raw:{},clans={};for(c
  requestAt:integer(r.requestAt),lastEpicSunday:Number.isFinite(r.lastEpicSunday)&&r.lastEpicSunday>=0?integer(r.lastEpicSunday):-1,donationDay:integer(r.donationDay),dailyDonated:integer(r.dailyDonated,0,360),
  war:r.war&&typeof r.war==='object'?plain(r.war):null,retiredLegacyClan:r.retiredLegacyClan===true};
 }
-return{PLAYER_COUNT,CLAN_COUNT,integer,playerId,validPlayer,validClan,normalize,plain};});
+return{PLAYER_COUNT,CLAN_COUNT,MAX_TROPHIES,integer,playerId,validPlayer,validClan,normalize,plain};});

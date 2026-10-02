@@ -1,0 +1,44 @@
+{
+  "package": "three",
+  "version": "0.180.0",
+  "license": "MIT",
+  "source": "https://github.com/mrdoob/three.js/tree/r180",
+  "modification": "Only relative local import paths in GLTFLoader and BufferGeometryUtils.",
+  "files": [
+    {
+      "file": "three.module.js",
+      "source": "build/three.module.js",
+      "sourceSha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+      "bytes": 603113
+    },
+    {
+      "file": "three.core.js",
+      "source": "build/three.core.js",
+      "sourceSha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+      "bytes": 1403455
+    },
+    {
+      "file": "GLTFLoader.js",
+      "source": "examples/jsm/loaders/GLTFLoader.js",
+      "sourceSha256": "67ac5551fdafa6e349bd80c8f8e5e39c136d6b2fb1ad647db9abb21dc86f9e4a",
+      "sha256": "2904f2823e23d5bc1d64512bf4c0d777ac44d728d47c34a9e3d48ce8ef6b761d",
+      "bytes": 114744
+    },
+    {
+      "file": "BufferGeometryUtils.js",
+      "source": "examples/jsm/utils/BufferGeometryUtils.js",
+      "sourceSha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+      "sha256": "248b3e8420bd3de805ca01845c1b0cc62aa2766f3c56bdcead265e306f8e715c",
+      "bytes": 35551
+    },
+    {
+      "file": "LICENSE",
+      "source": "LICENSE",
+      "sourceSha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "bytes": 1081
+    }
+  ]
+}

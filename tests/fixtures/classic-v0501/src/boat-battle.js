@@ -1,0 +1,21 @@
+/* Playable offline boat-defense adapter. Simulation uses the uploaded boat
+   entities/timeline; its display composes the available original atlas sprites. */
+(function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./core.js'):root.RoyaleCore);if(n)module.exports=api;else root.RoyaleBoatBattle=api;})(globalThis,function(C){'use strict';
+let art={};
+async function load(urls){if(typeof Image==='undefined')return;await Promise.all(['boat-body','boat-defense-gun','boat-player-gun'].map(key=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{art[key]=image;resolve();};image.onerror=()=>reject(Error('Boat asset failed: '+key));image.src=urls[key];})));}
+function configure(b,configuration){if(b.time!==0)throw Error('Configure a boat battle before simulation');if(!configuration||!Array.isArray(configuration.hp)||configuration.hp.length!==3||!Array.isArray(configuration.cards)||configuration.cards.length!==3)throw Error('Invalid boat defense');
+ const cards=configuration.cards.map(d=>{if(!Array.isArray(d)||d.length!==4||d.some(id=>!C.CARD_BY_ID[id]?.entity||C.CARD_BY_ID[id].kind!=='Troop'))throw Error('Boat defenses require four troop cards');return d.slice();});
+ b.boatConfiguration=JSON.parse(JSON.stringify({...configuration,cards}));b.boatBonus=false;b.boatEnd=120;b.ai=false;b.practice=true;
+ const own=b.makeEntity('KingTowerClanBoatAttacker',0,9*C.SX,28*C.SY,{level:9,wait:0});Object.assign(own,{king:true,boatPart:'attacker',active:true,activationAt:0,skin:'classic'});
+ const defenders=[3.5,9,14.5].map((x,i)=>{const t=b.makeEntity('ClanWarsTowerXbow',1,x*C.SX,6*C.SY,{level:9,wait:0});Object.assign(t,{king:false,boatPart:'defender',boatIndex:i,active:false,boatCards:cards[i],boatCycle:0,nextBoatSpawn:Infinity});t.hp=Math.max(0,Math.min(t.maxHp,Number(configuration.hp[i])||0));if(t.hp<=0){t.dead=true;t.destroyed=true;}return t;});
+ b.towers=[own,...defenders];const initialDead=defenders.filter(t=>t.hp<=0).length;b.boatInitialDead=initialDead;
+ const damage=b.damage;b.damage=function(u,...args){const before=u.hp;const result=damage.call(this,u,...args);if(u.boatPart==='defender'&&u.hp<before&&u.hp>0&&!u.active){u.active=true;u.nextBoatSpawn=this.time+.8;}return result;};
+ const tick=b.tickEntity;b.tickEntity=function(u,dt){if(u.boatPart==='defender'){if(!u.active||u.hp<=0)return;if(this.time>=u.nextBoatSpawn){const id=u.boatCards[u.boatCycle++%4],c=C.cardAt(id,9);this.cast(c,1,u.x,u.y+3*C.SY,1);u.nextBoatSpawn=this.time+4.5;}return tick.call(this,u,dt);}return tick.call(this,u,dt);};
+ Object.defineProperty(b,'phase',{configurable:true,get(){return this.boatBonus?2:0;}});
+ Object.defineProperty(b,'secondsLeft',{configurable:true,get(){return Math.max(0,Math.ceil(this.boatEnd-this.time));}});
+ Object.defineProperty(b,'multiplier',{configurable:true,get(){return this.boatBonus?3:1.5;}});
+ b.boatHp=()=>defenders.map(t=>Math.max(0,Math.ceil(t.hp)));
+ b.checkResult=function(){const dead=defenders.filter(t=>t.hp<=0).length;if(own.hp<=0)return this.finish(1,'Attacker tower destroyed');if(dead===3)return this.finish(0,'Boat defense destroyed');if(dead>initialDead&&!this.boatBonus){this.boatBonus=true;this.boatEnd=this.time+60;this.elixir[0]=10;this.record({type:'boat-bonus'});for(const u of this.units)if(u.team===0&&!u.building)u.hp=0;this.deaths();}if(this.time>=this.boatEnd)return this.finish(dead>initialDead?0:1,dead>initialDead?'Boat attack victory':'Boat attack timed out');};return b;
+}
+function draw(c,t,time){const body=art['boat-body'],gun=art[t.boatPart==='defender'?'boat-defense-gun':'boat-player-gun'];if(!body||!gun)return false;c.save();c.translate(t.x,t.y);const width=t.boatPart==='defender'?82:65,height=width*body.height/body.width;if(t.hp<=0){c.globalAlpha=.6;c.translate(0,10);c.scale(1,.38);c.drawImage(body,-width/2,-height,width,height);}else{c.drawImage(body,-width/2,-height,width,height);c.save();c.translate(0,-height*.65);const rotation=(t.heading||Math.PI/2)-Math.PI/2;c.rotate(rotation);const pulse=t.visualState==='attack'?Math.sin(time*25)*1.2:0,gw=t.boatPart==='defender'?45:40;c.drawImage(gun,-gw/2,-gw*.4+pulse,gw,gw*gun.height/gun.width);c.restore();}c.restore();return true;}
+return{configure,load,draw};});

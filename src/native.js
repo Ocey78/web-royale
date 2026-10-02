@@ -3,7 +3,15 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleNative=api;})(globalThis,function(){'use strict';
 const I=[1,0,0,1,0,0],NONE=65535,TINT_RASTER_PIXELS=16777216;
 function frameAt(seconds,fps,count,loop=true){if(!count)return 0;const f=Math.max(0,Math.floor((Number.isFinite(seconds)?seconds:0)*fps+1e-7));return loop?f%count:Math.min(f,count-1)}
-function direction(dx,dy){if(!Number.isFinite(dx)||!Number.isFinite(dy))return{index:1,flip:false};const a=Math.atan2(Math.abs(dx),-dy);return{index:Math.max(1,Math.min(9,1+Math.round(a/(Math.PI/8)))),flip:dx<0};}
+function direction(dx,dy,count=9){if(!Number.isFinite(dx)||!Number.isFinite(dy))return{index:1,flip:false};count=Math.max(1,count);const a=Math.atan2(Math.abs(dx),-dy);return{index:Math.max(1,Math.min(count,1+Math.round(a/Math.PI*(count-1)))),flip:dx< -1e-9};}
+// Direction exports span north -> east -> south. Some machines have eighteen
+// views, Mortar has five, and ordinary troops have nine. The generated lookup
+// arrays contain only nine slots, so inspect the actual source exports once.
+const directionCounts=new WeakMap();
+function sourceDirectionCount(cfg,scene,team){
+ const data=scene.data||scene,pref=cfg.prefix[team===1?1:0];let counts=directionCounts.get(data);if(!counts){counts=new Map();directionCounts.set(data,counts);}if(counts.has(pref))return counts.get(pref);
+ let count=1;for(const name of Object.keys(data.exports)){if(!name.startsWith(pref+'_'))continue;const match=name.slice(pref.length+1).match(/^(?:idle|run|attack|charge|dash|deploy|loading)1?_(\d+)$/);if(match)count=Math.max(count,Number(match[1]));}counts.set(pref,count);return count;
+}
 function teamFilter(team){return team===2?'hue-rotate(105deg) saturate(1.35) brightness(.95)':team===3?'sepia(.82) saturate(2.2) hue-rotate(355deg) brightness(1.08)':'none';}
 function exportName(cfg,team,state,index){const key=`${team===1?1:0}:${state}`;return cfg.animations?.[key]?.[Math.max(0,Math.min(8,index-1))]||`${cfg.prefix[team===1?1:0]}_${state}1_${index}`}
 // Source exports sometimes have only one viewing direction (e.g. Balloon).
@@ -12,6 +20,9 @@ function resolveAnimation(cfg,scene,team,state,index){
  const data=scene.data||scene,pref=cfg.prefix[team===1?1:0],ex=data.exports,exists=n=>n&&Object.prototype.hasOwnProperty.call(ex,n);
  const names=s=>[`${pref}_${s}1_${index}`,`${pref}_${s}_${index}`,`${pref}_${s}1`,`${pref}_${s}`,`${pref}_${s}1_1`,`${pref}_${s}_1`];
  let candidates=names(state);
+ // Keep the requested facing when a state has only a northern export. Red
+ // Flying Machine's missing southern idle views use its same-team hover/run.
+ if(['idle','charge','dash'].includes(state)&&sourceDirectionCount(cfg,scene,team)>1)candidates.splice(2,0,...names('run').slice(0,2));
  if(state==='charge'||state==='dash')candidates.push(...names('run'));
  candidates.push(cfg.animations?.[`${team===1?1:0}:${state}`]?.[index-1],...names('idle'),pref);
  return candidates.find(exists)||null;
@@ -40,7 +51,7 @@ function kingTowerPose(t,time,duration=3.3){
  return {frame:Math.min(97,Math.floor(progress*97)),progress};
 }
 function towerAttachmentOffset(t){return (Number(t.def?.source?.AttachedCharacterHeight)||2200)/100*6/5;}
-function entityElevation(u){const p=Math.max(0,Math.min(1,u.riverJump?.progress??(u.dash?.moving&&u.def?.source?.FlyDuringDash?u.dash.progress:0)));return flightOffset(u.def)+Math.sin(Math.PI*p)*Math.max(0,Number(u.def?.source?.JumpHeight)||0)/1000*20;}
+function entityElevation(u){const p=Math.max(0,Math.min(1,u.riverJump?.progress??(u.dash?.moving&&u.def?.source?.FlyDuringDash?u.dash.progress:0)));return Math.max(0,Number(u.modernKnockbackHeight)||0)/1000*20+(u.air===false&&u.def?.air?0:flightOffset(u.def))+Math.sin(Math.PI*p)*Math.max(0,Number(u.def?.source?.JumpHeight)||0)/1000*20;}
 
 // The authored action_frame is the release pose. Simulation supplies when the
 // hit actually happened; recovery then plays at the original clip rate.
@@ -49,6 +60,21 @@ function attackClipTime(clip,elapsed,attack){
  const action=frame/clip.fps,duration=clip.frames.length/clip.fps;
  const released=Number.isFinite(attack.releasedAt),time=released?action+Math.max(0,elapsed-attack.releasedAt):Math.max(0,Math.min(action-1e-6,action*(attack.windup>0?elapsed/attack.windup:1)));
  return {time,done:released&&time>=duration};
+}
+// Tesla's source export is a labeled state timeline, containing both rise and
+// lower sequences. Play only the current transition and hold its endpoint.
+function frameRangePose(clip,u,time=0){
+ const r=u?.modernFrameRange;if(!r)return null;const at=name=>Number.isInteger(name)?name:clip?.labels?.indexOf(name)??-1,transition=r.transition;
+ if(transition&&time<transition.until){const start=at(transition.start),end=at(transition.end);if(start<0||end<start)return null;const q=Math.max(0,Math.min(1,(time-transition.born)/Math.max(1e-9,transition.until-transition.born)));return{frame:Math.round(start+(end-start)*q)};}
+ const start=at(r.start),end=at(r.end);if(start<0||end<start)return null;const born=transition?.until??r.born??0;return{frame:start+frameAt(Math.max(0,time-born),clip.fps||30,end-start+1)};
+}
+function hidingClipPose(clip,u){
+ if(!u?.def?.source?.HidesWhenNotAttacking)return null;
+ const labels=clip?.labels||[],idle=labels.indexOf('idle'),up=labels.indexOf('appear_start'),raised=labels.indexOf('appear_end'),down=labels.indexOf('hide_start'),buried=labels.indexOf('hide_end');
+ if([idle,up,raised,down,buried].some(frame=>frame<0))return null;
+ const progress=Math.max(0,Math.min(1,Number.isFinite(u.hideVisual?.progress)?u.hideVisual.progress:u.hidden?0:1));
+ if(progress<=0)return{frame:idle};if(progress>=1)return{frame:raised};
+ return{frame:Math.round(u.hideVisual?.direction<0?down+(buried-down)*(1-progress):up+(raised-up)*progress)};
 }
 function hookClipTime(clip,elapsed,u){
  const labels=clip?.labels||[],at=name=>labels.indexOf(name),fps=clip?.fps||60;
@@ -121,8 +147,24 @@ function maskLayerFor(parent){const w=parent.canvas.width,h=parent.canvas.height
 }
 function releaseMask(ctx){if(!ctx)return;const cv=ctx.canvas,pixels=cv.width*cv.height;if(maskPool.length<6&&maskPoolPixels+pixels<=8388608){maskPool.push(cv);maskPoolPixels+=pixels;}else{cv.width=1;cv.height=1;}}
 function imageFrom(url){return new Promise((resolve,reject)=>{const img=new Image();img.crossOrigin='anonymous';img.onload=()=>resolve(img);img.onerror=()=>reject(new Error('An embedded native texture did not decode'));img.src=url;});}
+let sceneSerial=0;
+// One budget covers lazy atlas pages and the frame rasters derived from them.
+class DecodedArtCache{
+ constructor(maxBytes=96*1024*1024){this.maxBytes=maxBytes;this.bytes=0;this.entries=new Map();}
+ get(key){const e=this.entries.get(key);if(!e)return null;this.entries.delete(key);this.entries.set(key,e);return e.image;}
+ delete(key){const e=this.entries.get(key);if(!e)return;this.entries.delete(key);this.bytes-=e.bytes;e.evict?.();if(e.image.close)e.image.close();else if(typeof e.image.getContext==='function'){e.image.width=e.image.height=1;}else e.image.removeAttribute?.('src');}
+ remember(key,image,evict){this.delete(key);const bytes=(image.naturalWidth||image.width||0)*(image.naturalHeight||image.height||0)*4;this.entries.set(key,{image,bytes,evict});this.bytes+=bytes;while(this.bytes>this.maxBytes&&this.entries.size>1)this.delete(this.entries.keys().next().value);return image;}
+}
 class Scene{
- constructor(data,images){this.data=data;this.images=images;this.cache=new Map();this.tintCache=new Map();this.tintPixels=0;this.drawCount=0;this.frameSamples=new Set();this.animationCache=new Map();}
+ constructor(data,images){this.data=data;this.images=images;this.cache=new Map();this.tintCache=new Map();this.tintPixels=0;this.drawCount=0;this.frameSamples=new Set();this.animationCache=new Map();this.resourcePrefix=++sceneSerial;this.lazyPending=new Map();this.lazyErrors=new Map();this.resources=new Set();}
+ configureLazy(loader,pool,onError){this.lazyLoader=loader;this.decodedArt=pool;this.onTextureError=onError;this.images=Array(this.data.textures.length).fill(null);return this;}
+ async loadTexture(index){if(this.images[index]){this.decodedArt?.get(this.resourcePrefix+':page:'+index);return this.images[index];}if(this.lazyPending.has(index))return this.lazyPending.get(index);if(!this.lazyLoader)throw Error('Missing SC texture');const key=this.resourcePrefix+':page:'+index;
+  const job=Promise.resolve().then(()=>this.lazyLoader(this.data.textures[index])).then(image=>{this.lazyErrors.delete(index);this.images[index]=image;this.resources.add(key);this.decodedArt.remember(key,image,()=>{this.images[index]=null;this.resources.delete(key);});return image;}).catch(e=>{this.lazyErrors.set(index,e);this.onTextureError?.(e);throw e;}).finally(()=>this.lazyPending.delete(index));this.lazyPending.set(index,job);return job;}
+ texture(index){const image=this.images[index];if(image){this.decodedArt?.get(this.resourcePrefix+':page:'+index);return image;}if(this.lazyLoader&&!this.lazyErrors.has(index))this.loadTexture(index).catch(()=>{});return null;}
+ textureIndices(name,seconds=0,options={}){const result=new Set(),visit=(id,t,depth)=>{if(depth>20)throw Error('SC nesting limit');const shape=this.data.shapes[id];if(shape){for(const chunk of shape)result.add(chunk.texture);return;}const clip=this.data.clips[id];if(!clip)return;const f=depth===0&&options.frame!==undefined?Math.max(0,Math.min(clip.frames.length-1,options.frame)):frameAt(t,clip.fps,clip.frames.length,depth===0?options.loop!==false:true);for(const [child]of clip.frames[f])visit(child,t,depth+1);};visit(this.id(name),seconds,0);return[...result];}
+ async prewarm(name,seconds=0,options={}){if(!this.lazyLoader)return this;const pages=this.data.texturePages?.[name]||this.textureIndices(name,seconds,options);await Promise.all(pages.map(i=>this.loadTexture(i)));return this;}
+ frameReady(name,seconds=0,options={}){if(!this.lazyLoader)return true;let ready=true;for(const i of this.textureIndices(name,seconds,options))if(!this.texture(i))ready=false;return ready;}
+ releaseTextures(){if(this.decodedArt)for(const key of [...this.resources])this.decodedArt.delete(key);this.resources.clear();}
  id(name){return typeof name==='string'&&!/^\d+$/.test(name)?this.data.exports[name]:name;}
  clip(name){return this.data.clips[this.id(name)]}
  animated(name){const id=this.id(name);if(this.animationCache.has(id))return this.animationCache.get(id);const seen=new Set(),visit=(idx)=>{if(seen.has(idx))return false;seen.add(idx);const c=this.data.clips[idx];return !!c&&(c.frames.length>1||c.frames.some(f=>f.some(i=>visit(i[0]))));};const result=visit(id);this.animationCache.set(id,result);return result;}
@@ -162,7 +204,7 @@ class Scene{
   this.rawShapePlans||=new Map();let plan=this.rawShapePlans.get(id);
   if(!plan){plan=[];for(const chunk of this.data.shapes[id]||[]){
    const img=this.images[chunk.texture];if(!img)throw Error('Missing SC texture');
-   const uv=expandStripeUV(chunk.uv.map(p=>[p[0]*img.naturalWidth,p[1]*img.naturalHeight]),img.naturalWidth,img.naturalHeight),xy=chunk.xy;
+   const uv=expandStripeUV(chunk.uv.map(p=>[p[0]*(img.naturalWidth||img.width),p[1]*(img.naturalHeight||img.height)]),(img.naturalWidth||img.width),(img.naturalHeight||img.height)),xy=chunk.xy;
    let m=null;for(let j=1;j<xy.length-1&&!m;j++)m=affine([uv[0],uv[j],uv[j+1]],[xy[0],xy[j],xy[j+1]]);
    if(!m)continue;
    if(uv.every((p,i)=>{const q=point(m,p);return Math.hypot(q[0]-xy[i][0],q[1]-xy[i][1])<.45}))plan.push({img,xy,m});
@@ -172,16 +214,16 @@ class Scene{
  }
  releaseRasters(){
   const images=new Set([...this.cache.values(),...this.tintCache.values()].map(s=>s.image));
-  this.stillPlans?.clear();this.cache.clear();this.tintCache.clear();this.tintPixels=0;
+  if(this.decodedArt)for(const key of [...this.resources])if(!key.includes(':page:'))this.decodedArt.delete(key);this.stillPlans?.clear();this.cache.clear();this.tintCache.clear();this.tintPixels=0;
   for(const image of images)if(image&&typeof image==='object'){image.width=1;image.height=1;}
  }
  duration(name){const c=this.clip(name);return c?c.frames.length/c.fps:0;}
  bounds(name,seconds=0){const points=[];const visit=(id,m,t,depth)=>{if(depth>20)throw Error('SC nesting limit');const shape=this.data.shapes[id];if(shape){for(const chunk of shape)for(const p of chunk.xy)points.push(point(m,p));return;}const clip=this.data.clips[id];if(!clip)return;for(const [child,mat] of clip.frames[frameAt(t,clip.fps,clip.frames.length)])visit(child,mul(m,mat===NONE?I:this.data.matrices[mat]),t,depth+1);};visit(this.id(name),I,seconds,0);if(!points.length)return{x:0,y:0,width:1,height:1};const x=Math.min(...points.map(p=>p[0])),y=Math.min(...points.map(p=>p[1]));return{x,y,width:Math.max(...points.map(p=>p[0]))-x,height:Math.max(...points.map(p=>p[1]))-y};}
  prepareQuality(){const scale=this.data.qualityIndependent?1:(globalThis.RoyaleGraphics?.current.textureScale??1);if(this.textureScale===scale)return;this.textureScale=scale;this.releaseRasters();}
- shape(id){this.prepareQuality();if(this.cache.has(id))return this.cache.get(id);const chunks=this.data.shapes[id];if(!chunks)return null;
+ shape(id){this.prepareQuality();if(this.cache.has(id)){this.decodedArt?.get(this.resourcePrefix+':shape:'+id);return this.cache.get(id);}const chunks=this.data.shapes[id];if(!chunks)return null;if(this.lazyLoader){let ready=true;for(const chunk of chunks)if(!this.texture(chunk.texture))ready=false;if(!ready)return null;}
   const pts=chunks.flatMap(s=>s.xy),lo=[Math.floor(Math.min(...pts.map(p=>p[0])))-1,Math.floor(Math.min(...pts.map(p=>p[1])))-1],hi=[Math.ceil(Math.max(...pts.map(p=>p[0])))+1,Math.ceil(Math.max(...pts.map(p=>p[1])))+1];
   const logicalW=hi[0]-lo[0],logicalH=hi[1]-lo[1],quality=shapeRasterScale(logicalW,logicalH,(this.data.rasterScale||1)*this.textureScale),cv=canvas(logicalW*quality,logicalH*quality);const c=cv.getContext('2d');c.scale(quality,quality);c.translate(-lo[0],-lo[1]);c.imageSmoothingEnabled=true;
-  for(const chunk of chunks){const img=this.images[chunk.texture];if(!img)throw Error('Missing SC texture');const uv=expandStripeUV(chunk.uv.map(p=>[p[0]*img.naturalWidth,p[1]*img.naturalHeight]),img.naturalWidth,img.naturalHeight);const xy=chunk.xy;
+  for(const chunk of chunks){const img=this.images[chunk.texture];if(!img)throw Error('Missing SC texture');const uv=expandStripeUV(chunk.uv.map(p=>[p[0]*(img.naturalWidth||img.width),p[1]*(img.naturalHeight||img.height)]),(img.naturalWidth||img.width),(img.naturalHeight||img.height));const xy=chunk.xy;
    // Most source polygons are clipped affine sprites. Use one draw where possible
    // to avoid triangle seams; deformed meshes use their source triangle fan.
    let m=null;for(let j=1;j<xy.length-1&&!m;j++)m=affine([uv[0],uv[j],uv[j+1]],[xy[0],xy[j],xy[j+1]]);
@@ -190,15 +232,15 @@ class Scene{
    const draw=(vertices,matrix)=>{if(!matrix)return;c.save();c.beginPath();vertices.forEach((p,i)=>i?c.lineTo(...p):c.moveTo(...p));c.closePath();c.clip();c.transform(...matrix);c.drawImage(img,0,0);c.restore();};
    if(linear)draw(xy,m);else for(let j=1;j<xy.length-1;j++){const v=[xy[0],xy[j],xy[j+1]];draw(v,affine([uv[0],uv[j],uv[j+1]],v));}
   }
-  const result={image:cv,x:lo[0],y:lo[1],w:logicalW,h:logicalH};this.cache.set(id,result);return result;
+  const result={image:cv,x:lo[0],y:lo[1],w:logicalW,h:logicalH};this.cache.set(id,result);if(this.decodedArt){const key=this.resourcePrefix+':shape:'+id;this.resources.add(key);this.decodedArt.remember(key,cv,()=>{this.cache.delete(id);this.resources.delete(key);});}return result;
  }
- coloredShape(id,color){const sh=this.shape(id);if(!sh||!color||color[0]===0&&color[1]===0&&color[2]===0&&color[3]===255&&color[4]===255&&color[5]===255&&color[6]===255)return sh;const key=`${id}:${color.join(',')}`;let painted=this.tintCache.get(key);if(painted){this.tintCache.delete(key);this.tintCache.set(key,painted);return painted;}
-  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true});ct.drawImage(sh.image,0,0);const px=ct.getImageData(0,0,cv.width,cv.height),p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,p[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,p[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,p[i+2]*color[6]/255+color[2]);p[i+3]*=color[3]/255;}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;}return painted;
+ coloredShape(id,color){const sh=this.shape(id);if(!sh||!color||color[0]===0&&color[1]===0&&color[2]===0&&color[3]===255&&color[4]===255&&color[5]===255&&color[6]===255)return sh;const key=`${id}:${color.join(',')}`;let painted=this.tintCache.get(key);if(painted){this.decodedArt?.get(this.resourcePrefix+':tint:'+key);this.tintCache.delete(key);this.tintCache.set(key,painted);return painted;}
+  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true});ct.drawImage(sh.image,0,0);const px=ct.getImageData(0,0,cv.width,cv.height),p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,p[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,p[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,p[i+2]*color[6]/255+color[2]);p[i+3]*=color[3]/255;}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;if(this.decodedArt){const resource=this.resourcePrefix+':tint:'+key;this.resources.add(resource);this.decodedArt.remember(resource,cv,()=>{if(this.tintCache.get(key)===painted){this.tintCache.delete(key);this.tintPixels=Math.max(0,this.tintPixels-pixels);}this.resources.delete(resource);});}}return painted;
  }
  // Explicitly still HUD assemblies can reuse resolved source geometry. This
  // keeps the original shape textures and live glyph painter; it does not flatten
  // artwork to a lower-resolution bitmap or freeze an animated unit/effect.
- drawStill(c,name,options={}){this.prepareQuality();const id=this.id(name);if(id===undefined)return false;if(options.replaceNodes)return this.draw(c,name,0,{...options,still:true});
+ drawStill(c,name,options={}){if(this.lazyLoader)return this.draw(c,name,0,{...options,still:true});this.prepareQuality();const id=this.id(name);if(id===undefined)return false;if(options.replaceNodes)return this.draw(c,name,0,{...options,still:true});
   this.stillPlans||=new Map();const key=JSON.stringify([id,options.frame??0,options.instances||null,options.initialColor||null]);let plan=this.stillPlans.get(key);
   if(plan===undefined){plan=[];let supported=true;
    const visit=(idx,m,depth,color,blend=null,instance='',instancePath='')=>{
@@ -224,7 +266,7 @@ class Scene{
    c.restore();
   }return true;
  }
- draw(c,name,seconds=0,options={}){const id=this.id(name);if(id===undefined)return false;this.drawCount++;const tick=options.still?0:seconds;
+ draw(c,name,seconds=0,options={}){const id=this.id(name);if(id===undefined)return false;if(!this.frameReady(name,options.still?0:seconds,options))return false;this.drawCount++;const tick=options.still?0:seconds;
   const visit=(idx,time,depth,color,instance='',instancePath='')=>{
    if(depth>20)throw Error('SC nesting limit');
    const control=options.instances?.[instancePath]||options.instances?.[instance]||{};
@@ -266,15 +308,16 @@ const childName=clip.frameNames?.[f]?.[slot]??clip.childrenNames?.[clip.children
 }
 // Collect the exact scene closure for both decks, including death spawns,
 // spawned troops, attached riders, spell projectiles and their secondary effects.
-function sceneDependencies(data,game,decks,arenaId){
+function sceneDependencies(data,game,decks,arenaId,extra=[]){
  const found=new Set(['building_tower','chr_king','chr_princess','effects','ui_battle_end']),seen=new Set();
- const tables=['entities','projectiles','areas','buffs'];
+ const tables=['entities','projectiles','areas','buffs','actions','actionGroups'];
  function visit(value,depth=0){if(depth>40||value==null)return;if(Array.isArray(value)){for(const x of value)visit(x,depth+1);return;}
   if(typeof value==='object'){for(const x of Object.values(value))visit(x,depth+1);return;}if(typeof value!=='string')return;
   for(const scene of data.fxDependencies?.[value]||[])found.add(scene);
   if(data.units[value])found.add(data.units[value].scene);if(data.projectiles?.[value])found.add(data.projectiles[value].scene);
   for(const table of tables){const key=table+':'+value,row=game[table]?.[value];if(row&&!seen.has(key)){seen.add(key);visit(row,depth+1);}}
  }
+ for(const value of extra)visit(value);
  for(const id of decks.flat()){const card=game.cards.find(c=>c.id===id);if(card)visit(card);}
  if(arenaId!=='custom'){const arena=data.arenas.find(a=>a.id===arenaId)||data.arenas[0];found.add(arena.scene);for(const ob of arena.objects)if(ob.scene)found.add(ob.scene);}
  return [...found].filter(name=>data.scenes[name]).sort();
@@ -291,7 +334,7 @@ function customSourceArenaId(layout){
 }
 function arenaLayers(a,overtime=false){const layers={Base:0,Ground:1,Object:2,Above:3};return[{name:a.export,x:0,y:0,scene:a.scene,layer:'Base'},...a.objects.filter(o=>!o.visibility||o.visibility==='Always'||(overtime?o.visibility==='Overtime':o.visibility==='NormalTime')).slice().sort((x,y)=>(layers[x.layer]??2)-(layers[y.layer]??2)||(x.sort||0)-(y.sort||0)||x.y-y.y)];}
 class Library{
- constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
+ constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.decodedArt=new DecodedArtCache();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
  async fetchScene(name){
   if(this.scenes[name])return this.scenes[name];if(this.pending.has(name))return this.pending.get(name);
   const pending=(async()=>{let definition=this.data.scenes[name];if(!definition)throw Error('Unknown native scene: '+name);
@@ -302,6 +345,7 @@ class Library{
      definition=await new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
     }else definition=await response.json();
    }
+   if(definition.lazyTextures){const scene=new Scene(definition,[]).configureLazy(async t=>{const url=this.embedded[t.file];if(!url)throw Error('Missing native texture '+t.file);let image;if(typeof createImageBitmap==='function'&&typeof fetch==='function'){const response=await fetch(url,{cache:'force-cache',credentials:'same-origin'});if(!response.ok)throw Error('Native texture '+t.file+': HTTP '+response.status);image=await createImageBitmap(await response.blob());}else image=await imageFrom(url);this.loadedTextures++;this.onProgress?.();return image;},this.decodedArt,e=>{this.error=e.message;});return this.scenes[name]=scene;}
    const images=await Promise.all(definition.textures.map(async t=>{
     if(!this.textureImages.has(t.file)){const path=this.embedded[t.file];if(!path)throw Error('Missing native texture '+t.file);
      const job=imageFrom(path).then(im=>{this.loadedTextures++;this.onProgress?.();return im;}).catch(e=>{this.textureImages.delete(t.file);throw e;});this.textureImages.set(t.file,job);}
@@ -310,17 +354,19 @@ class Library{
   })();this.pending.set(name,pending);try{return await pending;}finally{this.pending.delete(name);}
  }
  async ensureScenes(names){const queue=[...new Set(names)];let index=0;const worker=async()=>{while(index<queue.length){const name=queue[index++];await this.fetchScene(name);}};await Promise.all(Array.from({length:Math.min(4,queue.length)},worker));return this;}
- retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.metricCache?.clear();}
- async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}try{await this.ensureScenes(names);await globalThis.RoyaleCustomArena?.prepareAssets?.(battle,this.assetBase);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}await this.fx?.prewarmSpells?.(battle.initialDecks?.flat()||[],game);}return this;}catch(e){this.error=e.message;throw e;}}
+ retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();scene.releaseTextures?.();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.metricCache?.clear();}
+ async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId,[...(battle.towers||[]).map(t=>t.entity),...(battle.seatForms||[]).flat().map(id=>battle.formRegistry?.get(id)?.source).filter(Boolean)]),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}try{await this.ensureScenes(names);await this.prewarmBattleActors(battle);await globalThis.RoyaleCustomArena?.prepareAssets?.(battle,this.assetBase);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}await this.fx?.prewarmSpells?.(battle.initialDecks?.flat()||[],game);}return this;}catch(e){this.error=e.message;throw e;}}
+ async prewarmBattleActors(battle){const requests=[],actors=new Set(),visit=(value,depth=0)=>{if(depth>30||value==null)return;if(Array.isArray(value)){for(const v of value)visit(v,depth+1);return;}if(typeof value==='object'){for(const v of Object.values(value))visit(v,depth+1);return;}if(typeof value==='string'&&battle.catalog?.DATA.entities[value]&&!actors.has(value)){actors.add(value);visit(battle.catalog.DATA.entities[value],depth+1);}};for(const id of battle.initialDecks?.flat()||[])visit(battle.catalog?.CARD_BY_ID[id]?.source);for(const id of battle.seatForms?.flat()||[])visit(battle.formRegistry?.get(id)?.source);if(globalThis.RoyaleModern3D)requests.push(RoyaleModern3D.prepareActors([...actors]));for(const [seat,forms]of (battle.seatForms||[]).entries())for(const id of forms){const form=battle.formRegistry?.get(id),source=form?.source||{},actor=source.SummonCharacter||source.SummonCharactersList?.[0],base=this.data.units[actor];if(!base)continue;const cfg=Number(battle.catalog?.DATA.entities[actor]?.ShieldHitpoints)>0&&base.variants?.shield?{...base,...base.variants.shield}:base,sc=this.scenes[cfg.scene];if(!sc?.lazyLoader)continue;const team=battle.teamOf(seat),heading=(team===1?Math.PI/2:-Math.PI/2)+(Number(cfg.headingOffset)||0),view=direction(Math.cos(heading),Math.sin(heading),sourceDirectionCount(cfg,sc,team)).index,name=resolveAnimation(cfg,sc,team,'idle',view);if(name)requests.push(sc.prewarm(name));}await Promise.all(requests);}
  async loadHUD(urls){this.ui={};await Promise.all(['level-crown'].map(async key=>{if(urls[key])this.ui[key]=await imageFrom(urls[key]);}));}
  async load(){try{if(!this.data.streamed)await this.ensureScenes(Object.keys(this.data.scenes));this.ready=true;return this;}catch(e){this.error=e.message;throw e;}}
  setArena(id){if(!this.data.arenas.some(a=>a.id===id))throw RangeError('Unknown arena');if(this.arenaId!==id)this.releaseArenaCache();this.arenaId=id;}
  get arena(){return this.data.arenas.find(a=>a.id===this.arenaId)}
  unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
-  const cfg=this.data.units[id];if(!cfg)return false;const sc=this.scenes[cfg.scene];if(!sc)return false;
+  const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
+  const base=this.data.units[id];if(!base)return false;const cfg=options.entity?.shield>0&&base.variants?.shield?{...base,...base.variants.shield}:base;const sc=this.scenes[cfg.scene];if(!sc)return false;
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';
   if(!options.entity?.visualAttackCancelled&&(options.entity?.hook||options.entity?.visualHook&&state!=='run'&&state!=='dash'))state='loading';
-  const d=direction(Math.cos(heading),Math.sin(heading));let name=resolveAnimation(cfg,sc,team,state,d.index);if(!name)return false;
+  const atlasHeading=heading+(Number(cfg.headingOffset)||0),d=direction(Math.cos(atlasHeading),Math.sin(atlasHeading),sourceDirectionCount(cfg,sc,team));let name=resolveAnimation(cfg,sc,team,state,d.index);if(!name)return false;
   let elapsed=options.elapsed??Math.max(0,time-started);const nativeDuration=sc.duration(name),attackDuration=options.attackDuration||nativeDuration;
   if(state==='loading'){
    const synced=hookClipTime(sc.clip(name),elapsed,options.entity||{});elapsed=synced.time;
@@ -340,16 +386,16 @@ class Library{
   const factor=scale*(5/6)*cfg.scale;
   const views=cfg.animations?.[`${team===1?1:0}:${state}`]||[],directional=new Set(views.filter(v=>v&&sc.id(v)!==undefined)).size>1;
   const rotation=!directional&&(options.entity?.def?.source?.HasRotationOnTimeline===true||cfg.rotationTimeline===true);
-  c.scale((d.flip&&!cfg.building&&!rotation?-1:1)*factor,factor);
+  c.scale((d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*factor,factor);
   c.filter=teamFilter(team);
-  const clip=sc.clip(name),pose=rotation?rotationPose(heading,clip?.frames?.length||1):null;if(pose?.flip)c.scale(-1,1);
+  const clip=sc.clip(name),pose=frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);if(pose?.flip)c.scale(-1,1);
   const paint=color=>{sc.draw(c,name,pose?pose.frame/(clip.fps||30):elapsed,{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{}),initialColor:color});
    const top=cfg.top?.[team];if(top&&sc.id(top)!==undefined)sc.draw(c,top,pose?pose.frame/(clip.fps||30):elapsed,{loop:!pose,initialColor:color});};
   if(options.entity&&globalThis.RoyalePresentation?.ready)RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);c.restore();return true;
  }
  // A stable head anchor measured from the original idle views, independent of
  // the current attack frame. This keeps health bars from bouncing with swings.
- headHeight(id){this.metricCache||=new Map();if(this.metricCache.has(id))return this.metricCache.get(id);
+ headHeight(id){const modern=globalThis.RoyaleModern3D;if(modern?.has(id)){const height=modern.headHeight(id);if(Number.isFinite(height)&&height>0)return height;}this.metricCache||=new Map();if(this.metricCache.has(id))return this.metricCache.get(id);
   const cfg=this.data.units[id],sc=cfg&&this.scenes[cfg.scene];if(!sc)return 48;
   let top=0;for(const team of [0,1])for(const dir of [1,3,5,7,9]){const name=resolveAnimation(cfg,sc,team,'idle',dir);if(name)top=Math.max(top,-sc.bounds(name).y);}
   const h=Math.max(18,Math.min(140,top*(5/6)*cfg.scale))+5;this.metricCache.set(id,h);return h;
@@ -437,7 +483,7 @@ class Library{
   // its sprite so shadows cannot cover troop sprites or floating health labels.
   // SC's authored shadow size/offset/skew supply the per-model parameters;
   // the vertical ground-plane projection is an interpreter approximation.
-  const key=[t.skin||'classic',t.king,t.team,!!t.active].join(':');let mask=this.towerShadowCache.get(key);
+  const key=[t.skin||'classic',t.entity||'',t.king,t.team,!!t.active].join(':');let mask=this.towerShadowCache.get(key);
   if(!mask){mask=canvas(480,480);const x=mask.getContext('2d');x.scale(2,2);x.translate(120,170);this.drawTower(x,{...t,x:0,y:0,preview:true},0);x.setTransform(1,0,0,1,0,0);x.globalCompositeOperation='source-in';x.fillStyle='#211915';x.fillRect(0,0,480,480);if(this.towerShadowCache.size>=8)this.towerShadowCache.clear();this.towerShadowCache.set(key,mask);}
   const p=towerArtPosition(t),r=t.def?.source||{};c.save();c.globalAlpha*=.34;c.translate(p.x,p.y+22);c.transform((r.ShadowScaleX||100)/100,0,Math.tan((r.ShadowSkew||13)*Math.PI/180),-.23*(r.ShadowScaleY||70)/100,(r.ShadowX||0)*5/6,(r.ShadowY||0)*5/6);c.drawImage(mask,-120,-192,240,240);c.restore();return true;
  }
@@ -451,7 +497,7 @@ class Library{
    sc.draw(c,name,0,{frame:pose.frame,replaceNodes:replacements,instances:{turret:{frame:rotationPose(t.heading,19).frame}}});
   }
   else{sc.draw(c,skin?.exports.princessBase[sourceTeam]||`StarTower_base_${sourceTeam?'red':'blue'}`,0,{still:true});
-   c.filter=teamFilter(t.team);const princess=this.scenes.chr_princess;if(princess){const heading=Number.isFinite(t.heading)?t.heading:(t.team?Math.PI/2:-Math.PI/2),d=direction(Math.cos(heading),Math.sin(heading)),prefix=sourceTeam?'princess_tower_red':'princess_tower',elapsed=t.animationTime??Math.max(0,time-(t.visualStarted??-Infinity));let name=`${prefix}_attack1_${d.index}`;const synced=attackClipTime(princess.clip(name),elapsed,t.visualAttack),attacking=t.visualState==='attack'&&!t.visualAttackCancelled&&(synced?!synced.done:elapsed<(t.visualDuration||princess.duration(name)));if(!attacking)name=`${prefix}_idle1_${d.index}`;c.save();c.translate(0,-towerAttachmentOffset(t));c.scale(d.flip?-1:1,1);princess.draw(c,name,attacking?(synced?.time??elapsed*princess.duration(name)/(t.visualDuration||princess.duration(name))):(t.visualTime??time),{loop:!attacking});c.restore();}const top=skin?skin.exports.princessTop?.[sourceTeam]:`StarTower_top_${sourceTeam?'red':'blue'}`;if(top)sc.draw(c,top,0,{still:true});}
+   c.filter=teamFilter(t.team);const attached=t.def?.source?.AttachedCharacter;if(attached&&attached!=='TowerPrincess'){const elapsed=t.animationTime??Math.max(0,time-(t.visualStarted??time));this.unit(c,attached,0,-towerAttachmentOffset(t),t.team,time,t.visualState||'idle',Number.isFinite(t.heading)?t.heading:(t.team?Math.PI/2:-Math.PI/2),t.visualStarted||0,6/5,{elapsed,idleTime:t.visualTime??time,attackDuration:t.visualDuration,height:0,entity:t});}else{const princess=this.scenes.chr_princess;if(princess){const heading=Number.isFinite(t.heading)?t.heading:(t.team?Math.PI/2:-Math.PI/2),d=direction(Math.cos(heading),Math.sin(heading)),prefix=sourceTeam?'princess_tower_red':'princess_tower',elapsed=t.animationTime??Math.max(0,time-(t.visualStarted??-Infinity));let name=`${prefix}_attack1_${d.index}`;const synced=attackClipTime(princess.clip(name),elapsed,t.visualAttack),attacking=t.visualState==='attack'&&!t.visualAttackCancelled&&(synced?!synced.done:elapsed<(t.visualDuration||princess.duration(name)));if(!attacking)name=`${prefix}_idle1_${d.index}`;c.save();c.translate(0,-towerAttachmentOffset(t));c.scale(d.flip?-1:1,1);princess.draw(c,name,attacking?(synced?.time??elapsed*princess.duration(name)/(t.visualDuration||princess.duration(name))):(t.visualTime??time),{loop:!attacking});c.restore();}}const top=skin?skin.exports.princessTop?.[sourceTeam]:`StarTower_top_${sourceTeam?'red':'blue'}`;if(top)sc.draw(c,top,0,{still:true});}
 
   c.restore();return true;
  }
@@ -468,4 +514,4 @@ class Library{
  }
  summary(){return{ready:this.ready,error:this.error,arenas:this.data.arenas.length,units:Object.keys(this.data.units).length,textures:this.loadedTextures,residentTextures:this.textureImages.size,residentScenes:Object.keys(this.scenes).length,shapeCache:[...Object.values(this.scenes)].reduce((n,s)=>n+s.cache.size,0),frameSamples:[...Object.values(this.scenes)].reduce((n,s)=>n+s.frameSamples.size,0)}}
 }
-return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,frameAt,direction,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,towerArtPosition,towerAttachmentOffset,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,Scene,Library};});
+return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "compression": "gzip",
+  "raw": {
+    "path": "assets/native/data.json",
+    "bytes": 124542186,
+    "sha256": "6f78186cfd62bfefd90625b2427e549ff6a8aa1269d865d29e22b4ad6bb85f62"
+  },
+  "archive": {
+    "path": "assets/native/source-data.json.gz",
+    "bytes": 18605837,
+    "sha256": "0c6d80609c459aa3e99ee66e30572eac4d71bf53d4e4a76cbf8f7a7e1bab2c2e"
+  }
+}
