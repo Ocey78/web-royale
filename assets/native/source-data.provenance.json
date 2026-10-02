@@ -3,12 +3,12 @@
   "compression": "gzip",
   "raw": {
     "path": "assets/native/data.json",
-    "bytes": 124542186,
-    "sha256": "6f78186cfd62bfefd90625b2427e549ff6a8aa1269d865d29e22b4ad6bb85f62"
+    "bytes": 125595841,
+    "sha256": "b45dd03668b824f2371eb7f91f072a480f20a2472b2d9c7f4795f5cec55040ae"
   },
   "archive": {
     "path": "assets/native/source-data.json.gz",
-    "bytes": 18605837,
-    "sha256": "0c6d80609c459aa3e99ee66e30572eac4d71bf53d4e4a76cbf8f7a7e1bab2c2e"
+    "bytes": 18687008,
+    "sha256": "5503806722ccf8901c52bce0382b3058b9bc461d1ba1dc498f8963f5812bcd9a"
   }
 }

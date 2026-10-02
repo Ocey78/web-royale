@@ -31,13 +31,29 @@ class PoseCache{
  set(key,value,bytes){if(this.entries.has(key)){const old=this.entries.get(key);this.entries.delete(key);this.bytes-=old.bytes;this.release(old.value);}if(bytes>this.limit){this.release(value);return false;}while(this.bytes+bytes>this.limit&&this.entries.size){const [key,e]=this.entries.entries().next().value;this.entries.delete(key);this.bytes-=e.bytes;this.release(e.value);}this.entries.set(key,{value,bytes});this.bytes+=bytes;return true;}
  clear(){for(const e of this.entries.values())this.release(e.value);this.entries.clear();this.bytes=0;}
 }
+// These are soft resident targets: the current frame's finite source actor
+// cohort stays loaded even when it exceeds them. Only inactive models may be
+// disposed. Pins survive endFrame so asynchronous loads cannot evict actors
+// still on screen; the next frame/menu replaces the cohort and trims the LRU.
+class ActorCache{
+ constructor({maxActors=MAX_ACTORS,budget=MODEL_BYTES,release=disposeActor}={}){this.maxActors=maxActors;this.budget=budget;this.release=release;this.entries=new Map();this.bytes=0;this.active=new Set();this.frameOpen=false;}
+ get size(){return this.entries.size;}
+ get(id){const actor=this.entries.get(id);if(actor){this.entries.delete(id);this.entries.set(id,actor);}return actor;}
+ set(id,actor){const old=this.entries.get(id);if(old){this.entries.delete(id);this.bytes-=old.bytes;this.release(old);}this.entries.set(id,actor);this.bytes+=actor.bytes;this.trim();return this;}
+ beginFrame(ids=[]){this.active=new Set(ids);this.frameOpen=true;}
+ markActive(id){if(this.frameOpen)this.active.add(id);}
+ endFrame(){this.frameOpen=false;this.trim();}
+ trim(){while(this.size>this.maxActors||this.bytes>this.budget){const entry=[...this.entries].find(([id])=>!this.active.has(id));if(!entry)break;this.entries.delete(entry[0]);this.bytes-=entry[1].bytes;this.release(entry[1]);}}
+ clear(){for(const actor of this.entries.values())this.release(actor);this.entries.clear();this.bytes=0;this.active.clear();this.frameOpen=false;}
+ stats(){return {activeActors:[...this.active].filter(id=>this.entries.has(id)).length,activeRequested:this.active.size,inactiveActors:[...this.entries.keys()].filter(id=>!this.active.has(id)).length,actorTarget:this.maxActors,overActorLimit:Math.max(0,this.size-this.maxActors),overBudgetBytes:Math.max(0,this.bytes-this.budget)};}
+}
 let manifest={heroes:{},errors:{}},assetBase='assets/modern-heroes/',vendorBase='assets/vendor/three/',configured=Promise.resolve(),onError=null,error=null,contextLost=false,enginePromise=null,T,loader,textureLoader,renderer,scene,camera,ambient,sun;
-const actors=new Map(),pending=new Map(),failed=new Map(),metrics=new Map(),poses=new PoseCache();let modelBytes=0,renders=0,hits=0,generation=0;
+const actors=new ActorCache(),pending=new Map(),failed=new Map(),metrics=new Map(),poses=new PoseCache();let renders=0,hits=0,generation=0;
 function report(e,id){const message=`Original 3D art${id?' for '+id:''}: ${e?.message||e}`;error=message;if(id)failed.set(id,message);if(onError)onError(message,id);return message;}
 function localURL(file,base=assetBase){return new URL(file,new URL(base,root.document?.baseURI||root.location?.href||'http://localhost/')).href;}
 function configure(value,base='assets/modern-heroes/',options={}){
  generation++;assetBase=base;vendorBase=options.vendorBase||'assets/vendor/three/';onError=options.onError||null;error=null;failed.clear();poses.clear();
- for(const actor of actors.values())disposeActor(actor);actors.clear();pending.clear();modelBytes=0;metrics.clear();
+ actors.clear();pending.clear();metrics.clear();
  if(typeof value==='string')configured=fetch(localURL(value,'')).then(r=>{if(!r.ok)throw Error('manifest '+r.status);return r.json();}).then(v=>{manifest=v;return manifest;}).catch(e=>{report(e);throw e;});
  else{manifest=value||{heroes:{},errors:{}};configured=Promise.resolve(manifest);}return configured;
 }
@@ -60,9 +76,8 @@ function configureLighting(actor){const light=lightFromPrefab(actor.contract.sou
 }
 function actorMemory(actor){const geometry=new Set(),textures=new Set();let bytes=0;actor.group.traverse(o=>{if(o.geometry&&!geometry.has(o.geometry)){geometry.add(o.geometry);for(const attribute of Object.values(o.geometry.attributes))bytes+=attribute.array.byteLength;bytes+=o.geometry.index?.array?.byteLength||0;}for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])for(const v of Object.values(m))if(v?.isTexture)textures.add(v);});for(const part of actor.parts)for(const texture of part.masks)textures.add(texture);for(const texture of textures){const im=texture.source?.data||texture.image;bytes+=(im?.width||0)*(im?.height||0)*4*(texture.generateMipmaps?4/3:1);}return Math.ceil(bytes);}
 function disposeActor(actor){if(!actor)return;scene?.remove(actor.group);const geometries=new Set(),materials=new Set(),textures=new Set();actor.group.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const v of Object.values(m))if(v?.isTexture)textures.add(v);}});for(const part of actor.parts){part.mixer.stopAllAction();part.mixer.uncacheRoot(part.gltf.scene);for(const t of part.masks)textures.add(t);}for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures){t.source?.data?.close?.();t.dispose();}}
-function trimActors(keep){while((actors.size>MAX_ACTORS||modelBytes>MODEL_BYTES)&&actors.size>1){const entry=[...actors].find(([id])=>id!==keep);if(!entry)break;actors.delete(entry[0]);modelBytes-=entry[1].bytes;disposeActor(entry[1]);}}
 async function loadActor(id){
- if(actors.has(id)){const actor=actors.get(id);actors.delete(id);actors.set(id,actor);return actor;}if(pending.has(id))return pending.get(id);if(!has(id)||failed.has(id))return null;
+ const resident=actors.get(id);if(resident)return resident;if(pending.has(id))return pending.get(id);if(!has(id)||failed.has(id))return null;
  const epoch=generation,promise=(async()=>{
   await engine();const contract=manifest.heroes[id],group=new T.Group(),parts=[],actor={id,contract,group,parts,bytes:0};
   try{for(const p of contract.parts){
@@ -74,14 +89,14 @@ async function loadActor(id){
    const mixer=new T.AnimationMixer(gltf.scene);parts.push({gltf,metadata:p,mixer,uniform,masks,actions:new Map(gltf.animations.map(clip=>[clip.name,mixer.clipAction(clip)]))});
   }
   if(!parts.length)throw Error('source actor contains no converted geometry');group.updateMatrixWorld(true);actor.bytes=actorMemory(actor);
-  if(epoch!==generation){disposeActor(actor);return null;}actors.set(id,actor);modelBytes+=actor.bytes;trimActors(id);measureHead(actor);return actor;
-  }catch(e){disposeActor(actor);report(e,id);return null;}
+  if(epoch!==generation){disposeActor(actor);return null;}measureHead(actor);actors.set(id,actor);return actor;
+  }catch(e){disposeActor(actor);if(epoch===generation)report(e,id);return null;}
  })();pending.set(id,promise);promise.finally(()=>{if(pending.get(id)===promise)pending.delete(id);}).catch(()=>{});return promise;
 }
-async function prepareActors(ids=[]){await configured;const result=[];for(const id of new Set(ids)){if(!has(id))continue;try{const actor=await loadActor(id);result.push({id,ready:!!actor,error:unsupported(id)});}catch(e){report(e,id);result.push({id,ready:false,error:unsupported(id)});}}return result;}
+async function prepareActors(ids=[]){await configured;if(!actors.frameOpen){actors.beginFrame([]);actors.endFrame();}const result=[];for(const id of new Set(ids)){if(!has(id))continue;try{const actor=await loadActor(id);result.push({id,ready:!!actor,error:unsupported(id)});}catch(e){report(e,id);result.push({id,ready:false,error:unsupported(id)});}}return result;}
 function choosePartPose(part,state,elapsed,options,actor){
- const entity=options.entity||{},candidates=STATE_NAMES[state]||[state],choose=names=>names.map(name=>resolveState(part.metadata.asm,name,entity)).find(name=>name&&part.actions.has(name));
- let name=choose(candidates)||choose([part.metadata.asm.DefaultState])||choose(['Idle'])||part.gltf.animations[0]?.name;if(!name)return null;
+ const entity=options.entity||{},candidates=STATE_NAMES[state]||[state],contains=name=>part.actions?part.actions.has(name):Object.prototype.hasOwnProperty.call(part.metadata.animations||{},name),choose=names=>names.map(name=>resolveState(part.metadata.asm,name,entity)).find(name=>name&&contains(name));
+ let name=choose(candidates)||choose([part.metadata.asm.DefaultState])||choose(['Idle'])||part.gltf?.animations[0]?.name||Object.keys(part.metadata.animations||{})[0];if(!name)return null;
  let t=elapsed;if(['run','charge'].includes(state)){if(entity&&!entity.air&&Number.isFinite(entity.walk))t=entity.walk;t*=Math.max(.1,1+(Number(actor.contract.sourceEntity?.WalkTweakPercentage)||0)/100);}
  let pose=clipPose(part.metadata.animations[name],t,state,entity.visualAttack,options.attackDuration||0);
  if(state==='attack'&&pose.done){name=choose(['Idle'])||name;pose=clipPose(part.metadata.animations[name],options.idleTime??0,'idle');}return {name,...pose};
@@ -100,17 +115,24 @@ function rasterPose(actor,partPoses,team,yaw,density){
 }
 function tintRaster(raster,color,key){if(!color)return raster;const cacheKey=key+':'+color.join(','),existing=poses.get(cacheKey);if(existing)return existing;const image=root.document.createElement('canvas');image.width=raster.image.width;image.height=raster.image.height;const c=image.getContext('2d',{willReadFrequently:true});c.drawImage(raster.image,0,0);const pixels=c.getImageData(0,0,image.width,image.height);for(let i=0;i<pixels.data.length;i+=4){for(let j=0;j<3;j++)pixels.data[i+j]=Math.min(255,pixels.data[i+j]*color[4+j]/255+color[j]);pixels.data[i+3]*=color[3]/255;}c.putImageData(pixels,0,0);const result={...raster,image};poses.set(cacheKey,result,image.width*image.height*4);return result;}
 function draw(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
- if(!has(id)||failed.has(id)||contextLost)return false;const actor=actors.get(id);if(!actor){loadActor(id).catch(e=>report(e,id));return false;}actors.delete(id);actors.set(id,actor);
+ if(!has(id)||failed.has(id)||contextLost)return false;actors.markActive(id);const actor=actors.get(id),contract=manifest.heroes[id];
  try{
-  if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';const elapsed=options.elapsed??Math.max(0,time-started),partPoses=actor.parts.map(part=>choosePartPose(part,state,elapsed,{...options,idleTime:options.idleTime??time},actor));
+  // An exact source pose raster remains usable after its inactive mesh was
+  // evicted. Metadata derives the same clip/frame key; a different pose still
+  // loads the original mesh, rather than substituting a stale cached image.
+  if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';const elapsed=options.elapsed??Math.max(0,time-started),partPoses=(actor?.parts||contract.parts.map(metadata=>({metadata}))).map(part=>choosePartPose(part,state,elapsed,{...options,idleTime:options.idleTime??time},actor||{contract}));
   const policy=root.RoyaleGraphics?.current||{},density=rasterDensity(policy),steps=policy.textures==='ultra'?180:policy.textures==='max'?144:72,index=((Math.round(sourceYaw(heading)/TAU*steps)%steps)+steps)%steps,yaw=index/steps*TAU;
-  const key=[id,team===1?1:0,density,steps,index,...partPoses.map(p=>p?`${p.name}:${p.frame}`:'static')].join('|');let raster=poses.get(key);if(raster)hits++;else{raster=rasterPose(actor,partPoses,team,yaw,density);poses.set(key,raster,raster.image.width*raster.image.height*4);}
-  const source=actor.contract.sourceEntity||{},factor=scale*(5/6)*(Number(source.Scale)||100)/100,height=options.height??Math.max(0,Number(source.FlyingHeight)||0)/1000*20;
+  const key=[id,team===1?1:0,density,steps,index,...partPoses.map(p=>p?`${p.name}:${p.frame}`:'static')].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density);poses.set(key,raster,raster.image.width*raster.image.height*4);}
+  const source=contract.sourceEntity||{},factor=scale*(5/6)*(Number(source.Scale)||100)/100,height=options.height??Math.max(0,Number(source.FlyingHeight)||0)/1000*20;
   c.save();try{c.translate(x,y-height);c.scale(factor,factor);c.filter=root.RoyaleNative?.teamFilter?.(team)||'none';const paint=color=>{const image=tintRaster(raster,color,key);c.drawImage(image.image,image.x,image.y,image.width,image.height);};
   if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);}finally{c.restore();}return true;
  }catch(e){report(e,id);return false;}
 }
 function headHeight(id){return metrics.get(id)||null;}
-function summary(){return {actors:actors.size,modelBytes,modelBudget:MODEL_BYTES,poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,pending:pending.size,error,failed:Object.fromEntries(failed)};}
-return {configure,prepareActors,has,unsupported,draw,headHeight,summary,resolveState,sourceYaw,clipPose,rasterDensity,PoseCache,get error(){return error;}};
+function beginFrame(ids=[]){actors.beginFrame([...new Set(ids)].filter(has));}
+function endFrame(){actors.endFrame();}
+// modelBytes estimates geometry and decoded textures, not total browser/GPU
+// memory. modelBudget is a soft inactive target; active overflow is explicit.
+function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,pending:pending.size,error,failed:Object.fromEntries(failed)};}
+return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,headHeight,summary,resolveState,sourceYaw,clipPose,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
 });

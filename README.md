@@ -1,5 +1,5 @@
 <!-- project-identity -->
-# Web Royale Main — v0.52.0
+# Web Royale Main — v0.52.1
 
 This is the **web-royale** editable project, forked from Web Royale v0.50.0.
 Main now uses the decoded **16.402.2** client tables and original artwork from
@@ -9,11 +9,18 @@ arenas**, **217 road reward steps**, card/Tower Power levels through **16**, and
 account XP levels through **90**. Original 3D meshes and motions cover **36 actors**;
 Shark Tank, Sandcastle and Fortress add three complete original seasonal tower styles.
 
+v0.52.1 replaces the earlier Touchdown reference texture with the original
+16.402.2 stadium scene and authored markings. It also fixes repeated 3D model
+reloads when more than 16 actor types are visible. The build passed **1,500 tests**,
+actual Chrome regression checks and 17/36-actor retention proofs. GitHub Pages
+patch deployment remains pending.
+
 Imported catalogue totals do not mean every choice is playable. Incomplete card,
 form or ability behavior remains unavailable. **Full 1:1 native-game fidelity is
 incomplete.** Battles, rewards, opponents and social features run locally; there
 is no live online matchmaking, Supercell login/service connection or real payment.
-See **BUILD-NOTES-v0.52.0.md** and **FIDELITY.md** for current scope and limits.
+See [BUILD-NOTES-v0.52.1.md](BUILD-NOTES-v0.52.1.md) and
+[FIDELITY.md](FIDELITY.md) for current scope and limits.
 
 Double-click **open offline.bat** to play at `http://127.0.0.1:8081`.
 This project has its own browser profile, learning archive and replays. Offline AI data lives in `%LOCALAPPDATA%\WebRoyaleMain\AI`.
@@ -47,7 +54,7 @@ verified `dist/` to keep this full-build download smaller.
 
 ## Historical release and project documentation
 
-The sections below describe earlier releases. v0.52.0 build notes take precedence
+The sections below describe earlier releases. v0.52.1 build notes take precedence
 where behavior, versions, prices, mode lists, or timing differ.
 
 # Rebuilt v0.40.1 distribution

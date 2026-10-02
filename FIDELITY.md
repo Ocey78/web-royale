@@ -1,4 +1,27 @@
-# Fidelity update — Main v0.52.0
+# Fidelity update — Main v0.52.1
+
+Touchdown now uses the original **16.402.2** SC stadium, with **168 source
+placements**, original texture pixels and authored pitch markings. Separate
+pitch, backdrop and lighting compositions keep the field focused while stadium
+decorations follow their source layers. Source white goal-line centers
+**56.8333333 / 578.5** align with the existing logical scoring lines **25 / 615**;
+the colored end-zone bands are not used as scoring-line anchors. A renderer fix
+preserves the **1,902 flat-UV triangle chunks** that supply the original markings.
+This supersedes the earlier 551×647 reference-texture rendering and statements
+that a complete original 2D Touchdown stadium was unavailable.
+
+The 3D cache retains the current frame's actor cohort, including previews, and
+prunes inactive models when that cohort changes or battle exits. **16 actors and
+128 MiB are soft resident targets**, not hard caps on visible artwork or total
+browser memory. Geometry/decoded-texture estimates exclude animation arrays,
+browser overhead and GPU driver allocations; pose rasters keep a separate
+48 MiB LRU budget. Exact cached poses can remain usable after their inactive
+model is evicted. This fixes reproduced reload churn without establishing a
+universal Ultra frame-rate guarantee. The v0.52.1 build passed **1,500 tests**,
+actual Chrome regressions and built 17/36-actor retention proofs. All three
+Touchdown modes passed four viewports, touch deployment, source animation clocks
+and goal-mark checks. Procedural maps preserve their static caches when ambient
+animation is toggled. GitHub Pages patch deployment remains pending.
 
 Main now uses decoded client snapshot **16.402.2** from the supplied XAPK. Its
 catalogue contains **123 base cards** and **67 special forms**: 17 Heroes,
@@ -42,9 +65,9 @@ remain separate from the current modern simulation.
 Source provenance and rendering details are in `assets/modern-heroes/README.md`,
 its actor manifest, native scene source records and the seasonal tower manifest.
 The notes below describe earlier releases and are superseded where this update
-or the v0.52.0 build notes differ.
+or the [v0.52.1 build notes](BUILD-NOTES-v0.52.1.md) differ.
 
-<!-- Final packaged verification is added to the v0.52.0 build notes after
+<!-- Final packaged verification is added to the v0.52.1 build notes after
      integration; no whole-build parity claim is made. -->
 
 # Historical fidelity update — v0.28.0

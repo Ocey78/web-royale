@@ -1,6 +1,6 @@
 {
   "name": "web-royale",
-  "version": "0.52.0",
+  "version": "0.52.1",
   "private": true,
   "scripts": {
     "build": "node tools/build-web.js",
