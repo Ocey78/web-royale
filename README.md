@@ -1,17 +1,37 @@
 <!-- project-identity -->
-# Web Royale Main — v0.52.2
+# Web Royale Main — v0.52.3
 
-Main uses supplied client snapshot 16.402.2: 123 base cards, 67 special forms, 32 Trophy Road arenas and 217 road reward steps. Imported totals do not imply that every entry is playable.
+Main retains the supplied 16.402.2 catalogue, supported Hero/Evolution behaviors and separate Tower Troop selection. Imported totals do not imply that every entry is playable.
 
-Both deck builders now show Evolution, Hero/Champion and Wild in the first three positions. Trophy Road unlocks those slots at Arenas 3, 5 and 10; casual battles open all three. The Wild slot switches between an owned Hero and Evolution on a card with both forms. Collection and Magic Items expose Hero choice for 200 Hero Coins and six-shard Evolution progress, including one Wild Shard at a time. Saved decks migrate card/form pairs into proper positions while retaining their roster; older replays keep their recorded rules.
+Original purple Evolution, gold Hero, Champion and Tower Troop frames now follow
+the actual selected card type across the deck builder, collection, shop,
+reward receipts and battle hand. Original normal/Legendary portrait masks and
+category labels retain the source geometry. Owning another form never changes
+the outline on an ordinary base-card copy. Type outlines are inherent artwork,
+not separate paid unlocks.
 
-The original Touchdown stadium, spell fixes, actor orientations, stable Tesla transitions, 3v3 spacing and distinct custom environments remain included. Full 1:1 native-game fidelity is incomplete. Battles, rewards and social features run locally, with no live human matchmaking, Supercell connection or real payment.
+Shop and progression rewards connect to saved card/form/cosmetic inventory and
+equip actions. Hero choice costs 200 Hero Coins; one Wild Shard contributes one
+named Evolution shard toward the six-shard unlock. Supplemental Pass/Crown
+recipes share deterministic typed receipts. Source-backed Tower Troop upgrades
+require copies and gold and respect the KingTower cap. Existing 50 gem emotes,
+100 gem tower skins and 217 Main source road rows are preserved. Supplemental
+rewards and Tower-copy offers use this game's local economy.
 
-[Play Web Royale](https://ocey78.github.io/web-royale/). Live v0.52.2 is verified by exact release hash and actual desktop/mobile browser checks.
+[Play Web Royale Main](https://ocey78.github.io/web-royale/). Live v0.52.3 matches the verified local
+release hash and passed actual desktop/mobile browser checks. Classic remains
+unchanged at 0.50.3. Full native-game parity is incomplete; there is no live
+human matchmaking, Supercell account connection or real payment.
 
-See [BUILD-NOTES-v0.52.2.md](BUILD-NOTES-v0.52.2.md) and [FIDELITY.md](FIDELITY.md) for scope and validation. Rules reference: [Supercell deck slots](https://support.supercell.com/clash-royale/en/articles/cards-and-decks-6.html), [Heroes](https://support.clashroyale.com/hc/en-us/articles/49484957323163-Heroes), [Card Evolution](https://support.supercell.com/clash-royale/en/articles/card-evolution-8.html), and [inventory conversions](https://support.supercell.com/clash-royale/en/articles/conversions-8.html).
+See [BUILD-NOTES-v0.52.3.md](BUILD-NOTES-v0.52.3.md),
+[REFERENCE-NOTES-v0.52.3.md](REFERENCE-NOTES-v0.52.3.md) and
+[FIDELITY.md](FIDELITY.md). The supplied battle videos, cached wiki descriptions,
+official support rules and attached client artwork were consulted.
 
-Double-click **open offline.bat** to play at http://127.0.0.1:8081. Saves, learning archives and replays use this project's own namespace. Develop with Node.js 22+, npm run build, npm run serve, and npm test. Source assets omitted from the portable tree are restored from verified dist files by build/test commands.
+Double-click **open offline.bat** to play locally. Saves, learning archives and
+replays use this project's own namespace. Develop with Node.js 22+, npm run build,
+npm run serve and npm test. Source assets omitted from the portable tree are
+restored from verified dist files by build/test commands.
 <!-- /project-identity -->
 
 # Historical baseline — Web Royale v0.50.0
@@ -37,7 +57,7 @@ verified `dist/` to keep this full-build download smaller.
 
 ## Historical release and project documentation
 
-The sections below describe earlier releases. v0.52.2 build notes take precedence
+The sections below describe earlier releases. v0.52.3 build notes take precedence
 where behavior, versions, prices, mode lists, or timing differ.
 
 # Rebuilt v0.40.1 distribution

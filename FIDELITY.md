@@ -1,4 +1,12 @@
-# Fidelity update — Main v0.52.2
+# Fidelity update — Main v0.52.3
+
+Main retains the supplied 16.402.2 catalogue, supported Hero/Evolution behaviors and separate Tower Troop selection. Imported totals do not imply that every entry is playable.
+
+Original card type frames, labels and alpha masks now connect collection, deck, shop, credited rewards and battle-hand presentation. New typed reward/purchase routes update persistent playable inventory and equip actions. Type outlines are automatic; separate cosmetic items retain their own inventory. Supplemental Pass/Crown and Tower-copy shop recipes are local adaptations, not the native live economy. See [reference notes](REFERENCE-NOTES-v0.52.3.md) and [build notes](BUILD-NOTES-v0.52.3.md).
+
+Fresh validation: 1582 passed, 1 intended skips, zero failures; actual desktop/mobile live browser checks match the release hash. Full native-game parity and live human matchmaking remain incomplete.
+
+# Historical fidelity update — Main v0.52.2
 
 The first three deck positions are Evolution, Hero/Champion and Wild, gated at Arenas 3/5/10 for Trophy Road. Both normal and mode builders show these positions and support Wild form switching. Unlock inventory uses Hero choice for 200 coins and six-shard Evolutions with single Wild Shard application. The declared content fingerprint remains unchanged; positional context is recorded separately to preserve old 0.52 replay behavior.
 
