@@ -21,7 +21,13 @@ universal Ultra frame-rate guarantee. The v0.52.1 build passed **1,500 tests**,
 actual Chrome regressions and built 17/36-actor retention proofs. All three
 Touchdown modes passed four viewports, touch deployment, source animation clocks
 and goal-mark checks. Procedural maps preserve their static caches when ambient
-animation is toggled. GitHub Pages patch deployment remains pending.
+animation is toggled. The release is
+[live on GitHub Pages](https://ocey78.github.io/web-royale/), with the published
+bundle's hash, Knight Hero ability, Trophy Road/form interface, 21 spell commands
+and six Rocket/Fireball flight/impact cases verified in Chrome.
+[Deployment run 37003065530](https://github.com/Ocey78/web-royale/actions/runs/37003065530)
+succeeded. These checks establish the tested behavior, while the fidelity limits
+below remain.
 
 Main now uses decoded client snapshot **16.402.2** from the supplied XAPK. Its
 catalogue contains **123 base cards** and **67 special forms**: 17 Heroes,

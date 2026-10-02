@@ -4,7 +4,8 @@ This presentation patch fixes repeated 3D model reloads and replaces the earlier
 Touchdown reference texture with original stadium artwork from the supplied
 Clash Royale **16.402.2** XAPK. Card balance, simulation version, catalogue,
 progression and availability remain those of [v0.52.0](BUILD-NOTES-v0.52.0.md).
-Final built-package checks passed; GitHub Pages patch publication remains pending.
+Final built-package checks passed; the release is live on GitHub Pages with its
+published bundle verified in Chrome.
 
 ## Visible 3D actor retention
 
@@ -109,6 +110,15 @@ digest is
 Source restoration and release-file integrity checks passed. This identifies the
 website payload, separately from an editable project archive.
 
-The patch is prepared for the existing
-[GitHub Pages site](https://ocey78.github.io/web-royale/). Deployment and live
-v0.52.1 verification are pending; the preceding live release is v0.52.0.
+The patch is [live on GitHub Pages](https://ocey78.github.io/web-royale/).
+[Deployment run 37003065530](https://github.com/Ocey78/web-royale/actions/runs/37003065530)
+succeeded for runtime commit `15409d954752eb128455be5e5091efd281c708bb`. The
+published `app.a1fa6f9edfbd.js` and release digest matched the verified local build.
+
+Actual Chrome checks of the public site passed **21 spell commands**, **six
+Rocket/Fireball flight and impact cases**, all three Touchdown modes across four
+viewports, phone touch deployment, source animation clocks and original goal-mark
+pixels. Knight Hero's ability succeeded, changing its shield from **0 to 818**;
+Trophy Road and form-interface checks also passed. The live build reported
+**v0.52.1 / 123 cards / snapshot 16.402.2**, with no browser or asset errors.
+These cases do not certify complete native behavior for every card or form.

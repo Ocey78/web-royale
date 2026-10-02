@@ -12,8 +12,12 @@ Shark Tank, Sandcastle and Fortress add three complete original seasonal tower s
 v0.52.1 replaces the earlier Touchdown reference texture with the original
 16.402.2 stadium scene and authored markings. It also fixes repeated 3D model
 reloads when more than 16 actor types are visible. The build passed **1,500 tests**,
-actual Chrome regression checks and 17/36-actor retention proofs. GitHub Pages
-patch deployment remains pending.
+actual Chrome regression checks and 17/36-actor retention proofs. It is
+[live on GitHub Pages](https://ocey78.github.io/web-royale/), with the published
+bundle's hash, Knight Hero ability, Trophy Road/form interface, 21 spell commands
+and all three Touchdown modes verified in Chrome.
+[Deployment run 37003065530](https://github.com/Ocey78/web-royale/actions/runs/37003065530)
+succeeded.
 
 Imported catalogue totals do not mean every choice is playable. Incomplete card,
 form or ability behavior remains unavailable. **Full 1:1 native-game fidelity is
