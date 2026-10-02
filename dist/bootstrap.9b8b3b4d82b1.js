@@ -1,9 +1,9 @@
-/* Web Royale 0.52.1: same-origin static asset bootstrap. */
+/* Web Royale 0.52.2: same-origin static asset bootstrap. */
 (async()=>{'use strict';const status=document.getElementById('loadMessage');try{
  if(location.protocol==='file:')throw Error('Serve this folder over HTTP(S). Run npm run serve, then open the displayed localhost address.');
- const response=await fetch(new URL("runtime.395888a4cf36.json",document.baseURI),{cache:'force-cache'});if(!response.ok)throw Error('Website metadata: HTTP '+response.status);
+ const response=await fetch(new URL("runtime.349a3619fdfc.json",document.baseURI),{cache:'force-cache'});if(!response.ok)throw Error('Website metadata: HTTP '+response.status);
  const data=await response.json();window.RoyaleBundle=data;window.RoyaleGameData=data.game;
  for(const map of [data.art,data.images,data.uiImages,data.sounds])for(const key of Object.keys(map))map[key]=new URL(map[key],document.baseURI).href;
  status.textContent="Opening Web Royale…";document.getElementById('loadProgress').style.width='12%';
- const app=document.createElement('script');app.src=new URL("app.a1fa6f9edfbd.js",document.baseURI).href;app.onerror=()=>{status.textContent='Game script did not load. Reload to retry.';document.getElementById('loadRetry').hidden=false;document.getElementById('loadRetry').onclick=()=>location.reload();};document.body.appendChild(app);
+ const app=document.createElement('script');app.src=new URL("app.3bcf92257e06.js",document.baseURI).href;app.onerror=()=>{status.textContent='Game script did not load. Reload to retry.';document.getElementById('loadRetry').hidden=false;document.getElementById('loadRetry').onclick=()=>location.reload();};document.body.appendChild(app);
 }catch(e){status.textContent='Could not start: '+e.message;document.getElementById('loadProgress').style.width='0%';const retry=document.getElementById('loadRetry');retry.hidden=false;retry.onclick=()=>location.reload();console.error(e);}})();

@@ -46,9 +46,9 @@ test('hero input replays reproduce form counters, buffs, spend, and unit lifetim
  const record=Replay.pack(clean);a.equal(record.commands.filter(c=>c.type==='ability').length,1);const session=new Replay.Session(record,{formRegistry:registry()});
  for(const at of [record.duration,1,record.duration]){session.seek(at);a.equal(session.error,null);}a.deepEqual(Replay.digest(session.battle),record.expected);
 });
-test('profile migration retains known unlocks and slot forms without adding extension content',()=>{
+test('profile normalization retains known unlocks, legitimate coin overflow and slot forms without adding extension content',()=>{
  const P=require('../src/profile'),r=registry(),p=P.normalizeProfile({decks:[deck],deckForms:{ranked:[['test_knight_evo']]},unlockedForms:['test_knight_evo','missing'],formShards:{test_knight_evo:3,missing:999},heroCoins:500,evoWildShards:-3},{formRegistry:r});
- a.deepEqual(p.unlockedForms,['test_knight_evo']);a.equal(p.formShards.test_knight_evo,3);a.equal(p.heroCoins,200);a.equal(p.evoWildShards,0);a.deepEqual(p.deckForms.ranked[0],['test_knight_evo',null,'test_giant_champion',null,null,null,null,null]);
+ a.deepEqual(p.unlockedForms,['test_knight_evo']);a.equal(p.formShards.test_knight_evo,3);a.equal(p.heroCoins,500);a.equal(p.evoWildShards,0);a.deepEqual(p.deckForms.ranked[0],['test_knight_evo',null,'test_giant_champion',null,null,null,null,null]);
  const noContent=P.normalizeProfile(p,{formRegistry:F.createRegistry()});a.deepEqual(noContent.unlockedForms,[]);a.ok(noContent.deckForms.ranked.flat().every(id=>id===null));
 });
 test('deck copying, removal and card replacement preserve the corresponding form selections',()=>{

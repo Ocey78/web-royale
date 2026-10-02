@@ -12,7 +12,7 @@ const server=http.createServer(async(req,res)=>{try{
  file=fs.realpathSync(file);if(!file.startsWith(fs.realpathSync(root)+path.sep)){res.writeHead(403);res.end();return;}
  const ext=path.extname(file),type=mime[ext];if(!type){res.writeHead(404);res.end();return;}
  res.setHeader('Content-Type',type);res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');
- res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'");
+ res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'");
  const versioned=url.searchParams.has('v')||/\.[a-f0-9]{12}\.(js|css|json)$/.test(file);res.setHeader('Cache-Control',versioned?'public, max-age=31536000, immutable':'no-cache');
  const compressible=['.js','.json','.css','.html'].includes(ext);if(compressible)res.setHeader('Vary','Accept-Encoding');
  const gzipToken=(req.headers['accept-encoding']||'').split(',').map(x=>x.trim()).find(x=>/^gzip(?:\s*;|$)/i.test(x)),quality=gzipToken?.match(/;\s*q\s*=\s*([0-9.]+)/i);

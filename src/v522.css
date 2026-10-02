@@ -1,0 +1,90 @@
+/* Physical Evolution, Hero and Wild deck positions. */
+.card-tile.special-slot{position:relative;padding-bottom:28px;overflow:visible;border:2px solid var(--slot-color);border-radius:9px;background:#172e48;box-shadow:0 2px 0 #0c1c31,inset 0 0 0 1px #ffffff38}
+.slot-evolution{--slot-color:#ba76ff;--slot-bg:#47286c}
+.slot-hero{--slot-color:#f2cd69;--slot-bg:#645025}
+.slot-wild{--slot-color:#deb7f9;--slot-bg:#554365}
+.card-tile.slot-wild{border-left-color:#b56ae6;border-right-color:#ebc064;background:linear-gradient(120deg,#31254b,#574b30)}
+.slot-caption{position:absolute;bottom:0;left:0;right:0;min-height:27px;display:grid;grid-template-columns:auto auto;align-items:center;justify-content:center;gap:1px 4px;padding:2px 3px;background:var(--slot-bg,#233f60);border-radius:0 0 6px 6px;color:#fff;text-shadow:0 1px 1px #000;font:700 11px/1.1 Arial,sans-serif}
+.slot-caption small{grid-column:1/-1;text-align:center;font:600 9px/1.1 Arial,sans-serif;color:#f4eafb;white-space:nowrap}
+.slot-caption>.slot-symbol{font-size:13px}
+.slot-caption b{font:700 11px/1.1 Arial,sans-serif}
+.slot-symbol{color:#c990ff;display:inline-block;text-shadow:0 1px 2px #000;font:800 18px/1 Arial,sans-serif;letter-spacing:-2px}
+.slot-symbol.hero{color:#ffe18a;letter-spacing:0}
+.slot-symbol.wild{color:#e8c3ed}
+.slot-locked{--slot-color:#8598aa;--slot-bg:#354252}
+.slot-locked .slot-symbol{opacity:.6}
+.slot-locked .slot-caption small{color:#f2d99d}
+.slot-invalid{--slot-color:#ff9c85;--slot-bg:#713527}
+.slot-active .slot-caption small{color:#fff8d5}
+.card-tile.special-slot .card-visual{border-radius:6px;overflow:hidden}
+.card-tile.special-slot:focus-visible,.form-inventory-tabs button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.form-badge{position:absolute;right:4px;top:8px;z-index:5;padding:3px 5px;border-radius:4px;background:#4e267d;border:1px solid #e0b9ff;box-shadow:0 1px 3px #0009;color:#fff;font:800 10px/1 Arial,sans-serif;text-shadow:0 1px 1px #000}
+.form-badge.hero,.form-badge.champion{background:#715221;border-color:#ffe091}
+.owned-form-badges{position:absolute;right:4px;top:8px;z-index:6;display:flex;gap:3px;pointer-events:none}
+.owned-form-badge{display:grid;place-items:center;width:19px;height:20px;border-radius:4px;color:#f5dfff;background:#492972;border:1px solid #d398ff;text-shadow:0 1px 1px #000;font:800 15px/1 Arial,sans-serif}
+.owned-form-badge.hero{color:#ffe9a4;background:#705123;border-color:#f9d472}
+.positional-form-list{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0}
+.positional-form-list .form-deck-row{display:grid;grid-template-columns:94px minmax(0,1fr);gap:15px;align-items:center;border:1px solid var(--slot-color);border-radius:9px;padding:10px;background:#173652}
+.form-slot-portrait{position:relative;min-width:0;padding-bottom:29px}
+.form-slot-portrait .card-visual{width:100%;height:116px;display:block}
+.form-slot-portrait .slot-caption{flex-wrap:wrap;gap:2px;height:29px}
+.form-slot-portrait .slot-caption small{display:none}
+.form-deck-row label{display:flex;flex-direction:column;gap:6px;text-align:left;min-width:0}
+.form-deck-row label strong{color:#fff;font:700 16px/1.2 Arial,sans-serif}
+.form-deck-row label span,.form-deck-row label small{font:400 13px/1.35 Arial,sans-serif}
+.form-deck-row label small{color:#d1dfed}
+.form-deck-row select{width:100%;min-height:40px;font:600 14px Arial,sans-serif}
+.form-currencies{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.form-currencies>span{color:#fff;padding:10px 7px;background:#173652;border:1px solid #56748d;border-radius:8px;text-align:center;font:600 13px/1.4 Arial,sans-serif}
+.form-currencies b{display:block;color:#ffe5a0;font-size:22px}
+.form-inventory-tabs{display:flex;gap:6px;margin:12px 0}
+.form-inventory-tabs button{flex:1;border:1px solid #7f99b4;background:#173b5e;color:#fff;border-radius:6px;padding:10px 5px;font:700 14px Arial,sans-serif}
+.form-inventory-tabs button[aria-pressed=true]{background:#66459c;border-color:#d6a5ff}
+.form-inventory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0;align-items:start}
+.form-inventory-grid .form-inventory-card{padding:10px 8px;background:#183653;border:1px solid #9e6fcc;border-radius:9px;text-align:center;min-width:0}
+.form-inventory-grid .form-inventory-card.hero{border-color:#dcb962}
+.form-inventory-grid .form-inventory-card>div:first-child{position:relative;width:min(100%,115px);height:140px;margin:0 auto}
+.form-inventory-grid .form-inventory-card .card-visual{display:block;width:100%;height:100%}
+.form-inventory-grid .form-inventory-card h3{min-height:34px;margin:8px 0 5px;color:#fff;font:700 14px/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.form-inventory-grid .form-inventory-card p{font:600 12px/1.35 Arial,sans-serif;margin:7px 0;min-height:32px}
+.form-inventory-grid .form-inventory-card .native-button{width:100%;min-height:39px;margin:5px 0;font-size:13px;padding:4px}
+.form-inventory-grid .form-inventory-card>small{display:block;font:400 11px/1.3 Arial,sans-serif;color:#d1deeb;margin-top:5px}
+.form-shard-track{height:6px;overflow:hidden;border-radius:3px;background:#101f31;border:1px solid #64758a;margin:8px 0}
+.form-shard-track i{display:block;height:100%;background:#b681ef}
+.form-inventory-grid .form-inventory-card.hero .form-shard-track i{background:#e1c66e}
+.form-owned .form-unlock-progress{color:#b9edb4}
+.form-inventory-entry{display:flex;align-items:center;gap:13px;width:100%;padding:14px;margin:12px 0 20px;border:1px solid #bc98d7;background:linear-gradient(115deg,#39265a,#54442d);border-radius:9px;color:#fff;text-align:left}
+.form-inventory-entry .slot-symbol{font-size:30px}
+.form-inventory-entry span:nth-child(2){flex:1;display:flex;flex-direction:column;gap:5px}
+.form-inventory-entry strong{font:700 17px Arial,sans-serif}
+.form-inventory-entry small{font:400 13px Arial,sans-serif;color:#f1e6ff}
+.form-inventory-entry>b{font-size:25px}
+.empty-form-inventory{padding:28px 15px;margin:14px 0;border:1px solid #8a789d;border-radius:10px;background:#193650;text-align:center}
+.empty-form-inventory .slot-symbol{font-size:40px}
+.empty-form-inventory h3{font:700 20px Arial,sans-serif}
+.empty-form-inventory p{font:400 14px/1.5 Arial,sans-serif;color:#d5e3f0}
+.card-form-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.card-form-actions .native-button{flex:1;min-width:130px}
+.replace-grid .card-tile.special-slot{margin-bottom:3px}
+.replace-grid .card-tile:disabled{filter:grayscale(.75);opacity:.55;cursor:not-allowed}
+@media(max-width:520px){
+ .slot-caption{flex-wrap:wrap;gap:2px;align-content:center;min-height:30px;padding:2px}
+ .slot-caption b{font-size:10px}.slot-caption small{font-size:8px}
+ .card-tile.special-slot{padding-bottom:31px}
+ .form-inventory-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .form-inventory-grid .form-inventory-card>div:first-child{height:135px}
+ .form-deck-row label strong{font-size:14px}.positional-form-list .form-deck-row{grid-template-columns:80px minmax(0,1fr);gap:10px;padding:8px}
+ .form-slot-portrait .card-visual{height:105px}
+}
+
+#viewport .reference-cards .deck-toolbar{height:94px;grid-template-rows:44px 28px;row-gap:4px}
+#viewport #deckFormButton{grid-column:1/-1;grid-row:2;justify-self:center;display:block;width:100%;height:28px;min-width:0;padding:3px 12px;border:1px solid #b997df;border-radius:5px;background:#493569;color:#fff;font:700 13px/1.2 Arial,sans-serif;text-align:center;white-space:nowrap}
+.positional-form-list .form-deck-row>.form-slot-portrait{width:100%}
+.positional-form-list .form-deck-row label>span{color:#f3f8ff}
+
+.form-inventory-grid .form-inventory-card{color:#f1f7ff}
+.form-inventory-grid .form-inventory-card>.form-shard-track{position:relative;width:auto;height:6px;margin:8px 0}
+.form-inventory-grid .form-inventory-card p{color:#f1f7ff}
+.form-inventory-grid .form-owned .form-unlock-progress{color:#b9edb4}
+.form-currencies>span span{background:none;border:0;border-radius:0;padding:0;font:inherit;flex:initial}
+#modalPanel .empty-form-inventory h3{color:#fff}

@@ -1,7 +1,24 @@
 /* Per-match counters and unit-owned ability lifetimes; no content is registered here. */
 (function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./card-forms.js'):root.RoyaleCardForms);if(n)module.exports=api;else root.RoyaleFormState=api;})(globalThis,function(Forms){'use strict';
 const EPS=1e-7,seconds=x=>Math.max(0,Number(x)||0)/1000;
-function setup(b,options){b.formRegistry=options.formRegistry||Forms.defaultRegistry;const context={arena:Number(options.arenaNumber)||Number(options.formContext?.arena)||1,casual:!!(b.practice||b.queueType&&b.queueType!=='trophy-road'),...options.formContext};b.formContext=context;const primary=options.seatForms?.[0]||options.forms||(b.queueType&&b.queueType!=='trophy-road'?b.profile.deckForms?.modes?.[b.mode]?.[b.profile.modeDeckSets?.[b.mode]?.active||0]:b.profile.deckForms?.ranked?.[b.profile.activeDeck]);b.seatForms=b.initialDecks.map((deck,seat)=>{const raw=options.seatForms?.[seat]||(seat===0?primary:(b.formRegistry===Forms.defaultRegistry?options.botForms:undefined)?.(deck,{arena:options.botArena||context.arena,casual:context.casual,seed:b.seed+seat*193})||[]),qualified=b.formRegistry.qualify(deck,raw,{...context,unlockedForms:seat===0?(options.formContext?.unlockedForms||b.profile.unlockedForms):undefined});if(!qualified.ok)throw Error('Invalid form loadout: '+qualified.errors.map(e=>e.reason).join(', '));return qualified.forms;});b.formState={cycles:b.initialDecks.map(d=>d.map(()=>0))};}
+function setup(b,options){
+ b.formRegistry=options.formRegistry||Forms.defaultRegistry;
+ const context={arena:Number(options.arenaNumber)||Number(options.formContext?.arena)||1,casual:!!(b.practice||b.queueType&&b.queueType!=='trophy-road'),...options.formContext};b.formContext=context;
+ const primary=options.seatForms?.[0]||options.forms||(b.queueType&&b.queueType!=='trophy-road'?b.profile.deckForms?.modes?.[b.mode]?.[b.profile.modeDeckSets?.[b.mode]?.active||0]:b.profile.deckForms?.ranked?.[b.profile.activeDeck]);
+ b.seatForms=b.initialDecks.map((deck,seat)=>{
+  let raw=options.seatForms?.[seat]||(seat===0?primary:(b.formRegistry===Forms.defaultRegistry?options.botForms:undefined)?.(deck,{arena:options.botArena||context.arena,casual:context.casual,seed:b.seed+seat*193})||[]);
+  // Assign generated opponents before the opening hand is shuffled. Recorded
+  // seat loadouts stay exact, including older virtual-slot replays.
+  if(context.positionalSlots===true&&seat>0&&!options.seatForms?.[seat]){
+   const moved=b.formRegistry.migrateDeck(deck,raw,{...context,unlockedForms:undefined});
+   if(moved.errors.length)throw Error('Invalid bot form loadout: '+moved.errors.map(e=>e.reason).join(', '));
+   deck=moved.deck;b.initialDecks[seat]=deck;raw=moved.forms;
+  }
+  const qualified=b.formRegistry.qualify(deck,raw,{...context,unlockedForms:seat===0?(options.formContext?.unlockedForms||b.profile.unlockedForms):undefined});
+  if(!qualified.ok)throw Error('Invalid form loadout: '+qualified.errors.map(e=>e.reason).join(', '));return qualified.forms;
+ });
+ b.formState={cycles:b.initialDecks.map(d=>d.map(()=>0))};
+}
 function resolveCard(b,seat,slot,card){
  if(!card)return card;
  const options=card.source?.Options;if(Array.isArray(options)&&options.length){const mana=b.elixir[seat]*1000,choice=[...options].sort((a,z)=>(z.AvailableManaTrigger||0)-(a.AvailableManaTrigger||0)).find(o=>mana+EPS>=(o.AvailableManaTrigger||0))||[...options].sort((a,z)=>(a.AvailableManaTrigger||0)-(z.AvailableManaTrigger||0))[0],source=choice&&b.catalog?.DATA.spellVariants?.[choice.SpellData];if(source)card=b.catalog.cardDef({...card,source:{...card.source,...source},cost:source.ManaCost??choice.AvailableManaTrigger/1000},card.level);}

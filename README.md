@@ -1,38 +1,17 @@
 <!-- project-identity -->
-# Web Royale Main — v0.52.1
+# Web Royale Main — v0.52.2
 
-This is the **web-royale** editable project, forked from Web Royale v0.50.0.
-Main now uses the decoded **16.402.2** client tables and original artwork from
-the supplied Clash Royale XAPK. It includes a catalogue of **123 base cards** and
-**67 special forms** (17 Heroes, 42 Evolutions and 8 Champions), **32 Trophy Road
-arenas**, **217 road reward steps**, card/Tower Power levels through **16**, and
-account XP levels through **90**. Original 3D meshes and motions cover **36 actors**;
-Shark Tank, Sandcastle and Fortress add three complete original seasonal tower styles.
+Main uses supplied client snapshot 16.402.2: 123 base cards, 67 special forms, 32 Trophy Road arenas and 217 road reward steps. Imported totals do not imply that every entry is playable.
 
-v0.52.1 replaces the earlier Touchdown reference texture with the original
-16.402.2 stadium scene and authored markings. It also fixes repeated 3D model
-reloads when more than 16 actor types are visible. The build passed **1,500 tests**,
-actual Chrome regression checks and 17/36-actor retention proofs. It is
-[live on GitHub Pages](https://ocey78.github.io/web-royale/), with the published
-bundle's hash, Knight Hero ability, Trophy Road/form interface, 21 spell commands
-and all three Touchdown modes verified in Chrome.
-[Deployment run 37003065530](https://github.com/Ocey78/web-royale/actions/runs/37003065530)
-succeeded.
+Both deck builders now show Evolution, Hero/Champion and Wild in the first three positions. Trophy Road unlocks those slots at Arenas 3, 5 and 10; casual battles open all three. The Wild slot switches between an owned Hero and Evolution on a card with both forms. Collection and Magic Items expose Hero choice for 200 Hero Coins and six-shard Evolution progress, including one Wild Shard at a time. Saved decks migrate card/form pairs into proper positions while retaining their roster; older replays keep their recorded rules.
 
-Imported catalogue totals do not mean every choice is playable. Incomplete card,
-form or ability behavior remains unavailable. **Full 1:1 native-game fidelity is
-incomplete.** Battles, rewards, opponents and social features run locally; there
-is no live online matchmaking, Supercell login/service connection or real payment.
-See [BUILD-NOTES-v0.52.1.md](BUILD-NOTES-v0.52.1.md) and
-[FIDELITY.md](FIDELITY.md) for current scope and limits.
+The original Touchdown stadium, spell fixes, actor orientations, stable Tesla transitions, 3v3 spacing and distinct custom environments remain included. Full 1:1 native-game fidelity is incomplete. Battles, rewards and social features run locally, with no live human matchmaking, Supercell connection or real payment.
 
-Double-click **open offline.bat** to play at `http://127.0.0.1:8081`.
-This project has its own browser profile, learning archive and replays. Offline AI data lives in `%LOCALAPPDATA%\WebRoyaleMain\AI`.
-Classic keeps its historical gameplay in the separate `web-royale-classic` project.
+[Play Web Royale](https://ocey78.github.io/web-royale/). Website publication is being verified for this release.
 
-To develop: use Node.js 22 or later, run `npm run build`, then `npm run serve`.
-`npm test` runs the checks. Source image/audio assets omitted from this portable archive are restored from verified `dist/` files by the build/test commands.
-`project.json` defines this project's identity, save namespaces and default port. The launcher includes the matching reviewed host from `tools/offline-host.cs`; run `node tools/sync-offline-host.cjs` after editing that host.
+See [BUILD-NOTES-v0.52.2.md](BUILD-NOTES-v0.52.2.md) and [FIDELITY.md](FIDELITY.md) for scope and validation. Rules reference: [Supercell deck slots](https://support.supercell.com/clash-royale/en/articles/cards-and-decks-6.html), [Heroes](https://support.clashroyale.com/hc/en-us/articles/49484957323163-Heroes), [Card Evolution](https://support.supercell.com/clash-royale/en/articles/card-evolution-8.html), and [inventory conversions](https://support.supercell.com/clash-royale/en/articles/conversions-8.html).
+
+Double-click **open offline.bat** to play at http://127.0.0.1:8081. Saves, learning archives and replays use this project's own namespace. Develop with Node.js 22+, npm run build, npm run serve, and npm test. Source assets omitted from the portable tree are restored from verified dist files by build/test commands.
 <!-- /project-identity -->
 
 # Historical baseline — Web Royale v0.50.0
@@ -58,7 +37,7 @@ verified `dist/` to keep this full-build download smaller.
 
 ## Historical release and project documentation
 
-The sections below describe earlier releases. v0.52.1 build notes take precedence
+The sections below describe earlier releases. v0.52.2 build notes take precedence
 where behavior, versions, prices, mode lists, or timing differ.
 
 # Rebuilt v0.40.1 distribution

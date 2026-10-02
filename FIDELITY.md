@@ -1,4 +1,12 @@
-# Fidelity update — Main v0.52.1
+# Fidelity update — Main v0.52.2
+
+The first three deck positions are Evolution, Hero/Champion and Wild, gated at Arenas 3/5/10 for Trophy Road. Both normal and mode builders show these positions and support Wild form switching. Unlock inventory uses Hero choice for 200 coins and six-shard Evolutions with single Wild Shard application. The declared content fingerprint remains unchanged; positional context is recorded separately to preserve old 0.52 replay behavior.
+
+The imported data and available/unsupported form distinction remain unchanged. Original meshes and artwork do not establish complete native movement, shaders, targeting or ability behavior.
+
+Full 1:1 native-game fidelity remains incomplete. Opponents, economy and social features are local practice counterparts; no Supercell account service, payment or live human matchmaking is included. See [BUILD-NOTES-v0.52.2.md](BUILD-NOTES-v0.52.2.md).
+
+# Historical fidelity update — Main v0.52.1
 
 Touchdown now uses the original **16.402.2** SC stadium, with **168 source
 placements**, original texture pixels and authored pitch markings. Separate

@@ -399,7 +399,7 @@ public sealed class WebRoyaleOfflineHost : IDisposable
             "Connection: close\r\nCache-Control: " + (immutable ? "public, max-age=31536000, immutable" : "no-cache") + "\r\n" +
             "X-Content-Type-Options: nosniff\r\nReferrer-Policy: no-referrer\r\n" +
             "Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; " +
-            "img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'\r\n" +
+            "img-src 'self' data: blob:; connect-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'\r\n" +
             extra + "\r\n";
         byte[] bytes = Encoding.ASCII.GetBytes(text);
         stream.Write(bytes, 0, bytes.Length);
