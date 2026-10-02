@@ -7,7 +7,7 @@ Both deck builders now show Evolution, Hero/Champion and Wild in the first three
 
 The original Touchdown stadium, spell fixes, actor orientations, stable Tesla transitions, 3v3 spacing and distinct custom environments remain included. Full 1:1 native-game fidelity is incomplete. Battles, rewards and social features run locally, with no live human matchmaking, Supercell connection or real payment.
 
-[Play Web Royale](https://ocey78.github.io/web-royale/). Website publication is being verified for this release.
+[Play Web Royale](https://ocey78.github.io/web-royale/). Live v0.52.2 is verified by exact release hash and actual desktop/mobile browser checks.
 
 See [BUILD-NOTES-v0.52.2.md](BUILD-NOTES-v0.52.2.md) and [FIDELITY.md](FIDELITY.md) for scope and validation. Rules reference: [Supercell deck slots](https://support.supercell.com/clash-royale/en/articles/cards-and-decks-6.html), [Heroes](https://support.clashroyale.com/hc/en-us/articles/49484957323163-Heroes), [Card Evolution](https://support.supercell.com/clash-royale/en/articles/card-evolution-8.html), and [inventory conversions](https://support.supercell.com/clash-royale/en/articles/conversions-8.html).
 

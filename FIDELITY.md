@@ -6,6 +6,8 @@ The imported data and available/unsupported form distinction remain unchanged. O
 
 Full 1:1 native-game fidelity remains incomplete. Opponents, economy and social features are local practice counterparts; no Supercell account service, payment or live human matchmaking is included. See [BUILD-NOTES-v0.52.2.md](BUILD-NOTES-v0.52.2.md).
 
+Publication verification — v0.52.2: 1,530 passed, zero failures. Desktop/mobile live browser checks match the local release hash and app asset; Pages run 37029354551 succeeded. The Hero/Evolution interface does not imply implementation of unsupported native form behaviors.
+
 # Historical fidelity update — Main v0.52.1
 
 Touchdown now uses the original **16.402.2** SC stadium, with **168 source
