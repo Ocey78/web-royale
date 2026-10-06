@@ -1,0 +1,151 @@
+
+[CHARACTER.SkeletonBalloon]
+AttackStartEffect = "skeleton_balloon_attack_start"
+AttacksGround = true
+BlueExportName = "skeleton_balloon"
+CollisionRadius = 500
+CustomDummyObjectLabelEnd = "fly3_end"
+CustomDummyObjectLabelStart = "fly3_start"
+DamageEffect = "skeleton_balloon_hit"
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "skeleton_balloon_die"
+DeathSpawnCharacter = "SkeletonContainerNew"
+DeathSpawnCount = 1
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_skeleton_balloon.sc"
+FlyDirectPaths = true
+FlyingHeight = 3100
+HealthBar = "Medium"
+HitSpeed = 300
+Hitpoints = 208
+IgnoreBuff = ["VoodooCurse", "GoblinCurse"]
+IgnoreResurrect = true
+Kamikaze = true
+KamikazeEffect = "skeleton_balloon_die"
+KamikazeTime = 500
+LoadTime = 200
+LoopMoveEffect = true
+Mass = 7
+MoveEffect = "skeleton_balloon_steps"
+Name = "SkeletonBalloon"
+OnStartingAction = "skeleton_balloon_pop_balloons"
+PrestigeExportName2 = "skeleton_balloon_prestige"
+PrestigeExportName3 = "skeleton_balloon_prestige2"
+PrestigeRedExportName2 = "skeleton_balloon_prestige"
+PrestigeRedExportName3 = "skeleton_balloon_prestige2"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 350
+Rarity = "Common"
+RedExportName = "skeleton_balloon_red"
+Scale = 98
+ShadowScaleX = 75
+ShadowScaleY = 40
+ShadowSkew = 15
+ShadowY = 5
+SightClipSide = 2000
+SightRange = 7700
+SpawnEffect = "skeleton_balloon_deploy"
+Speed = 90
+TID = "TID_SPELL_BALLOON"
+TargetOnlyBuildings = true
+UseAnimator = true
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Targets = "targets"
+StatsTags.Speed = "speed"
+
+[ACTION.skeleton_balloon_pop_balloons]
+BalloonFlyEndFrameList = ["fly3_end", "fly2_end", "fly1_end"]
+BalloonFlyStartFrameList = ["fly3_start", "fly2_start", "fly1_start"]
+BalloonPopEndFrameList = ["balloon_pop1_end", "balloon_pop2_end"]
+BalloonPopStartFrameList = ["balloon_pop1", "balloon_pop2"]
+ClassType = "ActionSkeletonBarrelPopBalloon"
+DropBalloonAtHpList = [66, 33]
+OnPopBalloonEffectList = ["skeleton_balloon_pop1", "skeleton_balloon_pop2"]
+TransitionTime = 500
+
+[EXT.SkeletonContainerNew]
+Base = "BUILDING.SkeletonContainer"
+DeathEffect = "skeleton_container_explosion_new"
+
+[BUILDING.SkeletonContainer]
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "skeleton_balloon_barrel_drop"
+DeathAreaEffect = "SkeletonBalloonExplosion"
+OnDeathAction = "SkeletonBalloonDeathSpawn"
+DeathEffect = "skeleton_container_explosion"
+DeployTime = 600
+FileName = "sc/chr_skeleton_balloon.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "SkeletonContainer"
+PrestigeExportName2 = "skeleton_balloon_prestige_barrel_drop"
+PrestigeExportName3 = "skeleton_balloon_prestige2_barrel_drop"
+PrestigeRedExportName2 = "skeleton_balloon_prestige_barrel_drop"
+PrestigeRedExportName3 = "skeleton_balloon_prestige2_barrel_drop"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Rarity = "Common"
+RedExportName = "skeleton_balloon_barrel_drop"
+Scale = 50
+SpawnConstPriority = true
+
+[ACTION.SkeletonBalloonDeathSpawn]
+ClassType = "ActionSpawn"
+SpawnType = "CharacterType"
+SpawnData = "Skeleton"
+SpawnRadius = 1480
+IsSpawnConstPriority = true
+Count = 7
+DeployTime = 500
+SpawnPushback = true
+StatsTags.Count = "skeleton_spawn_count"
+
+[AEO.SkeletonBalloonExplosion]
+Rarity = "Common"
+Radius = 2000
+Damage = { BaseDamage = 57 }
+Pushback = 1000
+Filter = "CommonAreaDamageFilter" 
+StatsTags.Damage = "death_damage"
+
+[STATS.SkeletonBalloon]
+    [[STATS.SkeletonBalloon.stats]]
+		Value = "death_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+        Icon = "icons_stats_dmg_death"
+	[[STATS.SkeletonBalloon.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.SkeletonBalloon.stats]]
+		Value = "skeleton_spawn_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop_count"
+	[[STATS.SkeletonBalloon.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.SkeletonBalloon.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETON"
+		InfoButtonStats="skeleton"
+		PopupExcludeStatList = ["skeleton_stat_count", "skeleton_stat_dps"]
+	[[STATS.SkeletonBalloon.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"

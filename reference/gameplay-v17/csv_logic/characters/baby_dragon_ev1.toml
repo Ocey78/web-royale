@@ -1,0 +1,145 @@
+[EXT.BabyDragon_EV1]
+	Base = "CHARACTER.BabyDragon"
+	ClonedVersion = "BabyDragon"
+	Scale = 95
+	FileName = "sc/chr_baby_dragon_evolution.sc"
+   	BlueExportName = "baby_dragon_evo"
+    RedExportName = "baby_dragon_evo_enemy"
+	HealthBar = "High_EV1"
+	OnAttackAction = "baby_dragon_evo_wind_action"
+	Projectile="BabyDragon_evo_projectile"
+	IgnoreBuff = ["BabyDragon_EV1_wind_buff_positive"]
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage = "damage"
+	StatsTags.HitSpeed = "hitspeed"
+	StatsTags.Targets = "targets"
+	StatsTags.Speed = "speed"
+	StatsTags.Range = "range"
+    UseAnimator = true
+    SpawnEffect = "evo_baby_dragon_deploy"
+	MoveEffect = "baby_dragon_evo_steps"
+	AttackStartEffect = "baby_dragon_evo_attack"
+    DeathEffect = "Death_card_evolution_M"
+		[ACTION.baby_dragon_evo_wind_action]
+		ClassType = "ActionSpawnResetableAeO"
+		Aeo = "BabyDragon_EV1_wind_aeo"
+		StopAeoIfParentHasCombatDisabled = false
+		StayAliveAfterParentDiesDuration = 2000
+		OffsetX = 0
+		OffsetY = 1500
+		Singleton = true
+[EXT.BabyDragon_evo_projectile]
+	Base = "PROJECTILE.BabyDragonProjectile"
+	HitEffect = "baby_dragon_evo_hit"
+	TrailEffect = "baby_dragon_evo_emitter"
+	FileName = "sc/chr_baby_dragon_evolution.sc"
+	ExportName = "baby_dragon_evo_projectile"
+	ShadowExportName = "projectile_baby_dragon_shadow"
+		
+[AEO.BabyDragon_EV1_wind_aeo]
+	Rarity = "Common"
+	LifeDuration = 6000
+	FollowBehaviour = "FollowParent"
+    HitSpeed = 50
+	LoopingEffect = ""
+	ScaledEffect = ""
+	OneShotEffect = ""
+	Shape = "BabyDragon_EV1_wind_aeo_shape"
+	Filter = "all_characters_from_both_teams"
+	OnStartingAction = "baby_dragon_evo_wind_start_actions"
+	OnHitAction = "BabyDragon_EV1_AEO_select_buff"
+	StayAfterParentDies = true
+		[ACTION.baby_dragon_evo_wind_start_actions]
+		ClassType = "ActionGroup"
+		SubActions = ["BabyDragon_EV1_Spawn_Effect", "wind_at_health_action"]
+		SubActionsDelay = [0, 0]
+			[ACTION.BabyDragon_EV1_Spawn_Effect]
+			ClassType = "ActionPlayEffect"
+			Effect = "evo_baby_dragon_wind"
+			Singleton = true
+			OverrideScale = 56
+			EffectFlags = ["FollowParent,Looping"]
+			[ACTION.wind_at_health_action]
+			ClassType = "ActionAeoRunActionAtAliveTimer"
+AllowRepeatAction = true
+AliveTimeList = [5950]
+			Actions = ["baby_dragon_evo_wind_end_blow"]
+				[ACTION.baby_dragon_evo_wind_end_blow]
+				ClassType = "ActionPlayEffect"
+Effect = "evo_baby_dragon_wind_end"
+				OverrideScale = 56
+		[ACTION.BabyDragon_EV1_AEO_select_buff]
+		ClassType = "ActionFilterByEnemy"
+		IsEnemyAction = "BabyDragon_EV1_AEO_give_enemy_buff"
+		IsSameTeamAction = "BabyDragon_EV1_AEO_give_friend_buff"
+			[ACTION.BabyDragon_EV1_AEO_give_enemy_buff]
+			ClassType = "ActionSpawn"
+			SpawnType = "BuffType"
+			SpawnData = "BabyDragon_EV1_wind_buff_negative"
+			SpawnTime = 100
+				[BUFF.BabyDragon_EV1_wind_buff_negative]
+				Rarity = "Common"
+				SpeedMultiplier = -30
+				StatsTags.SpeedMultiplierForStats = "SpeedMulitplierNegative"
+			[ACTION.BabyDragon_EV1_AEO_give_friend_buff]
+			ClassType = "ActionSpawn"
+			SpawnType = "BuffType"
+			SpawnData = "BabyDragon_EV1_wind_buff_positive"
+			SpawnTime = 100
+				[BUFF.BabyDragon_EV1_wind_buff_positive]
+				Rarity = "Common"
+				SpeedMultiplier = 130
+				StatsTags.SpeedMultiplierForStats = "SpeedMulitplier"
+[SHAPE.BabyDragon_EV1_wind_aeo_shape]
+ClassType = "Rectangle"
+Height = 9000
+Width = 8000
+StatsTags.Width = "width"
+StatsTags.Height = "height"
+[STATS.babydragon_ev1]
+	[[STATS.babydragon_ev1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.babydragon_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.babydragon_ev1.stats]]
+		Value = "hitspeed"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.babydragon_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.babydragon_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.babydragon_ev1.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.babydragon_ev1.stats]]
+        Value = "SpeedMulitplier"
+        Unit = "PERCENT"
+        TID = "TID_SPELL_ATTRIBUTE_SPEEDUP_TROOPS"
+        Icon = "icons_stats_speedup"
+	[[STATS.babydragon_ev1.stats]]
+        Value = "SpeedMulitplierNegative"
+        Unit = "PERCENT"
+        TID = "TID_SPELL_ATTRIBUTE_SLOWDOWN_TROOPS"
+        Icon = "icons_stats_speeddown"
+	[[STATS.babydragon_ev1.stats]]
+		Value = "width"
+		Value2 = "height"
+		Unit = "AREA"
+		TID = "TID_SPELL_ATTRIBUTE_RECTANGLE_AEO"
+		Icon = "icons_stats_square_area"

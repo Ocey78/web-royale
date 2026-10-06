@@ -1,0 +1,203 @@
+[EXT.Hunter_EV1]
+    Base = "CHARACTER.Hunter"
+    ClonedVersion = "Hunter"
+    OnStartingAction = "Hunter_EV1_net_attack"
+    Projectile = "Hunter_EV1_shotgun_projectile"
+	FileName = "sc/chr_hunter_evolution.sc"
+    BlueExportName = "evo_hunter"
+    RedExportName = "evo_hunter_red"
+    Scale = 90
+    CustomFirstProjectile = "Hunter_EV1_shotgun_projectile"
+    HealthBar = "Medium_EV1"
+    StatsTags.Hitpoints = "hitpoints"
+    StatsTags.Damage = "ranged_damage"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+    StatsTags.MultipleProjectiles = "projectile_count"
+    UseAnimator = true
+    SpawnEffect = "vfx_hunter_evo_deploy"
+    MoveEffect = "evo_hunter_steps"
+    DeathEffect = "Death_card_evolution_M"
+    DamageEffect = "vfx_hunter_evo_shotgun_hit"
+    ProjectileEffect = "vfx_hunter_evo_muzzle"
+    AttackStartEffect = "evo_hunter_attack_start"
+    DamageExportName = "filter_damage_wobble"
+    CustomSpawnFilter = "filter_card_evolution"
+    DeployBaseAnimExportName="filter_deploy_unit_legendary"
+    ShadowScaleX = 85
+    ShadowScaleY = 70
+    ShadowY = 0
+    ShadowSkew = 25
+    CustomAnimationPostfix = "_ability1_"
+[ACTION.Hunter_EV1_net_attack]
+    ClassType = "ActionHunterNetAttack"
+    TargetFilter = "default_character_targets_no_buildings"
+    Projectile = "Hunter_EV1_bear_trap_projectile"
+    Range = 4000
+    MinRange = -600
+    Cooldown = 5000
+    InitialCooldown = 1000
+    ActionOnCooldownReady = "Hunter_EV1_net_ready_effect"
+    TrapCastTime = 200
+    ProjectileStartExtraRadius = 200
+    StatsTags.Range = "net_max_range"
+    StatsTags.Cooldown = "net_cooldown"
+    [ACTION.Hunter_EV1_net_attack.ActionOnShot]
+        ClassType = "ActionGroup"
+        SubActions= [ "Hunter_EV1_shoot_net_effect", "Hunter_EV1_StopReadyEffect"]    
+SubActionsDelay= [ 0, 0 ]
+[PROJECTILE.Hunter_EV1_bear_trap_projectile]
+    Rarity = "Common"
+    Speed = 600
+    FileName = "sc/chr_hunter_evolution.sc"
+    ExportName = "evo_hunter_net_projectile"
+    TrailEffect = "evo_hunter_net_emitter"
+    Scale = 100
+    Gravity = 20
+    OnlyEnemies = true
+    OnHitTargetAction = "Hunter_EV1_apply_net"
+    Homing = true    
+[EXT.Hunter_EV1_shotgun_projectile]
+    Base = "PROJECTILE.HunterProjectile"
+    HitEffect = "vfx_hunter_evo_shotgun_hit_miss"
+    TrailEffect = "evo_hunter_dark_elixir_trail"
+    StatsTags.ProjectileRange = "projectile_range" 
+[ACTION.Hunter_EV1_apply_net]
+    ClassType = "ActionGroup"
+    ExecuteIfTrue = "!is_dodging_damage"
+    SubActions= [ "Hunter_EV1_air_to_ground", "Hunter_EV1_select_buff_size"]    
+    SubActionsDelay= [ 0, 0 ]
+[ACTION.Hunter_EV1_select_buff_size]
+	ClassType = "ActionSelect"
+	SubActions = [
+		"Hunter_EV1_apply_snare_small",
+		"Hunter_EV1_apply_snare_medium",
+		"Hunter_EV1_apply_snare_large"]
+	PerActionConditions = [
+		"get_radius() <= 500",
+		"get_radius() < 750"
+	]
+[ACTION.Hunter_EV1_air_to_ground]
+    ClassType = "ActionAirToGround"
+    TransitionDuration = 200
+    TotalDuration = 3000
+    AbortIfInstigatorDies = false
+    Singleton = true
+    AllowIsGroundTagOnIdle = true
+    StatsTags.TotalDuration = "net_duration"
+[ACTION.Hunter_EV1_apply_snare_small]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnTime = 3000
+    SpawnData = "Hunter_EV1_bear_trap_snare_small"
+[ACTION.Hunter_EV1_apply_snare_medium]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnTime = 3000
+    SpawnData = "Hunter_EV1_bear_trap_snare_medium"
+[ACTION.Hunter_EV1_apply_snare_large]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnTime = 3000
+    SpawnData = "Hunter_EV1_bear_trap_snare_large"
+[ACTION.Hunter_EV1_shoot_net_effect]
+    ClassType="ActionPlayEffect"
+    Effect = "evo_hunter_net_throw_base"
+ [ACTION.Hunter_EV1_StopReadyEffect]
+    ClassType="ActionWithDuration"
+    ActionDuration = 50
+    GameTagsToSet="UNIT_CUSTOM_TAG_1"
+[ACTION.Hunter_EV1_net_ready_effect]
+    ClassType="ActionPlayEffect"
+    Effect = "evo_hunter_ability_active"
+    EffectFlags = "LinkLifeToActionLife,Looping"
+    ForceStopIfTrue="UNIT_CUSTOM_TAG_1()" 
+[BUFF.Hunter_EV1_bear_trap_snare_small]
+    Rarity = "Common"
+    SpeedMultiplier = -100
+    HitSpeedMultiplier = -100
+    SpawnSpeedMultiplier = -100
+    Effect = "Hunter_snare_net"
+    HideEffectWhenUnderground = true
+    AttachedInheritAs = "Hunter_EV1_bear_trap_snare_no_effect"
+    EnableStacking = true
+    EffectScale = 40
+[BUFF.Hunter_EV1_bear_trap_snare_medium]
+    Rarity = "Common"
+    SpeedMultiplier = -100
+    HitSpeedMultiplier = -100
+    SpawnSpeedMultiplier = -100
+    Effect = "Hunter_snare_net"
+    HideEffectWhenUnderground = true
+    AttachedInheritAs = "Hunter_EV1_bear_trap_snare_no_effect"
+    EnableStacking = true
+    EffectScale = 55
+[BUFF.Hunter_EV1_bear_trap_snare_large]
+    Rarity = "Common"
+    SpeedMultiplier = -100
+    HitSpeedMultiplier = -100
+    SpawnSpeedMultiplier = -100
+    Effect = "Hunter_snare_net"
+    HideEffectWhenUnderground = true
+    AttachedInheritAs = "Hunter_EV1_bear_trap_snare_no_effect"
+    EnableStacking = true
+    EffectScale = 65
+[BUFF.Hunter_EV1_bear_trap_snare_no_effect]
+    Rarity = "Common"
+    SpeedMultiplier = -100
+    HitSpeedMultiplier = -100
+    SpawnSpeedMultiplier = -100
+[STATS.Hunter_EV1]
+    [[STATS.Hunter_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.Hunter_EV1.stats]]
+		Value = "ranged_damage"
+        Value2 = "projectile_count"
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.Hunter_EV1.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "projectile_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_BULLET_RANGE"
+		Icon = "icons_stats_radius"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "net_duration"
+		Unit = "TIME"
+		TID = "TID_NET_DURATION"
+		Icon = "icons_stats_deploy_time"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "net_max_range"
+		Unit = "TILES"
+		TID = "TID_NET_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.Hunter_EV1.stats]]
+		Value = "net_cooldown"
+		Unit = "TIME"
+		TID = "TID_NET_COOLDOWN"
+		Icon = "icons_stats_cooldown"

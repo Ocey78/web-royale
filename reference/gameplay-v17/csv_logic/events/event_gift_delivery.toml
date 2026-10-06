@@ -1,0 +1,138 @@
+[EXT.KingTower_Gift_Delivery]
+    Base = "CHARACTER.KingTower"
+    OnStartingAction = "Gift_Delivery_StartingAction"
+[ACTION.Gift_Delivery_StartingAction]
+    ClassType = "ActionGroup"
+    SubActionsDelay = [0, 0]
+    SubActions = ["Gift_Delivery_WaitForTowerActivation", "Gift_Delivery_AbilityActivator"]
+[ACTION.Gift_Delivery_WaitForTowerActivation]
+    ClassType = "ActionWaitToActivate"
+    Condition = "king_tower_damaged() || coop_king_tower_damaged() || tower_destroyed() || coop_tower_destroyed()"
+    GameTagsToSet = "INACTIVE"
+[ACTION.Gift_Delivery_WaitForTowerActivation.OnActivateAction]
+    ClassType = "ActionWithDuration"
+    ActionDuration = 3300
+    GameTagsToSet = "ACTIVATING"
+    NextAction = "KingTowerActivationEffect"
+[ACTION.Gift_Delivery_AbilityActivator]
+    ClassType = "ActionActivateOnCardDeploy"
+    ElixirCost = 10
+    CardGroup = "Event_Troop"
+    EvaluateDeployedCard = false
+    OnActivateAction = "Gift_Delivery_SpawnLocation"
+    IndicatorFileName="sc/ui.sc"
+    IndicatorExportName="goblin_queen_charge_counter"
+    IndicatorOffsetYBlue=-65
+    IndicatorOffsetYRed=38
+    IndicatorPlaceholderInstanceName="icon_ability_placeholder"
+    IndicatorReplacementFileName="sc/effects.sc"
+    IndicatorReplacementExportName="giftDropIcon"
+    ShowCardEffect=true
+    CardEffectUnderlayName="card_item_goblin_queen_fire"
+    CardEffectOverlayName="card_item_goblin_queen_glow"
+    DeployElixirGainEffect = "Deploy_Goblin_Card_Elixir_Gain"
+    GameTagsToSetOnReadyToActivate = "ABILITY_READY"
+[ACTION.Gift_Delivery_SpawnLocation]
+    ActionDelay=500
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Gift_Delivery_AEO"
+    RelativeX = 0
+    RelativeY = 15
+[AEO.Gift_Delivery_AEO]
+    Rarity = "Common"
+    LifeDuration = 2000
+    Radius = 3000
+    OneShotEffect = "Royale_Delivery_spawn"
+    HitSpeedOffset = 2000
+    Projectile = "Gift_Delivery_Projectile"
+    SpawnTime = 250
+    SpawnInitialDelay = 2050
+    Filter = "aeo_enemy_no_buildings"
+[PROJECTILE.Gift_Delivery_Projectile]
+    Rarity = "Common"
+    Speed = 5000
+    HitEffect = "royale_delivery_broken"
+    Damage = 171
+    Radius = 3000
+    AoeToAir = true
+    AoeToGround = true
+    OnlyEnemies = true
+    SpawnCharacterDeployTime = 250
+    SpawnCharacter = "Gift_Delivery_Dummy"
+    SpawnCharacterCount = 1
+    DeflectBehaviour = "NoDeflect"
+[BUILDING.Gift_Delivery_Dummy]
+    Rarity = "Common"
+    IsBuilding = true
+    OnStartingAction = "Gift_Delivery_Spawner"
+[ACTION.Gift_Delivery_Spawner_Test]
+    ClassType = "ActionSelect"
+    SubActions = ["Gift_Delivery_Golem"]
+    Condition = "rand(1)"
+[ACTION.Gift_Delivery_Spawner]
+    ClassType = "ActionSelect"
+    SubActions = [
+        "Gift_Delivery_Golem",
+        "Gift_Delivery_GiantSkeleton",
+        "Gift_Delivery_Pekka",
+        "Gift_Delivery_ZapMachine",
+        "Gift_Delivery_Wizard",
+        "Gift_Delivery_Musketeer",
+        "Gift_Delivery_MiniPekka",
+        "Gift_Delivery_Ghost",
+        "Gift_Delivery_Knight",
+        "Gift_Delivery_SkeletonBalloon"
+        ]
+    Condition = "rand(10)"
+    [ACTION.Gift_Delivery_Golem]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "Golem"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_GiantSkeleton]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "GiantSkeleton"
+        ParentGOAsSource=true
+    
+    [ACTION.Gift_Delivery_Pekka]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "Pekka"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_ZapMachine]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "ZapMachine"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_Wizard]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "Wizard"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_Musketeer]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "Musketeer"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_MiniPekka]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "MiniPekka"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_Ghost]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "Ghost"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_Knight]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "Knight"
+        ParentGOAsSource=true
+    [ACTION.Gift_Delivery_SkeletonBalloon]
+        ClassType="ActionSpawn"
+        SpawnType = "CharacterType"
+        SpawnData = "SkeletonBalloon"
+        ParentGOAsSource=true

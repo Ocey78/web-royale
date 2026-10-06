@@ -1,0 +1,57 @@
+
+[CHARACTER.BlowdartGoblin]
+AttackStartEffect = "blowdart_goblin_atk_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "goblin_blowdart"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "spear_goblin_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_goblin_blowdart.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 800
+Hitpoints = 102
+LoadTime = 450
+Mass = 3
+MoveEffect = "blowdart_goblin_steps"
+Name = "BlowdartGoblin"
+PrestigeExportName2 = "blowdart_prestige"
+PrestigeRedExportName2 = "blowdart_prestige_red"
+PrestigeSWF = "sc/chr_prestige4_dl.sc"
+Projectile = "BlowdartGoblinProjectile"
+ProjectileEffect = "blowdart_goblin_attack"
+ProjectileStartRadius = 1200
+ProjectileStartZ = 1600
+Range = 6500
+Rarity = "Common"
+RedExportName = "goblin_blowdart_red"
+Scale = 100
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 7000
+SpawnEffect = "blowdart_goblin_deploy"
+Speed = 120
+TID = "TID_CHARACTER_BLOWDART_GOBLIN"
+UseAnimator = true
+
+[PROJECTILE.BlowdartGoblinProjectile]
+Damage = 59
+ExportName = "projectile_arrow_basic"
+FileName = "sc/effects.sc"
+Gravity = 120
+HitEffect = "BlowdartArrowHit"
+Homing = true
+Name = "BlowdartGoblinProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 800
+TrailEffect = "BlowdartProjectileEmitter"
+
+

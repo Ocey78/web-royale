@@ -1,0 +1,51 @@
+
+[BUILDING.Cannon]
+AttacksGround = true
+BlueExportName = "building_cannon"
+CollisionRadius = 600
+DeathEffect = "Cannon_die"
+DeployTime = 1000
+FileName = "sc/building_basic_cannon.sc"
+HasRotationOnTimeline = true
+HitSpeed = 1000
+Hitpoints = 322
+IsBuilding = true
+LifeTime = 30000
+LoadTime = 100
+Name = "Cannon"
+PrestigeExportName2 = "cannon_prestige_1"
+PrestigeExportName3 = "cannon_prestige_2"
+PrestigeRedExportName2 = "cannon_prestige_1_red"
+PrestigeRedExportName3 = "cannon_prestige_2_red"
+PrestigeSWF = "sc/building_basic_cannon.sc"
+Projectile = "TowerCannonball"
+ProjectileEffect = "cannon_fire_projectile"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 2500
+Range = 5500
+Rarity = "Common"
+RedExportName = "building_enemy_cannon"
+Scale = 100
+ShadowScaleX = 90
+ShadowScaleY = -90
+ShadowSkew = 10
+ShadowX = -7
+ShadowY = 10
+SightRange = 5500
+SpawnEffect = "Cannon_deploy"
+TID = "TID_BUILDING_CANNON"
+TurretMovement = 15
+
+[PROJECTILE.TowerCannonball]
+Damage = 79
+ExportName = "projectile_cannonball_large"
+FileName = "sc/effects.sc"
+HitEffect = "cannon_hit"
+Homing = true
+Name = "TowerCannonball"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1000
+
+

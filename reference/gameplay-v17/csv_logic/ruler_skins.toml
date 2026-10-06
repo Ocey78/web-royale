@@ -1,0 +1,467 @@
+[Ruler_Skin_King_Default]
+TID = "TID_RULER_SKIN_KING_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_KING_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_king"
+AssetPath = "logic/autochess/rulers/king/skin_king_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_King"
+SkipChargeVfx = true
+
+[Ruler_Skin_King_T3_Purple]
+TID = "TID_RULER_SKIN_KING_T3_PURPLE"
+DescriptionTID = "TID_RULER_SKIN_KING_T3_PURPLE_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_king_recolor_purple"
+AssetPath = "logic/autochess/rulers/king/skin_king_purple"
+Tier = "T3"
+SpecificToRuler = "Ruler_King"
+SkipChargeVfx = true
+
+[Ruler_Skin_King_T3_Green]
+TID = "TID_RULER_SKIN_KING_T3_GREEN"
+DescriptionTID = "TID_RULER_SKIN_KING_T3_GREEN_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_king_recolor_white"
+AssetPath = "logic/autochess/rulers/king/skin_king_white"
+Tier = "T3"
+SpecificToRuler = "Ruler_King"
+SkipChargeVfx = true
+
+[Ruler_Skin_MergeMaiden_Default]
+TID = "TID_RULER_SKIN_MERGEMAIDEN_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_MERGEMAIDEN_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_merge_maiden"
+AssetPath = "logic/autochess/rulers/mergemaiden/skin_mergemaiden_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_MergeMaiden"
+SkipChargeVfx = true
+
+[Ruler_Skin_MergeMaiden_T3_Green]
+TID = "TID_RULER_SKIN_MERGEMAIDEN_T3_GREEN"
+DescriptionTID = "TID_RULER_SKIN_MERGEMAIDEN_T3_GREEN_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_merge_maiden_recolor_green"
+AssetPath = "logic/autochess/rulers/mergemaiden/skin_mergemaiden_green"
+Tier = "T3"
+SpecificToRuler = "Ruler_MergeMaiden"
+SkipChargeVfx = true
+
+[Ruler_Skin_MergeMaiden_T3_Yellow]
+TID = "TID_RULER_SKIN_MERGEMAIDEN_T3_YELLOW"
+DescriptionTID = "TID_RULER_SKIN_MERGEMAIDEN_T3_YELLOW_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_merge_maiden_recolor_yellow"
+AssetPath = "logic/autochess/rulers/mergemaiden/skin_mergemaiden_yellow"
+Tier = "T3"
+SpecificToRuler = "Ruler_MergeMaiden"
+SkipChargeVfx = true
+
+[Ruler_Skin_King_T3_Icy]
+TID = "TID_RULER_SKIN_KING_T3_ICY"
+DescriptionTID = "TID_RULER_SKIN_KING_T3_ICY_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_king_recolor_ice"
+AssetPath = "logic/autochess/rulers/king/skin_king_ghost"
+Tier = "T3"
+SpecificToRuler = "Ruler_King"
+SkipChargeVfx = true
+
+[Ruler_Skin_MergeMaiden_T3_Red]
+TID = "TID_RULER_SKIN_MERGEMAIDEN_T3_RED"
+DescriptionTID = "TID_RULER_SKIN_MERGEMAIDEN_T3_RED_DESC"
+IconSWF = "sc/ac_ruler_merge_maiden_recolor_red.sc"
+IconExportName = "thumb_ruler_merge_maiden_recolor_red"
+AssetPath = "logic/autochess/rulers/mergemaiden/skin_mergemaiden_red"
+Tier = "T3"
+SpecificToRuler = "Ruler_MergeMaiden"
+SkipChargeVfx = true
+
+[Ruler_Skin_GoblinQueen_Default]
+TID = "TID_RULER_SKIN_GOBLIN_QUEEN_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_GOBLIN_QUEEN_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_goblin_queen"
+AssetPath = "logic/autochess/rulers/goblinqueen/skin_goblinqueen_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_GoblinQueen"
+SkipChargeVfx = true
+
+[Ruler_Skin_ElixirLoong_Default]
+TID = "TID_RULER_SKIN_ELIXIR_LOONG_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_ELIXIR_LOONG_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_loong"
+AssetPath = "logic/autochess/rulers/elixirloong/skin_elixirloong_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_ElixirLoong"
+SkipChargeVfx = true
+
+[Ruler_Skin_ElixirLoong_T3_Blue]
+TID = "TID_RULER_SKIN_ELIXIR_LOONG_T3_BLUE"
+DescriptionTID = "TID_RULER_SKIN_ELIXIR_LOONG_T3_BLUE_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_loong_recolor_blue"
+AssetPath = "logic/autochess/rulers/elixirloong/skin_elixirloong_blue"
+Tier = "T3"
+SpecificToRuler = "Ruler_ElixirLoong"
+SkipChargeVfx = true
+
+[Ruler_Skin_ElixirLoong_T3_Red]
+TID = "TID_RULER_SKIN_ELIXIR_LOONG_T3_RED"
+DescriptionTID = "TID_RULER_SKIN_ELIXIR_LOONG_T3_RED_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_loong_recolor_red"
+AssetPath = "logic/autochess/rulers/elixirloong/skin_elixirloong_red"
+Tier = "T3"
+SpecificToRuler = "Ruler_ElixirLoong"
+SkipChargeVfx = true
+
+[Ruler_Skin_ElixirLoong_T2_Seahorse]
+TID = "TID_RULER_SKIN_ELIXIR_LOONG_T2_SEAHORSE"
+DescriptionTID = "TID_RULER_SKIN_ELIXIR_LOONG_T2_SEAHORSE_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_loong_seahorse"
+AssetPath = "logic/autochess/rulers/elixirloong/skin_elixirloong_seahorse"
+Tier = "T2"
+SpecificToRuler = "Ruler_ElixirLoong"
+
+[Ruler_Skin_MergeMaiden_T2_Sailor]
+TID = "TID_RULER_SKIN_MERGEMAIDEN_T2_SAILOR"
+DescriptionTID = "TID_RULER_SKIN_MERGEMAIDEN_T2_SAILOR_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_merge_maiden_sailor"
+AssetPath = "logic/autochess/rulers/mergemaiden/skin_mergemaiden_sailor"
+Tier = "T2"
+SpecificToRuler = "Ruler_MergeMaiden"
+
+[Ruler_Skin_GoblinQueen_Blue]
+TID = "TID_RULER_SKIN_GOBLIN_QUEEN_BLUE"
+DescriptionTID = "TID_RULER_SKIN_GOBLIN_QUEEN_BLUE_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_goblin_queen_recolor_blue"
+AssetPath = "logic/autochess/rulers/goblinqueen/skin_goblinqueen_blue"
+Tier = "T3"
+SpecificToRuler = "Ruler_GoblinQueen"
+SkipChargeVfx = true
+
+[Ruler_Skin_GoblinQueen_Red]
+TID = "TID_RULER_SKIN_GOBLIN_QUEEN_RED"
+DescriptionTID = "TID_RULER_SKIN_GOBLIN_QUEEN_RED_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_goblin_queen_recolor_red"
+AssetPath = "logic/autochess/rulers/goblinqueen/skin_goblinqueen_red"
+Tier = "T3"
+SpecificToRuler = "Ruler_GoblinQueen"
+SkipChargeVfx = true
+
+[Ruler_Skin_GoblinQueen_Gown]
+TID = "TID_RULER_SKIN_GOBLIN_QUEEN_T2_GOWN"
+DescriptionTID = "TID_RULER_SKIN_GOBLIN_QUEEN_T2_GOWN_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_ruler_goblin_queen_gown"
+AssetPath = "logic/autochess/rulers/goblinqueen/skin_goblinqueen_gown"
+Tier = "T2"
+SpecificToRuler = "Ruler_GoblinQueen"
+
+[Ruler_Skin_BattleMachine_Default]
+TID = "TID_RULER_SKIN_BATTLE_MACHINE_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_BATTLE_MACHINE_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_battle_machine.sc"
+IconExportName = "thumb_ruler_battle_machine"
+AssetPath = "logic/autochess/rulers/battlemachine/skin_battlemachine_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_BattleMachine"
+SkipChargeVfx = true
+
+[Ruler_Skin_BattleMachine_T3_White]
+TID = "TID_RULER_SKIN_BATTLE_MACHINE_T3_WHITE"
+DescriptionTID = "TID_RULER_SKIN_BATTLE_MACHINE_T3_WHITE_DESC"
+IconSWF = "sc/ac_ruler_battle_machine_recolor_white.sc"
+IconExportName = "thumb_ruler_battle_machine_recolor_white"
+AssetPath = "logic/autochess/rulers/battlemachine/skin_battlemachine_white"
+Tier = "T3"
+SpecificToRuler = "Ruler_BattleMachine"
+SkipChargeVfx = true
+
+[Ruler_Skin_BattleMachine_T3_Blue]
+TID = "TID_RULER_SKIN_BATTLE_MACHINE_T3_BLUE"
+DescriptionTID = "TID_RULER_SKIN_BATTLE_MACHINE_T3_BLUE_DESC"
+IconSWF = "sc/ac_ruler_battle_machine_recolor_blue.sc"
+IconExportName = "thumb_ruler_battle_machine_recolor_blue"
+AssetPath = "logic/autochess/rulers/battlemachine/skin_battlemachine_blue"
+Tier = "T3"
+SpecificToRuler = "Ruler_BattleMachine"
+SkipChargeVfx = true
+
+[Ruler_Skin_BattleMachine_T2_Iron]
+TID = "TID_RULER_SKIN_BATTLE_MACHINE_T2_IRON"
+DescriptionTID = "TID_RULER_SKIN_BATTLE_MACHINE_T2_IRON_DESC"
+IconSWF = "sc/ac_ruler_battle_machine_iron.sc"
+IconExportName = "thumb_ruler_battle_machine_iron"
+AssetPath = "logic/autochess/rulers/battlemachine/skin_battlemachine_iron"
+Tier = "T2"
+SpecificToRuler = "Ruler_BattleMachine"
+
+[Ruler_Skin_King_T3_Santa]
+TID = "TID_RULER_SKIN_KING_T3_SANTA"
+DescriptionTID = "TID_RULER_SKIN_KING_T3_SANTA_DESC"
+IconSWF = "sc/ac_ruler_king_santa.sc"
+IconExportName = "thumb_ruler_king_santa"
+AssetPath = "logic/autochess/rulers/king/skin_king_santa"
+Tier = "T3"
+SpecificToRuler = "Ruler_King"
+SkipChargeVfx = true
+
+[Ruler_Skin_EchoMonk_Default]
+TID = "TID_RULER_SKIN_ECHO_MONK_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_ECHO_MONK_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_echo_monk.sc"
+IconExportName = "thumb_ruler_echo_monk"
+AssetPath = "logic/autochess/rulers/echomonk/skin_echomonk_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_EchoMonk"
+SkipChargeVfx = true
+
+[Ruler_Skin_EchoMonk_T2_Exorcist]
+TID = "TID_RULER_SKIN_ECHO_MONK_T2_EXORCIST"
+DescriptionTID = "TID_RULER_SKIN_ECHO_MONK_T2_EXORCIST_DESC"
+IconSWF = "sc/ac_ruler_echo_monk_exorcist.sc"
+IconExportName = "thumb_ruler_echo_monk_exorcist"
+AssetPath = "logic/autochess/rulers/echomonk/skin_echomonk_exorcist"
+Tier = "T2"
+SpecificToRuler = "Ruler_EchoMonk"
+
+[Ruler_Skin_EchoMonk_T3_Yellow]
+TID = "TID_RULER_SKIN_ECHO_MONK_T3_YELLOW"
+DescriptionTID = "TID_RULER_SKIN_ECHO_MONK_T3_YELLOW_DESC"
+IconSWF = "sc/ac_ruler_echo_monk_recolor_yellow.sc"
+IconExportName = "thumb_ruler_echo_monk_recolor_yellow"
+AssetPath = "logic/autochess/rulers/echomonk/skin_echomonk_yellow"
+Tier = "T3"
+SpecificToRuler = "Ruler_EchoMonk"
+SkipChargeVfx = true
+
+[Ruler_Skin_EchoMonk_T3_Purple]
+TID = "TID_RULER_SKIN_ECHO_MONK_T3_PURPLE"
+DescriptionTID = "TID_RULER_SKIN_ECHO_MONK_T3_PURPLE_DESC"
+IconSWF = "sc/ac_ruler_echo_monk_recolor_purple.sc"
+IconExportName = "thumb_ruler_echo_monk_recolor_purple"
+AssetPath = "logic/autochess/rulers/echomonk/skin_echomonk_purple"
+Tier = "T3"
+SpecificToRuler = "Ruler_EchoMonk"
+SkipChargeVfx = true
+
+[Ruler_Skin_MergeMaiden_T2_Warrior]
+TID = "TID_RULER_SKIN_MERGEMAIDEN_T2_WARRIOR"
+DescriptionTID = "TID_RULER_SKIN_MERGEMAIDEN_T2_WARRIOR_DESC"
+IconSWF = "sc/ac_ruler_merge_maiden_warrior.sc"
+IconExportName = "thumb_ruler_merge_maiden_warrior"
+AssetPath = "logic/autochess/rulers/mergemaiden/skin_mergemaiden_warrior"
+Tier = "T2"
+SpecificToRuler = "Ruler_MergeMaiden"
+
+[Ruler_Skin_DaggerDuchess_Default]
+TID = "TID_RULER_SKIN_DAGGER_DUCHESS_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_DAGGER_DUCHESS_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_dagger_duchess.sc"
+IconExportName = "thumb_ruler_dagger_duchess"
+AssetPath = "logic/autochess/rulers/daggerduchess/skin_daggerduchess_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_DaggerDuchess"
+SkipChargeVfx = true
+
+[Ruler_Skin_GoblinQueen_T2_Medusa]
+TID = "TID_RULER_SKIN_GOBLIN_QUEEN_T2_MEDUSA"
+DescriptionTID = "TID_RULER_SKIN_GOBLIN_QUEEN_T2_MEDUSA_DESC"
+IconSWF = "sc/ac_ruler_goblin_queen_medusa.sc"
+IconExportName = "thumb_ruler_goblin_queen_medusa"
+AssetPath = "logic/autochess/rulers/goblinqueen/skin_goblinqueen_medusa"
+Tier = "T2"
+SpecificToRuler = "Ruler_GoblinQueen"
+
+[Ruler_Skin_DaggerDuchess_T2_Crystal]
+TID = "TID_RULER_SKIN_DAGGER_DUCHESS_T2_CRYSTAL"
+DescriptionTID = "TID_RULER_SKIN_DAGGER_DUCHESS_T2_CRYSTAL_DESC"
+IconSWF = "sc/ac_ruler_dagger_duchess_crystal.sc"
+IconExportName = "thumb_ruler_dagger_duchess_crystal"
+AssetPath = "logic/autochess/rulers/daggerduchess/skin_daggerduchess_crystal"
+Tier = "T2"
+SpecificToRuler = "Ruler_DaggerDuchess"
+
+[Ruler_Skin_DaggerDuchess_T3_Green]
+TID = "TID_RULER_SKIN_DAGGER_DUCHESS_T3_GREEN"
+DescriptionTID = "TID_RULER_SKIN_DAGGER_DUCHESS_T3_GREEN_DESC"
+IconSWF = "sc/ac_ruler_dagger_duchess_recolor_green.sc"
+IconExportName = "thumb_ruler_dagger_duchess_recolor_green"
+AssetPath = "logic/autochess/rulers/daggerduchess/skin_daggerduchess_green"
+Tier = "T3"
+SpecificToRuler = "Ruler_DaggerDuchess"
+SkipChargeVfx = true
+
+[Ruler_Skin_DaggerDuchess_T3_Red]
+TID = "TID_RULER_SKIN_DAGGER_DUCHESS_T3_RED"
+DescriptionTID = "TID_RULER_SKIN_DAGGER_DUCHESS_T3_RED_DESC"
+IconSWF = "sc/ac_ruler_dagger_duchess_recolor_red.sc"
+IconExportName = "thumb_ruler_dagger_duchess_recolor_red"
+AssetPath = "logic/autochess/rulers/daggerduchess/skin_daggerduchess_red"
+Tier = "T3"
+SpecificToRuler = "Ruler_DaggerDuchess"
+SkipChargeVfx = true
+
+[Ruler_Skin_GrandWarden_Default]
+TID = "TID_RULER_SKIN_GRAND_WARDEN_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_GRAND_WARDEN_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_grand_warden.sc"
+IconExportName = "thumb_ruler_grand_warden"
+AssetPath = "logic/autochess/rulers/grandwarden/skin_grandwarden_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_GrandWarden"
+SkipChargeVfx = true
+
+[Ruler_Skin_GrandWarden_T3_Purple]
+TID = "TID_RULER_SKIN_GRAND_WARDEN_T3_PURPLE"
+DescriptionTID = "TID_RULER_SKIN_GRAND_WARDEN_T3_PURPLE_DESC"
+IconSWF = "sc/ac_ruler_grand_warden_recolor_purple.sc"
+IconExportName = "thumb_ruler_grand_warden_recolor_purple"
+AssetPath = "logic/autochess/rulers/grandwarden/skin_grandwarden_purple"
+Tier = "T3"
+SpecificToRuler = "Ruler_GrandWarden"
+SkipChargeVfx = true
+
+[Ruler_Skin_GrandWarden_T3_White]
+TID = "TID_RULER_SKIN_GRAND_WARDEN_T3_WHITE"
+DescriptionTID = "TID_RULER_SKIN_GRAND_WARDEN_T3_WHITE_DESC"
+IconSWF = "sc/ac_ruler_grand_warden_recolor_white.sc"
+IconExportName = "thumb_ruler_grand_warden_recolor_white"
+AssetPath = "logic/autochess/rulers/grandwarden/skin_grandwarden_white"
+Tier = "T3"
+SpecificToRuler = "Ruler_GrandWarden"
+SkipChargeVfx = true
+
+[Ruler_Skin_GrandWarden_T2_Soapman]
+TID = "TID_RULER_SKIN_GRAND_WARDEN_T2_SOAPMAN"
+DescriptionTID = "TID_RULER_SKIN_GRAND_WARDEN_T2_SOAPMAN_DESC"
+IconSWF = "sc/ac_ruler_grand_warden_soapman.sc"
+IconExportName = "thumb_ruler_grand_warden_soapman"
+AssetPath = "logic/autochess/rulers/grandwarden/skin_grandwarden_soapman"
+Tier = "T2"
+SpecificToRuler = "Ruler_GrandWarden"
+
+[Ruler_Skin_ElixirLoong_T3_Brown]
+TID = "TID_RULER_SKIN_ELIXIR_LOONG_T3_BROWN"
+DescriptionTID = "TID_RULER_SKIN_ELIXIR_LOONG_T3_BROWN_DESC"
+IconSWF = "sc/ac_ruler_loong_recolor_brown.sc"
+IconExportName = "thumb_ruler_loong_recolor_brown"
+AssetPath = "logic/autochess/rulers/elixirloong/skin_elixirloong_brown"
+Tier = "T3"
+SpecificToRuler = "Ruler_ElixirLoong"
+SkipChargeVfx = true
+
+[Ruler_Skin_ElixirLoong_T2_Mono]
+TID = "TID_RULER_SKIN_ELIXIR_LOONG_T2_MONO"
+DescriptionTID = "TID_RULER_SKIN_ELIXIR_LOONG_T2_MONO_DESC"
+IconSWF = "sc/ac_ruler_loong_mono.sc"
+IconExportName = "thumb_ruler_loong_mono"
+AssetPath = "logic/autochess/rulers/elixirloong/skin_elixirloong_mono"
+Tier = "T2"
+SpecificToRuler = "Ruler_ElixirLoong"
+
+[Ruler_Skin_TombQueen_Default]
+TID = "TID_RULER_SKIN_TOMB_QUEEN_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_TOMB_QUEEN_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen.sc"
+IconExportName = "thumb_ruler_tomb_queen"
+AssetPath = "logic/autochess/rulers/tombqueen/skin_tombqueen_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_TombQueen"
+SkipChargeVfx = true
+
+[Ruler_Skin_TombQueen_T3_Red]
+TID = "TID_RULER_SKIN_TOMB_QUEEN_T3_RED"
+DescriptionTID = "TID_RULER_SKIN_TOMB_QUEEN_T3_RED_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen_red.sc"
+IconExportName = "thumb_ruler_tomb_queen_red"
+AssetPath = "logic/autochess/rulers/tombqueen/skin_tombqueen_red"
+Tier = "T3"
+SpecificToRuler = "Ruler_TombQueen"
+SkipChargeVfx = true
+
+[Ruler_Skin_TombQueen_T3_Black]
+TID = "TID_RULER_SKIN_TOMB_QUEEN_T3_BLACK"
+DescriptionTID = "TID_RULER_SKIN_TOMB_QUEEN_T3_BLACK_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen_black.sc"
+IconExportName = "thumb_ruler_tomb_queen_black"
+AssetPath = "logic/autochess/rulers/tombqueen/skin_tombqueen_black" 
+Tier = "T3"
+SpecificToRuler = "Ruler_TombQueen"
+SkipChargeVfx = true
+
+[Ruler_Skin_TombQueen_T2_Pharaoh]
+TID = "TID_RULER_SKIN_TOMB_QUEEN_T2_PHARAOH"
+DescriptionTID = "TID_RULER_SKIN_TOMB_QUEEN_T2_PHARAOH_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen_pharaoh.sc"
+IconExportName = "thumb_ruler_tomb_queen_pharaoh"
+AssetPath = "logic/autochess/rulers/tombqueen/skin_tombqueen_pharaoh"
+Tier = "T2"
+SpecificToRuler = "Ruler_TombQueen"
+
+[Ruler_Skin_Ronin_Default]
+TID = "TID_RULER_SKIN_RONIN_DEFAULT"
+DescriptionTID = "TID_RULER_SKIN_RONIN_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_ronin.sc"
+IconExportName = "thumb_ruler_ronin"
+AssetPath = "logic/autochess/rulers/ronin/skin_ronin_default"
+Tier = "T4"
+SpecificToRuler = "Ruler_Ronin"
+SkipChargeVfx = true
+
+[Ruler_Skin_Ronin_T3_Blue]
+TID = "TID_RULER_SKIN_RONIN_T3_BLUE"
+DescriptionTID = "TID_RULER_SKIN_RONIN_T3_BLUE_DESC"
+IconSWF = "sc/ac_ruler_ronin_blue.sc"
+IconExportName = "thumb_ruler_ronin_blue"
+AssetPath = "logic/autochess/rulers/ronin/skin_ronin_blue"
+Tier = "T3"
+SpecificToRuler = "Ruler_Ronin"
+SkipChargeVfx = true
+
+[Ruler_Skin_Ronin_T3_Black]
+TID = "TID_RULER_SKIN_RONIN_T3_BLACK"
+DescriptionTID = "TID_RULER_SKIN_RONIN_T3_BLACK_DESC"
+IconSWF = "sc/ac_ruler_ronin_black.sc"
+IconExportName = "thumb_ruler_ronin_black"
+AssetPath = "logic/autochess/rulers/ronin/skin_ronin_black"
+Tier = "T3"
+SpecificToRuler = "Ruler_Ronin"
+SkipChargeVfx = true
+
+[Ruler_Skin_BattleMachine_T2_Arcade]
+TID = "TID_RULER_SKIN_BATTLE_MACHINE_T2_ARCADE"
+DescriptionTID = "TID_RULER_SKIN_BATTLE_MACHINE_T2_ARCADE_DESC"
+IconSWF = "sc/ac_ruler_battle_machine_arcade.sc"
+IconExportName = "thumb_ruler_battle_machine_arcade"
+AssetPath = "logic/autochess/rulers/battlemachine/skin_battlemachine_arcade"
+Tier = "T2"
+SpecificToRuler = "Ruler_BattleMachine"
+
+[Ruler_Skin_DaggerDuchess_T3_Blue]
+TID = "TID_RULER_SKIN_DAGGER_DUCHESS_T3_BLUE"
+DescriptionTID = "TID_RULER_SKIN_DAGGER_DUCHESS_T3_BLUE_DESC"
+IconSWF = "sc/ac_ruler_dagger_duchess_blue.sc"
+IconExportName = "thumb_ruler_dagger_duchess_blue"
+AssetPath = "logic/autochess/rulers/daggerduchess/skin_daggerduchess_blue"
+Tier = "T3"
+SpecificToRuler = "Ruler_DaggerDuchess"
+SkipChargeVfx = true
+
+[Ruler_Skin_BattleMachine_T3_Red]
+TID = "TID_RULER_SKIN_BATTLE_MACHINE_T3_RED"
+DescriptionTID = "TID_RULER_SKIN_BATTLE_MACHINE_T3_RED_DESC"
+IconSWF = "sc/ac_ruler_battle_machine_red.sc"
+IconExportName = "thumb_ruler_battle_machine_red"
+AssetPath = "logic/autochess/rulers/battlemachine/skin_battlemachine_red"
+Tier = "T3"
+SpecificToRuler = "Ruler_BattleMachine"
+SkipChargeVfx = true

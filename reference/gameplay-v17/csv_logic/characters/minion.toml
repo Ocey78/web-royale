@@ -1,0 +1,55 @@
+
+[CHARACTER.Minion]
+AttackStartEffect = "minion_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "minion1"
+CollisionRadius = 500
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "minion_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_minion.sc"
+FlyingHeight = 1500
+HealthBar = "Small"
+HitSpeed = 1200
+Hitpoints = 90
+LoadTime = 700
+Mass = 2
+MoveEffect = "minion_steps"
+Name = "Minion"
+PrestigeExportName2 = "minion_prestige"
+PrestigeExportName3 = "minion_prestige2"
+PrestigeSWF = "sc/chr_prestige5_dl.sc"
+Projectile = "MinionSpit"
+ProjectileEffect = "minion_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 2500
+Rarity = "Common"
+RedExportName = "minion1_enemy"
+Scale = 85
+ShadowScaleX = 85
+ShadowScaleY = -60
+ShadowY = 20
+SightRange = 5500
+SpawnEffect = "minion_deploy"
+SpawnEffectOnce = true
+Speed = 90
+TID = "TID_CHARACTER_MINION"
+UseAnimator = true
+
+[PROJECTILE.MinionSpit]
+Damage = 42
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+HitEffect = "ArrowHit"
+Homing = true
+Name = "MinionSpit"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1000
+
+

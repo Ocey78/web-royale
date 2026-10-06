@@ -1,0 +1,181 @@
+[BUILDING.Event_Blackout_Spawner]
+    Rarity = "Common"
+    IsBuilding = true
+    Hitpoints = 999999
+    HealthBarOffsetY = -1000
+    NeutralObject = true
+    OnStartingAction = "Blackout_Main"
+[ACTION.Blackout_Main]
+    ClassType = "ActionInterval"
+    Interval = 60000
+    StartCounterAt = 5000
+    ActionToExecute = "Blackout_Select"
+[ACTION.Blackout_Select]
+    ClassType = "ActionSelect"
+    SubActions = [
+        "Blackout_Set1",
+        "Blackout_Set2",
+        "Blackout_Set3",
+        "Blackout_Set4",
+        "Blackout_Set5"
+    ]
+    Condition = "rand(5)"
+[ACTION.Blackout_Starter_Group]
+    ClassType = "ActionGroup"
+    SubActions = [
+        "Lightning_Vfx",
+        "Blackout_Blink"
+    ]
+    SubActionsDelay = [0,1500]
+[ACTION.Lightning_Vfx]
+    ClassType="ActionPlayEffect"
+    Effect = "event_lightning_effect"
+[ACTION.Blackout_Blink]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_blink_effect"
+[ACTION.Blackout_Blink_On]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_blink_effect_on"
+[ACTION.Single_Lightning]
+    ClassType="ActionPlayEffect"
+    Effect = "event_single_lightning_effect"
+[ACTION.Blackout_15s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 15000
+[ACTION.Blackout_12s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 12000
+[ACTION.Blackout_10s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 10000
+[ACTION.Blackout_9s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 9000
+[ACTION.Blackout_8s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 8000
+[ACTION.Blackout_7s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 7000
+[ACTION.Blackout_6s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 6000
+[ACTION.Blackout_5s]
+    ClassType="ActionPlayEffect"
+    Effect = "event_blackout_effect"
+    OverrideDuration = 5000
+[ACTION.Blackout_Set1]
+    ClassType = "ActionGroup"
+    SubActions = [
+        "Blackout_Starter_Group",
+        "Blackout_8s",
+        "Single_Lightning",
+        "Blackout_5s",
+        "Single_Lightning",
+        "Blackout_10s",
+        "Single_Lightning",
+        "Blackout_7s",
+        "Blackout_Blink_On"
+    ]
+    SubActionsDelay = [
+        0,
+        3000,
+        11500,
+        12000,
+        17500,
+        18000,
+        28500,
+        29000,
+        36000
+    ]
+[ACTION.Blackout_Set2]
+    ClassType = "ActionGroup"
+    SubActions = [
+        "Blackout_Starter_Group",
+        "Blackout_10s",
+        "Single_Lightning",
+        "Blackout_5s",
+        "Single_Lightning",
+        "Blackout_9s",
+        "Single_Lightning",
+        "Blackout_6s",
+        "Blackout_Blink_On"
+    ]
+    SubActionsDelay = [
+        0,
+        3000,
+        13500,
+        14000,
+        19500,
+        20000,
+        29500,
+        30000,
+        36000
+    ]
+[ACTION.Blackout_Set3]
+    ClassType = "ActionGroup"
+    SubActions = [
+        "Blackout_Starter_Group",
+        "Blackout_12s",
+        "Single_Lightning",
+        "Blackout_8s",
+        "Single_Lightning",
+        "Blackout_10s",
+        "Blackout_Blink_On"
+    ]
+    SubActionsDelay = [
+        0,
+        3000,
+        15500,
+        16000,
+        24500,
+        25000,
+        35000
+    ]
+[ACTION.Blackout_Set4]
+    ClassType = "ActionGroup"
+    SubActions = [
+        "Blackout_Starter_Group",
+        "Blackout_6s",
+        "Single_Lightning",
+        "Blackout_15s",
+        "Single_Lightning",
+        "Blackout_9s",
+        "Blackout_Blink_On"
+    ]
+    SubActionsDelay = [
+        0,
+        3000,
+        9500,
+        10000,
+        25500,
+        26000,
+        35000
+    ]
+[ACTION.Blackout_Set5]
+    ClassType = "ActionGroup"
+    SubActions = [
+        "Blackout_Starter_Group",
+        "Blackout_10s",
+        "Single_Lightning",
+        "Blackout_8s",
+        "Single_Lightning",
+        "Blackout_12s",
+        "Blackout_Blink_On"
+    ]
+    SubActionsDelay = [
+        0,
+        3000,
+        13500,
+        14000,
+        22500,
+        23000,
+        35000
+    ]

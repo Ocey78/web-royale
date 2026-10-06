@@ -1,0 +1,69 @@
+
+[EXT.Tesla_EV1]
+AppearEffect = "evo_tesla_up"
+AttackStartEffect = "Tesla_beam"
+Base = "BUILDING.Tesla"
+BlueExportName = "tesla_evolution"
+CustomSpawnFilter = "filter_card_evolution"
+DamageEffect = "vfx_tesla_evo_hit"
+DeathEffect = "Death_card_evolution_M"
+FileName = "sc/building_tesla_evolution.sc"
+HealthBar = "_EV1"
+HealthBarOffsetY = -15
+HideEffect = "evo_tesla_down"
+OnAppearAction = "Tesla_EV1_AppearStun"
+OnDisappearAction = "Tesla_EV1_Charging"
+OnStartingAction = "Tesla_EV1_AppearStun"
+PrestigeExportName2 = ""
+PrestigeRedExportName2 = ""
+RedExportName = "tesla_enemy_evolution"
+SpawnEffect = "Deploy_Tesla_Evolution"
+TargetedHitEffect = "vfx_tesla_evo_beam"
+
+    [ACTION.Tesla_EV1_AppearStun]
+    ClassType = "ActionSpawn"
+    ParentGOAsSource = true
+    SpawnData = "Tesla_EV1_AppearStun"
+    SpawnType = "AreaEffectType"
+
+        [ACTION.Tesla_EV1_AppearStun.NextAction]
+        ClassType = "ActionPlayEffect"
+        Effect = "Evo_Tesla_Appear_Pulse"
+
+
+        [AEO.Tesla_EV1_AppearStun]
+        HitSpeed = 50
+        LifeDuration = 1500
+        MaxRadius = 6000
+        OnHitAction = "Tesla_EV1_SpawnBuff"
+        OneHitPerTarget = true
+        Filter = "CommonAreaDamageFilter"
+        Radius = 1
+        Rarity = "Common"
+
+            [ACTION.Tesla_EV1_SpawnBuff]
+            AbortIfInstigatorDies = false
+            ClassType = "ActionSpawn"
+            SpawnData = "Tesla_EV1_WithDamage"
+            SpawnTime = 500
+            SpawnType = "BuffType"
+
+                [BUFF.Tesla_EV1_WithDamage]
+                CrownTowerDamagePerHit = 21
+                DamagePerSecond = 58
+                FilterExportName = "filter_cold"
+                FilterFile = "sc/effects.sc"
+                HitFrequency = -1
+                HitSpeedMultiplier = -100
+                Rarity = "Common"
+                SpawnSpeedMultiplier = -100
+                SpeedMultiplier = -100
+                TID = "TID_TESLABUFF_PULSE"
+
+    [ACTION.Tesla_EV1_Charging]
+    ClassType = "ActionPlayEffect"
+    Effect = "Evo_Tesla_Idle_Particle"
+    EffectFlags = "Looping"
+    ForceStopIfTrue = "should_hide() == false"
+
+

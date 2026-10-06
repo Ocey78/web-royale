@@ -1,0 +1,41 @@
+[CHARACTER.Pekka]
+AttackStartEffect = "pekka_attack_start"
+AttacksGround = true
+BlueExportName = "pekka"
+CollisionRadius = 750
+CrowdEffects = true
+Damage = 329
+DamageEffect = "pekka_hit"
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "pekka_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_pekka.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -14
+HitSpeed = 1800
+Hitpoints = 1469
+IgnorePushback = true
+LoadTime = 1300
+Mass = 18
+MoveEffect = "pekka_steps"
+Name = "Pekka"
+PrestigeExportName2 = "pekka_prestige"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "pekka_enemy"
+Scale = 106
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5000
+SpawnEffect = "pekka_deploy"
+Speed = 45
+TID = "TID_SPELL_PEKKA"
+UseAnimator = true
+WalkingSpeedTweakPercentage = 20
+
+

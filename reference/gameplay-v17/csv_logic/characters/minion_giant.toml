@@ -1,0 +1,139 @@
+[CHARACTER.MinionGiant]
+Rarity = "Common"
+Hitpoints = 710
+HitSpeed = 1500
+LoadTime = 700
+Speed = 60
+Range = 4000
+SightRange = 6500
+AttacksGround = true
+AttacksAir = false
+TargetOnlyBuildings = true
+IgnorePushback = true
+Projectile = "MinionGiant_Projectile"
+DeployTime = 1000
+FlyingHeight = 3000
+CollisionRadius = 750
+Mass = 15
+HealthBar = "Medium"
+HealthBarOffsetYBlue = -20
+OnStartingAction = "MinonGiant_easter_egg_group"
+PrefabAsset = "sc3d/characters/miniongiant/chr_prefab_miniongiant_battle"
+Scale = 100
+DamageExportName = "filter_damage_wobble"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeathEffect = "vfx_miniongiant_die"
+MoveEffect = ""
+ProjectileStartRadius = 1700
+ProjectileStartZ = 3500
+ShadowScaleX = 85
+ShadowScaleY = -60
+ShadowY = 20
+SpawnEffect = "vfx_miniongiant_deploy"
+UseAnimator = true
+TID = "TID_CHARACTER_MINION_GIANT"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Damage = "damage"
+StatsTags.HitSpeed = "hit_speed"
+StatsTags.Targets = "targets"
+StatsTags.Speed = "speed"
+StatsTags.Range = "range"
+[ACTION.MinonGiant_easter_egg_group]
+ClassType = "ActionGroup"
+SubActions = ["MinionGiant_check_easter_egg"]
+ContextMode = "Create"
+	
+	[ACTION.MinionGiant_check_easter_egg]
+	ClassType = "ActionInterval"
+	Interval = 500
+	ForceStopIfTrue = "as_int(#AlreadyFarted, 0) > 0"
+	ActionToExecute = "MinionGiant_run_on_resolved"
+		[ACTION.MinionGiant_run_on_resolved]
+		ClassType = "ActionRunActionOnResolvedGameObjects"
+		Resolver = "MinionGiant_easter_egg_resolver"
+		Amount = 1
+		Action = "MinionGiant_easter_egg_on_resolved"
+		RunActionsOnSelf = true
+		
+			[ACTION.MinionGiant_easter_egg_on_resolved]
+			ClassType = "ActionGroup"
+			SubActions = ["MinionGiant_easter_Egg_effect", "MinionGiant_inform_context_farted"]
+			ContextMode = "Inherit"
+		
+				[ACTION.MinionGiant_easter_Egg_effect]
+				ClassType = "ActionPlayEffect"
+				Effect = "vfx_miniongiant_fart"
+				[ACTION.MinionGiant_inform_context_farted]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "AlreadyFarted"
+				Value = "1"
+				NextAction = "MinionGiant_delay_before_next_fart"
+				
+					[ACTION.MinionGiant_delay_before_next_fart]
+					ClassType = "ActionInterval"
+					Interval = 5000
+					StartCounterAt = 5000
+					ActionToExecute = "MinonGiant_easter_egg_group"
+					MaxRepetitions = 1
+	[TARGET_RESOLVER.MinionGiant_easter_egg_resolver]
+	Shape = "MinionGiant_easter_egg_shape"
+	Filter = "MinionGiant_filter"
+	StrategyList = ["RESOLVER_STRATEGY_CLOSEST_TARGET"]
+	[SHAPE.MinionGiant_easter_egg_shape]
+	ClassType = "Cone"
+	Radius = 2500
+	Angle = 83
+	AngleOffset = 180
+	UseGameObjectDirection = true
+	[FILTER.MinionGiant_filter]
+	MatchTeamOwn = true
+	MatchTypeCharacters = true
+	Filters = ["Hidden","Invisible","Underground","Buildings"]
+	IncludeCharactersWithData = ["Minion"]
+[EXT.MinionGiant_Projectile]
+Base = "PROJECTILE.MergeMaidenProjectile_Mounted"
+FileName = "sc/chr_miniongiant.sc"
+ExportName = "vmc_miniongiant_projectile"
+HitEffect = "vfx_miniongiant_hit"
+TrailEffect = "vfx_miniongiant_projectile_trail"
+Damage = 66
+Speed = 600
+AoeToAir = false
+StatsTags.Damage = "damage"
+[STATS.minion_giant]
+	[[STATS.minion_giant.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.minion_giant.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.minion_giant.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.minion_giant.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.minion_giant.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.minion_giant.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.minion_giant.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

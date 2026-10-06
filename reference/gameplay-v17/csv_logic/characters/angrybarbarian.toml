@@ -1,0 +1,41 @@
+
+[CHARACTER.AngryBarbarian]
+AttackStartEffect = "angry_barbarian_attack_start"
+AttacksGround = true
+BlueExportName = "angry_barbarian"
+CollisionRadius = 500
+Damage = 150
+DamageEffect = "barbarian_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "barbarian_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_barbarian.sc"
+HealthBar = "Medium"
+HitSpeed = 1400
+Hitpoints = 524
+LoadTime = 900
+Mass = 4
+MoveEffect = "angry_barbarian_steps"
+Name = "AngryBarbarian"
+PrestigeExportName2 = "angry_barbarian_prestige"
+PrestigeSWF = "sc/chr_prestige6_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "angry_barbarian_red"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 6000
+SpawnEffect = "angry_barbarian_deploy"
+Speed = 90
+TID = "TID_CHARACTER_ANGRY_BARBARIAN"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -20
+
+

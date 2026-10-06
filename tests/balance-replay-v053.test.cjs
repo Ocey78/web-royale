@@ -1,0 +1,2 @@
+const test=require('node:test'),a=require('node:assert/strict'),C=require('../src/core'),R=require('../src/replay');
+test('replays reject a different manual balance overlay even when native source hashes match',()=>{const b=new C.Battle({ai:false,seed:530041});R.captureInitial(b);const record=R.pack(b),before=C.DATA.balanceOverlay;C.DATA.balanceOverlay={...before,changes:[...before.changes,{record:'ABILITY.Deflect',field:'TriggerDelay',appliedValue:933}]};try{a.throws(()=>R.validate(record),/source data differs/);}finally{C.DATA.balanceOverlay=before;}});

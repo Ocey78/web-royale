@@ -1,0 +1,44 @@
+
+[CHARACTER.Valkyrie]
+AreaDamageRadius = 2000
+AttackFinishTime = 100
+AttackStartEffect = "vfx_valkyrie_slash"
+AttacksGround = true
+BlueExportName = "valkyrie1"
+CollisionRadius = 500
+Damage = 104
+DamageEffect = "valkyrie_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "valkyrie_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_valkyrie.sc"
+HealthBar = "Medium"
+HitSpeed = 1500
+Hitpoints = 745
+LoadTime = 1400
+Mass = 5
+MoveEffect = "valkyrie_steps"
+Name = "Valkyrie"
+OverrideAttackFinishTime = true
+PrestigeExportName2 = "valkyrie1_prestige"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "valkyrie1_enemy"
+Scale = 140
+SelfAsAoeCenter = true
+ShadowScaleX = 85
+ShadowScaleY = 80
+ShadowSkew = 25
+SightRange = 5500
+SpawnEffect = "valkyrie_deploy"
+Speed = 60
+TID = "TID_CHARACTER_VALKYRIE"
+TryToFinishAttackAnimation = true
+TryToFinishAttackAnimationBeforeNextAttack=true
+UseAnimator = true
+
+

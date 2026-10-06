@@ -1,0 +1,38 @@
+[EXT.BattleRam_EV1]
+AttackPushBack = 2000
+Base = "CHARACTER.BattleRam"
+BlueExportName = "battle_ram_evolution"
+ChargeEffect = "vfx_battleram_evo_charge"
+ClonedVersion = "BattleRam"
+DamageEffectSpecial = "vfx_battleram_evo_hit"
+DeathEffect = "vfx_battleram_evo_explo"
+DeathSpawnCharacter = "Barbarian_EV1"
+FileName = "sc/chr_battle_ram_evolution.sc"
+HealthBar = "Medium_EV1"
+Kamikaze = false
+KeepChargingAfterAttack = true
+OnStartChargingAction = "BattleRam_EV1_PushBack"
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+RedExportName = "battle_ram_evolution_enemy"
+Scale = 50
+SpawnEffect = "vfx_battleram_evo_deploy"
+TargetedHitEffect = ""
+[ACTION.BattleRam_EV1_PushBack]
+ActionDelay = 825
+AffectInvisible = true
+ClassType = "ActionDamagingPushBack"
+ContinuosPushBack = true
+DistanceProportinalPush = false
+ForceStopIfTrue = "CHARGING() == false"
+FullPushBackCollisionCheck = true
+GameObjectFilter = "passive_hit_ground_characters_not_same"
+OnPushEffect = "vfx_battleram_evo_push_compile"
+OnPushEffectMinInterval = 1000
+PushBackDamage = 83
+PushBackRadius = 1000
+PushBackStrength = 2000
+PushFilter = "normal_pushback_ground_characters_not_same"
+PushRadiusDirectionalOffset = 800
+PushToSide = true

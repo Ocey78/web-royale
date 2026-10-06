@@ -1,0 +1,95 @@
+
+[CHARACTER.RascalBoy]
+AttackStartEffect = "rascal_boy_attack_start"
+AttacksGround = true
+BlueExportName = "rascal_boy"
+CollisionRadius = 750
+Damage = 85
+DamageEffect = "rascal_thug_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "rascal_thug_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_rascals_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HitSpeed = 1500
+Hitpoints = 716
+LoadTime = 1100
+Mass = 10
+MoveEffect = "rascal_thug_steps"
+Name = "RascalBoy"
+PrestigeExportName2 = "rascal_boy_prestige"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 800
+Rarity = "Common"
+RedExportName = "rascal_boy_red"
+Scale = 95
+ShadowScaleX = 100
+ShadowScaleY = 100
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "rascal_thug_deploy"
+Speed = 60
+TID = "TID_CHARACTER_HOODED_THUG"
+UseAnimator = true
+
+
+[CHARACTER.RascalGirl]
+AttackStartEffect = "ArcherAttackStart"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "rascal_girl"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "ArcherDie"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_rascals_dl.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 1000
+Hitpoints = 102
+LoadTime = 500
+Mass = 2
+MoveEffect = "FemRasSteps"
+Name = "RascalGirl"
+PrestigeExportName2 = "rascal_girl_prestige"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "RascalGirlProjectile"
+ProjectileEffect = "rascal_fem_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 5000
+Rarity = "Common"
+RedExportName = "rascal_girl_red"
+Scale = 95
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "Rascal_female_dep"
+Speed = 60
+TID = "TID_CHARACTER_HOODED_ARCHER"
+UseAnimator = true
+
+[PROJECTILE.RascalGirlProjectile]
+Damage = 49
+ExportName = "projectile_gum"
+FileName = "sc/effects.sc"
+Gravity = 120
+HitEffect = "BlowdartArrowHit"
+Homing = true
+Name = "RascalGirlProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+Scale = 75
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 800
+TrailEffect = "BlowdartProjectileEmitter"
+

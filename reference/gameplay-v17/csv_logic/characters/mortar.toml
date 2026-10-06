@@ -1,0 +1,49 @@
+
+[BUILDING.Mortar]
+AttacksGround = true
+BlueExportName = "building_mortar1"
+CollisionRadius = 600
+DeathEffect = "mortar_die"
+DeployTime = 3500
+FileName = "sc/building_mortar.sc"
+HitSpeed = 4700
+Hitpoints = 535
+IsBuilding = true
+LifeTime = 30000
+LoadTime = 3700
+MinimumRange = 3500
+Name = "Mortar"
+PrestigeExportName2 = "mortar_prestige_blue"
+PrestigeRedExportName2 = "mortar_prestige_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "MortarProjectile"
+ProjectileEffect = "mortar_attack"
+ProjectileStartRadius = 600
+ProjectileStartZ = 2500
+Range = 11500
+Rarity = "Common"
+RedExportName = "building_mortar1_enemy"
+Scale = 140
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 11500
+SpawnEffect = "mortar_deploy"
+TID = "TID_BUILDING_MORTAR"
+UseAnimator = true
+
+[PROJECTILE.MortarProjectile]
+AoeToGround = true
+Damage = 104
+ExportName = "catapult_projectile1"
+FileName = "sc/effects.sc"
+Gravity = 60
+HitEffect = "mortar_hit"
+Name = "MortarProjectile"
+OnlyEnemies = true
+Radius = 2000
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 300
+
+

@@ -1,0 +1,173 @@
+[EXT.KnightHero]
+    Base = "CHARACTER.Knight"
+    Rarity = "Common"
+ShieldHitpoints = 200
+	PrefabAsset = "sc3d/characters/hero/hero_knight/hero_prefab_knight_battle"
+    Scale = 100
+    SpawnEffect = "vfx_knight_hero_deploy"
+    DeathEffect="vfx_knight_hero_die"
+    ShieldLostEffect = "vfx_knight_hero_artifact_shield_break"
+    AttackStartEffect = "vfx_knight_hero_attack_start"
+    DamageEffect = "vfx_knight_hero_attack_hit"
+    AbilityPendingEffect = "Heal_aura"
+    CustomSpawnFilter = "filter_champion_golden_knight"
+    FileName = ""
+    BlueExportName = ""
+    RedExportName = ""
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+    OnStartingClientActions = ["Healthbar_Medium"]
+    HideHealthbar = true
+    NewHealthBarOffsetXBlue = 2
+    NewHealthBarOffsetXRed = 2
+    HealthBarOffsetYBlue = -38
+    HealthBarOffsetYRed = -38
+    OnStartingAction = "Knight_hero_SetShieldZero"
+    Ability = "Knight_hero_Ability"
+    
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+    StatsTags.ShieldHitpoints = "shield_hitpoints"
+[ACTION.Knight_hero_SetShieldZero]
+    ClassType = "ActionSetShield"
+    ShieldPercent = 0
+[ABILITY.Knight_hero_Ability]
+	TID = "TID_HERO_KNIGHT_ABILITY"
+    TID_INFO = "TID_HERO_KNIGHT_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_knight.sc"
+	IconExportName = "ability_icon_knight"
+    IsChampion = true
+	CastTime = 1200
+	TriggerDelay = 150
+	ManaCost = 2
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect = "vfx_hero_ability_active_m"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OnActivationAction = "Knight_hero_OnAbilityActivationGroup"
+    Stats = "knight_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+[ACTION.Knight_hero_OnAbilityActivationGroup]
+    ClassType = "ActionGroup"
+    SubActions = ["Knight_hero_SetMaxShield", "Knight_hero_ApplySelfBuff", "Knight_hero_CreateTauntAEO"]
+    SubActionsDelay = [0,0,0]
+[ACTION.Knight_hero_SetMaxShield]
+    ClassType = "ActionSetShield"
+    ShieldPercent = 100
+[ACTION.Knight_hero_ApplySelfBuff]
+    ClassType="ActionSpawn"
+    SpawnType="BuffType"
+    SpawnData="Knight_hero_AbilitySelfBuff"
+    SpawnTime=5000
+    [BUFF.Knight_hero_AbilitySelfBuff]
+        Rarity = "Common"
+        ContinuousEffect = "shield"
+        GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.Knight_hero_CreateTauntAEO]
+    ClassType="ActionSpawn"
+    SpawnType="AreaEffectType"
+    SpawnData="Knight_hero_TauntAEO"
+    [AEO.Knight_hero_TauntAEO]
+        Rarity = "Common"
+        LifeDuration = 1100
+        Radius = 6500
+        OneHitPerTarget = true
+        HitSpeed = 0
+        Filter = "CommonAreaDamageFilter"
+        FollowBehaviour = "FollowParent"
+        OnStartingAction = "Knight_hero_ShowEffectRadius"
+        OnHitAction = "Knight_hero_ApplyTauntEffectGroup"
+	    StatsTags.Radius = "taunt_radius"
+        [ACTION.Knight_hero_ShowEffectRadius]
+            ClassType = "ActionPlayEffect"
+            Effect = "vfx_knight_hero_taunt_ground"
+            OverrideScale = 225
+            OverrideDuration = 1000
+            EffectFlags = "FollowParent,LinkLifeToActionLife"
+        [ACTION.Knight_hero_ApplyTauntEffectGroup]
+            ClassType = "ActionGroup"
+SubActions = ["Knight_hero_ApplyTaunt"]
+            SubActionsDelay = [0]
+            ExecuteIfTrue = "!WARP"
+        [ACTION.Knight_hero_ApplyTaunt]
+            ClassType="ActionTaunt"
+            Singleton = true
+            ResetsOnDistance = false
+            AllowBuildingRetargeting = true
+            ValidDuration=4000
+            ValidTargetBuff="Knight_hero_IsTauntedBuff"
+            CrownTowerDuration=4000
+            CrownTowerBuff="Knight_hero_IsTauntedBuff"
+            ForceStopIfTrue = "has_data(GoblinDemolisher_kamikaze_form)"
+	        StatsTags.Duration = "duration"
+        [BUFF.Knight_hero_IsTauntedBuff]
+            Rarity = "Common"
+LockTarget=false
+            FilterFile="sc/chr_knight_hero.sc"
+            FilterExportName="vmc_knight_hero_buff_filter_rect"
+            ContinuousEffect="vfx_knight_hero_taunt_buff"
+[STATS.knight_hero]
+	[[STATS.knight_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.knight_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.knight_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.knight_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.knight_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.knight_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.knight_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.knight_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.knight_hero_ability.stats]]
+		Value = "shield_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SHIELD_HEALTH"
+		Icon = "icons_stats_shield_hp"
+	[[STATS.knight_hero_ability.stats]]
+		Value = "taunt_radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_HEROKNIGHT_TAUNT2"
+		Icon = "icons_stats_radius"
+	[[STATS.knight_hero_ability.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_TAUNT_DURATION"
+		Icon = "icons_stats_deploy_time"

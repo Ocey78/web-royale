@@ -1,0 +1,121 @@
+
+[CHARACTER.IceGolemite]
+	AttackStartEffect = "snowman_attack_start"
+	AttacksAir = true
+	AttacksGround = true
+	BlueExportName = "snowman_blue"
+	CollisionRadius = 700
+	Damage = 33
+	DamageEffect = "snowman_hit"
+	DamageExportName = "filter_damage"
+	OnDeathAction = "IceGolemiteDeathExplosion"
+	DeathAreaEffect = "FreezeIceGolemite"
+	DeathEffect = "snowman_die"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+	DeployTime = 1000
+	DontStopMoveAnim = true
+	FileName = "sc/chr_snowman.sc"
+	HealthBar = "Medium"
+	HitSpeed = 2500
+	Hitpoints = 480
+	LoadTime = 1500
+	Mass = 6
+	MoveEffect = "snowman_steps"
+	Name = "IceGolemite"
+	PrestigeSWF = "sc/chr_prestige_dl.sc"
+	ProjectileStartRadius = 350
+	ProjectileStartZ = 350
+	Range = 750
+	Rarity = "Common"
+	RedExportName = "snowman_red"
+	Scale = 100
+	ShadowScaleX = 50
+	ShadowScaleY = 50
+	ShadowSkew = 35
+	ShadowX = -5
+	ShadowY = 5
+	SightClip = 2000
+	SightClipSide = 2000
+	SightRange = 7000
+	SpawnEffect = "snowman_deploy"
+	SpawnRadius = 1000
+	Speed = 45
+	StopMovementAfterMS = 470
+	TID = "TID_CHARACTER_SMALL_GOLEM"
+	TargetOnlyBuildings = true
+	UseAnimator = true
+	WaitMS = 80
+
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+
+[AEO.FreezeIceGolemite]
+	Buff = "IceWizardSlowDown"
+	BuffTime = 2500
+	Filter = "aeo_enemy_affects_hidden"
+	LifeDuration = 1000
+	Name = "FreezeIceGolemite"
+	OneShotEffect = "IceGolem_slow_loop"
+	Radius = 2000
+	Rarity = "Common"
+	ScaledEffect = "IceGolem_slow_ground"
+
+[ACTION.IceGolemiteDeathExplosion]
+	ClassType = "ActionSpawn"
+	SpawnType = "AreaEffectType"
+	SpawnData = "IceGolemiteDeathArea"
+
+[AEO.IceGolemiteDeathArea]
+	Rarity = "Common"
+	Radius = 2000
+	Damage = { BaseDamage = 33 }
+	Filter = "CommonAreaDamageFilter" 
+	StatsTags.Damage = "death_damage"
+
+[STATS.icegolemite]
+	[[STATS.icegolemite.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.icegolemite.stats]]
+		Value = "death_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+		Icon = "icons_stats_dmg_death"
+	[[STATS.icegolemite.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.icegolemite.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.icegolemite.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.icegolemite.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.icegolemite.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.icegolemite.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+

@@ -1,0 +1,106 @@
+[SPELL_EVOLVED.Archer_EV1]
+	StatsTags.SummonNumber = "archer_count"
+[VARIABLE.Archer_EV1_power_shot_min_range]
+DefaultValue = 4500
+[EXT.Archer_EV1]
+AttackSequence = [0, 1]
+AttackSequenceMode = "None"
+AttackStartEffect2 = "Evo_archer_area_crit"
+Base = "CHARACTER.Archer"
+BlueExportName = "archer_evolution"
+ClonedVersion = "Archer"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_S"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+FileName = "sc/chr_archer_evolution.sc"
+HealthBar = "Small_EV1"
+OnStartingAttackAction = "Archer_EV1_AttackSelect"
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+Projectile = "Archer_EV1_Arrow"
+Projectile2 = "Archer_EV1_ArrowDoubleDamage"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 1500
+Range = ["%", 120]
+RedExportName = "archer_evolution_enemy"
+Scale = 37
+SightRange = ["%", 120]
+SpawnEffect = "vfx_archer_evo_deploy"
+SpecialAttackRangeForStats = 4500
+StatsTags.Damage = "archer_damage"
+StatsTags.Hitpoints = "archer_hitpoints"
+StatsTags.HitSpeed = "archer_hit_speed"
+StatsTags.Range = "archer_range"
+StatsTags.Speed = "archer_speed"
+StatsTags.Targets = "archer_targets"
+[EXT.Archer_EV1_Arrow]
+Base = "PROJECTILE.ArcherArrow"
+[EXT.Archer_EV1_ArrowDoubleDamage]
+Base = "PROJECTILE.ArcherArrow"
+Damage = ["%", 125]
+ExportName = "archer_evo_special"
+FileName = "sc/chr_archer_evolution.sc"
+RedExportName = "archer_evo_special"
+Scale = 30
+ShadowExportName = "archer_evo_special_shadow"
+TrailEffect = "archer_evo_arrow_fx"
+StatsTags.Damage = "archer_power_shot_damage"
+[ACTION.Archer_EV1_AttackSelect]
+ClassType = "ActionFilter"
+Condition = "!target_in_range(Archer_EV1_power_shot_min_range)"
+OnFalseAction = "Archer_EV1_Attack1"
+OnTrueAction = "Archer_EV1_Attack2"
+[ACTION.Archer_EV1_Attack2]
+AttackIndex = 1
+ClassType = "ActionSetAttackSequenceIndex"
+[ACTION.Archer_EV1_Attack1]
+AttackIndex = 0
+ClassType = "ActionSetAttackSequenceIndex"
+[STATS.archer_ev1]
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_COUNT"
+		Icon = "icons_stats_troop_count"
+	[[STATS.archer_ev1.stats]]
+		Value = "archer_power_shot_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_EVO_ARCHER_SPECIAL_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.archer_ev1.stats]]
+		VariableValue = "Archer_EV1_power_shot_min_range"
+		Value2 = "archer_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_EVO_ARCHER_SPECIAL_RANGE"
+		Icon = "icons_stats_range"

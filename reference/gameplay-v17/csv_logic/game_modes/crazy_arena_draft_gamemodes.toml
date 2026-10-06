@@ -1,0 +1,208 @@
+[GAMEMODE.Chaos_1v1_Draft]
+	[[GAMEMODE.Chaos_1v1_Draft.Components]]
+		Name="Chaos_1v1_Draft"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=true
+		RarityCeilingEnabled = true
+		RarityFloorEnabled = true
+		SkipSelectionEnabled = true
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_Draft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_Draft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_Draft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""
+
+[GAMEMODE.Chaos_1v1_TripleDraft]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Chaos_1v1_TripleDraft.Components]]
+		Name="Chaos_1v1_TripleDraft"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=false
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_TripleDraft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_TripleDraft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_TripleDraft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""
+
+[GAMEMODE.Chaos_1v1_MegaDraft]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Chaos_1v1_MegaDraft.Components]]
+		Name="Chaos_1v1_MegaDraft"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=false
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_MegaDraft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""
+
+[GAMEMODE.Chaos_1v1_MegaDraft_S1]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Chaos_1v1_MegaDraft_S1.Components]]
+		Name="Chaos_1v1_MegaDraft_S1"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=false
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S1.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S1.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S1.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""
+
+[GAMEMODE.Chaos_1v1_MegaDraft_S2]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Chaos_1v1_MegaDraft_S2.Components]]
+		Name="Chaos_1v1_MegaDraft_S2"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=false
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S2.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S2.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S2.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""
+
+[GAMEMODE.Chaos_1v1_MegaDraft_All]
+	[[GAMEMODE.Chaos_1v1_MegaDraft_All.Components]]
+		Name="Chaos_1v1_MegaDraft_All"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=false
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_MegaDraft_All.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_All.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_All.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""
+
+[GAMEMODE.Chaos_1v1_MegaDraft_S3]
+	[[GAMEMODE.Chaos_1v1_MegaDraft_S3.Components]]
+		Name="Chaos_1v1_MegaDraft_S3"
+		ClassType="Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		DraftIncludesFirstAugment=false
+		WaveSelectionTimeLimitS=7
+		SameVarietySelection=false
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner="KingTower_CrazyArena_Buff"
+		InitialBuffPrincessTowner="PrincessTower_CrazyArena_Buff"
+		DisableTowerDeathCompensation=true
+		PauseGameOnAugmentSelection=true
+		PauseAfterAugmentSelectionMS=1300
+		MinRequiredTicksToShowAugmentSelection=20
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S3.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Common"
+			CardOverlayEffect="card_item_augment_underlay_common"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S3.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Rare"
+			CardOverlayEffect="card_item_augment_underlay_rare"
+			CardUnderlayEffect=""
+		[[GAMEMODE.Chaos_1v1_MegaDraft_S3.Components.CardEffectsByRarity]]
+			Rarity="Rarity_Epic"
+			CardOverlayEffect="card_item_augment_underlay_epic"
+			CardUnderlayEffect=""

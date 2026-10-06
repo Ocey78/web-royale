@@ -1,0 +1,57 @@
+
+[CHARACTER.Witch]
+AttackStartEffect = "witch_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "witch1"
+CollisionRadius = 500
+DamageEffect = "witch_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "witch_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_witch.sc"
+HealthBar = "Medium"
+HitSpeed = 1100
+Hitpoints = 328
+LoadTime = 400
+Mass = 8
+MoveEffect = "witch_steps"
+Name = "Witch"
+PrestigeExportName2 = "witch1_prestige"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+Projectile = "WitchProjectile"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 5500
+Rarity = "Common"
+RedExportName = "witch1_enemy"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnCharacter = "Skeleton"
+SpawnCharacterEffect = "witch_skelly_spawn"
+SpawnEffect = "witch_deploy"
+SpawnNumber = 4
+SpawnPauseTime = 7000
+SpawnRadius = 2000
+SpawnStartTime = 1000
+Speed = 60
+TID = "TID_SPELL_WITCH"
+UseAnimator = true
+
+[PROJECTILE.WitchProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 53
+ExportName = "vmc_witch_v_projectile"
+FileName = "sc/vfx_autochess.sc"
+HitEffect = "witch_hit"
+Homing = true
+Name = "WitchProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+Speed = 600

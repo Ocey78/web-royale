@@ -1,0 +1,208 @@
+[EXT.IceGolemiteHero]
+	Base = "CHARACTER.IceGolemite"
+	Rarity = "Common"
+	Ability = "IceGolemiteHero_Ability"
+	PrefabAsset = "sc3d/characters/hero/hero_icegolem/hero_prefab_icegolem_battle"
+	Scale = 100
+	SpawnEffect = "vfx_icegolem_hero_deploy"
+	MoveEffect = "vfx_icegolem_hero_move"
+	AttackStartEffect = "vfx_icegolem_hero_attackstart"
+	AbilityPendingEffect = "Heal_aura"
+	CustomSpawnFilter = "filter_champion_golden_knight"
+	FileName = "sc/chr_ice_golem_hero.sc"
+	DeathAreaEffect = "IceGolemiteHero_Death_Aeo"
+	DeathEffect = ""
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed = 2
+	HealthBarOffsetYBlue = -10
+	HealthBarOffsetYRed= -10
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[EXT.IceGolemiteHero_Death_Aeo]
+	Base = "AEO.FreezeIceGolemite"
+	OneShotEffect = "vfx_icegolem_hero_die"
+[ABILITY.IceGolemiteHero_Ability]
+	TID = "TID_HERO_ICEGOLEMITE_ABILITY"
+	TID_INFO = "TID_HERO_ICEGOLEMITE_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_ice_golem.sc"
+	IconExportName = "ability_icon_ice_golem"
+	IsChampion = true
+	CastTime = 0
+	TriggerDelay = 0
+	RefundWindow = 50
+	ManaCost = 2
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect = "vfx_icegolem_hero_ability_active"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OnActivationAction = "IceGolemiteHero_OnAbilityActivationGroup"
+	Stats = "icegolem_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+[ACTION.IceGolemiteHero_OnAbilityActivationGroup]
+	ClassType = "ActionGroup"
+	SubActions = ["IceGolemiteHero_Spawn_Damage_AEO", "IceGolemiteHero_Spawn_Slow_AEO"]
+	SubActionsDelay = [0, 0]
+[ACTION.IceGolemiteHero_Spawn_Damage_AEO]
+	ClassType = "ActionSpawn"
+	SpawnType = "AreaEffectType"
+	SpawnData = "IceGolemiteHero_Damage_AEO"
+	ParentGOAsSource = true
+[AEO.IceGolemiteHero_Damage_AEO]
+	Rarity = "Common"
+	LifeDuration = 3000
+	HitSpeed = 1500
+	Radius = 4000
+		
+	ParentLoopingEffectToSelf = true
+	FollowBehaviour = "FollowParent"
+	Shape = "IceGolemiteHero_AEO_Shape"
+	Damage = "IceGolemiteHero_AEO_Damage"
+	Filter = "CommonAreaDamageFilter"
+	StayAfterParentDies = true
+	OnStartingAction = "IceGolemiteHero_VFX_Interval"
+	StatsTags.Damage="damageperhit"
+	StatsTags.LifeDuration = "slow_duration"
+[SHAPE.IceGolemiteHero_AEO_Shape]
+	ClassType = "Circle"
+	Radius = 4000
+	StatsTags.Radius = "storm_radius"
+[DAMAGE_TYPE.IceGolemiteHero_AEO_Damage]
+    BaseDamage = 27 
+    TowerDamage = 2
+[ACTION.IceGolemiteHero_VFX_Interval]
+	ClassType = "ActionInterval"
+	Interval = 4000
+	StartCounterAt = 0
+	ActionToExecute = "IceGolemiteHero_AEO_HitEffect"
+	AbortIfInstigatorDies = true
+	[ACTION.IceGolemiteHero_AEO_HitEffect]
+    	ClassType="ActionPlayEffect"
+    	Effect="vfx_icegolem_hero_freeze_blizzard"
+[ACTION.IceGolemiteHero_Spawn_Slow_AEO]
+	ClassType = "ActionSpawn"
+	SpawnType = "AreaEffectType"
+	SpawnData = "IceGolemiteHero_Slow_AEO"
+	ParentGOAsSource = true
+	[AEO.IceGolemiteHero_Slow_AEO]
+		Rarity = "Common"
+		LifeDuration = 3000
+		HitSpeed = 50
+				
+		OnHitAction = "IceGolemiteHero_Select_Slow_Buff"
+		ParentLoopingEffectToSelf = true
+		FollowBehaviour = "FollowParent"
+		Shape = "IceGolemiteHero_AEO_Shape"
+		Filter = "CommonAreaDamageFilter"
+		StayAfterParentDies = true
+		[ACTION.IceGolemiteHero_Select_Slow_Buff]
+			ClassType = "ActionSelect"
+			SubActions = [
+				{ClassType = "ActionSpawn", SpawnType = "BuffType", SpawnTime = 2000, SpawnData = "IceGolemiteHero_Slow_Buff_Tower"},
+				{ClassType = "ActionSpawn", SpawnType = "BuffType", SpawnTime = 2000, SpawnData = "IceGolemiteHero_Slow_Buff_Small", StatsTags.SpawnTime = "slow_buff_duration"},
+				{ClassType = "ActionSpawn", SpawnType = "BuffType", SpawnTime = 2000, SpawnData = "IceGolemiteHero_Slow_Buff_Medium"},
+				{ClassType = "ActionSpawn", SpawnType = "BuffType", SpawnTime = 2000, SpawnData = "IceGolemiteHero_Slow_Buff_Large"}
+			]
+			PerActionConditions = [
+				"has_data(KingTower) || has_data(-1749071821) || has_data(-1103717791) || has_data(PrincessTower) || has_data(Cannoneer)",
+				"get_radius() <= 500",
+				"get_radius() < 750"
+			]
+		[BUFF.IceGolemiteHero_Slow_Buff_Base]
+			Rarity = "Common"
+			DamagePerSecond = 0
+			CrownTowerDamagePerHit = 0
+			HitFrequency = 0
+			SpeedMultiplier = -30
+			HitSpeedMultiplier = -30
+			SpawnSpeedMultiplier = -30
+			FilterFile = "sc/effects.sc"
+			FilterExportName = "filter_cold"
+			LoopContinuousEffect = true
+		[EXT.IceGolemiteHero_Slow_Buff_Small]
+			Base = "BUFF.IceGolemiteHero_Slow_Buff_Base"
+			ContinuousEffect = "vfx_icegolem_hero_slow_buff_s"
+		[EXT.IceGolemiteHero_Slow_Buff_Medium]
+			Base = "BUFF.IceGolemiteHero_Slow_Buff_Base"
+			ContinuousEffect = "vfx_icegolem_hero_slow_buff_m"
+		[EXT.IceGolemiteHero_Slow_Buff_Large]
+			Base = "BUFF.IceGolemiteHero_Slow_Buff_Base"
+			ContinuousEffect = "vfx_icegolem_hero_slow_buff_l"
+		[EXT.IceGolemiteHero_Slow_Buff_Tower]
+			Base = "BUFF.IceGolemiteHero_Slow_Buff_Base"
+			ContinuousEffect = "vfx_icegolem_hero_slow_buff_tower"
+[STATS.icegolemite_hero]
+	[[STATS.icegolemite_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "death_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+		Icon = "icons_stats_dmg_death"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.icegolemite_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.icegolem_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+    [[STATS.icegolem_hero_ability.stats]]
+        Value = "storm_radius"
+        Unit = "TILES"
+        TID = "TID_SPELL_ATTRIBUTE_HEROIG_BLIZZARD_RADIUS"
+        Icon = "icons_stats_radius"
+    [[STATS.icegolem_hero_ability.stats]]
+        Value = "damageperhit"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEROIG_DAMAGE2"
+        Icon = "icons_stats_dmg"
+	[[STATS.icegolem_hero_ability.stats]]
+        OverrideIntValue = 3
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEROIG_WAVES"
+        Icon = "icons_stats_dmg_area"
+    [[STATS.icegolem_hero_ability.stats]]
+		Value = "slow_buff_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HEROIG_SLOW"
+		Icon = "icons_stats_boost_freeze"

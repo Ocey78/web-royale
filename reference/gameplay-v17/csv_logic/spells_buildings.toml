@@ -1,0 +1,25 @@
+
+[GoblinDrill]
+	EvoInfoSpeed = 275
+
+[GoblinCage]
+	AutoChessForm = "logic/autochess/draft_units/chess_goblin_cage"
+
+["Elixir Collector"]
+	OmitFromStartingHand = true
+
+[GoblinHut]
+	Stats = "goblin_hut_rework"
+
+[FirespiritHut]
+	CardPropertyTags = "Ranged,Spawner,HighDamage"
+	Stats = "furnace_rework"
+
+[BombTower]
+    Stats = "BombTower"
+
+[Mortar]
+
+[Tesla]
+
+[Xbow]

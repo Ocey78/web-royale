@@ -1,0 +1,101 @@
+
+[PROJECTILE.GoblinMorphProjectile]
+DeflectBehaviour = "UseSpellsTowerDamageMul"
+DeflectRadius = 1000
+ExportName = "projectile_rocket_prestige3_blue"
+FileName = "sc/spell_prestige_dl.sc"
+Gravity = 50
+HitEffect = "Party_rocket_explosion"
+Name = "GoblinMorphProjectile"
+Rarity = "Legendary"
+RedExportName = "projectile_rocket_prestige3_red"
+SpawnAreaEffectObject = "GoblinMorphAOEFriend"
+Speed = 350
+TrailEffect = "Rocket_Emitter"
+use360Frames = true
+
+[AEO.GoblinMorphAOEFriend]
+Buff = "GoblinCurseFriend"
+BuffTime = 2000
+Filter = "aeo_own_no_buildings_affects_hidden"
+LifeDuration = 1000
+Name = "GoblinMorphAOEFriend"
+Radius = 4000
+Rarity = "Legendary"
+SpawnAreaEffectObject = "GoblinMorphAOEFoe"
+
+[BUFF.GoblinCurseFriend]
+DeathSpawn = "GoblinParty"
+DeathSpawnCount = 1
+EnableStacking = true
+IgnoreBuildings = true
+Name = "GoblinCurseFriend"
+Rarity = "Legendary"
+
+[CHARACTER.GoblinParty]
+AttackStartEffect = "goblins_attack_start"
+AttacksGround = true
+BlueExportName = "goblin1"
+CollisionRadius = 500
+Damage = 99
+DamageEffect = "goblins_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "goblins_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_goblin.sc"
+HealthBar = "Small"
+HitSpeed = 1100
+Hitpoints = 167
+LoadTime = 700
+Mass = 2
+MoveEffect = "goblins_steps"
+Name = "GoblinParty"
+PrestigeExportName2 = "goblin_prestige"
+PrestigeExportName3 = "goblin_prestige2"
+PrestigeSWF = "sc/chr_prestige4_dl.sc"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 500
+Rarity = "Legendary"
+RedExportName = "goblin1_enemy"
+Scale = 100
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightRange = 5500
+SpawnEffect = "mow_hog_deploy"
+Speed = 120
+TID = "TID_CHARACTER_GOBLIN"
+UseAnimator = true
+
+
+[AEO.GoblinMorphAOEFoe]
+Buff = "GoblinCurseFoe"
+BuffTime = 2000
+Filter = "aeo_enemy_no_buildings_affects_hidden"
+LifeDuration = 1000
+Name = "GoblinMorphAOEFoe"
+Radius = 4000
+Rarity = "Legendary"
+SpawnAreaEffectObject = "GoblinMorphAOEDamage"
+
+[BUFF.GoblinCurseFoe]
+DeathSpawn = "GoblinParty"
+DeathSpawnCount = 1
+DeathSpawnIsEnemy = true
+EnableStacking = true
+IgnoreBuildings = true
+Name = "GoblinCurseFoe"
+Rarity = "Legendary"
+
+[AEO.GoblinMorphAOEDamage]
+Filter = "aeo_all_affects_hidden"
+LifeDuration = 1
+Name = "GoblinMorphAOEDamage"
+Radius = 4000
+Rarity = "Legendary"
+Damage = { BaseDamage = 9999, TowerDamage = 0 }

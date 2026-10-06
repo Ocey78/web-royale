@@ -1,0 +1,29 @@
+[EXT.Zap_EV1]
+Base = "AEO.Zap"
+LifeDuration = 5000
+HitSpeed = 0
+OnStartingAction = "Zap_EV1_AfterStun_V2"
+OneShotEffect = "Spell_zap_evo_effect"
+[ACTION.Zap_EV1_AfterStun_V2]
+ClassType = "ActionGroup"
+SubActions = ["DummyZap_EV1_Visual", "Zap_EV1_SpawnAOE_medium"]
+SubActionsDelay = [50, 1450]
+    [ACTION.DummyZap_EV1_Visual]
+    ClassType = "ActionSpawn"
+    SpawnData = "DummyZap_EV1_Visual"
+    SpawnType = "AreaEffectType"
+        [AEO.DummyZap_EV1_Visual]
+        HitSpeed = 0
+        LifeDuration = 1500
+        OneShotEffect = "Spell_zap_evo_effect"
+        Rarity = "Common"
+        ScaledEffect = "Zap_Evolution_Area_Storm_01"
+    [ACTION.Zap_EV1_SpawnAOE_medium]
+    ClassType = "ActionSpawn"
+    SpawnData = "Zap_EV1_SpawnAOE_medium"
+    SpawnType = "AreaEffectType"
+        [EXT.Zap_EV1_SpawnAOE_medium]
+        Base = "AEO.Zap"
+        Radius = ["+",500]
+        LifeDuration = 400
+        OneShotEffect = "Spell_zap_evo_effect"

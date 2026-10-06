@@ -1,0 +1,69 @@
+
+[BUILDING.GoblinPartyHut]
+AttachedCharacter = "BlowdartGoblin"
+AttachedCharacterHeight = 3200
+AttackStartEffect = "blowdart_goblin_atk_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "building_goblinHut_player"
+CollisionRadius = 1000
+ContinuousEffect = "goblin_party_hut_cont"
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "goblin_party_hut_die"
+DeathSpawnCharacter = "SpearGoblin"
+DeathSpawnCharacter2 = "GoblinBrawler"
+DeathSpawnCount = 3
+DeathSpawnCount2 = 1
+DeathSpawnProjectile = "GoblinProjectile"
+DeathSpawnRadius = 1500
+DeployTime = 1000
+FileName = "sc/building_goblin_hut.sc"
+HealthBarOffsetY = -15
+HitSpeed = 700
+Hitpoints = 461
+IsBuilding = true
+LifeTime = 30000
+LoadTime = 350
+Name = "GoblinPartyHut"
+PrestigeExportName2 = "building_goblinHut_prestige2_blue"
+PrestigeExportName3 = "building_goblinHut_prestige3_blue"
+PrestigeRedExportName2 = "building_goblinHut_prestige2_red"
+PrestigeRedExportName3 = "building_goblinHut_prestige3_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "BlowdartGoblinProjectileParty"
+ProjectileEffect = "blowdart_goblin_attack"
+ProjectileStartZ = 4500
+Range = 11000
+Rarity = "Common"
+RedExportName = "building_goblinHut_enemy"
+Scale = 100
+ShadowScaleX = 90
+ShadowScaleY = 60
+ShadowSkew = 5
+ShadowX = -8
+SightRange = 11000
+SpawnEffect = "goblin_party_hut_deploy"
+TID = "TID_BUILDING_GOBLIN_HUT"
+
+[PROJECTILE.BlowdartGoblinProjectileParty]
+Damage = 59
+ExportName = "projectile_arrow_basic"
+FileName = "sc/effects.sc"
+Gravity = 120
+HitEffect = "BlowdartArrowHit"
+Homing = true
+Name = "BlowdartGoblinProjectileParty"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 800
+TrailEffect = "BlowdartProjectileEmitter"
+
+
+[PROJECTILE.GoblinProjectile]
+Name = "GoblinProjectile"
+Rarity = "Common"
+SpawnCharacter = "Goblin_Stab"
+SpawnCharacterDeployTime = 100
+SpawnConstPriority = true
+Speed = 100

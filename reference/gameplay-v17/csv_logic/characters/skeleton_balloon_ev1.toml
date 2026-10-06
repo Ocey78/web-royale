@@ -1,0 +1,167 @@
+[EXT.SkeletonBalloon_EV1]
+	Base = "CHARACTER.SkeletonBalloon"
+	Hitpoints = 260
+	ClonedVersion = "SkeletonBalloon"
+	HideHealthbar = true
+	OnStartingAction = "skeleton_balloon_evo_starting_actions"
+	OnStartingClientActions = ["SkeletonBalloon_EV1_Healthbar_Bar_66_percent", "SkeletonBalloon_EV1_Healthbar_Badge", "SkeletonBalloon_EV1_Healthbar_Badge_LevelUp", "SkeletonBalloon_EV1_Healthbar_Bar"]
+	DeathSpawnCharacter = ""
+	OnDeathAction = "skeleton_balloon_evo_pop_balloon"
+	CustomDummyObjectLabelStart = "fly2_start"
+	CustomDummyObjectLabelEnd = "fly2_end"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Targets = "targets"
+	StatsTags.Speed = "speed"
+	FileName = "sc/chr_skeleton_balloon_evolution.sc"
+	BlueExportName = "evo_skeleton_balloon"
+ 	RedExportName = "evo_skeleton_balloon_red"
+	Scale = 100
+	SpawnEffect = "evo_skeleton_balloon_deploy"
+	MoveEffect = "evo_skeleton_balloon_steps"
+	DamageEffect = "evo_skeleton_balloon_hit"
+	DeathEffect = "evo_skeleton_balloon_die"
+	AttackStartEffect = "evo_skeleton_balloon_attack_start"
+KamikazeEffect = "evo_skeleton_balloon_kamikaze_explode"
+		DeployBaseAnimExportName="filter_deploy_unit_legendary"
+		CustomSpawnFilter="filter_card_evolution"
+[ACTION.skeleton_balloon_evo_starting_actions]
+ClassType = "ActionGroup"
+SubActions = ["SkeletonBalloon_trigger_at_health", "skeleton_balloon_evo_pop_balloon"]
+SubActionsDelay = [0, 0]
+	[ACTION.SkeletonBalloon_trigger_at_health]
+	ClassType = "ActionRunActionAtHealth"
+	HealthPercentages = [75]
+	Actions = ["skeleton_balloon_evo_pop_balloon"]
+	ForceStopIfTrue = "is_kamikazing"
+	StatsTags.LowestHPPercent = "deploy_container_at_health_percent"
+[ACTION.skeleton_balloon_evo_pop_balloon]
+	ClassType = "ActionSkeletonBarrelPopBalloon"
+	TransitionTime = 500
+	DropBalloonAtHpList = [75]
+	BalloonFlyStartFrameList = ["fly2_start", "fly1_start"]
+	BalloonFlyEndFrameList = ["fly2_end", "fly1_end"]
+	BalloonPopStartFrameList = ["balloon_pop2"]
+	BalloonPopEndFrameList = ["balloon_pop2_end"]
+	UseSpecialKamikaze = true
+	SpecialKamikazeStartFrameList = ["two_balloons_kamikaze", "fly1_start"]
+	SpecialKamikazeEndFrameList = ["two_balloons_kamikaze_end", "fly1_end"]
+	SpecialDeployStartFrameLabel = "deploy_start"
+	SpecialDeployEndFrameLabel = "deploy_end"
+OnPopBalloonEffectList = []
+	TotalBalloons = 2
+ContainerAeoList = ["SkeletonBalloonEvoDummyAeO_EXTRA", "SkeletonBalloonEvoDummyAeO_DEATH"]
+OverrideKamikazeDoubleContainer = ""
+OffsetXList = [-350, 350]
+OffsetYList = [450, 0]
+	Singleton = true
+[AEO.SkeletonBalloonEvoDummyAeO]
+Rarity = "Common"
+Radius = 2000
+LifeDuration = 600
+OnStartingAction = "skeleton_balloon_evo_pop_balloon_effect"
+Filter = "CommonAreaDamageFilter"
+Damage = { BaseDamage = 75 }
+HitSpeedOffset = 600
+Pushback = 1000
+HitEffect = "evo_skeleton_balloon_fall_hit_floor"
+[ACTION.skeleton_balloon_evo_pop_balloon_effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "evo_skeleton_balloon_pop"
+	OverrideDuration = 600
+	EffectFlags = "LinkLifeToActionLife"
+	NextAction = "skeleton_balloon_evo_drop_container_effect"
+[ACTION.skeleton_balloon_evo_drop_container_effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "evo_skeleton_balloon_fall"
+	OverrideDuration = 600
+	EffectFlags = "LinkLifeToActionLife"
+	ActionDelay = 0
+[EXT.SkeletonBalloonEvoDummyAeO_DEATH]
+Base = "AEO.SkeletonBalloonEvoDummyAeO"
+OnLifeTimeEndAction = "SkeletonBalloonDeathSpawn"
+StatsTags.Damage = "death_barrel_death_damage"
+StatsTags.Level = "death_barrel_level"
+[EXT.SkeletonBalloonEvoDummyAeO_EXTRA]
+Base = "AEO.SkeletonBalloonEvoDummyAeO"
+OnLifeTimeEndAction = "SkeletonBalloonDeathSpawn"
+StatsTags.Damage = "barrel_one_death_damage"
+StatsTags.Level = "barrel_one_level"
+	
+[CLIENT_ACTION.SkeletonBalloon_EV1_Healthbar_Bar_66_percent]
+	ClassType = "ClientActionAddHealthBarPart"
+	PartType = "Segmenter"
+	FileName = "sc/ui.sc"
+	BlueExportName = "hp_bar_divider_player"
+	RedExportName = "hp_bar_divider_player"
+	SegHpPercentage = 66
+[CLIENT_ACTION.SkeletonBalloon_EV1_Healthbar_Badge]
+	ClassType = "ClientActionAddHealthBarPart"
+	PartType = "Badge"
+	FileName = "sc/ui.sc"
+	BlueExportName = "healthbar_player_bg_evo"
+	RedExportName = "healthbar_enemy_bg_evo"
+	OffsetX = 0
+	OffsetY = 5
+[CLIENT_ACTION.SkeletonBalloon_EV1_Healthbar_Badge_LevelUp]
+	ClassType = "ClientActionAddHealthBarPart"
+	PartType = "Badge"
+	Conditions = ["LevelUp"]
+	FileName = "sc/ui.sc"
+	BlueExportName = "healthbar_chef_upgrade_player_evo"
+	RedExportName = "healthbar_chef_upgrade_enemy_evo"
+[CLIENT_ACTION.SkeletonBalloon_EV1_Healthbar_Bar]
+	ClassType = "ClientActionAddHealthBarPart"
+	PartType = "Bar"
+	FileName = "sc/ui.sc"
+	BlueExportName = "healthbar_player_bar_medium"
+	RedExportName = "healthbar_enemy_bar_medium"
+[STATS.SkeletonBalloon_EV1]
+    [[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "death_barrel_death_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+        Icon = "icons_stats_dmg_death"
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "skeleton_spawn_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop_count"
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETON"
+		InfoButtonStats="skeleton"
+		PopupExcludeStatList = ["skeleton_stat_count", "skeleton_stat_dps"]
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "x 2"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["Barrel"]
+		Icon = "icons_stats_barrel"
+	[[STATS.SkeletonBalloon_EV1.stats]]
+		Value = "deploy_container_at_health_percent"
+		Unit = "PERCENT_NOSIGN"
+		TID = "TID_START_SPAWNING_AT_HEALTH"
+		Icon = "icons_stats_hp_activation"

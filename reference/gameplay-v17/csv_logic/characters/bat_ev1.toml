@@ -1,0 +1,33 @@
+[EXT.Bat_EV1]
+AttackStartEffect = "Evo_Bats_Atk"
+Base = "CHARACTER.Bat"
+BlueExportName = "bats_evolution"
+BuffAfterHits = ["BatsEV1_Heal"]
+BuffAfterHitsCount = [1]
+BuffAfterHitsTime = [1000]
+ClonedVersion = "Bat"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_S"
+FileName = "sc/chr_bats_evolution.sc"
+HealthBar = "Small_EV1"
+Hitpoints = ["%", 150]
+MoveEffect = "Evo_Bats_Fly"
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+RedExportName = "bats_evolution"
+Scale = 50
+SpawnEffect = "vfx_bat_evo_deploy"
+[BUFF.BatsEV1_Heal]
+AllowedOverHealPerc = 200
+ContinuousEffect = "healer_heal_effect"
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 30
+HitFrequency = 500
+OnStartAction = "Bats_EV1_HelingVFX"
+Rarity = "Common"
+[ACTION.Bats_EV1_HelingVFX]
+ClassType = "ActionPlayEffect"
+Effect = "evolution_bats_heal"
+EffectFlags = "TargetEffect"

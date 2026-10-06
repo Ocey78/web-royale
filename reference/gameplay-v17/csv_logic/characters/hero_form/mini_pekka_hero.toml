@@ -1,0 +1,224 @@
+[VARIABLE.MiniPekkaHero_levelStack]
+[VARIABLE.MiniPekkaHero_ability_played]
+[VARIABLE.MiniPekka_hero_heal_percent]
+DefaultValue = 30
+[EXT.MiniPekkaHero]
+	Base = "CHARACTER.MiniPekka"
+	Ability = "MiniPekkHeroAbility"
+	OnStartingAction = "MiniPekkaHero_run_timer_continuous"
+OnStartingClientActions =  ["MiniPekka_hero_quest_bar_continuous","Healthbar_Medium"]
+	OnHitTargetAction = "MiniPekka_hero_on_hit_action"
+	PrefabAsset = "sc3d/characters/hero/hero_minipekka/hero_prefab_minipekka_battle"
+	Scale = 100
+	SpawnEffect = "vfx_minipekka_hero_deploy"
+	DeathEffect="vfx_minipekka_hero_die"
+	DamageEffect = "vfx_minipekka_hero_hit"
+	AbilityPendingEffect = "Heal_aura"
+	CustomSpawnFilter = "filter_champion_golden_knight"
+    FileName = ""
+    BlueExportName = ""
+    RedExportName = ""
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+	
+    HideHealthbar = true
+    NewHealthBarOffsetXBlue = 2
+    NewHealthBarOffsetXRed = 2
+    HealthBarOffsetYBlue = -10
+    HealthBarOffsetYRed= -5
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	[ACTION.MiniPekka_hero_on_hit_action]
+	ClassType = "ActionGroup"
+	SubActions = ["MiniPekka_hero_select_hit_effect", "MiniPekka_hero_attack_spawn_tag"]
+	SubActionsDelay = [0, 0]
+	[ACTION.MiniPekka_hero_attack_spawn_tag]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "MiniPekkaHero_buff_for_tag"
+	SpawnTime = 50
+		[BUFF.MiniPekkaHero_buff_for_tag]
+		Rarity = "Common"
+		GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+	[ACTION.MiniPekkaHero_run_timer_continuous]
+ClassType = "ActionMiniPekkaHeroQuest"
+Intervals = [22000]
+AmountToIncreaseOnUpgradeBarList = [8000]
+StartTimerDelay = 1000
+MaxResets = 3
+	OnIntervalReachedAction = "MiniPekka_hero_on_level_up_actions"
+	OnMaxResetsReachedAction = ""
+	BarIndicatorName = "MiniPekka_hero_time_bar"
+	ContainerName = "MiniPekka_hero_ability_bar"
+	ForceStopIfTrue = "ABILITY_CASTED || !is_active_or_secondary_champion || MiniPekkaHero_ability_played > 0"
+	UpgradeBarIfTrue = "UNIT_CUSTOM_TAG_1"
+	BarNamesList = ["bar1","bar2","bar3"]
+	AbilityButtonStartLabel = ["level_1", "start_level_2", "start_level_3", "start_level_5"]
+	AbilityButtonEndLabel = ["level_1", "level_2", "level_3", "level_5"]
+	AbilityButtonTextFieldValues = [1, 2, 3, 5]
+	StatsTags.MaxInterval = "cooking_time"
+		[ACTION.MiniPekka_hero_on_level_up_actions]
+		ClassType = "ActionGroup"
+		SubActions = ["MiniPekkaHero_increase_level"]
+		SubActionsDelay = [0]
+			[ACTION.MiniPekkaHero_increase_level]
+			ClassType = "ActionSetVariable"
+			Variable = "MiniPekkaHero_levelStack"
+			Value = "min(3, MiniPekkaHero_levelStack + 1)"
+			NextActionWait = true
+[ABILITY.MiniPekkHeroAbility]
+	TID = "TID_HERO_MINIPEKKA_ABILITY"
+    TID_INFO = "TID_HERO_MINIPEKKA_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_mini_pekka.sc"
+	IconExportName = "ability_icon_mini_pekka"
+	CastTime = 950
+	TriggerDelay = 200
+	ManaCost = 1
+	DeployedEffect = "vfx_hero_ability_active_m"
+	DeployedClip = "filter_invisible"
+	KeepCurrentTarget = true
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "pancake_button_icon_1"
+	MaxCharges = 1
+	OnActivationAction = "MiniPekka_hero_ability_activation"
+	OutOfChargesTID = "TID_ABILITY_NO_MORE_RESET"
+	KeepIconEvenWhenOutOfCharges = false
+	HideChargesTextField = true
+    Stats = "minipekka_hero_ability"
+		[ACTION.MiniPekka_hero_ability_activation]
+		ClassType = "ActionGroup"
+		SubActions = ["MiniPekka_hero_select_level", "MiniPekka_hero_heal", "MiniPekkaHero_set_ability_played", "MiniPekka_hero_filter_cast_animation"]
+		SubActionsDelay = [0, 0, 0, 0]
+			[ACTION.MiniPekka_hero_select_level]
+			ClassType = "ActionSelect"
+			PerActionConditions = [
+				"MiniPekkaHero_levelStack == 0",
+				"MiniPekkaHero_levelStack == 1",
+				"MiniPekkaHero_levelStack == 2",
+				"MiniPekkaHero_levelStack >= 3"
+			]
+			SubActions = [
+				{ ClassType = "ActionSetCharacterLevel", RelativeLevelAdjustmentExpression = "1", NextAction = "MiniPekka_hero_level_up_effect_1"},
+				{ ClassType = "ActionSetCharacterLevel", RelativeLevelAdjustmentExpression = "2", NextAction = "MiniPekka_hero_level_up_effect_2"},
+				{ ClassType = "ActionSetCharacterLevel", RelativeLevelAdjustmentExpression = "3", NextAction = "MiniPekka_hero_level_up_effect_2"},
+				{ ClassType = "ActionSetCharacterLevel", RelativeLevelAdjustmentExpression = "5", NextAction = "MiniPekka_hero_level_up_effect_3"}
+			]
+			[ACTION.MiniPekka_hero_heal]
+			ClassType = "ActionHeal"
+			Value = "(max_hp - hp) * MiniPekka_hero_heal_percent / 100"
+			[ACTION.MiniPekkaHero_set_ability_played]
+			ClassType = "ActionSetVariable"
+			Variable = "MiniPekkaHero_ability_played"
+			Value = "1"
+[ACTION.MiniPekka_hero_level_up_effect_1]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_minipekka_hero_levelup_lv1"
+[ACTION.MiniPekka_hero_level_up_effect_2]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_minipekka_hero_levelup_lv2"
+[ACTION.MiniPekka_hero_level_up_effect_3]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_minipekka_hero_levelup_lv3"
+[ACTION.MiniPekka_hero_select_hit_effect]
+ClassType = "ActionSelect"
+PerActionConditions = ["MiniPekkaHero_levelStack == 0", "MiniPekkaHero_levelStack == 1", "MiniPekkaHero_levelStack >= 2"]
+SubActions = ["MiniPekka_hero_run_hit_on_instigator_1", "MiniPekka_hero_run_hit_on_instigator_2", "MiniPekka_hero_run_hit_on_instigator_3"]
+ExecuteIfTrue = "MiniPekkaHero_ability_played > 0"
+[ACTION.MiniPekka_hero_run_hit_on_instigator_1]
+	ClassType = "ActionRunOnInstigator"
+	ActionToExecute = "MiniPekka_hero_hit_effect_1"
+		[ACTION.MiniPekka_hero_hit_effect_1]
+		ClassType = "ActionPlayEffect"
+Effect = "vfx_minipekka_hero_hit_lv1"
+[ACTION.MiniPekka_hero_run_hit_on_instigator_2]
+	ClassType = "ActionRunOnInstigator"
+	ActionToExecute = "MiniPekka_hero_hit_effect_2"
+		[ACTION.MiniPekka_hero_hit_effect_2]
+		ClassType = "ActionPlayEffect"
+Effect = "vfx_minipekka_hero_hit_lv2"
+[ACTION.MiniPekka_hero_run_hit_on_instigator_3]
+	ClassType = "ActionRunOnInstigator"
+	ActionToExecute = "MiniPekka_hero_hit_effect_3"
+		[ACTION.MiniPekka_hero_hit_effect_3]
+		ClassType = "ActionPlayEffect"
+Effect = "vfx_minipekka_hero_hit_lv3"
+[ACTION.MiniPekka_hero_filter_cast_animation]
+ClassType = "ActionFilter"
+Condition = "MiniPekkaHero_levelStack >= 3"
+OnTrueAction = "MiniPekka_hero_special_cast_animation"
+	[ACTION.MiniPekka_hero_special_cast_animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+PlaybackDuration = 950
+	[CLIENT_ACTION.MiniPekka_hero_quest_bar_continuous]
+	ClassType      = "ClientActionAddHealthBarPart"
+	PartType       = "SecondaryIndicator"
+	FileName       = "sc/ui.sc"
+	BlueExportName = "questbar_bar_large_full"
+	RedExportName  = "questbar_bar_large_full"
+	OffsetX        = 1
+	OffsetY	       = -23
+	SecondaryIndicatorName = "MiniPekka_hero_time_bar"
+	ContainerName = "MiniPekka_hero_ability_bar"
+[STATS.minipekka_hero]
+	[[STATS.minipekka_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.minipekka_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.minipekka_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.minipekka_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.minipekka_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.minipekka_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.minipekka_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.minipekka_hero_ability]
+		OverrideStringValue = "TID_STATS_ABILITIES_SINGLEUSE"
+		Unit = "TID"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.minipekka_hero_ability.stats]]
+		OverrideIntValue = 4000
+		Value2 = "cooking_time"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_COOKING_TIME"
+		Icon = "icons_stats_cooking_time"
+	[[STATS.minipekka_hero_ability.stats]]
+		OverrideStringValue = "TID_HERO_MINIPEKKA_LEVELRANGE"
+		Unit = "TID"
+		TID = "TID_SPELL_ATTRIBUTE_BONUS_LEVELS"
+		Icon = "icons_stats_level_bonus"
+	[[STATS.minipekka_hero_ability.stats]]
+		VariableValue = "MiniPekka_hero_heal_percent"
+		Unit = "PERCENT_NOSIGN"
+		TID = "TID_SPELL_ATTRIBUTE_MATH_HEAL"
+		Icon = "icons_stats_hp_activation"

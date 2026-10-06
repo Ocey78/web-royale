@@ -1,0 +1,43 @@
+
+[PROJECTILE.LogProjectile]
+AoeToGround = true
+DeflectBehaviour = "NoDeflect"
+ExportName = "log_projectile"
+FileName = "sc/effects.sc"
+Gravity = 30
+HitEffect = "log_hit"
+MinDistance = 3000
+Name = "LogProjectile"
+OnlyEnemies = true
+Radius = 1950
+RadiusY = 600
+Rarity = "Common"
+ShadowExportName = "log_projectile_shadow"
+SpawnChain = 1
+SpawnProjectile = "LogProjectileRolling"
+Speed = 360
+TrailEffect = "log_emitter"
+
+[PROJECTILE.LogProjectileRolling]
+AoeToGround = true
+CrownTowerDamagePercent = -87
+Damage = 105
+DeathEffect = "log_die"
+DeflectBehaviour = "InvertDirection,UseSpellsTowerDamageMul"
+ExportName = "log_roll_projectile"
+FileName = "sc/effects.sc"
+HitEffect = "log_hit"
+MinDistance = 2500
+Name = "LogProjectileRolling"
+OnlyEnemies = true
+ProjectileRadius = 1950
+ProjectileRadiusY = 600
+ProjectileRange = 10100
+Pushback = 700
+PushbackAll = true
+Rarity = "Common"
+RedExportName = "log_roll_projectile_red"
+ShadowExportName = "log_projectile_shadow"
+Speed = 200
+TrailEffect = "log_emitter"
+

@@ -1,0 +1,192 @@
+
+[BUILDING.DaggerDuchess]
+AnimationsKeepLastFrame = true
+AttachedCharacter = "TowerKnifeThrower"
+AttachedCharacterHeight = 2600
+AttackSequence = [0, 1, 2, 3]
+AttackSequenceMode = "None"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "StarTower_base_blue"
+BlueTopExportName = "StarTower_top_blue"
+CollisionRadius = 1000
+CrowdEffects = true
+DeathEffect = "TowerExplode"
+FileName = "sc/building_tower.sc"
+HealthBar = "Tower"
+HealthBarOffsetYBlue = 62
+HealthBarOffsetYRed = -12
+HitSpeed = 500
+Hitpoints = 1270
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+IsSummonerTower = true
+KeepTargetWithPendingDamage = true
+Name = "DaggerDuchess"
+NoDeploySizeH = 21
+NoDeploySizeW = 11
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "TowerKnifeThrowerProjectile"
+ProjectileStartRadius = 300
+ProjectileStartZ = 3000
+Range = 7500
+Rarity = "Common"
+RedExportName = "StarTower_base_red"
+RedTopExportName = "StarTower_top_red"
+Scale = 100
+ShadowScaleX = 102
+ShadowScaleY = 70
+ShadowSkew = 13
+ShadowX = -5
+ShadowY = 5
+ShowHealthNumber = true
+SightRange = 7500
+SkinType = "PrincessTower"
+TID = "TID_BUILDING_ARCHER_TOWER"
+TryToFinishAttackAnimation = true
+
+[[BUILDING.DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier = 100
+AttackStartEffect = "TowerKnifeThrowerAttack"
+
+[[BUILDING.DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier = 100
+AttackStartEffect = "TowerKnifeThrowerAttack"
+
+[[BUILDING.DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier = 70
+AttackStartEffect = "dd_final_attack"
+
+[[BUILDING.DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier = 90
+AttackStartEffect = "dd_slow_attack"
+
+[BUILDING.DaggerDuchess.OnStartingAction]
+ClassType = "ActionBurstAttack"
+MaxChargeCount = 8
+RechargeTime = 900
+RechargeIncrement = 1
+IndicatorFileName = "sc/ui.sc"
+IndicatorExportName = "dagger_dutches_charge_counter"
+IndicatorOffsetYBlue = 43
+IndicatorOffsetYRed = -28
+AttackSequenceIndices = [2, 0, 1, 0, 1, 0, 1, 0]
+DepletedAttackSequenceIndex = 3
+AIStateName = "DaggerDuchessBurstAttack"
+StatsTags.MaxChargeCount = "max_charge_count"
+StatsTags.RechargeTime = "recharge_time"
+
+[BUILDING.DaggerDuchess.StatsTags]
+Hitpoints = "hitpoints"
+HitSpeed = "hit_speed"
+Targets = "targets"
+Range = "range"
+
+
+[PROJECTILE.TowerKnifeThrowerProjectile]
+Damage = 42
+ExportName = "Knives_Thrower_Projectile"
+FileName = "sc/chr_knives_thrower_troop.sc"
+Gravity = 60
+HitEffect = "ArrowHit"
+Homing = true
+Name = "TowerKnifeThrowerProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+Scale = 60
+ShadowExportName = "Knives_Thrower_Projectile_shadow"
+Speed = 1000
+TrailEffect = "KnivesThrower_Emitter"
+
+[PROJECTILE.TowerKnifeThrowerProjectile.StatsTags]
+Damage = "damage"
+
+
+[CHARACTER.TowerKnifeThrower]
+AttackStartEffect = "ArcherAttackStart"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "knives_thrower"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "ArcherDie"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_knives_thrower_troop.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 1200
+Hitpoints = 5
+LoadTime = 1000
+Mass = 3
+MoveEffect = "ArcherSteps"
+Name = "TowerKnifeThrower"
+Projectile = "TowerPrincessProjectile"
+ProjectileEffect = "TowerKnifeThrowerAttack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 5000
+Rarity = "Common"
+RedExportName = "knives_thrower_enemy"
+Scale = 42
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "ArcherDeploy"
+Speed = 60
+TID = "TID_CHARACTER_ARCHER"
+UseAnimator = true
+
+
+
+
+[STATS.dagger_duchess]
+	[[STATS.dagger_duchess.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.dagger_duchess.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.dagger_duchess.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.dagger_duchess.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.dagger_duchess.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.dagger_duchess.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.dagger_duchess.stats]]
+		Value = "max_charge_count"
+		Unit = "INTEGER"
+		TID = "TID_MAX_KNIVES_COUNT"
+		Icon = "icons_stats_max_knives"
+	[[STATS.dagger_duchess.stats]]
+		Value = "recharge_time"
+		Unit = "TIME_PRECISE"
+		TID = "TID_KNIFE_RECHARGE_TIME"
+		Icon = "icons_stats_knife_recharge_time"
+	

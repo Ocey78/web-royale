@@ -1,0 +1,112 @@
+[AEO.ElectroWizardZap]
+Buff = "ZapFreeze"
+BuffTime = 500
+LifeDuration = 1
+Name = "ElectroWizardZap"
+OneShotEffect = "Spell_zap_effect"
+Filter = "CommonAreaDamageFilter"
+Radius = 3000
+Rarity = "Common"
+Damage = "ElectroWizZap"
+[DAMAGE_TYPE.ElectroWizZap]
+BaseDamage = 75 
+TowerDamage = 0
+[AEO.ElectroWizardZap.StatsTags]
+Damage = "spawn_damage"
+BuffTime = "stun_duration"
+[CHARACTER.ElectroWizard]
+AllTargetsHit = true
+AttackStartEffect = "electro_wizard_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "electro_wizard"
+BuffOnDamage = "ZapFreeze"
+BuffOnDamageTime = 500
+CollisionRadius = 500
+CrowdEffects = true
+Damage = 46
+DamageEffect = "electro_wizard_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "electro_wizard_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_electro_wizard.sc"
+HasDamageVisualPivot = false
+HealthBar = "Medium"
+HealthBarOffsetY = -8
+HitSpeed = 1800
+Hitpoints = 279
+LoadTime = 1200
+Mass = 5
+MoveEffect = "electro_wizard_steps"
+MultipleTargets = 2
+Name = "ElectroWizard"
+OverrideAttackFinishTime = true
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 550
+ProjectileStartZ = 1500
+Range = 5000
+Rarity = "Common"
+RedExportName = "electro_wizard_red"
+Scale = 102
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "electro_wizard_deploy"
+Speed = 90
+TID = "TID_CHARACTER_ELECTRO_WIZARD"
+TargetedHitEffect = "electro_wizard_beam"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -26
+[CHARACTER.ElectroWizard.StatsTags]
+Damage = "damage"
+Hitpoints = "hitpoints"
+Speed = "speed"
+HitSpeed = "hit_speed"
+Targets = "targets"
+Range = "range"
+[STATS.electro_wizard]
+	[[STATS.electro_wizard.stats]]
+		Value = "damage"
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+		OverrideIntValue2 = 2
+	[[STATS.electro_wizard.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.electro_wizard.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.electro_wizard.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.electro_wizard.stats]]
+		Value = "stun_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		Icon = "icons_stats_boost_freeze"
+		TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+		TIDReplaceValues = ["TID_SPELL_ZAP_FREEZE"]
+	[[STATS.electro_wizard.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.electro_wizard.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.electro_wizard.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

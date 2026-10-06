@@ -1,0 +1,88 @@
+[CHARACTER.FireSpirits]
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "firespirit"
+CollisionRadius = 400
+ContinuousEffect = "firespirit_continuous_fx_01"
+DamageExportName = "filter_damage"
+DeathEffect = "firespirit_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_fire_firespirit.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 300
+Hitpoints = 84
+Kamikaze = true
+LoadTime = 100
+Mass = 1
+MoveEffect = "firespirit_steps"
+Name = "FireSpirits"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "FireSpiritsProjectile"
+ProjectileEffect = "firespirit_attack"
+Range = 2500
+Rarity = "Common"
+RedExportName = "firespirit"
+Scale = 140
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "firespirit_deploy"
+SpawnRadius = 650
+Speed = 120
+TID = "TID_CHARACTER_FIRE_SPIRITS"
+UseAnimator = true
+[CHARACTER.FireSpirits.StatsTags]
+Damage = "firespirits_damage"
+Hitpoints = "firespirits_hitpoints"
+Speed = "firespirits_speed"
+Targets = "firespirits_targets"
+Range = "firespirits_range"
+[PROJECTILE.FireSpiritsProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 84
+DeflectBehaviour = "NoDeflect"
+ExportName = "projectile_firespirit"
+FileName = "sc/effects.sc"
+Gravity = 400
+HitEffect = "firespirit_projectile_hit_01"
+Homing = true
+Name = "FireSpiritsProjectile"
+OnlyEnemies = true
+Radius = 2300
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 400
+TrailEffect = "firespirit_projectile_continuous_fx_01"
+use360Frames = true
+[STATS.firespirits]
+	[[STATS.firespirits.stats]]
+		Value = "firespirits_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.firespirits.stats]]
+		Value = "firespirits_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.firespirits.stats]]
+		Value = "firespirits_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.firespirits.stats]]
+		Value = "firespirits_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.firespirits.stats]]
+		Value = "firespirits_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

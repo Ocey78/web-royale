@@ -1,0 +1,222 @@
+[EXT.MusketeerHero]
+    Base = "CHARACTER.Musketeer"
+    Rarity = "Common"
+    PrefabAsset = "sc3d/characters/hero/hero_musketeer/hero_prefab_musketeer_battle"
+    Ability = "Musketeer_hero_Ability"
+    ProjectileStartRadius = 1800
+    ProjectileStartZ = 1200
+    ProjectileYOffset = 300
+    Scale = 100
+    SpawnEffect = "vfx_musketeer_hero_deploy"
+    DeathEffect="vfx_musketeer_hero_die"
+    DamageEffect = "vfx_musketeer_hero_pjt_hit"
+	ProjectileEffect = ""
+	AttackStartEffect = "vfx_musketeer_hero_attack_start"
+	MoveEffect = "vfx_musketeer_hero_steps"
+    AbilityPendingEffect = "Heal_aura"
+    CustomSpawnFilter = "filter_champion_golden_knight"
+	
+    FileName = ""
+    BlueExportName = ""
+    RedExportName = ""
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+	
+    OnStartingClientActions = ["Healthbar_Medium"]
+    HideHealthbar = true
+    NewHealthBarOffsetXBlue = 2
+    NewHealthBarOffsetXRed = 2
+    HealthBarOffsetYBlue = -25
+    HealthBarOffsetYRed= -17
+	StatsTags.Hitpoints = "hitpoints"
+    StatsTags.Damage = "ranged_damage"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+[ABILITY.Musketeer_hero_Ability]
+    TID = "TID_HERO_MUSKETEER_ABILITY"
+    TID_INFO = "TID_HERO_MUSKETEER_ABILITY_INFO"
+    IconSWF = "sc/ability_icon_musketeer.sc"
+	IconExportName = "ability_icon_musketeer"
+    IsChampion = true
+    CastTime = 950
+    TriggerDelay = 200
+    ManaCost = 3
+    MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect = "vfx_hero_ability_active_m"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_archer_queen"
+	OnActivationAction = "Musketeer_hero_Turret_Ability_Group"
+	StatsTags.Cooldown = "ability_cooldown"
+    Stats = "musketeer_hero_ability"
+[ACTION.Musketeer_hero_Turret_Ability_Group]
+    ClassType = "ActionGroup"
+    SubActions = ["Musketeer_hero_SpawnDummyBuilding"]
+    SubActionsDelay = [0]
+[ACTION.Musketeer_hero_Spawn_Turret]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "MusketeerTurret"
+	ValidatePlacementAsBuilding = true
+    RelativeX = 0
+    RelativeY = 0
+    UseDeploy = true
+	IgnoreEffects = true
+[ACTION.Musketeer_hero_SpawnDummyBuilding]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "Musketeer_hero_DummyBuilding"
+    ValidatePlacementAsBuilding = true
+    RelativeX = 0
+    RelativeY = 5
+    UseDeploy = false
+[ACTION.MusketeerTurret_SpawnKnockBack]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "MusketeerTurret_KnockBack"
+	
+[PROJECTILE.MusketeerTurret_KnockBack]
+	Rarity = "Common"
+	Speed = 1000
+	HitEffect = ""
+	Damage = 80
+	Pushback = 1000
+	Radius = 2000
+	AoeToGround = true
+	OnlyEnemies = true
+	Gravity = 0
+	DeflectBehaviour = "NoDeflect"
+    StatsTags.Damage = "spawn_damage"
+[BUILDING.Musketeer_hero_DummyBuilding]
+    Rarity = "Common"
+	IsBuilding = true
+	DeployTime = 1000
+	DeployDelay = 0
+    LifeTime = 50
+    OnStartingAction = "Musketeer_hero_Spawn_Turret"
+[BUILDING.MusketeerTurret]
+	Rarity = "Common"
+	IsBuilding = true
+	SightRange = 4000
+	DeployTime = 1000
+	Hitpoints = 600
+	HitSpeed = 500
+	LoadTime = 0
+	Projectile = "MusketeerTurret_Projectile"
+	Range = 4000
+	AttacksGround = true
+    AttacksAir = true
+	LifeTime = 10000
+	ProjectileEffect = ""
+	PrefabAsset = "sc3d/characters/hero/hero_musketeer/hero_prefab_musketeer_turret_battle"
+	DeathEffect = "vfx_hero_artifact_break_def"
+    SpawnEffect = "vfx_musketeer_hero_turret_deploy"
+	ShadowScaleX = 90
+	ShadowScaleY = -90
+	ShadowX = -7
+	ShadowY = 10
+	ShadowSkew = 10
+	Scale = 100
+	CollisionRadius = 600
+    FileName = ""
+    BlueExportName = ""
+    RedExportName = ""
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+	
+    ProjectileStartRadius = 1400
+	ProjectileStartZ = 800
+	ProjectileYOffset = 300
+	OnStartingAction = "MusketeerTurret_SpawnKnockBack"
+	TID = "TID_BUILDING_CANNON"
+	UseAnimator = true
+	HasRotationOnTimeline = false
+	TurretMovement = 15
+    DamageEffect = "vfx_musketeer_hero_turret_hit"
+    DeployBaseAnimExportName="filter_deploy_unit_legendary"
+    StatsTags.Hitpoints = "turret_hitpoints"
+	StatsTags.Damage = "turret_damage"
+	StatsTags.HitSpeed = "turret_hit_speed"
+	StatsTags.Targets = "turret_targets"
+	StatsTags.Range = "turret_range"
+    StatsTags.LifeTime = "turret_lifetime"
+	[EXT.MusketeerTurret_Projectile]
+		Base = "PROJECTILE.MusketeerProjectile"
+		Damage = 58
+[STATS.musketeer_hero]
+    [[STATS.musketeer_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.musketeer_hero.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.musketeer_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.musketeer_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"        
+	[[STATS.musketeer_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.musketeer_hero.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.musketeer_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.musketeer_hero_ability.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.musketeer_hero_ability.stats]]
+		Value = "turret_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TURRET_HITPOINTS"
+		Icon = "icons_stats_hp"
+	[[STATS.musketeer_hero_ability.stats]]
+		Value = "turret_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TURRET_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.musketeer_hero_ability.stats]]
+		Value = "turret_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.musketeer_hero_ability.stats]]
+		Value = "turret_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.musketeer_hero_ability.stats]]
+		Value = "turret_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.musketeer_hero_ability.stats]]
+		Value = "turret_lifetime"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_LIFETIME"
+		Icon = "icons_stats_deploy_time"

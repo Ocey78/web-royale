@@ -1,0 +1,55 @@
+
+[CHARACTER.Musketeer]
+AttackStartEffect = "musketeer_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "chr_musketeer_blue"
+CollisionRadius = 500
+DamageEffect = "musketeer_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "musketeer_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 300
+DeployTime = 1000
+FileName = "sc/chr_musketeer.sc"
+HealthBar = "Medium"
+HitSpeed = 1000
+Hitpoints = 282
+LoadTime = 300
+Mass = 5
+MoveEffect = "musketeer_steps"
+Name = "Musketeer"
+PrestigeExportName2 = "musketeer_prestige2"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+Projectile = "MusketeerProjectile"
+ProjectileEffect = "musketeer_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 6000
+Rarity = "Common"
+RedExportName = "chr_musketeer"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 6000
+SpawnEffect = "musketeer_deploy"
+SpawnRadius = 800
+Speed = 60
+TID = "TID_CHARACTER_MUSKETEER"
+UseAnimator = true
+
+[PROJECTILE.MusketeerProjectile]
+Damage = 85
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+HitEffect = "cannon_hit"
+Homing = true
+Name = "MusketeerProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1000
+
+

@@ -1,0 +1,121 @@
+[CHARACTER.Princess]
+AreaDamageRadius = 2500
+AttackFinishTime = 200
+AttackStartEffect = "princess_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "princess"
+CollisionRadius = 500
+CustomFirstProjectile = "PrincessProjectile"
+DamageExportName = "filter_damage"
+DeathEffect = "princess_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployDelay = 400
+DeployTime = 1200
+FileName = "sc/chr_princess.sc"
+GroupProjectiles = true
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 3000
+Hitpoints = 102
+LoadTime = 2700
+Mass = 3
+MoveEffect = "princess_steps"
+MultipleProjectiles = 5
+Name = "Princess"
+OverrideAttackFinishTime = true
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "PrincessProjectileDeco"
+ProjectileEffect = "princess_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 9000
+Rarity = "Common"
+RedExportName = "princess_red"
+Scale = 100
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 9500
+SpawnEffect = "princess_deploy"
+Speed = 60
+TID = "TID_CHARACTER_PRINCESS"
+UseAnimator = true
+StatsTags.Hitpoints         = "hitpoints"
+StatsTags.HitSpeed          = "hitspeed"
+StatsTags.Speed             = "speed"
+StatsTags.Targets           = "targets"
+StatsTags.Range             = "range"
+StatsTags.DeployTime        = "deploy_time"
+StatsTags.AreaDamageRadius  = "area_damage_radius"
+
+[PROJECTILE.PrincessProjectileDeco]
+DeflectBehaviour = "NoDeflect"
+ExportName = "projectile_princess"
+FileName = "sc/effects.sc"
+Gravity = 90
+HitEffect = "vfx_princess_hit_arrow"
+Name = "PrincessProjectileDeco"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 600
+TrailEffect = "vfx_princess_pjt"
+
+[PROJECTILE.PrincessProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 66
+DeflectRadius = 1000
+ExportName = "projectile_princess"
+FileName = "sc/effects.sc"
+Gravity = 90
+HitEffect = "vfx_princess_hit_arrow"
+HitSoundWhenParentAlive = "soundbanks/card_legendary_princess/card_legendary_princess_hit_vo"
+Name = "PrincessProjectile"
+OnlyEnemies = true
+Radius = 2000
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 600
+TrailEffect = "vfx_princess_pjt"
+StatsTags.Damage = "ranged_damage"
+
+[STATS.princess]
+    [[STATS.princess.stats]]
+    Value = "ranged_damage"
+    Unit = "INTEGER"
+    TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+    Icon = "icons_stats_dmg_area"
+    [[STATS.princess.stats]]
+    Value = "hitpoints"
+    Unit = "INTEGER"
+    TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+    Icon = "icons_stats_hp"
+    [[STATS.princess.stats]]
+    Value = "hitspeed"
+    Unit = "TIME_PRECISE"
+    TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+    Icon = "icons_stats_dmg_speed"
+    [[STATS.princess.stats]]
+    Value = "targets"
+    Unit = "TARGETS"
+    TID = "TID_SPELL_ATTRIBUTE_TARGET"
+    Icon = "icons_stats_target"
+    [[STATS.princess.stats]]
+    Value = "speed"
+    Unit = "SPEED"
+    TID = "TID_SPELL_ATTRIBUTE_SPEED"
+    Icon = "icons_stats_speed"
+    [[STATS.princess.stats]]
+    Value = "range"
+    Unit = "TILES"
+    TID = "TID_SPELL_ATTRIBUTE_RANGE"
+    Icon = "icons_stats_range"
+    [[STATS.princess.stats]]
+    Value = "deploy_time"
+    Unit = "TIME_PRECISE"
+    TID = "TID_SPELL_ATTRIBUTE_DEPLOY_TIME"
+    Icon = "icons_stats_deploy_speed"
+

@@ -1,0 +1,89 @@
+
+[CHARACTER.PrinceBuff]
+AttackStartEffect = "prince_attack_start"
+AttacksGround = true
+BlueExportName = "Prince"
+BuffAfterHits = ["PrinceRageBuff1", "PrinceRageBuff2", "PrinceRageBuff3"]
+BuffAfterHitsCount = [2, 4, 6]
+BuffAfterHitsTime = [6000, 4000, 2000]
+ChargeEffect = "prince_charge"
+ChargeRange = 300
+ChargeSpeedMultiplier = 200
+CollisionRadius = 600
+Damage = 245
+DamageEffect = "prince_hit"
+DamageEffectSpecial = "prince_charge_hit"
+DamageExportName = "filter_damage_wobble"
+DamageSpecial = 490
+DeathEffect = "prince_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_prince.sc"
+HealthBar = "Medium"
+HitSpeed = 1400
+Hitpoints = 1440
+IgnorePushback = true
+JumpEnabled = true
+JumpHeight = 4000
+JumpSpeed = 160
+LandingEffect = "hog_rider_landing"
+LoadTime = 900
+Mass = 6
+MoveEffect = "prince_steps"
+Name = "PrinceBuff"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Range = 1600
+Rarity = "Epic"
+RedExportName = "Prince_red"
+Scale = 92
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "prince_deploy"
+Speed = 60
+TID = "TID_SPELL_PRINCE"
+UseAnimator = true
+
+
+[BUFF.PrinceRageBuff1]
+AudioPitchModifier = 135
+Effect = "Spell_rage_hit_effect"
+FilterExportName = "filter_rage_mode"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 135
+MarkEffect = "Healing"
+Name = "PrinceRageBuff1"
+Rarity = "Epic"
+SpawnSpeedMultiplier = 135
+SpeedMultiplier = 135
+TID = "TID_SPELL_RAGE"
+
+[BUFF.PrinceRageBuff2]
+AudioPitchModifier = 170
+Effect = "Spell_rage_hit_effect"
+FilterExportName = "filter_rage"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 170
+MarkEffect = "Healing"
+Name = "PrinceRageBuff2"
+Rarity = "Epic"
+Scale = 110
+SpawnSpeedMultiplier = 170
+SpeedMultiplier = 170
+TID = "TID_SPELL_RAGE"
+
+[BUFF.PrinceRageBuff3]
+AudioPitchModifier = 230
+Effect = "Spell_rage_hit_effect"
+FilterExportName = "filter_rage"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 230
+MarkEffect = "Healing"
+Name = "PrinceRageBuff3"
+Rarity = "Epic"
+Scale = 110
+SpawnSpeedMultiplier = 230
+SpeedMultiplier = 230
+TID = "TID_SPELL_RAGE"
+

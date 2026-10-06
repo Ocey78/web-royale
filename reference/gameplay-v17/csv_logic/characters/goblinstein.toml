@@ -1,0 +1,364 @@
+[CHARACTER.goblinstein]
+    Rarity = "Common"
+    SightRange = 7500
+    SightClip = 2000
+    SightClipSide = 2000
+    DeployTime = 1000
+    Speed = 60
+    Hitpoints = 875
+    HitSpeed = 1500
+    LoadTime = 700
+    Damage = 50
+    Range = 1200
+    CollisionRadius = 750
+    Mass = 18
+    ProjectileStartRadius = 500
+    OnStartingAction = "goblinstein_on_starting_action"
+    ProjectileStartZ = 1900
+    TID = "TID_GOBLINSTEIN"
+    IgnorePushback = true    
+    TargetOnlyBuildings=true
+    AttacksGround = true
+    StatsTags.Damage = "monster_melee_damage"
+    StatsTags.HitSpeed = "monster_hit_speed"
+    StatsTags.Hitpoints = "monster_hitpoints"
+    StatsTags.Speed = "monster_speed"
+    StatsTags.Range = "monster_range"
+    StatsTags.Targets = "monster_targets"
+    StatsTags.TID = "monster_tid"
+    StatsTags.Level = "monster_level"
+    UseAnimator = true
+    FileName = "sc/chr_goblinstein_monster.sc"
+    BlueExportName = "Goblinstein_Monster"
+    RedExportName = "Goblinstein_Monster_red"
+    Scale = 80
+    SpawnEffect = "Goblinstein_Doctor_deploy"
+    MoveEffect = "Goblinstein_Monster_steps"
+    DeathEffect = "Goblinstein_Monster_Die"
+    DamageEffect = "Goblinstein_Monster_hit"
+    AttackStartEffect = "Goblinstein_Monster_attack_start"
+    DamageExportName = "filter_damage_wobble"
+    DeployBaseAnimExportName="filter_deploy_unit_legendary"
+    CustomSpawnFilter = "filter_champion_skeleton_king"
+    ShadowScaleX = 85
+    ShadowScaleY = 75
+    ShadowY = 0
+    ShadowSkew = 25
+    
+    HideHealthbar = true
+    OnStartingClientActions = ["Healthbar_High"]
+    HealthBarOffsetYBlue = 20
+	  HealthBarOffsetYRed = 30
+    [AEO.dead_goblinstein]
+        Rarity = "Common"
+LifeDuration = 999999
+        HitSpeed = -1
+    [AEO.dead_goblinstein.OnStartingAction]
+        ClassType="ActionPlayEffect"
+        Effect="Goblinstein_Monster_antenna_static"
+        EffectFlags="LinkLifeToActionLife, Looping"
+ActionDelay=800
+[ACTION.goblinstein_on_starting_action]
+  ClassType="ActionGroup"
+  SubActions = ["goblinstein_listen_to_new_deploy", "goblinstein_enable_champion_hp_bar"]
+  SubActionsDelay = [0, 0]
+[ACTION.goblinstein_listen_to_new_deploy]
+  ClassType = "ActionActivateOnCardDeploy"
+  OnActivateAction = "goblinstein_set_custom_tag"
+  CardGroup = "Goblinstein"
+  EvaluateDeployedCard = true
+[ACTION.goblinstein_set_custom_tag]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 99999
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.goblinstein_enable_champion_hp_bar]
+	ClassType = "ActionEnabbleHPBarConditionForDuration"
+	ActionDuration = 99999
+	ContainerName = "HealthBar"
+	Condition = "ActiveChampion"
+	RequestShowBadge = true
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+  
+[CHARACTER.goblinstein_doctor] 
+	Rarity = "Common"
+	SightRange = 5500
+	DeployTime = 1000
+	Speed = 60
+	Hitpoints = 282
+	HitSpeed = 1800
+	LoadTime = 1300
+	Range = 5500
+	AttacksGround = true
+	AttacksAir = true
+	CollisionRadius = 500
+	Mass = 4
+	ProjectileStartRadius = 1500
+	ProjectileStartZ = 450
+	DeployDelay = 400
+  Ability = "goblinstein_ability"
+  StatsTags.HitSpeed = "hit_speed"
+  StatsTags.Hitpoints = "hitpoints"
+  StatsTags.Speed = "speed"
+  StatsTags.Range = "range"
+  StatsTags.Targets = "targets"
+	UseAnimator = true
+	FileName = "sc/chr_goblinstein_doctor.sc"
+	BlueExportName = "Goblinstein_Doctor"
+	RedExportName = "Goblinstein_Doctor_red"
+	Scale = 70
+	PrestigeSWF = "sc/chr_prestige6_dl.sc"
+	PrestigeExportName2 = "archer_prestige"
+	Projectile = "prj_goblinstein_doctor"
+	ProjectileEffect = "ArcherAttack"
+	SpawnEffect = "Goblinstein_Doctor_deploy"
+	MoveEffect = "Goblinstein_Doctor_steps"
+	DeathEffect = "Goblinstein_Doctor_die"
+	AttackStartEffect = "Goblinstein_Doctor_attack_start"
+    AbilityPendingEffect = "Heal_aura"
+	DamageExportName = "filter_damage"
+	DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+    CustomSpawnFilter = "filter_champion_skeleton_king"
+	ShadowScaleX = 75
+	ShadowScaleY = 75
+	ShadowY = 0
+	ShadowSkew = 25
+  OnStartingClientActions = ["Healthbar_Medium"]
+  HideHealthbar = true
+  HealthBarOffsetYBlue = -5
+  HealthBarOffsetYRed = -17
+  
+[CHARACTER.goblinstein_doctor.OnStartingAction] 
+    ClassType = "ActionSpawn"
+    SpawnType = "AreaEffectType"    
+    SpawnData = "AOE_goblinstein_ability"
+[PROJECTILE.prj_goblinstein_doctor]
+    Rarity = "Common"
+    Speed = 500
+    Damage = 53
+    OnlyEnemies = true
+    Gravity = 250
+    FileName = "sc/effects.sc"
+    ExportName = "Goblinstein_Doctor_projectile_export"
+    ShadowExportName = "projectile_arrow_shadow"
+    HitEffect = "Goblinstein_Doctor_Projectile_hit"
+    TrailEffect = "zapMachine_trail_emitter"
+    TargetBuff="buff_goblinstein_doctor"
+    BuffTime=500
+    Homing=true        
+    StatsTags.Damage = "prj_damage"
+    StatsTags.BuffTime = "stun_time"
+[BUFF.buff_goblinstein_doctor]
+	Rarity = "Common"
+	TID = "TID_SPELL_ZAP_FREEZE"
+	HitSpeedMultiplier = -100
+	SpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_cold"
+    StatsTags.TID = "stun_tid"
+[ABILITY.goblinstein_ability]
+    TID = "TID_GOBLINSTEIN_ABILITY"
+    TID_INFO = "TID_GOBLINSTEIN_ABILITY_INFO"
+    IconSWF = "sc/ui_spells.sc"
+    IconExportName = "icon_ability_goblinstein"
+    CastTime = 933
+    TriggerDelay = 50
+    ManaCost = 2
+    MaxCharges = 1
+    KeepIconEvenWhenOutOfCharges = true
+	  HideChargesTextField = true
+    DeployedEffect = "ability_charging_goblinstein"
+    DeployedClip = "champion_select_ring_rampup_skeleton_king"
+    OnActivationAction = "goblinstein_enable_doctor_aura"
+    KeepCurrentTarget = true
+    PopoverIconFileName = "sc/ui_spells.sc"
+    PopoverIconExportName = "icon_ability_goblinstein"
+    Stats = "goblinstein_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+            [ACTION.goblinstein_enable_doctor_aura]
+                ClassType = "ActionSpawn"
+                SpawnType = "BuffType"
+                SpawnTime = 1250
+                SpawnData = "goblinstein_doctor_aura"
+                [BUFF.goblinstein_doctor_aura]
+    	            Rarity = "Common"
+                  ContinuousEffect = "goblinstein_doctor_ability_aura"
+[ACTION.tether_hit_effect]
+                ClassType = "ActionPlayEffect"
+                Effect="Goblinstein_Tether_Hit_Unit"
+                EffectFlags="FilterCanModifyTransform, FollowParent"
+[ACTION.goblinstein_tether_visual_monster]
+                ClassType = "ActionPlayEffect"
+                Effect="Goblinstein_Monster_Tether_Activated"
+                EffectFlags="FilterCanModifyTransform, FollowParent,LinkLifeToActionLife,Looping"
+                ForceStopIfTrue="UNIT_CUSTOM_TAG_1() == false"
+            [ACTION.goblinstein_visual_activation_group]
+                ClassType = "ActionGroup"
+                SubActions = ["goblinstein_tether_visual_doctor_action", "goblinstein_end_tether_effect"]
+                SubActionsDelay = [0, 5000]
+ 
+            [ACTION.goblinstein_tether_visual_doctor_action]
+                ClassType = "ActionPlayEffect"
+                Effect="Goblinstein_Doctor_Tether_Activated"
+                EffectFlags="FilterCanModifyTransform, FollowParent,LinkLifeToActionLife,Looping"
+                ForceStopIfTrue="UNIT_CUSTOM_TAG_1() == false"
+                                
+            [ACTION.goblinstein_end_tether_effect]
+                  ClassType = "ActionPlayEffect"
+                  Effect="Goblinstein_Tether_end"    
+[AEO.AOE_goblinstein_ability]
+        Rarity = "Common"
+LifeDuration = 999999
+        HitSpeed = -1
+        FollowBehaviour="FollowParent"
+        OnStartingAction = "goblinstein_ability_action"
+[ACTION.goblinstein_ability_action]
+    ClassType = "ActionGoblinsteinAbility"
+    DeathAreaEffectData="dead_goblinstein"
+    TetherDuration = 3500
+    TetherWidth = 2000
+    TetherDamage = 37
+    TetherCrownTowerDamage = 9
+    TetherHitInterval = 500
+    TetherHitActionInterval = 1000
+    TetherDamageTargets = "areadamage_filter"
+    ConnectedCharacterGameTagsToSetDutingTether="UNIT_CUSTOM_TAG_1"
+    GameTagsToSetDutingTether="UNIT_CUSTOM_TAG_1"
+    TetherEffect = "Goblinstein_Tether_Beam"
+    TetherHitAction = "tether_hit_effect"
+                
+    OnTetherActivationAction="goblinstein_visual_activation_group"                
+    OnTetherActivationActionOnConnectedUnit="goblinstein_tether_visual_monster"                
+                
+    TetherVolumeEffect="Goblinstein_beam_randomangle_bolts"
+    TetherVolumeEffectDistance = 1250
+    TetherTargetEffect = "Goblinstein_basic_electric_beam"
+    TetherTargetEffectOffset = 2000
+    TetherTargetEffectMaxPerFrame = 10
+    StatsTags.Damage = "tether_damage"
+    StatsTags.CrownTowerDamage = "tether_crown_damage"
+    StatsTags.Duration = "tether_duration"
+    StatsTags.HitSpeed = "tether_hitspeed"
+    StatsTags.Targets = "tether_targets"
+    StatsTags.Width = "tether_width"
+[STATS.goblinstein_doctor]
+	[[STATS.goblinstein_doctor.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+  [[STATS.goblinstein_doctor.stats]]
+		Value="prj_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.goblinstein_doctor.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.goblinstein_doctor.stats]]
+        TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+        TIDReplaceValues = ["stun_tid"]
+		Value = "stun_time"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		Icon = "icons_stats_boost_freeze"
+    [[STATS.goblinstein_doctor.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.goblinstein_doctor.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"	
+    [[STATS.goblinstein_doctor.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.goblinstein_doctor.stats]]
+		Value = "monster_level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+        TIDReplacePlaceholders = ["<CHARACTER>"]
+        TIDReplaceValues = ["monster_tid"]
+		Icon = "icons_stats_troop"
+        InfoButtonStats = "goblinstein"
+		InfoPopoverTitle = "TID_GOBLINSTEIN"
+[STATS.goblinstein]
+    [[STATS.goblinstein.stats]]
+        Value = "monster_melee_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+    	Icon = "icons_stats_dmg"
+    [[STATS.goblinstein.stats]]
+		Value = "monster_melee_damage"
+        Value2 = "monster_hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+    [[STATS.goblinstein.stats]]
+        Value = "monster_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+    [[STATS.goblinstein.stats]]
+		Value = "monster_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.goblinstein.stats]]
+		Value = "monster_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.goblinstein.stats]]
+		Value = "monster_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"	
+    [[STATS.goblinstein.stats]]
+		Value = "monster_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.goblinstein_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.goblinstein_ability.stats]]
+        Value = "tether_damage"
+        Value2 = "tether_hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"		
+    [[STATS.goblinstein_ability.stats]]
+        Value = "tether_crown_damage"
+        Value2 = "tether_hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DPS"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.goblinstein_ability.stats]]
+		Value = "tether_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.goblinstein_ability.stats]]
+		Value = "tether_hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.goblinstein_ability.stats]]
+		Value = "tether_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.goblinstein_ability.stats]]
+		Value = "tether_width"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"

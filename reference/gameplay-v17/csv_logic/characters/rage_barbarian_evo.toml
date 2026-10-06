@@ -1,0 +1,213 @@
+[EXT.RageBarbarian_EV1]
+Base = "CHARACTER.RageBarbarian"
+ClonedVersion = "RageBarbarian"
+HealthBar = "Medium_EV1"
+DeathSpawnCharacter = ""
+DeathAreaEffect = "RageBarbarianEvoDummyForSpawn"
+FileName="sc/chr_lumberjack_evolution.sc"
+BlueExportName="lumberjack_evolution"
+RedExportName="lumberjack_evolution_enemy"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Damage = "damage"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Speed = "speed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+Scale = 38
+SpawnEffect = "vfx_lumberjack_evo_deploy"
+DeployBaseAnimExportName="filter_deploy_unit_legendary"
+DamageEffect = "evo_lumberjack_atk_hit"
+DeathEffect = "evo_lumberjack_death"
+MoveEffect = "evo_lumberjack_steps"
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowX = -5
+ShadowY = 5
+ShadowSkew = 25
+[AEO.RageBarbarianEvoDummyForSpawn]
+Rarity = "Common"
+LifeDuration = 50
+OnStartingAction = "rage_barbarian_evo_spawn_bottle"
+	[ACTION.rage_barbarian_evo_spawn_bottle]
+	ClassType = "ActionSpawn"
+	SpawnType = "CharacterType"
+	SpawnData = "RageBarbarianBottleEvo"
+[EXT.RageBarbarianBottleEvo]
+Base = "CHARACTER.RageBarbarianBottle"
+DeathAreaEffect = "BarbarianRageEvoAeO"
+DeathEffect = "rage_bottle_explode_02_evo"
+[EXT.BarbarianRageEvoAeO]
+Base = "AEO.BarbarianRage"
+OnStartingAction = "rage_barbarian_evo_spawn_ghost"
+	[ACTION.rage_barbarian_evo_spawn_ghost]
+	ClassType = "ActionSpawn"
+	SpawnType = "CharacterType"
+	ActionDelay = 0
+	SpawnData = "RageBarbarianEvoGhost"
+	UseDeploy = true
+	ParentGOAsSource = true
+[EXT.RageBarbarianEvoGhost]
+Base = "CHARACTER.RageBarbarian_EV1"
+Hitpoints = 1
+CrownTowerDamagePercent = -50
+Hovering = true
+DeathSpawnCharacter = ""
+DeathAreaEffect = ""
+HealthBar = ""
+SpawnEffect = "lumberjack_evo_revive_01"
+IgnoreClone = true
+IgnoreResurrect = true
+IgnoreBuff = ["Rage"]
+HideHealthbar = true
+GameTagsToSet = "NO_DAMAGE"
+OnDeathAction = ""
+OnStartingAction = "rage_barbarian_evo_ghost_actions"
+DamageEffect = "evo_lumberjack_atk_hit_02"
+ContinuousEffect = "lumberjack_evo_ghost_loop"
+FileName= "sc/chr_lumberjack_evolution.sc"
+BlueExportName = "lumberjack_ghost_evolution"
+RedExportName = "lumberjack_ghost_evolution_enemy"
+Scale = 42
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowX = -5
+ShadowY = 5
+ShadowSkew = 25
+BuffWhenNotAttacking = "GhostInvisibility"
+StatsTags.Damage = "ghost_damage"
+StatsTags.HitSpeed = "ghost_hitspeed"
+StatsTags.Speed = "ghost_speed"
+StatsTags.Targets = "ghost_targets"
+StatsTags.Range = "ghost_range"
+StatsTags.Level = "ghost_level"
+[BUFF.GhostInvisibility]
+Rarity = "Common"
+Invisible = true
+FilterFile = "sc/chr_lumberjack_evolution.sc"
+FilterExportName = "filter_ghost_lumberjack_invisible"
+    [ACTION.rage_barbarian_evo_ghost_actions]
+    ClassType = "ActionGroup"
+    SubActions = ["add_buff_for_count_lifetime", "check_if_not_buffed", "check_if_not_buffed_invisibility", "add_forever_invisibility"]
+    SubActionsDelay = [0, 0, 0]
+        [ACTION.add_forever_invisibility]
+        ClassType = "ActionSpawn"
+        SpawnType = "BuffType"
+        SpawnData = "RageBarbarianEvoGhostForeverInvisibleBuff"
+        SpawnTime = 999999999
+        [ACTION.add_buff_for_count_lifetime]
+        ClassType = "ActionSpawn"
+        SpawnType = "BuffType"
+        SpawnData = "RageBarbarianEvoGhostLifeControllerBuff"
+        SpawnTime = 5500
+        [ACTION.check_if_not_buffed_invisibility]
+        ClassType = "ActionLumberjackGhostWaitUntilLooseBuff"
+        BuffToConsider = "RageBarbarianEvoGhostLifeControllerBuff"
+        BuffOverride = "RageBarbarianEvoGhostLifeControllerBuff"
+        ActionToExecute = "kill_the_ghost"
+Delay = 0
+        PortalTimer = 500
+        OnAboutToDieAction = "action_play_portal_effect"
+        [ACTION.check_if_not_buffed]
+        ClassType = "ActionLumberjackGhostWaitUntilLooseBuff"
+        BuffToConsider = "RageDummyBuff"
+        BuffOverride = "Rage"
+        ActionToExecute = "kill_the_ghost"
+Delay = 0
+        PortalTimer = 500
+OnAboutToDieAction = "action_play_portal_effect"
+          [ACTION.action_play_portal_effect]
+          ClassType = "ActionPlayEffect"
+          Effect = "lumberjack_evo_portal_intro"
+ForceStopIfTrue= "UNIT_CUSTOM_TAG_1()"
+          EffectFlags = "ParticlesFollowParent,FilterCanModifyTransform"
+        
+        
+          [ACTION.kill_the_ghost]
+          ClassType = "ActionKill"
+OnKillAction = "ghost_death_effect"
+            [ACTION.ghost_death_effect]
+            ClassType = "ActionPlayEffect"
+            Effect = "lumberjack_evo_portal_outro"
+[BUFF.RageBarbarianEvoGhostForeverInvisibleBuff]
+Rarity = "Common"
+Invisible = true
+[BUFF.RageBarbarianEvoGhostLifeControllerBuff]
+Rarity = "Common"
+Invisible = true
+[BUFF.RageDummyBuff]
+Rarity = "Common"
+[STATS.RageBarbarian_EV1]
+	[[STATS.RageBarbarian_EV1.stats]]
+	    Value = "damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+    	Icon = "icons_stats_dmg"
+    [[STATS.RageBarbarian_EV1.stats]]
+        Value = "damage"
+        Value2 = "hitspeed"
+        Unit = "DPS"
+        TID = "TID_SPELL_ATTRIBUTE_DPS"
+        Icon = "icons_stats_dmg_dps"
+    [[STATS.RageBarbarian_EV1.stats]]
+        Value = "hitpoints"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon = "icons_stats_hp"
+    [[STATS.RageBarbarian_EV1.stats]]
+		Value = "hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.RageBarbarian_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.RageBarbarian_EV1.stats]]
+        Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+    [[STATS.RageBarbarian_EV1.stats]]
+        Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.RageBarbarian_EV1.stats]]
+        Value = "ghost_level"
+		Unit = "INTEGER"
+		TID = "TID_GHOST_LEVEL"
+		Icon = "icons_stats_troop"
+        InfoButtonStats = "RageBarbarianEvoGhost"
+		InfoPopoverTitle = "TID_GHOST"
+[STATS.RageBarbarianEvoGhost]
+    [[STATS.RageBarbarianEvoGhost.stats]]
+        Value = "ghost_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+        [[STATS.RageBarbarianEvoGhost.stats]]
+		OverrideIntValue = -50
+		Unit = "PERCENT"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+    [[STATS.RageBarbarianEvoGhost.stats]]
+		Value = "ghost_hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.RageBarbarianEvoGhost.stats]]
+        Value = "ghost_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+    [[STATS.RageBarbarianEvoGhost.stats]]
+        Value = "ghost_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.RageBarbarianEvoGhost.stats]]
+		Value = "ghost_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"

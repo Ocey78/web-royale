@@ -107,7 +107,7 @@ class Battle {
   if(!c.entity&&r.Effect)this.effect({kind:'source',sourceEffect:r.Effect,x,y,team,ttl:6});
   if(c.entity){
    const n=r.SummonNumber||1,sourceEntity=DATA.entities[c.entity],travel=sourceEntity.SpawnPathfindSpeed?dist({x:9*SX,y:(team?3:29)*SY},{x,y})/(sourceEntity.SpawnPathfindSpeed/60):0,extra=(r.CustomDeployTime!==undefined?sec(r.CustomDeployTime):0)+travel;
-   const members=formation?.length?formation:Formations.cardMembers(c,x,y,team),levelGroupId=members.length>1?'deploy:'+this.nextId:null;for(const m of members){const md=this.entityDefinition(m.entity,c.level),wait=md.deploy+extra+(m.delay||0),u=this.spawn(m.entity,team,m.x,m.y,{card:c.id,level:c.level,levelGroupId,wait,appearsIn:travel+(m.delay||0),deployed:true,formCard:c,canEnemy:!!r.CanDeployOnEnemySide||(team===0&&this.cheats.placement)});if(u){u.formationIndex=m.index;u.formId=c.formId||null;}}
+   const members=formation?.length?formation:Formations.cardMembers(c,x,y,team),levelGroupId=members.length>1?'deploy:'+this.nextId:null;for(const m of members){const md=this.entityDefinition(m.entity,c.level),wait=md.deploy+extra+(m.delay||0),u=this.spawn(m.entity,team,m.x,m.y,{card:c.id,level:c.level,levelGroupId,wait,appearsIn:travel+(m.delay||0),deployed:true,formCard:c,canEnemy:!!r.CanDeployOnEnemySide||(team===0&&this.cheats.placement)});if(u){u.formationIndex=m.index;u.formId=c.formId||null;if(md.source.SpawnPathfindMorph)this.schedule({type:'spawn-pathfind-morph',source:u.id,name:md.source.SpawnPathfindMorph,team,due:u.appearsAt,customDeploy:sec(r.CustomDeployTime)});}}
    if(travel>0&&sourceEntity.SpawnPathfindEffect)this.effect({kind:'source',sourceEffect:sourceEntity.SpawnPathfindEffect,team,x,y,startX:9*SX,startY:(team?3:29)*SY,travelDuration:travel,ttl:travel,loop:true});
    const e=DATA.entities[c.entity];if(e.SpawnAreaObject)this.schedule({type:'area',name:e.SpawnAreaObject,team,x,y,level:c.level,due:this.time+sec(e.DeployTime)});
    if(r.Projectile)this.schedule({type:'impact',due:this.time+sec(e.DeployTime),name:r.Projectile,team,x,y,level:c.level});
@@ -125,7 +125,7 @@ class Battle {
  }
  makeEntity(name,team,x,y,opt={}){
   const def=this.entityDefinition(name,opt.level??9),r=def.source,limits=G.Layout.limits(this.arenaLayout.id,def.air);const wait=opt.wait!==undefined?opt.wait:def.deploy+(opt.extraWait||0);const hp=opt.cloned?1:(def.hp||1);const effectCarrier=!def.hp&&!!(r.DeathAreaEffect||r.DeathDamage||r.DeathSpawnProjectile||r.DeathSpawnCharacter);
-  return {layout:this.arenaLayout.id,effectCarrier:effectCarrier||!!opt.controllerOnly,controllerOnly:!!opt.controllerOnly,id:this.nextId++,levelGroupId:opt.levelGroupId||null,entity:name,card:opt.card||name,owner:opt.owner??this._owner??team,team,x:clamp(x,(limits.left+.25)*SX,(limits.right-.25)*SX),y:clamp(y,(limits.top+.4)*SY,(limits.bottom-.4)*SY),def,level:def.level,hp,maxHp:hp,shield:opt.cloned?(def.shield?1:0):def.shield,maxShield:def.shield,cloned:!!opt.cloned,radius:def.radius,building:def.building,air:def.air,wait,readyAt:this.time+wait,born:this.time,appearsAt:this.time+(opt.appearsIn||0),alive:true,dead:false,buffs:{},cooldown:0,nextAttackAt:0,windup:null,targetId:null,lockTime:0,lastAttackAt:-Infinity,lastCombatAt:this.time,visualState:'idle',visualStarted:this.time,visualTime:0,animationTime:0,visualDuration:sec(r.VisualHitSpeed)||def.interval,heading:team?Math.PI/2:-Math.PI/2,facing:team?1:-1,walk:0,hit:0,attack:0,chargeDistance:0,charged:false,precharge:r.LoadFirstHit?0:Math.min(def.interval,sec(r.LoadTime)),hidden:!!r.HidesWhenNotAttacking,invisible:r.BuffWhenNotAttacking==='Invisibility',dash:null,drag:null,attachedTo:opt.attachedTo||null,attachmentIndex:opt.attachmentIndex||0,attachmentsStarted:false,nextSpawnAt:this.time+wait+sec(r.SpawnStartTime??r.SpawnPauseTime??r.SpawnInterval??0),spawned:0,manaAt:this.time+wait+sec(r.ManaGenerateTimeMs||1e9),expires:opt.controllerOnly?Infinity:def.life?this.time+wait+def.life:(effectCarrier?this.time+wait:Infinity)};
+  return {layout:this.arenaLayout.id,effectCarrier:effectCarrier||!!opt.controllerOnly,controllerOnly:!!opt.controllerOnly,id:opt.id??this.nextId++,levelGroupId:opt.levelGroupId||null,entity:name,card:opt.card||name,owner:opt.owner??this._owner??team,team,x:clamp(x,(limits.left+.25)*SX,(limits.right-.25)*SX),y:clamp(y,(limits.top+.4)*SY,(limits.bottom-.4)*SY),def,level:def.level,hp,maxHp:hp,shield:opt.cloned?(def.shield?1:0):def.shield,maxShield:def.shield,cloned:!!opt.cloned,radius:def.radius,building:def.building,air:def.air,wait,readyAt:this.time+wait,born:this.time,appearsAt:this.time+(opt.appearsIn||0),alive:true,dead:false,buffs:{},cooldown:0,nextAttackAt:0,windup:null,targetId:null,lockTime:0,lastAttackAt:-Infinity,lastCombatAt:this.time,visualState:'idle',visualStarted:this.time,visualTime:0,animationTime:0,visualDuration:sec(r.VisualHitSpeed)||def.interval,heading:team?Math.PI/2:-Math.PI/2,facing:team?1:-1,walk:0,hit:0,attack:0,chargeDistance:0,charged:false,precharge:r.LoadFirstHit?0:Math.min(def.interval,sec(r.LoadTime)),hidden:!!r.HidesWhenNotAttacking,invisible:r.BuffWhenNotAttacking==='Invisibility',dash:null,drag:null,attachedTo:opt.attachedTo||null,attachmentIndex:opt.attachmentIndex||0,attachmentsStarted:false,nextSpawnAt:this.time+wait+sec(r.SpawnStartTime??r.SpawnPauseTime??r.SpawnInterval??0),spawned:0,manaAt:this.time+wait+sec(r.ManaGenerateTimeMs||1e9),expires:opt.controllerOnly?Infinity:def.life?this.time+wait+def.life:(effectCarrier?this.time+wait:Infinity)};
  }
  attachedControllers(parent){const id=typeof parent==='object'?parent.id:parent;return this.units.filter(u=>u.controllerOnly&&u.attachedTo===id&&this.isPresent(u));}
  spawnAttachedController(name,parent,opt={}){if(!parent||!this.isPresent(parent))return null;const u=this.spawn(name,parent.team,parent.x,parent.y,{...opt,owner:parent.owner,level:parent.level,formId:parent.formId,card:parent.card,levelGroupId:parent.levelGroupId,attachedTo:parent.id,controllerOnly:true,wait:0});if(u&&!u.def.hp)u.maxHp=0;return u;}
@@ -166,7 +166,7 @@ class Battle {
  buffs(u){const slow={speed:1,attack:1,spawn:1},boost={speed:1,attack:1,spawn:1};for(const [n,b]of Object.entries(u.buffs)){if(b.until<=this.time){delete u.buffs[n];continue;}const r=DATA.buffs[b.name||n]||{};for(const [key,tag]of [['SpeedMultiplier','speed'],['HitSpeedMultiplier','attack'],['SpawnSpeedMultiplier','spawn']])if(r[key]!==undefined){const v=r[key]<0?Math.max(0,1+r[key]/100):r[key]/100;if(v<1)slow[tag]=Math.min(slow[tag],v);else boost[tag]=Math.max(boost[tag],v);}}return {speed:slow.speed*boost.speed,attack:slow.attack*boost.attack,spawn:slow.spawn*boost.spawn};}
  addBuff(u,name,duration,sourceTeam,level=9,origin=null,sourceTime=null){const r=DATA.buffs[name];if(!u?.buffs||!r||u.hp<=0||(Array.isArray(u.def.source.IgnoreBuff)?u.def.source.IgnoreBuff.includes(name):u.def.source.IgnoreBuff===name)||(r.IgnoreBuildings&&u.building)||(r.NoEffectToCrownTowers&&isTower(u)))return;
   const key=r.EnableStacking&&origin!==null?name+'@'+origin:name,prev=u.buffs[key];u.buffs[key]={name,until:Math.max(prev?.until||0,this.time+duration),sourceTeam,sourceOwner:this._owner??sourceTeam,sourceId:origin,level,nextTick:prev?.nextTick??(sourceTime??this.time)+sec(r.HitFrequency||500)};
-  this.modernActions?.onBuffAdded?.(this,u,name,u.buffs[key]);if(r.HitSpeedMultiplier<=-100){this.cancelAttackVisual(u);u.charged=false;u.chargeDistance=0;u.lockTime=0;u.precharge=0;u.windup=null;u.hook=null;u.nextAttackAt=this.time+duration;u.dash=null;}
+  this.modernActions?.onBuffAdded?.(this,u,name,u.buffs[key]);if(r.HitFrequency===-1){this.applyBuffTick(u,u.buffs[key],r,1);u.buffs[key].nextTick=Infinity;}if(r.HitSpeedMultiplier<=-100){this.cancelAttackVisual(u);u.charged=false;u.chargeDistance=0;u.lockTime=0;u.precharge=0;u.windup=null;u.hook=null;u.nextAttackAt=this.time+duration;u.dash=null;}
  }
  damage(u,value,attacker=null,opt={}){
   if(!u||u.effectCarrier||u.hp<=0||u.dead||!Number.isFinite(value)||value<=0)return;
@@ -185,7 +185,7 @@ class Battle {
   this.record({type:'damage',team:credit,target:u.id,owner:u.owner,source:attacker?.id||0,entity:u.entity,amount:actual,tower:isTower(u),hp:u.hp,shield:u.shield});
   u.hit=.16;u.lastDamagedAt=this.time;u.lastDamageTeam=credit;u.lastCombatAt=this.time;if(u.king&&!u.active)this.scheduleKingActivation(u);
   const r=u.def.source;
-  if(attacker?.buffs&&!opt.reflected&&r.ReflectedAttackDamage&&dist(u,attacker)<=r.ReflectedAttackRadius/1000){this.damage(attacker,this.scaleStat(r.ReflectedAttackDamage,r.Rarity,u.level),u,{reflected:true});this.addBuff(attacker,r.ReflectedAttackBuff,sec(r.ReflectedAttackBuffDuration),u.team,u.level);this.effect({kind:'beam',x:u.x,y:u.y,tx:attacker.x,ty:attacker.y,team:u.team,ttl:.18});}
+  if(attacker?.buffs&&!opt.reflected&&r.ReflectedAttackDamage&&dist(u,attacker)<=r.ReflectedAttackRadius/1000){this.damage(attacker,this.scaleStat(isTower(attacker)&&r.ReflectAttackCrownTowerDamage!==undefined?r.ReflectAttackCrownTowerDamage:r.ReflectedAttackDamage,r.Rarity,u.level),u,{reflected:true});this.addBuff(attacker,r.ReflectedAttackBuff,sec(r.ReflectedAttackBuffDuration),u.team,u.level);this.effect({kind:'beam',x:u.x,y:u.y,tx:attacker.x,ty:attacker.y,team:u.team,ttl:.18});}
   if(attacker?.def?.source.BuffOnDamage)this.addBuff(u,attacker.def.source.BuffOnDamage,sec(attacker.def.source.BuffOnDamageTime),attacker.team,attacker.level);
  }
  heal(u,value){if(u&&u.hp>0&&!u.cloned&&!u.building)u.hp=Math.min(this.modernActions?.healingLimit?.(this,u)??u.maxHp,u.hp+value);}
@@ -230,7 +230,7 @@ class Battle {
  cancelAttackVisual(u){if(u.hook||u.visualAttack&&u.visualAttack.releasedAt===null){u.visualAttack=null;u.visualHook=null;u.visualAttackCancelled=true;}}
  startAttack(u,t){this.modernActions?.onAttackStart?.(this,u,t);const r={...u.def.source,...this.modernActions?.attackProfile?.(this,u)};u.visualHook=null;u.visualAttackCancelled=false;if(r.AttackStartEffect&&!r.TargetedHitEffect)this.effect({kind:'source',sourceEffect:r.AttackStartEffect,team:u.team,x:u.x,y:u.y,follow:u.id,height:20,angle:u.heading,ttl:2});u.heading=Math.atan2((t.y-u.y)/SY,(t.x-u.x)/SX);
   if(!u.def.source.VisualHitSpeed||u.visualState!=='attack'||u.animationTime>=u.visualDuration){u.animationTime=0;u.visualStarted=this.time;}
-  u.visualState='attack';u.invisible=false;u.hidden=false;let first=Math.max(u.def.firstHit,u.def.interval-(u.precharge||0));if(u.charged)first=0;if(u.def.source.LoadFirstHit)first=Math.max(0,u.def.interval-u.precharge);if(!u.def.source.VisualHitSpeed)u.visualAttack={windup:first,releasedAt:null};u.attackCycleAt=this.time;u.windup={target:t.id,remaining:first};u.lastAttackAt=this.time;u.lastCombatAt=this.time;}
+  u.visualState='attack';u.invisible=false;u.hidden=false;let first=Math.max(u.def.firstHit,u.def.interval-(u.precharge||0));if(u.charged)first=0;if(u.def.source.LoadFirstHit)first=Math.max(0,u.def.interval-u.precharge);if(r.AttackStartDelay!==undefined&&!u.charged)first=sec(r.AttackStartDelay);if(!u.def.source.VisualHitSpeed)u.visualAttack={windup:first,releasedAt:null};u.attackCycleAt=this.time;u.attackCycleElapsed=0;u.windup={target:t.id,remaining:first};u.lastAttackAt=this.time;u.lastCombatAt=this.time;}
  strike(u,t){const r={...u.def.source,...this.modernActions?.attackProfile?.(this,u)},damage=this.attackDamage(u);if(u.visualAttack)u.visualAttack.releasedAt=u.animationTime;if(r.ProjectileEffect)this.effect({kind:'source',sourceEffect:r.ProjectileEffect,x:u.x,y:u.y,team:u.team,follow:u.id,height:u.building?40:24,angle:u.heading,ttl:2});if(r.TargetedHitEffect&&!r.MultipleTargets)this.effect({kind:'beam',sourceBeam:r.TargetedHitEffect,source:u.id,target:t.id,x:u.x,y:u.y,tx:t.x,ty:t.y,team:u.team,ttl:.22});u.lastAttackAt=this.time;u.lastCombatAt=this.time;
   // A multi-target release keeps its committed primary. Extra bolts use the
   // nearest legal secondary boundaries; modulo repeats both bolts on one foe.
@@ -243,7 +243,7 @@ class Battle {
   this.modernActions?.onAttack?.(this,u,t);if(r.AttackPushBack)this.push(u,u.x-t.x,u.y-t.y,r.AttackPushBack/1000,true);
   if(r.AreaEffectOnHit)this.createArea(r.AreaEffectOnHit,u.team,u.x,u.y,u.level);
   if(r.Kamikaze){u.hp=0;}
-  u.charged=false;u.chargeDistance=0;u.precharge=0;u.nextAttackAt=(r.LoadFirstHit?this.time:(u.attackCycleAt??this.time))+u.def.interval;u.cooldown=Math.max(0,u.nextAttackAt-this.time);u.windup=null;
+  u.charged=false;u.chargeDistance=0;u.precharge=0;u.nextAttackAt=this.time+Math.max(0,u.def.interval-(r.LoadFirstHit?0:u.attackCycleElapsed??(this.time-(u.attackCycleAt??this.time))));u.cooldown=Math.max(0,u.nextAttackAt-this.time);u.windup=null;
  }
  move(u,t,dt,speedRate=1,intent=null){
   if(!t||u.attachedTo||u.building||!u.def.speedTiles||dt<=0||speedRate<=0)return;
@@ -276,7 +276,7 @@ class Battle {
  }
  tickEntity(u,dt){return this.withOwner(u.owner??u.team,()=>this.tickEntityOwned(u,dt));}
  tickEntityOwned(u,dt){
-  if(!this.isPresent(u))return;if(u.controllerOnly&&!this.isPresent(this.getEntity(u.attachedTo))){u.hp=0;return;}this.tickBuffs(u);if(u.hp<=0)return;this.modernActions?.tickEntity?.(this,u,dt);const castingAbility=Forms.tickUnit(this,u,dt);u.hit=Math.max(0,u.hit-dt);u.attack=Math.max(0,u.attack-dt);u.wait=Math.max(0,u.readyAt-this.time);if(u.wait>0)return;const r=u.def.source;
+  if(!this.isPresent(u))return;if(u.controllerOnly&&!this.isPresent(this.getEntity(u.attachedTo))){u.hp=0;return;}this.tickBuffs(u);if(u.hp<=0)return;this.modernActions?.tickEntity?.(this,u,dt);const castingAbility=Forms.tickUnit(this,u,dt);u.hit=Math.max(0,u.hit-dt);u.attack=Math.max(0,u.attack-dt);u.wait=u.readyAt-this.time>EPS?u.readyAt-this.time:0;if(u.wait>0)return;const r=u.def.source;
   if(u.king&&!u.active){if(this.time>=u.activationAt){this.activateKing(u);}else return;}
   if(this.time>=u.expires){u.hp=0;return;}
   if(u.def.life)u.hp=Math.max(0,u.hp-u.maxHp*dt/u.def.life);
@@ -289,7 +289,7 @@ class Battle {
   if(r.ManaGenerateTimeMs)u.manaAt+=dt*(1-rates.spawn);
   if(r.SpawnCharacter&&!r.SpawnAttach)u.nextSpawnAt+=dt*(1-rates.spawn);
   if(r.ManaGenerateTimeMs&&rates.spawn>0&&this.time>=u.manaAt){this.creditElixir(u.owner??u.team,r.ManaCollectAmount||1);u.manaAt+=sec(r.ManaGenerateTimeMs);this.effect({kind:'elixir',x:u.x,y:u.y-30,team:u.team,ttl:.8});}
-  if(r.SpawnCharacter&&!r.SpawnAttach&&rates.spawn>0&&this.time>=u.nextSpawnAt&&(!r.SpawnLimit||u.spawned<r.SpawnLimit)){
+  if(r.SpawnCharacter&&!r.SpawnAttach&&rates.spawn>0&&this.time+EPS>=u.nextSpawnAt&&(!r.SpawnLimit||u.spawned<r.SpawnLimit)){
    const count=r.SpawnNumber||1,children=this.spawnGroup(r.SpawnCharacter,count,u.team,u.x,u.y+(u.team?-1:1)*-.7*SY,u.level,{radius:(r.SpawnRadius||750)/1000,stagger:sec(r.SpawnInterval),wait:.35});if(r.SpawnCharacterEffect)for(const child of children){const delay=Math.max(0,child.appearsAt-this.time);this.effect({kind:'source',sourceEffect:r.SpawnCharacterEffect,x:child.x,y:child.y,team:u.team,delay,ttl:4+delay});}u.spawned+=count;u.nextSpawnAt=this.time+sec(r.SpawnPauseTime||r.SpawnInterval||1000);if(r.DestroyAtLimit&&u.spawned>=r.SpawnLimit)u.hp=0;
   }
   if(castingAbility||!rates.speed&&!rates.attack)return;
@@ -320,12 +320,13 @@ class Battle {
   const d=edge(u,t);u.heading=Math.atan2((t.y-u.y)/SY,(t.x-u.x)/SX);
   if(r.DashDamage&&dist(u,t)>=r.DashMinRange/1000&&dist(u,t)<=r.DashMaxRange/1000&&this.time>=u.nextAttackAt){this.startDash(u,t);return;}
   if(r.ProjectileSpecial==='FishermanProjectile'&&d>=r.SpecialMinRange/1000&&d<=r.SpecialRange/1000&&this.time>=u.nextAttackAt){u.hook={target:t.id,remaining:sec(r.SpecialLoadTime)};u.visualHook={phase:'windup'};u.visualAttackCancelled=false;u.visualState='attack';u.visualStarted=this.time;u.animationTime=0;return;}
-  if(u.windup){u.windup.remaining-=dt*rates.attack;if(u.windup.remaining<=0){if(this.canCompleteHit(u,t))this.strike(u,t);else{this.cancelAttackVisual(u);u.windup=null;u.nextAttackAt=this.time+.1;}}return;}
-  if(d<=this.attackRange(u)+EPS&&d+EPS>=u.def.minRange){if(u.visualState!=='attack'||u.animationTime>=u.visualDuration)u.visualState='idle';if(this.time>=u.nextAttackAt&&rates.attack>0){this.startAttack(u,t);if(u.windup.remaining<=0)this.strike(u,t);}else if(rates.attack!==1)u.nextAttackAt-=dt*(rates.attack-1);}
+  if(u.windup){u.attackCycleElapsed=(u.attackCycleElapsed||0)+dt*rates.attack;u.windup.remaining-=dt*rates.attack;if(u.windup.remaining<=0){if(this.canCompleteHit(u,t))this.strike(u,t);else{this.cancelAttackVisual(u);u.windup=null;u.nextAttackAt=this.time+.1;}}return;}
+  if(d<=this.attackRange(u)+EPS&&d+EPS>=u.def.minRange){if(u.visualState!=='attack'||u.animationTime>=u.visualDuration)u.visualState='idle';if(rates.attack!==1&&this.time<u.nextAttackAt)u.nextAttackAt-=dt*(rates.attack-1);if(this.time+EPS>=u.nextAttackAt&&rates.attack>0){this.startAttack(u,t);if(u.windup.remaining<=0)this.strike(u,t);}}
   else this.move(u,t,dt,rates.speed,intent);
   u.cooldown=Math.max(0,u.nextAttackAt-this.time);
  }
- tickBuffs(u){for(const [name,b]of Object.entries(u.buffs)){if(b.until+EPS<this.time)continue;const r=DATA.buffs[b.name||name]||{};if((r.DamagePerSecond||r.HealPerSecond)&&this.time+EPS>=b.nextTick){const interval=sec(r.HitFrequency||500);if(r.DamagePerSecond){let n=isTower(u)&&r.CrownTowerDamagePerHit!==undefined?this.scaleStat(r.CrownTowerDamagePerHit,r.Rarity,b.level):this.scaleStat(r.DamagePerSecond,r.Rarity,b.level)*interval;if(u.building&&!isTower(u)&&r.BuildingDamagePercent)n*=r.BuildingDamagePercent/100;this.damage(u,n,null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:(b.name||name)==='Earthquake',team:b.sourceTeam});}if(r.HealPerSecond)this.heal(u,this.scaleStat(r.HealPerSecond,r.Rarity,b.level)*interval);b.nextTick+=interval;}}}
+ applyBuffTick(u,b,r,interval){if(r.DamagePerSecond){let n=isTower(u)&&r.CrownTowerDamagePerHit!==undefined?this.scaleStat(r.CrownTowerDamagePerHit,r.Rarity,b.level):this.scaleStat(r.DamagePerSecond,r.Rarity,b.level)*interval;if(u.building&&!isTower(u)&&r.BuildingDamagePercent)n*=r.BuildingDamagePercent/100;this.damage(u,n,null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:b.name==='Earthquake',team:b.sourceTeam});}if(r.HealPerSecond)this.heal(u,this.scaleStat(r.HealPerSecond,r.Rarity,b.level)*interval);}
+ tickBuffs(u){for(const [name,b]of Object.entries(u.buffs)){if(b.until+EPS<this.time)continue;const r=DATA.buffs[b.name||name]||{};if((r.DamagePerSecond||r.HealPerSecond)&&this.time+EPS>=b.nextTick){const oneShot=r.HitFrequency===-1,interval=oneShot?1:sec(r.HitFrequency||500);this.applyBuffTick(u,b,r,interval);b.nextTick=oneShot?Infinity:b.nextTick+interval;}}}
  // Both barrels use their own position, range, target lock and first-hit delay.
  tickKingCannons(u,dt,rate){
   if(rate<=0)return;
@@ -355,7 +356,7 @@ class Battle {
  projectileDamage(p,t){this.modernActions?.onProjectileHit?.(this,p,t);const r=DATA.projectiles[p.name];const damage=p.damageOverride??this.scaleStat(r.Damage,r.Rarity||'Common',p.level);this.damage(t,damage,p.attacker,{crownPercent:r.CrownTowerDamagePercent,projectile:true,projectileObject:p});if(r.TargetBuff)this.addBuff(t,r.TargetBuff,sec(r.BuffTime||500),p.team,p.level);if(r.Pushback)this.push(t,t.x-p.x,t.y-p.y,r.Pushback/1000,r.PushbackAll);}
  projectileImpact(p,target){return this.withOwner(p.owner??p.team,()=>this.projectileImpactOwned(p,target));}
  projectileImpactOwned(p,target){this.modernActions?.onProjectileReached?.(this,p);const r=DATA.projectiles[p.name];const radius=(r.Radius||0)/1000;
-  if(radius&&r.Damage){this.hitArea({team:p.team,x:p.x,y:p.y,damage:p.damageOverride??this.scaleStat(r.Damage,r.Rarity,p.level),radius,ground:r.AoeToGround!==false,air:r.AoeToAir===true,source:p.attacker,crownPercent:r.CrownTowerDamagePercent,push:(r.Pushback||0)/1000,forcePush:r.PushbackAll,buff:r.TargetBuff,buffTime:sec(r.BuffTime||500),level:p.level,projectile:p});}
+  if(radius&&(r.Damage!==undefined||r.TargetBuff||r.AlwaysApplyPushback)){this.hitArea({team:p.team,x:p.x,y:p.y,damage:p.damageOverride??this.scaleStat(r.Damage,r.Rarity,p.level),radius,ground:r.AoeToGround!==false,air:r.AoeToAir===true,source:p.attacker,crownPercent:r.CrownTowerDamagePercent,push:(r.Pushback||0)/1000,forcePush:r.PushbackAll,buff:r.TargetBuff,buffTime:sec(r.BuffTime||500),level:p.level,projectile:p});}
   else if(target&&target.hp>0)this.projectileDamage(p,target);
   if(r.ChainedHitCount&&target){const visited=new Set([target.id]);let current=target;for(let i=1;i<r.ChainedHitCount;i++){const next=this.active.filter(u=>u.team!==p.team&&!u.attachedTo&&!u.hidden&&!visited.has(u.id)&&dist(u,current)<=(r.ChainedHitRadius||3500)/1000).sort((a,b)=>dist(a,current)-dist(b,current))[0];if(!next)break;visited.add(next.id);this.projectileDamage(p,next);this.effect({kind:'beam',x:current.x,y:current.y-15,tx:next.x,ty:next.y-15,team:p.team,ttl:.3});current=next;}}
   if(p.modernSpawnCharacter||r.SpawnCharacter)this.spawnGroup(p.modernSpawnCharacter||r.SpawnCharacter,r.SpawnCharacterCount||1,p.team,p.x,p.y,p.level,{formation:p.name==='GoblinBarrelSpell'?'barrel':null,formId:p.formId,card:p.name==='GoblinBarrelSpell'?'goblin-barrel':r.SpawnCharacter,radius:(r.Radius||1000)/1000,wait:r.SpawnCharacterDeployTime!==undefined?sec(r.SpawnCharacterDeployTime):.5});
@@ -382,13 +383,15 @@ class Battle {
     if(r.Clone){for(const u of targets.filter(u=>u.team===a.team&&!u.building&&!u.cloned)){const clone=this.spawn(u.def.source.ClonedVersion||u.entity,u.team,u.x+.7*SX,u.y,{level:u.level,wait:.5,cloned:true,card:u.card});if(clone){clone.shield=u.shield>0?1:0;clone.buffs={};}}}
     else if(a.name==='Lightning'){for(const [i,t]of targets.filter(t=>t.team!==a.team).sort((x,y)=>y.hp-x.hp).slice(0,3).entries())this.schedule({type:'target-impact',name:r.Projectile,team:a.team,target:t.id,level:a.level,due:this.time+i*.3});}
     else if(a.name==='RoyalDeliveryArea'){this.schedule({type:'impact',name:r.Projectile,team:a.team,x:a.x,y:a.y,level:a.level,due:this.time+sec(r.SpawnInitialDelay||2050)});}
-    else if(r.Damage)for(const u of targets)this.damage(u,this.scaleStat(r.Damage,r.Rarity,a.level),null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:r.AffectsHidden});
+    else if(r.Damage&&!(r.HitSpeed>0))for(const u of targets)this.damage(u,this.scaleStat(isTower(u)&&r.Damage.TowerDamage!==undefined?r.Damage.TowerDamage:r.Damage,r.Rarity,a.level),null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:r.AffectsHidden});
    }
    Spells?.tickArea(this,a);
    if(this.time<=a.ends+EPS&&r.SpawnCharacter&&this.time>=a.nextSpawn&&(!r.SpawnMaxCount||a.spawned<r.SpawnMaxCount)&&(!r.SpawnLimit||a.spawned<r.SpawnLimit)&&(a.modernSpawnLimit===undefined||a.spawned<a.modernSpawnLimit)){
     const ang=this.random()*Math.PI*2,rad=(r.SpawnMinRadius||500)/1000+this.random()*((r.SpawnMaxRadius||r.Radius||3000)-(r.SpawnMinRadius||500))/1000,sx=a.x+Math.cos(ang)*rad*SX,sy=a.y+Math.sin(ang)*rad*SY;this.spawn(r.SpawnCharacter,a.team,sx,sy,{level:a.level,wait:sec(r.SpawnTime||400)});if(r.SpawnEffect)this.effect({kind:'source',sourceEffect:r.SpawnEffect,x:sx,y:sy,team:a.team,ttl:4});a.spawned++;a.nextSpawn+=sec(r.SpawnInterval||500);
    }
-   if(this.time<=a.ends+EPS&&this.time+EPS>=a.nextTick&&!r.Clone){
+   const firstDamageTickDue=r.Damage&&r.HitSpeed>0&&!a.damageTickStarted&&a.nextTick<=a.ends+EPS;
+   if((this.time<=a.ends+EPS||firstDamageTickDue)&&this.time+EPS>=a.nextTick&&!r.Clone){
+    if(r.Damage&&r.HitSpeed>0){a.damageTickStarted=true;for(const u of targets)this.damage(u,this.scaleStat(isTower(u)&&r.Damage.TowerDamage!==undefined?r.Damage.TowerDamage:r.Damage,r.Rarity,a.level),null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:r.AffectsHidden});}
     for(const u of targets){this.modernActions?.onAreaHit?.(this,a,u);if(r.OneHitPerTarget){a.hitTargets||(a.hitTargets=[]);a.hitTargets.push(u.id);}}if(r.Buff)for(const u of targets){let duration=sec(r.BuffTime||500);if(r.CapBuffTimeToAreaEffectTime||r.ControlsBuff)duration=Math.min(duration,Math.max(0,a.ends-this.time));this.addBuff(u,r.Buff,duration,a.team,a.level,a.id,DATA.buffs[r.Buff]?.HitTickFromSource?a.born:null);}
     a.nextTick=r.HitSpeed>0?a.nextTick+sec(r.HitSpeed):Infinity;
    }
@@ -399,6 +402,14 @@ class Battle {
  }
  tickPending(){const due=this.pending.filter(p=>p.due<=this.time+EPS);this.pending=this.pending.filter(p=>p.due>this.time+EPS);for(const p of due)this.withOwner(p.owner??p.team,()=>this.resolvePending(p));}
  resolvePending(p){
+  if(p.type==='spawn-pathfind-morph'){
+   const u=this.getEntity(p.source);if(!u||u.dead||u.hp<=0||!DATA.entities[p.name])return;
+   // Arrival is a data morph, not a kill/spawn event. Initialize the emerged
+   // form's health, production and lifetime with the normal entity lifecycle,
+   // keeping the cast identity and its already elapsed underground travel.
+   const wait=Math.max(0,p.due+this.entityDefinition(p.name,u.level).deploy+(p.customDeploy||0)-this.time),fresh=this.makeEntity(p.name,u.team,u.x,u.y,{id:u.id,owner:u.owner,card:u.card,level:u.level,levelGroupId:u.levelGroupId,cloned:u.cloned,wait});
+   fresh.appearsAt=p.due;fresh.born=p.due;Object.assign(u,fresh);u.modernStarted=false;u.modernActions=undefined;this.modernActions?.onSpawn?.(this,u);this.navigator.sampleTime=-1;return;
+  }
   if(this.modernActions?.handlePending?.(this,p))return;
   if(p.type==='modern-action'){this.modernActions?.resolvePending?.(this,p);return;}
   if(p.type==='visual'){this.effect(p);return;}

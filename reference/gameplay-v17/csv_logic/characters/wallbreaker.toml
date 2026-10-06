@@ -1,0 +1,63 @@
+
+[CHARACTER.Wallbreaker]
+AreaDamageRadius = 1500
+AttackStartEffect = "wall_breaker_attack_start"
+AttacksGround = true
+BlueExportName = "chr_wall_breaker"
+CollisionRadius = 400
+ContinuousEffect = "wall_breaker_cont_effect"
+DamageEffect = "vfx_wallbreaker_explosion"
+DamageExportName = "filter_damage"
+DeathEffect = "wall_breaker_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_wall_breaker_dl.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 1200
+Hitpoints = 129
+Kamikaze = true
+LoadTime = 1000
+Mass = 4
+MoveEffect = "wall_breaker_steps"
+Name = "Wallbreaker"
+PrestigeExportName2 = "wall_breaker_prestige2"
+PrestigeExportName3 = "wall_breaker_prestige3"
+PrestigeSWF = "sc/chr_wall_breaker_dl.sc"
+Projectile = "WallbreakerProjectile"
+Range = 500
+Rarity = "Common"
+RedExportName = "chr_wall_breaker_red"
+Scale = 98
+ShadowScaleX = 60
+ShadowScaleY = 60
+ShadowSkew = 35
+ShadowY = 7
+SightRange = 7000
+SpawnEffect = "wall_breaker_deploy"
+Speed = 120
+TID = "TID_SPELL_BOMBER"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+[PROJECTILE.WallbreakerProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 110
+DeflectBehaviour = "NoDeflect"
+ExportName = "projectile_firespirit"
+FileName = "sc/effects.sc"
+Gravity = 400
+HitEffect = "vfx_wallbreaker_explosion"
+Name = "WallbreakerProjectile"
+OnlyEnemies = true
+ProjectileRange = 1
+Radius = 1500
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1000
+TrailEffect = "PrincessArrowProjectileEmitter"
+use360Frames = true
+
+

@@ -1,0 +1,118 @@
+[CHARACTER.ArcherQueen]
+Ability = "ArcherQueenRapid"
+AbilityPendingEffect = "Heal_aura"
+AllowAreaDmgWhenInvisible = true
+AttackStartEffect = "archer_queen_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "ArcherQueen"
+CollisionRadius = 500
+CustomSpawnFilter = "filter_champion_archer_queen"
+DamageEffect = "archer_queen_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "archer_queen_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_archer_queen_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -5
+HealthBarOffsetYBlue = 15
+HealthBarOffsetYRed = 10
+HideHealthbar = true
+HitSpeed = 1200
+Hitpoints = 391
+LoadTime = 900
+Mass = 6
+MoveEffect = "ArcherSteps"
+Name = "ArcherQueen"
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+Projectile = "ArcherQueenArrow"
+ProjectileEffect = "arrows_trail"
+ProjectileStartRadius = 1350
+ProjectileStartZ = 800
+Range = 5000
+Rarity = "Common"
+RedExportName = "ArcherQueen_enemy"
+Scale = 99
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "archer_queen_deploy"
+Speed = 60
+TID = "TID_CHARACTER_ARCHER"
+UseAnimator = true
+OnStartingClientActions = ["Healthbar_Medium"]
+[CHARACTER.ArcherQueen.StatsTags]
+Damage = "damage"
+HitSpeed = "hitspeed"
+[PROJECTILE.ArcherQueenArrow]
+Damage = 91
+ExportName = "archer_queen_projectile_arrow_elite"
+FileName = "sc/effects.sc"
+Gravity = 60
+HitEffect = "ArrowHit"
+Homing = true
+Name = "ArcherQueenArrow"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 800
+TrailEffect = "archer_queen_arrow_fx"
+[ABILITY.ArcherQueenRapid]
+Buff = "ArcherQueenRapid"
+BuffTime = 3500
+CastTime = 933
+MaxCharges = 1
+KeepIconEvenWhenOutOfCharges = true
+HideChargesTextField = true
+DeployedClip = "champion_select_ring_rampup_archer_queen"
+DeployedEffect = "ability_charging_archer_queen"
+IconExportName = "icon_ability_archer_queen"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 1
+Name = "ArcherQueenRapid"
+Stats = "ArcherQueenRapid"
+TID = "TID_ABILITY_NAME_ARCHER_QUEEN_INVISIBILITY_RUSH"
+TID_INFO = "TID_ABILITY_DESCRIPTION_ARCHER_QUEEN"
+TriggerDelay = 200
+[ABILITY.ArcherQueenRapid.StatsTags]
+Cooldown = "ability_cooldown"
+BuffTime = "duration"
+[BUFF.ArcherQueenRapid]
+ContinuousEffect = "archer_queen_ghost_aura"
+FilterExportName = "filter_invisible"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 280
+Invisible = true
+Name = "ArcherQueenRapid"
+NotCloned = true
+Rarity = "Common"
+ShadowAlpha = 20
+SpeedMultiplier = -25
+[BUFF.ArcherQueenRapid.StatsTags]
+HitSpeedMultiplierForStats = "dps_boost"
+[STATS.ArcherQueenRapid]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.ArcherQueenRapid.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_INVISIBILITY_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.ArcherQueenRapid.stats]]
+		Value = "dps_boost"
+		Unit = "PERCENT"
+		TID = "TID_ABILITY_STAT_FIRE_RATE_BOOST"
+		Icon = "icons_stats_boost_rage"
+	[[STATS.ArcherQueenRapid.stats]]
+		Value = "damage"
+		Value2 = "hitspeed"
+		Value3 = "dps_boost"
+		Unit = "DPS_BOOSTED"
+		TID = "TID_ABILITY_STAT_DAMAGE_PER_SECOND"
+		Icon = "icons_stats_dmg_dps"

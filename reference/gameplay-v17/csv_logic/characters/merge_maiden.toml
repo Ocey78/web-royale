@@ -1,0 +1,193 @@
+[SPELL_OTHER.MergeMaiden]
+UseProjectedTimeSummon = true
+MirrorUsesRootSpell = false
+  Stats = "MergeMaiden_Mounted"
+  [[SPELL_OTHER.MergeMaiden.Options]] 
+AvailableManaTrigger = 6000
+PrecastPendingTime = 1200
+    SpellData = "MergeMaiden_Mounted"
+	VariantSwitchClipName = "card_item_frame_legendary_glow_fx"
+	VariantFrameClipName = "card_item_frame_legendary_maiden"
+  [[SPELL_OTHER.MergeMaiden.Options]]
+    AvailableManaTrigger = 3000
+    PrecastPendingTime = 1200
+    SpellData = "MergeMaiden_Normal"
+	VariantSwitchClipName = "card_item_frame_legendary_glow_fx_2"
+	VariantFrameClipName = "card_item_frame_legendary_maiden"
+[SPELL_CHARACTER.MergeMaiden_Normal]
+	StatsTags.ManaCost = "ManaCostNormal"
+  
+[CHARACTER.MergeMaiden_Normal]
+	TID="TID_SPELL_MERGEMAIDEN_GROUND"
+	Rarity = "Common"
+	SightRange = 5500
+	DeployTime = 1000
+	Speed = 90
+	Hitpoints = 438
+	HitSpeed = 1200
+	LoadTime = 800
+	Damage = 125
+	Range = 1200
+	AttacksGround = true
+	FileName = "sc/chr_merge_maiden.sc"
+	BlueExportName = "merge_maiden"
+	RedExportName = "merge_maiden_enemy"
+	UseAnimator = true
+	DamageEffect = "mergemaiden_hit_2"
+	DeathEffect = "mergemaiden_die"
+	DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+	MoveEffect = "mergemaiden_steps"
+	SpawnEffect = "mergemaiden_deploy"
+	AttackStartEffect = "mergemaiden_attack_start"
+	ShadowScaleX = 85
+	ShadowScaleY = 85
+	ShadowY = -10
+	Scale = 68
+	ShadowSkew= 13
+	CollisionRadius = 500
+	Mass = 5
+	HealthBar = "Medium"
+	HealthBarOffsetYBlue =-24
+	HealthBarOffsetYRed = -26
+	DamageExportName = "filter_damage"
+	ProjectileStartRadius = 2500
+	ProjectileStartZ = 2000
+	StatsTags.TID = "TID_SPELL_MERGEMAIDEN"
+	StatsTags.Damage = "ground_damage"
+	StatsTags.HitSpeed = "ground_hit_speed"
+	StatsTags.Hitpoints = "ground_hitpoints"
+	StatsTags.Speed = "ground_speed"
+	StatsTags.Range = "ground_range"
+	StatsTags.Targets = "ground_targets"
+[CHARACTER.MergeMaiden_Mounted]
+	TID="TID_SPELL_MERGEMAIDEN"
+	Rarity = "Common"
+	SightRange = 5500
+	DeployTime = 1000
+	Speed = 60
+	Hitpoints = 438
+	HitSpeed = 1400
+	LoadTime = 900
+	Range = 5000
+	Projectile = "MergeMaidenProjectile_Mounted"
+	AttacksGround = true
+	AttacksAir = true
+	FileName = "sc/chr_merge_maiden_dragon.sc"
+	BlueExportName = "merge_maiden_dragon"
+	RedExportName = "merge_maiden_dragon_enemy"
+	UseAnimator = true
+	DamageEffect = "mergemaiden_hit"
+	DeathEffect = "mergemaiden_die"
+	MoveEffect = "mergemaiden_dragon_steps"
+	AttackStartEffect = "mergemaiden_dragon_attack_start"
+	DeployBaseAnimExportName = ""
+	SpawnEffect = "mergemaiden_dragon_deploy"
+	ShadowScaleX = 65
+	ShadowScaleY = 65
+	ShadowY = 15
+	ShadowSkew = 10
+	Scale = 68
+	CollisionRadius = 600
+	Mass = 5
+	HealthBar = "Medium"
+	HealthBarOffsetYBlue = 4
+	HealthBarOffsetYRed = 4
+	DamageExportName = "filter_damage"
+	ProjectileStartRadius = 1900
+	ProjectileStartZ = 3950
+	FlyingHeight = 3500
+	StatsTags.Level = "level"
+	StatsTags.Damage = "ranged_damage"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.Range = "range"
+	StatsTags.Targets = "targets"
+[PROJECTILE.MergeMaidenProjectile_Mounted]
+	Rarity = "Common"
+	Speed = 600
+	FileName = "sc/chr_merge_maiden.sc"
+	ExportName = "mergemaiden_atk_projectile_01"
+	Damage = 125
+	Homing = true
+	Scale = 125
+	HitEffect = "mergemaiden_hit_3"
+	TrailEffect = "mergemaiden_trail_projectile_02"
+	OnlyEnemies = true
+[STATS.MergeMaiden_Normal]
+  [[STATS.MergeMaiden_Normal.stats]]
+		Value = "ground_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+  [[STATS.MergeMaiden_Normal.stats]]
+		Value = "ground_damage"
+		Value2 = "ground_hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+  [[STATS.MergeMaiden_Normal.stats]]
+    Value = "ground_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+  [[STATS.MergeMaiden_Normal.stats]]
+    Value = "ground_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+  [[STATS.MergeMaiden_Normal.stats]]
+		Value = "ground_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+  [[STATS.MergeMaiden_Normal.stats]]
+   		Value = "ground_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+  [[STATS.MergeMaiden_Normal.stats]]
+		Value = "ground_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.MergeMaiden_Mounted]
+  [[STATS.MergeMaiden_Mounted.stats]]
+    Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+  [[STATS.MergeMaiden_Mounted.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+  [[STATS.MergeMaiden_Mounted.stats]]
+    Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+  [[STATS.MergeMaiden_Mounted.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+  [[STATS.MergeMaiden_Mounted.stats]]
+   		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+  [[STATS.MergeMaiden_Mounted.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+  [[STATS.MergeMaiden_Mounted.stats]]
+		Value = "ManaCostNormal"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_ALTERNATE_CARD"
+		Icon = "icons_stats_elixir_count_2"
+		InfoPopoverTitle = "TID_SPELL_MERGEMAIDEN_GROUND"
+		InfoPopoverBackground = "stats_tool_tip_header"
+		InfoButtonStats = "MergeMaiden_Normal"
+		LinkedCardDisplay = "MergeMaiden_Normal"

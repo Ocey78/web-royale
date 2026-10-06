@@ -1,0 +1,71 @@
+[GAMEMODE.Crazy_Arena_EpicOnly]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Crazy_Arena_EpicOnly.Components]]
+		Name = "Augment_EpicOnly"
+		ClassType = "Augment"
+		WaveData = [
+			"EpicOnly_CrazyArenaWave1",
+			"EpicOnly_CrazyArenaWave2",
+			"EpicOnly_CrazyArenaWave3",
+			"EpicOnly_CrazyArenaWave4",
+			"EpicOnly_CrazyArenaWave5",
+		]
+		WaveSelectionTimeLimitS = 7
+		SameVarietySelection = false
+		InitialBuffKingTowner = "KingTower_CrazyArena"
+		InitialBuffPrincessTowner = "PrincessTower_CrazyArena"
+		DisableTowerDeathCompensation = true
+		SkipSelectionEnabled = false
+		PauseGameOnAugmentSelection = true
+		PauseAfterAugmentSelectionMS = 1300
+		MinRequiredTicksToShowAugmentSelection = 20
+		[[GAMEMODE.Crazy_Arena_EpicOnly.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Common"
+			CardOverlayEffect  = "card_item_augment_underlay_common"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_EpicOnly.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Rare"
+			CardOverlayEffect  = "card_item_augment_underlay_rare"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_EpicOnly.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Epic"
+			CardOverlayEffect  = "card_item_augment_underlay_epic"
+			CardUnderlayEffect = ""
+
+[AUGMENT_WAVE.EpicOnly_CrazyArenaWave1]
+	StartTimeS   = 4
+	CommonWeight = 0
+	RareWeight   = 0
+	EpicWeight   = 100
+	GlobalWeight = 0
+
+[AUGMENT_WAVE.EpicOnly_CrazyArenaWave2]
+	StartTimeS   = 49
+	CommonWeight = 0
+	RareWeight   = 0
+	EpicWeight   = 100
+	GlobalWeight = 0
+
+[AUGMENT_WAVE.EpicOnly_CrazyArenaWave3]
+	StartTimeS                   = 94
+	CommonWeight                 = 0
+	RareWeight                   = 0
+	EpicWeight                   = 100
+	GlobalWeight                 = 0
+	AllowPreviouslyShownAugments = true
+
+[AUGMENT_WAVE.EpicOnly_CrazyArenaWave4]
+	StartTimeS                   = 139
+	CommonWeight                 = 0
+	RareWeight                   = 0
+	EpicWeight                   = 100
+	GlobalWeight                 = 0
+	AllowPreviouslyShownAugments = true
+
+[AUGMENT_WAVE.EpicOnly_CrazyArenaWave5]
+	StartTimeS                   = 199
+	CommonWeight                 = 0
+	RareWeight                   = 0
+	EpicWeight                   = 100
+	GlobalWeight                 = 0
+	AllowPreviouslyShownAugments = true

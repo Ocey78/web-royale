@@ -1,0 +1,123 @@
+[CHARACTER.Furnace_rework]
+	Rarity = "Common"
+	SightRange = 6000
+	DeployTime = 1000
+	Speed = 60
+	Hitpoints = 284
+	HitSpeed = 1700
+	LoadTime = 1200
+	Projectile = "Furnace_Rework_Projectile"
+	Range = 5500
+	AttacksGround = true
+	AttacksAir = true
+	Mass = 6
+	CollisionRadius = 600
+	OnStartingAction = "Furnace_rework_continuous_spawn"
+	
+	FileName="sc/chr_furnace_rework.sc"
+	BlueExportName="furnace_rework"
+	RedExportName="furnace_rework_red"
+	Scale = 63
+	ShadowScaleX = 70
+    ShadowScaleY = 80
+	ShadowSkew = 15
+	ShadowY = 1
+	ContinuousEffect = "furnace_rework_cont_effect"
+	MoveEffect = "furnace_rework_step"
+	SpawnEffect = "furnace_rework_deploy"
+	SpawnCharacterEffect = ""
+	DamageEffect = ""
+	DeathEffect = "Death_player"
+	AttackStartEffect = "furnace_rework_attack_start"
+	ProjectileStartRadius = 2000
+	ProjectileStartZ = 2000
+	UseAnimator = true
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	HealthBarOffsetYRed = 20
+	HealthBarOffsetYBlue = 12
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage = "damage"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.Level = "level"
+	StatsTags.Speed = "speed"
+[ACTION.Furnace_rework_continuous_spawn]
+	ClassType = "ActionInterval"
+	StartCounterAt = 1950
+	Interval = 5000
+	ActionToExecute = "Furnace_rework_spawn_forward"
+	AffectedBySpawnSpeed = true
+	PauseTag = "NO_SUMMON,UNIT_CUSTOM_TAG_1"
+	StatsTags.Interval = "interval_of_spawns"
+[ACTION.Furnace_rework_spawn_forward]
+	ClassType = "ActionSpawnToLocation"
+	DeployTime = 500
+	ActionToRunOnSpawned="Furnace_rework_spawning_effect"
+	SpawnType = "CharacterType"
+	SpawnData = "FireSpirits"
+	MirroredX = 0
+	MirroredY = 3
+[ACTION.Furnace_rework_spawning_effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "furnace_rework_spirits_spawn"
+	EffectFlags = "FilterCanModifyTransform"
+	OverrideDuration  = 1000
+[PROJECTILE.Furnace_Rework_Projectile]
+	ConstantHeight = 1400
+	Rarity = "Common"
+	Speed = 600
+	Damage = 70
+	FileName = "sc/chr_furnace_rework.sc"
+	ExportName = "furnace_rework_projectile_01"
+	ShadowExportName = ""
+	TrailEffect = "furnace_rework_projectile_emitter"
+	HitEffect = "furnace_rework_projectile_hit_01"
+	Gravity = 20
+[STATS.furnace_rework]
+	[[STATS.furnace_rework.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.furnace_rework.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.furnace_rework.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_FIRE_SPIRITS"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_FIRE_SPIRITS"
+		InfoButtonStats="firespirits"
+	[[STATS.furnace_rework.stats]]
+		Value = "interval_of_spawns"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_TIME"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.furnace_rework.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.furnace_rework.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.furnace_rework.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.furnace_rework.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

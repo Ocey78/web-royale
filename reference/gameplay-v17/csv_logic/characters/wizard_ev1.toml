@@ -1,0 +1,72 @@
+[EXT.Wizard_EV1]
+AttackStartEffect = "Evo_Wizard_Atk"
+Base = "CHARACTER.Wizard"
+BlueShieldExportName = "wizard1_shield"
+ClonedVersion = "Wizard"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_M"
+FileName = "sc/chr_wizard_evolution.sc"
+HealthBarOffsetYBlue = 15
+HealthBarOffsetYRed = 10
+HideHealthbar = true
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+OnStartingAction = "Wizard_EV1_ShieldON"
+PrestigeExportName = ""
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeRedExportName = ""
+PrestigeRedExportName2 = ""
+PrestigeRedExportName3 = ""
+PrestigeSWF = ""
+Projectile = "Wizard_EV1_Projectile"
+RedShieldExportName = "wizard1_red_shield"
+Scale = 56
+ShieldHitpoints = 69
+ShieldLostAction = "Wizard_EV1_ShieldLost"
+SpawnEffect = "vfx_wizard_evo_deploy"
+OnStartingClientActions = ["Healthbar_Medium_WithEvoBadge"]
+[ACTION.Wizard_EV1_ShieldON]
+AbortIfInstigatorDies = false
+ClassType = "ActionGroup"
+SubActions = ["Wizard_EV1_ShieldVFX"]
+SubActionsDelay = [100, 100]
+[ACTION.Wizard_EV1_ShieldVFX]
+AbortIfInstigatorDies = false
+ClassType = "ActionSpawn"
+SpawnData = "Wizard_EV1_ShieldVFX"
+SpawnTime = 999999
+SpawnType = "BuffType"
+[ACTION.Wizard_EV1_ShieldVFX.NextAction]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_wizard_evo_buff"
+EffectFlags = "FollowParent,ParticlesFollowParent,Looping,LinkLifeToActionLife"
+ForceStopIfTrue = "!HAS_SHIELD()"
+[BUFF.Wizard_EV1_ShieldVFX]
+AliveIfTrue = "HAS_SHIELD()"
+Rarity = "Common"
+[EXT.Wizard_EV1_Projectile]
+Base = "PROJECTILE.chr_wizardProjectile"
+ExportName = "fireball_small"
+FileName = "sc/effects.sc"
+HitEffect = "vfx_wizard_evo_pjt_hit"
+TrailEffect = "vfx_wizard_evo_pjt"
+[ACTION.Wizard_EV1_ShieldLost]
+AbortIfInstigatorDies = false
+ClassType = "ActionGroup"
+SubActions = ["Wizard_EV1_ShieldLostAoE"]
+SubActionsDelay = [0]
+[ACTION.Wizard_EV1_ShieldLostAoE]
+AbortIfInstigatorDies = false
+ClassType = "ActionSpawn"
+ParentGOAsSource = true
+SpawnData = "Wizard_EV1_ShieldLostExplosion"
+SpawnType = "AreaEffectType"
+[AEO.Wizard_EV1_ShieldLostExplosion]
+HitEffect = "vfx_wizard_evo_shield_explosion"
+LifeDuration = 1
+Filter = "CommonAreaDamageFilter"
+Pushback = 3000
+Radius = 3000
+Rarity = "Common"
+Damage = { BaseDamage = 110 }

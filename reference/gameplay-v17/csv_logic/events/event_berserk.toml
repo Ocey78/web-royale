@@ -1,0 +1,39 @@
+[BUFF.Event_Berserk_OnStartBuff]
+    Rarity = "Common"
+    OnStartAction = "Event_BerserkAtHealth"
+
+[ACTION.Event_BerserkAtHealth]
+    ClassType = "ActionRunActionAtHealth"
+    HealthPercentages = [50]
+    Actions = ["Berserk_SpawnGroup"]
+
+[ACTION.Berserk_SpawnGroup]
+    ClassType= "ActionGroup"
+    SubActionsDelay = [0, 0]
+    SubActions = [
+        "Berserk_Spawn_Effect",
+        "Berserk_Buff_Spawn",
+    ]
+
+[ACTION.Berserk_Spawn_Effect]
+    ClassType="ActionPlayEffect"
+    Effect="Berserk_RagePuff"
+
+[ACTION.Berserk_Buff_Spawn]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "Berserk_Rage"
+    SpawnTime = 999999
+    ParentGOAsSource = true
+    
+[BUFF.Berserk_Rage]
+    Rarity = "Common"
+    HitSpeedMultiplier = 170
+    SpeedMultiplier = 170
+    SpawnSpeedMultiplier = 170
+    Effect = "Spell_rage_hit_effect"
+    FilterFile = "sc/effects.sc"
+    FilterExportName = "filter_rage"
+    MarkEffect = "Healing"
+    AudioPitchModifier = 170
+    NoEffectToCrownTowers = true

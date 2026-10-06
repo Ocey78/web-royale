@@ -1,0 +1,2367 @@
+{
+  "package": "com.supercell.clashroyale",
+  "version_code": 160402017,
+  "source_url": "https://d.apkpure.net/b/XAPK/com.supercell.clashroyale?nc=armeabi-v7a&sv=29&versionCode=160402017",
+  "outer_xapk_advertised_sha256_not_whole_file_verified": "aed8180596990d2e68a2fcf035695ad3356cfd12d32cb78211c2a8da6438fa23",
+  "signer_certificate_sha1": "2e18d3f8726b1de631322716518fb2aec2ebeb9e",
+  "signer_subject": "CN=Supercell, OU=Supercell, O=Supercell, L=Helsinki, S=Uusimaa, C=FI",
+  "pkcs7_signature_verified_separately_with_dotnet_SignedCms_CheckSignature": true,
+  "manifest_sha1_matches_signature_file": true,
+  "asset_fingerprint_sha": "504fe9d1820c587deda31030c70bc4d1121fea4f",
+  "asset_fingerprint_version": "16.402.2",
+  "member_count": 392,
+  "members": [
+    {
+      "file": "assets/data_manifest.toml",
+      "sha1": "2adb46df98e2259a47ae1248971092c69bbe2719",
+      "sha256": "534dee697758b92ddc6d8ef9eea01a75ff6f39b44c76c14f3a47c088fa82a93b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/fingerprint.json",
+      "sha1": "c4400763ff5c1314fcc3c266f5f0c936c44cb720",
+      "sha256": "c6a735ac21104dcbaa099ad4071fef0ac8662c8ce2e1a6b11fd903a2148583f7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/version.number",
+      "sha1": "7742eedfdc2acd2cdd27f70a2fa7b61d991e2464",
+      "sha256": "9d2ec56156a0ca870955cfe0df21e23efb648f0ccd86a82e70b68d349d35c80f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/achievements.csv",
+      "sha1": "c791bd5c6765e31acfead9d7da85dba88c4365b6",
+      "sha256": "adaf61a7f1f8b5ffad335bcf683d9faabc26af8e7118e38d175d006b299f7c39",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/achievement_badges_legacy.csv",
+      "sha1": "910572a1461d33a443f2a7800dc94792df4bec89",
+      "sha256": "1da00d7bb4b8c388169614677151a82810047c31473d9e7207217665c3219d96",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/actions.toml",
+      "sha1": "627b757975938915e652c713dd028768467b3cb4",
+      "sha256": "0947f2966ff07ba1452dfcd3317cf0d9f5ae350fe3c538dbfb37755a9cd8e090",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/album_snippets.csv",
+      "sha1": "716c3d24de1b547e17b0f403d791ec74918d1a15",
+      "sha256": "0f217ec3bc057a45fa4ba090636c5f0ec0f792bdacad73767d70bd8ea32c7da6",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/alliance_badges.csv",
+      "sha1": "aa2a0e26fff6a85b399e39523e7b187fb980f35f",
+      "sha256": "a1ad36dc7b3371a35e806832bb7fb9e45d67e29d13c2b244aed4860d828e0581",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/alliance_roles.csv",
+      "sha1": "e5ccfffb04cdf76913d32952bbd16fe16d0966ba",
+      "sha256": "e147d5bc24d45edb83498090bdebe1d488f99d2cda6834b0e1d5d23ce2bd6b2c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/area_effect_objects.toml",
+      "sha1": "92ee98820a58be1d8188ecc7b99048f566718223",
+      "sha256": "75892cd1273a1ba62ca05421293bbb6cb4e057cdc9cbed1d5163643513c1477e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/area_effect_objects_evo.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/arenas.csv",
+      "sha1": "2e968b4b77bf75c2192aa291752aa6617a42b49f",
+      "sha256": "3601bdaa7c34c469162ba7d23aaa9e09382a6fdf59af319e9cd443fcabc023dd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/arenas_alt.csv",
+      "sha1": "38cd9f173c6f1e581c404a5556ed09163ea5b107",
+      "sha256": "86ed4129ba809ab29671699c5069d46eecec514bf2de0f5cf301f74234330d8e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/augment_unlocks.toml",
+      "sha1": "ffb6a8932286ebc4c04511fd3622c4e02d5134b0",
+      "sha256": "e3405e059e3b1bcd1d7e7304fce112bc73c1421ee0e0c4c18056c9817d1707e4",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/autochess_battle_result_config.toml",
+      "sha1": "1afbe6c0fe879b0c091430aefbae3bdb8c327e1c",
+      "sha256": "e7c27d8d24a481d6fcce352efe99d218092d4e46896fc6ab7977e64c4bd34c50",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/badges.csv",
+      "sha1": "7b48159004f86e939dbe690528202bcfdb205ee3",
+      "sha256": "7c01b831c7e00ac8660f351716980fd73ff40be812326e98c2f26fa155585df8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/banners.csv",
+      "sha1": "cedadd3436e99e34c9cb47670e7dfd3441464678",
+      "sha256": "183414899056a862d96456093c2475463faae7b88aa047014ce3b79d7d0e41f5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/battle_timelines.csv",
+      "sha1": "3eb9568ea39c5123ef09c18ed4deaa4622b783fa",
+      "sha256": "2fb9cc3d52ecaf1c649f81e76f0e4b58e3a7b420641051f727a985e5cac841c6",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/boosts.toml",
+      "sha1": "b1436d6dbec65d2dda5f764d7d937c65d19f33e4",
+      "sha256": "46366ab0aa315b980f3c98fa84bb9a7ad6588b6855a41f5703b5f2b18d3a2eb8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/buildings.toml",
+      "sha1": "d6c888eca6bc0b1e2a3736873fd117a8cb132e9a",
+      "sha256": "ba89160735719fa7d1b24197e42a2bd8854f9b198936fff144738748bd313167",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/buildings_evo.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/card_delivery_battles.csv",
+      "sha1": "50533d681d4b3b95a2359caa59ab40c63549a3ed",
+      "sha256": "8d755fe8db86cc146f0928f0edc32b35e76abf87a0dd2217854cca29fc0294e7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/card_delivery_rewards.csv",
+      "sha1": "94444a20e10fc8f5e28071ecfd38ed0a53a2928e",
+      "sha256": "fd172bdeb75abd335c2afc9cd707e11abac47cb79d70f6751d8abecd76de02a3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/card_forms.toml",
+      "sha1": "8947a2f10f7682862212e408597e1a63d0300234",
+      "sha256": "27ac1df97b37b52fea7d7a63151ef1137f925cfd9263ad77ab9d988e0ab9913d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/card_groups.toml",
+      "sha1": "4fc26ee032998e891ffb8ffc6993cc612fb58eab",
+      "sha256": "09dfbeb832fc7fc4dab953151f4edb2a4d27b62f81416841925d8fb9fa49bab6",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/card_masteries.csv",
+      "sha1": "9574494725ee0a050a3ed40720df4c73872ef2b2",
+      "sha256": "e3404b60c818852767bd87b1b9af5e637193df576445aa3b8442405b9260b98a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/chaos_s2_starter_decks.toml",
+      "sha1": "714e35ad78bbc8f301f8c71a115f3adc941998cd",
+      "sha256": "9534b49a0c70aa5626a1b205bbbd5582a6a6c306e54850f5e5d77e9b17860174",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters_base.toml",
+      "sha1": "1930d81dcd30bc94454d3599d06ad833f3f0126a",
+      "sha256": "c03a88c28fd323a1ca29f7ea07a88658faf22579cf4cc387e86697cec3567ad1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters_evo.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/character_abilities.csv",
+      "sha1": "78175f33ed7eaa61c97e00b74b82f1805f29b680",
+      "sha256": "87bb23b7626156ea585287124c0472085e126673d6583f5dc6599d374a6a64be",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/character_buffs.toml",
+      "sha1": "ebbb02632965215eed6b7de21152791fdd016a9c",
+      "sha256": "c44f9781cb1dd330880993b847d9f8cb34a729113d5d0736ba74d34da0ac9279",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/character_buffs_evo.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/chest_order.csv",
+      "sha1": "0a8bc7a0e4bb31f5d049af26873c3d9fde2ac9e5",
+      "sha256": "550537644bf0e5167da09e729a62b29afef3d7885d3da21e5511020edf7edaa0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_leagues.csv",
+      "sha1": "6ea6fb0a897a9bdf69002f399ee82725fc602e89",
+      "sha256": "55158a26bad95a5acaf453ee79f7b45f7f892187670f02d7784eb0021485ecd9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_war_defense.csv",
+      "sha1": "79b8daf7e07ef2e0d88e6a99123301ce256f7aa6",
+      "sha256": "f48dffcfd0b02a09d340c72c7c75ee16ee61309a11d28fb9c9cb4524211d9bba",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_war_globals.csv",
+      "sha1": "c2c9ce424fa972b1c2980d8d0d02790464259231",
+      "sha256": "c7bbde4f6f1b6ddfc69664ab3a2111deb9ca9e66fa01a67e0777bcd9eb4e077d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_war_map_items.csv",
+      "sha1": "903e83dc51f4c59d67e0880d9ef754c3b14f6fea",
+      "sha256": "c0e03fbcb0a7900a26918c89c800cb66219a6c4a7d01677ff32bfb3892d0dc05",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_war_map_sections.csv",
+      "sha1": "36233ba0acb04c3d6d242b455178ca49cc8b5e31",
+      "sha256": "6560ac5795c138da14204d3d0b010b90b9c96a2a0eb76c9488a22d71d7a56045",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_war_map_templates.csv",
+      "sha1": "80d8a640fb020731d9d95078646ba8a821edf566",
+      "sha256": "e38c8ad461dfd01258f736d7e8db4fa72fd33f1a356fe3d2fb3994f40e5ddcc5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/clan_war_rewards.csv",
+      "sha1": "bca7f9277371b284ec0306c1fa550061814c146e",
+      "sha256": "7db3a1cb4a86707b1392b9394401d5f059c56238323850ec2e7cc54451e3db8a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/collection_levels.csv",
+      "sha1": "4811ac8febf221ebac076e4e816485264d2a3b8e",
+      "sha256": "f3bc021f58b03e233ac6d328cd1629a9344bd8be2e7e81e9eb48d2c23cc34fac",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/consumables.csv",
+      "sha1": "36264c3510dea4b2c5ab70e824b070f5dcad87d2",
+      "sha256": "abd0b02f844fd4ea1d65a1fb8f90c6871ecc2c3aeb0845eda5102dcd72843c94",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/content_tests.csv",
+      "sha1": "305f81ec55b8284865b6345d57b58fabfed7a673",
+      "sha256": "98937ed3eaea033b94c6165568cdc1153d092ed158b4729314e75de26d6a6083",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/daily_tasks.csv",
+      "sha1": "1feead4e641aaddc3279597c258490054ab3c1d9",
+      "sha256": "e28b45e20cbd5c6b30db96f51726663c94c21f6257ada6b1c4c52a972b592ff0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/daily_tasks_rewards.csv",
+      "sha1": "172f4dea54944761e03817fd206b5262955cb527",
+      "sha256": "ac76f932a489e4ca909c929e777bb4238a2678f51087456555caca7a9e67e19d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/daily_task_setup.toml",
+      "sha1": "f95fcbaf1eaac69108eacc09c1ecd3540529cf05",
+      "sha256": "0eabe080e0526b4774d27cf79d0b1addb95298a4e9889a559f1966055e3059ba",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/damage_types.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/decos.csv",
+      "sha1": "2a13a23e633190142e4b14f6d3f2374da0114536",
+      "sha256": "87a933dfff9c37a28d763f9aa4d2895c6f20a2f06991f75cc7ad2c2453c7d4da",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/decos_season.csv",
+      "sha1": "47071ba71db35bca184dbe83973a2c6afc9fbc86",
+      "sha256": "209d21f4b2e4e9170157f859ff69f43c339fce759afa6c34282c95eceb569d33",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/draft_deck.csv",
+      "sha1": "580a79b9a003ebef59ad814ae95e90e3ac127c33",
+      "sha256": "da158e14d58b472f51dc9c16daa39f9d2d7cc5273746f23fb4e7ac5f3fa12521",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/dummy.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/elixir_drop.toml",
+      "sha1": "68812df9270045328ef71369f2849804e037aff5",
+      "sha256": "7e982b126705fd200688596a05dc47059b11dfa8cb74600f7e68f1bae817863a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/emotes.csv",
+      "sha1": "badefa625bac5ea95e53e96d97e6a52e154afbb4",
+      "sha256": "57a850131378bf73cdc0405e45c8097026ba66306872f88349868fb4baa6fa11",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/event_categories.csv",
+      "sha1": "fbce96d0118277ebbe537a679402989421a650ab",
+      "sha256": "19b3c58d257ba32d7d1a727af0a7098d41d48a7906aa742a1c280a823393f258",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/evo_shard_conversion.csv",
+      "sha1": "bf130dbfc55902ff7979721e39802b9f5832c4a2",
+      "sha256": "5a109cc9fab6c31fc637419c99e5c26718be2fd213fc83c47499654bcd096f32",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/exp_levels.csv",
+      "sha1": "ed5395a92f55e8cd393d3ee676b6d622e244a275",
+      "sha256": "8b673ffecfd9396f34aa313ec3a2d4b03628d4d6a9e42df4990a613952eeff1e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/fortune.csv",
+      "sha1": "8cd6a17c354bc3d0ef332fd94e66757824236361",
+      "sha256": "3ea8df34397bb5f9ac8a95b8be6fb9d3490f8b13609c783bdfbd54e86cd00bfd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes.csv",
+      "sha1": "a64ff3294e4fc71bb8565b61a3c30904d99e1eba",
+      "sha256": "ad29a6a313c77167d739dad84aded80b6164f0bdba0a01f75ad7c62e1a896d7c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_mode_plugin_configs.csv",
+      "sha1": "705f95a9774d82eb09e64e1bf23b9ff1be5e6a87",
+      "sha256": "9ce707ed1e7a695d87dec3db07f6c5a51067f68bbd7a30c58287c8a680577e07",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_object_filters.toml",
+      "sha1": "36c1628fc26620cdba8662609079ec800de62c63",
+      "sha256": "b46dbccbd770f6fdb3f28d0d3803482adb5477c53129f7446adefc8166692b2b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_tags.csv",
+      "sha1": "50f7c50916a5c4db4e5b43ee442ef487e9e6fa3b",
+      "sha256": "c275d7b87dee5c0d460b2097b75832e167a1f35f07795ff6faf59a1acc191356",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/globals.csv",
+      "sha1": "7bf9a3e0458cdfd60108a1f86386d85eb450dfcb",
+      "sha256": "b7c786b0e260e211ca721154e1155dbb22a962f75f255f04bcb1f0f24d1cd3e1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/global_ids_oldformat.csv",
+      "sha1": "9bdd53368a9775b805e6fe967e0c4cc085bdb61e",
+      "sha256": "c76d4828f17fe9423c5a6ddcd091810ffddba726f247331273683bbd0df21ed0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/hero_conversion.csv",
+      "sha1": "f4e0a07dde1db5425dfdeec6de67ea8a7a5835d5",
+      "sha256": "3901918ac97e029e7d50d51411531579b2261d6229296f43b5ccff19890ed847",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/item_pools.csv",
+      "sha1": "5ebc8dffe9476344374ed8495cee037ad33ea5ee",
+      "sha256": "1d202d3e3f573f52457dc739f71924faaddba53690d53ac1838ffbbf8d0b37e0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/loadout.toml",
+      "sha1": "3390a030103efdf96ee61a34987ee7dca9233f88",
+      "sha256": "333e11cf46b5e410befcb4f89042e25a6ce0c2d594ad860a5b507a281ec3b6ec",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/locations.csv",
+      "sha1": "8e09253c5db1a660f881bd5467490d3266fcbd6c",
+      "sha256": "3fc93dba79e18774c4eb64067a0946f8b69933affa20bb351f743ee75522f19f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/multi_rewards.toml",
+      "sha1": "7cd02e5321783f9adc20e99bc3d5390f3b005131",
+      "sha256": "d79fe7d3b51090f680e41dfcd18c69899a1d0ae238060f9f775433e69bacefac",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/mystery_box.toml",
+      "sha1": "3358ac37e35d75c71f42b9cdf60b36e4688ae8f6",
+      "sha256": "b7a7775dd2a7f2ad520adcbe641b21ab3e7552c51fd4c185c75b92748cf0d1b1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/mystery_box_arenas.csv",
+      "sha1": "aa75818c60fcf95a7937af365aed2997acfb3543",
+      "sha256": "ece9a0529470c5a65b89fde5521c385ce69dbd104d0e0e1153b09ef7b2e8c381",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/mystery_box_rarities.toml",
+      "sha1": "35f8860abf60f0021a2b8d40281dacf4fd8967f5",
+      "sha256": "621baf98add4ae9c88c5ab4bba607622b4b5b9ae907d994c03475ffd317dd72a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/npcs.csv",
+      "sha1": "f6171197e841b45a594999c35e60cd67bc1d2cd4",
+      "sha256": "1cd78dcfbc70ffc27df4df283e5d96f000c44fb2fe0eed36bc3c557a1e65b3db",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/offer_generation.csv",
+      "sha1": "f86bcfcc22a3fa205749b5d3253b81faa74bab6a",
+      "sha256": "eab15b4b2f920347c789217e97b91b2e917fef5d58fcc97388ac9454bfb99a44",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/pick_cards.csv",
+      "sha1": "235299c0b7e72a42cc82e541d85aa4b47445847c",
+      "sha256": "c455b08f83e699c9da6d65a8f621af8957fffa14ceb33978ea320a0b9faaaa75",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/predefined_decks.csv",
+      "sha1": "17f0051f33f8ff060a6ade565abb859bca6e9639",
+      "sha256": "fc746fe8ce3a7ffba433a5ac31b9909e6aef98affae9897cb9f9296cb2b6933e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/price_points.csv",
+      "sha1": "8b693e98781aabc8d5870fd60c6db88e11267f2b",
+      "sha256": "b1035e19af9ed08ee97b744d5c1fdf58787f6a89b1c9174ffcb346469aa16943",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/projectiles.toml",
+      "sha1": "b101a8c6acc32004b9aed2a6a44e49830d1ef56b",
+      "sha256": "ee90eb3d45e4d10b61f59517f1b5c178cd9afce571ac41d7f69174f0b1e14970",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/projectiles_evo.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/pve_waves.csv",
+      "sha1": "2d00c9343aaf6a0816909e952647aebf7b93ed03",
+      "sha256": "1553348f2b1de29d22c6c5516541b1a94f20d3c92176c980ad942eee9e2f64b5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/random_arena_pools.toml",
+      "sha1": "9f24fd31198f30199ca697d417f885466a10306c",
+      "sha256": "2b7fc6cc67e02e17d661b06a9e5545fb8a3bc06d5940b2bb05b625dc7c68822b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/ranked_leagues.csv",
+      "sha1": "f913c2b911ead66be0595c25978626575518a447",
+      "sha256": "c507b40e381143eb8b97701db28009276dfe93fbda9ca8380397c715c25a5bb9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/ranked_win_rate_to_rating.csv",
+      "sha1": "bb267bfe6cbd8591ed5dc6c58b8ebed806d23dc8",
+      "sha256": "6e0400ba604837d54f2844ba24669c7b2b91bc8bfb9b0e7def6154aeaad4f076",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/rarities.csv",
+      "sha1": "ff1aea2807157878c022de841f67e065ecb2a3b5",
+      "sha256": "97722dced2289f8886466245a32509acb8e1712a1dedcfc3c7273f0cb5b4c7c3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/reactivation_login_calendar.csv",
+      "sha1": "5dbd7967d7e91f63a4779644f90946a4e41ae6a5",
+      "sha256": "48788706150a515f99999ff3134a03d71cdde26bd1b09f0b94bb5dab131e1d87",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/regions.csv",
+      "sha1": "1a0dbe2ba0a94f303b279b0a04063b737dc9b16b",
+      "sha256": "89345da1924ad790ef58771c4e15b54a83896f33759d145f4f2b08d1f92ae5a5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/resources.csv",
+      "sha1": "4677cf31d819a6f67d670a5f83d4973bc5ed7ebc",
+      "sha256": "8ff05a738dff32180a493306383ea49d97b0d0eb60872c100ec37ea3145b0194",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/resource_packs.csv",
+      "sha1": "09e18bc3b715b7afe7a171b51da6f3feb18e99e3",
+      "sha256": "71701b227e1312f1754a401fcfac2e5656dee4e3d198b088685a78e857173258",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/royal_tv_channels.csv",
+      "sha1": "34ec7de4313a21844535544f8092e43e444d7e3f",
+      "sha256": "95d7c81501e296194ad7443df040c0ed72c9ed0f7103e9d99c6f3f52da49cadd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/rulers.toml",
+      "sha1": "6d355d77a680d50ccf37b0a8f0b7ff4d6448b1da",
+      "sha256": "ecf6a9cd47103b6f95486e40a6675bd727847b27e903d99f99b04e72ca2197ec",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/ruler_rarities.toml",
+      "sha1": "e29620ad8a80a52ef64a8c5b37be33071754b63c",
+      "sha256": "63902c29b583680c58824f79e6b284ae36ed5ae5098efffcfe92b19187c751bc",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/ruler_skins.toml",
+      "sha1": "0b2a4432a1f71cf6d8288aca7900f638728b7ffa",
+      "sha256": "0a8f01916ddd0c5453b5cc1221f53299a4af0ab131669fc7feab7903b95897b6",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/ruler_vfx.toml",
+      "sha1": "7d8c244849521c45ce094c5e2cd153d54377e9f2",
+      "sha256": "5fea7045a335a68872682b8e8ba5c326240f8970ef48743d7cd84016ad402ffc",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/schemas.toml",
+      "sha1": "e679d555d014165bf9b3c3045571eb5f6b7d6572",
+      "sha256": "d71cc5531defe902d3def7278249de2a08ed944a0b1f13b501429d86a7d9457f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/seasonal_reset.csv",
+      "sha1": "914b8e385c3eceaa55ded304af83deaac36bfeb7",
+      "sha256": "0d551cce90042002cca9ad7e4f811138a29201899b87a8bd69d7fc089f23d4ed",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/season_default.csv",
+      "sha1": "d7569aa7bc4ecbae178cc27abc7abe8b79621636",
+      "sha256": "7ddecefce9d3b91bf7779f3faf96b49089ea564eb60f6d4f6a18c0e13f5f81ce",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/shapes.toml",
+      "sha1": "e5f6828173315da17f09bd65d29a994401f0ea99",
+      "sha256": "4232a15c2a8a3345a1e9bf9609386533b000818313b6a711e184c7876c6f8c89",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/shop.csv",
+      "sha1": "9b2b786df4a7aa08b0f9b56f485eabf480a62c1e",
+      "sha256": "fdc5b9903bc9ddb01de032c8ff58dac252caa8fa8bf13d45396df2635f683f11",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/shop_chests.csv",
+      "sha1": "8428a1bb2db1da27eb90f4e4687598f4c267719f",
+      "sha256": "95e6582697c286a53f5a9c38058485f072cf2cf931065cd282ca608d93ea450f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/shop_china.csv",
+      "sha1": "ae30f6301c60a2e91f4ee62e23eae2ef5d9e10eb",
+      "sha256": "6ccda2e2e5170526e7726f84265087e3ddfe48fa68f3cf1e87acdb888015eb84",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/shop_cycle.csv",
+      "sha1": "e7a155b0721a1c22315f4b2feb954f1ff056abf0",
+      "sha256": "2351919ad84808949c420b243c8133d93ac913fa12f173712749ded50612c14b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spawn_groups.toml",
+      "sha1": "efeaa46ede03961d0d99ed9cc6c922b59aa1c330",
+      "sha256": "d0ceab453ba7332c314544f72aee2c261a4ed91f562c4455b84d1475e85ad60e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_buildings.csv",
+      "sha1": "92a38d12b1ecdf7064609986b135df39e0ba35af",
+      "sha256": "66c75082b7a5e9c9b95b43d5ab2e2f55707c75936c2e86aada85698611574fcf",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_buildings.toml",
+      "sha1": "78aa463385e6586e38a1a8e691d25b610204e30e",
+      "sha256": "a9437158e92f78c2e3376469b1e207e9631c8a782e01b4a62624070755d576d2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_characters.csv",
+      "sha1": "c63a02875399a4e26ef00e01ba3cd4a3419f0137",
+      "sha256": "0099ce80b2f9a5b8d6b107bfeb1045c2acf78b9730a345147609030b8b7f991f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_characters.toml",
+      "sha1": "c64db420f827be7301aaaa43292bbf744f4c35b1",
+      "sha256": "cb99a736eed4199c51fc7b646e1d766ec496847120cd7838b2a6d3fdc1ab6d95",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_evolved.csv",
+      "sha1": "4b933f23a502b8e340223cee5225a785fb020ff6",
+      "sha256": "c595e3543bf3fbacec941960ec25302162fa4672b1242426062885028e49cec3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_evolved.toml",
+      "sha1": "7ce18693d7ca90310316661d2b062e76d2d821cb",
+      "sha256": "46e2800d4c45e3487951129982d8b3cdeca1e59149b93926f6ec5bd78f8248bd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_heroes.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_hero_form.csv",
+      "sha1": "37944b12c00735648af40764469fdb9a61548b44",
+      "sha256": "48b892ae4f1d7d331202cfd493facd0f582a8c36fcf0fdb1c0e93a08abbf3aca",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_other.csv",
+      "sha1": "eb64f64dae0b3b6bc8671213e8e05e67bb8d50ec",
+      "sha256": "274aca81cb1a71c491514bba84603fefda4a29542047b765d909ba6f91cf5f83",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spells_other.toml",
+      "sha1": "d76f72b78adc2fdd6a3f3bdce05133fd6dd4edd7",
+      "sha256": "1ff35aac65cb3d0d8ffa4e9224ea80676835ac348b5b10af86d7cb3aa74dd035",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spell_sets.csv",
+      "sha1": "d6e7752825efaf1a685a81d55150b951f4b2b118",
+      "sha256": "3c01a1946434d2f3777072b057e4a527bfd953b9403fa27097dceac09eb08f18",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/spell_stat_types.csv",
+      "sha1": "1c9f9d6208083dea52bc3e631f67333425277e68",
+      "sha256": "428403b6bb819389cdc77f6228f9d98d5f2a9ad227e35918eaedee50537485ed",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/streak_config.toml",
+      "sha1": "5b3ad5954978413cbd55074ea60b43d129220f55",
+      "sha256": "7d7fcd84080f8569befd11684c6147101975c65da98a2bcee80d3c7af7381cca",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/support_cards.toml",
+      "sha1": "349e700b7678155fba1e96557f75a60c34531461",
+      "sha256": "9dca4ba278f351ce01f55aa50ada4c5ef4e8bbf338724e989fa38164ca4bb647",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/support_rarities.toml",
+      "sha1": "41531e35526221462291561dd4e8e3a23e2b300a",
+      "sha256": "d71f44a134990cf5b6fc5b503d0080eeb819e3b22ecfa59abda1b013ae995760",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/targetresolvers.toml",
+      "sha1": "a4da48c6d11b65b4a08b5677a23a19ab82f08633",
+      "sha256": "6ae64ed65565c2a0bed7dc4aafe2257fb18d94f9ae29fd16df7343dfb04a83cc",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/taunts.csv",
+      "sha1": "52af494155be891c74e6711532e27cdb1dca83cc",
+      "sha256": "a6829a1c7704aaeb7cfdf4972b7d4f396c8d04fcfc202ab8484a44bff872b2b7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/testing.csv",
+      "sha1": "d4e34df52825b8de287024466a53f145ff5ab65f",
+      "sha256": "89d7b6383c1b6ba41971c5fe34b494e2794fe0a392eba37b3bfb7a4395900d42",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tournament_tiers.csv",
+      "sha1": "5d5e698940488e0fbe484c573a5c3e02028623a6",
+      "sha256": "39e21ee86fe479c2af92ee47038f696cc8f9791035b3dd0b9cc896ef96a423a7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tower_skin_sets.csv",
+      "sha1": "a12052797c2d70ce367af76be7763bf7aad46b1c",
+      "sha256": "374ca885dfac5c1566a12042247c7687546173dcd3bef18301c4457429ab56c3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tower_skin_sets.toml",
+      "sha1": "9111f802fcb82580256c31185492515e76b3a1cc",
+      "sha256": "80acab94d89daa5d33222fe3638e229902c77829fb0b1f701dbee8f381bcab48",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/trails.toml",
+      "sha1": "505f24ffad4097a30768d46150789faa4f364bd4",
+      "sha256": "72e59700d1efcfb083385e3f3f7914a154be47fd1cd4aa722e6caf4d2bc0186d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/treasure_chests.csv",
+      "sha1": "84ac7045cf622ea133e4f9c1ec54dc88287180bf",
+      "sha256": "b689635824365ad05206c34f92a17742fd67b5ee3988caaaa15f1d152ce56bc4",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tribes.csv",
+      "sha1": "fab245e2f1658a3f9848ec32585c161b02ba3bf8",
+      "sha256": "f19c8647f57e214b215e4ece50a7092ea61cd973bfd97db0146d4a399e2319ec",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/trophy_road.csv",
+      "sha1": "8fd3a1832245e5fec81e2af6a5a503511155a0b2",
+      "sha256": "a2cca7276f615ae6e51df0d62cbf999c272909b7a6b3468f6c21d5958fc7a0ed",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/trophy_road_alt.csv",
+      "sha1": "6bd0d91942dbd4509a08bf72b48c86a21b971aaf",
+      "sha256": "c928a3709e1dd83005768f8121c0eb9c682a64a3cbceb72df6f40df3df6ff1c5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/trophy_road_season.csv",
+      "sha1": "d9f0c5fcdbc794bd0630721f9f328adca8d26e19",
+      "sha256": "f4e5cf016a2e06187d960f03317a1b5583c62f993c842a5e9ddd377a9496391e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/trophy_road_seasonal.csv",
+      "sha1": "ed8f0b4b4a01be784dface240cc3c9a4c60e40d8",
+      "sha256": "1e154d1bcb24aa1fc390af6f9cd1d0fbf3ad4892c82f5bebf224347b49f49687",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorials_battle_new.csv",
+      "sha1": "20212076e11d7169030a415cdd290044d9c28d24",
+      "sha256": "8ad28afe122395b0383537c26016ed1fa0a7c9e80b7ead8432e271072d1a2dee",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorials_custom_battle.csv",
+      "sha1": "f52e420f6e05d8080fa7e7cb2c54cf37b4092868",
+      "sha256": "5dacfeccca56c8626391ce77dd0e69b6f60f49122abc8b3741b51d8249203108",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorials_home.csv",
+      "sha1": "2584563b5ef7bbaedae9da03af1c2409b67a1c5f",
+      "sha256": "ddccd4f533d017c3b862e6aff9e777f6c90aade74382149428a4234673ed04f4",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorials_home_new.csv",
+      "sha1": "a3733c78829515f2721b969f50b1dec582eb23cf",
+      "sha256": "ff74ea3abe49752dc31ec2f3eca529b0460f509b31b4e20bc685a07c6f04ba13",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorials_npc.csv",
+      "sha1": "eb23ec9a00a2913f5913079b863ce908a578afa7",
+      "sha256": "ea2da4b2ee51a4ac6513e27d89150122ed0d4ed0199efdf1af9f0e672da1f506",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorials_trail_battle.csv",
+      "sha1": "72d51d5d85321a98403a67e10724ddf7c2a14062",
+      "sha256": "406e8fdae904f64df4676858594b4afafacb4904b79fd49bb8de78e1d2c18ddb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorial_chest_order.csv",
+      "sha1": "7cf4a2d158ec9ffe621ef45974a9604caca1a830",
+      "sha256": "384ddfe81d955293870c0df71e65e3b49c90418272300d537d501b68e36a4449",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorial_custom_keys.csv",
+      "sha1": "a957a1e61b395bd7bfa59f418448c63ed402931d",
+      "sha256": "d7b37ebb8931ff87a21ec8f6fe2bb7d5f95ef03c56b9446a61cc609cdf99f3c8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorial_groups.csv",
+      "sha1": "3bfb2e78ddb6d1d06c6f7d0b56e11495cf58eede",
+      "sha256": "9355cdb8324fb6063c833fbc7cbd9c80da932c6a4d4d1b182e15b98504100f3e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorial_migrations.csv",
+      "sha1": "8bff959ef25962d3e23f55a202cc8d8aa378b141",
+      "sha256": "52fafd21bfcdd09538b832d11252d7c5e0cfc44e0f91f78afe7c537d03d17700",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/tutorial_rewards.csv",
+      "sha1": "e043501c266f58b6bdb03f10e41048131e0b90bd",
+      "sha256": "8062649775be506f5900f087365a7598cb2a05114fce1f31b3bead05105dba97",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/variables.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/angrybarbarian.toml",
+      "sha1": "5cc0a763b4d9b60d0d049459de6f2d63c2c1499d",
+      "sha256": "9af4bb14810d4016471e9af16e58acdc451a747686284e23c1ff2923b4f9434e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/angry_barbarian_evo.toml",
+      "sha1": "2c5dc03056d5f162b121e3a46afdb0eab9438c35",
+      "sha256": "c0f93049f938c55087659a9e08cb56fec7bf4a1e674c539fd68483b99c119360",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/archer.toml",
+      "sha1": "6e336ccb4d2b25fbf81f89f695e208c68e93a714",
+      "sha256": "8d3e56d01064130733480083d69c657376f73f0ff05687af6091342b7395c664",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/archer_ev1.toml",
+      "sha1": "5470bbf78432863488c5a17d936962393f31a14b",
+      "sha256": "cc2991cc44dacbd1f45e58876f4b9dc36ab8273eabeffe702489e06a7dcb5306",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/archer_queen.toml",
+      "sha1": "08c833b2e32b6fdf4e8efdb7c641b7c29090f4ed",
+      "sha256": "2c81efbaeda451b2c4c3da5c8dc98747d5eadf28f6f5e947a9344f6fea6c7b2c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/arrows.toml",
+      "sha1": "f3fc249b4ba8636df142dfd48ab9efdd86977311",
+      "sha256": "e4d01c123d67e36870d701bb0784427154e1535bedb3d8cea353c61f26116bb7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/assassin.toml",
+      "sha1": "885987078194937e7a1915378743b968f18b2a1c",
+      "sha256": "d6fdd37d622f598cd2290c58fd1fedda4d7934f4524eb56a0d337d1dbc381094",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/axeman.toml",
+      "sha1": "1e10d8f2fa6ef274ec5bc495ffaa31037b29876e",
+      "sha256": "a2b550dbc761fa77c7998665e6a939a4f7233de4aaad16c9584f0ccba0a9f54b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/axeman_ev1.toml",
+      "sha1": "8055a960db66071cab9098c2e3a64a1e71caf08d",
+      "sha256": "6ad26b9d405fede8f7c9912ffeb9b5ab1b2da83c43d2404bd0c46a35554de190",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/babydragon.toml",
+      "sha1": "f26b98c537371dbbeb739b941d26a918fa00ce06",
+      "sha256": "fd756719a9e2553f3cb704a19e5ef1877cbbfd632bd246e57cd58f03243561e5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/baby_dragon_ev1.toml",
+      "sha1": "567e13a5b0f10618988a9ef455fe0b94a67e78a9",
+      "sha256": "0793ede9f9c26a6c2731a196d17ecbcb0145a164481b66bda89de1d9bc835078",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/balloon.toml",
+      "sha1": "900cf3f86c4c64b997b7a7f1521ad95b7ad7e7f2",
+      "sha256": "38cf841081d625d40fb01caea61b87f07dfe34aefd3a8c72f41ee8e599a12d88",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/barbarian.toml",
+      "sha1": "be41e0465527828baaefc3c1af6ac1cd8367a352",
+      "sha256": "02406fd14467a8eebcb8ef79267e7f8c3600a4d18f4c1b7a4b107ef0bb118d26",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/barbarianhut.toml",
+      "sha1": "1018ef23a1b043e14f0204d8bd44c408c92ecf62",
+      "sha256": "1b486911bd04d3a7a1dff188af0d9d09375a57e592ee5c5f3f3c1affdd3f28fa",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/barbarianlauncher.toml",
+      "sha1": "c8cab9fbf638d2c861fc71971bac343430848b69",
+      "sha256": "80584e3d353652ec9d75fa526a287b742ad757d05f47fc28c4057b4fd45992fb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/barbarian_ev1.toml",
+      "sha1": "02f16183bce6b291a90d8e2d49f3ab5f2f913dd6",
+      "sha256": "28e29e90950f8465915e96eba803fd18bf4eead30167851d35e8b52d2c5d2426",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/barblogprojectile.toml",
+      "sha1": "3d82870587273a133e01017ab09b2c110407d555",
+      "sha256": "c0d05b949ef442f667d692a6dc79eb1fd5101e4983f243a0594ef58a9d6c0e11",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/bat.toml",
+      "sha1": "238aab08f146bb62148b3fd7be4c999161602ed1",
+      "sha256": "c012e941dddaadfc743cbcd7bc0b6c3c0376ca6aa664276547c7f290b78672fa",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/battlehealer.toml",
+      "sha1": "692cfffd78989955d7ff9ff8f800a8c88771ce2f",
+      "sha256": "3bb34f9e0dc09c1fb56c3db39530417f403cb45bce7b1ec515bae3c4a728b28a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/battleram.toml",
+      "sha1": "e24e3eb5ae925da94427588dcd842d0f56fc73aa",
+      "sha256": "e2ab5a681ed28933f2cbcd0a7cccfd714432638504441063dcd59124b739e489",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/battleram_ev1.toml",
+      "sha1": "66d57041fe519816e1f8c4c3305357b650b397a2",
+      "sha256": "9ecaf194549e10d3322c3cc90a627cdb28caa39992c6a1f8da13e4576be37ab8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/bat_ev1.toml",
+      "sha1": "be376ff0aa0e69af78a7819c134106b54e338020",
+      "sha256": "68e9f516cf748e0b4ed29aba69dc843ca1187beee0e095d0000627a1881d29c0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/berserker.toml",
+      "sha1": "787d01198ed1658585a15ff46c44332a1dc3e6b3",
+      "sha256": "89577490c7014b61109fbeedfe5ec0692ec905b734cff52a2133d6b4d4615e39",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/blowdartgoblin.toml",
+      "sha1": "d72cd7778b0ed79da158622a6a4873a442429567",
+      "sha256": "b21e2f32213ae8fd8774e0bb2b96b31c42c43858e7b380360fd5e818131abc12",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/blowdart_goblin_evo.toml",
+      "sha1": "e09d2cc8fef503ce09bfabdf04a7459de3cd9a1e",
+      "sha256": "7f52e05a289f36f3f82c10d53bee3eb5078a7d766a6fc85071b041c859a78fa5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/bomber.toml",
+      "sha1": "7acfc75e4cd1d762b062ccfb66eb689f3ed4dfd7",
+      "sha256": "d958d0052640fd843bf0570b99cea2b6c2092d304b3f95623d96e276f77c5df1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/bomber_ev1.toml",
+      "sha1": "d4e8f174028c90f6818d9983ce9a85f4716ba394",
+      "sha256": "bbdacf5d89215c1559c3aa198ba580b697c6c991c2411eb9c27176a662af7122",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/bombtower.toml",
+      "sha1": "8ad7bc853a223587da64397471513d0895ff2e18",
+      "sha256": "50134e93cda9c837aedad730976cb162b1161ae47031c0a13ac6628bd6bf6448",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/boss_bandit.toml",
+      "sha1": "d18a403ec2f7b3af87b55170f07c8d57414f601f",
+      "sha256": "87b7b5e0852e51ac370b2f64b8ed388b182424162be9951667937ea9ce053ad7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/bowler.toml",
+      "sha1": "8cb88f4c25d6cfd0f9037b1e608043857aba2c05",
+      "sha256": "7fc6053bc3beab8a92716e7cab661c56894a77ddda4fcb42db562bc0dc1f5739",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/cannon.toml",
+      "sha1": "10f638830c28fdf67920c1bfafb0064e4e656e48",
+      "sha256": "4a182bf3838875d3c7bb43f6e52f1cd5c10f10776c70c1823816f67c395b577a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/cannoneer.toml",
+      "sha1": "9d8cb8f7b615bf7f2881b0c0854d9e6b02db902b",
+      "sha256": "05ca27ea52c19ba1c7597338287026ab0e324ad8e3ea6d269a5f1734018204aa",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/cannon_cart.toml",
+      "sha1": "0387a8012ca26450098e9bc71f82cf1ec64cb507",
+      "sha256": "bc97c78260ab2c1de4fc421526d77fba05bf617b11481d90d54a109062e0cbd3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/cannon_ev1.toml",
+      "sha1": "53d8ba57a7d880ad325d0250413139397b3eafd4",
+      "sha256": "9efa89052f19a818f029b91e5f457514f4b851728a20e33f95cd8e06dfa5f636",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/chef_tower.toml",
+      "sha1": "09a05937d30a484e3fb0144badc971e2ca5c1d72",
+      "sha256": "22b4114818188b191f72c8e5b6dd174d3763c2e43d0eea68718e919eebce90eb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/clone.toml",
+      "sha1": "eb1b7fc8cd1f8d404bc6b7a644a8e29443678f7b",
+      "sha256": "487b6647a11d9e27737dba56dcb11ced25e1a31b95a0d5f5b253ef9ee325751d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/dagger_duchess.toml",
+      "sha1": "bb0e1805cb2714554eafd57805f7cf2637b8fc1c",
+      "sha256": "41a8b928d0965216d45b64e01592bca0ee8fee3368a16f86884accda1ad7f2d5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/darkelixir_bottle.toml",
+      "sha1": "8525ea21a708cebf69e5b4a9460fb45c0b680db0",
+      "sha256": "fb94ebbea1eb9d56bd7ceebd9a1781e941ce51c3ab8fed728b5cc1833a2b0406",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/darkwitch.toml",
+      "sha1": "04cd14af05f7fa746b8e125e9e08be44aa5d28f1",
+      "sha256": "d210705ba48ae74a372cb87a20bfcf9cb1123d3fede02c311a24f44011f7c805",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/dark_magic.toml",
+      "sha1": "a21097342833ccbaaf672e0d4e54b03926d359fb",
+      "sha256": "21e3212ebc52a3416e9000ed57508112c2e06a46df76e7cc1a515e771eef5f4c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/dark_prince.toml",
+      "sha1": "3395e16e1c2d8dbb7dcd4c06d5670c2fb820b98d",
+      "sha256": "dd615fe1512df2b6ba2b1fa7520ecba82b98edc2dd7b7fae6904208d635a4c23",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/dartbarrell.toml",
+      "sha1": "e383b41a2d60122f9ac9d7247a0e9de59aee65da",
+      "sha256": "62bdbc0dca68632f385399d5da714d8b5a82a81a3aa2aecd90009fb7dc72ba58",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/earthquake.toml",
+      "sha1": "01060de990d7048078f00de782f16730757a969c",
+      "sha256": "793042b2f6bbff7d4cd09eabf4d8e9ec33a9042fd83c168c616c8e60807d0cab",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/electrodragon.toml",
+      "sha1": "1d0034eabe9eb96d9cd5ea0014f5926f2fed156e",
+      "sha256": "3b3d62defc48b2614d8ef3147fadd0f59e2e196114399b320a90fedf629a95ab",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/electrogiant.toml",
+      "sha1": "92196a0463436c0ebe9d80fe3500f7165b6f0c66",
+      "sha256": "cf099af6cc75c513e8c1f080f1726829aaa5ba5e70cca0d14cb5aa06dd58e67d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/electrospirit.toml",
+      "sha1": "ebc914dd06c471a2ce3c5341b4a907596c3c3656",
+      "sha256": "ab481fba84f59e2732b5e8f52dbf686a386ec9213ca9b60833c9a5ddd00a4fed",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/electro_dragon_ev1.toml",
+      "sha1": "7a8612646d646ed5be326bdc0cb4a21ce5e2f36d",
+      "sha256": "4e250917a00beb5a29be46aecd0226c875913cd177160f093990cfba115a232b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/electro_giant_ev1.toml",
+      "sha1": "842851313d3dcd209f496bcde9131975e1895a4a",
+      "sha256": "0d831d66c5f79f8cccc86c68c77925720a31a837ef0f31da8e6ac7d80921066b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/electro_wizard.toml",
+      "sha1": "94d55f6d29f2b0f011ddd151a0120071f9072001",
+      "sha256": "8ca6475d8ac264b448730548f74c70cb460371764ff76970da53d7fdb07fb30d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/elitearcher.toml",
+      "sha1": "d756a216e6bc1aef611b97ff41cd7e8022955e63",
+      "sha256": "15d76e6614c77aa93ea1432fa09769f768a593335e634dfa1dfb808eb9c0dd82",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/elixirbarrel.toml",
+      "sha1": "70c64f228206e5555d0cb0de572aeb2a96076a45",
+      "sha256": "fc60880763793a668a8c69d59234345ab98b92b117c68d708b7461c462bd195e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/elixircollector.toml",
+      "sha1": "c80104698c633028d556371115091acbd7d990f5",
+      "sha256": "ebd6b35263383665890476fe2adc38c1aa4bc9b7dfc92694bc7f9f33eff83f66",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/elixirgolem1.toml",
+      "sha1": "24c84c33cb50aba1cf72e818ba23ab983e4c1ca6",
+      "sha256": "ec9f5a19de118382d42479fb569eb39c330fbfb2830cbde3def773b1346539a5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/event_voodoohog.toml",
+      "sha1": "5517f4d7c1a4be38e831ea1e4bad63fd580d4ac3",
+      "sha256": "bab2c3bf657a0d4627547b556d62e77dea869c0bf356a63d4b1de06ce21b3b14",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/fireballspell.toml",
+      "sha1": "4c6dfcbe73e805d815c596b457a3833f01bb37f7",
+      "sha256": "4046b4cfebacad75c4de83eba433a056e8cb6229db93386d6292ce40fc8f3c03",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/firecracker.toml",
+      "sha1": "b5d16576ea34a6181228bb1aee640963affb2ac0",
+      "sha256": "a0a41ee0b94e2dc4a6e0c3495f2a5b09c294bc2785840b983e7b65e7e7e75cb1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/firecracker_ev1.toml",
+      "sha1": "881c2499cb08972552a16b79bca56e10dbde3c90",
+      "sha256": "12baa1f9e0027e880dd85c58b31b9cc1639280a810e74f17405ee7ee75180c8d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/firespirits.toml",
+      "sha1": "796d931ea6200b7c05509c5f189fbf0a784d1f1d",
+      "sha256": "87c43630f46efbb5d9fb28834fd503c33f49a8f11a0b968c5a6549b463f2f09e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/fisherman.toml",
+      "sha1": "8525e011b10fbf6d7b9a0a1047295cb6c69bebd5",
+      "sha256": "fe89a6495579c94ce17fd5bdc15afaf4b74ff5631bb8546df7adf01aa1b75514",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/freeze.toml",
+      "sha1": "c95c6e3b3e1966aae20a859e1741a9284a8d58b2",
+      "sha256": "a8a8c9178ec8091d1a4b6c6222f904cbc43ea8ad5a2427f212cf203b1be8af6e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/furnace_ev1.toml",
+      "sha1": "7a652eb36386757eec6df8bdf26ca710b790675a",
+      "sha256": "524c972bc391c792d651e16c6995d412b4c042c9582fd47b41f7cf1accc5e785",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/furnace_rework.toml",
+      "sha1": "3054d6fa8206d65d7b6a0682a1e13d805a0405b8",
+      "sha256": "0f0ac8e4206e8c21827de5125fef8f60243c49806f1b84f82043c3c5047095ec",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ghost.toml",
+      "sha1": "839f8bf0f064b6301cec3f1126c2c49b63b73f00",
+      "sha256": "33692756ea91212bd6d39177530c672a0aaf9828ce1b513b1930f260ceeded84",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ghost_ev1.toml",
+      "sha1": "96a548faab94bd77114fad7afc627839b30c38e4",
+      "sha256": "c22385838a8d5cd1a08fd1b8d575998d421b18a03e0bc3bb19033721f81854a7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/giant.toml",
+      "sha1": "e5bb0b52fe7b37b72a6aeca161bd80406a1c9a01",
+      "sha256": "7dcc11d50a716ef355af43efbb0fd09d00e14144f0eb9aa3240893ebc36ae638",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/giantskeleton.toml",
+      "sha1": "e49ef746df060ce560fc7e49a6affa1cdec57d26",
+      "sha256": "54f1e69b13f3112c9f4228a41a2a91201a70edb367921abbf67f498c8998aebf",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/giant_buffer_v2.toml",
+      "sha1": "758fde8c5e71b676024756a84b60a445308f42bf",
+      "sha256": "9426b5a278d19377c721de143df78201e4dd372f276d290d045da44f06b44b33",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/globalclone.toml",
+      "sha1": "65be64818ff25eaadb4c84b2db8d38b25eab888f",
+      "sha256": "ec67b119c98e085f497ead2fc302772f32f4b3b499e6f8f911afb6ec68a29846",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/global_lightning.toml",
+      "sha1": "42f3b36a94df31e8bf3a74f74f201a4378528eb7",
+      "sha256": "66f5a2d7754a8357d9963ce161b321ab6a6572a22360d53474f2e0b4d90b3fb9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin.toml",
+      "sha1": "9c370d0bd5cc929924548dd71850a7e6b8da54f3",
+      "sha256": "e31e9cff3745b7ad643b2685ca57e9dc10571c34689e2d353651bb2914a171d9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblinbarrelspell.toml",
+      "sha1": "6c9970b1873b7c66bf3d782cc0ff8f782b290520",
+      "sha256": "9f6dd9d998163d4f716eb1428e95302e23f7ef2e0b8c0dac4f7c0880d2ddb016",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblinbarrelspell_ev1.toml",
+      "sha1": "a5c9530edcd4d562597cf1a9b9c3d756400d3886",
+      "sha256": "1e4a1f827dc8c029b3c41dcded04ab6c1418dcae9f10ee702ebd651e8f92bba0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblincage.toml",
+      "sha1": "d6387f50c543508e177c4d24115d05a986a26177",
+      "sha256": "cde963e51b9864c5ec99beee2630d0880046ecf693208cfd7f8042530a337a36",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblindrilldig.toml",
+      "sha1": "1596eb5a03bde5d105a28c704109b5992ee17def",
+      "sha256": "27f0202f4dddab3695bbe459ab996bfa02d75a448e6ce9f1e9f5c38c9d5b6da7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblingiant.toml",
+      "sha1": "9587e2c80eca380205d98e47812cfa0205f7813e",
+      "sha256": "c31ec0bbbdb5594eb6e06c4182ba2eb1bf6eac99972d027b951f5e7f33b8b3b7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblinmorphprojectile.toml",
+      "sha1": "d754708acd887471fd5c42e49af6ef7f0fc7f7e7",
+      "sha256": "f679123fff0a1506d8da4797ed76592bc6acf16e35970921daaa2a5809ae6242",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblinpartyhut.toml",
+      "sha1": "6fede710a6c6203db5ae90952e99cf477e1890fc",
+      "sha256": "ef14f85e2f3ad4c0f3be823322ca156181b906ecd3d15775aa75a33b5fa12501",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblinstein.toml",
+      "sha1": "9e93e2a08c86526327981d03cf71709ec7d2965f",
+      "sha256": "d440566ae37e3a5eec80adb9e605a8c00af03229695f489f5d7a6b1bbe28539c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_cage_ev1.toml",
+      "sha1": "86fe7ba2b3e86150c3c86f70369e8bd55bb54b85",
+      "sha256": "1559ed028bf43d254b22fec1947aa3182ad668b0d29f582d06424f77c3e156ea",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_curse.toml",
+      "sha1": "1b48f66315971bf5e4b769afce23c064ee55e95f",
+      "sha256": "ff50bc41ae08bb289881e09eff9dcbf47f8588575ecb975ffaf885dfee6145e5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_demolisher.toml",
+      "sha1": "1f64288b696bf1f104a257abaf6944370e8f22a4",
+      "sha256": "4122d1a58108a649fa80e0868589420d1a53324ed52d39cf8f1e704082ef5d0c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_drill_ev1.toml",
+      "sha1": "5c13162a4cddd0e91a621617529fc49948976389",
+      "sha256": "1430ea140538c1bdc9639da8c17cc01b9411aae171d24fd41e2f664cdff72ad9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_giant_ev1.toml",
+      "sha1": "29a6fcdd79ed143c7a309c5805fa686fecaa9c72",
+      "sha256": "164c2d1a93b2c451da50d167a3cdc8a438b5f8c59a7001444279355cca71cc81",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_hut_rework.toml",
+      "sha1": "5554fb61b3fac20aa499e0f4ca47144cb26cf605",
+      "sha256": "6a326722c18401aad486db34ab1c93840ef2b51cda4eec27efb0f30d15f09e88",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_machine.toml",
+      "sha1": "f640d10ed20a1f54ae10a174d0820305c7a280f6",
+      "sha256": "a184ebc73e363d0f237d1e56fcbf41eb9e8d5da53da9a53c46d0775a79e91467",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_queen.toml",
+      "sha1": "722f4915a922b622a8d310d25c6e011a250daf44",
+      "sha256": "13715b6e891722793601d095a98b173971bbf9ae77b664ec969fa2ce5a0d6a30",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/goblin_stab.toml",
+      "sha1": "6246c41fb4a131e80a438ff6c8b75aeb7eb81b53",
+      "sha256": "fd07c7d0dfd4f8711a50b4781b9c5175fed82f677073d7b2f355615524dba448",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/golden_knight.toml",
+      "sha1": "910bb314952ee353d34cb190c5670a1b2e1bec6e",
+      "sha256": "1a93b88ed97556adfd982c8ea65914eacf6bd59da1ce319c848c15f577ee1b4f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/golem.toml",
+      "sha1": "1ed8d50158f2ad2c3daed0a44c017f0a5a8be1de",
+      "sha256": "08c66a01fb887fd4e44b4f4e698e0166c917ab3731cb6897e7a859e787fda1c1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/graveyard_rework.toml",
+      "sha1": "bf60b4f47d8b12065712d92e11b7af5d205f8626",
+      "sha256": "da7fc110d0bbe21885ca07f490f9d92c14e084c01817742c19b00f7cb05fbf2c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/healspirit.toml",
+      "sha1": "63e4e19a05375b792beffef1f60e252848a2582c",
+      "sha256": "71adc1bc8e21ead64ef47be819bc95a5f1e8eaf329422f734c3f899dde9f80fd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hogrider.toml",
+      "sha1": "436cfb03a8571bd6dff5866bafb3bf76f3054647",
+      "sha256": "a66ea2f324904beceae04f7a7e670d8c660d5fdc520e8c77b892611f1f92104a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hunter.toml",
+      "sha1": "e225a600eef21891f602984d96afcb84d9e041b6",
+      "sha256": "ffcf5a649803eab336841ef2983d7c6a7dac9b537b5a5a6d2ae80c286618e48c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hunter_ev1.toml",
+      "sha1": "ea98bf881a01cfba3ba1ac83a2cb26ceae680e17",
+      "sha256": "74978be4835678d23066b0791724ecf64776aa7c5b1586e71eca1f2e0277ac7b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/icegolemite.toml",
+      "sha1": "64e0f8cb63b5ebd48fd3164c95fb609398be082d",
+      "sha256": "a5765cb7daca851d457170dbf9ecee711ecef744bf044d4e8a67721af23e15d1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/icespirits.toml",
+      "sha1": "0ea37ddb73fce6f54cee1d13b7938809a832a664",
+      "sha256": "8943584be26c4cd68c3c450c02cabee25fe56f0050f7259bf98af28c945bbfed",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/icespirits_ev1.toml",
+      "sha1": "a7be0585a626443d098683aaf7fea4e6d35e2789",
+      "sha256": "44b56fe9f69de5806263cca4ef12b5cda4fb0a539c06b2a497b135fe86ad42be",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ice_wizard.toml",
+      "sha1": "e958897b0b1d169d929452381015a3b970c19d1b",
+      "sha256": "379a93e6348fbd6be8134d06f07eedb9e17873da07f362793ffab6443f560678",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/infernodragon.toml",
+      "sha1": "248701164a6dc56859a4386c423822b353d9c723",
+      "sha256": "45f58b64a40502f78efc9edb8958845771db7bd317d4f9c0d084a5ea55181206",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/infernotower.toml",
+      "sha1": "0a2a11b4c8886ecd58ca9e321311ba97295bd1d2",
+      "sha256": "b09d5aaf46532b3e74c39d119d66bc906cb7cb9b90ffc38854b2b79f96c65ae0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/inferno_dragon_ev1.toml",
+      "sha1": "ea6ec5c3cce4361817613042778f75cae92a46b8",
+      "sha256": "846e5e23153fbb40335c099f2f6c6699956a5bcc727381c0b74ac7acaf3793ff",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/king_tower.toml",
+      "sha1": "300ad34e84f2bcfa2c09b1e644ad14ea3d106f21",
+      "sha256": "4bd8ef5a9a322274e945b2e3dbd8b7c897f199ecde66920d32cf5b48a02a992c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/knight.toml",
+      "sha1": "38d8fc9ce0db49aeb9824fe2ea9fc06a21b88485",
+      "sha256": "8f7f4907a71d873c2a311983c4b1c3368a540e349c8f30c11fcb5d419c407b8d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/knight_ev1.toml",
+      "sha1": "db3388e9bbb8971d7582073ca717c8a3b7d5985c",
+      "sha256": "4345e2199a3b3588c3907e714df55b6db276b9ce77fa9a8d6ffcd56dfd3a3bf2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/lavahound.toml",
+      "sha1": "0ea36c85bd2fad12f9c5f2540cf75badc2a5658c",
+      "sha256": "a7752a203030d034b9cdec0a8c5b1878c8e3a6141e9433abbb9aced19a2ec497",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/lightning.toml",
+      "sha1": "7c332c05395c03749f40ee1e02fe046e848868a8",
+      "sha256": "483059e8bdaa00fdb1afa61738c7cd17a9e4ccfdfd77b41b30c62a4958cca82f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/little_prince.toml",
+      "sha1": "49d8dacbd7b1e11c6ce61a292963e4aa2c18ad1b",
+      "sha256": "1eebb68ad83b62fd4779b760abda74adbf460c2ae86af85e9caf5ca2bebc17d5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/logprojectile.toml",
+      "sha1": "cf322373e7c0b21532dcaa5deff9e0499649d6cc",
+      "sha256": "fc9ec2951132eb2aa8c12e51e2ab1a257e4a11fffb1414eb03cd9a5e301af280",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/megaknight.toml",
+      "sha1": "d36fff8cc874ef6c9adceb6299179e464efe9ca3",
+      "sha256": "3423c04461301a47c13dfcc7acf0c1251419659e587afc13546ba08dd2fd0f75",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/megaminion.toml",
+      "sha1": "081f0c686e629f8234818d177b80126d593eef47",
+      "sha256": "2a714c17515f770067f3558e5ea6443ec8e1307caf0c486eb56ee6d84370b2a1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/megamonk.toml",
+      "sha1": "335b20f076703e6a2ea0e6d3380ec9e4c122781b",
+      "sha256": "bd1616627d8b8b9cca572c8866584a11af7fb504d2cf86f6e042de3631049fcb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/mega_knight_ev1.toml",
+      "sha1": "1c898f90fd5859c539685707c03d80ec33cf4dac",
+      "sha256": "f326f5149ff1c8dae23be5e446f3296b95dfeb26f270421eb920af1492dcb30b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/merge_maiden.toml",
+      "sha1": "ec310dfb81b2547f463ce33af3aaf4409fc12d04",
+      "sha256": "baeae440c6dc51c77f53bf90ac9a1bc6b34183c8335d068d9528a1e0db213437",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/mighty_miner.toml",
+      "sha1": "391334aac0d5d86754645a37303b69c0b11030e8",
+      "sha256": "fd3117d752e122f05a3c31d95df29cb76c5a211e44fa620de55270ad1f71dfb5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/miner.toml",
+      "sha1": "05121f2a39a2ccf837f1a5751da256264768dda8",
+      "sha256": "2494933368695c855343b3acf7e8baa6dcd666de3a0625d90262cdde9382e04b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/minion.toml",
+      "sha1": "314995cdadc87a625cb49f009cc5e4c3982d8f8d",
+      "sha256": "4e13d53bad15a392cd1aaafe58cab1b6c76c5fddaaefe560315e006dddaa4c57",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/minion_giant.toml",
+      "sha1": "ae7fac169cce7dc6d8f9f68f9dbaa4ae7af26593",
+      "sha256": "bf128f8124a0f9b0334ecbb46afe46aa5c4f443bf5207ee4eca7ba9ddecc1cb2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/minion_giant_spell.toml",
+      "sha1": "bdee88ab9166c3b1221e02401c7f69ce487f97b4",
+      "sha256": "276b7e54c7d49b4bf0688ddfc4c80dec47e355d5aff474b73cd9258d3a903170",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/minion_horde_ev1.toml",
+      "sha1": "e2d73a0005a664c17b8a696c9bca95c58fdd046a",
+      "sha256": "a0c0e88aa28c79ee7a42f4b15c9bafd1080cb8c44fbda9ae007655faa37a89a9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/minipekka.toml",
+      "sha1": "f8faf9b0d57f17eeeafab5e91a3f481e207f5faa",
+      "sha256": "446aa7fe292f3a3bd54dd1c72ce40d405dc408ab31a30c358aa841e6962465e9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/minizapmachine.toml",
+      "sha1": "ac6a2f3d2285f1a5536cddcdaa393ff71a318296",
+      "sha256": "8a1203bc89ba065ded50e6738cd8b7f354184128a934b76b988c9c729df84d61",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/monk.toml",
+      "sha1": "07fe660b2af6aef2c40169b7e162de5a1caac395",
+      "sha256": "61e66a2b5201793adc464f840be834749d59ae1e01a7c85db7c9e090ee163037",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/mortar.toml",
+      "sha1": "6e94512f46fe3b3c2a1a7b36f3378e9a03999ddf",
+      "sha256": "343e4d6c13573b5a8cb2081d253e7b1c9f8734e1eedc62e153f59eaff49313f2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/mortar_ev1.toml",
+      "sha1": "e78f687e73185b02aae864ffcabcd596d6dfbc71",
+      "sha256": "baea4983713b8c890b5f0de0c7f5355298f5e0e1e92a462b37ba0a537836cc54",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/musketeer.toml",
+      "sha1": "3bc84c8de9d199558860f55db40a6fb5d68b8e8b",
+      "sha256": "600e1d84cf3953bef0c54a403b0ab67aa538d43f6874a91534cc364d9040d466",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/musketeer_ev1.toml",
+      "sha1": "0924e620a15cf196fd012a81de81ca7d69578c67",
+      "sha256": "58f9159483ad0f194999a42035099bebe48f832fb353e498347ec7836d7633ef",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/pekka.toml",
+      "sha1": "ff33108bf3441290a0f4cb3a79bb436030b1927a",
+      "sha256": "f3f578dc5b4784640d6e0925c45980fb15a5e26a757218b584d518f64a0852f2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/pekka_ev1.toml",
+      "sha1": "9600d87efb906949ef719074a399b41eaf07b0c6",
+      "sha256": "6e2790be03f53f951995cafbafde890debcb3fab17791bd0145892f375e9541d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/phoenix.toml",
+      "sha1": "447f5b6e497df47ab05179db54a2c1e195e3d5fa",
+      "sha256": "2d2823b26cbe70f8e12bdbc96a4beb0c377ce765a1f437d2d2568da25c97b1b9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/poison.toml",
+      "sha1": "1a48813a2728abc05123fc3c64dec20fc4a54534",
+      "sha256": "e662078d3e2d60998bb83c626bc34c739bbb8e1060e856a81dc5d75d4b7f1920",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/prince.toml",
+      "sha1": "3489366eef3bc216e4b0d574a6fa37ca821d44ad",
+      "sha256": "11a8132c4477cf3d3d0c0eb300b264e73837008ba21396be8cd39927741f6811",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/princebuff.toml",
+      "sha1": "f5515fc99583cae02511b60276bf46e97b906404",
+      "sha256": "d5a9736ce1cff70bcf3b8735fc277a223a6bd8342898fa254694b53a2a885376",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/princess.toml",
+      "sha1": "4eaf8f3c9853c7b964d2b536b28483cdbfa894aa",
+      "sha256": "5552915378863b7e9fa7d8fc40d745eb541e5d16b4a44be6ea1977fecc3bce6d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/princesstower.toml",
+      "sha1": "030f3aa1ead5b971e178f17ff69f8e63f5a55057",
+      "sha256": "b4a2273dbfb48e3ec8bc4b2f6067fdea73a28cae01fcd4060c25ddf29366ba88",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/princess_ev1.toml",
+      "sha1": "d0499eba54269f6be61c696e115762dee21bc65e",
+      "sha256": "d1147eba835fb357ad1f418a81262d16806406335b5a76f03104c1172c6950b5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ragebottle.toml",
+      "sha1": "617cd16f223a15b4e0f3540df0b10e453b41e1ae",
+      "sha256": "656f081af822efc12c237142ebdd15d624b71da431f7e30f2e022f662f7fbbd3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/rage_barbarian.toml",
+      "sha1": "09fd03d1dc3b2ed61cfa33d6f12a025837dc6bc3",
+      "sha256": "a561beb211117a05a2a71e436a81817cf043a138e078876ccddce6393ac2ffb5",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/rage_barbarian_evo.toml",
+      "sha1": "f66235f367d47ed4853618a6940f5859d666dc6d",
+      "sha256": "d255b8bee155005d767f93fab8db26009d2e0c1c36d8cab93302335fdd357db3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ram_rider.toml",
+      "sha1": "130f698700df1da6015bb2af02bd45615d554039",
+      "sha256": "22ab9d69a02e8c0377ab1d2674e185e4cadfca67beb2f8e77e6330e6b276f7a2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/rascals.toml",
+      "sha1": "b6a6d4e4b9928a2860a67b99fc91b2d429ff72da",
+      "sha256": "b75af6736c77033c57d8551338b17a2167875f82089f8690c41b01ef295f1e7e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/recruit.toml",
+      "sha1": "4db2b2ac552caae44c739bee80f400ea80f74ac9",
+      "sha256": "04b3157cc491a387497c80159f9c30533d057615c97e71bf3243cbf84dee4867",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/recruit_chess.toml",
+      "sha1": "4fd056818a3ac671e21fcc5af3b8ed65acd392e1",
+      "sha256": "44abd16bca6ec24e9a8e9c2b8d4f623055f986a5d379e827e58ac24f13294437",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/recruit_ev1.toml",
+      "sha1": "f0aca9a13123a50410333983d429408ad94f53de",
+      "sha256": "4b92bdbf0e453fcb8bcfd34a0ad573d40bc274f36af515da96161ea77f4bdc3a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/rocketspell.toml",
+      "sha1": "afb516b554a5a76e4238a527534ac454280dd195",
+      "sha256": "8af343a2a47da0da00ff65ea32d3dcb5712356b222858368e3909a1a16025c73",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ronin.toml",
+      "sha1": "bc615a2de2f0b7d819b749fad1f14d3d6b113ba4",
+      "sha256": "6c53e68685586a759ba2ac6c9a30a976bc285fc4d363b5d5a2c2118bae9d143a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/ronin_spell.toml",
+      "sha1": "4b10b0d982a03d0118ca9e0cbd689c072aef4526",
+      "sha256": "828ad830c0334b09ee42965521dc50f230bedbabb80594dae604ff5b4a6b479b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/royaldeliveryarea.toml",
+      "sha1": "caaa6d468f55f52ac8a55578ad9599e8bb294ffc",
+      "sha256": "9ab6502f8047427e9e7f8d3841254f66aa8cdad2fd96c96744febcebc1dcdf89",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/royalgiant.toml",
+      "sha1": "aa8d604876d028efeaf889ccd7cd06a5deb7c3c9",
+      "sha256": "eb35d7168bb697bcdf3d8d58ec037784827fc9f737b9dc29d249f430d5653edf",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/royalgiant_ev1.toml",
+      "sha1": "c023c799182fa9ba121e760d216b06c24f44245b",
+      "sha256": "db84ee01caaec8e4e6327580c77601bbc1cd3f688928f1046bcce816d6638f03",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/royalhog.toml",
+      "sha1": "8dd630af43c20d962f8e92b9127d08a5f9cd9f17",
+      "sha256": "12a7aaaa3fb583836795accec9f6ac0cc110b134c775161f0341b3fc382e12de",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/royal_hog_ev1.toml",
+      "sha1": "2b36ec000c99631b2af3ac5f5ac640697008553b",
+      "sha256": "12794e2102f9a3ac5db0cbbeedb4e93cb45c76d7f5d546763dc658be2819ceb7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton.toml",
+      "sha1": "8cbf7ad6368ad25f482b6d2af027604f3790d1ef",
+      "sha256": "a0c191721c14f248c63d51643813101d6cc9f4ca08cc4e9b36b459e5b3f16c92",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeletondragon.toml",
+      "sha1": "0f58fdfdf08c6307b5fe9339ada70ddab829a558",
+      "sha256": "e139795408c79fd95e8a3a2050937ff9fa0e6ab31a76b46678e454dffae89072",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton_army_ev1.toml",
+      "sha1": "c0400e70a0e931a716ef78826e1d7efcb407eccb",
+      "sha256": "35252852c54289927a1a8519997dfbdc19eae3261108531ad081ae27337cd3d3",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton_balloon.toml",
+      "sha1": "e94b8483443f7366efa2310a109494dfd6b303ce",
+      "sha256": "11a8cb45271e59902470fe7fbd052585522680ec95e7351d39d809855de9a01d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton_balloon_ev1.toml",
+      "sha1": "d9b730eb83c095f76849194cf4d3f19c7da46d6e",
+      "sha256": "bfbb15d236f4917671dd9b98ae161e2bbe5208dfdc85bf3b5a8d07609dd7fb00",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton_ev1.toml",
+      "sha1": "2691f5ae2e407e621cf8bc7bc1df03921178294d",
+      "sha256": "c775d592866b2a640b12d4359c55204e6f303336d1e55eb2d91be27bace3a17e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton_king.toml",
+      "sha1": "483b90d853a9e12cdeeb520794efd063a86bfff2",
+      "sha256": "ad23f6316bc250666237db8b4cf733f10cdf522eef266942e30e5d6b5b159242",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/skeleton_warrior.toml",
+      "sha1": "93742358a3ebc15a2d1bb8c95443bc5898ee6845",
+      "sha256": "626d0f46d99a0e5251dd71b40ce6c4cb4bb5bce947aa56325d3f6987dcbdcca2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/snowballspell.toml",
+      "sha1": "5ef7b3d7f52fc3a71c328c47e769d32bcf7d2253",
+      "sha256": "5772659ded155d346d0f9314ca026e63a745f02d020db8ae5e6e8597eb0dcd95",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/snowball_ev1.toml",
+      "sha1": "e8d09449866b783dd6655a632415889b94da61fb",
+      "sha256": "80b5d285ea4786966e14ade582423594720bdeafb5477cdc98c01c6d4555f836",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/speargoblin.toml",
+      "sha1": "3f293ba53d3fc71634b6f52cbe45196cee178b7a",
+      "sha256": "1f8677fc4c0722b0e899995643b1f0daad77752a07ea4858f962e1deb41b154a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superarcher.toml",
+      "sha1": "82836716c93dddca6dd883f48dcf055c0bfb89f6",
+      "sha256": "47d00fa06429545ab573306ed388e4bd0ba7cfa47b3f744fb0a414fa2f6ba8ba",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superelitearcher.toml",
+      "sha1": "4f9058e6f3c4ad013f8a6cdf088bff7dd371acf1",
+      "sha256": "a971712de770416ca2a9d4dd6e21dc6be210583a7d9c2ba4d931d8b4b6f4492c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superhogrider.toml",
+      "sha1": "aecca9d058f710b2952a91a58a5ded0252683048",
+      "sha256": "1321540b65b99f50fd477a718d040e0a92c96105263696717a2a72d43b8d71ba",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superhogrider_terry.toml",
+      "sha1": "44f27e458dab11e24abc1e45dbadad9c45d00489",
+      "sha256": "9dd512ae16508e3798fcf06f6d135f9626753ead3c1d624f8542f82589590136",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/supericegolemite.toml",
+      "sha1": "ee0fbdedfa392982255407e9d6b4853e68eceb7a",
+      "sha256": "2bb9822bda39ae632063566a986cfe846ba92aa7747dbf84312b1be003da45cd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superlavahound.toml",
+      "sha1": "7017c5bbba2626da9684bffba68f057691c41766",
+      "sha256": "0c8d78045356e61b589bce2a97cfee05252eee39b4c858a7368ca013c26ab9bd",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superminipekka.toml",
+      "sha1": "7d81690677799ec5169fe65cbe5c6278ccdcb400",
+      "sha256": "5b21f4709d25aa5097b46b0b20b044c6ac55fa65415bb6cf87f827b03bc8321b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/superwitch.toml",
+      "sha1": "b1822a8a623350a445cd1695a18d091025711626",
+      "sha256": "5747170faecfb1a18a79f95e039560ae5efa967bcd7b61cd9acf8cd549993b8a",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/suspicious_bush.toml",
+      "sha1": "f6a58e9054a33deb85447f40cabe3ef9c74aa702",
+      "sha256": "806c43a1aa678cb5242e1b661d08d109b4e18612c8ceee9af62b8dcf1d6ed019",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/tesla.toml",
+      "sha1": "0359f83ee190af20f557cccccc157356d51fd174",
+      "sha256": "c0ca7c7831400625de8c3ce71c8a70d7dc4d1c8c19b27d3d7c14d0c045bd1586",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/tesla_ev1.toml",
+      "sha1": "a1d776292204e4dab67e52a8d551cdc1cf5d1da7",
+      "sha256": "2a7479bb45ac7da509f52823e6f35efd750c441597177c7c0adeca53168c8068",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/three_musketeer_rework.toml",
+      "sha1": "52eb55c7dbce00f8e42047667ad8dfc8abb29bbd",
+      "sha256": "2c656533b2951669c779e5406ee40a3f834d62c2e8f66d846f6cb06e5ba2be17",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/tombstone.toml",
+      "sha1": "07125fad07c3b6dedcc39d0c18b5a718b3422e34",
+      "sha256": "3fb1e07e6e25df5bf5067a80ef25d5bbfff044ccc4b01bc1ce6bfaf8ebf5df74",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/tornado.toml",
+      "sha1": "843efcda3dfc1a276be79cbbee07e61779f8bcb3",
+      "sha256": "3950f090e39f5b91d5622a4e098644fa8df97ef6e3118941ff190c0dc04955cf",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/triwizardspawn.toml",
+      "sha1": "8c40c6691778d769d330341f8832d548955d0c98",
+      "sha256": "01ad5421499e7b035dbfea635a4f5ebe69f55fdcadfbe168ae11dcf0fbd790eb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/valkyrie.toml",
+      "sha1": "3b4ab81b2097631389b77dbbdd50cadcca1e5347",
+      "sha256": "bc4e8d26e3295acd11ef9c446c8ad5ba5c422de02596311e45f764160ff0111e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/valkyrie_ev1.toml",
+      "sha1": "6d55e3f071c5e3291668b4b0a3414554ce751ee4",
+      "sha256": "a62d82db4cb0e3b9676045e567291118bfda5d22971eb605c654fc3a546927ee",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/vines.toml",
+      "sha1": "c4d71d1d6722e2ae4d46309fee52c8df53074f3c",
+      "sha256": "d4bdd424588447022768a50ebd88d8290f308f63ff5a0375b9e88d549a6c75ea",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/wallbreaker.toml",
+      "sha1": "01060038000d347b318014b87f91f0a8f5abd31a",
+      "sha256": "8b9b07f9485be39e2c8142bcee6b9ba17ba6838bf955fa8657d6e48d70e166e7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/wallbreaker_ev1.toml",
+      "sha1": "3da231c3edd91b3f40f9bc0b60d56bf5d1afeea2",
+      "sha256": "dc4bafbae7b394809f00f1156bf19e1ad903536ee6c8056eab1af9bffa4ab2ac",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/warmaoe.toml",
+      "sha1": "80eb3c338888b55e6adbe53f0c600eea4f22327e",
+      "sha256": "302b6a07c8efe5eb698e758bd5639a9d31e896b6733576aee9f57a0254301119",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/witch.toml",
+      "sha1": "3f00d9a9a1f168bd749755842cf9b3afcf552b34",
+      "sha256": "2081767a9ca7f18bcfc2c8e6248ee7a7d85db1b6369db26433229dbb4cffeb04",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/witchmother.toml",
+      "sha1": "0c7696a4184c69893ac4f9939866e0dac924bba2",
+      "sha256": "6953657d8e18ab4f435ea03cbda7a3fb20719181b5ee9cefabeae327d0910347",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/witch_ev1.toml",
+      "sha1": "e137de45546c6cd93b40a95d794d6280ac8d9812",
+      "sha256": "5c928644fa46d591a4c32374d905642bb181d3c03fd574a16bbb65d34fcaf390",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/wizard.toml",
+      "sha1": "c4d7de35c22ca6b6cf20e86314d69f40c9f394d9",
+      "sha256": "4156d2f02896e951974ed00b84493e25c017d7dd4ace4cb2faf0a21d26ef4e9f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/wizard_ev1.toml",
+      "sha1": "678a8fac3b1adda8c351c762eaa598ec518a88e9",
+      "sha256": "bdf9157c9584ee8b1ae69dfd5edc0a05362c2bf3779db97c346b05d032245d62",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/xbow.toml",
+      "sha1": "68c94b6a6dcd0118b8e100a828fdf8a0f007e34a",
+      "sha256": "179081b2dd688b9b4f8b3be0132988c91c5b28984876fb6224dafcb66468b36c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/yetanotherbat.toml",
+      "sha1": "a6d020562a377d5499ad08b3e6b1afe05e60a357",
+      "sha256": "11e03bfd046b2210fcc4540da5e3fe1ed05a872311daf606ede5a7c6c212ddf1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/yetanotherskeleton.toml",
+      "sha1": "06e1d57ce0aaec697f40f16d101a09d2220ccc17",
+      "sha256": "a740e563367026a1823d061b2b485c4dc302afc10b478df7ba38ca78f89b96a1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/zap.toml",
+      "sha1": "7b99671f94370527451655df49f333318cf92402",
+      "sha256": "5492c3d65f48bce84b3778905228471ed30960d98d07da73521261886b544ce7",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/zapmachine.toml",
+      "sha1": "ff1217870d3117920d6c588582190e2ed477ca6d",
+      "sha256": "6f375eaae5f6f791ef938702a6137f6262cd768b2466a76334b0f0d55abc42eb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/zap_ev1.toml",
+      "sha1": "a0d1af5c3b13daa6f651ec0fe09149669a2e8211",
+      "sha256": "2690aa8406418f51ba7fc8bbcc2597035fe0872d4b48d9ec4ad74fcb3ee545f4",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/202410_event_blackout.toml",
+      "sha1": "9cb02294003d4b72c5631c0e64eac85a6b316c60",
+      "sha256": "429be161e4c993df6e34ffb651b91dd44b57c5d9850709bfd1b591594c67ea20",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/202410_event_spooky_chess.toml",
+      "sha1": "54e14933e39a13ad32a5b202f68d9a4b9da31e44",
+      "sha256": "4c81d38cf6dc18be2d364d8121641b0a663bad9adb62119a79c32205cc1e8311",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/allrandom_tower.toml",
+      "sha1": "8ceb33034b2132efc722af7cb2a4fa3278e32179",
+      "sha256": "ffc8e6fe00544bda0129b011a378be5c28e66a35a6e76c67b4c9cf2d122a10a1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_berserk.toml",
+      "sha1": "ece9713fbf151b0073a16b182c9461b0ec0a178d",
+      "sha256": "ca460c94560c35605411898472b2ba9db58c34d12210a933ac3e8c27ec5022bc",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_gift_delivery.toml",
+      "sha1": "24ee197864cf82cd51bdc80922271f906a181fcf",
+      "sha256": "53c01adfbe51b37b38b6c26b1ae6f08827d70cb2cb2d5cbd5ed9d618063ffb8c",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_goblin_bush.toml",
+      "sha1": "12514d405b8f36353b4f377eb8dc41f752aacb9b",
+      "sha256": "40864cfb68b26b342e0aaca8040a8cfe986c83dc5cd4f6941dff88d846937af9",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_goblin_rocket_silo.toml",
+      "sha1": "0e995264ffb922ed0c4ee5cfd51e6dee75aa99f0",
+      "sha256": "3adf835ee569b9eebd5761defdc396e77519f6b4ce66f935de622ac452205005",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_holiday_feast.toml",
+      "sha1": "e9704289d1a783e4bc2d0d595b2503a423120b34",
+      "sha256": "cb65f0fb38fd8a72a3e6e6b2d3fe99d9ccdb5c65eac4232eff86c91e0ee09c59",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_spawn_melee.toml",
+      "sha1": "a619f221a5b40a011a9c052b35e60376f655b970",
+      "sha256": "6d747447c2e6c0ce9402cb65e024582934ea3d36f47023c587a0bb854eb89172",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/events/event_super_knight.toml",
+      "sha1": "cd24e4febc230e866caa91b1c65ec843a6d28e1a",
+      "sha256": "a0cf21f8ed73b0903a323dc09dc7f45ef81d3fd85c6cf53969d62f8252a03788",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/all_random_gamemode.toml",
+      "sha1": "d4db0defbc6bd5dfb2c5489344768c17611ff5ba",
+      "sha256": "ffb2eaa27c21de8a2682bf00c6001f2da68efd09a317a59d1fce7d17d4f31ac0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/boost_gamemodes.toml",
+      "sha1": "ab3d42bc24d311683636ab13fb0ed5e3d3f15bca",
+      "sha256": "5e263404dbf97948cf89a45fada45b987de2b944e97ecd9c2137352cdbe01b87",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/crazy_arena_draft_gamemodes.toml",
+      "sha1": "258abe8b55d73ffef13202be2ead562ce8e5ba70",
+      "sha256": "85ad9563f056e502e803643c32d28f9e63a56cf07fb1dd1c4e2f216f0dea8f6d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/crazy_arena_gamemode.toml",
+      "sha1": "7149b248d6725bfca9c59fb5c8a5fd2e17f5d086",
+      "sha256": "911f603c3405fa9d0d191ca01ee76fcef8dd7c532f9fbe7ea6074ea2598eaa75",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/crazy_arena_gamemode_epiconly.toml",
+      "sha1": "0de1e0417266fab8b297321631b3e3ccacb3a483",
+      "sha256": "90d8c7f3c25709aa5aa176638dc95b05070db058a14d3a012002a56632b3b1ce",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/floodhounds_draft_gamemode.toml",
+      "sha1": "a5bce1a736dbe4e352f2e2c5e69fb75ae3581285",
+      "sha256": "e341483a2adec84421f1e889c2c3c515d449a157845a063e878606afac93e632",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/game_mode_components.toml",
+      "sha1": "9066d8833ef60505d4bacf4b391537079a16c2ed",
+      "sha256": "0573b69cc2c4df3d5e5a3f29e7d2929ae2655bfe1e03e2edba4a020c5ba56da8",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/balloon_hero.toml",
+      "sha1": "e519ee5ddd76688125ea4839fece839363cf19ba",
+      "sha256": "07dc63b61dedfd2dae71657ae90ae12761d724c673c2a24cada16bfc58ec977f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/balloon_hero_spell.toml",
+      "sha1": "d763c4d5bca19e7def1cbcfbfd4955e390703a45",
+      "sha256": "97744752c3068f35fe483221ed882d0ff44c2366ad29bb0309af3f2ba4400c08",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/barb_log_hero.toml",
+      "sha1": "35232fa25619b1dc4c427807b1cba1326ebc856a",
+      "sha256": "1f631b6df899fef655335ff0c2325d145ea15d18fde6dcadcbe1cd2a9e884756",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/barb_log_hero_spell.toml",
+      "sha1": "813d239c26e7cea10162ef16cb516c44e5d6d516",
+      "sha256": "ec24d9f6b03e63eee9e9650e10943720d43106a122d0ec34a946e62a5feb868d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/berserker_hero.toml",
+      "sha1": "fba36e288eeed7a9154f1e12285b380062edc043",
+      "sha256": "f7282ac90eef1a0a99c7126c517e820ed975c6d158a19575a9e28d5a4fa3a46d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/berserker_hero_spell.toml",
+      "sha1": "722e410153bddf5660731ad772ad98847548c99c",
+      "sha256": "eb550ffe60e56123aadd318006126c28d7b71981c47c431bdd7dd73de574b099",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/bowler_hero.toml",
+      "sha1": "f551bad54a5f6656a5e3445bc231d037dd1bbebf",
+      "sha256": "cdd86ffa9e77382fc41c96c345bf65eb91e8957eb3190243f13b9523a517ef5b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/bowler_hero_spell.toml",
+      "sha1": "84407f5ff7a7e92c61cb6bd983c7b2549b4a53e0",
+      "sha256": "2c5251f2e9e301c975d49536fbc5c30a52a8ed6d30e0f3768570c2fc4a0dfe24",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/dark_prince_hero.toml",
+      "sha1": "29a1e62022e2401c5178b605fb00370e28838633",
+      "sha256": "acbb1d5757f6a649c7bfbc771b574dcef8958e4456a9c6a34a3cf73d913d1e16",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/dark_prince_hero_spell.toml",
+      "sha1": "995e43c13d7682b679293cb74d0df5d894225bef",
+      "sha256": "f32d0e922b2c5df3f5e90f0610af1cd93077fb727f0d47902ba0690dca28f931",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/electro_wizard_hero.toml",
+      "sha1": "2d41fd5fff85f5058e8d79f5e62751eeb48b096c",
+      "sha256": "cd0a56f4b011b84fc24a75e5aa5cfd6c52d837c3802012dd0e64845ee35cb1fa",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/electro_wizard_hero_spell.toml",
+      "sha1": "3d0304eb746cf33b95ec0e84779f638de3f3a4d8",
+      "sha256": "b91bc081bfa305427cc2de251e1916be110e2f5fdd9012eb1636fb1dd7e51b4f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/elite_archer_hero.toml",
+      "sha1": "8879578eff7e0e3f9d3e930ca1ebb7184961a624",
+      "sha256": "01641162b3c8cfc4d5a1a3761101ed26cbf1ec1f105f00af0aca9202e6cc22f1",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/elite_archer_hero_spell.toml",
+      "sha1": "0fe109c745dbf31f4700c5e3561715b01abb15b3",
+      "sha256": "3ee0e5201124031f3d60c8dd5b14855aa3f9919219a6c2f97f1404ac58cc9a30",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/giant_hero.toml",
+      "sha1": "0eca46c086cc56cb56a02a7f871fc2a87d8ecaf1",
+      "sha256": "e798c74f4b9a19c5398aae15a4667b76b67f9918c67d21dfe292ad621d0533aa",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/giant_hero_spell.toml",
+      "sha1": "cd18254bb57989b7c4a653bf94e15701fb396d97",
+      "sha256": "3dd7ab557470f8bdc7df5aef670be0edff0f7812175e0824baee577b4b8d3fbf",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/goblins_hero.toml",
+      "sha1": "19c825d91845629aea36caa19936ebccc513752d",
+      "sha256": "f1d5e840fc2ab3bac84433aa085c45918394152c78331d3167ee1ba25b142c81",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/goblins_hero_spell.toml",
+      "sha1": "84a9eb447ec69d9c7cd1593ed15c6ad77ff8658a",
+      "sha256": "959064b5040eb0f4771800e2aaf0aaed2b383b09e3381fde5b882ad2724b92a6",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/ice_golemite_hero.toml",
+      "sha1": "f91b65e6952f5d931a574bc243a6585636048b5d",
+      "sha256": "578a887c033dbe0bce25ab61bbb433dbb7211a4ed3b2406ac3d88806aacf2a81",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/ice_golemite_hero_spell.toml",
+      "sha1": "dd87825466e7fa5427a0b41af75762a4fdfe0b64",
+      "sha256": "c5bec330b24b995fb965b137263988ba3bd246360435af8d961f129d52ca96ec",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/ice_wizard_hero.toml",
+      "sha1": "621c862c6557a15add462f9f870da5093df86f7e",
+      "sha256": "c502b39962baba5121d8d825b8a15b371ef39c0867028420ae8fb44efe79f8b4",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/ice_wizard_hero_spell.toml",
+      "sha1": "06f1ecd3f97dafb541df0f7d25a2f1e18670793f",
+      "sha256": "2723756b1e8236883531fa70d99de68177ee6579b71cf7ac932d1695b79e76eb",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/knight_hero.toml",
+      "sha1": "8dd44a85184c8b08cd707d6178c4580770f288e7",
+      "sha256": "d26b5374702c94817b4a8b01e4ac5f30bb9ea9ad9f774fcc5e6d3a43e8008cec",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/knight_hero_spell.toml",
+      "sha1": "69a64296c5cad21cf9e76962dd918021091deb67",
+      "sha256": "545f84bdb813402629f4443d766b5c247204da8ab3add4757a3a283891104900",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/mega_minion_hero.toml",
+      "sha1": "faf7ce08b693db688d094ce6927c12842a40c6a8",
+      "sha256": "209f33660764f171f080afa16f451722209c75a0fe68379cd426ceb7855d8c64",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/mega_minion_hero_spell.toml",
+      "sha1": "9987184b940b8dc3c7af129586e16bab9cb5293d",
+      "sha256": "24b3f5cd4b10f58a1de8743e8fef6f16881320f1a91700a7358eaa49ff929b9b",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/mini_pekka_hero.toml",
+      "sha1": "ca576d82c5d857422f806ffa1afc4359ab5628a1",
+      "sha256": "ec76e19a140e808449ff55268ee22ebb7c2758b57b80f6bb461fd57eee02fbe0",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/mini_pekka_hero_spell.toml",
+      "sha1": "54ff85b90bb3a87dbbede050675c1bdcf711256b",
+      "sha256": "b2e61cccb42ee94886919250b720cebad438359b396d49963539e444a44d5c88",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/musketeer_hero.toml",
+      "sha1": "971529324ff655af9d3693f1e52c91bd54f7ead8",
+      "sha256": "76f96433ca8a4e837d2459741ab1057d130e8ee2fd122357caac26b5193bc704",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/musketeer_hero_spell.toml",
+      "sha1": "a700f3d9d34ab97d1ef9362c9684fc994ee55887",
+      "sha256": "a7429345c7c59c2b0fd68986e36f25c3950ef4ad61b950c1b657d7cab0354f5d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/tombstone_hero.toml",
+      "sha1": "5d402ce16b692be2b5241d88c5b64e5bf399dd5d",
+      "sha256": "34e497aef3788ef257778221a349d4f700b9665379d0d1157365898a1d31658e",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/tombstone_hero_spell.toml",
+      "sha1": "178f6f71e9e41e59a44b56b2ee31b06f6e39b8fc",
+      "sha256": "584743c41534cb896c6b9502af224b3c8eb66405e0f27119f95855fbfaf71101",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/valkyrie_hero.toml",
+      "sha1": "6488ab777659293793d54e5d676c9301bbdf391a",
+      "sha256": "aa9a67bcb9ddf1bfc2ea03a60dc7ec97fabd228039e3c663d4c6695b6a1028aa",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/valkyrie_hero_spell.toml",
+      "sha1": "0e3e6a84618d15f341dad9e6af39f1e9f23cbadb",
+      "sha256": "3f35faac9fdf645c0752a060ef206347ad7c77bd4ef173f6920f45cdc3b28842",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/wizard_hero.toml",
+      "sha1": "f45d5da0ad3c841a639921c17eb5dc8757bac14a",
+      "sha256": "84f7862cec8a0ab4e8219d003a9f174629b394ec9395d3848a09b7e2f141e99f",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/characters/hero_form/wizard_hero_spell.toml",
+      "sha1": "ee5664875e1e1c1dd3efb84d2b358d76299e8653",
+      "sha256": "ddccb223776bda1c9e772098d26b1c513becd9de0f42e88870ec043890f56e53",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/royale_roulette/royale_roulette_decks.toml",
+      "sha1": "a064763dbf7dde8624148be2a8c9d53bbe3064ac",
+      "sha256": "4a5776310d3de3d925acf63e8545d383737ea555599aa75da528cf951b39458d",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/royale_roulette/royale_roulette_deck_pools.toml",
+      "sha1": "7cabf01a5a8aeeb335977409707e804209984ea1",
+      "sha256": "3c5563baa53512586cfbf69c77c96cd70a4e01e6a15c6b7915cf8fae0b8c5b33",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/royale_roulette/royale_roulette_modes.toml",
+      "sha1": "0003338e0ceac4522cfd2370473bb500aa28b501",
+      "sha256": "a77370ab7918aec23091334cb8c74726f3467c49f58b5287b8fbdd267e3067e2",
+      "signed_manifest_digest_matches": true
+    },
+    {
+      "file": "assets/csv_logic/game_modes/royale_roulette/royale_roulette_registry.toml",
+      "sha1": "ac72f16ff4604c816f63bcc5a262a25382915ca3",
+      "sha256": "27233fbbeab3efd9e97fc3408cdaa2b4d507b96bd689713e37c669285ac5fbc2",
+      "signed_manifest_digest_matches": true
+    }
+  ]
+}

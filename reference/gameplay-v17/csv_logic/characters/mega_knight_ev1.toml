@@ -1,0 +1,170 @@
+[VARIABLE.MegaKnight_EV1_Do_Uppercut_Counter]
+	DefaultValue = 0
+[EXT.MegaKnight_EV1]
+	Base="CHARACTER.MegaKnight"
+    FileName="sc/chr_mega_knight_evolution.sc"
+    BlueExportName="megaknight_evolution"
+    RedExportName="megaknight_evolution_red"
+    CustomSpawnFilter="filter_card_evolution"
+    DeployBaseAnimExportName="filter_deploy_unit_legendary"
+    Scale = 60
+    ShadowScaleX = 85
+    ShadowScaleY = 80
+    ShadowY = 0
+    ShadowSkew = 25
+	OnAttackAction="MegaKnight_EV1_uppercut_start_group"
+    HealthBar="High_EV1"
+    ClonedVersion="MegaKnight"
+    PrestigeSWF=""
+    PrestigeExportName=""
+    PrestigeExportName2=""
+    PrestigeExportName3=""
+    PrestigeRedExportName=""
+    PrestigeRedExportName2=""
+    PrestigeRedExportName3=""
+    TryToFinishAttackAnimation=true
+	AnimationsKeepLastFrame=true
+	TryToFinishAttackAnimationBeforeNextAttack=true
+    DeathEffect="mega_knight_evolution_die"
+    SpawnEffect="vfx_megaknight_evo_deploy"
+    DamageEffect="vfx_megaknight_evo_hit"
+    MoveEffect="mega_knight_evo_steps"
+    AttackStartEffect="mega_knight_evo_attack_start"
+    DashStartEffect="vfx_megaknight_evo_dash_start"
+    LandingEffect="vfx_megaknight_evo_dash_end"
+    DashEffect="mega_knight_evo_dashing"
+    DashFilter="filter_mega_knight_jump_evolution"
+	AttackSequenceMode="None"
+    AttackSequence=[0,1]
+    StatsTags.Damage = "damage"
+    StatsTags.Hitpoints = "hitpoints"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+    StatsTags.DashDamage = "jump_damage"
+    StatsTags.DashMaxRange = "jump_max_range"
+	StatsTags.DashMinRange = "jump_min_range"
+[[EXT.MegaKnight_EV1.AttackSequenceList]]
+	Damage = 105
+	
+[[EXT.MegaKnight_EV1.AttackSequenceList]]
+	Damage = 105
+[ACTION.MegaKnight_EV1_uppercut_start_group]
+	ClassType="ActionGroup"
+    SubActions = ["MegaKnight_EV1_Update_Do_Uppercut_Counter", "MegaKnight_EV1_uppercut"]
+    SubActionsDelay = [0,0]
+[ACTION.MegaKnight_EV1_Update_Do_Uppercut_Counter]
+	ClassType = "ActionSetVariable"
+	Variable  = "MegaKnight_EV1_Do_Uppercut_Counter"
+	Value     = "(MegaKnight_EV1_Do_Uppercut_Counter + 1) % 2"
+	NextAction = "MegaKnight_EV1_select_attack_sequence"
+	NextActionWait = true
+[ACTION.MegaKnight_EV1_select_attack_sequence]
+	ClassType = "ActionSelect"
+	SubActions = [
+		"MegaKnight_EV1_set_attack0",
+		"MegaKnight_EV1_set_attack1"
+		]
+	PerActionConditions = [
+		"MegaKnight_EV1_Do_Uppercut_Counter == 0",
+	]
+[ACTION.MegaKnight_EV1_set_attack0]
+	ClassType="ActionSetAttackSequenceIndex"
+	AttackIndex = 0
+[ACTION.MegaKnight_EV1_set_attack1]
+	ClassType="ActionSetAttackSequenceIndex"
+	AttackIndex = 1
+[ACTION.MegaKnight_EV1_uppercut]
+    ClassType="ActionMegaKnightUppercut"
+	ExecuteIfTrue = "MegaKnight_EV1_Do_Uppercut_Counter % 2 == 0"
+    PushBackStrength=4000
+    ActionOnTargets="MegaKnight_EV1_uppercut_target"
+    IgnorePushbackChecks=true
+    DoFollowUpJump=false
+    DashFollowUpMinRange=3500
+    DashFollowUpMaxRange=5000
+    StatsTags.PushBackStrength = "pushback"
+[ACTION.MegaKnight_EV1_uppercut_target]
+    ClassType="ActionGroup"
+    SubActions = ["MegaKnight_EV1_uppercut_send_flying","MegaKnight_EV1_flying_FX","MegaKnight_EV1_flying_FX2","MegaKnight_EV1_flying_FX3","MegaKnight_EV1_uppercut_root"]
+    SubActionsDelay = [ 0, 0, 0, 1050, 1000]
+[ACTION.MegaKnight_EV1_uppercut_send_flying]
+    ClassType="ActionKnockback"
+    Duration=900
+    Height=8000
+    AbortIfInstigatorDies=false
+[ACTION.MegaKnight_EV1_flying_FX]
+    ClassType="ActionPlayEffect"
+    Effect="mega_knight_evo_pushback"
+    EffectFlags="FollowParent,FilterCanModifyTransform,ApplyToAttachedChildCharacters"
+    OverrideDuration=1000
+[ACTION.MegaKnight_EV1_flying_FX2]
+    ClassType="ActionPlayEffect"
+    Effect="vfx_megaknight_evo_enemy_flying"
+    EffectFlags="FollowParent"
+    OverrideDuration=1000
+[ACTION.MegaKnight_EV1_flying_FX3]
+    ClassType="ActionPlayEffect"
+    Effect="vfx_megaknight_evo_enemy_landing"
+    EffectFlags="FollowParent,FilterCanModifyTransform,ApplyToAttachedChildCharacters"
+[ACTION.MegaKnight_EV1_uppercut_root]
+    ClassType="ActionWithDuration"
+    ActionDuration=400
+    GameTagsToSet="NO_MOVE"
+[EXT.MegaKnight_EV1_appear]
+    Base="PROJECTILE.MegaKnightAppear"
+    HitEffect=""
+    StatsTags.Damage = "spawn_damage"
+[STATS.MegaKnight_EV1]
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "jump_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_JUMP_DAMAGE"
+		Icon = "icons_stats_strength"
+    [[STATS.MegaKnight_EV1.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+    [[STATS.MegaKnight_EV1.stats]]
+		Value = "jump_min_range"
+		Value2 = "jump_max_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_JUMP_RANGE"
+		Icon = "icons_stats_dash_range"
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.MegaKnight_EV1.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.MegaKnight_EV1.stats]]
+		Value = "pushback"
+		Unit = "RANGE"
+		TID = "TID_KNOCKBACK_STRENGTH"
+		Icon = "icons_stats_dash_range"

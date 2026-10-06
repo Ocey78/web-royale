@@ -1,0 +1,12 @@
+[SPELL_HERO.DarkPrince_hero]
+	CardForm        = "HeroForm"
+	SummonCharacter = "DarkPrinceHero"
+	SummonNumber    = 1
+	TID_INFO        = "TID_SPELL_INFO_HERO_DARK_PRINCE"
+	Stats           = "Dark_prince_hero"
+	IconFile        = "darkprince_hero_card"
+	HighresImageFilename    = "sc3d/characters/hero/hero_darkprince/hero_prefab_darkprince_collection"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero_large"
+	IconSWF                 = "sc/ui_card_darkprince_hero.sc"
+[SPELL_CHARACTER.DarkPrince]
+	EvolvedSpells = ["DarkPrince_hero"]

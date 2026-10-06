@@ -1,0 +1,92 @@
+
+[CHARACTER.Firecracker]
+AttackPushBack = 1000
+AttackStartEffect = "firecracker_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "chr_firecracker"
+CollisionRadius = 500
+DamageEffect = "firecracker_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "firecracker_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_firecracker_dl.sc"
+HasDamageVisualPivot = false
+HealthBar = "Small"
+HitSpeed = 3000
+Hitpoints = 119
+LoadTime = 2350
+Mass = 6
+MoveEffect = "firecracker_steps"
+Name = "Firecracker"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+Projectile = "FirecrackerProjectile"
+ProjectileEffect = "firecracker_attack"
+ProjectileStartRadius = 200
+ProjectileStartZ = 2500
+Range = 6000
+Rarity = "Common"
+RedExportName = "chr_firecracker_red"
+Scale = 98
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 8000
+SpawnEffect = "firecracker_deploy"
+Speed = 90
+TID = "TID_SPELL_FIRECRACKER"
+TryToFinishAttackAnimation = true
+UseAnimator = true
+
+[PROJECTILE.FirecrackerProjectile]
+ActionOnDeflector = "FirecrackerProjectile_Deflect_Damage_Action"
+AoeToAir = true
+AoeToGround = true
+ExportName = "firecracker_projectile"
+FileName = "sc/chr_firecracker_dl.sc"
+Gravity = 50
+HitEffect = "firecracker_hit"
+Name = "FirecrackerProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+Scale = 100
+Scatter = "Line"
+ShadowExportName = "firecracker_projectile_shadow"
+SpawnProjectile = "FirecrackerExplosion"
+Speed = 500
+TrailEffect = "firecracker_projectile_Emitter"
+
+[PROJECTILE.FirecrackerExplosion]
+AoeToAir = true
+AoeToGround = true
+ConstantHeight = 1000
+Damage = 25
+DeflectBehaviour = "InvertDirection"
+ExportName = "firecracker_projectile2"
+FileName = "sc/chr_firecracker_dl.sc"
+Gravity = 50
+HitEffect = "firecracker_hit2"
+MinDistance = 5000
+Name = "FirecrackerExplosion"
+OnlyEnemies = true
+ProjectileRadius = 400
+ProjectileRange = 5000
+ProjectileStartExtraRadius = 650
+Radius = 400
+Rarity = "Common"
+Scale = 150
+Scatter = "Line"
+ShadowExportName = "firecracker_projectile2_shadow"
+ShakesShooter = 500
+ShakesTargets = true
+SpawnCount = 5
+SpawnRadius = 80
+Speed = 550
+TrailEffect = "firecracker_projectile2_emitter"
+
+[ACTION.FirecrackerProjectile_Deflect_Damage_Action]
+ClassType = "ActionTakeDamage"
+Damage = { BaseDamage = 25, Effect = "firecracker_hit" }
+

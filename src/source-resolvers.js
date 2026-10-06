@@ -1,7 +1,7 @@
 /* Deterministic queries for source-authored target resolver records. */
 (function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./catalog.js'):root.RoyaleCatalog);if(n)module.exports=api;else root.RoyaleSourceResolvers=api;})(globalThis,function(K){'use strict';
 const EPS=1e-7,list=v=>Array.isArray(v)?v:v==null||v===''?[]:[v],flags=v=>list(v).flatMap(x=>String(x).split(',')).map(x=>x.trim()).filter(Boolean);
-const FILTER_KEYS=new Set(['MatchTeamEnemy','MatchTeamOwn','MatchTypeCharacters','MatchTypeBuildings','MatchTowers','MatchSelf','FilterDead','Filters','FilterTags','FilterDescriptionTID','IncludeCharactersWithData','ExcludeCharactersWithData','FilterIfNotBuffedByChecker']);
+const FILTER_KEYS=new Set(['Base','Name','MatchTeamEnemy','MatchTeamOwn','MatchTypeCharacters','MatchTypeBuildings','MatchTowers','MatchSelf','FilterDead','Filters','FilterTags','FilterDescriptionTID','IncludeCharactersWithData','ExcludeCharactersWithData','FilterIfNotBuffedByChecker']);
 const FILTER_TYPES=new Set(['Hidden','Underground','Cloning','Invisible','NoHitpointComponent','DashImmune','Dragging','Jumping','Flying','Summoner','Buildings','Towers','SameObjects','PushbackIgnore','PrincessTowers','Clones','IgnoreResurrect']);
 const STRATEGIES=new Set(['RESOLVER_STRATEGY_CLOSEST_TARGET','RESOLVER_STRATEGY_FURTHEST_TARGET','RESOLVER_STRATEGY_HIGHEST_CURR_HP','RESOLVER_STRATEGY_HIGHEST_MAX_HP','RESOLVER_STRATEGY_LOWEST_CURR_HP','RESOLVER_STRATEGY_LOWEST_MAX_HP']);
 const dataFor=options=>options?.data||K.DATA;

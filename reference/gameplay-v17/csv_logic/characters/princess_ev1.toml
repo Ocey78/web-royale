@@ -1,0 +1,207 @@
+[VARIABLE.Princess_EV1_attack_count]
+[VARIABLE.Princess_EV1_reload_frequency]
+DefaultValue = 2
+[EXT.Princess_EV1]
+Base = "CHARACTER.Princess"
+ClonedVersion = "Princess"
+HideHealthbar = true
+OnStartingClientActions = ["Healthbar_Small_Evo"]
+CustomFirstProjectile = ""
+AttackSequenceMode="None"
+AttackSequence=[0,1]
+OnStartingAction = "Princess_EV1_starting_actions"
+OnStartingAttackAction = "Princess_EV1_select_attack_sequence"
+AttackStartEffect = ""
+ProjectileEffect = "vfx_princess_evo_attack"
+DeathAreaEffect = "Princess_EV1_DeathFreeze"
+DeathEffect = ""
+	FileName="sc/chr_princess_evolution.sc"
+	BlueExportName="princess_evo"
+    RedExportName="princess_evo_red"
+	Scale = 64
+	SpawnEffect = "vfx_princess_evo_deploy"
+		CustomSpawnFilter="filter_card_evolution"
+		DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+	StatsTags.Hitpoints = "hitpoints"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+    StatsTags.DeployTime = "deploy_time"
+[ACTION.Princess_EV1_starting_actions]
+	ClassType		= "ActionGroup"
+	SubActions		= ["Princess_EV1_start_counter", "Princess_EV1_freeze_ready_effect_attack_count_mode"]
+	SubActionsDelay	= [0, 1000]
+	ActionDelay 	= 0
+    [ACTION.Princess_EV1_select_attack_sequence]
+    ClassType = "ActionFilter"
+    Condition = "Princess_EV1_attack_count % Princess_EV1_reload_frequency == 0"
+    OnTrueAction = "Princess_EV1_set_special_attack"
+    OnFalseAction = "Princess_EV1_set_default_attack"
+[[EXT.Princess_EV1.AttackSequenceList]]
+	Projectile = "Princess_EV1_ProjectileDeco"
+    CustomFirstProjectile = "Princess_EV1_Projectile"
+	
+[[EXT.Princess_EV1.AttackSequenceList]]
+    Projectile = "Princess_EV1_FreezeProjectileDeco"
+    CustomFirstProjectile = "Princess_EV1_FreezeProjectile"
+[EXT.Princess_EV1_ProjectileDeco]
+Base = "PROJECTILE.PrincessProjectileDeco"
+FileName = "sc/chr_princess_evolution.sc"
+ExportName = "vmc_princess_evo_arrow"
+RedExportName = "vmc_princess_evo_arrow_enemy"
+ShadowExportName = "vmc_princess_evo_arrow_shadow"
+RedShadowExportName = "vmc_princess_evo_arrow_shadow_enemy"
+TrailEffect = "vfx_princess_evo_pjt"
+HitEffect = "vfx_princess_evo_hit_arrow"
+[EXT.Princess_EV1_FreezeProjectileDeco]
+Base = "PROJECTILE.PrincessProjectileDeco"
+FileName = "sc/chr_princess_evolution.sc"
+ExportName = "vmc_princess_evo_arrow"
+RedExportName = "vmc_princess_evo_arrow_enemy"
+ShadowExportName = "vmc_princess_evo_arrow_shadow"
+RedShadowExportName = "vmc_princess_evo_arrow_shadow_enemy"
+TrailEffect = "vfx_princess_evo_ability_pjt"
+HitEffect = "vfx_princess_evo_hit_arrow"
+[EXT.Princess_EV1_Projectile]
+Base = "PROJECTILE.PrincessProjectile"
+OnStartingAction = "Princess_EV1_projectiles_action_on_shooter"
+FileName = "sc/chr_princess_evolution.sc"
+ExportName = "vmc_princess_evo_arrow"
+RedExportName = "vmc_princess_evo_arrow_enemy"
+ShadowExportName = "vmc_princess_evo_arrow_shadow"
+RedShadowExportName = "vmc_princess_evo_arrow_shadow_enemy"
+TrailEffect = "vfx_princess_evo_pjt"
+HitSoundWhenParentAlive = ""
+StatsTags.Damage = "ranged_damage"
+HitEffect = "vfx_princess_evo_hit_arrow"
+[EXT.Princess_EV1_FreezeProjectile]
+Base = "PROJECTILE.PrincessProjectile"
+OnStartingAction = "Princess_EV1_projectiles_action_on_shooter"
+TargetBuff = "IceWizardSlowDown"
+BuffTime = 1000
+FileName = "sc/chr_princess_evolution.sc"
+ExportName = "vmc_princess_evo_arrow"
+RedExportName = "vmc_princess_evo_arrow_enemy"
+ShadowExportName = "vmc_princess_evo_arrow_shadow"
+RedShadowExportName = "vmc_princess_evo_arrow_shadow_enemy"
+TrailEffect = "vfx_princess_evo_ability_pjt"
+HitEffect = "vfx_princess_evo_hit_arrow"
+HitSoundWhenParentAlive = ""
+Radius = 3000
+SpawnAreaEffectObject = "Princess_EV1_projectile_aeo"
+[EXT.Princess_EV1_projectile_aeo]
+Base = "AEO.Princess_EV1_DeathFreeze"
+SpawnAreaEffectObject = ""
+LifeDuration = 5500
+StatsTags.LifeDuration = "slow_duration"
+StatsTags.Radius = "slow_radius"
+[AEO.Princess_EV1_DeathFreeze]
+Rarity = "Common"
+LifeDuration = 3500
+Radius = 3000
+HitSpeed = 300
+Buff = "IceWizardSlowDown"
+BuffTime = 1000
+CapBuffTimeToAreaEffectTime = true
+Filter = "CommonAreaDamageFilter"
+SpawnAreaEffectObject = "Princess_EV1_DeathFreeze_Damage"
+ScaledEffect = "vfx_princess_evo_ability"
+[EXT.Princess_EV1_DeathFreeze_Damage]
+Base = "AEO.Princess_EV1_DeathFreeze"
+LifeDuration = 1
+HitSpeed = 0
+Buff = ""
+BuffTime = 0
+OnStartingAction = ""
+SpawnAreaEffectObject = ""
+StatsTags.Damage = "death_damage"
+Damage = { BaseDamage = 66 }
+[ACTION.Princess_EV1_projectiles_action_on_shooter]
+ClassType = "ActionRunActionOnShooter"
+ActionToExecute = "Princess_EV1_increase_attack_count_group"
+[ACTION.Princess_EV1_set_default_attack]
+	ClassType="ActionSetAttackSequenceIndex"
+	AttackIndex = 0
+    SetEvenIfCombatDisabled = true
+[ACTION.Princess_EV1_set_special_attack]
+	ClassType="ActionSetAttackSequenceIndex"
+	AttackIndex = 1
+    SetEvenIfCombatDisabled = true
+[ACTION.Princess_EV1_increase_attack_count_group]
+ClassType = "ActionGroup"
+SubActions = ["Princess_EV1_increase_attack_count", "Princess_EV1_increase_attack_count_next_action"]
+SubActionsDelay = [0, 50]
+AbortIfInstigatorDies = false
+	[ACTION.Princess_EV1_increase_attack_count]
+	ClassType = "ActionSetVariable"
+	Variable  = "Princess_EV1_attack_count"
+	Value     = "Princess_EV1_attack_count + 1"
+	AbortIfInstigatorDies = false
+	[ACTION.Princess_EV1_increase_attack_count_next_action]
+	ClassType = "ActionGroup"
+	SubActions = ["Princess_EV1_select_attack_sequence", "Princess_EV1_freeze_ready_effect_attack_count_mode"]
+	SubActionsDelay = [0, 600]
+	AbortIfInstigatorDies = false
+[ACTION.Princess_EV1_start_counter]
+ClassType = "ActionSetVariable"
+Variable  = "Princess_EV1_attack_count"
+Value     = "0"
+[ACTION.Princess_EV1_freeze_ready_effect_attack_count_mode]
+	ClassType	= "ActionPlayEffect"
+	Effect		= "vfx_princess_evo_ability_ready"
+	ExecuteIfTrue = "Princess_EV1_attack_count % Princess_EV1_reload_frequency == 0"
+	AbortIfInstigatorDies = false
+[STATS.princess_ev1]
+	[[STATS.princess_ev1.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+    [[STATS.princess_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.princess_ev1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.princess_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"        
+	[[STATS.princess_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.princess_ev1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.princess_ev1.stats]]
+		Value = "deploy_time"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_DEPLOY_TIME"
+		Icon = "icons_stats_deploy_speed"
+    [[STATS.princess_ev1.stats]]
+		Value = "death_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+		Icon = "icons_stats_dmg_death"
+    [[STATS.princess_ev1.stats]]
+		Value = "slow_duration"
+		TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+		TIDReplaceValues = ["TID_SPELL_ATTRIBUTE_SLOWDOWN"]
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		Icon = "icons_stats_boost_freeze"	
+    [[STATS.princess_ev1.stats]]
+		Value = "slow_radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_SLOWDOWN_RADIUS"
+		Icon = "icons_stats_radius"

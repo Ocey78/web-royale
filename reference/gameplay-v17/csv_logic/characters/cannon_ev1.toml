@@ -1,0 +1,193 @@
+[EXT.Cannon_EV1]
+    Base = "CHARACTER.Cannon"
+    OnStartingAction = "Cannon_EV1_start_action_group"
+    HealthBar = "_EV1"
+    FileName="sc/building_cannon_evolution.sc"
+	BlueExportName="building_cannon_evolution"
+	RedExportName="building_cannon_evolution_red"
+    UseAnimator = true
+    DeployBaseAnimExportName="filter_deploy_unit_legendary"
+    SpawnEffect = "vfx_cannon_evo_deploy"
+    DeathEffect = "evo_cannon_die"
+    BlueShadowExportName = "building_cannon_evolution_red_shadow"
+    RedShadowExportName = "building_cannon_evolution_red_shadow"
+    PrestigeSWF=""
+    PrestigeExportName2=""
+    PrestigeExportName3=""
+    StatsTags.Hitpoints = "hitpoints"
+    StatsTags.Damage = "ranged_damage"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Range = "range"
+    StatsTags.LifeTime = "lifetime"
+[ACTION.Cannon_EV1_start_action_group]
+    ClassType="ActionGroup"
+    SubActions = ["Cannon_EV1_barrage"]
+    SubActionsDelay = [0]
+    [ACTION.Cannon_EV1_barrage]
+        ClassType = "ActionCannonBarrage"
+        BombHorizontalOffsets = [3, 13, 23, 33, 2, 10, 18, 26, 34]
+        BombAbsoluteHorizontalOffsets = [3, 13, 23, 33, 2, 10, 18, 26, 34]
+        BombVerticalOffsets = [3, 3, 3, 3, 17, 17, 17, 17, 17]
+        BombAreaEffectObjects = [
+"Cannon_EV1_barrage_aeo_slow",
+"Cannon_EV1_barrage_aeo_fast",
+"Cannon_EV1_barrage_aeo_fast",
+"Cannon_EV1_barrage_aeo_slow",
+"Cannon_EV1_barrage_aeo_slow",
+"Cannon_EV1_barrage_aeo_JULIO",
+"Cannon_EV1_barrage_aeo_fast",
+"Cannon_EV1_barrage_aeo_JULIO",
+"Cannon_EV1_barrage_aeo_slow"]
+        BombSpellTargetIndicatorClips = [
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy", 
+                            "evo_cannon_crosshair_deploy",
+                            "evo_cannon_crosshair_deploy"]
+        
+        BombSpellTargetIndicatorFiles = [
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc", 
+                            "sc/effects_evolution.sc",
+                            "sc/effects_evolution.sc"]
+[AEO.Cannon_EV1_barrage_aeo_slow]
+    Rarity = "Common"
+    LifeDuration = 1300
+    Radius = 1000
+    OnStartingAction = "Cannon_EV1_spawn_projectile_slow"
+[ACTION.Cannon_EV1_spawn_projectile_slow]
+    ClassType = "ActionCannonProjectileSpawn"
+    BombProjectile = "Cannon_EV1_barrage_projectile"
+    BombZOffset = 80000
+    NextAction = "Cannon_EV1_barrage_spawn_visualizer_slow"
+[ACTION.Cannon_EV1_barrage_spawn_visualizer_slow]
+    ClassType="ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Cannon_EV1_barrage_visualizer_slow"
+[AEO.Cannon_EV1_barrage_visualizer_slow]
+    Rarity = "Common"
+    LifeDuration = 1300
+    Radius = 1000
+    FileName = "sc/effects_evolution.sc"
+    ExportName = "evo_cannon_crosshair"
+[AEO.Cannon_EV1_barrage_aeo_fast]
+    Rarity = "Common"
+    LifeDuration = 1100
+    Radius = 1000
+    OnStartingAction = "Cannon_EV1_spawn_projectile_fast"
+[ACTION.Cannon_EV1_spawn_projectile_fast]
+    ClassType = "ActionCannonProjectileSpawn"
+    BombProjectile = "Cannon_EV1_barrage_projectile"
+    BombZOffset = 80000
+    NextAction = "Cannon_EV1_barrage_spawn_visualizer_fast"
+[ACTION.Cannon_EV1_barrage_spawn_visualizer_fast]
+    ClassType="ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Cannon_EV1_barrage_visualizer_fast"
+[AEO.Cannon_EV1_barrage_visualizer_fast]
+    Rarity = "Common"
+    LifeDuration = 1100
+    Radius = 1000
+    FileName = "sc/effects_evolution.sc"
+    ExportName = "evo_cannon_crosshair"
+[AEO.Cannon_EV1_barrage_aeo_JULIO]
+    Rarity = "Common"
+LifeDuration = 1200
+    Radius = 1000
+    OnStartingAction = "Cannon_EV1_spawn_projectile_JULIO"
+[ACTION.Cannon_EV1_spawn_projectile_JULIO]
+    ClassType = "ActionCannonProjectileSpawn"
+    BombProjectile = "Cannon_EV1_barrage_projectile"
+BombZOffset = 70000
+    NextAction = "Cannon_EV1_barrage_spawn_visualizer_JULIO"
+[ACTION.Cannon_EV1_barrage_spawn_visualizer_JULIO]
+    ClassType = "ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Cannon_EV1_barrage_visualizer_JULIO"
+[AEO.Cannon_EV1_barrage_visualizer_JULIO]
+    Rarity = "Common"
+LifeDuration = 1200
+    Radius = 1000
+    FileName = "sc/effects_evolution.sc"
+    ExportName = "evo_cannon_crosshair"
+[EXT.Cannon_EV1_barrage_projectile]
+    Base = "PROJECTILE.FireballSpell"
+    Gravity = 0
+    Scale = 76
+    AoeToAir = true
+    AoeToGround = true
+    OnlyEnemies = true
+    Damage = 0
+    AlwaysApplyPushback = true
+	TrailEffect = "evo_cannon_trail"
+	HitEffect = "vfx_cannon_evo_summon_explosion"
+    TargetBuff = "Cannon_EV1_barrage_damage_buff"
+	FileName = "sc/building_cannon_evolution.sc"
+	ExportName = "evo_cannon_projectile"
+    ShadowExportName = "evo_cannon_projectile_shadow"
+    ApplyBuffBeforeDamage = true
+    Radius = 2000
+    BuffTime = 400
+    Pushback = 1000
+    ConsiderZDistance = true
+    
+    StatsTags.Radius = "bomb_radius"
+    StatsTags.Pushback = "bomb_pushback"
+[BUFF.Cannon_EV1_barrage_damage_buff]
+    Rarity = "Common"
+    DamagePerSecond = 110
+    CrownTowerDamagePerHit = 21
+HitFrequency = -1
+    PlayerSpecificBuff = true
+    StatsTags.DamagePerSecond = "barrage_damage"
+[STATS.Cannon_EV1]
+    [[STATS.Cannon_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.Cannon_EV1.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.Cannon_EV1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+   [[STATS.Cannon_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+   [[STATS.Cannon_EV1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+   [[STATS.Cannon_EV1.stats]]
+		Value = "lifetime"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_LIFETIME"
+		Icon = "icons_stats_deploy_time"
+    [[STATS.Cannon_EV1.stats]]
+        Value = "barrage_damage"
+        Unit = "INTEGER"
+        TID = "TID_BOMB_DAMAGE"
+    	Icon = "icons_stats_dmg_area"
+    [[STATS.Cannon_EV1.stats]]
+        Value = "bomb_radius"
+		Unit = "TILES"
+		TID = "TID_BOMB_RADIUS"
+		Icon = "icons_stats_radius"

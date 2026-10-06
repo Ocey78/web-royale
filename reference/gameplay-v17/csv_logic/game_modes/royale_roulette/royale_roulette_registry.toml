@@ -1,0 +1,98 @@
+[ROULETTEREGISTRY.RoyaleRoulette_Default]
+  AwardBadge = "RouletteAllModes"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_AllEvoBattle_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_AllEvo"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_1.png"
+    Arena = "Arena1"
+    Description = "TID_ROULETTE_INFO_ALLEVO"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_TripleElixir_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard_Heavy"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_2.png"
+    Arena = "Arena2"
+    Description = "TID_ROULETTE_INFO_TRIPLEELIXIR"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_SuperTroopBattle_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_SuperTroop"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_3.png"
+    Arena = "Arena3"
+    Description = "TID_ROULETTE_INFO_SUPERTROOP"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_Overtime_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_4.png"
+    Arena = "Arena4"
+    Description = "TID_ROULETTE_INFO_OVERTIME"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_Rage_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_5.png"
+    Arena = "Arena5"
+    Description = "TID_ROULETTE_INFO_RAGE"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_Heist_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_6.png"
+    Arena = "Arena6"
+    Description = "TID_ROULETTE_INFO_HEIST"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_Snowball_bombardment"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_8.png"
+    Arena = "Arena8"
+    Description = "TID_ROULETTE_INFO_SNOWBALL"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_Event_Mega_Monk"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard_OneChampOrHero"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_10.png"
+    Arena = "Arena_L"
+    Description = "TID_ROULETTE_INFO_MEGA_MONK"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_Blackout_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_11.png"
+    Arena = "Arena_Electric"
+    Description = "TID_ROULETTE_INFO_BLACKOUT"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_FourCard_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_4Card"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_12.png"
+    Arena = "Arena_T"
+    Description = "TID_ROULETTE_INFO_FOURCARD"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_MortarCapture_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_13.png"
+    Arena = "Arena13"
+    Description = "TID_ROULETTE_INFO_MORTARCAPTURE"
+  [[ROULETTEREGISTRY.RoyaleRoulette_Default.Modes]]
+    Mode = "RR_CaptureTheEgg_Friendly"
+    Weight = 1.0
+    DeckPool = "DeckPool_Standard"
+    Eligible = "true"
+    Background = "image/royale_roulette/arena_chain_14.png"
+    Arena = "Arena14"
+    Description = "TID_ROULETTE_INFO_CAPTURETHEEGG"

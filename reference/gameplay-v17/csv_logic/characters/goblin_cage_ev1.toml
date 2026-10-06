@@ -1,0 +1,200 @@
+[EXT.GoblinCage_EV1_TEMPNAME]
+	Base="CHARACTER.GoblinCage"
+	OnStartingAction="goblin_cage_starting_actions"
+	FileName="sc/chr_goblin_cage_evolution.sc"
+	BlueExportName = "cage_goblin_evolution_blue"
+	BlueTopExportName ="cage_goblin_evolution_blue_top"
+	RedExportName = "cage_goblin_evolution_red"
+	RedTopExportName = "cage_goblin_evolution_red_top"
+	HealthBar = "Medium_EV1"
+	HealthBarOffsetY=-14
+	Scale = 52
+	ShadowScaleX = 95
+	ShadowScaleY = 20
+	ShadowY = 36
+	ShadowSkew = 14
+	DeathSpawnCharacter = "GoblinCage_EV1_GoblinBrawler"
+	ClonedVersion="GoblinCage"
+	SpawnEffect="vfx_goblincage_evo_deploy"
+	CustomSpawnFilter="filter_card_evolution"
+	PrestigeSWF=""
+	PrestigeExportName=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	PrestigeRedExportName=""
+	PrestigeRedExportName2=""
+	PrestigeRedExportName3=""
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.DeathSpawnCount = "spawn_count"
+	StatsTags.LifeTime = "lifetime"
+	StatsTags.Level = "level"
+	StatsTags.Targets = "targets"
+[EXT.GoblinCage_EV1_GoblinBrawler]
+	Base="CHARACTER.GoblinBrawler"
+	TID="TID_CHARACTER_EVOLVED_GOBLINBRAWLER"
+	FileName="sc/chr_goblin_cage_evolution.sc"
+	BlueExportName ="evo_goblincage"
+	RedExportName ="evo_goblincage_enemy"
+	UseAnimator = true
+	Scale = 70
+	ShadowScaleX = 85
+	ShadowScaleY = 60
+	ShadowY = 10
+	ShadowSkew = 25
+	SpawnEffect="Spawn_Goblin_Brawler_Evolution"
+	DeathEffect="Death_card_evolution_M"
+	HealthBarOffsetY=-8
+	HealthBar = "Medium_EV1"
+	PrestigeSWF=""
+	PrestigeExportName=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	PrestigeRedExportName=""
+	PrestigeRedExportName2=""
+	PrestigeRedExportName3=""
+	StatsTags.TID = "spawn_tid"
+	StatsTags.Hitpoints = "spawn_hitpoints"
+	StatsTags.Damage = "spawn_damage"
+	StatsTags.HitSpeed = "spawn_hit_speed"
+	StatsTags.Speed = "spawn_speed"
+	StatsTags.Range = "spawn_range"
+	StatsTags.Targets = "spawn_targets"
+[ACTION.goblin_cage_starting_actions]
+	ClassType="ActionGroup"
+	SubActions=["GoblinCage_EV1_CaptureUnit", "goblin_cage_shake_when_target"]
+	SubActionsDelay=[0, 0]
+[ACTION.GoblinCage_EV1_CaptureUnit]
+	ClassType="ActionCaptureCharacter"
+	CapturePriority=10
+	CaptureRadius=3000
+	HitFrequency=1000
+	DamagePerHit=143
+	NumberOfUnitsToCapture=1
+	TargetFilter="GroundCharacterTargetsNoBuildings"
+	DragDelay=100
+	CaptureDragTime=300
+	HideDistance=200
+	CaptureCooldown=300
+	PullFileName="sc/chr_goblin_cage_evolution.sc"
+	StretchingClipExportName="Flex_Arm"
+	PullEndClipExportName="Flex_Arm_Hand"
+	PullCenterOffsetX=0
+	PullCenterOffsetY=-1000
+	PullEndClipScale=30
+	StretcingClipWidthScale=25
+	GrabPointOffset=500
+	HideAction="GoblinCage_EV1_hide_captured_unit"
+	TimePausedWhenGrabbing=500
+	PullEndIdleStartFrame="idle_start"
+	PullEndIdleEndFrame="idle_end"
+	PullEndGrabStartFrame="grab_start"
+	PullEndGrabEndFrame="grab_end"
+	CaptureAnimationStartLabel="fight_idle_start"
+	CaptureAnimationEndLabel="fight_idle_end"
+	IdleAnimationStartLabel="idle_start"
+	IdleAnimationEndLabel="idle_stop"
+	PullGrabEffect="vfx_goblincage_evo_grab_01"
+	PullStartEffect="vfx_goblincage_evo_grab"
+	OnCaptureAction="goblin_cage_ev1_fight_effect"
+	BuffDuringCapture = "GoblinCage_EV1_incapacitate_target"
+	StatsTags.Damage = "capture_damage"
+	StatsTags.CaptureRadius = "capture_radius"
+	StatsTags.HitSpeed = "capture_hit_speed"
+	[BUFF.GoblinCage_EV1_incapacitate_target]
+	Rarity = "Common"
+	SpeedMultiplier = -100
+	HitSpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+	EnableStacking = true
+[ACTION.goblin_cage_ev1_fight_effect]
+	ClassType="ActionPlayEffect"
+	Effect = "vfx_goblincage_evo_fight"
+	EffectFlags = "Looping,LinkLifeToActionLife"
+	Singleton=true
+	PauseIfTrue = "COMBAT_DISABLED()"
+	ForceStopIfTrue="!HAS_CAPTURE()"
+[ACTION.GoblinCage_EV1_hide_captured_unit]
+	ClassType="ActionHide"
+	Singleton=true
+	HealthBarYOffset=-22
+[STATS.goblin_cage_ev1]
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "spawn_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["spawn_tid"]
+		Icon = "icons_stats_troop_count"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "spawn_count"
+		Value2 = "spawn_tid"
+		Unit = "DEATH_SPAWN"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_SPAWN"
+		Icon = "icons_stats_troop_count"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["spawn_tid"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "spawn_tid"
+		InfoButtonStats="goblin_cage_ev1_spawn_info"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "lifetime"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_LIFETIME"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "capture_radius"
+		Unit = "TILES"
+		TID = "TID_CAPTURE_RADIUS"
+		Icon = "icons_stats_radius"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "capture_damage"
+		Value2 = "capture_hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.goblin_cage_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+[STATS.goblin_cage_ev1_spawn_info]
+	[[STATS.goblin_cage_ev1_spawn_info.stats]]
+		Value = "spawn_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.goblin_cage_ev1_spawn_info.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.goblin_cage_ev1_spawn_info.stats]]
+		Value = "spawn_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.goblin_cage_ev1_spawn_info.stats]]
+		Value = "spawn_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.goblin_cage_ev1_spawn_info.stats]]
+		Value = "spawn_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.goblin_cage_ev1_spawn_info.stats]]
+		Value = "spawn_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	

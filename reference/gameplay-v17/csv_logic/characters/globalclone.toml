@@ -1,0 +1,12 @@
+
+[AEO.GlobalClone]
+Buff = "Clone"
+BuffTime = 500
+Clone = true
+Filter = "friendly_troop_no_buildings"
+LifeDuration = 1000
+Name = "GlobalClone"
+OnHitAction = "CloneAction"
+Radius = 30000
+Rarity = "Epic"
+SpawnDeployBaseAnim = "filter_hologram"

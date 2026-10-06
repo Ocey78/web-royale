@@ -1,0 +1,119 @@
+[CHARACTER.Monk]
+Ability = "Deflect"
+AttackSequence = [0, 1, 2]
+AttackStartEffect = "monk_attack_start"
+AttacksGround = true
+BlueExportName = "Monk"
+CollisionRadius = 500
+CrowdEffects = true
+Damage = 55
+DamageEffect = "monk_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "monk_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_mighty_monk_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = 10
+HealthBarOffsetYBlue = -25
+HealthBarOffsetYRed = -25
+HideHealthbar = true
+HitSpeed = 800
+Hitpoints = 865
+IsMeleePushbackAll3 = true
+LoadTime = 600
+Mass = 6
+MeleePushback3 = 1800
+MoveEffect = "giant_steps"
+Name = "Monk"
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "Monk_enemy"
+Scale = 80
+ShadowScaleX = 85
+ShadowScaleY = 80
+ShadowSkew = 25
+SightRange = 5500
+SpawnEffect = "monk_deploy"
+Speed = 60
+TID = "TID_SPELL_MONK"
+UseAnimator = true
+VariableDamage2 = 55
+VariableDamage3 = 165
+OnStartingClientActions = ["Healthbar_Medium"]
+[ABILITY.Deflect]
+AbilityStateDuration = 4000
+CastTime = 933
+MaxCharges = 1
+KeepIconEvenWhenOutOfCharges = true
+HideChargesTextField = true
+DeployedClip = "champion_select_ring_rampup_archer_queen"
+DeployedEffect = "ability_charging_monk"
+GameTagsWhileAbilityActive = "AVOIDANCE_AS_OBSTACLE,NO_MOVE_ALLOW_ATTRACT"
+IconExportName = "icon_ability_monk"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 1
+Name = "Deflect"
+OnActivationAction = "monk_deflect_activation"
+Stats = "Deflect"
+TID = "TID_ABILITY_NAME_MONK_DEFLECT"
+TID_INFO = "TID_ABILITY_DESCRIPTION_MONK"
+TriggerDelay = 933
+[ABILITY.Deflect.StatsTags]
+Cooldown = "ability_cooldown"
+AbilityStateDuration = "duration"
+[ACTION.monk_deflect_activation]
+ClassType = "ActionGroup"
+SubActions = ["monk_deflect_spawn_aeo", "monk_deflect_spawn_buff", "monk_deflect_tags"]
+[ACTION.monk_deflect_spawn_aeo]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Deflect"
+[ACTION.monk_deflect_spawn_buff]
+ClassType = "ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "ShieldBoostMonk"
+SpawnTime = 4000
+[BUFF.ShieldBoostMonk]
+DamageReduction = 65
+FilterExportName = "filter_shield"
+FilterFile = "sc/effects.sc"
+IgnorePushBack = true
+Name = "ShieldBoostMonk"
+Rarity = "Common"
+[BUFF.ShieldBoostMonk.StatsTags]
+DamageReduction = "damagereduction"
+[AEO.Deflect]
+DeflectProjectilesEnabled = true
+DeflectedProjectileEffect = "monk_deflect"
+DeflectionFBEffect = "Monk_ability_reflection_"
+Filter = "aeo_enemy_no_buildings"
+FollowBehaviour = "FollowParent"
+LifeDuration = 4000
+Name = "Deflect"
+Radius = 1500
+Rarity = "Common"
+SpawnDeployBaseAnim = "filter_hologram"
+[ACTION.monk_deflect_tags]
+ActionDuration = 4000
+ClassType = "ActionWithDuration"
+GameTagsToSet = "DEFLECTING_PROJECTILES"
+[STATS.Deflect]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.Deflect.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.Deflect.stats]]
+		Value = "damagereduction"
+		Unit = "PERCENT_NOSIGN"
+		TID = "TID_ABILITY_DAMAGE_RESISTANCE"
+		Icon = "icons_stats_shield_hp"

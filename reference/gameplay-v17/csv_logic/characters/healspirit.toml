@@ -1,0 +1,78 @@
+
+[CHARACTER.HealSpirit]
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "healspirit"
+CollisionRadius = 400
+ContinuousEffect = "healspirit_cont"
+DamageExportName = "filter_damage"
+DeathEffect = "healspirit_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_heal_spirit_dl.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 300
+Hitpoints = 84
+Kamikaze = true
+LoadTime = 100
+Mass = 1
+MoveEffect = "healspirit_steps"
+Name = "HealSpirit"
+PrestigeSWF = "sc/chr_heal_spirit_dl.sc"
+Projectile = "HealSpiritProjectile"
+Range = 2500
+Rarity = "Common"
+RedExportName = "healspirit"
+Scale = 80
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "healspirit_deploy"
+SpawnRadius = 650
+Speed = 120
+TID = "TID_CHARACTER_ICE_SPIRITS"
+UseAnimator = true
+
+[PROJECTILE.HealSpiritProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 43
+DeflectBehaviour = "NoDeflect"
+ExportName = "healspirit_proyectile1_1"
+FileName = "sc/chr_heal_spirit_dl.sc"
+Gravity = 400
+Homing = true
+Name = "HealSpiritProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+Scale = 80
+SpawnAreaEffectObject = "HealSpirit"
+Speed = 400
+use360Frames = true
+
+[AEO.HealSpirit]
+Buff = "HealSpiritBuff"
+BuffTime = 1000
+Filter = "friendly_troop_no_buildings"
+HitSpeed = 0
+LifeDuration = 1000
+Name = "HealSpirit"
+Radius = 2500
+Rarity = "Common"
+ScaledEffect = "HealSpirit_burst_blue"
+
+[BUFF.HealSpiritBuff]
+EnableStacking = true
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 157
+HitFrequency = 250
+Name = "HealSpiritBuff"
+Rarity = "Common"
+
+

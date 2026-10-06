@@ -1,0 +1,28 @@
+[EXT.Barbarian_EV1]
+Base = "CHARACTER.Barbarian"
+BuffAfterHits = ["Barbarian_EVO_Rage"]
+BuffAfterHitsCount = [1]
+BuffAfterHitsTime = [5000]
+ClonedVersion = "Barbarian"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_M"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+FileName = "sc/chr_barbarian_evolution.sc"
+HealthBar = "Medium_EV1"
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+RedExportName = "enemy_barbarian1"
+Scale = 56
+SpawnEffect = "vfx_barbarian_evo_deploy"
+TID = "TID_CHARACTER_EVOLVED_BARBARIAN"
+[BUFF.Barbarian_EVO_Rage]
+AudioPitchModifier = 80
+Effect = "Spell_rage_hit_effect"
+FilterExportName = "filter_rage"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 130
+MarkEffect = "Healing"
+Rarity = "Common"
+Scale = 105
+SpeedMultiplier = 130

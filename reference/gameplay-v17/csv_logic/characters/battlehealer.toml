@@ -1,0 +1,135 @@
+[CHARACTER.BattleHealer]
+AreaEffectOnHit = "BattleHealerHeal"
+AttackStartEffect = "battle_healer_attack_start"
+AttacksGround = true
+BlueExportName = "battle_healer_blue"
+BuffWhenNotAttackingTime = 5000
+CollisionRadius = 500
+Damage = 105
+DamageEffect = "battle_healer_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "battle_healer_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_battle_healer_dl.sc"
+HealthBar = "Medium"
+HitSpeed = 2000
+Hitpoints = 750
+Hovering = true
+LoadTime = 1600
+Mass = 6
+MoveEffect = "battle_healer_steps"
+Name = "BattleHealer"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1600
+Rarity = "Common"
+RedExportName = "battle_healer_red"
+Scale = 110
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+OnStartingAction = "BattleHealerSpawnHeal"
+SpawnEffect = "battle_healer_deploy"
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+UseAnimator = true
+IgnoreBuff = ["BattleHealerAll", "BattleHealerSpawnBuff"]
+[CHARACTER.BattleHealer.StatsTags]
+Damage = "damage"
+Hitpoints = "hitpoints"
+Speed = "speed"
+HitSpeed = "hit_speed"
+Targets = "targets"
+Range = "range"
+[ACTION.BattleHealerSpawnHeal]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "BattleHealerSpawnHealArea"
+ExecuteIfTrue = "!is_clone"
+[AEO.BattleHealerSpawnHealArea]
+Buff = "BattleHealerSpawnBuff"
+BuffTime = 1000
+Filter = "friendly_troop_no_buildings"
+LifeDuration = 1000
+Radius = 3000
+Rarity = "Common"
+ScaledEffect = "Healing_Burst_blue"
+LinkToInstigatorLife = true
+[BUFF.BattleHealerSpawnBuff]
+EnableStacking = true
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 79
+HitFrequency = 250
+Rarity = "Common"
+[BUFF.BattleHealerSpawnBuff.StatsTags]
+HealPerSecond = "spawnheal"
+[AEO.BattleHealerHeal]
+Buff = "BattleHealerAll"
+BuffTime = 1000
+Filter = "friendly_troop_no_buildings"
+LifeDuration = 1000
+Radius = 3000
+Rarity = "Common"
+ScaledEffect = "Healing_Burst_blue"
+[BUFF.BattleHealerAll]
+EnableStacking = true
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 40
+HitFrequency = 250
+Name = "BattleHealerAll"
+Rarity = "Common"
+[BUFF.BattleHealerAll.StatsTags]
+HealPerSecond = "attackheal"
+[STATS.battlehealer]
+	[[STATS.battlehealer.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.battlehealer.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.battlehealer.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.battlehealer.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.battlehealer.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.battlehealer.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.battlehealer.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.battlehealer.stats]]
+		Value = "attackheal"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEAL_PER_ATTACK"
+		Icon = "icons_stats_boost_heal"
+	[[STATS.battlehealer.stats]]
+		Value = "spawnheal"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_HEAL"
+		Icon = "icons_stats_boost_heal"

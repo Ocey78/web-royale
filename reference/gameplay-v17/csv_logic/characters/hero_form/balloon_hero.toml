@@ -1,0 +1,326 @@
+[VARIABLE.BalloonHero_Skeletrooper_Speed_Rampup]
+[EXT.BalloonHero]
+	Base = "CHARACTER.Balloon"
+	Rarity = "Common"
+	Ability = "BalloonHero_Ability"
+	PrefabAsset = "sc3d/characters/hero/hero_balloon/hero_prefab_balloon_battle"
+	Scale = 100
+	SpawnEffect = "vfx_balloon_hero_deploy"
+	DamageEffect = "vfx_balloon_hero_attack_hit"	
+	AbilityPendingEffect = "Heal_aura"
+	CustomSpawnFilter = "filter_champion_golden_knight"
+	DeathSpawnCharacter = "BalloonHero_Bomb"
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed = 2
+	HealthBarOffsetYBlue = -10
+	HealthBarOffsetYRed= -10
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage = "damage"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Speed = "speed"
+	StatsTags.Range = "range"
+	StatsTags.Level = "level"
+[EXT.BalloonHero_Bomb]
+	Base = "BUILDING.BalloonBomb"
+	FileName = ""
+	BlueExportName = ""
+	RedExportName = ""
+	PrestigeSWF = ""
+	UseAnimator = true
+	PrefabAsset = "sc3d/characters/hero/hero_balloon/hero_prefab_balloon_deathbomb_battle"
+	DeathEffect = "vfx_balloon_hero_death_bomb_explosion"	
+	
+[ABILITY.BalloonHero_Ability]
+	TID = "TID_HERO_BALLOON_ABILITY"
+	TID_INFO = "TID_HERO_BALLOON_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_balloon.sc"
+	IconExportName = "ability_icon_balloon"
+	IsChampion = true
+	CastTime = 0
+	TriggerDelay = 0
+	RefundWindow = 50
+	ManaCost = 2
+	MaxCharges = 1
+	DeployedEffect = "vfx_hero_ability_active_balloon"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OutOfChargesTID = "TID_ABILITY_NO_MORE_RESET"
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	OnActivationAction = "BalloonHero_Ability_Target_Seeker"
+	Stats = "BalloonHero_Ability"
+	StatsTags.Cooldown    = "ability_cooldown"
+	
+[ACTION.BalloonHero_Ability_Target_Seeker]
+	ClassType = "ActionRunActionListOnObjectsInShapeWithPrio"
+	GameTagsToSet = "ABILITY_COOLDOWN_PAUSED"
+	OncePerTarget = true
+	TargetSelectionMode = "Closest"
+	TargetFilter = "default_targets_no_towers_no_flying"
+	Actions = ["BalloonHero_Ability_Target_Show_Effect"]
+	Delays = [50]
+	Shape = "BalloonHero_Skeletrooper_Range_Shape"
+	PauseTags = "CAPTURED"
+	AbortIfInstigatorDies = false
+	ActionOnSelfWhenTriggered = "BalloonHero_Ability_Activation_Group"
+	ParentAsInstigatorForSelfActions = true
+	OnFinishedAction = "BalloonHero_Failsafe_Spawn_Delayer"
+[ACTION.BalloonHero_Failsafe_Spawn_Delayer]
+	ClassType = "ActionInterval"
+	StartCounterAt = 50
+	Interval = 500
+	ActionToExecute = "BalloonHero_Failsafe_Spawn"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.BalloonHero_Failsafe_Spawn]
+	ClassType = "ActionGroup"
+	SubActions = ["BalloonHero_Ability_Play_Spawn_Skeletrooper_Animation", "BalloonHero_Skeletrooper_Spawner", "BalloonHero_Ability_Spawn_Skeletrooper_Effect", "BalloonHero_Disable_Failsafe_Spawn"]
+	SubActionsDelay = [0, 0, 0, 0]
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.BalloonHero_Ability_Target_Show_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_balloon_hero_ability_target_show_enemy"
+	OverrideScale = 70
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	ForceStopIfTrue = "SKELETROOPER_HIT"
+[ACTION.BalloonHero_Skeletrooper_Remove_Target_Indicator]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 100
+	GameTagsToSet = "SKELETROOPER_HIT"
+[ACTION.BalloonHero_Ability_Activation_Group]
+	ClassType = "ActionGroup"
+	ContextMode = "Create"
+	SubActions = ["BalloonHero_Disable_Failsafe_Spawn", "BalloonHero_Ability_Play_Spawn_Skeletrooper_Animation", "BalloonHero_Ability_Target_Finder", "BalloonHero_Skeletrooper_Spawner", "BalloonHero_Ability_Spawn_Skeletrooper_Effect"]
+	SubActionsDelay = [0, 0, 0, 50, 0]
+[ACTION.BalloonHero_Disable_Failsafe_Spawn]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 500
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.BalloonHero_Ability_Play_Spawn_Skeletrooper_Animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 1
+	PlaybackDuration = -1
+[ACTION.BalloonHero_Ability_Spawn_Skeletrooper_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_balloon_hero_ability_filter"
+	EffectFlags = "FilterCanModifyTransform, FollowParent, ParticlesFollowParent"
+[ACTION.BalloonHero_Ability_Target_Finder]
+	ClassType = "ActionWriteResolverResultToContext"
+	Resolver = "BalloonHero_Skeletrooper_Spawn_Target_Resolver"
+	ResultName = "skeletrooper_target"
+[TARGET_RESOLVER.BalloonHero_Skeletrooper_Spawn_Target_Resolver]
+	Shape = "BalloonHero_Skeletrooper_Range_Shape"
+	Filter = "default_targets_no_towers_no_flying"
+	StrategyList = ["RESOLVER_STRATEGY_CLOSEST_TARGET", "RESOLVER_STRATEGY_HIGHEST_CURR_HP"]
+[SHAPE.BalloonHero_Skeletrooper_Range_Shape]
+	ClassType = "Circle"
+	Radius = 6500
+	StatsTags.Radius = "ability_range"
+[ACTION.BalloonHero_Skeletrooper_Spawner]
+	ClassType = "ActionSpawn"
+	TargetFromContextName = "skeletrooper_target"
+	SpawnType = "ProjectileType"
+	SpawnData = "BalloonHero_Skeletrooper_Projectile"
+    ProjectileStartOffset = 250
+	StartPositionZOffset = 1000
+	
+[PROJECTILE.BalloonHero_Skeletrooper_Projectile]
+	Rarity = "Common"
+	Speed = 1
+	Damage = 0
+	SpawnCharacter = "SkeletonTrooper"
+	SpawnCharacterDeployTime = 500
+	DeflectBehaviour = "NoDeflect"
+	HitEffect = "vfx_balloon_hero_ability_skeletrooper_spawn_explosion"
+	TrailEffect = "vfx_balloon_hero_ability_skeletrooper_trail"
+	PrefabAsset = "sc3d/characters/hero/hero_balloon/hero_prefab_balloon_skydiver_projectile_battle"
+	Gravity = 0
+	OnStartingAction = "BalloonHero_Skeletrooper_Speed_Up_Interval"
+	Homing = true
+	OnHitTargetAction = "BalloonHero_Skeletrooper_Remove_Target_Indicator"
+	[CHARACTER.SkeletonTrooper]
+	Rarity = "Common"
+	SightRange = 5500
+	DeployTime = 100
+	Speed = 120
+	Hitpoints = 185
+	HitSpeed = 1100
+	LoadTime = 800
+	Range = 800
+	Damage = 80
+	CrownTowerDamagePercent = -90
+	AttacksGround = true
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	OnStartingAction = "SkeletonTrooper_Landing"
+	PrefabAsset = "sc3d/characters/hero/hero_balloon/hero_prefab_balloon_skydiver_battle"
+	DeathEffect = "skeleton_die"
+	UseAnimator = true
+	ShadowScaleX = 80
+	ShadowScaleY = 80
+	ShadowX = -5
+	ShadowY = 5
+	ShadowSkew = 25
+	Scale = 90
+	CollisionRadius = 450
+	Mass = 2
+	DamageExportName = "filter_damage"
+	ProjectileStartRadius = 350
+	ProjectileStartZ = 350
+	TID = "TID_CHARACTER_SKELETROOPER"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+StatsTags.Hitpoints = "spawn_hitpoints"
+	StatsTags.Damage = "spawn_damage"
+	StatsTags.HitSpeed = "spawn_hit_speed"
+	StatsTags.Targets = "spawn_targets"
+	StatsTags.Speed = "spawn_speed"
+	StatsTags.Range = "spawn_range"
+[ACTION.SkeletonTrooper_Landing]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "SkeletonTrooper_Landing_AEO"
+[AEO.SkeletonTrooper_Landing_AEO]
+	Rarity = "Common"
+	Filter = "CommonAreaDamageGround"
+    LifeDuration = 0
+	HitSpeed = 50
+    Damage = { BaseDamage = 90, TowerDamage = 10 }
+	Radius = 2000
+	StatsTags.Damage = "fall_damage"
+	StatsTags.CrownTowerDamage="tower_damage"
+[ACTION.BalloonHero_Skeletrooper_Speed_Up_Interval]
+	ClassType = "ActionInterval"
+	StartCounterAt = 50
+	Interval = 150
+	ActionToExecute = "BalloonHero_Skeletrooper_Speed_Up_Group"
+[ACTION.BalloonHero_Skeletrooper_Speed_Up_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["BalloonHero_Skeletrooper_Speed_Increment", "BalloonHero_Skeletrooper_Speed_Up"]
+	SubActionsDelay = [0, 0]
+[ACTION.BalloonHero_Skeletrooper_Speed_Increment]
+	ClassType = "ActionSetVariable"
+	Variable  = "BalloonHero_Skeletrooper_Speed_Rampup"
+	Value = "BalloonHero_Skeletrooper_Speed_Rampup + 2"
+[ACTION.BalloonHero_Skeletrooper_Speed_Up]
+	ClassType = "ActionOverrideProjectileSpeed"
+	SpeedOverride = "logX10000(max(5, BalloonHero_Skeletrooper_Speed_Rampup - 1)) / 80"
+[EXT.BalloonHeroBombExplosion]
+Base = "AEO.BalloonBombExplosion"
+StatsTags.Damage = "death_damage"
+[STATS.BalloonHero]
+[[STATS.BalloonHero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+		[[STATS.BalloonHero.stats]]
+		Value = "death_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+		Icon = "icons_stats_dmg_death"
+		[[STATS.BalloonHero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.BalloonHero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.BalloonHero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.BalloonHero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"        
+	[[STATS.BalloonHero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.BalloonHero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.BalloonHero_Ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+		[[STATS.BalloonHero_Ability.stats]]
+		Value = "ability_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+		[[STATS.BalloonHero_Ability.stats]]
+		Value = "fall_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_LANDING_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+		[[STATS.BalloonHero_Ability.stats]]
+		Value = "tower_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+		[[STATS.BalloonHero_Ability.stats]]
+		OverrideStringValue = "GROUND"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.BalloonHero_Ability.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETROOPER"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETROOPER"
+		InfoButtonStats="BalloonHero_spawn_info"
+[STATS.BalloonHero_spawn_info]
+	[[STATS.BalloonHero_spawn_info.stats]]
+		Value = "spawn_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.BalloonHero_spawn_info.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.BalloonHero_spawn_info.stats]]
+		OverrideIntValue = -90
+		Unit = "PERCENT"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.BalloonHero_spawn_info.stats]]
+		Value = "spawn_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.BalloonHero_spawn_info.stats]]
+		Value = "spawn_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.BalloonHero_spawn_info.stats]]
+		Value = "spawn_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.BalloonHero_spawn_info.stats]]
+		Value = "spawn_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"

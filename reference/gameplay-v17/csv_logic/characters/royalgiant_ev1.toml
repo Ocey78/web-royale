@@ -1,0 +1,51 @@
+[EXT.RoyalGiant_EV1]
+Base="CHARACTER.RoyalGiant"
+Projectile="RoyalGiantProjectile_EV1"
+PrestigeSWF=""
+PrestigeExportName2=""
+PrestigeExportName3=""
+DeathEffect="Death_card_evolution_M"
+SpawnEffect="vfx_royalgiant_evo_deploy"
+HealthBar="High_EV1"
+AreaEffectOnHit="Freeze"
+CustomSpawnFilter="filter_card_evolution"
+OnAttackAction="RoyalGiant_EV1_PushBack"
+ClonedVersion="RoyalGiant"
+FileName="sc/chr_royalgiant_evolution.sc"
+BlueExportName="royalgiant_evo"
+RedExportName="enemy_royalgiant_evo"
+Scale=78
+DeployBaseAnimExportName="filter_deploy_unit_legendary"
+ProjectileEffect="evo_royal_giant_projectile_fx"
+AttackStartEffect=""
+[PROJECTILE.RoyalGiantProjectile_EV1]
+AoeToGround = true
+ConstantHeight = 1500
+Damage = 120
+DeflectBehaviour = "IgnoreHeight"
+ExportName = "RoyalGiant_Evolution_projectile"
+FileName = "sc/chr_royalgiant_evolution.sc"
+HitEffect = "royal_giant_projectile_hit"
+Homing = true
+OnlyEnemies = true
+ProjectileRadius = 250
+ProjectileStartExtraRadius = 400
+Radius = 250
+Rarity = "Common"
+Scale = 60
+ShadowExportName = "RoyalGiant_Evolution_projectile_shadow"
+Speed = 1000
+[ACTION.RoyalGiant_EV1_PushBack]
+ClassType = "ActionSpawn"
+ParentGOAsSource = true
+SpawnData = "EvoRoyalGiantPush_EV1"
+SpawnType = "AreaEffectType"
+[AEO.EvoRoyalGiantPush_EV1]
+Filter = "GroundCharacterTargets"
+LifeDuration = 1
+OneShotEffect = "royal_giant_evo_push_back"
+Pushback = 1000
+Radius = 3000
+Rarity = "Common"
+Tags = "NO_AOE_PUSHBACK_VFX"
+Damage = { BaseDamage = 32, TowerDamage = 0 }

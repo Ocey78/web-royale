@@ -1,0 +1,62 @@
+
+[CHARACTER.Bowler]
+AttackFinishTime = 150
+AttackStartEffect = "bowler_attack_start"
+AttacksGround = true
+BlueExportName = "bowler_blue"
+CollisionRadius = 750
+CrowdEffects = true
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "bowler_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_bowler.sc"
+HealthBar = "High"
+HitSpeed = 2500
+Hitpoints = 813
+IgnorePushback = true
+LoadTime = 2000
+Mass = 18
+MoveEffect = "bowler_steps"
+Name = "Bowler"
+OverrideAttackFinishTime = true
+PrestigeExportName2 = "bowler_blue_prestige"
+PrestigeSWF = "sc/chr_prestige3_dl.sc"
+Projectile = "BowlerProjectile"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 1000
+Range = 4000
+Rarity = "Common"
+RedExportName = "bowler_red"
+Scale = 118
+ShadowScaleX = 85
+ShadowScaleY = 80
+ShadowSkew = 25
+SightRange = 5500
+SpawnEffect = "bowler_deploy"
+Speed = 45
+TID = "TID_SPELL_BOWLER"
+UseAnimator = true
+
+[PROJECTILE.BowlerProjectile]
+AoeToGround = true
+Damage = 113
+DeathEffect = "bowler_projectile_die"
+DeflectBehaviour = "InvertDirection"
+ExportName = "bowler_projectile"
+FileName = "sc/effects.sc"
+Name = "BowlerProjectile"
+OnlyEnemies = true
+PrestigeExportName2 = "bowler_projectile_prestige"
+PrestigeSWF = "sc/effects.sc"
+ProjectileRadius = 1000
+ProjectileRange = 7000
+Pushback = 1000
+Radius = 1800
+Rarity = "Common"
+ShadowDisableRotate = true
+ShadowExportName = "bowler_projectile_shadow"
+Speed = 170
+TrailEffect = "bowler_projectile_trail"
+
+

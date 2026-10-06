@@ -1,0 +1,18 @@
+[SPELL_HERO.Tombstone_hero]
+	CardForm                   = "HeroForm"
+	IsAGroup                   = true
+	Stats                      = "Tombstone_hero"
+	SummonCharacter            = ""
+    SummonRadius               = 0
+	TID                        = "TID_SPELL_TOMBSTONE"
+	TID_INFO                   = "TID_SPELL_INFO_HERO_TOMBSTONE"
+	PveDefenseType             = "Attacker"
+	HighresImageFilename    = "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_collection"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero_large"
+	IconSWF                 = "sc/ui_card_tombstone_hero.sc"
+	IconFile                = "tombstone_hero_card"
+	SummonCharactersList = ["TombstoneHero_visual_dummy", "TombstoneHero", "TombstoneHero_Monster_Passive"]
+	SummonCharactersOffsetsX = [0, 0, 0]
+	SummonCharactersOffsetsY = [0, 0, 0]
+[SPELL_BUILDING.Tombstone]
+	EvolvedSpells = ["Tombstone_hero"]

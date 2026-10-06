@@ -1,0 +1,89 @@
+[EXT.KingTower_SpawnMelee]
+    Base = "CHARACTER.KingTower"
+    OnStartingAction = "SpawnMelee_StartingAction"
+[ACTION.SpawnMelee_StartingAction]
+    ClassType = "ActionGroup"
+    SubActionsDelay = [0, 0]
+    SubActions = ["SpawnMelee_WaitForTowerActivation", "SpawnMelee_AbilityActivator"]
+[ACTION.SpawnMelee_WaitForTowerActivation]
+    ClassType = "ActionWaitToActivate"
+    Condition = "king_tower_damaged() || coop_king_tower_damaged() || tower_destroyed() || coop_tower_destroyed()"
+    GameTagsToSet = "INACTIVE"
+[ACTION.SpawnMelee_WaitForTowerActivation.OnActivateAction]
+    ClassType = "ActionWithDuration"
+    ActionDuration = 3300
+    GameTagsToSet = "ACTIVATING"
+    NextAction = "KingTowerActivationEffect"
+[ACTION.SpawnMelee_AbilityActivator]
+    ClassType = "ActionActivateOnCardDeploy"
+    ElixirCost = 15
+    CardGroup = "Event_Melee"
+    EvaluateDeployedCard = false
+    OnActivateAction = "SpawnMelee_Select"
+    IndicatorFileName="sc/ui.sc"
+    IndicatorExportName="goblin_queen_charge_counter"
+    IndicatorOffsetYBlue=-65
+    IndicatorOffsetYRed=38
+    ShowCardEffect=true
+    IndicatorPlaceholderInstanceName="icon_ability_placeholder"
+    IndicatorReplacementFileName="sc/effects.sc"
+    IndicatorReplacementExportName="pekkaMKicon"
+    DeployElixirGainEffect = "Deploy_Goblin_Card_Elixir_Gain"
+    GameTagsToSetOnReadyToActivate = "ABILITY_READY"
+[ACTION.SpawnMelee_Select]
+    ClassType = "ActionFilter"
+    Condition = "!SPAWNED_PEKKA()"
+    OnTrueAction = "SpawnMelee_Spawn_Pekka"
+    OnFalseAction = "SpawnMelee_Spawn_MK"
+[ACTION.SpawnMelee_Spawn_Pekka]
+    ClassType = "ActionSelect"
+    SubActions = ["SpawnMelee_Spawn_Pekka_1", "SpawnMelee_Spawn_Pekka_2"]
+    Condition = "rand(2)"
+[ACTION.SpawnMelee_Spawn_Pekka_1]
+    ActionDelay = 500
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "Pekka_EV1"
+    MirroredX = -11
+    MirroredY = 2
+    UseDeploy = true
+    NextAction = "SpawnMelee_Spawn_Pekka_SetTag"
+[ACTION.SpawnMelee_Spawn_Pekka_2]
+    ActionDelay = 500
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "Pekka_EV1"
+    MirroredX = 11
+    MirroredY = 2
+    UseDeploy = true
+    NextAction = "SpawnMelee_Spawn_Pekka_SetTag"
+[ACTION.SpawnMelee_Spawn_Pekka_SetTag]
+    ClassType="ActionWithDuration"
+    ActionDuration=99999
+    GameTagsToSet="SPAWNED_PEKKA"
+    ForceStopIfTrue="SPAWNED_MK() == true"
+[ACTION.SpawnMelee_Spawn_MK]
+    ActionDelay = 500
+    ClassType = "ActionSelect"
+    SubActions = ["SpawnMelee_Spawn_MK_1", "SpawnMelee_Spawn_MK_2"]
+    Condition = "rand(2)"
+[ACTION.SpawnMelee_Spawn_MK_1]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "MegaKnight_EV1"
+    MirroredX = 11
+    MirroredY = 2
+    UseDeploy = true
+    NextAction = "SpawnMelee_Spawn_MK_SetTag"
+[ACTION.SpawnMelee_Spawn_MK_2]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "MegaKnight_EV1"
+    MirroredX = -11
+    MirroredY = 2
+    UseDeploy = true
+    NextAction = "SpawnMelee_Spawn_MK_SetTag"
+[ACTION.SpawnMelee_Spawn_MK_SetTag]
+    ClassType="ActionWithDuration"
+    ActionDuration=100
+    GameTagsToSet="SPAWNED_MK"

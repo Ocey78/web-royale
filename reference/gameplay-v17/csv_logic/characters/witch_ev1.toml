@@ -1,0 +1,188 @@
+[EXT.Witch_EV1]
+    Base = "CHARACTER.Witch"
+	ClonedVersion = "Witch"
+	HealthBar = "Medium_EV1"
+    OnStartingAction = "Witch_EV1_Start_Action_Group"
+	SpawnCharacter = "Witch_EV1_Healing_Skeleton"
+	SpawnStartTime = 1000
+	SpawnPauseTime = 300000
+	OnStartingClientActions = ["Witch_EV1_Visual_Layer"]
+    
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage = "damage"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.Level = "level"
+	StatsTags.Speed = "speed"
+	FileName = "sc/chr_witch_evolution.sc"
+	BlueExportName = "evo_witch"
+	RedExportName = "evo_witch_red"
+	Scale = 60
+	ShadowScaleX = 85
+    ShadowScaleY = 70
+	ShadowSkew = 50
+	HealthBarOffsetYRed = -10
+	HealthBarOffsetYBlue = -5
+	Projectile = "EV1_Witch_Projectile"
+	DamageEffect = "evo_witch_atk_hit_01"
+	DeathEffect = "Death_card_evolution_M_new"
+	MoveEffect = "evo_witch_steps"
+	SpawnEffect = "evo_witch_deploy"
+	AttackStartEffect = "evo_witch_atk_start"
+	SpawnCharacterEffect = "evo_witch_skeleton_spawn"
+		DeployBaseAnimExportName="filter_deploy_unit_legendary"
+		CustomSpawnFilter="filter_card_evolution"
+[EXT.EV1_Witch_Projectile]
+	Base = "PROJECTILE.WitchProjectile"
+	FileName = "sc/chr_witch_evolution.sc"
+	ExportName = "witch_evo_proj_trail_01"
+	RedExportName = "witch_evo_proj_trail_01"
+	HitEffect = "evo_witch_atk_hit_01"
+	TrailEffect = ""
+	ShadowExportName = "witch_evo_proj_shadow_01"
+[EXT.Witch_EV1_Healing_Skeleton]
+	Base = "CHARACTER.Skeleton"
+	StartingBuff = "Witch_EV1_Healing_Skeleton_Tint"
+StartingBuffTime = 999999
+[BUFF.Witch_EV1_Healing_Skeleton_Tint]
+	Rarity = "Common"
+	FilterFile = "sc/chr_witch_evolution.sc"
+	FilterExportName = "filter_witch_evo_heal_skeleton"
+[ACTION.Witch_EV1_Start_Action_Group]
+    ClassType = "ActionGroup"
+    SubActions = ["Witch_EV1_On_Skeleton_Destroyed", "Witch_EV1_Interval"]
+    SubActionsDelay = [0, 1000]
+[ACTION.Witch_EV1_Interval]
+    ClassType = "ActionInterval"
+	Interval = 7000
+	StartCounterAt = 8000
+	ActionToExecute = "Witch_EV1_Interval_Spawn"
+    AffectedBySpawnSpeed = true
+    PauseTag="NO_SUMMON"
+	StatsTags.Interval = "interval_of_spawns"
+[ACTION.Witch_EV1_Interval_Spawn]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "Witch_EV1_Skeleton_Interval"
+    Count = 4
+    SpawnRadius = 2000
+    IsDeathSpawn = false
+    UseDeploy = false
+[EXT.Witch_EV1_Skeleton_Interval]
+	Base = "CHARACTER.Skeleton"
+	SpawnEffect = "evo_witch_skeleton_spawn"
+[ACTION.Witch_EV1_On_Skeleton_Destroyed]
+    ClassType = "ActionRunActionOnTroopDestroyed"
+    ActionToRun = "Witch_Soul_Drain"
+    TroopFilter = "friendly_skeletons_can_be_dead"
+	MatchOnlyOwnSpawnedTroops = true
+	StatsTags.MaxRange = "heal_range"
+[ACTION.Witch_Soul_Drain]
+	ClassType = "ActionSoulDrain"
+	ConstantFlightDuration = 1000
+	Effect = "evo_witch_skull_soul_gain"
+	SecondaryEffect = "evo_witch_skull_soul_trail"
+	LoopSecondaryEffect = false
+EffectAbsolutePositionToParent = true
+SecondaryEffectAbsolutePositionToParent = false
+	ActionOnTargetReached = "Witch_EV1_Heal_Action_Group"
+MinVisualWaitTime = 250
+	MaxVisualWaitTime = 500
+MinWobble = 200
+	MaxWobble = 500
+	PivotName = "soul_catch_pivot"
+	UseLerpForSouls = true
+	FlipPivotOffsetIfTopBottom = true
+[ACTION.Witch_EV1_Heal_Action_Group]
+    ClassType = "ActionGroup"
+	SubActions = ["Witch_Heal_Effect", "Witch_EV1_Apply_Heal_Buff_Action"]
+	SubActionsDelay = [0, 0]
+[ACTION.Witch_Heal_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "evo_witch_gain_soul_glow"
+	EffectFlags = "FollowParent,ParticlesFollowParent"
+[ACTION.Witch_EV1_Apply_Heal_Buff_Action]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "Witch_EV1_Heal_Buff"
+    SpawnTime = 50
+[BUFF.Witch_EV1_Heal_Buff]
+	Rarity = "Common"
+	HitFrequency = 50
+	HealPerSecond = 1200
+	AllowedOverHealPerc = 173
+	AddAsIndividualBuff = true
+	OnStartAction = "Witch_EV1_Glowing"
+	StatsTags.HealMax = "healing"
+	StatsTags.HitFrequency = "healing_hit_frequency"
+	StatsTags.AllowedOverHealPerc = "max_overheal"
+[CLIENT_ACTION.Witch_EV1_Visual_Layer]
+	ClassType = "ClientActionAnimatorLayer"
+	LayerName = "WitchGlowing"
+	Filename = "sc/chr_witch_evolution.sc"
+	BlueExportName = "evo_witch_weapon_gem"
+	RedExportName = "evo_witch_weapon_gem"
+	Visible = true
+[ACTION.Witch_EV1_Glowing]
+	ClassType="ActionPlayEffect"
+	Effect="filter_evo_witch_gem_glow"
+	EffectFlags="FilterCanModifyTransform"
+	SpriteName="WitchGlowing"
+[STATS.witch_ev1]
+	[[STATS.witch_ev1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.witch_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.witch_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETON"
+		InfoButtonStats="skeleton"
+		PopupExcludeStatList = ["skeleton_stat_count", "skeleton_stat_dps"]
+	[[STATS.witch_ev1.stats]]
+		Value = "interval_of_spawns"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_TIME"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.witch_ev1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.witch_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.witch_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.witch_ev1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.witch_ev1.stats]]
+		Value = "healing"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEAL_PER_SKELETON"
+		Icon = "icons_stats_boost_heal"
+	[[STATS.witch_ev1.stats]]
+		Value = "hitpoints"
+		ValueMultiplier = "max_overheal"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_MAX_OVERHEAL"
+		Icon = "icons_stats_hp"

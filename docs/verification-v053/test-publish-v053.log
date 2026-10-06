@@ -1,0 +1,16 @@
+✔ replays reject a different manual balance overlay even when native source hashes match (126.004ms)
+✔ lazy hero scenes decode only requested pages and evicted pages can reload (2.0027ms)
+✔ hero prewarming follows the selected clip page list instead of loading every page (1.3594ms)
+✔ training uses the live fixed step and keeps a quarter-second AI decision interval (6.854ms)
+✔ training and live advancement produce identical troop movement and attack state (598.6045ms)
+✔ v0.52 replay remains isolated from current balance tables and form registry (50.519ms)
+✔ new replays identify the changed simulation as 0.53 (7.8991ms)
+✔ changed gameplay has a separate learning archive and rejects old snapshot weights (1.5708ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1554.141

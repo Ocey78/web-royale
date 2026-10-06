@@ -1,0 +1,19 @@
+✔ card aliases receive their source entity rotation policy instead of an absent alias lookup (1.1787ms)
+✔ authored native rotation is preserved when imported gameplay data has no rendering flag (0.2597ms)
+✔ explicit false source policy remains authoritative for ordinary direction-specific artwork (0.1856ms)
+✔ actual native source archive restores missing data byte-exactly without a dist build (1824.2028ms)
+✔ corrupt archive or false raw provenance rejects before restoring any file (441.6001ms)
+✔ source package refuses an existing raw file with different bytes (362.9109ms)
+✔ battle dependency planning does not require the full texture collection (3.4301ms)
+✔ local artwork URLs are allowed but other origins and executable URLs are not (0.5964ms)
+✔ streamed native loading has a battle preparation interface (0.1174ms)
+✔ unused scenes and their decoded textures can be released without evicting the current deck (0.3422ms)
+✔ arena rendering waits for all referenced scenes instead of caching an incomplete arena (0.7562ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2759.3308

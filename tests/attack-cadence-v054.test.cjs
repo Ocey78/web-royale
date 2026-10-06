@@ -1,0 +1,8 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),C=require('../src/core');
+function duel(name,buff,duration=10){const b=new C.Battle({ai:false,headless:true,seed:5403});b.towers.forEach(t=>t.nextAttackAt=Infinity);const u=b.spawn(name,0,9*C.SX,22*C.SY,{wait:0,level:11}),target=b.spawn('Knight',1,9*C.SX,21*C.SY,{wait:100,level:11});target.hp=target.maxHp=1e9;if(buff)b.addBuff(u,buff,duration,0,11);return{b,u,target};}
+function releases(scene,seconds){const{b,target}=scene,times=[];for(let i=0;i<Math.round(seconds*60);i++){const hp=target.hp;b.step(1/60);if(target.hp<hp)times.push(b.time);}return times;}
+function cadence(times,period){a.ok(times.length>=3,JSON.stringify(times));for(let i=1;i<times.length;i++)a.ok(Math.abs(times[i]-times[i-1]-period)<=1/60+1e-7,JSON.stringify({times,period}));}
+test('Hero Electro Wizard 360-percent sequence releases on its authored half-second cycle',()=>{const s=duel('ElectroWizardHero','ElectroWizardHero_Ability_Buff',3),times=releases(s,2.9);cadence(times,s.u.def.interval/3.6);});
+test('ordinary attack cycle includes its windup at normal speed and under Rage',()=>{for(const buff of [null,'Rage']){const s=duel('Knight',buff),rate=buff?C.DATA.buffs.Rage.HitSpeedMultiplier/100:1;cadence(releases(s,4),s.u.def.interval/rate);}});
+test('Freeze prevents releases and ordinary Rage cadence resumes after thaw',()=>{const s=duel('Knight','Rage'),first=releases(s,.65);a.ok(first.length);s.b.addBuff(s.u,'Freeze',.4,1,11);a.deepEqual(releases(s,.35),[]);releases(s,.1);cadence(releases(s,3),s.u.def.interval/(C.DATA.buffs.Rage.HitSpeedMultiplier/100));});

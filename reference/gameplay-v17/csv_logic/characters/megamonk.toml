@@ -1,0 +1,82 @@
+
+[CHARACTER.MegaMonk]
+Ability = "MegaDeflect"
+AttackSequence = [0, 1, 2]
+AttackStartEffect = "monk_attack_start"
+AttacksGround = true
+BlueExportName = "Monk"
+CollisionRadius = 650
+CrowdEffects = true
+Damage = 140
+DamageEffect = "monk_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "monk_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_mighty_monk_dl.sc"
+HealthBar = "High"
+HitSpeed = 1200
+Hitpoints = 3800
+IsMeleePushbackAll3 = true
+LoadTime = 800
+Mass = 28
+MeleePushback3 = 3000
+MoveEffect = "giant_steps"
+Name = "MegaMonk"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Champion"
+RedExportName = "Monk_enemy"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = 80
+ShadowSkew = 25
+SightRange = 7500
+SpawnEffect = "monk_deploy"
+Speed = 45
+TID = "TID_SPELL_MONK"
+TargetOnlyBuildings = true
+UseAnimator = true
+VariableDamage2 = 140
+VariableDamage3 = 420
+
+[ABILITY.MegaDeflect]
+AbilityStateDuration = 4000
+AreaEffectObject = "MegaDeflect"
+CastTime = 933
+Cooldown = 20000
+DeployedClip = "champion_select_ring_rampup_archer_queen"
+DeployedEffect = "ability_charging_monk"
+IconExportName = "icon_ability_monk"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 2
+Name = "MegaDeflect"
+OnActivationAction = "monk_deflect_tags"
+TID = "TID_ABILITY_NAME_MONK_DEFLECT"
+TID_INFO = "TID_ABILITY_DESCRIPTION_MONK"
+TriggerDelay = 933
+
+[AEO.MegaDeflect]
+DeflectProjectilesEnabled = true
+DeflectedProjectileEffect = "monk_deflect"
+DeflectionFBEffect = "Monk_ability_reflection_"
+Filter = "aeo_enemy_no_buildings"
+FollowBehaviour = "FollowParent"
+LifeDuration = 4000
+Name = "MegaDeflect"
+Radius = 4000
+Rarity = "Champion"
+ScaledEffect = "Healing"
+SpawnAreaEffectObject = "MegaDeflectBuff"
+SpawnDeployBaseAnim = "filter_hologram"
+
+[AEO.MegaDeflectBuff]
+Buff = "ShieldBoostMonk"
+BuffTime = 4000
+Filter = "friendly_troop"
+FollowBehaviour = "FollowParent"
+LifeDuration = 4000
+Name = "MegaDeflectBuff"
+Radius = 4000
+Rarity = "Champion"

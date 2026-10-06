@@ -1,0 +1,223 @@
+[NoSupportCards]
+DefaultPlayableCards = 8
+MaxSupportCards = 0
+TrophyRoadForArenas = "Default"
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[NoSupportCards.MaxSpecialSlots]]
+Arena = "TrainingCamp"
+EvoSlots = 0
+HeroSlots = 0
+[[NoSupportCards.MaxSpecialSlots]]
+Arena = "Arena3"
+EvoSlots = 1
+[[NoSupportCards.MaxSpecialSlots]]
+Arena = "Arena5"
+HeroSlots = 1
+[[NoSupportCards.MaxSpecialSlots]]
+Arena = "Arena_L"
+FlexSlots = 1
+[NoSupportCards_Combined]
+DefaultPlayableCards = 32
+MaxSupportCards = 0
+TrophyRoadForArenas = "Default"
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[NoSupportCards_Combined.MaxSpecialSlots]]
+Arena = "TrainingCamp"
+EvoSlots = 0
+HeroSlots = 0
+[[NoSupportCards_Combined.MaxSpecialSlots]]
+Arena = "Arena3"
+EvoSlots = 1
+[[NoSupportCards_Combined.MaxSpecialSlots]]
+Arena = "Arena5"
+HeroSlots = 1
+[[NoSupportCards_Combined.MaxSpecialSlots]]
+Arena = "Arena_L"
+FlexSlots = 1
+[Default_Event]
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[Royals]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+TrophyRoadForArenas = "Default"
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[[Royals.MaxSpecialSlots]]
+Arena = "TrainingCamp"
+EvoSlots = 0
+HeroSlots = 0
+[[Royals.MaxSpecialSlots]]
+Arena = "Arena3"
+EvoSlots = 1
+[[Royals.MaxSpecialSlots]]
+Arena = "Arena5"
+HeroSlots = 1
+[[Royals.MaxSpecialSlots]]
+Arena = "Arena_L"
+FlexSlots = 1
+[Goblins]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+TrophyRoadForArenas = "GoblinRoad"
+LeaderNameTID = "TID_GOBLIN_QUEENS_TOWER"
+LeaderHighresImageFilename = "image/chr_goblin_faction/chr_goblin_queen.png"
+LeaderStats = "goblin_queen"
+LeaderCharacterForStats = "GoblinQueenTower"
+[[Goblins.MaxSpecialSlots]]
+Arena = "GoblinArena1"
+EvoSlots = 1
+[[Goblins.MaxSpecialSlots]]
+Arena = "GoblinArena4"
+EvoSlots = 2
+[Royals_2v2]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+TrophyRoadForArenas = "Default"
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[Royals_2v2.MaxSpecialSlots]]
+Arena = "TrainingCamp"
+EvoSlots = 0
+HeroSlots = 0
+[[Royals_2v2.MaxSpecialSlots]]
+Arena = "Arena3"
+EvoSlots = 1
+[[Royals_2v2.MaxSpecialSlots]]
+Arena = "Arena5"
+HeroSlots = 1
+[[Royals_2v2.MaxSpecialSlots]]
+Arena = "Arena_L"
+EvoSlots = 2
+[[Royals_2v2.MaxSpecialSlots]]
+Arena = "Arena_L11"
+HeroSlots = 2
+[Classic]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[UndeadMarch]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[AutoChess]
+DefaultPlayableCards = 8
+MaxSupportCards = 0
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[TouchdownTrail]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "TouchdownTrail"
+[[TouchdownTrail.MaxSpecialSlots]]
+Arena = "TouchdownArena1"
+EvoSlots = 2
+HeroSlots = 1
+[CrazyArena]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "CrazyArena"
+[[CrazyArena.MaxSpecialSlots]]
+Arena = "CrazyArena1"
+EvoSlots = 0
+HeroSlots = 0
+[PathOfLegends]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[SuddenDeathTrail]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "SuddenDeathTrail"
+[[SuddenDeathTrail.MaxSpecialSlots]]
+Arena = "SuddenDeathTrailArena1"
+EvoSlots = 1
+HeroSlots = 1
+FlexSlots = 1
+[AnarchyLeague]
+DefaultPlayableCards = 40
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "AnarchyLeague"
+[AllRandom]
+DefaultPlayableCards = 40
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+[ChaosMegaDraftLeague]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "ChaosMegaDraftLeague"
+[ChaosDraftLeague]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "ChaosDraftLeague"
+[2v2League_202609]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "2v2League_202609"
+[[2v2League_202609.MaxSpecialSlots]]
+Arena = "2v2League_202609Arena1"
+EvoSlots = 1
+HeroSlots = 1
+FlexSlots = 1
+[SpookyChessTrail]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+LeaderStats = "king_tower"
+LeaderCharacterForStats = "KingTower"
+TrophyRoadForArenas = "SpookyChessTrail"
+[[SpookyChessTrail.MaxSpecialSlots]]
+Arena = "SpookyChessTrailArena1"
+EvoSlots = 1
+HeroSlots = 1
+FlexSlots = 1

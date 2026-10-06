@@ -1,0 +1,29 @@
+[GoblinBarrel]
+	EvoInfoSpeed = 400
+	SummonCharactersOffsetsX = [0, 500, -500]
+	SummonCharactersOffsetsY = [-500, 500, 500]
+
+[Mirror]
+	OmitFromStartingHand = true
+
+[GoblinCurse]
+	Stats = "goblin_curse"
+
+[Tornado]
+	Stats = "tornado"
+
+[Vines]
+	Stats = "vines"
+	InBattleStats = "vines_in_battle"
+
+[Graveyard]
+    Stats = "Graveyard_rework"
+
+[Arrows]
+	Stats = "arrows"
+
+[Snowball]
+	CardPropertyTags = "Ranged,Fragile"
+
+[MergeMaiden]
+	CardPropertyTags = "Melee,Ranged,Flying,HighDamage"

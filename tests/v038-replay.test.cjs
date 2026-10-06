@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),a=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),vm=require('node:vm');
 const C=require('../src/core'),Replay=require('../src/replay');
-test('v038 records have a new simulation tag for changed spawn and navigation rules',()=>{const b=new C.Battle({ai:false});Replay.captureInitial(b);a.equal(Replay.pack(b).engine,'0.52');a.ok(new Replay.Session(Replay.pack(b)).battle instanceof C.Battle);});
+test('v038 records have a new simulation tag for changed spawn and navigation rules',()=>{const b=new C.Battle({ai:false});Replay.captureInitial(b);a.equal(Replay.pack(b).engine,'0.53');a.ok(new Replay.Session(Replay.pack(b)).battle instanceof C.Battle);});
 test('v038 accepts the previous engine0.32 including four-card recordings',()=>{const b=new C.Battle({ai:false,mode:'FourCardDeck',deck:C.DEFAULT_DECK.slice(0,4),enemyDeck:C.DEFAULT_DECK.slice(0,4)});Replay.captureInitial(b);const r=Replay.pack(b);r.engine='0.32';a.equal(Replay.validate(r).initial.decks[0].length,4);});
 const Legacy=require('../src/legacy-core-v037'),Boat=require('../src/boat-battle'),provenance=require('./fixtures/replay-v037/provenance.json');
 const sha=s=>crypto.createHash('sha256').update(s).digest('hex');

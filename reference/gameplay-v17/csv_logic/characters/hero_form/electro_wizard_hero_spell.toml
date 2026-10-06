@@ -1,0 +1,28 @@
+[SPELL_HERO.ElectroWizard_hero]
+	CardForm                = "HeroForm"
+	Stats                   = "electro_wizard_hero"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_electrowizard/hero_prefab_electrowizard_collection"
+	UnlockArena             = "Arena_Electric"
+	Rarity                  = "Legendary"
+	ManaCost                = 4
+	PrestigeCount           = 1
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_ELECTRO_WIZARD"
+	TID_INFO                = "TID_SPELL_INFO_HERO_ELECTRO_WIZARD"
+	PveDefenseType          = "Defender"
+	IconSWF                 = "sc/ui_card_electro_wizard_hero.sc"
+	IconFile                = "electro_wizard_hero_card"
+	
+	Radius = 3000
+	SpellAsDeploy = true
+	AreaEffectObject = "ElectroWizardHeroZap"
+	SummonCharactersList = ["ElectroWizardHero"]
+	SummonCharactersOffsetsX = [0]
+	SummonCharactersOffsetsY = [0]
+	SummonNumber = 1
+	SummonCharactersDelayList = [50]
+	TypeOfSpell = "Troop"
+	LinkedChampionCharacter = "ElectroWizardHero"
+[SPELL_CHARACTER.ElectroWizard]
+	EvolvedSpells = ["ElectroWizard_hero"]

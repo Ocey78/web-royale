@@ -1,0 +1,157 @@
+[SPELL_CHARACTER.ThreeMusketeers]
+	StatsTags.SummonNumberListOnly = "musketeers_amount"
+[VARIABLE.ThreeMusketeer_Rework_melee_range]
+DefaultValue = 1600
+[CHARACTER.ThreeMusketeer_Rework]
+	Rarity = "Common"
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	Hitpoints = 345
+	HitSpeed = 1300
+	LoadTime = 700
+	OnStartingAttackAction = "ThreeMusketeer_Rework_Select_Attack"
+	AttackSequenceMode = "None"
+	AttackSequence = [0,1]
+	Projectile = "ThreeMusketeer_Rework_Projectile"
+	DeployTime = 1000
+	DeployDelay = 300
+	Speed = 60
+	Range = 6000
+	AttacksGround = true
+	AttacksAir = true
+	UseAnimator = true
+	CollisionRadius = 500
+	Mass = 5
+	DamageExportName = "filter_damage"
+	SpawnRadius = 800
+	ProjectileStartRadius = 750
+	ProjectileStartZ = 1400
+	SightRange = 6000
+	TID = "TID_CHARACTER_ELITE_MUSKETEER"
+	DamageEffect = "vfx_empty" 
+	FileName="sc/chr_three_musketeers.sc"
+	BlueExportName="three_musketeer_normal"
+    RedExportName="three_musketeer_normal_red"
+	Scale = 75
+	SpawnEffect = "vfx_3_musketeer_deploy"
+	MoveEffect = "vfx_3_musketeer_steps"
+    DeathEffect = "vfx_3_musketeer_death"
+	ProjectileEffect = "vfx_3_musketeer_attack"
+	AttackStartEffect = "vfx_3_musketeer_attack_start"
+	ShadowScaleX = 85
+    ShadowScaleY = 80
+    ShadowY = 3
+	ShadowSkew = 25
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+		PrestigeSWF = "sc/chr_prestige7_dl.sc"
+   		PrestigeExportName2 = "three_musketeer_prestige"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.Speed = "speed"
+	[[CHARACTER.ThreeMusketeer_Rework.AttackSequenceList]]
+		Projectile = "ThreeMusketeer_Rework_Projectile"
+	[[CHARACTER.ThreeMusketeer_Rework.AttackSequenceList]]
+		DoAttackAction = "ThreeMusketeer_Rework_Bayonet_Attack"
+[EXT.ThreeMusketeer_Rework_Character_1]
+	Base = "CHARACTER.ThreeMusketeer_Rework"
+	Scale = 78
+	ShadowY = 0
+[EXT.ThreeMusketeer_Rework_Character_2]
+	Base = "CHARACTER.ThreeMusketeer_Rework"
+	FileName="sc/chr_three_musketeers.sc"
+	BlueExportName="three_musketeer_strong"
+    RedExportName="three_musketeer_strong_red"
+	Scale = 80
+	ShadowY = -5
+	ShadowX = 5
+	ShadowScaleX = 80
+	HealthBarOffsetYBlue = 8
+	LoadTime = 650
+		PrestigeSWF = ""
+   		PrestigeExportName2 = ""
+[EXT.ThreeMusketeer_Rework_Character_3]
+	Base = "CHARACTER.ThreeMusketeer_Rework"
+	FileName="sc/chr_three_musketeers.sc"
+	BlueExportName="three_musketeer_light"
+    RedExportName="three_musketeer_light_red"
+	Scale = 80
+	HealthBarOffsetYBlue = -2
+	LoadTime = 700
+		PrestigeSWF = ""
+   		PrestigeExportName2 = ""
+[EXT.ThreeMusketeer_Rework_Projectile]
+    Base = "PROJECTILE.MusketeerProjectile"
+    Rarity = "Common"
+	Damage = 80
+	HitEffect = "vfx_3_musketeer_projectile_hit"
+	StatsTags.Damage = "ranged_damage"
+[ACTION.ThreeMusketeer_Rework_Select_Attack]
+	ClassType = "ActionFilter"
+	Condition = "target_in_range(ThreeMusketeer_Rework_melee_range) && target_is_ground"
+	OnTrueAction = "ThreeMusketeer_Rework_Attack_Bayonet"
+	OnFalseAction = "ThreeMusketeer_Rework_Attack_Ranged"
+[ACTION.ThreeMusketeer_Rework_Attack_Ranged]
+	ClassType="ActionSetAttackSequenceIndex"
+	AttackIndex = 0
+[ACTION.ThreeMusketeer_Rework_Attack_Bayonet]
+	ClassType="ActionSetAttackSequenceIndex"
+	AttackIndex = 1
+[ACTION.ThreeMusketeer_Rework_Bayonet_Attack]
+	ClassType = "ActionRunOnInstigator"
+	ActionToExecute = "ThreeMusketeer_Rework_Bayonet_Attack_Deal_Damage"
+	NextAction = "ThreeMusketeer_Rework_Bayonet_Attack_Effect"
+[ACTION.ThreeMusketeer_Rework_Bayonet_Attack_Deal_Damage]
+	ClassType = "ActionTakeDamage"
+Damage = { BaseDamage = 123, Effect = "vfx_3_musketeer_hit" }
+	StatsTags.Damage = "melee_damage"
+[ACTION.ThreeMusketeer_Rework_Bayonet_Attack_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_3_musketeer_melee_attack"
+[STATS.three_musketeers]
+	[[STATS.three_musketeers.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.three_musketeers.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.three_musketeers.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.three_musketeers.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.three_musketeers.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.three_musketeers.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.three_musketeers.stats]]
+		Value = "melee_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_MELEE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.three_musketeers.stats]]
+		VariableValue = "ThreeMusketeer_Rework_melee_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_MELEE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.three_musketeers.stats]]
+		Value = "musketeers_amount"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_COUNT"
+		Icon = "icons_stats_troop_count"

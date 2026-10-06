@@ -1,0 +1,285 @@
+[VARIABLE.BowlerHero_is_playing_ability]
+[VARIABLE.Bowler_hero_tower_in_range_effect]
+[EXT.BowlerHero]
+Base = "CHARACTER.Bowler"
+AttackStartEffect = ""
+Ability = "BowlerHeroAbility"
+AttackSequenceMode="None"
+AttackSequence=[0,1,2]
+OnStartingAction = "Bowler_hero_check_tower_in_range"
+OnStartingAttackAction = "BowlerHero_select_siege_attack"
+OnStartingClientActions =  ["Healthbar_High"]
+HideHealthbar = true
+TryToFinishAttackAnimation = false
+PrefabAsset = "sc3d/characters/hero/hero_bowler/hero_prefab_bowler_battle"
+DeathEffect="vfx_bowler_hero_die"
+SpawnEffect = "vfx_bowler_hero_deploy"
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[[EXT.BowlerHero.AttackSequenceList]]
+	Projectile = "BowlerHeroProjectile"
+	CustomProjectileStartRadius = 800
+	
+[[EXT.BowlerHero.AttackSequenceList]]
+    Projectile = "BowlerHero_SiegeProjectile"
+    CustomRange = 11500
+    CustomSightRange = 11500
+	HitSpeedMultiplier = 130
+	CustomProjectileStartZ = 4000
+	CustomProjectileStartRadius = 150
+	StatsTags.CustomRange = "siege_range"
+	StatsTags.CustomMinimunRange = "siege_min_range"
+	StatsTags.HitSpeedMultiplier = "siege_hit_speed"
+[[EXT.BowlerHero.AttackSequenceList]]
+	Projectile = "BowlerHero_SiegeProjectile_CloseRange"
+	CustomRange = 11500
+    CustomSightRange = 11500
+	HitSpeedMultiplier = 130
+	CustomProjectileStartZ = 0
+	CustomProjectileStartRadius = 2000
+[ACTION.BowlerHero_ResetTarget]
+ClassType = "ActionResetTarget"
+[ABILITY.BowlerHeroAbility]
+	TID            = "TID_HERO_BOWLER_ABILITY"
+	TID_INFO       = "TID_HERO_BOWLER_ABILITY_INFO"
+	IconSWF        = "sc/ability_icon_bowler.sc"
+	IconExportName = "ability_icon_bowler"
+	CastTime              = 2500
+	TriggerDelay          = 200
+	ManaCost              = 2
+	IsChampion = true
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect        = "vfx_bowler_hero_ability_active_m"
+	DeployedClip          = "filter_invisible"
+	KeepCurrentTarget     = false
+	PopoverIconFileName   = "sc/ui_spells.sc"
+	PopoverIconExportName = "pancake_button_icon_1"
+	OnActivationAction    = "BowlerHero_ability_activation_group"
+	Stats                 = "bowler_hero_ability"
+	StatsTags.CastTime    = "ability_cast_time"
+[ACTION.BowlerHeroDeactivateGroup]
+ClassType = "ActionGroup"
+SubActions = ["BowlerHero_ResetTarget","BrowlerHero_normal_attack"]
+SubActionsDelay = [0,0]
+[ACTION.BowlerHero_ability_activation_group]
+ClassType = "ActionGroup"
+SubActions = [	"BowlerHero_activate_ability",
+				"BowlerHero_spawn_ability_buff",
+				"BowlerHero_FlashEffect",
+				"BowlerHero_3DFlashEffect",
+				"BrowlerHero_siege_attack", "BowlerHero_ResetTarget",
+				"Bowler_hero_no_attack_while_casting"
+				]
+SubActionsDelay = [0, 0, 0, 2300, 0, 2300, 0]
+[ACTION.Bowler_hero_no_attack_while_casting]
+ClassType = "ActionWithDuration"
+ActionDuration = 2300
+GameTagsToSet = "NO_ATTACK"
+[ACTION.BowlerHero_FlashEffect]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_bowler_hero_ability_active"
+EffectFlags = "LinkLifeToActionLife"
+[ACTION.BowlerHero_3DFlashEffect]
+ClassType = "ActionPlayEffect"
+PrefabAsset = "sc3d/characters/hero/hero_bowler/effect/vfx_glow_mat_bowler_ability_active"
+EffectFlags = "LinkLifeToActionLife"
+OverrideDuration = 7300
+    [ACTION.BowlerHero_spawn_ability_buff]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "BowlerHero_ability_buff"
+    SpawnTime = 7300
+	StatsTags.SpawnTime = "siege_duration"
+[BUFF.BowlerHero_ability_buff]
+Rarity = "Common"
+AliveIfTrue = "BowlerHero_is_playing_ability > 0"
+SpeedMultiplier = -100
+OnRemoveAction = "BowlerHero_deactivate_ability"
+GameTagsToSet = "IGNORE_RANGE_EXTENSION_TO_KEEP_TARGET"
+[EXT.BowlerHeroProjectile]
+Base = "PROJECTILE.BowlerProjectile"
+PrefabAsset = "sc3d/characters/hero/hero_bowler/hero_prefab_bowler_projectile_battle"
+Scale = 100
+TrailEffect = "vfx_bowler_hero_projectile_trail"
+HitEffect = "vfx_bowler_hero_hit"
+DeathEffect = "vfx_bowler_hero_projectile_die"
+StatsTags.ProjectileRange = "projectile_range"
+[EXT.BowlerHero_SiegeProjectile]
+	Base = "PROJECTILE.MortarProjectile"
+	PrefabAsset = "sc3d/characters/hero/hero_bowler/hero_prefab_bowler_ability_projectile_battle"
+	TrailEffect = "vfx_bowler_hero_ability_projectile_trail"
+	Damage = 150
+	CrownTowerDamagePercent = -50
+	Scale = 100
+	HitEffect = "vfx_bowler_hero_ability_hit"
+	Gravity = 100
+	ProjectileRadiusY = 0
+	Speed = 400
+	Radius = 2000
+	StatsTags.Damage = "siege_projectile_damage"
+	StatsTags.CrownTowerDamage = "siege_projectile_crown_tower_damage"
+[EXT.BowlerHero_SiegeProjectile_CloseRange]
+	Base = "PROJECTILE.BowlerHero_SiegeProjectile"
+	PrefabAsset = "sc3d/characters/hero/hero_bowler/hero_prefab_bowler_ability_projectile_closerange_battle"
+	Gravity = 40
+	ConstantHeight = 2000
+	DeflectBehaviour = "IgnoreHeight"
+[ACTION.BrowlerHero_normal_attack]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 0
+    SetEvenIfCombatDisabled = true
+[ACTION.BrowlerHero_siege_attack]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 1
+    SetEvenIfCombatDisabled = true
+[ACTION.BrowlerHero_siege_attack_close_range]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 2
+    SetEvenIfCombatDisabled = true
+	
+[ACTION.BowlerHero_select_siege_attack]
+ClassType     = "ActionFilter"
+Condition     = "target_in_range(3000)"
+OnTrueAction  = "BrowlerHero_siege_attack_close_range"
+OnFalseAction = "BrowlerHero_siege_attack"
+ExecuteIfTrue = "BowlerHero_is_playing_ability > 0"
+[ACTION.Bowler_hero_check_tower_in_range]
+ClassType       = "ActionInterval"
+Interval        = 50
+ActionToExecute = "BowlerHero_select_tower_in_range"
+ForceStopIfTrue = "!is_active_or_secondary_champion"
+Singleton       = true
+	[ACTION.BowlerHero_select_tower_in_range]
+	ClassType     = "ActionFilter"
+Condition     = "has_crown_tower_in_range(11500)"
+	OnTrueAction  = "Bowler_hero_play_exclamation_select"
+	OnFalseAction = "BowlerHero_set_tower_not_in_range"
+	Singleton     = true
+			[ACTION.Bowler_hero_play_exclamation_select]
+			ClassType     = "ActionFilter"
+			Condition     = "is_deploying"
+			OnTrueAction  = "Bowler_hero_delay_exclamation_actions"
+			OnFalseAction = "Bowler_hero_play_exclamation"
+			Singleton     = true
+			ExecuteIfTrue = "BowlerHero_is_playing_ability == 0"
+				[ACTION.Bowler_hero_delay_exclamation_actions]
+				ClassType       = "ActionGroup"
+				SubActions      = ["BowlerHero_set_tower_in_range", "Bowler_hero_play_exclamation_delayed"]
+				SubActionsDelay = [0, 2000]
+				ExecuteIfTrue   = "Bowler_hero_tower_in_range_effect == 1"
+				Singleton       = true
+[ACTION.Bowler_hero_play_exclamation]
+ClassType     = "ActionPlayEffect"
+Effect        = "vfx_bowler_hero_inrange"
+ExecuteIfTrue = "Bowler_hero_tower_in_range_effect == 0"
+NextAction    = "BowlerHero_set_tower_in_range"
+Singleton     = true
+[ACTION.Bowler_hero_play_exclamation_delayed]
+ClassType      = "ActionPlayEffect"
+Effect         = "vfx_bowler_hero_inrange"
+ExecuteIfTrue  = "Bowler_hero_tower_in_range_effect == 1"
+Singleton      = true
+UpdatePhase    = "PostGameObjectTick"
+[ACTION.Bowler_hero_play_rock_glow]
+ClassType      = "ActionPlayEffect"
+PrefabAsset = "sc3d/characters/hero/hero_bowler/effect/vfx_glow_mat_bowler_boulder_in_range"
+Singleton      = true
+UpdatePhase    = "PostGameObjectTick"
+ExecuteIfTrue   = "is_moving"
+[ACTION.BowlerHero_activate_ability]
+ClassType = "ActionSetVariable"
+Variable  = "BowlerHero_is_playing_ability"
+Value     = "1"
+[ACTION.BowlerHero_deactivate_ability]
+ClassType = "ActionSetVariable"
+Variable  = "BowlerHero_is_playing_ability"
+Value     = "0"
+NextAction = "BowlerHeroDeactivateGroup"
+[ACTION.BowlerHero_set_tower_in_range]
+ClassType     = "ActionSetVariable"
+Variable      = "Bowler_hero_tower_in_range_effect"
+Value         = "1"
+Singleton     = true
+[ACTION.BowlerHero_set_tower_not_in_range]
+ClassType = "ActionSetVariable"
+Variable  = "Bowler_hero_tower_in_range_effect"
+Value     = "0"
+Singleton = true
+[STATS.bowler_hero]
+	[[STATS.bowler_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.bowler_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.bowler_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.bowler_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.bowler_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.bowler_hero.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.bowler_hero.stats]]
+		Value = "projectile_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_BULLET_RANGE"
+		Icon = "icons_stats_radius"
+[STATS.bowler_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.bowler_hero_ability.stats]]
+		Value = "siege_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.bowler_hero_ability.stats]]
+		Value = "siege_projectile_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.bowler_hero_ability.stats]]
+		Value = "siege_projectile_crown_tower_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+		[[STATS.bowler_hero_ability.stats]]
+		Value = "hit_speed"
+		ValueMultiplier = "siege_hit_speed"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.bowler_hero_ability.stats]]
+		Value = "siege_duration"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.bowler_hero_ability.stats]]
+		Value = "ability_cast_time"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_CAST_TIME"
+		Icon = "icons_stats_deploy_time" 

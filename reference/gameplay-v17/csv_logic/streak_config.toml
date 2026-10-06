@@ -1,0 +1,13 @@
+[DailyTaskStreak]
+[[DailyTaskStreak.Streaks]]
+MinStreak = 2
+Reward = "StreakReward1"
+[[DailyTaskStreak.Streaks]]
+MinStreak = 3
+Reward = "StreakReward2"
+[[DailyTaskStreak.Streaks]]
+MinStreak = 5
+Reward = "StreakReward3"
+[[DailyTaskStreak.Streaks]]
+MinStreak = 7
+Reward = "StreakReward4"

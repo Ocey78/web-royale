@@ -1,0 +1,164 @@
+[EXT.SnowballSpell_EV1]
+	Base = "PROJECTILE.SnowballSpell"
+	Rarity = "Common"
+	SpawnProjectile = "SnowballSpell_EV1_Rolling"
+	SpawnChain = 1
+	SpawnAxisY = true
+	MinDistance = 4000
+	Pushback = 0
+	Damage = 0
+	TargetBuff = ""
+	FileName="sc/spell_snowball_evolution.sc"
+	ExportName="snowball_evolution_projectile"
+	RedExportName="snowball_evolution_projectile_enemy"
+	TrailEffect = "snowball_evo_continuous"
+	ShadowExportName = "snowball_shadow"
+	RedShadowExportName = "snowball_enemy_shadow"
+	HitEffect = "Snowball_evo_ground"
+	Scale = 120
+	DeflectBehaviour = "NoDeflect"
+[EXT.SnowballSpell_EV1_Rolling]
+	Base = "PROJECTILE.SnowballSpell"
+	Rarity = "Common"
+	FileName="sc/spell_snowball_evolution.sc"
+	ExportName="snowball_evolution_projectile_roll"
+	RedExportName="snowball_evolution_projectile_enemy_roll"
+	TrailEffect = "snowball_evo_continuous"
+	ShadowExportName = "snowball_shadow"
+	RedShadowExportName = "snowball_enemy_shadow"
+	Scale = 120
+	Damage = 70
+	Pushback = 0
+	TargetBuff = ""
+	Radius = 2500
+	OnStartingAction = "SnowballSpell_EV1_starting_actions"
+	UseCustomMovement = true
+	CustomDeflectAction = "SnowballSpell_EV1_deflect"
+[EXT.SnowballSpell_EV1_Rolling_after_first_capture]
+	Base = "PROJECTILE.SnowballSpell_EV1_Rolling"
+	FileName="sc/spell_snowball_evolution.sc"
+	ExportName="snowball_evolution_projectile_capture"
+	RedExportName="snowball_evolution_projectile_enemy_capture"
+	TrailEffect = "snowball_evo_continuous"
+	ShadowExportName = "snowball_shadow"
+	RedShadowExportName = "snowball_enemy_shadow"
+	Scale = 120
+[ACTION.SnowballSpell_EV1_starting_actions]
+	ClassType = "ActionGroup"
+	SubActions = ["SnowballSpell_EV1_capture_unit", "SnowballSpell_EV1_rolling_projectile"]
+	SubActionsDelay = [0, 0]
+[ACTION.SnowballSpell_EV1_rolling_projectile]
+	ClassType = "ActionRollingProjectile"
+	Speed = 300
+	DistanceY = 4000
+	DistanceX = 0
+	Radius = 2500
+	TargetFilter = "characters_no_deflecting_including_invisible"
+	BuffOnHit = "snowball_spell_ev1_hit"
+	BuffTime = 3000
+	StatsTags.Radius = "radius"
+	StatsTags.Distance = "distance"
+	StatsTags.BuffTime = "freeze_duration"
+[ACTION.SnowballSpell_EV1_deflect]
+	ClassType = "ActionProjectileDeflected"
+[BUFF.snowball_spell_ev1_hit]
+	Rarity = "Common"
+	TID = "TID_SPELL_ATTRIBUTE_SLOWDOWN"
+	HitSpeedMultiplier = -35
+	SpeedMultiplier = -35
+	SpawnSpeedMultiplier = -35
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_cold"
+	MarkEffect = "Healing"
+	AudioPitchModifier = 75
+	DamagePerSecond = 70
+HitFrequency = -1
+	CrownTowerDamagePerHit = 18
+	PlayerSpecificBuff = true
+	StatsTags.DamagePerSecond = "area_damage"
+	StatsTags.CrownTowerDamagePerHit = "tower_damage"
+	StatsTags.TID = "freeze_buff_tid"
+[ACTION.SnowballSpell_EV1_capture_unit]
+	ClassType="ActionCaptureCharacter"
+	CapturePriority=10
+	CaptureRadius=2500
+	HitFrequency=1000000
+	DamagePerHit=0
+	NumberOfUnitsToCapture=1000
+	TargetFilter="characters_no_buildings_no_deflecting_including_invisible"
+	PullStartEffect = "snowball_evo_capture"
+	CaptureDragTime=300
+	HideDistance=100
+	PullFileName="sc/spell_snowball_evolution.sc"
+	StretchingClipExportName="Flex_snowball_1"
+	PullEndClipExportName="Flex_snowball_snow"
+	HideAction="SnowballSpell_EV1_hide_captured_unit"
+	OnFirstCaptureAction = "snowball_spell_ev1_on_capture_visual"
+	ActionOnCapturedObject = "snowball_spell_ev1_run_action_on_release"
+	BuffDuringCapture = "snowball_spell_ev1_incapacitate_target"
+[BUFF.snowball_spell_ev1_incapacitate_target]
+    Rarity = "Common"
+    SpeedMultiplier = -100
+    HitSpeedMultiplier = -100
+    SpawnSpeedMultiplier = -100
+    EnableStacking = true
+[ACTION.snowball_spell_ev1_on_capture_visual]
+	ClassType = "ActionChangeGameObjectData"
+	NewProjectileData = "SnowballSpell_EV1_Rolling_after_first_capture"
+[ACTION.snowball_spell_ev1_run_action_on_release]
+	ClassType = "ActionRunActionOnInstigatorDeath"
+	ActionToRun = "snowball_spell_ev1_after_release"
+	AbortIfInstigatorDies = false
+[ACTION.snowball_spell_ev1_after_release]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "snowball_spell_ev1_after_release"
+	SpawnTime = 3000
+[BUFF.snowball_spell_ev1_after_release]
+	Rarity = "Common"
+	TID = "TID_SPELL_ATTRIBUTE_SLOWDOWN"
+	HitSpeedMultiplier = -35
+	SpeedMultiplier = -35
+	SpawnSpeedMultiplier = -35
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_cold"
+	MarkEffect = "Healing"
+	AudioPitchModifier = 75
+[ACTION.SnowballSpell_EV1_hide_captured_unit]
+	ClassType="ActionHide"
+	Singleton=true
+	HealthBarYOffset=-1000
+[STATS.snowball_spell_ev1]
+	[[STATS.snowball_spell_ev1.stats]]
+		Value = "area_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.snowball_spell_ev1.stats]]
+		Value = "tower_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.snowball_spell_ev1.stats]]
+		Value = "freeze_duration"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+		TIDReplaceValues = ["freeze_buff_tid"]
+		Icon = "icons_stats_boost_freeze"
+	[[STATS.snowball_spell_ev1.stats]]
+		Value = "radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"
+	[[STATS.snowball_spell_ev1.stats]]
+		Value = "distance"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_ROLLING_DISTANCE"
+		Icon = "icons_stats_dash_range"
+[STATS.snowball_spell_ev1_in_battle]
+	[[STATS.snowball_spell_ev1_in_battle.stats]]
+		Value = "tower_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"

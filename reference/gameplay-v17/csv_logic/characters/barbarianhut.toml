@@ -1,0 +1,34 @@
+
+[BUILDING.BarbarianHut]
+AttacksGround = true
+BlueExportName = "building_barbarian_hut_blue"
+CollisionRadius = 1000
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "goblin_hut_die"
+DeathSpawnCharacter = "Barbarian"
+DeathSpawnCount = 1
+DeployTime = 1000
+FileName = "sc/building_barbarian_hut.sc"
+HitSpeed = 10000
+Hitpoints = 455
+IsBuilding = true
+LifeTime = 30000
+Name = "BarbarianHut"
+PrestigeExportName2 = "barbarian_hut_blue_prestige"
+PrestigeRedExportName2 = "barbarian_hut_red_prestige"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Common"
+RedExportName = "building_barbarian_hut_red"
+Scale = 100
+ShadowScaleX = 90
+ShadowScaleY = 60
+ShadowSkew = 5
+ShadowX = -8
+SpawnCharacter = "Barbarian"
+SpawnEffect = "barb_hut_deploy"
+SpawnInterval = 500
+SpawnNumber = 3
+SpawnPauseTime = 14000
+TID = "TID_BUILDING_BARBARIAN_HUT"

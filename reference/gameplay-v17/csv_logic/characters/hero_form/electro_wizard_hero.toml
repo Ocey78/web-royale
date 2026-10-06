@@ -1,0 +1,236 @@
+[VARIABLE.ElectroWizardHero_Spin_Animation_Done]
+[AEO.ElectroWizardHeroZap]
+	Buff = "ZapFreeze"
+	BuffTime = 500
+    Damage = { BaseDamage = 75, TowerDamage = 0 }
+	Filter = "CommonAreaDamageFilter"
+	LifeDuration = 1
+	Name = "ElectroWizardHeroZap"
+	OneShotEffect = "vfx_electrowizard_hero_deploy"
+	Radius = 3000
+	Rarity = "Common"
+	StatsTags.Damage = "spawn_damage"
+	StatsTags.BuffTime = "stun_duration"
+	StatsTags.CharacterCrownTowerDamagePercent = "tower_damage"
+[EXT.ElectroWizardHero]
+	Base = "CHARACTER.ElectroWizard"
+	PrefabAsset = "sc3d/characters/hero/hero_electrowizard/hero_prefab_electrowizard_battle"
+Scale = 100
+	Ability = "ElectroWizardHero_Ability"
+	HideHealthbar = true
+	OnStartingClientActions = ["Healthbar_Medium"]
+	SpawnEffect = ""	
+	DeathEffect = "vfx_electrowizard_hero_die"	
+	DamageEffect = "vfx_electrowizard_hero_hit"
+    TargetedHitEffect = "vfx_electrowizard_hero_beam"	
+	OnStartingAttackAction = "ElectroWizardHero_Select_Spin_Or_No_Spin"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage    = "damage"
+	StatsTags.HitSpeed  = "hit_speed"
+	StatsTags.Speed     = "speed"
+	StatsTags.Range     = "range"
+	StatsTags.Targets 	= "targets"
+	StatsTags.BuffOnDamageTime = "attack_stun_duration"
+	AttackSequenceMode = "None"
+	AttackSequence = [0,1,2]
+	OnStartingAction = "ElectroWizardHero_Start_Action_Group"
+	CrownTowerDamagePercent = 0
+[ACTION.ElectroWizardHero_Start_Action_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["ElectroWizardHero_Set_Attack_Sequence_0", "ElectroWizardHero_First_Hit", "ElectroWizardHero_Update_Select_Prop_Animations"]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.ElectroWizardHero_First_Hit]
+	ClassType = "ActionSetInstantHit"
+	ExecuteIfTrue = "target_in_range(4000)"
+[ACTION.ElectroWizardHero_Update_Select_Prop_Animations]
+	ClassType = "ActionInterval"
+	Interval = 50
+	ActionToExecute = "ElectroWizardHero_Select_Prop_Animations"
+[ACTION.ElectroWizardHero_Select_Prop_Animations]
+	ClassType = "ActionSelect"
+	SubActions = ["ElectroWizardHero_Enable_Prop_Animations", "ElectroWizardHero_Enable_Default_Animations"]
+	PerActionConditions = ["UNIT_CUSTOM_TAG_1"]
+[ACTION.ElectroWizardHero_Enable_Default_Animations]
+	ClassType = "ActionSetAnimationModifier"
+	Parameter = "PropState"
+	Value = 0
+[ACTION.ElectroWizardHero_Enable_Prop_Animations]
+	ClassType = "ActionSetAnimationModifier"
+	Parameter = "PropState"
+	Value = 1
+[[CHARACTER.ElectroWizardHero.AttackSequenceList]]
+	Damage = 46
+	VisualHitSpeed = 1800
+	HitSpeedMultiplier = 100
+	CustomMultipleTargets = 2
+[[CHARACTER.ElectroWizardHero.AttackSequenceList]]
+	Damage = 50
+	HitSpeedMultiplier = 360
+	CustomMultipleTargets = 2
+	CustomOnAttackAction = "ElectroWizardHero_Set_Spin_Animation_Done"
+	CustomRememberMultipleTargets = 1
+	DisableAttackAnimationFrameMatching = true
+AttackStartDelay = 500
+	StatsTags.Damage = "surge_damage"
+	StatsTags.HitSpeedMultiplier = "dps_boost"
+[[CHARACTER.ElectroWizardHero.AttackSequenceList]]
+	Damage = 50
+	HitSpeedMultiplier = 360
+	CustomMultipleTargets = 2
+	CustomRememberMultipleTargets = 1
+	DisableAttackAnimationFrameMatching = true
+	AttackStartDelay = 500
+[ACTION.ElectroWizardHero_Set_Spin_Animation_Done]
+	ClassType = "ActionSetVariable"
+	Variable = "ElectroWizardHero_Spin_Animation_Done"
+	Value = "1"
+[ACTION.ElectroWizardHero_Select_Spin_Or_No_Spin]
+	ClassType = "ActionSelect"
+	PerActionConditions = ["!UNIT_CUSTOM_TAG_1", "ElectroWizardHero_Spin_Animation_Done == 0"]
+	SubActions = ["ElectroWizardHero_Set_Attack_Sequence_0", "ElectroWizardHero_Set_Attack_Sequence_1", "ElectroWizardHero_Set_Attack_Sequence_2"]
+[ACTION.ElectroWizardHero_Set_Attack_Sequence_0]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 0
+	SetEvenIfCombatDisabled = true
+ 
+[ACTION.ElectroWizardHero_Set_Attack_Sequence_1]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 1
+	SetEvenIfCombatDisabled = true
+[ACTION.ElectroWizardHero_Set_Attack_Sequence_2]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 2
+	SetEvenIfCombatDisabled = true
+[ABILITY.ElectroWizardHero_Ability]
+	TID = "TID_HERO_EWIZ_ABILITY"
+	TID_INFO = "TID_HERO_EWIZ_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_electrowizard.sc"
+	IconExportName = "ability_icon_electrowizard"
+	IsChampion = true
+	CastTime = 450
+	TriggerDelay = 250
+	ManaCost = 2
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	DeployedEffect = "vfx_electrowizard_hero_ability_active"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OnActivationAction = "ElectroWizardHero_Ability_Activation_Group"
+	DeployedEffectAbsolutePositionToParent = true
+	Stats = "ElectroWizardHero_AbilityStats"
+	StatsTags.Cooldown = "ewiz_cooldown"
+[ACTION.ElectroWizardHero_Ability_Activation_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["ElectroWizardHero_Apply_Ability_Buff", "ElectroWizardHero_Set_Attack_Sequence_1", "ElectroWizardHero_Continuous_Aura"]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.ElectroWizardHero_Apply_Ability_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ElectroWizardHero_Ability_Buff"
+	SpawnTime = 3000
+	StatsTags.SpawnTime = "ewiz_ability_duration"
+[BUFF.ElectroWizardHero_Ability_Buff]
+	Rarity = "Common"
+	CharacterCrownTowerDamagePercent = 50
+	SpeedMultiplier = 100
+	OnRemoveAction = "ElectroWizardHero_End_Ability_Group"
+	ContinuousEffect = "vfx_electrowizard_hero_charging_start"
+	LoopContinuousEffect = false
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.ElectroWizardHero_Continuous_Aura]
+	ClassType = "ActionPlayEffect"
+	PrefabAsset = "sc3d/characters/hero/hero_electrowizard/effect/prefabs/ingame/vfx_electrowizard_hero_aura_buff"
+	EffectFlags = "FollowParent,LinkLifeToActionLife,Looping"
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.ElectroWizardHero_End_Ability_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["ElectroWizardHero_Set_Attack_Sequence_0", "ElectroWizardHero_Apply_Recovery_Buff", "ElectroWizardHero_Apply_Recovery_Root_Buff"]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.ElectroWizardHero_Apply_Recovery_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ElectroWizardHero_Recovery_Buff"
+	SpawnTime = 500
+[BUFF.ElectroWizardHero_Recovery_Buff]
+	Rarity = "Common"
+	AddAsIndividualBuff = true
+	GameTagsToSet = "NO_ATTACK,UNIT_CUSTOM_TAG_1"
+	OnRemoveAction = "ElectroWizardHero_Set_Attack_Sequence_0"
+[ACTION.ElectroWizardHero_Apply_Recovery_Root_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ElectroWizardHero_Recovery_Root_Buff"
+	SpawnTime = 500
+	ExecuteIfTrue = "target_in_range(5000)"
+[BUFF.ElectroWizardHero_Recovery_Root_Buff]
+	Rarity = "Common"
+	AddAsIndividualBuff = true
+	AliveIfTrue = "target_in_range(5000)"
+	GameTagsToSet = "NO_MOVE_ALLOW_ATTRACT"
+	OnStartAction = "ElectroWizardHero_Play_Recovery_Animation"
+[ACTION.ElectroWizardHero_Play_Recovery_Animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	PlaybackDuration = 1000
+[STATS.electro_wizard_hero]
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+		OverrideIntValue2 = 2
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "stun_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		Icon = "icons_stats_boost_freeze"
+		TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+		TIDReplaceValues = ["TID_SPELL_ZAP_FREEZE"]
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.electro_wizard_hero.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.ElectroWizardHero_AbilityStats]
+	[[STATS.ElectroWizardHero_AbilityStats.stats]]
+		Value = "surge_damage"
+		Value2 = "hit_speed"
+		Value3 = "dps_boost"
+		Unit = "DPS_BOOSTED_TIMES_2"
+		TID = "TID_ABILITY_STAT_DAMAGE_PER_SECOND"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.ElectroWizardHero_AbilityStats.stats]]
+    	OverrideIntValue = -50
+		Unit = "PERCENT"
+    	TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+    	Icon = "icons_stats_dmg_crown"
+	[[STATS.ElectroWizardHero_AbilityStats.stats]]
+		Value = "ewiz_ability_duration"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_ABILITY_STAT_DURATION"
+		Icon  = "icons_stats_deploy_time"

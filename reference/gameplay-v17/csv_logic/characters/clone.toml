@@ -1,0 +1,74 @@
+[SPELL_OTHER.Clone]
+Stats = "clone"
+[AEO.Clone]
+Clone = true
+Filter = "clone"
+LifeDuration = 1000
+Name = "Clone"
+OnHitAction = "CloneAction"
+Radius = 3000
+Rarity = "Common"
+ScaledEffect = "spell_clone_ground"
+SpawnDeployBaseAnim = "filter_hologram"
+[AEO.Clone.StatsTags]
+Level = "clone_level"
+Radius = "radius"
+[ACTION.CloneAction]
+CardDataForStats = "Clone"
+ClassType = "ActionClone"
+OnClonedAction = "SpawnCloneBufAction"
+SpawnDeployBaseAnim = "filter_hologram"
+[ACTION.SpawnCloneBufAction]
+ClassType = "ActionSpawn"
+SpawnData = "Clone"
+SpawnTime = 500
+SpawnType = "BuffType"
+[BUFF.Clone]
+Clone = true
+HitSpeedMultiplier = -100
+Name = "Clone"
+Rarity = "Common"
+SpawnSpeedMultiplier = -100
+SpeedMultiplier = -100
+TID = "TID_SPELL_CLONE"
+[STATS.clone]
+	[[STATS.clone.stats]]
+		Value = "clone_level"
+		Unit = "INTEGER"
+		TID = "TID_CLONED_COMMON_LEVEL"
+		Icon = "icons_stats_card_common"
+	[[STATS.clone.stats]]
+		Value = "clone_level"
+		Unit = "INTEGER"
+		TID = "TID_CLONED_RARE_LEVEL"
+		Icon = "icons_stats_card_rare"
+	[[STATS.clone.stats]]
+		Value = "clone_level"
+		Unit = "INTEGER"
+		TID = "TID_CLONED_EPIC_LEVEL"
+		Icon = "icons_stats_card_epic"
+	[[STATS.clone.stats]]
+		Value = "clone_level"
+		Unit = "INTEGER"
+		TID = "TID_CLONED_LEGENDARY_LEVEL"
+		Icon = "icons_stats_card_legendary"
+	[[STATS.clone.stats]]
+		Value = "clone_level"
+		Unit = "INTEGER"
+		TID = "TID_CLONED_CHAMPION_LEVEL"
+		Icon = "icons_stats_card_champion"
+	[[STATS.clone.stats]]
+		Value = "1"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_CLONE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.clone.stats]]
+		Value = "1"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_CLONE_SHIELD_HEALTH"
+		Icon = "icons_stats_shield_hp"
+	[[STATS.clone.stats]]
+		Value = "radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"

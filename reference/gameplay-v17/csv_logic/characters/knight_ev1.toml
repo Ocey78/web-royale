@@ -1,0 +1,27 @@
+[EXT.Knight_EV1]
+Base="CHARACTER.Knight"
+PrestigeSWF=""
+PrestigeExportName2=""
+PrestigeExportName3=""
+DeathEffect="Death_card_evolution_M"
+SpawnEffect="vfx_knight_evo_deploy"
+HealthBar="Medium_EV1"
+BuffWhenNotAttacking="Knight_Fortify_EV1"
+BuffWhenNotAttackingTime=50
+CustomSpawnFilter="filter_card_evolution"
+ClonedVersion="Knight"
+FileName="sc/chr_knight_evolution.sc"
+BlueExportName="knight_evolution"
+RedExportName="knight_evolution_enemy"
+Scale=78
+DeployBaseAnimExportName="filter_deploy_unit_legendary"
+HealthBarOffsetY=["=",-10]
+BuffWhenNotAttackingUseAttackRange = true
+[BUFF.Knight_Fortify_EV1]
+DamageReduction = 60
+OnDamageReductionAction = "Knight_EV1_ProtectionVFX"
+Rarity = "Common"
+[ACTION.Knight_EV1_ProtectionVFX]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_knight_evo_shield"
+EffectFlags = "FollowParent,ParticlesFollowParent"

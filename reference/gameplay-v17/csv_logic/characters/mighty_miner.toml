@@ -1,0 +1,171 @@
+[CHARACTER.MightyMiner]
+Ability = "MightyMinerLaneSwitch"
+AttackStartEffect = "mighty_miner_attack_start"
+AttacksGround = true
+BlueExportName = "MightyMiner"
+CollisionRadius = 500
+CustomSpawnFilter = "filter_champion_mighty_miner"
+Damage = 17
+DamageEffect = "mighty_miner_hit_fx"
+DamageExportName = "filter_damage"
+DeathEffect = "mighty_miner_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_mighty_miner_dl.sc"
+FlameEffect1 = "mighty_miner_muzzle"
+FlameEffect2 = "mighty_miner_muzzle_stage2"
+FlameEffect3 = "mighty_miner_muzzle_stage3"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HealthBarOffsetYBlue = 5
+HealthBarOffsetYRed = 10
+HideHealthbar = true
+HitSpeed = 400
+Hitpoints = 879
+IgnorePushback = true
+IngamePathfindEffect = "mighty_miner_travel_effect"
+IngamePathfindSpeed = 650
+IngamePathfindStartEffect = "mighty_miner_ground_deploy"
+IngamePathfindStopDeployBaseAnim = "filter_deploy_unit_mighty_miner"
+IngamePathfindStopEffect = "mighty_miner_ground_deploy"
+LoadTime = 700
+Mass = 6
+MoveEffect = "mighty_miner_steps"
+Name = "MightyMiner"
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+Range = 1600
+Rarity = "Common"
+RedExportName = "MightyMiner_enemy"
+Scale = 72
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "mighty_miner_deploy"
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+TargettedDamageEffect1 = "mighty_miner_beam"
+TargettedDamageEffect2 = "mighty_miner_beam_lv2"
+TargettedDamageEffect3 = "mighty_miner_beam_lv3"
+UseAnimator = true
+VariableDamage2 = 80
+VariableDamage3 = 160
+VariableDamageTime1 = 2000
+VariableDamageTime2 = 2000
+OnStartingClientActions = ["Healthbar_Medium"]
+VisualHitSpeed = 450
+VisualHitSpeed2 = 300
+VisualHitSpeed3 = 220
+[CHARACTER.MightyMiner.StatsTags]
+MinDamage = "min_damage"
+MaxDamage = "max_damage"
+HitSpeed = "hit_speed"
+Hitpoints = "hitpoints"
+Speed = "speed"
+Range = "range"
+Targets = "targets"
+[ABILITY.MightyMinerLaneSwitch]
+ActivationSpawnCharacter = "MightyMinerBomb"
+ActivationSpawnDeployTime = 0
+CastTime = 933
+MaxCharges = 1
+KeepIconEvenWhenOutOfCharges = true
+HideChargesTextField = true
+DeployedClip = "champion_select_ring_rampup_golden_knight"
+DeployedEffect = "ability_charging_mighty_miner"
+IconExportName = "icon_ability_mighty_miner"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 1
+Name = "MightyMinerLaneSwitch"
+Stats = "mighty_miner_ability"
+SwitchLanes = true
+TID = "TID_ABILITY_NAME_MIGHTY_MINER_LANE_SWITCH"
+TID_INFO = "TID_ABILITY_DESCRIPTION_MIGHTY_MINER"
+TriggerDelay = 500
+[ABILITY.MightyMinerLaneSwitch.StatsTags]
+Cooldown = "ability_cooldown"
+[BUILDING.MightyMinerBomb]
+AttacksAir = true
+AttacksGround = true
+AvoidCountingForBuffAmountStats = true
+BlueExportName = "mighty_miner_bomb_2_blue"
+CollisionRadius = 450
+DeathEffect = "MegaBombExplodeMightyMiner"
+DeathAreaEffect = "MightyMinerExplosion"
+DeployTime = 1000
+FileName = "sc/building_mighty_miner_bomb_dl.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "MightyMinerBomb"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Common"
+RedExportName = "mighty_miner_bomb_2_red"
+Scale = 100
+SpawnEffect = "MightyMiner_Bomb_deploy"
+TID = "TID_BUILDING_GIANT_SKELETON_BOMB"
+[AEO.MightyMinerExplosion]
+Rarity = "Common"
+Radius = 3000
+Damage = { BaseDamage = 130 }
+Pushback = 1800
+Filter = "CommonAreaDamageFilter" 
+StatsTags.Damage = "bomb_damage"
+[BUILDING.MightyMinerBomb.StatsTags]
+Targets = "bomb_targets"
+[STATS.mighty_miner]
+	[[STATS.mighty_miner.stats]]
+		Value = "min_damage"
+		Value2 = "max_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.mighty_miner.stats]]
+		Value = "min_damage"
+		Value2 = "max_damage"
+		Value3 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.mighty_miner.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.mighty_miner.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.mighty_miner.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.mighty_miner.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.mighty_miner.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.mighty_miner_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.mighty_miner_ability.stats]]
+		Value = "bomb_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.mighty_miner_ability.stats]]
+		Value = "bomb_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"

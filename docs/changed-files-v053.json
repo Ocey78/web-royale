@@ -1,0 +1,252 @@
+[
+  {
+    "file": "src/battle.js",
+    "baselineSha256": "2bc3fdcd373f948bbc9b1afc0a7d4657d07e943ac61a8f87e48579ece3a39770",
+    "sha256": "71eee306b73e2c60e0cb8cac1d5845d65e7e9350f3da09b4360d423699ee3949"
+  },
+  {
+    "file": "src/catalog.js",
+    "baselineSha256": "ab82bdefe3d193275ef7179cedc4663081fa7492c80b7247704e90431377ed3a",
+    "sha256": "08a45853457e1ad0bbb4fd90aba24c4e214b73949e59a2fc34f526eab6d81b23"
+  },
+  {
+    "file": "src/core.js",
+    "baselineSha256": "db8490f1368d5480340113747c930dc7dbe06687f2b0344ee7b36a4f37a584f2",
+    "sha256": "e62df2ae095aca3200015a6b222e003bf81662160fee6a32d80471216c38cb21"
+  },
+  {
+    "file": "src/form-state.js",
+    "baselineSha256": "8d4ae279be1b4545dce4d4ea0522db13dea5d4a1015763a75b72fd7095699544",
+    "sha256": "97a08166160f37f4052ced8c45f3021f43765624bfff80bb545cd475002da9bf"
+  },
+  {
+    "file": "src/game-data.js",
+    "baselineSha256": "7f40419b4fe9673a5cf13e61222e6063f671e19da38714db594a00c8d59c5c44",
+    "sha256": "8965f89b297c50ada246474a34a8b8251ba1561c2a4150a655dc2a8185d101b7"
+  },
+  {
+    "file": "src/learning.js",
+    "baselineSha256": "cb80a15cb5655b1a0e2f9a2cc65450809d5385303b769e1e1f06eb0764704cc9",
+    "sha256": "8439a4bc6e881cb4e6dceec6921582c1ffb68ae0d5521e52ff3af6bfe8969b5b"
+  },
+  {
+    "file": "src/legacy-core-v052.js",
+    "baselineSha256": null,
+    "sha256": "dc232541580156a88d6bb97bb439f152250c83be69396c38d47c839bf43ee891"
+  },
+  {
+    "file": "src/modern-actions.js",
+    "baselineSha256": "ca212faf4b318607fba3f418e58762dcfa2001556fdd3d23d4221fef5d579fd8",
+    "sha256": "444aeafc89a6e8a4650e13487ab8d2a2befdfcc2bcef663632b8f9d1f1a560af"
+  },
+  {
+    "file": "src/navigation.js",
+    "baselineSha256": "ac4cf8c3045a523dacb02a55d30cf39fd279dff3ea68e94c0203075437aa1108",
+    "sha256": "2b53288f5ae7f10282bec9a4a8157df8cd82535cc12ce72ca353e59677347824"
+  },
+  {
+    "file": "src/replay.js",
+    "baselineSha256": "24859f7e731169152b34d49999da75e62aec8833e5a8e4e9da04a413c8362571",
+    "sha256": "1cb6f106a4c3a7b9358895a5669294129726078c8b683e4606d2481f0da9b9a1"
+  },
+  {
+    "file": "src/source-resolvers.js",
+    "baselineSha256": "7f84ea48065fd3ec49e6ec6c3761595344ca18c84a5f485ce4c512b5f966d7c5",
+    "sha256": "bca4ab6b5d86a8cc2fda92c6c1b3f244840c9610423ab7702be56c50b21e48de"
+  },
+  {
+    "file": "src/training-worker.js",
+    "baselineSha256": "4edb1ec5d4cea9276efe378bd7008636d60ac990f8bdb96c6c3b767be52478ae",
+    "sha256": "2f7e7650ba6efc0896e5771f68492e66a52a916aecbe68bf9c5f5514a9aac071"
+  },
+  {
+    "file": "tools/build-web.js",
+    "baselineSha256": "d597bcae299041d0f2c1b15873493d02cec64b4ed8dea7fc96fdc975e65a3b95",
+    "sha256": "7b141e2e25202558692efd6f56c4a004026d8d00df1a55cdf3b7ec3396323a9c"
+  },
+  {
+    "file": "tools/import-gameplay-v17.py",
+    "baselineSha256": null,
+    "sha256": "2c396587e36fc9a3b1894f34983d6d0f5bc7bdc8ffe59a077807abd8bf9525b9"
+  },
+  {
+    "file": "tools/native-policy.cjs",
+    "baselineSha256": "c388b3f272b5f050e225ef759051df4ac1a8eace2e60bcb6d454dace2452614a",
+    "sha256": "66a14f8a763b14223161ee670d4848a14fdcf8e03c0eb0911b7ddbc20914489b"
+  },
+  {
+    "file": "tools/offline-host.cs",
+    "baselineSha256": "2277289c255150040e72f5cad287b9b6c92faf81356aa86a369808400ea95074",
+    "sha256": "7961a2d87df0ad9a920586f52973eec8c7c2e4b1ea9284edec0a7e09a5b889c9"
+  },
+  {
+    "file": "tools/report-gameplay-parity.cjs",
+    "baselineSha256": null,
+    "sha256": "74672f7bd771b33f5ae92d4b50124370630b6a654033ea351a6d187fabc825e5"
+  },
+  {
+    "file": "tools/test-gameplay-import.py",
+    "baselineSha256": null,
+    "sha256": "73ecc906a1d88b689850ae03d5f43286f1524c0585b19764f7ed08291e216bde"
+  },
+  {
+    "file": "tests/assets.test.cjs",
+    "baselineSha256": "27d255d23048f2ed8b8418c5676d1b2869f3adadb05ed276443186588f152c19",
+    "sha256": "22d28edd3a15d649c913f5b6f89b6e0c4fc27843f11bdd86532b3f4ba5446e32"
+  },
+  {
+    "file": "tests/attack-cadence-v054.test.cjs",
+    "baselineSha256": null,
+    "sha256": "7bdf0dc9ada2147ab63649f7227547c1ba420ebb7ee17502fe651543fbe6a70d"
+  },
+  {
+    "file": "tests/balance-replay-v053.test.cjs",
+    "baselineSha256": null,
+    "sha256": "6142a9409fb1f015af0d8947348cc40f1193f175c3e83ff7d5c6115ec2e3432f"
+  },
+  {
+    "file": "tests/forms-live-v17.test.cjs",
+    "baselineSha256": null,
+    "sha256": "286fb7829e8fedbd87d4f94c7211382c2bc01a06727a4298a7102a964105b2d8"
+  },
+  {
+    "file": "tests/modern-source-v052.test.cjs",
+    "baselineSha256": "33674a758754012578ac17c6f4b973091b21a23e10d4a7e6d6819c7b1e16120b",
+    "sha256": "8a68b5df9c23b72de9be24243acf6b1aab0556f64de14e8985fcd1bd257785fb"
+  },
+  {
+    "file": "tests/modern-training-v052.test.cjs",
+    "baselineSha256": "c554665819ff81c5f5dff7d1624e0537cfaf32edc7e2cc3bafc126493021430c",
+    "sha256": "006dda387ad6f702cd6dc7e36c63276799148cbeab4b00c6b4ed48f706e1cfcd"
+  },
+  {
+    "file": "tests/monk-balance-v053.test.cjs",
+    "baselineSha256": null,
+    "sha256": "9a7cc1e45e635ea780552b6a7b15fe2b448d80f68a54ab28b504ad6191dc87ab"
+  },
+  {
+    "file": "tests/movement-v054.test.cjs",
+    "baselineSha256": null,
+    "sha256": "6f70cd474da0bb543828958c0cf993361fb60bbc99877cd78adf647b214aac14"
+  },
+  {
+    "file": "tests/native-alias-policy.test.cjs",
+    "baselineSha256": null,
+    "sha256": "dd7e51446c5ccf5903cda9cc98ca11d86248db99cdf428e842016ed8e95d9a18"
+  },
+  {
+    "file": "tests/native-damage-v054.test.cjs",
+    "baselineSha256": null,
+    "sha256": "4a67eb1d8c483d0559d1feb862f97146aebd20679b5b52a0d12adb83c7a9501c"
+  },
+  {
+    "file": "tests/october-balance-v053.test.cjs",
+    "baselineSha256": null,
+    "sha256": "05721bd37147f3a98a32eea4ef2d771081a740710c14866c1f925d71feddad97"
+  },
+  {
+    "file": "tests/positional-match-v0522.test.cjs",
+    "baselineSha256": "0c0c6dafe0a8e2202cec8052ca58cbc08e4e0130141ab4d50f6de470b5ea8880",
+    "sha256": "b28d88dbc6f6c458ef82d54b2da23c9045b4c8827cc63f868701ff3edd1f01e7"
+  },
+  {
+    "file": "tests/replay-data-isolation-v052.test.cjs",
+    "baselineSha256": "6b36df30a6f8f4979f13edc9a547bb19f2cc4b6557a80fc40fc77d1da1d3f434",
+    "sha256": "736db8883d69b459a16fbd35c56e99109ac65a26e7fa4d7b948de78e141ecafc"
+  },
+  {
+    "file": "tests/replay-legacy-v300.test.cjs",
+    "baselineSha256": "ef405f0ba9c783068bc82538c713c21ae17b44ec42089c2b96326ab5e3b0e825",
+    "sha256": "6875a7a55daf725d7c22d8720a3838364534bae2c0ff1bb84c92e07dfcd8af80"
+  },
+  {
+    "file": "tests/replay-legacy-v310.test.cjs",
+    "baselineSha256": "412e3c5daa0e89712257ec18e2e69b5d6b4ae12b4850f456314f279d824fd085",
+    "sha256": "210b303f775ee4b3ad29acf13c15e2a86ab92e6b05689edc9a4953223f4ae268"
+  },
+  {
+    "file": "tests/replay-legacy-v320.test.cjs",
+    "baselineSha256": "3e2659dc682724d5c4768d6d654cd1d2eb7a82050d16cfb639ef59754b55629c",
+    "sha256": "7fffba72cfe6067614435af09bcfafb10e5de1d15dbf8c79be5f90fc550b4026"
+  },
+  {
+    "file": "tests/sandbox-level-audit-v029.test.cjs",
+    "baselineSha256": "a090a6a99f9c22e3b92b030423bfe3555f51b770f573c97639f3854637e83866",
+    "sha256": "36faddf58a9747f3ed49016bd05f4aa5358f062bb54065479c6ef0e5e0b92e4a"
+  },
+  {
+    "file": "tests/simulation-v053.test.cjs",
+    "baselineSha256": null,
+    "sha256": "8d6759fe10b2dfb143c98ceb90987bbc7585fec5045337fb8133834d42453bdb"
+  },
+  {
+    "file": "tests/source-card-rules.test.cjs",
+    "baselineSha256": "295f9c0e24990948a11b9b58aac44e9f4d7ad2eefcbc58b1e6d42554e8ae127e",
+    "sha256": "56c346fed53c0c2d658f8e008757b1d8bb86dbbc1df1fa5da5bab03ee0a67d17"
+  },
+  {
+    "file": "tests/team-v110.test.cjs",
+    "baselineSha256": "3d858351ec423acca71950e348f9b96099d5ccef8dc68ec6d96162424187c859",
+    "sha256": "d39b2da5e3fa39f603f30abd68c0b9b1c3f4c1774dc68a3e82e715acde4651db"
+  },
+  {
+    "file": "tests/tower-champions-v054.test.cjs",
+    "baselineSha256": null,
+    "sha256": "363e3713bb101077adc42646b0d25f84747776831b420d5e581e4af10d49e9e6"
+  },
+  {
+    "file": "tests/v038-movement.test.cjs",
+    "baselineSha256": "3a7ef7c49fccc127e30309936116ad69ab9b048a3ce0f4d6d54e242979585c1f",
+    "sha256": "a6b16f8050dd0f1eedf262741a36f9b017c19c4a338decbcb0602b4c3af63dd1"
+  },
+  {
+    "file": "tests/v038-replay.test.cjs",
+    "baselineSha256": "5dcac8c148395b5fbed4e183ff57668188beee0c55981683b61e2ff6ed92d7a7",
+    "sha256": "f77a6f3b6af22b77b4e1ff6595f78f887c687a1bf3fd6917f61f95258443fee1"
+  },
+  {
+    "file": "tests/v041-movement.test.cjs",
+    "baselineSha256": "1d8a73a835352a30da5e755c9e14193fa88e779332fd6245092c539f85023d69",
+    "sha256": "b51229d02843e53b098f66a0a84ff313f567651b6f79a0af66a0df4ad75217da"
+  },
+  {
+    "file": "tests/v043-replay.test.cjs",
+    "baselineSha256": "fe33964a7919aa5cf1fe84a2426d2798503a807bc9455c6948161173f16e6cab",
+    "sha256": "5c7236478e9b6b3dcf1cfc9c3fe52be6e794ab62c4b7c3dc8ce4ea58628e9cdd"
+  },
+  {
+    "file": "tests/v044-replay.test.cjs",
+    "baselineSha256": "3fab8dacb9bef14ea296855817b147b85cc94577e059d9ef92dfda5bda179372",
+    "sha256": "e0a41730cdc7e546b02e627df0fdf0ca8a273fea7166ed98f5b838c94f27f21d"
+  },
+  {
+    "file": "tests/v045-replay.test.cjs",
+    "baselineSha256": "95d63686af44b90f17894257558a1bc36bb07d6a53330dc3f5fa800e6d187e3d",
+    "sha256": "65b4bd7d4bbeb7cd2d1c857767bd81d9f0c04f17c4777204801721a954a29a9c"
+  },
+  {
+    "file": "tests/v130-regressions.test.cjs",
+    "baselineSha256": "d2a2b1e02276689bcaa5012d8990018b97d1ad92a2946e2ae71e53245ff9f7a1",
+    "sha256": "08a4001483b6b794fe022f4c2e86842ca38d03d376148ca27a82f7d32ec6bb1d"
+  },
+  {
+    "file": "assets/game/data.json",
+    "baselineSha256": "304f5dd9bb70a361897b33a6d28617798eff7bf31d4a4fe9f0421c60be343e1e",
+    "sha256": "cfe8c24d957564b066c8e265f1b0be1f0f0ab0b2c5a5694bb78dccdb393d6629"
+  },
+  {
+    "file": "package.json",
+    "baselineSha256": "4e36ba7c0688c7ed1538ac04c3e40c970c49b8bfeae3f33727cc4a330e6d1c39",
+    "sha256": "9baf78d2801e34302cb8bfd3a9d8407959d785d564a6b0a9c7b53765d7a5fa67"
+  },
+  {
+    "file": "project.json",
+    "baselineSha256": "7b463dad6951b6746162cc96a4547b01e36e69123c9eb529d15663aaaf201e55",
+    "sha256": "0edf98555cc3a1af2cf63df4964ecba83fe0d95e1474df47b4d2f083864ad754"
+  },
+  {
+    "file": "offline build opener.bat",
+    "baselineSha256": "8f585f3cc83eb0e48660b88f3aebea2f8e2562648afad94c75509d3b96633566",
+    "sha256": "cb792de773b1a35a02d104a26a7d9ad1a2d9188a21a89b02b1667d4af3240fca"
+  }
+]

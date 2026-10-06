@@ -1,0 +1,10 @@
+[AEO.ElixirDrop]
+Name = "ElixirDrop"
+Rarity = "Common"
+LifeDuration = 999999
+Radius = 1000
+LoopingEffect = "elixir_continuous"
+HitSpeed = 300
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "friendly_troop_no_buildings"

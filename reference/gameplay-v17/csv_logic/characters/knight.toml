@@ -1,0 +1,84 @@
+[CHARACTER.Knight]
+AttackStartEffect = "knight_attack_start"
+AttacksGround = true
+BlueExportName = "Knight"
+CollisionRadius = 500
+Damage = 79
+DamageEffect = "knight_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "knight_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_knight.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = 28
+HitSpeed = 1200
+Hitpoints = 690
+LoadTime = 700
+Mass = 6
+MoveEffect = "knight_steps"
+Name = "Knight"
+PrestigeExportName2 = "Knight_prestige"
+PrestigeExportName3 = "Knight_prestige2"
+PrestigeSWF = "sc/chr_prestige4_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "Knight_enemy"
+Scale = 98
+ShaderFXBase = "Outline_Blue"
+ShaderFXTop = "Outline_Blue"
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "knight_deploy"
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+UseAnimator = true
+[CHARACTER.Knight.StatsTags]
+Damage = "damage"
+Hitpoints = "hitpoints"
+Speed = "speed"
+HitSpeed = "hit_speed"
+Targets = "targets"
+Range = "range"
+[STATS.knight]
+	[[STATS.knight.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.knight.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.knight.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.knight.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.knight.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.knight.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.knight.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

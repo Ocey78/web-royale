@@ -1,0 +1,121 @@
+
+[CHARACTER.Balloon]
+AttackStartEffect = "balloon_attack_start"
+AttacksGround = true
+BlueExportName = "balloon1"
+CollisionRadius = 500
+Damage = 250
+DamageEffect = "balloon_hit"
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "balloon_die"
+DeathSpawnCharacter = "BalloonBomb"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_balloon.sc"
+FlyingHeight = 3000
+HealthBar = "Medium"
+HitSpeed = 2000
+Hitpoints = 655
+LoadTime = 1800
+Mass = 6
+MoveEffect = "balloon_steps"
+Name = "Balloon"
+PrestigeExportName2 = "balloon_prestige"
+PrestigeExportName3 = "balloon_prestige2"
+PrestigeSWF = "sc/chr_prestige6_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 100
+Rarity = "Common"
+RedExportName = "balloon1_enemy"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = 50
+ShadowSkew = 15
+ShadowY = -10
+SightClipSide = 2000
+SightRange = 7700
+SpawnEffect = "balloon_deploy"
+Speed = 60
+TID = "TID_SPELL_BALLOON"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+StatsTags.Damage = "damage"
+StatsTags.Speed = "speed"
+
+[BUILDING.BalloonBomb]
+AttacksAir = true
+AttacksGround = true
+AvoidCountingForBuffAmountStats = true
+BlueExportName = "giant_skeleton_bomb_blue"
+CollisionRadius = 450
+DeathAreaEffect = "BalloonBombExplosion"
+DeathEffect = "vfx_balloon_death_bomb_explosion"
+DeployTime = 3000
+FileName = "sc/building_mega_bomb.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "BalloonBomb"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Common"
+RedExportName = "giant_skeleton_bomb_red"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+TID = "TID_BUILDING_GIANT_SKELETON_BOMB"
+
+[AEO.BalloonBombExplosion]
+Rarity = "Common"
+Radius = 3000
+Damage = { BaseDamage = 94 }
+Filter = "CommonAreaDamageFilter" 
+StatsTags.Damage = "death_damage"
+
+[STATS.Balloon]
+    [[STATS.Balloon.stats]]
+		Value = "damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.Balloon.stats]]
+		Value = "death_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+        Icon = "icons_stats_dmg_death"
+	[[STATS.Balloon.stats]]
+		Value = "damage"
+		Value2 = "hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.Balloon.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.Balloon.stats]]
+		Value = "hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.Balloon.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.Balloon.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.Balloon.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

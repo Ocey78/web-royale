@@ -1,0 +1,4 @@
+Name,TID,PlayerCount,BattleConfig,ImmediateMode,LeagueRankPointCurveConfig
+string,string,int,string,int,string
+AutoChess,,4,logic/autochess/autochess_config/autochess_config,0,logic/autochess/score/common_curve
+AutoChess_AbilityEditor,,2,logic/autochess/autochess_config/ability_editor,1,logic/autochess/score/common_curve

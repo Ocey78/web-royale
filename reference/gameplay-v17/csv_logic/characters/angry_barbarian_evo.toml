@@ -1,0 +1,281 @@
+[SPELL_EVOLVED.AngryBarbarians_EV1]
+	SummonCharactersList = ["AngryBarbarian_EV1", "AngryBarbarian_EV1_2"]
+	SummonCharactersOffsetsX = [-700, 700]
+	SummonCharactersOffsetsY = [0, 0]
+	CharactersOffsetsXMirrored = true
+	SummonSpawnDelay = 100
+    Stats = "angry_barbarian_ev1"
+    StatsTags.SummonNumberListOnly = "count"
+[VARIABLE.AngryBarbarian_EV1_can_play_ready_effect]
+[VARIABLE.AngryBarbarian_EV_has_projectile]
+[VARIABLE.AngryBarbarian_EV1_attack_sequence]
+[VARIABLE.AngryBarbarian_EV1_min_range]
+DefaultValue = 3000
+[EXT.AngryBarbarian_EV1]
+Base = "CHARACTER.AngryBarbarian"
+ClonedVersion = "AngryBarbarian"
+AttackSequenceMode="None"
+AttackSequence=[0,1]
+OnStartingAction = "AngryBarbarian_EV1_starting_actions_group"
+HealthBar = "Medium_EV1"
+LoadTime = 850
+Projectile = "AngryBarbarian_EV1_RangedProjectile"
+    PrefabAsset = "sc3d/characters/evolution/evo_elite_barbarians/evo_prefab_elite_barbarians_battle"
+    TryToFinishAttackAnimation = true
+    SpawnEffect = "vfx_elite_barbarians_evo_deploy"
+    DeathEffect = "Death_card_evolution_M_new"
+            DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+            CustomSpawnFilter = "filter_card_evolution"
+StatsTags.Damage = "damage"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+StatsTags.Speed = "speed"
+StatsTags.Level = "level"
+[EXT.AngryBarbarian_EV1_2]
+Base = "CHARACTER.AngryBarbarian_EV1"
+LoadTime = 900
+[ACTION.AngryBarbarian_EV1_starting_actions_group]
+ClassType = "ActionGroup"
+SubActions = ["AngryBarbarian_EV1_tick_setup_props", "AngryBarbarian_EV1_as_ranged", "AngryBarbarian_EV1_continuous_range_check", "AngryBarbarian_EV1_interval_to_allow_ready_effect"]
+    [ACTION.AngryBarbarian_EV1_continuous_range_check]
+    ClassType       = "ActionInterval"
+    Interval        = 50
+    ActionToExecute = "AngryBarbarian_EV1_check_can_use_range"
+    Singleton       = true
+[ACTION.AngryBarbarian_EV1_timer_action]
+ClassType = "ActionInterval"
+Interval = 5000
+StartCounterAt = 5000
+ActionToExecute = "AngryBarbarian_EV1_as_ranged"
+Singleton = true
+AffectedByHitSpeed = true
+ForceStopIfTrue = "AngryBarbarian_EV_has_projectile > 0"
+StatsTags.Interval = "cooldown"
+[ACTION.AngryBarbarian_EV1_wait_to_activate_set_range]
+ClassType           = "ActionWaitToActivate"
+Condition           = "!target_in_range(AngryBarbarian_EV1_min_range) && AngryBarbarian_EV_has_projectile > 0 && target_in_range(5000)"
+OnActivateAction    = "AngryBarbarian_EV1_set_range_attack"
+Singleton           = true
+ForceStopIfTrue     = "AngryBarbarian_EV_has_projectile == 0"
+[ACTION.AngryBarbarian_EV1_check_can_use_range]
+ClassType       = "ActionFilter"
+Condition       = "!target_in_range(AngryBarbarian_EV1_min_range) && AngryBarbarian_EV_has_projectile > 0 && target_in_range(5000)"
+OnFalseAction   = "AngryBarbarian_EV1_check_can_use_range_false"
+Singleton       = true
+    [ACTION.AngryBarbarian_EV1_check_can_use_range_false]
+    ClassType       = "ActionGroup"
+    SubActions      = ["AngryBarbarian_EV1_set_melee_attack", "AngryBarbarian_EV1_wait_to_activate_set_range"]
+    SubActionsDelay = [0, 0]
+    Singleton       = true
+    ExecuteIfTrue   = "AngryBarbarian_EV1_attack_sequence > 0"
+[ACTION.AngryBarbarian_EV1_retarget]
+ClassType = "ActionResetTarget"
+[ACTION.AngryBarbarian_EV1_interval_to_allow_ready_effect]
+ClassType       = "ActionInterval"
+Interval        = 250
+StartCounterAt  = 250
+ActionToExecute = "AngryBarbarian_EV1_set_can_play_ready_effect"
+ForceStopIfTrue = "AngryBarbarian_EV1_can_play_ready_effect > 0"
+[ACTION.AngryBarbarian_EV1_ReadyIndicator_wait_to_play_it]
+ClassType           = "ActionWaitToActivate"
+Condition           = "AngryBarbarian_EV1_can_play_ready_effect > 0"
+OnActivateAction    = "AngryBarbarian_EV1_ReadyIndicator"
+Singleton           = true
+[ACTION.AngryBarbarian_EV1_ReadyIndicator]
+ActionDelay = 200
+ClassType   = "ActionPlayEffect"
+Effect      = "vfx_elite_barbarians_evo_ability_ready"
+PrefabAsset = "sc3d/characters/evolution/evo_elite_barbarians/effect/prefabs/vfx_elite_barbarians_evo_projectile_appear"
+[[EXT.AngryBarbarian_EV1.AttackSequenceList]]
+Damage = 150
+DamageEffect = "vfx_elite_barbarians_evo_hit"
+[[EXT.AngryBarbarian_EV1.AttackSequenceList]]
+CustomRange = 4500
+CustomSightRange = 4500
+Projectile = "AngryBarbarian_EV1_RangedProjectile"
+CustomProjectileStartZ = 1400
+CustomProjectileStartRadius = 200
+StatsTags.CustomRange = "range_max_range"
+[ACTION.AngryBarbarian_EV1_set_melee_attack]
+ClassType = "ActionSetAttackSequenceIndex"
+AttackIndex = 0
+SetEvenIfCombatDisabled = true
+ResetRealHitStarted = true
+ExecuteIfTrue = "target_in_range(AngryBarbarian_EV1_min_range) || AngryBarbarian_EV_has_projectile == 0"
+NextAction = "AngryBarbarian_EV1_register_attack_seq_as_0"
+[ACTION.AngryBarbarian_EV1_set_range_attack]
+ClassType = "ActionSetAttackSequenceIndex"
+AttackIndex = 1
+SetEvenIfCombatDisabled = true
+NextAction = "AngryBarbarian_EV1_register_attack_seq_as_1"
+[ACTION.AngryBarbarian_EV1_set_has_projectile_true]
+ClassType = "ActionSetVariable"
+Variable = "AngryBarbarian_EV_has_projectile"
+Value = "1"
+[ACTION.AngryBarbarian_EV1_set_has_projectile_false]
+ClassType = "ActionSetVariable"
+Variable = "AngryBarbarian_EV_has_projectile"
+Value = "0"
+[ACTION.AngryBarbarian_EV1_set_can_play_ready_effect]
+ClassType = "ActionSetVariable"
+Variable = "AngryBarbarian_EV1_can_play_ready_effect"
+Value = "1"
+[ACTION.AngryBarbarian_EV1_register_attack_seq_as_0]
+ClassType = "ActionSetVariable"
+Variable = "AngryBarbarian_EV1_attack_sequence"
+Value = "0"
+ExecuteIfTrue = "target_in_range(AngryBarbarian_EV1_min_range) || AngryBarbarian_EV_has_projectile == 0"
+[ACTION.AngryBarbarian_EV1_register_attack_seq_as_1]
+ClassType = "ActionSetVariable"
+Variable = "AngryBarbarian_EV1_attack_sequence"
+Value = "1"
+[ACTION.AngryBarbarian_EV1_as_melee]
+ClassType = "ActionGroup"
+SubActions = ["AngryBarbarian_EV1_set_has_projectile_false", "AngryBarbarian_EV1_set_melee_attack", "AngryBarbarian_EV1_timer_action", "AngryBarbarian_EV1_retarget"]
+SubActionsDelay = [0, 0, 0, 0]
+[ACTION.AngryBarbarian_EV1_as_ranged]
+ClassType = "ActionGroup"
+SubActions = ["AngryBarbarian_EV1_set_has_projectile_true", "AngryBarbarian_EV1_ReadyIndicator_wait_to_play_it", "AngryBarbarian_EV1_wait_to_activate_set_range"]
+SubActionsDelay = [0, 0, 0]
+[EXT.AngryBarbarian_EV1_RangedProjectile]
+Base = "PROJECTILE.ArcherArrow"
+Rarity = "Common"
+PrefabAsset = "sc3d/characters/evolution/evo_elite_barbarians/evo_prefab_elite_barbarians_projectile_battle"
+Damage = 86
+Speed = 600
+Gravity = 70
+OnStartingAction = "AngryBarbarian_EV1_RangedProjectile_starting_actions"
+HitEffect = "vfx_elite_barbarians_evo_hit_spear"
+StatsTags.Damage = "ranged_damage"
+    [EXT.AngryBarbarian_EV1_RangedProjectile.OnTargetReachedAction]
+    ClassType = "ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "AngryBarbarian_EV1_RageAEO"
+    [ACTION.AngryBarbarian_EV1_RangedProjectile_starting_actions]
+    ClassType = "ActionGroup"
+    SubActions = ["AngryBarbarian_EV1_RageTrail", "AngryBarbarian_EV1_run_on_shooter"]
+    SubActionsDelay = [200, 0]
+    [ACTION.AngryBarbarian_EV1_RageTrail]
+    ClassType = "ActionInterval"
+    Interval = 160
+    ActionDelay = 200
+    ActionToExecute = "AngryBarbarian_EV1_SpawnRageAEO"
+        [ACTION.AngryBarbarian_EV1_SpawnRageAEO]
+        ClassType = "ActionSpawn"
+        SpawnType = "AreaEffectType"
+        SpawnData = "AngryBarbarian_EV1_RageAEO"
+    [ACTION.AngryBarbarian_EV1_run_on_shooter]
+    ClassType = "ActionRunActionOnShooter"
+    ActionToExecute = "AngryBarbarian_EV1_as_melee"
+[EXT.AngryBarbarian_EV1_RageAEO]
+Base = "AEO.Rage"
+Radius = 1000
+LifeDuration = 2000
+ScaledEffect = ""
+OneShotEffect = ""
+LoopingEffect = ""
+SpawnAreaEffectObject = ""
+OnStartingAction = "AngryBarbarian_EV1_RageEffect"
+StatsTags.LifeDuration = "rage_duration"
+    [ACTION.AngryBarbarian_EV1_RageEffect]
+    ClassType = "ActionPlayEffect"
+    Effect = "vfx_elite_barbarians_evo_rage_smoke"
+    OverrideDuration = 2000
+    OverrideScale = 100
+[ACTION.AngryBarbarian_EV1_tick_setup_props]
+ClassType       = "ActionInterval"
+Interval        = 50
+ActionToExecute = "AngryBarbarian_EV1_select_prop"
+    [ACTION.AngryBarbarian_EV1_select_prop]
+    ClassType       = "ActionFilter"
+    Condition       = "AngryBarbarian_EV_has_projectile > 0"
+    OnTrueAction    = "AngryBarbarian_EV1_set_prop_state"
+    OnFalseAction   = "AngryBarbarian_EV1_set_normal_state"
+        [ACTION.AngryBarbarian_EV1_set_normal_state]
+        ClassType = "ActionSetAnimationModifier"
+        Parameter = "PropState"
+        Value = 0
+        [ACTION.AngryBarbarian_EV1_set_prop_state]
+        ClassType = "ActionSetAnimationModifier"
+        Parameter = "PropState"
+        Value = 1
+[STATS.angry_barbarian_ev1]
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "damage"
+    Unit = "INTEGER"
+    TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+    Icon = "icons_stats_dmg"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "damage"
+    Value2 = "hitspeed"
+    Unit = "DPS"
+    TID = "TID_SPELL_ATTRIBUTE_DPS"
+    Icon = "icons_stats_dmg_dps"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "hitpoints"
+    Unit = "INTEGER"
+    TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+    Icon = "icons_stats_hp"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "hitspeed"
+    Unit = "TIME_PRECISE"
+    TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+    Icon = "icons_stats_dmg_speed"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "targets"
+    Unit = "TARGETS"
+    TID = "TID_SPELL_ATTRIBUTE_TARGET"
+    Icon = "icons_stats_target"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "speed"
+    Unit = "SPEED"
+    TID = "TID_SPELL_ATTRIBUTE_SPEED"
+    Icon = "icons_stats_speed"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "range"
+    Unit = "MELEE_RANGE"
+    TID = "TID_SPELL_ATTRIBUTE_RANGE"
+    Icon = "icons_stats_range"
+    [[STATS.angry_barbarian_ev1.stats]]
+    Value = "count"
+    Unit = "COUNT"
+    TID = "TID_SPELL_ATTRIBUTE_COUNT"
+    Icon = "icons_stats_troop_count"
+    [[STATS.angry_barbarian_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPEAR_ATTACK_LEVEL"
+        TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SPEAR"]
+		Icon = "icons_stats_spear"
+        InfoButtonStats = "evo_ebarbs_spear"
+		InfoPopoverTitle = "TID_CHARACTER_SPEAR"
+    [STATS.evo_ebarbs_spear]
+    [[STATS.evo_ebarbs_spear.stats]]
+        VariableValue = "AngryBarbarian_EV1_min_range"
+        Value2 = "range_max_range"
+        Unit = "TILES"
+        TID = "TID_SPELL_ATTRIBUTE_RANGE"
+        Icon = "icons_stats_range"
+        [[STATS.evo_ebarbs_spear.stats]]
+    Value = "cooldown"
+    Unit = "TIME_PRECISE"
+    TID = "TID_ABILITY_STAT_COOLDOWN"
+    Icon = "icons_stats_cooldown"
+        [[STATS.evo_ebarbs_spear.stats]]
+    Value = "rage_duration"
+    Unit = "TIME"
+    TID = "TID_SPELL_ATTRIBUTE_DURATION"
+    Icon = "icons_stats_deploy_time"
+    [[STATS.evo_ebarbs_spear.stats]]
+        Value = "targets"
+        Unit = "TARGETS"
+        TID = "TID_SPELL_ATTRIBUTE_TARGET"
+        Icon = "icons_stats_target"
+        [[STATS.evo_ebarbs_spear.stats]]
+    Value = "ranged_damage"
+    Unit = "INTEGER"
+    TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+    Icon = "icons_stats_strength"

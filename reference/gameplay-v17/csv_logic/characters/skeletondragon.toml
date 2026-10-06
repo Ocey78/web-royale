@@ -1,0 +1,57 @@
+
+[CHARACTER.SkeletonDragon]
+AttackStartEffect = "skeletondragon_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "skeletondragon"
+CollisionRadius = 900
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "skeletondragon_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_skeleton_dragon_dl.sc"
+FlyingHeight = 2500
+HealthBar = "Medium"
+HitSpeed = 2000
+Hitpoints = 219
+LoadTime = 1600
+Mass = 4
+MoveEffect = "skeleton_dragon_steps"
+Name = "SkeletonDragon"
+PrestigeSWF = "sc/chr_skeleton_dragon_dl.sc"
+Projectile = "SkeletonDragonProjectile"
+ProjectileEffect = "skeletondragon_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 3500
+Rarity = "Common"
+RedExportName = "skeletondragon_enemy"
+Scale = 98
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "skeletondragon_deploy"
+SpawnEffectOnce = true
+Speed = 90
+TID = "TID_SPELL_SKELETONDRAGONS"
+UseAnimator = true
+
+[PROJECTILE.SkeletonDragonProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 59
+ExportName = "skeletondragon_projectile"
+FileName = "sc/chr_skeleton_dragon_dl.sc"
+Gravity = 250
+HitEffect = "vfx_skeletondragon_hit"
+Homing = true
+Name = "SkeletonDragonProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+Speed = 500
+TrailEffect = "vfx_skeletondragon_pjt"
+
+

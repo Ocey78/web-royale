@@ -1,0 +1,22 @@
+
+[AEO.Freeze]
+Buff = "Freeze"
+BuffTime = 3500
+Filter = "aeo_enemy_affects_hidden"
+LifeDuration = 3500
+LoopingEffect = "Spell_freeze_loop"
+Name = "Freeze"
+Radius = 3000
+Rarity = "Common"
+ScaledEffect = "Spell_freeze_ground"
+Damage = { BaseDamage = 58, TowerDamage = 15 }
+
+[BUFF.Freeze]
+FilterExportName = "filter_cold"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = -100
+Name = "Freeze"
+Rarity = "Common"
+SpawnSpeedMultiplier = -100
+SpeedMultiplier = -100
+TID = "TID_SPELL_FREEZE"

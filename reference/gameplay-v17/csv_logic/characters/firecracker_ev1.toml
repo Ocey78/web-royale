@@ -1,0 +1,100 @@
+
+[EXT.Firecracker_EV1]
+Base = "CHARACTER.Firecracker"
+BlueExportName = "evofirecracker"
+ClonedVersion = "Firecracker"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_M"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+FileName = "sc/chr_firecracker_evolution.sc"
+HealthBar = "Small_EV1"
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+Projectile = "FirecrackerProjectile_EV1"
+ProjectileEffect = "evo_firecracker_attack"
+ProjectileSpecial = "ArcherArrow"
+RedExportName = "evofirecracker_enemy"
+Scale = 42
+SpawnEffect = "vfx_firecracker_evo_deploy"
+
+[PROJECTILE.FirecrackerProjectile_EV1]
+AoeToAir = true
+AoeToGround = true
+ExportName = "evofirecracker_projectile"
+FileName = "sc/chr_firecracker_evolution.sc"
+Gravity = 50
+HitEffect = "firecracker_hit"
+OnlyEnemies = true
+Rarity = "Common"
+Scale = 80
+Scatter = "Line"
+ShadowExportName = "evofirecracker_projectile_shadow"
+SpawnAreaEffectObject = "FirecrackerFireworksBig_EV1"
+SpawnProjectile = "FirecrackerExplosion_EV1"
+Speed = 500
+TrailEffect = "firecracker_projectile_Emitter"
+
+[AEO.FirecrackerFireworksBig_EV1]
+Buff = "FirecrackerFireworks_EV1"
+BuffTime = 400
+HitSpeedOffset = 250
+HitSpeed = 250
+LifeDuration = 3000
+LoopingEffect = "Evo_fireworks_loop"
+OneShotEffect = "Evo_fireworks_effect"
+Filter = "CommonAreaDamageFilter"
+Radius = 2500
+Rarity = "Common"
+ScaledEffect = "Evo_fireworks_ground"
+
+[BUFF.FirecrackerFireworks_EV1]
+CrownTowerDamagePercent = -70
+DamagePerSecond = 20
+Effect = "PoisonSteam"
+FilterExportName = "filter_damage"
+HitFrequency = 250
+PlayerSpecificBuff = true
+Rarity = "Common"
+SpeedMultiplier = -15
+
+[PROJECTILE.FirecrackerExplosion_EV1]
+AoeToAir = true
+AoeToGround = true
+ConstantHeight = 1000
+Damage = 25
+DeflectBehaviour = "InvertDirection"
+ExportName = "firecracker_projectile2"
+FileName = "sc/chr_firecracker_dl.sc"
+Gravity = 50
+HitEffect = "firecracker_hit2"
+MinDistance = 5000
+OnlyEnemies = true
+ProjectileRadius = 400
+ProjectileRange = 5000
+ProjectileStartExtraRadius = 650
+Radius = 400
+Rarity = "Common"
+Scale = 150
+Scatter = "Circle"
+ShadowExportName = "firecracker_projectile2_shadow"
+ShakesShooter = 500
+ShakesTargets = true
+SpawnAreaEffectObject = "FirecrackerFireworksSmall_EV1"
+SpawnCount = 5
+SpawnRadius = 80
+Speed = 550
+TrailEffect = "firecracker_projectile2_emitter"
+
+[AEO.FirecrackerFireworksSmall_EV1]
+Buff = "FirecrackerFireworks_EV1"
+BuffTime = 400
+HitSpeedOffset = 250
+HitSpeed = 250
+LifeDuration = 2500
+LoopingEffect = "Evo_fireworks_small_loop"
+OneShotEffect = "Evo_fireworks_small_effect"
+Filter = "CommonAreaDamageFilter"
+Radius = 1200
+Rarity = "Common"
+ScaledEffect = "Evo_fireworks_small_ground"

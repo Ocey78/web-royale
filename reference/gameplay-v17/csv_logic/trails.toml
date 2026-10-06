@@ -1,0 +1,1202 @@
+
+[Default]
+ Enabled=true
+ TID='TID_TRAIL_ROYALS'
+ GameMode='Ladder'
+ GameModeTutorial='PvE_Tutorial'
+ TrophyRoadStorageKey=''
+ DeckStorageKey='Royals'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='RoyalRoad'
+ EnablerType='Always'
+ OrderIndex=0
+ ShowFriends=true
+ BotsEnabled=true
+ ShowFriendsMode='FriendItemsAndChildLeaderboard'
+
+ [Default.CardConfig]
+  AllowedOrBannedEvolutions='*'
+
+ [[Default.TrophyRoads]]
+  TrophyRoad='Default'
+
+[GoblinRoadPlatform]
+ Enabled=true
+ TID='TID_TRAIL_GOBLINS'
+ GameMode='Goblin_Ladder'
+ GameModeTutorial='GoblinTrail_Tutorial'
+ TrophyRoadStorageKey='goblin-road'
+ DeckStorageKey='Goblins'
+ InitialSupportCard='GoblinQueen_SpawnAbility'
+ ThemeConfiguration='GoblinRoad'
+ EnablerType='Chronos'
+ OrderIndex=1
+ StarterDeck='GoblinJourney_StarterDeck'
+ BotsEnabled=true
+ TutorialKey='GoblinRoad_Tutorial'
+ TutorialNPCs=['GoblinTutorial1']
+ UnlockArenaIndex=12
+ ShowFriends=true
+ Badge='GoblinJourney2024'
+
+ [[GoblinRoadPlatform.TrophyRoads]]
+  TrophyRoad='GoblinRoad'
+
+[PathOfLegends]
+ Enabled=true
+ TID='TID_TRAIL_POL'
+ GameMode='Ranked1v1'
+ TrophyRoadStorageKey=''
+ DeckStorageKey='PathOfLegends'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='PathOfLegends'
+ EnablerType='Always'
+ OrderIndex=2
+ BotsEnabled=false
+ UnlockArenaIndex=15
+ ShowFriends=true
+
+ [PathOfLegends.CardConfig]
+  AllowedOrBannedEvolutions='*'
+
+[Royals_2v2]
+ Enabled=true
+ TID='TID_TRAIL_ROYALS_2V2'
+ GameMode='Ladder_TeamVsTeam'
+ GameModeTutorial='PvE_Tutorial'
+ TrophyRoadStorageKey='Royals_2v2'
+ DeckStorageKey='Royals'
+ SelectedDeckKey='Royals_2v2'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='Royals_2v2'
+ EnablerType='Chronos'
+ OrderIndex=3
+ UnlockArenaIndex=8
+ ShowFriends=false
+ BotsEnabled=false
+ Badge='Royals2v2_2024'
+
+ [Royals_2v2.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[Royals_2v2.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[Royals_2v2.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=8
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [[Royals_2v2.TrophyRoads]]
+  TrophyRoad='Royals_2v2'
+
+[Royals_2v2_2025]
+ Enabled=true
+ TID='TID_TRAIL_ROYALS_2V2'
+ GameMode='Ladder_TeamVsTeam'
+ GameModeTutorial='PvE_Tutorial'
+ TrophyRoadStorageKey='Royals_2v2_2025'
+ DeckStorageKey='Royals'
+ SelectedDeckKey='Royals_2v2_2025'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='Royals_2v2_2025'
+ CollectionLens='Royals'
+ EnablerType='Chronos'
+ OrderIndex=3
+ ChestOrder=''
+ UnlockArenaIndex=11
+ ShowFriends=false
+ BotsEnabled=false
+ Badge='Royals2v2_2024'
+
+ [Royals_2v2_2025.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[Royals_2v2_2025.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[Royals_2v2_2025.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [[Royals_2v2_2025.TrophyRoads]]
+  TrophyRoad='Royals_2v2_2025'
+
+[Classic]
+ Enabled=true
+ TID='TID_TRAIL_CLASSIC'
+ GameMode='Ladder_Classic'
+ TrophyRoadStorageKey='Classic'
+ DeckStorageKey='Classic'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='Classic'
+ EnablerType='Chronos'
+ OrderIndex=6
+ UnlockArenaIndex=8
+ ShowFriends=false
+ BotsEnabled=false
+ Badge='ClassicRoyale_2025'
+
+ [Classic.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[Classic.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[Classic.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=1000
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [Classic.CardConfig]
+  UseAsCardsAllowList=false
+  CardsAllowedOrBanned=['Berserker','Goblinstein','SuspiciousBush','GoblinMachine','GoblinDemolisher','LittlePrince']
+  UseAsSupportCardsAllowList=false
+  SupportCardsAllowedOrBanned=['King_CannonTowers','King_KnifeTowers','GoblinQueen_SpawnAbility','King_ChefTowers']
+  UseAsEvoAllowList=true
+  AllowedOrBannedEvolutions=[]
+
+ [[Classic.TrophyRoads]]
+  TrophyRoad='Classic'
+
+[UndeadMarch]
+ Enabled=false
+ TID='TID_TRAIL_UNDEADMARCH'
+ EnablerType='Chronos'
+ GameMode='Ladder_Classic'
+ TrophyRoadStorageKey='UndeadMarch'
+ DeckStorageKey='UndeadMarch'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='UndeadMarch'
+ BotsEnabled=true
+
+ [[UndeadMarch.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=2
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[UndeadMarch.TrophyRoads]]
+  TrophyRoad='UndeadMarch'
+
+[Royals_2v2_June]
+ Enabled=true
+ TID='TID_TRAIL_ROYALS_2V2'
+ GameMode='Ladder_TeamVsTeam'
+ GameModeTutorial='PvE_Tutorial'
+ TrophyRoadStorageKey='Royals_2v2_June'
+ DeckStorageKey='Royals'
+ SelectedDeckKey='Royals_2v2_June'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='Royals_2v2_June'
+ CollectionLens='Royals'
+ TrophyRoadName='Royals_2v2_June'
+ EnablerType='Chronos'
+ OrderIndex=3
+ ChestOrder=''
+ UnlockArenaIndex=11
+ ShowFriends=false
+ BotsEnabled=false
+ Badge='Royals2v2_2024'
+
+ [Royals_2v2_June.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[Royals_2v2_June.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[Royals_2v2_June.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[AutoChess]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[SeasonalTrophyRoad]
+ Enabled=true
+ TID=''
+ GameMode='Ladder'
+ GameModeTutorial=''
+ TrophyRoadStorageKey='seasonal-trophy-road'
+ DeckStorageKey='Royals'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='SeasonalTrophyRoad'
+ EnablerType='ChronosTemplate'
+ OrderIndex=10
+ StarterDeck=''
+ BotsEnabled=true
+ TutorialKey=''
+ TutorialNPCs=[]
+ UnlockArenaIndex=1
+ ShowFriends=true
+ Badge=''
+ ParentTrail='Default'
+
+ [[SeasonalTrophyRoad.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=5
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [[SeasonalTrophyRoad.TrophyRoads]]
+  TrophyRoad='SeasonalProto'
+
+[Challenge_Template]
+ Enabled=true
+ EnablerType='ChronosTemplate'
+ ThemeConfiguration='CustomTrails'
+ GameMode='Challenge_AllCards_EventDeck_NoSet'
+ DeckStorageKey='Challenge'
+
+ [[Challenge_Template.ScoreSystems]]
+  IndexType='None'
+  ScoreType='WinLoseNormal'
+  MatchmakingConstraintGroup='TrailChallenge'
+
+[SeasonalEvent_Template]
+ Enabled=true
+ EnablerType='ChronosTemplate'
+ GameMode='Showdown_Friendly'
+ ThemeConfiguration='GoblinRoad'
+ DeckStorageKey='SeasonalEvent'
+
+ [[SeasonalEvent_Template.ScoreSystems]]
+  IndexType='None'
+  ScoreType='WinLoseNormal'
+  MatchmakingConstraintGroup='TrailSeasonalEvent'
+
+[AutoChess_2025_Oct]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2025_Oct.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2025_Oct.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2025_Oct.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[AutoChess_2025_Nov]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2025_Nov.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2025_Nov.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2025_Nov.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[Royals_2v2_202510]
+ Enabled=true
+ TID='TID_TRAIL_ROYALS_2V2'
+ GameMode='Ladder_TeamVsTeam'
+ GameModeTutorial='PvE_Tutorial'
+ TrophyRoadStorageKey='Royals_2v2_202510'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='Royals_2v2_202510'
+ CollectionLens='Royals'
+ TrophyRoadName='Royals_2v2_202510'
+ EnablerType='Chronos'
+ OrderIndex=3
+ ChestOrder=''
+ UnlockArenaIndex=11
+ ShowFriends=false
+ BotsEnabled=false
+ Badge='Royals2v2_2024'
+
+ [Royals_2v2_202510.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[Royals_2v2_202510.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[Royals_2v2_202510.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [[Royals_2v2_202510.TrophyRoads]]
+  TrophyRoad='Royals_2v2_202510'
+
+[MegaDraftTrail_202511]
+ Enabled=true
+ TID='TID_DRAFT_PICK_CHALLENGE'
+ GameMode='PickMode'
+ TrophyRoadStorageKey='MegaDraftTrail_202511'
+ ThemeConfiguration='MegaDraftTrail_202511'
+ EnablerType='Chronos'
+ OrderIndex=6
+ UnlockArenaIndex=8
+ ShowFriends=false
+ BotsEnabled=false
+
+ [MegaDraftTrail_202511.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[MegaDraftTrail_202511.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[MegaDraftTrail_202511.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=1000
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [[MegaDraftTrail_202511.TrophyRoads]]
+  TrophyRoad='MegaDraftTrail_202511'
+
+[AutoChess_2025_Dec]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2025_Dec.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2025_Dec.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2025_Dec.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[AutoChess_2026_Jan]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2026_Jan.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Jan.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Jan.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[TouchdownTrail]
+ Enabled=true
+ TID='TID_TRAIL_TOUCHDOWN'
+ EnablerType='Chronos'
+
+ [TouchdownTrail.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[TouchdownTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[TouchdownTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[AutoChess_2026_Feb]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2026_Feb.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Feb.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Feb.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[Classic_Challenge_Template]
+ Enabled=true
+ EnablerType='ChronosTemplate'
+ ThemeConfiguration='CustomTrails'
+ GameMode='Challenge_AllCards_EventDeck_NoSet'
+
+ [[Classic_Challenge_Template.ScoreSystems]]
+  IndexType='None'
+  ScoreType='WinLoseNormal'
+  MatchmakingConstraintGroup='TrailChallenge'
+
+[Classic_SeasonalEvent_Template]
+ Enabled=true
+ EnablerType='ChronosTemplate'
+ ThemeConfiguration='CustomTrails'
+ GameMode='Showdown_Friendly'
+
+ [[Classic_SeasonalEvent_Template.ScoreSystems]]
+  IndexType='None'
+  ScoreType='WinLoseNormal'
+  MatchmakingConstraintGroup='TrailSeasonalEvent'
+
+[AutoChess_2026_Mar]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2026_Mar.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Mar.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Mar.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[Global_Challenge]
+ Enabled=true
+ EnablerType='ChronosTemplate'
+ TID=''
+ GameMode='Challenge_AllCards_EventDeck_NoSet'
+ GameModeTutorial=''
+ TrophyRoadStorageKey='GlobalChallenge'
+ DeckStorageKey='GlobalChallenge'
+ SelectedDeckKey='GlobalChallenge'
+ InitialSupportCard=''
+ ThemeConfiguration='GlobalChallenge'
+ CollectionLens=''
+ ProgressSystem='Challenge'
+ TrailCompletionType='ChallengeContinuous'
+ TrophyRoadName=''
+ OrderIndex=11
+ ChestOrder=''
+ UnlockArenaIndex=8
+ ShowFriends=false
+ BotsEnabled=false
+
+ [Global_Challenge.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+  Screenable=true
+
+ [[Global_Challenge.ScoreSystems]]
+  IndexType='Challenge'
+  Start=0
+  End=2
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase1'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [[Global_Challenge.ScoreSystems]]
+  IndexType='Challenge'
+  Start=3
+  End=5
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase2'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [[Global_Challenge.ScoreSystems]]
+  IndexType='Challenge'
+  Start=6
+  End=15
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase3'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [[Global_Challenge.ScoreSystems]]
+  IndexType='Challenge'
+  Start=16
+  End=20
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase4'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [[Global_Challenge.ScoreSystems]]
+  IndexType='Challenge'
+  Start=21
+  End=25
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase5'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [[Global_Challenge.ScoreSystems]]
+  IndexType='Challenge'
+  Start=26
+  End=99999
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase6'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+[CrazyArena]
+ Enabled=true
+ TID='TID_TRAIL_CRAZY_ARENA'
+ EnablerType='Chronos'
+ GameMode='Crazy_Arena'
+
+ [CrazyArena.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[CrazyArena.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[CrazyArena.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[AutoChess_2026_Season_8]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2026_Season_8.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Season_8.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Season_8.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[TripleDraftTrail]
+ Enabled=true
+ TID='TID_GAMEMODE_TRIPLEDRAFT'
+ EnablerType='Chronos'
+
+ [[TripleDraftTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[TripleDraftTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[SuddenDeathTrail]
+ Enabled=true
+ TID='TID_GAMEMODE_OVERTIME'
+ EnablerType='Chronos'
+
+ [[SuddenDeathTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[SuddenDeathTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[SeasonalDualTrophyRoad]
+ Enabled=true
+ TID=''
+ GameMode='Ladder'
+ GameModeTutorial=''
+ TrophyRoadStorageKey='seasonal-dual-trophy-road'
+ DeckStorageKey='Royals'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='SeasonalDualTrophyRoad'
+ EnablerType='ChronosTemplate'
+ OrderIndex=10
+ StarterDeck=''
+ BotsEnabled=true
+ ForceRealmDeckUsage=true
+ TutorialKey=''
+ TutorialNPCs=[]
+ UnlockArenaIndex=1
+ ShowFriends=true
+ Badge=''
+ ParentTrail='Default'
+
+ [[SeasonalDualTrophyRoad.ScoreSystems]]
+  Name='Realm1'
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  TrackDeckUsage=true
+  MatchmakingConstraintGroup='SeasonalTrophyRoadDefault'
+
+ [[SeasonalDualTrophyRoad.ScoreSystems]]
+  Name='Realm2'
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  TrackDeckUsage=true
+  DeckBlockingStrategy='TopNFromAnotherScoreSystemCascading'
+  BlockTopNFromScoreSystemNamed='Realm1'
+  BlockTopN=8
+  MatchmakingConstraintGroup='SeasonalTrophyRoadDefault'
+  CardLevelMin=15
+
+ [[SeasonalDualTrophyRoad.TrophyRoads]]
+  TrophyRoad='SeasonalArena_202606'
+
+[AutoChess_2026_Season_9]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2026_Season_9.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Season_9.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Season_9.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[AnarchyLeague]
+ Enabled=true
+ TID=''
+ GameMode='All_Random_Princess'
+ EnablerType='Chronos'
+
+ [AnarchyLeague.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AnarchyLeague.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimberWithKingTower'
+
+ [[AnarchyLeague.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitorWithKingTower'
+
+[AllRandom]
+ Enabled=true
+ TID='TID_TRAIL_ALL_RANDOM'
+ EnablerType='Chronos'
+ GameMode='All_Random'
+
+ [AllRandom.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AllRandom.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AllRandom.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=8
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+ [[AllRandom.TrophyRoads]]
+  TrophyRoad='AllRandom'
+
+[AutoChess_2026_Season_10]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+ Badge='MergeTacticsBadge_202506'
+
+ [AutoChess_2026_Season_10.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Season_10.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=9
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Season_10.ScoreSystems]]
+  IndexType='Arena'
+  Start=10
+  End=10
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[ChaosMegaDraftLeague]
+ Enabled=true
+ TID=''
+ GameMode='Chaos_1v1_MegaDraft_S2'
+ EnablerType='Chronos'
+
+ [ChaosMegaDraftLeague.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+
+ [[ChaosMegaDraftLeague.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[ChaosMegaDraftLeague.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[ChaosDraftLeague]
+ Enabled=true
+ TID=''
+ GameMode='Chaos_1v1_Draft'
+ EnablerType='Chronos'
+
+ [ChaosDraftLeague.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+
+ [[ChaosDraftLeague.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[ChaosDraftLeague.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[Competitive_Multideck]
+ Enabled=true
+ EnablerType='ChronosTemplate'
+ TID=''
+ GameMode='Competitive_Multideck'
+ GameModeTutorial=''
+ TrophyRoadStorageKey='CompetitiveMultiDeck'
+ DeckStorageKey='CompetitiveMultiDeck'
+ SelectedDeckKey='CompetitiveMultiDeck'
+ InitialSupportCard=''
+ ThemeConfiguration='CompetitiveMultideck'
+ CollectionLens=''
+ ProgressSystem='Challenge'
+ TrailCompletionType='ChallengeContinuous'
+ TrophyRoadName=''
+ OrderIndex=11
+ ChestOrder=''
+ UnlockArenaIndex=8
+ ShowFriends=false
+ BotsEnabled=false
+ RewardClaimMode='ClaimInEnd'
+
+ [Competitive_Multideck.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+  Screenable=true
+
+ [[Competitive_Multideck.ScoreSystems]]
+  IndexType='Challenge'
+  Start=0
+  End=10
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase1'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [[Competitive_Multideck.ScoreSystems]]
+  IndexType='Challenge'
+  Start=11
+  End=99999
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase6'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+[RoyaleRoulette]
+ Enabled=true
+ TID='TID_TRAIL_CLASSIC'
+ GameMode='RoyaleRoulette'
+ TrophyRoadStorageKey='RoyaleRoulette'
+ DeckStorageKey='RoyaleRoulette'
+ InitialSupportCard='King_PrincessTowers'
+ ThemeConfiguration='RoyaleRoulette'
+ EnablerType='ChronosTemplate'
+ ProgressSystem='Challenge'
+ TrailCompletionType='ChallengeContinuous'
+ OrderIndex=6
+ UnlockArenaIndex=8
+ ShowFriends=false
+ BotsEnabled=false
+
+ [RoyaleRoulette.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+  Screenable=true
+
+ [[RoyaleRoulette.ScoreSystems]]
+  IndexType='Challenge'
+  Start=0
+  End=5
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='GlobalTournamentPhase1'
+
+ [[RoyaleRoulette.ScoreSystems]]
+  IndexType='Challenge'
+  Start=6
+  End=99999
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='GlobalTournamentPhase2'
+  LeaderboardTiebreakerPresets=['BaseCrownCount','TimestampOffset']
+
+ [RoyaleRoulette.CardConfig]
+  UseAsCardsAllowList=false
+  CardsAllowedOrBanned=[]
+  UseAsSupportCardsAllowList=false
+  SupportCardsAllowedOrBanned=['King_CannonTowers','King_KnifeTowers','GoblinQueen_SpawnAbility','King_ChefTowers']
+  ForcedSupportCards=['King_PrincessTowers']
+  UseAsEvoAllowList=true
+  AllowedOrBannedEvolutions=[]
+
+[AutoChess_2026_Season_11]
+ Enabled=true
+ TID='TID_AUTOCHESS_GAMEMODE_TITLE'
+ GameMode='GameModePlugin'
+ GameModePluginType='AutoChess'
+ EnablerType='Chronos'
+
+ [AutoChess_2026_Season_11.Leaderboard]
+  Enabled=true
+  IsSpectatable=false
+
+ [[AutoChess_2026_Season_11.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=12
+  ScoreType='EloScore'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[AutoChess_2026_Season_11.ScoreSystems]]
+  IndexType='Arena'
+  Start=13
+  End=13
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[2v2League_202609]
+ Enabled=true
+ TID=''
+ GameMode='TeamVsTeam'
+ EnablerType='Chronos'
+
+ [2v2League_202609.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+
+ [[2v2League_202609.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[2v2League_202609.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'
+
+[SpookyChessTrail]
+ Enabled=true
+ TID=''
+ GameMode='202410_Event_Spooky_Chess'
+ EnablerType='Chronos'
+
+ [SpookyChessTrail.Leaderboard]
+  Enabled=true
+  IsSpectatable=true
+
+ [[SpookyChessTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=1
+  End=1
+  ScoreType='WinLoseNormal'
+  UseLeaderboard=false
+  MatchmakingConstraintGroup='TrailCommonClimber'
+
+ [[SpookyChessTrail.ScoreSystems]]
+  IndexType='Arena'
+  Start=2
+  End=2
+  ScoreType='EloScore'
+  UseLeaderboard=true
+  MinRankForBadge=9999
+  MatchmakingConstraintGroup='TrailCommonCompetitor'

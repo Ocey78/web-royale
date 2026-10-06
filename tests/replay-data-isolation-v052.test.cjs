@@ -26,6 +26,6 @@ test('the archived 0.51 simulator retains its released tower geometry and replay
 
 test('current replay verification includes source controller clocks, warp paths and presentation phases',()=>{
  const C=require('../src/core'),R=require('../src/replay'),b=new C.Battle({queue:'challenge',ai:false,seed:520051}),u=b.spawn('Knight',0,9*C.SX,20*C.SY,{wait:0});
- const fields=['modernIndicator','modernMegaAbility','modernInjectedWarp','modernKnockback','modernKnockbackHeight','modernFrameRange','modernAttackChain'];
+ const fields=['modernIndicator','modernMegaAbility','modernInjectedWarp','modernKnockback','modernKnockbackHeight','modernFrameRange','modernAttackChain','modernAnimationPlaybackUntil'];
  for(const key of fields){const before=R.digest(b);u[key]=key==='modernKnockbackHeight'?9000:{phase:'pending',until:3,sourceId:u.id};a.notDeepEqual(R.digest(b),before,key+' must affect replay verification');delete u[key];}
 });

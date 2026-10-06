@@ -1,0 +1,28 @@
+
+[BUILDING.ElixirCollector]
+BlueExportName = "building_elixir_pump_blue"
+CollisionRadius = 1000
+DeathEffect = "elixircollector_die"
+DeployTime = 1000
+FileName = "sc/building_elixir_collector.sc"
+Hitpoints = 418
+IsBuilding = true
+LifeTime = 93000
+ManaCollectAmount = 1
+ManaGenerateTimeMs = 13000
+ManaOnDeath = 1
+Name = "ElixirCollector"
+PrestigeExportName2 = "elixir_pump_prestige_blue"
+PrestigeRedExportName2 = "elixir_pump_prestige_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Rarity = "Common"
+RedExportName = "building_elixir_pump_red"
+Scale = 100
+ShadowScaleX = 55
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -15
+SpawnEffect = "elixircollector_deploy"
+TID = "TID_BUILDING_ELIXIR_COLLECTOR"
+
+

@@ -58,9 +58,5 @@ test('v130 Learning Center exposes loop as a real toggle button',()=>{
   A.doesNotMatch(text,/id="trainingLoop" type="checkbox"/);
 });
 
-test('v130 headless self-play uses a 50ms simulation tick for scalable training',()=>{
-  const text=fs.readFileSync(path.join(__dirname,'../src/training-worker.js'),'utf8');
-  A.match(text,/o\.frame%5===0/);
-  A.match(text,/o\.b\.step\(\.05\)/);
-  A.doesNotMatch(text,/o\.b\.step\(1\/60\)/);
-});
+// Training/live clock equivalence is exercised through the actual worker in
+// simulation-v053.test.cjs; the historical 50ms source-text assertion is obsolete.

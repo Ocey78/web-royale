@@ -1,0 +1,57 @@
+
+[CHARACTER.BabyDragon]
+AttackStartEffect = "baby_dragon_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "baby_dragon"
+CollisionRadius = 500
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "baby_dragon_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_baby_dragon.sc"
+FlyingHeight = 3500
+HealthBar = "High"
+HitSpeed = 1500
+Hitpoints = 450
+LoadTime = 1200
+Mass = 5
+MoveEffect = "baby_dragon_steps"
+Name = "BabyDragon"
+PrestigeExportName2 = "baby_dragon_prestige"
+PrestigeSWF = "sc/chr_prestige6_dl.sc"
+Projectile = "BabyDragonProjectile"
+ProjectileEffect = "dragon_attack_start"
+ProjectileStartRadius = 500
+ProjectileStartZ = 1900
+Range = 3500
+Rarity = "Common"
+RedExportName = "baby_dragon_enemy"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = -60
+ShadowY = 20
+SightRange = 5500
+SpawnEffect = "baby_dragon_deploy"
+Speed = 90
+TID = "TID_SPELL_BABY_DRAGON"
+UseAnimator = true
+
+[PROJECTILE.BabyDragonProjectile]
+AoeToAir = true
+AoeToGround = true
+Damage = 66
+ExportName = "dragon_projectile"
+FileName = "sc/effects.sc"
+Gravity = 250
+HitEffect = "vfx_babydragon_hit"
+Homing = true
+Name = "BabyDragonProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 500
+TrailEffect = "vfx_babydragon_pjt"
+
+

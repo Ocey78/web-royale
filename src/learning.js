@@ -2,7 +2,7 @@
    Online TD(lambda) updates are real parameter updates, not a difficulty timer.
    This is not a neural network, and learning is not a guarantee of improvement. */
 (function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./catalog.js'):root.RoyaleCatalog);if(n)module.exports=api;else root.RoyaleLearning=api;})(globalThis,function(K){'use strict';
-const VERSION=1,ENGINE='0.14.0',WEIGHT_LIMIT=4,GAMMA=.985,LAMBDA=.94,ALPHA=.06;
+const VERSION=1,ENGINE='0.53.0',WEIGHT_LIMIT=4,GAMMA=.985,LAMBDA=.94,ALPHA=.06;
 const CATEGORIES=['wait','defend','support','counterpush','pressure','build','finish','spell'];
 const CONTEXT_NAMES=['air-threat','swarm','tank','structure','danger','allied-tank','low-elixir','late','tower-weak','allied-push','2v2','near-tower'];
 const FEATURE_NAMES=['bias','cost','reserve','elixir','time','double','own-board','enemy-board','own-hp','enemy-hp','left-lane','front','danger','anti-air','splash','tank','building','spell','endgame','2v2',...CATEGORIES.map(x=>'action:'+x),...K.CARDS.map(c=>'card:'+c.id),...CATEGORIES.flatMap(a=>CONTEXT_NAMES.map(c=>'action:'+a+'@'+c)),...K.CARDS.flatMap(a=>CONTEXT_NAMES.map(c=>'card:'+a.id+'@'+c))];

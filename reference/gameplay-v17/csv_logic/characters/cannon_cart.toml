@@ -1,0 +1,152 @@
+[CHARACTER.MovingCannon]
+Rarity = "Common"
+SightRange = 6000
+DeployTime = 1000
+Speed = 60
+Hitpoints = 707
+HitSpeed = 900
+LoadTime = 400
+Projectile = "MovingCannonProjectile"
+Range = 5500
+AttacksGround = true
+ProjectileEffect = "moving_cannon_fire_projectile"
+FileName = "sc/chr_movingcannon.sc"
+BlueExportName = "moving_cannon"
+RedExportName = "moving_cannon_red"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+PrestigeExportName2 = "moving_cannon_prestige"
+PrestigeExportName3 = "moving_cannon_prestige2"
+PrestigeRedExportName2 = "moving_cannon_prestige"
+PrestigeRedExportName3 = "moving_cannon_prestige2"
+UseAnimator = true
+DeathEffect = "moving_cannon_die"
+MoveEffect = "moving_cannon_steps"
+SpawnEffect = "moving_cannon_deploy"
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowX = -5
+ShadowSkew = 25
+IgnorePushback = true
+Scale = 110
+CollisionRadius = 500
+Mass = 3
+DamageExportName = "filter_damage"
+ProjectileStartRadius = 1100
+ProjectileStartZ = 1800
+TID = "TID_SPELL_MOVING_CANNON"
+DeployDelay = 400
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+RotateAngleSpeed = 600
+IgnoreBuff = [ "VoodooCurse", "GoblinCurse" ]
+IgnoreResurrect = true
+HealthBar = "High_2_Segments"
+OnStartingAction = "MovingCannon_trigger_at_health"
+StatsTags.Damage = "ranged_damage"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Speed = "speed"
+StatsTags.HitSpeed = "hit_speed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+[ACTION.MovingCannon_trigger_at_health]
+ClassType = "ActionRunActionAtHealth"
+HealthPercentages = [50, 50, 50]
+Actions = ["MovingCannon_transformation", "MovingCannon_transformation_effect", "MovingCannon_transformation_sound"]
+StatsTags.LowestHPPercent = "activation_percent"
+[ACTION.MovingCannon_transformation]
+ClassType = "ActionChangeGameObjectData"
+NewCharacterData = "BrokenCannon"
+[ACTION.MovingCannon_transformation_effect]
+    ClassType = "ActionPlayEffect"
+    Effect = "moving_cannon_die"
+[ACTION.MovingCannon_transformation_sound]
+    ClassType = "ActionPlayEffect"
+    Effect = "broken_cannon_deploy"
+[CHARACTER.BrokenCannon]
+Rarity = "Common"
+IsBuilding = true
+SightRange = 5500
+DeployTime = 1000
+Hitpoints = 707
+HitSpeed = 900
+LoadTime = 400
+Projectile = "MovingCannonProjectile"
+Range = 5500
+AttacksGround = true
+LifeTime = 30000
+ProjectileEffect = "broken_cannon_fire_projectile"
+FileName = "sc/chr_movingcannon.sc"
+BlueExportName = "broken_cannon"
+RedExportName = "broken_cannon_red"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+PrestigeExportName2 = "broken_cannon_prestige"
+PrestigeExportName3 = "broken_cannon_prestige2"
+PrestigeRedExportName2 = "broken_cannon_red_prestige"
+PrestigeRedExportName3 = "broken_cannon_red_prestige2"
+UseAnimator = true
+DeathEffect = "broken_cannon_die"
+SpawnEffect = "broken_cannon_deploy"
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowX = -5
+ShadowSkew = 25
+IgnorePushback = true
+Scale = 100
+CollisionRadius = 500
+Mass = 3
+DamageExportName = "filter_damage"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+TID = "TID_SPELL_MOVING_CANNON"
+HasRotationOnTimeline = true
+DeployDelay = 400
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+RotateAngleSpeed = 600
+IgnoreBuff = [ "VoodooCurse", "GoblinCurse" ]
+IgnoreResurrect = true
+HealthBar = "High_2_Segments"
+[PROJECTILE.MovingCannonProjectile]
+Rarity = "Common"
+Speed = 1000
+FileName = "sc/effects.sc"
+ExportName = "projectile_cannonball_large"
+ShadowExportName = "projectile_arrow_shadow"
+Homing = true
+HitEffect = "cannon_hit"
+Damage = 83
+OnlyEnemies = true
+[STATS.MovingCannon]
+	[[STATS.MovingCannon.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.MovingCannon.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.MovingCannon.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.MovingCannon.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"     
+	[[STATS.MovingCannon.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.MovingCannon.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.MovingCannon.stats]]
+        Value = "activation_percent"
+        Unit = "PERCENT_NOSIGN"
+        TID = "TID_KAMIKAZE_TRIGGER_HEALTH"
+        Icon = "icons_stats_hp_activation"

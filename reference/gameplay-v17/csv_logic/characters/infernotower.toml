@@ -1,0 +1,52 @@
+
+[BUILDING.InfernoTower]
+AttackStartEffect = "knight_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "inferno_blue"
+CollisionRadius = 600
+ContinuousEffect = "Inferno_continuous"
+Damage = 17
+DamageEffect = "inferno_hit_effect"
+DamageLevelTransitionEffect12 = "inferno_stage2_root"
+DamageLevelTransitionEffect23 = "inferno_stage3_root"
+DeathEffect = "Cannon_die"
+DeployTime = 1000
+FileName = "sc/building_inferno_tower.sc"
+FlameEffect1 = "inferno_muzzle"
+FlameEffect2 = "inferno_muzzle_stage2"
+FlameEffect3 = "inferno_muzzle_stage3"
+HitSpeed = 400
+Hitpoints = 683
+IsBuilding = true
+LifeTime = 30000
+LoadTime = 1200
+Name = "InfernoTower"
+PrestigeExportName2 = "Inferno_prestige_blue"
+PrestigeRedExportName2 = "Inferno_prestige_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 1000
+Range = 6000
+Rarity = "Common"
+RedExportName = "inferno_red"
+Scale = 120
+ShadowScaleX = 90
+ShadowScaleY = 70
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 15
+SightRange = 6000
+SpawnEffect = "inferno_tower_deploy"
+TID = "TID_BUILDING_INFERNO"
+TargetEffectY = -80
+TargettedDamageEffect1 = "inferno_beam_lvl1"
+TargettedDamageEffect2 = "inferno_beam_lvl2"
+TargettedDamageEffect3 = "inferno_beam_lvl3"
+UseAnimator = true
+VariableDamage2 = 62
+VariableDamage3 = 331
+VariableDamageTime1 = 2000
+VariableDamageTime2 = 2000
+
+

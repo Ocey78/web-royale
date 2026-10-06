@@ -1,0 +1,27 @@
+
+[BUILDING.ElixirBarrel]
+BlueExportName = "elixirbarrel_top"
+CollisionRadius = 1000
+ContinuousEffect = "Elixir_Barrel"
+DeathEffect = "elixircollector_die"
+DeployTime = 1000
+FileName = "sc/effects.sc"
+Hitpoints = 977
+IsBuilding = true
+LifeTime = 21000
+ManaCollectAmount = 1
+ManaGenerateTimeMs = 3000
+ManaOnDeathForOpponent = 4000
+Name = "ElixirBarrel"
+Rarity = "Common"
+RedExportName = "elixirbarrel_top"
+Scale = 150
+ShadowScaleX = 95
+ShadowScaleY = -80
+ShadowSkew = -15
+ShadowX = -5
+ShadowY = 15
+SpawnEffect = "elixircollector_deploy"
+TID = "TID_BUILDING_ELIXIR_COLLECTOR"
+
+

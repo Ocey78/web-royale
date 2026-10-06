@@ -1,0 +1,43 @@
+{
+  "verifiedAt": "2026-10-06T19:53:18.498825+00:00",
+  "archiveIntegrity": {
+    "archive": "E:\\CodexBuilds\\WebRoyale-2026-10-06-01a1127a\\Web-Royale-v0.53.0.zip",
+    "extraction": "E:\\CodexBuilds\\WebRoyale-2026-10-06-01a1127a\\archive-check-v053",
+    "archiveBytes": 911748573,
+    "archiveSha256": "9d45e4ebc032fb17e900322e8faac6cbe3eb915c451b5dd7b6a6aaf8060c3c2e",
+    "pathSafety": "passed",
+    "archiveEntries": 3570,
+    "uncompressedBytes": 1317919086,
+    "crc": "passed",
+    "version": "0.53.0",
+    "manifestFiles": 1897,
+    "manifestFailures": [],
+    "comparedSourceFiles": 3570,
+    "sourceMismatches": [],
+    "manifestIdenticalToBuild": true
+  },
+  "selectedFileList": {
+    "selected": 3570,
+    "packaged": 3570,
+    "missing": [],
+    "unexpected": []
+  },
+  "extractedArchiveStress": {
+    "archive": "Web-Royale-v0.53.0.zip",
+    "archiveSha256": "9d45e4ebc032fb17e900322e8faac6cbe3eb915c451b5dd7b6a6aaf8060c3c2e",
+    "tests": 2,
+    "start": "2026-10-06T19:46:55.0927694Z",
+    "end": "2026-10-06T19:52:51.9929684Z",
+    "exitCode": 0,
+    "log": "stress-final-archive.tap",
+    "pass": 2,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationMs": 356829.0711
+  },
+  "limitations": [
+    "Simulation stress tests do not establish native-engine parity.",
+    "No separate browser run was performed in this independent archive verification."
+  ]
+}

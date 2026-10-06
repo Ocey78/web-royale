@@ -1,0 +1,43 @@
+
+[BUILDING.Tesla]
+AppearEffect = "tesla_up"
+AttackStartEffect = "Tesla_beam"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "tesla1_blue"
+CollisionRadius = 500
+Damage = 86
+DamageEffect = "tesla_hit_effect"
+DeathEffect = "tesla_die"
+DeployTime = 1000
+FileName = "sc/building_tesla.sc"
+HealthBarOffsetY = 10
+HideEffect = "tesla_down"
+HideTimeMs = 800
+HidesWhenNotAttacking = true
+HitSpeed = 1100
+Hitpoints = 462
+IsBuilding = true
+LifeTime = 25000
+LoadTime = 700
+Name = "Tesla"
+PrestigeExportName2 = "tesla_prestige_blue"
+PrestigeRedExportName2 = "tesla_prestige_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 1000
+Range = 5500
+Rarity = "Common"
+RedExportName = "tesla1_red"
+Scale = 90
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "tesla_deploy"
+TID = "TID_BUILDING_TESLA"
+TargetEffectY = -60
+TargetedHitEffect = "Tesla_beam"
+UpTimeMs = 800
+
+

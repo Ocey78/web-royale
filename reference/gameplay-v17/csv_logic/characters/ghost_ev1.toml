@@ -1,0 +1,260 @@
+[EXT.Ghost_EV1]
+	Base = "CHARACTER.Ghost"
+	HideHealthbar = true
+	OnStartingClientActions=["RoyalGhostEvoVisual", "Healthbar_Medium_WithEvoBadge"]
+	OnStartingAction = "Ghost_EV1_Start_Group"
+	AttachedCharacter = ""
+	BuffWhenNotAttacking = "Ghost_EV1_Invisibility"
+	ClonedVersion = "Ghost_EV1_Clone"
+	
+	FileName = "sc/chr_royal_ghost_evolution.sc"
+	BlueExportName = "royal_ghost_evo"
+	RedExportName = "royal_ghost_evo_red"
+	Scale = 78
+	SpawnEffect = "vfx_royalghost_evo_deploy"
+	DamageEffect = "vfx_royalghost_evo_hit"
+	AttackStartEffect = "vfx_royale_ghost_evo_attack_start"
+	DeathEffect = "Death_card_evolution_M"
+		DeployBaseAnimExportName="filter_deploy_unit_legendary"
+		CustomSpawnFilter="filter_card_evolution"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.Speed = "speed"
+	StatsTags.Damage = "damage"
+	StatsTags.Level = "level"
+[EXT.Ghost_EV1_Clone]
+	Base = "CHARACTER.Ghost"
+	OnStartingAction = "Ghost_EV1_Clone_Apply_Invis_Group"
+[ACTION.Ghost_EV1_Clone_Apply_Invis_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Ghost_EV1_Clone_Apply_Invis"]
+	SubActionsDelay = [50]
+[ACTION.Ghost_EV1_Clone_Apply_Invis]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "Invisibility"
+	SpawnTime = 999999
+[EXT.Ghost_EV1_Summon_Base]
+	Base = "CHARACTER.Ghost"
+	Mass = 1
+	DeployTime = 800
+	HitSpeed = 1800
+	LoadTime = 900
+	Damage = 32
+	AttachedCharacter = ""
+	BuffWhenNotAttacking = "Ghost_EV1_Summon_Invisibility"
+	OnStartingAction = "Ghost_EV1_Hide_Glow_Filter"
+	OnStartingClientActions = ["Ghost_EV1_Summon_Visual", "Healthbar_Small_Evo"]
+	HideHealthbar = true
+	Hitpoints = 32
+	StartWithBuffWhenNotAttacking = false
+	
+	StatsTags.Hitpoints = "summon_hitpoints"
+	StatsTags.HitSpeed = "summon_hit_speed"
+	StatsTags.Targets = "summon_targets"
+	StatsTags.Range = "summon_range"
+	StatsTags.Speed = "summon_speed"
+	StatsTags.Damage = "summon_damage"
+	FileName = "sc/chr_royal_ghost_evolution.sc"
+	BlueExportName = "royal_ghost_guardians"
+	RedExportName = "royal_ghost_guardians_red"
+	Scale = 70
+	HealthBarOffsetYRed = -10
+	SpawnEffect = "vfx_ghostly_guardian_deploy"
+	ContinuousEffect = "vfx_ghostly_guardian_summon_aura"
+	DamageEffect = "vfx_ghostly_guardian_hit"
+	AttackStartEffect = "vfx_royale_ghost_evo_guardian_attack_start"
+	DeathEffect = "Death_card_evolution_M"
+	
+		DeployBaseAnimExportName="filter_deploy_unit_legendary"
+		CustomSpawnFilter="filter_card_evolution"
+[BUFF.Ghost_EV1_Invisibility]
+	Rarity = "Common"
+	Invisible = true
+	OnStartAction = "Ghost_EV1_Invisible_Group"
+	OnRemoveAction = "Ghost_EV1_Visible_Group"
+	NotCloned = true
+[ACTION.Ghost_EV1_Invisible_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Ghost_EV1_Invisible_Filter", "Ghost_EV1_Set_Custom_Tag"]
+	SubActionsDelay = [0, 0]
+	ExecuteIfTrue = "!is_clone()"
+	ForceStopIfTrue = "is_clone()"
+[ACTION.Ghost_EV1_Invisible_Filter]
+	ClassType="ActionPlayEffect"
+	Effect = "vfx_ghost_evo_invisible_filter"
+	EffectFlags = "FollowParent,Looping"
+	Singleton = true
+	SpriteName = "GO_SPRITE"
+	ForceStopIfTrue = "ATTACKING"
+[ACTION.Ghost_EV1_Set_Custom_Tag]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 50
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.Ghost_EV1_Visible_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Ghost_EV1_Hide_Glow_Filter"]
+	SubActionsDelay = [50]
+	ExecuteIfTrue = "!is_clone()"
+	ForceStopIfTrue = "is_clone()"
+[ACTION.Ghost_EV1_Hide_Glow_Filter]
+	ClassType="ActionPlayEffect"
+	Effect = "filter_royal_ghost_alpha_zero"
+	EffectFlags = "FollowParent,Looping"
+	SpriteVisibility = -1
+	Singleton = true
+	SpriteName = "RoyalGhostEvoGlowing"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[BUFF.Ghost_EV1_Summon_Invisibility]
+	Rarity = "Common"
+	Invisible = true
+	OnStartAction = "Ghost_EV1_Summon_Invisible_Group"
+	OnRemoveAction = "Ghost_EV1_Summon_Visible_Group"
+[ACTION.Ghost_EV1_Summon_Invisible_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Ghost_EV1_Invisible_Filter", "Ghost_EV1_Set_Custom_Tag"]
+	SubActionsDelay = [0, 0]	
+[ACTION.Ghost_EV1_Summon_Visible_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Ghost_EV1_Hide_Glow_Filter"]
+	SubActionsDelay = [50]
+[EXT.Ghost_EV1_Summon_Left]
+	Base = "CHARACTER.Ghost_EV1_Summon_Base"
+[EXT.Ghost_EV1_Summon_Right]
+	Base = "CHARACTER.Ghost_EV1_Summon_Base"
+[ACTION.Ghost_EV1_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Ghost_EV1_Spawn_Summons_Action", "Ghost_EV1_Continuous_Effect"]
+	SubActionsDelay = [0, 0]
+[ACTION.Ghost_EV1_Spawn_Summons_Action]
+	ClassType = "ActionGhostEvoAction"
+	SummonDistance = 2000
+	DamageAEO = "Ghost_EV1_Summon_Damage_Area"
+	DamageAEOSpawnDelay = 200
+	SummonSpawnDelay = 0
+	LeftSummonAreaType = "Ghost_EV1_Summon_Spawn_Area"
+	RightSummonAreaType = "Ghost_EV1_Summon_Spawn_Area"
+	SummonActionData = "Ghost_EV1_Area_Spawn_Summons_Action"
+[ACTION.Ghost_EV1_Continuous_Effect]
+	ClassType="ActionPlayEffect"
+	Effect = "vfx_royalghost_evo_aura"
+	EffectFlags = "FollowParent,Looping"
+[ACTION.Ghost_EV1_Area_Spawn_Summons_Action]
+	ClassType = "ActionGhostEvoSpawnSummon"
+	LeftSummonType = "Ghost_EV1_Summon_Left"
+	RightSummonType = "Ghost_EV1_Summon_Right"
+	UseDeployForSummons = true
+	InstantHitForSummons = false
+[AEO.Ghost_EV1_Summon_Spawn_Area]
+	Rarity = "Common"
+	Filter = "aeo_dummy_no_targets"
+	LifeDuration = 1100
+	HitSpeed = 0
+	Radius = 500
+[AEO.Ghost_EV1_Summon_Damage_Area]
+	Rarity = "Common"
+	Filter = "CommonAreaDamageGround"
+	OneShotEffect = "vfx_royalghost_evo_summon_deploy"
+	LifeDuration = 250
+	HitSpeedOffset = 150
+	Radius = 1000
+    Damage = { BaseDamage = 32 }
+	StatsTags.Damage = "spawn_damage"
+[CLIENT_ACTION.RoyalGhostEvoVisual]
+	ClassType="ClientActionAnimatorLayer"
+	LayerName="RoyalGhostEvoGlowing"
+	Filename="sc/chr_royal_ghost_evolution.sc"
+	BlueExportName="royal_ghost_glowevo"
+	RedExportName="royal_ghost_glowevo"
+	Visible=true
+[CLIENT_ACTION.Ghost_EV1_Summon_Visual]
+	ClassType="ClientActionAnimatorLayer"
+	LayerName="RoyalGhostEvoGlowing"
+	Filename="sc/chr_royal_ghost_evolution.sc"
+	BlueExportName="royal_ghost_guardians_glowy"
+	RedExportName="royal_ghost_guardians_glowy"
+	Visible=true
+[STATS.ghost_ev1]
+	[[STATS.ghost_ev1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.ghost_ev1.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.ghost_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.ghost_ev1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.ghost_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.ghost_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.ghost_ev1.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.ghost_ev1.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.ghost_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_GHOST_EV1_SUMMON"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_GHOST_EV1_SUMMON"
+		InfoButtonStats = "ghost_ev1_summon"
+[STATS.ghost_ev1_summon]
+	[[STATS.ghost_ev1_summon.stats]]
+		Value = "summon_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.ghost_ev1_summon.stats]]
+		Value = "summon_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.ghost_ev1_summon.stats]]
+		Value = "summon_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.ghost_ev1_summon.stats]]
+		Value = "summon_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.ghost_ev1_summon.stats]]
+		Value = "summon_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.ghost_ev1_summon.stats]]
+		Value = "summon_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

@@ -1,0 +1,51 @@
+
+[BUILDING.BarbarianLauncher]
+AttacksGround = true
+BlueExportName = "building_mortar1"
+CollisionRadius = 600
+DeathEffect = "mortar_die"
+DeployTime = 3500
+FileName = "sc/building_barbarian_mortar.sc"
+HitSpeed = 3000
+Hitpoints = 575
+IsBuilding = true
+LifeTime = 30000
+LoadTime = 2000
+MinimumRange = 3500
+Name = "BarbarianLauncher"
+PrestigeExportName2 = "mortar_prestige_blue"
+PrestigeRedExportName2 = "mortar_prestige_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "BarbarianLauncherProjectile"
+ProjectileEffect = "mortar_attack"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 1000
+Range = 11500
+Rarity = "Common"
+RedExportName = "building_mortar1_enemy"
+Scale = 140
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 11500
+SpawnEffect = "mortar_deploy"
+TID = "TID_BUILDING_MORTAR"
+UseAnimator = true
+
+[PROJECTILE.BarbarianLauncherProjectile]
+AoeToGround = true
+Damage = 1
+ExportName = "barbarian_projectile"
+FileName = "sc/effects.sc"
+Gravity = 60
+HitEffect = "mortar_hit"
+Name = "BarbarianLauncherProjectile"
+OnlyEnemies = true
+Radius = 2000
+Rarity = "Common"
+RedExportName = "barbarian_projectile_enemy"
+ShadowExportName = "projectile_arrow_shadow"
+SpawnCharacter = "Barbarian"
+SpawnCharacterDeployTime = 200
+SpawnConstPriority = true
+Speed = 300

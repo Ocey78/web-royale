@@ -1,0 +1,99 @@
+[GAMEMODE.Boosts_Friendly]
+	[[GAMEMODE.Boosts_Friendly.Components]]
+		Name="Boosts_Friendly"
+		ClassType="BoostMode"
+		Boosts=["BoostRageBottle", "BoostCloneBottle", "BoostHealBottle", "BoostInvisibilityBottle"]
+		PermanentBoosts=false
+		BoostSpawnPattern="TILEMAP"
+		BoostSpawnFrequency=12000
+		BoostSpawnInitialDelay=12000
+[GAMEMODE.Boosts_LevelUp_Permanent_Friendly]
+	[[GAMEMODE.Boosts_LevelUp_Permanent_Friendly.Components]]
+		Name="Boosts_LevelUp_Permanent_Friendly"
+		ClassType="BoostMode"
+		Boosts=["BoostLevelUp"]
+		PermanentBoosts=true
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=12000
+		BoostSpawnInitialDelay=12000
+[GAMEMODE.Boosts_Rage_Permanent_Friendly]
+	[[GAMEMODE.Boosts_Rage_Permanent_Friendly.Components]]
+		Name="Boosts_Rage_Permanent_Friendly"
+		ClassType="BoostMode"
+		Boosts=["BoostRageBottle"]
+		PermanentBoosts=true
+		BoostSpawnPattern="PLAYER_AREA_MID"
+		BoostSpawnFrequency=12000
+		BoostSpawnInitialDelay=12000
+[GAMEMODE.Boosts_Heal_Permanent_Friendly]
+	[[GAMEMODE.Boosts_Heal_Permanent_Friendly.Components]]
+		Name="Boosts_Heal_Permanent_Friendly"
+		ClassType="BoostMode"
+		Boosts=["BoostHealBottle"]
+		PermanentBoosts=true
+		BoostSpawnPattern="PLAYER_AREA_MID"
+		BoostSpawnFrequency=12000
+		BoostSpawnInitialDelay=12000
+[GAMEMODE.BattleGround]
+	[[GAMEMODE.BattleGround.Components]]
+		Name="BattleGround"
+		ClassType="BoostMode"
+		Boosts=["BoostRageBottle_Battleground", "BoostCloneBottle_Battleground", "BoostHealBottle_Battleground", "BoostInvisibilityBottle_Battleground"]
+		PermanentBoosts=false
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=18000
+		BoostSpawnInitialDelay=3000
+[GAMEMODE.Event_TrickOrTreat]
+	[[GAMEMODE.Event_TrickOrTreat.Components]]
+		Name="Event_TrickOrTreat"
+		ClassType="BoostMode"
+		Boosts=["BoostAOE_TrickOrTreat_Pekka", "BoostAOE_TrickOrTreat_Bomb", "BoostAOE_TrickOrTreat_Clone", "BoostAOE_TrickOrTreat_Elixir", "BoostAOE_TrickOrTreat_Skeletons", "BoostAOE_TrickOrTreat_SuperRage"]
+		PermanentBoosts=false
+		BoostSpawnPattern="PLAYER_AREA_MID"
+		BoostSpawnFrequency=25000
+		BoostSpawnInitialDelay=2000
+[GAMEMODE.EventDeck_LoveBuff]
+	[[GAMEMODE.EventDeck_LoveBuff.Components]]
+		Name="EventDeck_LoveBuff"
+		ClassType="BoostMode"
+		Boosts=["BoostAOE_Event_LoveBuff"]
+		PermanentBoosts=false
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=18000
+		BoostSpawnInitialDelay=3000
+[GAMEMODE.TeamVsTeam_EventDeck_LoveBuff]
+	[[GAMEMODE.TeamVsTeam_EventDeck_LoveBuff.Components]]
+		Name="TeamVsTeam_EventDeck_LoveBuff"
+		ClassType="BoostMode"
+		Boosts=["BoostAOE_Event_LoveBuff"]
+		PermanentBoosts=false
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=18000
+		BoostSpawnInitialDelay=3000
+[GAMEMODE.TeamVsTeam_BattleGround]
+	[[GAMEMODE.TeamVsTeam_BattleGround.Components]]
+		Name="TeamVsTeam_BattleGround"
+		ClassType="BoostMode"
+		Boosts=["BoostRageBottle_Battleground", "BoostCloneBottle_Battleground", "BoostHealBottle_Battleground", "BoostInvisibilityBottle_Battleground"]
+		PermanentBoosts=false
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=18000
+		BoostSpawnInitialDelay=3000
+[GAMEMODE.EventDeck_LoveBuff_Event]
+	[[GAMEMODE.EventDeck_LoveBuff_Event.Components]]
+		Name="EventDeck_LoveBuff_Event"
+		ClassType="BoostMode"
+		Boosts=["BoostAOE_Event_LoveBuff"]
+		PermanentBoosts=false
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=18000
+		BoostSpawnInitialDelay=3000
+[GAMEMODE.TeamVsTeam_EventDeck_LoveBuff_Event]
+	[[GAMEMODE.TeamVsTeam_EventDeck_LoveBuff_Event.Components]]
+		Name="TeamVsTeam_EventDeck_LoveBuff_Event"
+		ClassType="BoostMode"
+		Boosts=["BoostAOE_Event_LoveBuff"]
+		PermanentBoosts=false
+		BoostSpawnPattern="BRIDGES"
+		BoostSpawnFrequency=18000
+		BoostSpawnInitialDelay=3000

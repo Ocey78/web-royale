@@ -1,0 +1,158 @@
+[CHARACTER.GoldenKnight]
+Ability = "GoldenKnightChain"
+AbilityPendingEffect = "Heal_aura"
+AttackStartEffect = "golden_knight_attack_start"
+AttacksGround = true
+BackDashRadius = 5500
+BlueExportName = "GoldenKnight"
+CollisionRadius = 800
+CustomSpawnFilter = "filter_champion_golden_knight"
+Damage = 63
+DamageEffect = "vfx_goldenknight_hit"
+DamageExportName = "filter_damage"
+DashCount = 10
+DashDamage = 131
+DashHitEffect = "vfx_goldenknight_dash_hit"
+DashImmuneToDamageTime = 100
+DashLandingTime = 200
+DashPushBack = 2000
+DashSecondaryRange = 5500
+DashToTargetRadius = true
+DeathEffect = "golden_knight_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_golden_knight_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -15
+HealthBarOffsetYBlue = -5
+HealthBarOffsetYRed = -5
+HideHealthbar = true
+HitSpeed = 900
+Hitpoints = 703
+JumpSpeed = 400
+LoadTime = 700
+Mass = 10
+MoveEffect = "knight_steps"
+Name = "GoldenKnight"
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "GoldenKnight_enemy"
+Scale = 98
+ShadowScaleX = 85
+ShadowScaleY = 80
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "golden_knight_deploy"
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+UseAnimator = true
+OnStartingClientActions = ["Healthbar_Medium"]
+[CHARACTER.GoldenKnight.StatsTags]
+DashDamage = "dash_damage"
+DashCount = "dash_count"
+[ABILITY.GoldenKnightChain]
+CastTime = 0
+MaxCharges = 1
+KeepIconEvenWhenOutOfCharges = true
+HideChargesTextField = true
+DashRange = 5500
+DeployedClip = "champion_select_ring_rampup_golden_knight"
+DeployedEffect = "ability_charging_golden_knight"
+IconExportName = "icon_ability_golden_knight"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 1
+Name = "GoldenKnightChain"
+OnActivationAction = "GoldenKnight_OnAbilityActivationGroup"
+PendingBuff = ""
+Stats = "GoldenKnightChain"
+TID = "TID_ABILITY_NAME_GOLDEN_KNIGHT_CHAIN_ATTACK"
+TID_INFO = "TID_ABILITY_DESCRIPTION_GOLDEN_KNIGHT"
+TriggerDelay = 0
+RefundWindow = 50
+[ABILITY.GoldenKnightChain.StatsTags]
+Cooldown = "ability_cooldown"
+DashRange = "dash_range"
+[ACTION.GoldenKnight_OnAbilityActivationGroup]
+ClassType = "ActionGroup"
+SubActions = ["GoldenKnight_Charge_Target", "GoldenKnight_Pending_Buff", "GoldenKnight_Set_Ability_Button_Pending", "GoldenKnight_Set_Ability_Button_Pending"]
+SubActionsDelay = [0, 50, 0, 50]
+[ACTION.GoldenKnight_Charge_Target]
+	ClassType = "ActionRunActionListOnObjectsInShapeWithPrio"
+	AbortIfInstigatorDies = false
+	ActionOnSelfWhenTriggered = "GoldenKnight_Start_Ability_Group"
+	Actions = ["GoldenKnight_Dummy_Target"]
+	Delays = [0]
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1,ABILITY_COOLDOWN_PAUSED,ABILITY_PENDING"
+	OncePerTarget = true
+	PauseTags = "COMBAT_DISABLED, CAPTURED"
+	Shape = "GoldenKnight_Charge_Shape"
+	TargetFilter = "GroundCharacterTargets"
+	TargetSelectionMode = "Closest"
+	WaitForTarget = true
+[ACTION.GoldenKnight_Start_Ability_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["GoldenKnight_Execute_Charge", "GoldenKnight_Keep_Run_Alive"]
+	SubActionsDelay = [0, 0]
+[ACTION.GoldenKnight_Keep_Run_Alive]
+	ClassType = "ActionWithDuration"
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1,ABILITY_COOLDOWN_PAUSED,ABILITY_PENDING"
+	ActionDuration = 999999
+	ForceStopIfTrue = "DASHING"
+[SHAPE.GoldenKnight_Charge_Shape]
+ClassType = "Circle"
+Radius = 5500
+[ACTION.GoldenKnight_Execute_Charge]
+ClassType = "ActionDashingAttackChain"
+DashCount = 1
+TargetResolver = "GoldenKnight_Charge_Target_Resolver"
+[TARGET_RESOLVER.GoldenKnight_Charge_Target_Resolver]
+Filter = "GroundCharacterTargets"
+Shape = "GoldenKnight_Charge_Shape"
+StrategyList = ["RESOLVER_STRATEGY_CLOSEST_TARGET"]
+[ACTION.GoldenKnight_Dummy_Target]
+ActionDuration = 50
+ClassType = "ActionWithDuration"
+[ACTION.GoldenKnight_Pending_Buff]
+ClassType = "ActionSpawn"
+SpawnData = "GoldenKnightCharge"
+SpawnTime = 99999
+SpawnType = "BuffType"
+[BUFF.GoldenKnightCharge]
+AliveIfTrue = "UNIT_CUSTOM_TAG_1"
+ContinuousEffect = "golden_knight_run"
+Name = "GoldenKnightCharge"
+NotCloned = true
+Rarity = "Common"
+SpeedMultiplier = 200
+[ACTION.GoldenKnight_Set_Ability_Button_Pending]
+ApplyImmediate = true
+ChampionCharacterData = "GoldenKnight"
+ClassType = "ActionOverrideAbilityButtonState"
+ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1||!is_active_or_secondary_champion"
+Persistent = true
+StateToSet = "ChampionPending"
+[STATS.GoldenKnightChain]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.GoldenKnightChain.stats]]
+		Value = "dash_range"
+		Unit = "TILES"
+		TID = "TID_ABILITY_STAT_DASH_RANGE"
+		Icon = "icons_stats_dash_range"
+	[[STATS.GoldenKnightChain.stats]]
+		Value = "dash_damage"
+		Unit = "INTEGER"
+		TID = "TID_ABILITY_STAT_DASH_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.GoldenKnightChain.stats]]
+		Value = "dash_count"
+		Unit = "INTEGER"
+		TID = "TID_ABILITY_STAT_DASH_COUNT"
+		Icon = "icons_stats_dash_count"

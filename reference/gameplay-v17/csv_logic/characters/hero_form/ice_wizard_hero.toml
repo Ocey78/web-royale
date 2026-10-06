@@ -1,0 +1,598 @@
+[VARIABLE.IceWizardHero_is_pending_ability]
+[VARIABLE.IceWizardHero_ability_from_kill]
+[VARIABLE.IceWizardHero_cube_inflight]
+[VARIABLE.IceWizardHero_has_spawn_cube]
+[EXT.IceWizardColdHero]
+Base = "AEO.IceWizardCold"
+Buff = "IceWizardHeroCold"
+OneShotEffect = "vfx_icewizard_hero_deploy"
+StatsTags.Damage = "spawn_damage"
+[EXT.IceWizardHeroCold]
+Base = "BUFF.IceWizardCold"
+[EXT.IceWizardHero]
+Base = "CHARACTER.IceWizard"
+Projectile = "IceWizardHeroProjectile"
+PrefabAsset = "sc3d/characters/hero/hero_icewizard/hero_prefab_icewizard_battle"
+DeathEffect = "vfx_icewizard_hero_die"
+SpawnEffect = ""
+AttackStartEffect = ""
+Scale = 100
+AbilityPendingEffect = "vfx_icewizard_hero_ability_ready"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+HealthBarOffsetYBlue = 0
+HealthBarOffsetYRed= -15
+FileName = "sc/chr_icewizard_hero.sc"
+OnStartingAction = "IceWizardHero_starting_actions"
+OnKilledDoneAction = "IceWizardHero_ability_from_kill_actions"
+OnDeathAction = "IceWizardHero_ability_from_death_actions"
+Ability = "IceWizardHero_ability"
+OnStartingClientActions = ["Healthbar_Medium"]
+HideHealthbar = true
+SpawnAttach = true
+SpawnCharacter = "IceWizardHeroFloatingCube"
+SpawnNumber = 1
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.HitSpeed = "hit_speed"
+StatsTags.Targets = "targets"
+StatsTags.Speed = "speed"
+StatsTags.Range = "range"
+[ABILITY.IceWizardHero_ability]
+TID = "TID_HERO_ICE_WIZARD_ABILITY"
+TID_INFO = "TID_HERO_ICE_WIZARD_ABILITY_INFO"
+IconSWF = "sc/ability_icon_ice_wizard.sc"
+IconExportName = "ability_icon_ice_wizard"
+IsChampion = true
+CastTime = 0
+TriggerDelay = 0
+RefundWindow = 50
+ManaCost = 2
+MaxCharges = 1
+DeployedEffect = "vfx_icewizard_hero_ability_active"
+DeployedClip = "filter_invisible"
+PopoverIconFileName = "sc/ui_spells.sc"
+PopoverIconExportName = "icon_ability_golden_knight"
+OnActivationAction = "IceWizardHero_ability_activation_actions"
+Stats                 = "ice_wizard_hero_ability"
+StatsTags.Cooldown    = "ability_cooldown"
+[EXT.IceWizardHeroFloatingCube]
+Base = "CHARACTER.IceWizardHero"
+Projectile = ""
+OnStartingAction = ""
+Ability = ""
+OnStartingClientActions = []
+SpawnAttach = false
+SpawnCharacter = ""
+Damage = 0
+PrefabAsset = "sc3d/characters/hero/hero_icewizard/hero_prefab_icewizard_icechunks_battle"
+Scale = 100
+UseAnimator = true
+IgnoreBuff = ["VoodooCurse", "GoblinCurse"]
+SpawnDeployBaseAnim = "filter_deploy_unit_legendary"
+[ACTION.IceWizardHero_starting_actions]
+ClassType = "ActionGroup"
+SubActions = ["IceWizardHero_wait_to_not_be_active_champion"]
+	[ACTION.IceWizardHero_wait_to_not_be_active_champion]
+	ClassType			= "ActionWaitToActivate"
+	Condition			= "(!is_active_or_secondary_champion && !IceWizardHero_is_pending_ability) || IceWizardHero_has_spawn_cube > 0"
+	OnActivateAction	= "IceWizardHero_run_on_attached_ice"
+	
+		[ACTION.IceWizardHero_run_on_attached_ice]
+		ClassType	= "ActionRunOnAttached"
+		ActionToRun	= "IceWizardHero_attached_disappear"
+[ACTION.IceWizardHero_hide_attached]
+			ClassType	= "ActionHide"
+[ACTION.IceWizardHero_ability_activation_actions]
+ClassType = "ActionGroup"
+SubActions = ["IceWizardHero_set_can_play_ability_true","IceWizardHero_ability_pending_vfx", "IceWizardHero_interval_find_valid_target", "IceWizardHero_wait_to_activate_ability", "IceWizardHero_ability_button_pending"]
+ContextMode = "Create"
+	[ACTION.IceWizardHero_ability_pending_vfx]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_icewizard_hero_ability_ready"
+	EffectFlags = "FollowParent, LinkLifeToActionLife, Looping"
+	Singleton = true
+	ExecuteIfTrue = "is_active_or_secondary_champion"
+	ForceStopIfTrue = "!is_active_or_secondary_champion || as_int(#AbilityPlayed, 0) > 0 || IceWizardHero_ability_from_kill > 0"
+	[ACTION.IceWizardHero_interval_find_valid_target]
+	ClassType = "ActionInterval"
+	Interval = 50
+	ActionToExecute = "IceWizardHero_write_result_to_context"
+	ForceStopIfTrue = "as_int(#HasValidTarget) != -1 || IceWizardHero_ability_from_kill > 0"
+		[ACTION.IceWizardHero_write_result_to_context]
+		ClassType = "ActionRunActionOnResolvedGameObjects"
+		Resolver = "IceWizardHero_target_resolver"
+		Amount = 1
+		Action = "ice_wizard_hero_register_target"
+		ExecuteIfTrue = "IceWizardHero_ability_from_kill == 0"
+			[ACTION.ice_wizard_hero_register_target]
+			ClassType = "ActionGroup"
+			SubActions = ["ice_wiz_hero_register_target_globalID", "ice_wizard_hero_register_target_posX", "ice_wizard_hero_register_target_posY", "ice_wizard_hero_register_target_team_index", "ice_wizard_hero_register_target_radius"]
+			ContextMode = "Inherit"
+			AbortIfInstigatorDies = false
+				[ACTION.ice_wiz_hero_register_target_globalID]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "HasValidTarget"
+				Value = "self"
+				AbortIfInstigatorDies = false
+				[ACTION.ice_wizard_hero_register_target_posX]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "PosX"
+				Value = "x"
+				AbortIfInstigatorDies = false
+				[ACTION.ice_wizard_hero_register_target_posY]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "PosY"
+				Value = "y"
+				AbortIfInstigatorDies = false
+				[ACTION.ice_wizard_hero_register_target_team_index]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "TeamIndex"
+				Value = "team_index"
+				AbortIfInstigatorDies = false
+				[ACTION.ice_wizard_hero_register_target_radius]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "Radius"
+				Value = "get_radius()"
+	[ACTION.IceWizardHero_wait_to_activate_ability]
+	ClassType			= "ActionWaitToActivate"
+	Condition			= "as_int(#HasValidTarget) != -1"
+	OnActivateAction	= "IceWizardHero_ability_actions"
+	ForceStopIfTrue		= "IceWizardHero_ability_from_kill > 0"
+	[ACTION.IceWizardHero_ability_button_pending]
+	ClassType				= "ActionOverrideAbilityButtonState"
+	ChampionCharacterData	= "IceWizardHero"
+	Persistent				= true
+	ApplyImmediate			= true
+	StateToSet				= "ChampionPending"
+	ExecuteIfTrue			= "is_active_or_secondary_champion"
+	ForceStopIfTrue			= "!is_active_or_secondary_champion || as_int(#AbilityPlayed) > 0"
+[ACTION.IceWizardHero_ability_actions]
+ClassType	= "ActionGroup"
+SubActions	= ["IceWizardHero_set_ability_played_to_context", "IceWizardHero_spawn_cube", "IceWizardHero_on_attached_action", "IceWizardHero_set_can_play_ability_false"]
+SubActionsDelay = [0, 100, 0]
+ContextMode 	= "Inherit"
+	[ACTION.IceWizardHero_set_ability_played_to_context]
+	ClassType	= "ActionBlackboardSetInt"
+	Key			= "AbilityPlayed"
+	Value		= "1"
+	
+		[ACTION.IceWizardHero_spawn_cube]
+		ClassType = "ActionFilter"
+		Condition = "is_valid_position(as_int(#PosX), as_int(#PosY) + (as_int(#Radius) + 1000) * team_y_direction(as_int(#TeamIndex))) > 0"
+		OnTrueAction = "IceWizardHero_spawn_cube_on_true"
+		OnFalseAction = "IceWizardHero_spawn_cube_on_false"
+		AbortIfInstigatorDies = false
+			[ACTION.IceWizardHero_spawn_cube_on_true]
+			ClassType = "ActionGroup"
+			SubActions = ["IceWizardHero_spawn_cube_on_true_register_y", "IceWizardHero_spawn_cube_on_true_register_x", "IceWizardHero_spawn_dummy_cube"]
+			ContextMode = "Inherit"
+			AbortIfInstigatorDies = false
+				[ACTION.IceWizardHero_spawn_cube_on_true_register_y]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "PosY"
+				Value = "as_int(#PosY) + (as_int(#Radius) + 1000) * team_y_direction(as_int(#TeamIndex))"
+				AbortIfInstigatorDies = false
+				[ACTION.IceWizardHero_spawn_cube_on_true_register_x]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "PosX"
+				Value = "as_int(#PosX)"
+				AbortIfInstigatorDies = false
+					[ACTION.IceWizardHero_spawn_dummy_cube]
+					ClassType = "ActionSpawnToLocation"
+					SpawnType = "AreaEffectType"
+					SpawnData = "IceWizardHero_FreezeAeo_Dummy"
+					YPositionExpression = "as_int(#PosY, 0)"
+					XPositionExpression = "as_int(#PosX, 0)"
+					UseDeploy = false
+					ParentGOAsSource = true
+					AbortIfInstigatorDies = false
+					NextAction = "ice_wizard_hero_set_spawned_cube_true"
+					NextActionWait = true
+					ExecuteIfTrue = "IceWizardHero_has_spawn_cube == 0"
+						[ACTION.ice_wizard_hero_set_spawned_cube_true]
+						ClassType = "ActionSetVariable"
+						Variable = "IceWizardHero_has_spawn_cube"
+						Value = "1"
+						NextAction = "IceWizardHero_set_cube_inflight_false"
+						NextActionWait = true
+			[ACTION.IceWizardHero_spawn_cube_on_false]
+			ClassType = "ActionGroup"
+			SubActions = ["IceWizardHero_spawn_cube_on_false_register_y", "IceWizardHero_spawn_cube_on_true_register_x", "IceWizardHero_spawn_dummy_cube"]
+			ContextMode = "Inherit"
+				[ACTION.IceWizardHero_spawn_cube_on_false_register_y]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "PosY"
+				Value = "as_int(#PosY) + as_int(#Radius) * team_y_direction(as_int(#TeamIndex))"
+	[ACTION.IceWizardHero_on_attached_action]
+	ClassType	= "ActionRunOnAttached"
+	ActionToRun	= "IceWizardHero_actions_on_floating_ice"
+		[ACTION.IceWizardHero_actions_on_floating_ice]
+		ClassType		= "ActionGroup"
+		SubActions		= ["IceWizardHero_attached_play_effect","IceWizardHero_attached_disappear"]
+		SubActionsDelay	= [0, 0]
+		ContextMode		= "Create"
+		
+			[ACTION.IceWizardHero_attached_play_effect]
+			ClassType	= "ActionPlayEffect"
+			Effect		= "vfx_icewizard_hero_ability_use"
+			[ACTION.IceWizardHero_attached_disappear]
+			ClassType		= "ActionGroup"
+			SubActions		= ["IceWizardHero_attached_play_animation", "IceWizardHero_attached_hide", "IceWizardHero_attached_wait_to_reapper"]
+			SubActionsDelay	= [0, 400, 0]
+			ContextMode		= "Inherit"
+				[ACTION.IceWizardHero_attached_play_animation]
+				ClassType			= "ActionRunForcedAnimationOnce"
+				CustomStateNumber	= 2
+				PlaybackDuration = -1
+ForcedDuration		= 450
+				
+				[ACTION.IceWizardHero_attached_hide]
+				ClassType		= "ActionHide"
+				ForceStopIfTrue	= "as_int(#TimeIsOver) > 0 && ability_charges_left > 0"
+				NextAction		= "IceWizardHero_attached_timer"
+					[ACTION.IceWizardHero_attached_timer]
+					ClassType		= "ActionInterval"
+Interval		= 4000
+StartCounterAt	= 4000
+					ActionToExecute	= "IceWizardHero_attached_stop_hide_write_to_context"
+					ForceStopIfTrue	= "as_int(#TimeIsOver) > 0"
+						[ACTION.IceWizardHero_attached_stop_hide_write_to_context]
+						ClassType	= "ActionBlackboardSetInt"
+						Key			= "TimeIsOver"
+						Value		= "1"
+				
+				[ACTION.IceWizardHero_attached_wait_to_reapper]
+				ClassType = "ActionWaitToActivate"
+				Condition = "as_int(#TimeIsOver) > 0 && ability_charges_left > 0"
+				OnActivateAction = "IceWizardHero_attached_reapper"
+[ACTION.IceWizardHero_attached_reapper]
+					ClassType		= "ActionGroup"
+					SubActions		= ["IceWizardHero_attached_play_animation_reapper"]
+					SubActionsDelay	= [0]
+					
+						[ACTION.IceWizardHero_attached_play_animation_reapper]
+						ClassType = "ActionRunForcedAnimationOnce"
+						CustomStateNumber = 1
+[EXT.IceWizardHeroProjectile]
+Base = "PROJECTILE.ice_wizardProjectile"
+ExportName = "vmc_icewizard_hero_pjt"
+RedExportName = "vmc_icewizard_hero_pjt_enemy"
+FileName = "sc/chr_icewizard_hero.sc"
+HitEffect = "vfx_icewizard_hero_hit"
+TrailEffect = "vfx_icewizard_hero_pjt"
+TargetBuff = "IceWizardHeroSlow"
+StatsTags.Damage = "area_damage"
+StatsTags.BuffTime = "slowdown_duration"
+ApplyBuffBeforeDamage = true
+[EXT.IceWizardHeroSlow]
+Base = "BUFF.IceWizardSlowDown"
+EnableStacking	= true
+StatsTags.TID = "slowdown_buff_tid"
+[CHARACTER.IceWizardHero_IceCube]
+Rarity = "Common"
+Hitpoints = 104
+LifeTime = 5000
+TID = "TID_CHARACTER_HERO_ELITE_ARCHER_DUMMY"
+SightRange = 5500
+DeployTime = 1000
+DeployDelay = 400
+LoadTime = 500
+HitSpeed = 1000
+Range = 5500
+Speed = 40
+CollisionRadius = 335
+Mass = 3
+UntargetableWhenSpawned = false
+AttacksGround = true
+IgnoreBuff = [ "VoodooCurse", "GoblinCurse" ]
+IgnoreResurrect = true
+IsOccluder = true
+GameTagsToSet = "NO_MOVE_ALLOW_ATTRACT, AVOIDANCE_AS_OBSTACLE, NO_GIANTBUFFER_CHEF_ENCHANTMENT, NO_ATTACK"
+OnStartingClientActions = ["Healthbar_Small"]
+HealthBar = "Small"
+HideHealthbar = true
+PrefabAsset = "sc3d/characters/hero/hero_icewizard/hero_prefab_icewizard_snowman_battle"
+UseAnimator = true
+OnDeathAction = "IceWizardHero_cube_death_vfx"
+FileName = ""
+BlueExportName = ""
+RedExportName = ""
+Scale = 100
+StatsTags.Hitpoints = "snowman_hitpoints"
+StatsTags.LifeTime = "freeze_duration"
+	[CHARACTER.IceWizardHero_IceCube.OnStartingAction]
+	ClassType		= "ActionGroup"
+	SubActions		= ["IceWizardHero_spawn_freeze", "IceWizardHero_cube_vfx", "IceWizardHero_cube_wait_to_kill", "IceWizardHero_cube_lifetime_timer"]
+	ContextMode		= "Create"
+		[ACTION.IceWizardHero_cube_kill]
+		ClassType = "ActionKill"
+		[ACTION.IceWizardHero_cube_lifetime_timer]
+		ClassType		= "ActionInterval"
+		Interval		= 5000
+		StartCounterAt	= 5000
+		ActionToExecute	= "IceWizardHero_cube_kill"
+		[ACTION.IceWizardHero_spawn_freeze]
+		ClassType = "ActionSpawn"
+		SpawnType = "AreaEffectType"
+		SpawnData = "IceWizardHero_FreezeAeo"
+		ActionToRunOnSpawned = "IceWizardHero_FreezeAeo_starting_actions"
+		ShareContext = true
+		
+		[ACTION.IceWizardHero_cube_vfx]
+		ClassType	= "ActionPlayEffect"
+		Effect		= "vfx_icewizard_hero_ability_ground"
+		EffectFlags	= "FollowParent, Looping"
+		
+		[ACTION.IceWizardHero_cube_wait_to_kill]
+		ClassType = "ActionWaitToActivate"
+		Condition = "as_int(#NoTargetsLeft_ShouldKill, 0) > 0"
+			[ACTION.IceWizardHero_cube_wait_to_kill.OnActivateAction]
+			ClassType = "ActionGroup"
+			SubActions = ["IceWizardHero_cube_kill"]
+			SubActionsDelay = [2000]
+[ACTION.IceWizardHero_cube_death_vfx]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_icewizard_hero_artifact_break"
+[AEO.IceWizardHero_FreezeAeo]
+Rarity = "Common"
+Radius = 2500
+Damage = { BaseDamage = 35, TowerDamage = 15 }
+Filter = "aeo_enemy_affects_hidden"
+Buff = "IceWizardHero_FreezeBuff"
+BuffTime = 999999
+LinkToInstigatorLife = true
+LifeDuration = 999999
+ScaledEffect = ""
+LoopingEffect = ""
+StatsTags.Radius = "freeze_radius"
+StatsTags.Damage = "freeze_damage"
+	[ACTION.IceWizardHero_FreezeAeo_starting_actions]
+	ClassType = "ActionGroup"
+	SubActions = ["IceWizardHero_aeo_effect", "IceWizardHero_FreezeAeo_interval_check"]
+	ContextMode = "Inherit"
+	
+		[ACTION.IceWizardHero_FreezeAeo_interval_check]
+		ClassType = "ActionInterval"
+		Interval = 50
+StartCounterAt = 100
+		ActionToExecute = "IceWizardHero_FreezeAeo_on_resolved"
+			[ACTION.IceWizardHero_FreezeAeo_on_resolved]
+			ClassType = "ActionRunActionOnResolvedGameObjects"
+			Resolver = "IceWizardHero_FreezeAeo_resolver"
+			ActionToRunOnSelfIfNoObjectsFound = "IceWizardHero_FreezeAeo_inform_context_should_kill"
+			Amount = 99999
+			
+				[ACTION.IceWizardHero_FreezeAeo_inform_context_should_kill]
+				ClassType = "ActionBlackboardSetInt"
+				Key = "NoTargetsLeft_ShouldKill"
+				Value = "1"
+			
+				[TARGET_RESOLVER.IceWizardHero_FreezeAeo_resolver]
+				Shape = "IceWizardHero_resolver_shape"
+				Filter = "IceWizardHero_FreezeAeo_filter"
+				StrategyList = ["RESOLVER_STRATEGY_CLOSEST_TARGET"]
+					[EXT.IceWizardHero_FreezeAeo_filter]
+						Base = "FILTER.aeo_enemy_affects_hidden"
+						FilterIfNotBuffedByChecker=["IceWizardHero_FreezeBuff"]
+	[ACTION.IceWizardHero_aeo_effect]
+	ClassType	= "ActionPlayEffect"
+	Effect		= "vfx_icewizard_hero_ability"
+	EffectFlags	= "LinkLifeToActionLife"
+	OverrideScale = 83
+[BUFF.IceWizardHero_FreezeBuff]
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+HitSpeedMultiplier = -100
+Name = "IceWizardHero_FreezeBuff"
+Rarity = "Common"
+SpawnSpeedMultiplier = -100
+SpeedMultiplier = -100
+TID = "TID_SPELL_FREEZE"
+ControlledByParent = true
+EnableStacking = true
+OnRemoveAction = "IceWizardHero_spawn_slow_buff"
+[ACTION.IceWizardHero_spawn_slow_buff]
+ClassType = "ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "IceWizardHero_SlowBuff"
+SpawnTime = 2000
+[EXT.IceWizardHero_FreezeAeo_Dummy]
+Base = "AEO.IceWizardHero_FreezeAeo"
+Damage = { BaseDamage = 0, TowerDamage = 0 }
+LifeDuration = 50
+OnLifeTimeEndAction = "IceWizardHero_spawn_cube_character"
+Buff = "IceWizardHero_FreezeBuff_dummy"
+BuffTime = 150
+StatsTags.Damage = "fake_tag"
+	[ACTION.IceWizardHero_spawn_cube_character]
+	ClassType = "ActionSpawn"
+	SpawnType = "CharacterType"
+	SpawnData = "IceWizardHero_IceCube"
+	UseDeploy = true
+	ParentGOAsSource = true
+[EXT.IceWizardHero_FreezeBuff_dummy]
+Base				= "BUFF.IceWizardHero_FreezeBuff"
+ControlledByParent	= false
+EnableStacking		= false
+OnRemoveAction		= ""
+[BUFF.IceWizardHero_SlowBuff]
+Rarity = "Common"
+Name = "IceWizardHero_SlowBuff"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+HitSpeedMultiplier = -30
+SpawnSpeedMultiplier = -30
+SpeedMultiplier = -30
+[TARGET_RESOLVER.IceWizardHero_target_resolver]
+	Shape			= "IceWizardHero_resolver_shape"
+	Filter			= "IceWizardHero_resolver_filter"
+	StrategyList	= ["RESOLVER_STRATEGY_CLOSEST_TARGET"]
+	[SHAPE.IceWizardHero_resolver_shape]
+	ClassType	= "Global"
+	[FILTER.IceWizardHero_resolver_filter]
+	MatchTeamEnemy=true
+	MatchTypeCharacters=true
+	Filters=["Hidden","Underground","Cloning","NoHitpointComponent"]
+	FilterTags="NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+	FilterDescriptionTID="TID_TARGETS_AIR_AND_GROUND"
+	FilterIfNotBuffedByChecker=["IceWizardHeroCold", "IceWizardHeroSlow"]
+[FILTER.IceWizardHero_cube_death_filter]
+MatchSelf			= true
+MatchTeamOwn		= true
+MatchTypeCharacters	= true
+FilterDead			= false
+[ACTION.IceWizardHero_set_can_play_ability_true]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_is_pending_ability"
+Value = "1"
+[ACTION.IceWizardHero_set_can_play_ability_false]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_is_pending_ability"
+Value = "0"
+NextAction = "IceWizardHero_set_cube_inflight_true"
+[ACTION.IceWizardHero_set_cube_inflight_true]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_cube_inflight"
+Value = "1"
+[ACTION.IceWizardHero_set_cube_inflight_false]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_cube_inflight"
+Value = "0"
+[ACTION.IceWizardHero_set_can_play_ability_false_no_inflight]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_is_pending_ability"
+Value = "0"
+[ACTION.IceWizarHero_set_ability_from_kill_true]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_ability_from_kill"
+Value = "1"
+[ACTION.IceWizarHero_set_ability_from_kill_false]
+ClassType = "ActionSetVariable"
+Variable = "IceWizardHero_ability_from_kill"
+Value = "0"
+NextAction = "IceWizardHero_set_can_play_ability_false_no_inflight"
+AbortIfInstigatorDies = false
+[ACTION.IceWizardHero_ability_from_kill_actions]
+ClassType = "ActionGroup"
+SubActions = ["IceWizarHero_set_ability_from_kill_true", "IceWizardHero_set_can_play_ability_false", "ice_wizard_run_on_killed_troop"]
+ContextMode = "Create"
+ExecuteIfTrue = "IceWizardHero_ability_from_kill == 0 && IceWizardHero_is_pending_ability == 1 && IceWizardHero_has_spawn_cube == 0"
+AbortIfInstigatorDies = false
+	[ACTION.ice_wizard_run_on_killed_troop]
+	ClassType = "ActionRunOnInstigator"
+	ActionToExecute = "IceWizardHero_from_kill_spawn_cube"
+	ExecuteIfTrue = "IceWizardHero_has_spawn_cube == 0"
+	NextAction = "ice_wizard_hero_set_spawned_cube_true"
+	NextActionWait = true
+		[ACTION.IceWizardHero_from_kill_spawn_cube]
+		ClassType = "ActionFilter"
+		Condition = "is_valid_position(x, y + (get_radius() + 1000) * team_y_direction(team_index)) > 0"
+		OnTrueAction = "IceWizardHero_from_kill_spawn_cube_away"
+		OnFalseAction = "IceWizardHero_from_kill_spawn_cube_adjacent"
+			[ACTION.IceWizardHero_from_kill_spawn_cube_away]
+			ClassType = "ActionSpawnToLocation"
+			SpawnType = "AreaEffectType"
+			SpawnData = "IceWizardHero_FreezeAeo_Dummy"
+			YPositionExpression = "y + (get_radius() + 1000) * team_y_direction(team_index)"
+			XPositionExpression = "x"
+			UseDeploy = true
+			[ACTION.IceWizardHero_from_kill_spawn_cube_adjacent]
+			ClassType = "ActionSpawnToLocation"
+			SpawnType = "AreaEffectType"
+			SpawnData = "IceWizardHero_FreezeAeo_Dummy"
+			YPositionExpression = "y + get_radius() * team_y_direction(team_index)"
+			XPositionExpression = "x"
+			UseDeploy = true
+[ACTION.IceWizardHero_ability_from_death_actions]
+ClassType = "ActionGroup"
+SubActions = ["IceWizardHero_death_find_target", "IceWizardHero_set_cube_inflight_false", "IceWizardHero_set_can_play_ability_false_no_inflight"]
+SubActionsDelay = [0, 0, 0]
+ContextMode = "Create"
+ExecuteIfTrue = "(IceWizardHero_cube_inflight == 1 || IceWizardHero_is_pending_ability == 1) && IceWizardHero_ability_from_kill == 0"
+	[ACTION.IceWizardHero_death_find_target]
+	ClassType = "ActionRunActionOnResolvedGameObjects"
+	Resolver = "IceWizardHero_target_resolver"
+	Action = "IceWizardHero_death_spawn_cube"
+	Amount = 1
+		[ACTION.IceWizardHero_death_spawn_cube]
+		ClassType = "ActionFilter"
+		Condition = "is_valid_position(x, y + (get_radius() + 1000) * team_y_direction(team_index)) > 0"
+		OnTrueAction = "IceWizardHero_death_spawn_cube_away"
+		OnFalseAction = "IceWizardHero_death_spawn_cube_adjacent"
+			[ACTION.IceWizardHero_death_spawn_cube_away]
+			ClassType = "ActionSpawnToLocation"
+			SpawnType = "CharacterType"
+			SpawnData = "IceWizardHero_IceCube"
+			YPositionExpression = "y + (get_radius() + 1000) * team_y_direction(team_index)"
+			XPositionExpression = "x"
+			UseDeploy = true
+			[ACTION.IceWizardHero_death_spawn_cube_adjacent]
+			ClassType = "ActionSpawnToLocation"
+			SpawnType = "CharacterType"
+			SpawnData = "IceWizardHero_IceCube"
+			YPositionExpression = "y + get_radius() * team_y_direction(team_index)"
+			XPositionExpression = "x"
+			UseDeploy = true
+[STATS.ice_wizard_hero]
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "area_damage"
+	Unit  = "INTEGER"
+	TID   = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+	Icon  = "icons_stats_dmg_area"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "spawn_damage"
+	Unit  = "INTEGER"
+	TID   = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+	Icon  = "icons_stats_dmg"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "hitpoints"
+	Unit  = "INTEGER"
+	TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+	Icon  = "icons_stats_hp"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "hit_speed"
+	Unit  = "TIME_PRECISE"
+	TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+	Icon  = "icons_stats_dmg_speed"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "slowdown_duration"
+	Unit  = "TIME_PRECISE"
+	TID   = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+	TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+	TIDReplaceValues = ["slowdown_buff_tid"]
+	Icon  = "icons_stats_boost_freeze"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "targets"
+	Unit  = "TARGETS"
+	TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+	Icon  = "icons_stats_target"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "speed"
+	Unit  = "SPEED"
+	TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+	Icon  = "icons_stats_speed"
+	[[STATS.ice_wizard_hero.stats]]
+	Value = "range"
+	Unit  = "TILES"
+	TID   = "TID_SPELL_ATTRIBUTE_RANGE"
+	Icon  = "icons_stats_range"
+[STATS.ice_wizard_hero_ability]
+	[[STATS.ice_wizard_hero_ability.stats]]
+	Value = "snowman_hitpoints"
+	Unit  = "INTEGER"
+	TID   = "TID_SPELL_ATTRIBUTE_SNOWMAN_HITPOINTS"
+	Icon  = "icons_stats_hp"
+	[[STATS.ice_wizard_hero_ability.stats]]
+	Value = "freeze_radius"
+	Unit  = "TILES"
+	TID   = "TID_SPELL_ATTRIBUTE_RADIUS"
+	Icon  = "icons_stats_radius"
+	[[STATS.ice_wizard_hero_ability.stats]]
+	Value = "freeze_duration"
+	Unit  = "TIME_PRECISE"
+	TID   = "TID_SPELL_ATTRIBUTE_FREEZE_DURATION"
+	Icon  = "icons_stats_boost_freeze"
+	[[STATS.ice_wizard_hero_ability.stats]]
+	Value = "freeze_damage"
+	Unit  = "INTEGER"
+	TID   = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+	Icon  = "icons_stats_dmg_area"

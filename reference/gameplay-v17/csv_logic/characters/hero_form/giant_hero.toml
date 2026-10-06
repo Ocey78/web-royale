@@ -1,0 +1,236 @@
+[EXT.GiantHero]
+	Base = "CHARACTER.Giant"
+	Rarity = "Common"
+	PrefabAsset = "sc3d/characters/hero/hero_giant/hero_prefab_giant_battle"
+	Ability = "GiantHero_Ability"
+    Scale = 100
+    SpawnEffect = "vfx_giant_hero_deploy"
+	DeathEffect="vfx_giant_hero_die"
+	DamageEffect = "vfx_giant_hero_swipe_hit"
+	AttackStartEffect = "vfx_giant_hero_attack"
+	MoveEffect = "vfx_giant_hero_steps"
+    AbilityPendingEffect = "Heal_aura"
+    CustomSpawnFilter = "filter_champion_golden_knight"
+    FileName = ""
+    BlueExportName = ""
+    RedExportName = ""
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+    
+    OnStartingClientActions = ["Healthbar_High"]
+    HideHealthbar = true
+    NewHealthBarOffsetXBlue = 2
+    NewHealthBarOffsetXRed = 2
+    HealthBarOffsetYBlue = -30
+    HealthBarOffsetYRed= -30
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[ABILITY.GiantHero_Ability]
+	TID = "TID_HERO_GIANT_ABILITY"
+    TID_INFO = "TID_HERO_GIANT_ABILITY_INFO"
+    IconSWF = "sc/ability_icon_giant.sc"
+	IconExportName = "ability_icon_giant"
+    IsChampion = true
+	CastTime = 0
+	TriggerDelay = 0
+	RefundWindow = 50
+	ManaCost = 2
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect = "vfx_hero_ability_active_l"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OnActivationAction = "GiantHero_OnAbilityActivationGroup"
+    Stats = "giant_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+[ACTION.GiantHero_OnAbilityActivationGroup]
+	ClassType = "ActionGroup"
+	SubActions = ["GiantHero_Target_Selector", "GiantHero_Set_Ability_Button_Pending", "GiantHero_Slap_Active_Effect", "GiantHero_Set_Ability_Button_Pending"]
+	SubActionsDelay = [0, 0, 50, 50]
+[ACTION.GiantHero_Slap_Active_Effect]
+	ClassType="ActionPlayEffect"
+Effect = "vfx_giant_hero_active_range"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	Singleton = true
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1"
+	AbortIfInstigatorDies = false
+[ACTION.GiantHero_Set_Ability_Button_Pending]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "GiantHero"
+	StateToSet = "ChampionPending"
+	ApplyImmediate = true
+	Persistent = true
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1||!is_active_or_secondary_champion"
+[ACTION.GiantHero_Target_Selector]
+	ClassType = "ActionRunActionListOnObjectsInShapeWithPrio"
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1,ABILITY_COOLDOWN_PAUSED"
+	OncePerTarget = true
+	WaitForTarget = true
+	TargetSelectionMode = "HighestCurrentHpIncludeShields"
+	TargetFilter = "Enemy_Characters_No_Buildings_Or_Towers"
+	Actions = ["GiantHero_Slap_Pushback"]
+	Delays = [0]
+	Shape = "GiantHero_Slap_Shape"
+	ActionOnSelfWhenTriggeredLeft = "GiantHero_Slap_Group_On_Self_Left"
+	ActionOnSelfWhenTriggeredRight = "GiantHero_Slap_Group_On_Self_Right"
+	PauseTags = "COMBAT_DISABLED, CAPTURED"
+	AbortIfInstigatorDies = false
+[SHAPE.GiantHero_Slap_Shape]
+	ClassType = "Circle"
+Radius = 2500
+[ACTION.GiantHero_Slap_Group_On_Self_Left]
+	ClassType = "ActionGroup"
+	SubActions = ["GiantHero_Play_Slap_Animation_Left", "GiantHero_Slap_Stop_Moving_And_Attacking"]
+	SubActionsDelay = [0, 0]
+	AbortIfInstigatorDies = false
+[ACTION.GiantHero_Play_Slap_Animation_Left]
+	ClassType = "ActionRunForcedAnimationOnce"
+	PointToInstigator = true
+	CustomStateNumber = 2
+[ACTION.GiantHero_Slap_Group_On_Self_Right]
+	ClassType = "ActionGroup"
+	SubActions = ["GiantHero_Play_Slap_Animation_Right", "GiantHero_Slap_Stop_Moving_And_Attacking"]
+	SubActionsDelay = [0, 0]
+	AbortIfInstigatorDies = false
+[ACTION.GiantHero_Play_Slap_Animation_Right]
+	ClassType = "ActionRunForcedAnimationOnce"
+	PointToInstigator = true
+	CustomStateNumber = 1
+[ACTION.GiantHero_Slap_Stop_Moving_And_Attacking]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 800
+GameTagsToSet = "NO_MOVE,NO_ATTACK,UNIT_CUSTOM_TAG_1"
+[ACTION.GiantHero_Slap_Pushback]
+	ClassType = "ActionDoPushbackFromInstigator"
+	DirectionMode = "ToHorizontalCenterFromInstigator"
+PushbackStrength = 23000
+	GameTagsToDisallowPush = "NO_PUSHBACK,UNTARGETABLE,DASHING,DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS"
+	SuccessAction = "GiantHero_Slap_Group_On_Target"
+	SuccessActionOnInstigator = "GiantHero_Slap_Active_Effect_End"
+	FailureActionOnInstigator = "GiantHero_Reenable_Ability"
+	PushbackDelay = 400
+	UpdatePhase = "PostGameObjectTick"
+[ACTION.GiantHero_Slap_Active_Effect_End]
+	ClassType="ActionPlayEffect"
+	Effect = "vfx_giant_hero_active_range_end"
+	EffectFlags = "FollowParent,ParticlesFollowParent"
+	ActionDelay = 350
+	AbortIfInstigatorDies = false
+[ACTION.GiantHero_Reenable_Ability]
+	ClassType = "ActionGroup"
+	SubActions = ["GiantHero_Target_Selector", "GiantHero_Slap_Active_Effect"]
+	SubActionsDelay = [400, 0]
+	AbortIfInstigatorDies = false
+[ACTION.GiantHero_Slap_Group_On_Target]
+	ClassType = "ActionGroup"
+	SubActions = ["GiantHero_Slap_Knockback", "GiantHero_Slap_Apply_Stun", "GiantHero_Slap_Apply_Flight_Effect"]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.GiantHero_Slap_Knockback]
+	ClassType="ActionKnockback"
+Duration=1500
+Height=9000
+	AbortIfInstigatorDies = false
+	ActionOnLanding = "GiantHero_Slap_LandingGroup"
+	PassInstigatorToLandingAction = true
+[ACTION.GiantHero_Slap_Apply_Flight_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_giant_hero_landing_flying"    
+	EffectFlags = "FollowParent,FilterCanModifyTransform,ApplyToAttachedChildCharacters"
+	OverrideDuration = 3000
+[ACTION.GiantHero_Slap_LandingGroup]
+	ClassType = "ActionGroup"
+SubActions = ["GiantHero_Spawn_LandingAEO"]
+	SubActionsDelay = [0]
+[ACTION.GiantHero_Spawn_LandingAEO]
+	ClassType = "ActionSpawn"
+	SpawnType = "AreaEffectType"
+	SpawnData = "GiantHero_LandingAEO"
+	[AEO.GiantHero_LandingAEO]
+		Rarity = "Common"
+		LifeDuration = 1
+		HitSpeed = 0
+        Damage = { BaseDamage = 53, Effect = "vfx_giant_hero_ground_hit"}
+		Shape = "GiantHero_LandingAEO_Shape"
+		Filter = "CommonAreaDamageGround"
+		StatsTags.Damage = "landingdamage"
+		[SHAPE.GiantHero_LandingAEO_Shape]
+			ClassType = "Circle"
+			Radius = 1000
+[ACTION.GiantHero_Slap_Apply_Stun]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+SpawnTime = 2000
+	SpawnData = "GiantHero_Slap_Stun"
+	StatsTags.SpawnTime = "duration"
+[BUFF.GiantHero_Slap_Stun]
+	Rarity = "Common"
+	DamagePerSecond = 0
+	CrownTowerDamagePerHit = 0
+	HitFrequency = 0
+	SpeedMultiplier = -100
+	HitSpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+[STATS.giant_hero]
+	[[STATS.giant_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.giant_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.giant_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.giant_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.giant_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.giant_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.giant_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.giant_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.giant_hero_ability.stats]]
+		Value = "landingdamage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_THROW_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.giant_hero_ability.stats]]
+		OverrideIntValue = 9000
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_THROW_RANGE"
+		Icon = "icons_stats_dash_range"
+	[[STATS.giant_hero_ability.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_STUN_DURATION"
+		Icon = "icons_stats_deploy_time"

@@ -1,0 +1,71 @@
+
+[CHARACTER.MegaKnight]
+AreaDamageRadius = 1300
+AttackStartEffect = "mega_knight_attack_start"
+AttacksGround = true
+BlueExportName = "mega_knight"
+CollisionRadius = 750
+Damage = 105
+DamageEffect = "mega_knight_hit"
+DamageExportName = "filter_damage_wobble"
+DashConstantTime = 800
+DashCooldown = 900
+DashDamage = 210
+DashEffect = "mega_knight_dashing"
+DashFilter = "filter_mega_knight_jump"
+DashLandingTime = 300
+DashMaxRange = 5000
+DashMinRange = 3500
+DashPushBack = 1000
+DashRadius = 2200
+DashStartEffect = "mega_knight_dash_start"
+DeathEffect = "mega_knight_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_mega_knight.sc"
+HealthBar = "High"
+HitSpeed = 1700
+Hitpoints = 1560
+IgnorePushback = true
+JumpHeight = 3000
+JumpSpeed = 250
+LandingEffect = "mega_knight_dash_end"
+LoadTime = 1200
+Mass = 18
+MoveEffect = "mega_knight_steps"
+Name = "MegaKnight"
+PrestigeExportName2 = "mega_knight_prestige"
+PrestigeRedExportName = "mega_knight_red_prestige"
+PrestigeRedExportName2 = "mega_knight_red_prestige"
+PrestigeSWF = "sc/chr_prestige5_dl.sc"
+Range = 1200
+Rarity = "Common"
+RedExportName = "mega_knight_red"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+SightRange = 5500
+SpawnEffect = "mega_knight_deploy"
+SpawnInterval = 1
+SpawnLimit = 1
+SpawnNumber = 1
+SpawnPushback = 1000
+SpawnPushbackRadius = 1000
+Speed = 60
+TID = "TID_SPELL_MEGAKNIGHT"
+UseAnimator = true
+
+
+[PROJECTILE.MegaKnightAppear]
+AoeToGround = true
+Damage = 168
+DeflectBehaviour = "NoDeflect"
+Gravity = 0
+HitEffect = "mega_knight_deploy_end"
+Name = "MegaKnightAppear"
+OnlyEnemies = true
+Pushback = 1000
+Radius = 2200
+Rarity = "Common"
+Speed = 1000
+

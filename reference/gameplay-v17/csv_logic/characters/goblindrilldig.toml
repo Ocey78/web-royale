@@ -1,0 +1,89 @@
+
+[CHARACTER.GoblinDrillDig]
+AttackStartEffect = "knight_attack_start"
+AttacksGround = true
+BlueExportName = "goblin_drill_ghost"
+CollisionRadius = 0
+DamageEffect = "knight_hit"
+DamageExportName = "filter_damage"
+DeployBaseAnimExportName = "filter_deploy_unit_miner"
+DeployTime = 1000
+FileName = "sc/building_goblin_drill.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HitSpeed = 1200
+Hitpoints = 1000
+IgnoreClone = true
+LoadTime = 700
+Mass = 6
+Name = "GoblinDrillDig"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1300
+Rarity = "Common"
+RedExportName = "goblin_drill_ghost"
+Scale = 100
+ShadowScaleX = 102
+ShadowScaleY = 60
+ShadowSkew = 8
+ShadowX = -7
+ShadowY = 27
+SightRange = 5500
+SpawnEffect = "goblin_drill_deploy"
+SpawnPathfindEffect = "goblin_drill_trail_effect"
+SpawnPathfindMorph = "GoblinDrill"
+SpawnPathfindSpeed = 300
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+
+[BUILDING.GoblinDrill]
+AttacksGround = true
+BlueExportName = "goblin_drill"
+CollisionRadius = 500
+DeathEffect = "goblin_drill_die"
+DeathSpawnCharacter = "Goblin"
+DeathSpawnCount = 2
+DeathSpawnDeployBaseAnim = "filter_deploy_unit_miner"
+DeathSpawnDeployTime = 500
+DeathSpawnMinRadius = 500
+DeathSpawnRadius = 500
+DeployTime = 1000
+FileName = "sc/building_goblin_drill.sc"
+HitSpeed = 1100
+Hitpoints = 513
+IsBuilding = true
+LifeTime = 10000
+LoadTime = 200
+Name = "GoblinDrill"
+Range = 2000
+Rarity = "Common"
+RedExportName = "enemy_goblin_drill"
+Scale = 100
+ShadowScaleX = 102
+ShadowScaleY = 60
+ShadowSkew = 8
+ShadowX = -7
+ShadowY = 27
+SightRange = 2000
+OnStartingAction = "GoblinDrillDamage"
+SpawnCharacter = "Goblin"
+SpawnDeployBaseAnim = "filter_deploy_unit_miner"
+SpawnEffect = "goblin_drill_deploy"
+SpawnNumber = 1
+SpawnPauseTime = 3000
+SpawnStartTime = 1000
+
+[ACTION.GoblinDrillDamage]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "GoblinDrillDamageArea"
+ExecuteIfTrue = "!is_clone"
+
+[AEO.GoblinDrillDamageArea]
+Filter = "CommonAreaDamageGround"
+LifeDuration = 1
+Pushback = 1000
+Radius = 2000
+Rarity = "Common"
+Damage = { BaseDamage = 33, TowerDamage = 0 }
+LinkToInstigatorLife = true

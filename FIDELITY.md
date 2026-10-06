@@ -1,3 +1,7 @@
+# Fidelity update — Main v0.53.0
+
+Verified native tables plus a manual October 6 numerical overlay; full native-engine parity remains unmet. Read [current gameplay notes](BUILD-NOTES-v0.53.0.md) and [machine-readable support report](docs/gameplay-status-v053.json). Historical claims below describe their named releases.
+
 # Fidelity update — Main v0.52.3
 
 Main retains the supplied 16.402.2 catalogue, supported Hero/Evolution behaviors and separate Tower Troop selection. Imported totals do not imply that every entry is playable.

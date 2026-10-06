@@ -1,0 +1,80 @@
+
+[CHARACTER.SuperHogRider_Terry]
+Ability = "SuperHogJump"
+AbilityPendingEffect = "Heal_aura"
+AttackStartEffect = "hog_rider_attack_start"
+AttacksGround = true
+BlueExportName = "hog_rider"
+CollisionRadius = 600
+CustomSpawnFilter = "filter_champion_golden_knight"
+Damage = 350
+DamageEffect = "hog_rider_hit"
+DamageExportName = "filter_damage"
+DashConstantTime = 1000
+DashDamage = 500
+DashFilter = "filter_mega_knight_jump"
+DashImmuneToDamageTime = 100
+DashLandingTime = 100
+DashPushBack = 2000
+DashRadius = 2200
+DeathEffect = "hog_rider_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_hog_rider.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -15
+HitSpeed = 1600
+Hitpoints = 2300
+JumpHeight = 30000
+JumpSpeed = 150
+LandingEffect = "SuperHogRider_Terry_Slam"
+LoadTime = 1000
+LoopingFilter = "filter_super_lava_hound"
+Mass = 4
+MoveEffect = "hog_rider_steps"
+Name = "SuperHogRider_Terry"
+PrestigeExportName2 = "hog_rider_prestige"
+PrestigeExportName3 = "hog_rider_prestige2"
+PrestigeSWF = "sc/chr_prestige4_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 800
+Rarity = "Champion"
+RedExportName = "hog_rider_red"
+Scale = 115
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightClip = 4000
+SightClipSide = 4000
+SightRange = 9500
+SpawnEffect = "hog_rider_deploy"
+Speed = 120
+TID = "TID_SPELL_HOG_RIDER"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+[ABILITY.SuperHogJump]
+CastTime = 766
+Cooldown = 7000
+DashRange = 99999
+DeployedClip = "champion_select_ring_rampup_golden_knight"
+DeployedEffect = "ability_charging_golden_knight"
+IconExportName = "icon_ability_hogrider"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 1
+Name = "SuperHogJump"
+PendingBuff = "SuperHogJumpCharge"
+TID = "TID_ABILITY_NAME_SUPER_HOG_RIDER_TERRY_JUMP"
+TID_INFO = "TID_ABILITY_DESCRIPTION_SUPER_HOG_RIDER_TERRY"
+TriggerDelay = 200
+
+[BUFF.SuperHogJumpCharge]
+ContinuousEffect = "SuperHogJump_run"
+Name = "SuperHogJumpCharge"
+NotCloned = true
+Rarity = "Champion"
+SpeedMultiplier = 200
+

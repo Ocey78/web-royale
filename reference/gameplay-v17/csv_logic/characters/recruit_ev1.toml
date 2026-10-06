@@ -1,0 +1,36 @@
+[EXT.Recruit_EV1]
+Base = "CHARACTER.Recruit"
+BlueExportName = "royal_recruit_evolution"
+BlueShieldExportName = "royal_recruit_shield_evolution"
+ChargeEffect = "evo_recruit_charge"
+ChargeSpeedMultiplier = 200
+ClonedVersion = "Recruit"
+CustomSpawnFilter = "filter_card_evolution"
+DamageEffectSpecial = "prince_charge_hit"
+DamageSpecial = 104
+DeathEffect = "Death_card_evolution_M"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+FileName = "sc/chr_royal_recruit_evolution.sc"
+HealthBarOffsetYBlue = 15
+HealthBarOffsetYRed = 10
+HideHealthbar = true
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+RedExportName = "royal_recruit_enemy_evolution"
+RedShieldExportName = "royal_recruit_enemy_shield_evolution"
+Scale = 66
+ShieldLostAction = "Recruit_EV1_StartCharge"
+SpawnEffect = "vfx_royalrecruits_evo_deploy"
+OnStartingClientActions = ["Healthbar_Medium_WithEvoBadge"]
+[ACTION.Recruit_EV1_StartCharge]
+ClassType = "ActionSpawn"
+ParentGOAsSource = true
+SpawnData = "RecruitsCharge_EV1"
+SpawnTime = 999999
+SpawnType = "BuffType"
+    [BUFF.RecruitsCharge_EV1]
+    OverrideChargeRange = 250
+    Rarity = "Common"

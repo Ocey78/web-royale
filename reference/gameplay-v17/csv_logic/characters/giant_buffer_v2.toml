@@ -1,0 +1,226 @@
+[CHARACTER.GiantBuffer]
+	Rarity = "Common"
+	SightRange = 7500
+	DeployTime = 1000
+	Speed = 60
+	Hitpoints = 1100
+	HitSpeed = 1500
+	LoadTime = 1000
+	Damage = 60
+	Range = 1200
+	AttacksGround = true
+	TargetOnlyBuildings = true	
+	CrowdEffects = true
+	ShadowScaleX = 85
+	ShadowScaleY = 80
+	ShadowSkew = 25
+	IgnorePushback = true
+	CollisionRadius = 750
+	Mass = 18	
+	ProjectileStartZ = 2000
+	TID = "TID_SPELL_GIANT_BUFFER"
+	SightClip = 2000
+	SightClipSide = 2000
+	OnStartingAction = "giantbuffer_collect_friend_troops"
+	Ability = "giantbuffer_ability"
+	CustomAnimationPostfix = "_ability1_"
+HealthBar = "High"
+	DamageExportName = "filter_damage_wobble"
+	AttackStartEffect = "buffinggiant_attack_start"
+	UseAnimator = true
+	DamageEffect = "buffinggiant_atk_hit_01"	
+	FileName="sc/chr_giant_buffing.sc"
+	BlueExportName="buffing_giant_blue"
+    RedExportName="buffing_giant"
+	Scale = 82
+	SpawnEffect="buffinggiant_deploy"
+	DeathEffect="Death_Buff_Giant"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	MoveEffect = "buff_giant_steps"
+	StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[ABILITY.giantbuffer_ability]
+TID = "TID_GOBLINSTEIN_ABILITY"
+TID_INFO = "TID_GOBLINSTEIN_ABILITY_INFO"
+    CastTime = 933
+    TriggerDelay = 50
+    ManaCost = 0
+    Cooldown = 0
+    KeepCurrentTarget = true
+    KeepIconEvenWhenOutOfCharges = true
+    HideChargesTextField = true
+	IsChampion = false
+	[ABILITY.giantbuffer_ability.OnActivationAction]
+	ClassType = "ActionPlayEffect"
+	
+[ACTION.giantbuffer_collect_friend_troops]
+ActionDelay=1000
+    ClassType = "ActionGiantBufferCollectFriends"
+	UseAbility = false
+    MaxFriendlyTroops = 2
+    DistanceToGetTargets = 7000   
+	DistanceToBuff = 8500    
+DistanceToUnbuff = 0
+    TargetFilter = "friendly_troops_for_rune_giant"
+    Cooldown = 3000
+    Projectile = "GiantBuffProjectile"
+	BuffDelay = 280
+ActionWhenUnitBuffed="giantbuffer_enchanting_buff"
+	StatsTags.MaxFriendlyTroops = "buff_count"
+	StatsTags.DistanceToGetTargets = "buff_range"
+	OnBuffAction = "giantbuffer_enchanting_on_buff_friends"
+	[ACTION.giantbuffer_enchanting_on_buff_friends]
+	ClassType = "ActionGroup"
+	SubActions = ["giantbuffer_play_buff_animation", "giantbuffer_play_buff_effect", "giantbuffer_no_attack_on_buff", "giantbuffer_no_move_on_buff"]
+		[ACTION.giantbuffer_play_buff_animation]
+		ClassType = "ActionRunForcedAnimationOnce"
+		CustomStateNumber = 1
+		PlaybackDuration = 1600
+		[ACTION.giantbuffer_play_buff_effect]
+			ClassType = "ActionPlayEffect"
+			Effect="buffinggiant_buff_hit_01"
+		[ACTION.giantbuffer_no_attack_on_buff]
+		ClassType = "ActionWithDuration"
+		ActionDuration = 600
+		GameTagsToSet = "NO_ATTACK"
+		[ACTION.giantbuffer_no_move_on_buff]
+		ClassType = "ActionWithDuration"
+		ActionDuration = 600
+		GameTagsToSet = "NO_MOVE"
+		ForceStopIfTrue = "hit_timer > 0"
+		ExecuteIfTrue = "hit_timer != 0"
+[PROJECTILE.GiantBuffProjectile]   
+	Rarity = "Common"
+	Speed = 600
+	FileName = "sc/chr_giant_buffing.sc"
+	ExportName = "buffinggiant_buff_trail_proj_01"
+	Homing = true
+	AoeToAir = true
+	AoeToGround = true
+    Damage = 0
+    Radius = 1
+    Scale = 200
+    HitEffect="buffinggiant_buff_use_01"
+    OnlyOwnTroops = true
+    OnlyEnemies = false
+    AllowResetTarget = false
+[PROJECTILE.GiantBuffProjectile.OnHitTargetAction]
+    ClassType = "ActionGroup"
+    SubActions= [ "giantbuffer_enchanting_buff", "giantbuffer_target_buff_visual"]    
+SubActionsDelay= [ 0, 50 ]
+[ACTION.giantbuffer_enchanting_buff]
+    ClassType = "ActionGiantBufferBuff"
+	Singleton=true
+    AttackAmount = 3
+    InstigatorDepth = 2
+	VisualActionForEnemyTarget="giantbuffer_target_adddamage_action"
+    GameTagsToSet="GIANTBUFFER_ENCHANTMENT"
+    AddedCrownTowerDamage=86
+    AddedDamage=86
+	FinishIfInstigatorDies=5000
+	StatsTags.Damage = "buff_damage"
+	StatsTags.AttackAmount = "buff_attack_amount"
+	DamageMultiplierPerUnitNames = [ "ElectroWizard","FirecrackerExplosion", "FirecrackerExplosion_EV1", "HunterProjectile", "Hunter_EV1_shotgun_projectile", "RamRiderBola", "SpearGoblinGiantProjectile", "GoblinMachineRocketProjectile", "PhoenixFireball", "GoblinDemolisherDeathProjectile", "RoyalHogs_crazy_2_projectile", "RoyalHogs_crazy_3_death_projectile", "BarbLogHeroProjectileReRolling", "EliteArcherHero_Ability_Triple_Shot_Projectile", "EliteArcherHero_Ability_Power_Shot_Projectile_Middle", "BerserkerHero_BearForm"]
+	DamageMultiplierPerUnitValues = [ 500, 200, 200, 100, 100, 0, 0, 0, 0, 0, 0, 0, 0, 340, 340, 340]
+[ACTION.giantbuffer_target_adddamage_action]
+	ClassType = "ActionGiantBufferBuffVisual"
+	Singleton=true
+	AddedDamageEffect="buffed_damage_ui"
+	OnAddedDamageAction="giantbuffer_target_damage_action"
+	AddedDamageMergeDuration=250
+[ACTION.giantbuffer_target_damage_action]
+	ClassType = "ActionPlayEffect"
+    Effect="buffinggiant_buff_break"	
+[ACTION.giantbuffer_enchanting_buff.OnFinishedAction]
+	ClassType = "ActionPlayEffect"
+    Effect="buffinggiant_buff_break"	
+[ACTION.giantbuffer_enchanting_buff.AttackAmountAction]
+	ClassType = "ActionPlayEffect"
+    EffectFlags="FollowParent"
+    Effect="buffinggiant_buff_target_02"
+[ACTION.giantbuffer_target_buff_visual]
+	ClassType = "ActionSelect"
+	SubActions = [
+		"giantbuffer_target_buff_visual_small",
+		"giantbuffer_target_buff_visual_med",
+		"giantbuffer_target_buff_visual_big"]
+	PerActionConditions = [
+		"get_radius() <= 500",
+		"get_radius() <= 750"
+	]
+[ACTION.giantbuffer_target_buff_visual_small]
+    ClassType = "ActionPlayEffect"
+AbortIfInstigatorDies = false
+    EffectFlags="LinkLifeToActionLife,FollowParent,Looping,ApplyToAttachedChildCharacters"
+    Effect="buffinggiant_buff_target_01"
+ForceStopIfTrue="!GIANTBUFFER_ENCHANTMENT()"
+[ACTION.giantbuffer_target_buff_visual_med]
+    ClassType = "ActionPlayEffect"
+AbortIfInstigatorDies = false
+    EffectFlags="LinkLifeToActionLife,FollowParent,Looping,ApplyToAttachedChildCharacters"
+    Effect="buffinggiant_buff_target_01"
+ForceStopIfTrue="!GIANTBUFFER_ENCHANTMENT()"
+	OverrideScale=150
+[ACTION.giantbuffer_target_buff_visual_big]
+    ClassType = "ActionPlayEffect"
+AbortIfInstigatorDies = false
+    EffectFlags="LinkLifeToActionLife,FollowParent,Looping,ApplyToAttachedChildCharacters"
+    Effect="buffinggiant_buff_target_01"
+ForceStopIfTrue="!GIANTBUFFER_ENCHANTMENT()"
+	OverrideScale=200
+[STATS.giantbuffer]
+	[[STATS.giantbuffer.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.giantbuffer.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.giantbuffer.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.giantbuffer.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.giantbuffer.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.giantbuffer.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.giantbuffer.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.giantbuffer.stats]]
+		Value = "buff_damage"
+		Unit = "INTEGER"
+		TID = "TID_BUFF_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.giantbuffer.stats]]
+		Value = "buff_count"
+		Unit = "INTEGER"
+		TID = "TID_BUFF_COUNT"
+		Icon = "icons_stats_troop_count"
+	[[STATS.giantbuffer.stats]]
+		Value = "buff_range"
+		Unit = "TILES"
+		TID = "TID_BUFF_RANGE"
+		Icon = "icons_stats_range"

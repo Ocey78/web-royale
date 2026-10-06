@@ -1,0 +1,94 @@
+[CHARACTER.Berserker]
+	Rarity = "Common"
+	SightRange = 5500
+	DeployTime = 1000
+	Speed = 90
+	Hitpoints = 350
+	HitSpeed = 600
+	LoadTime = 400
+	Range = 800
+	AttacksGround = true
+	FileName = "sc/chr_berserker.sc"
+	BlueExportName = "berserker"
+	RedExportName = "berserker_enemy"
+	PrestigeSWF = "sc/chr_berserker.sc"
+	PrestigeExportName2 = "berserker"
+	PrestigeExportName3 = "berserker"
+	UseAnimator = true
+	DamageEffect = "duelist_atk_hit_01"
+	DeathEffect = "duelist_death"
+	MoveEffect = "duelist_steps"
+	SpawnEffect = "duelist_deploy"
+	AttackStartEffect = "duelist_attack_start"
+	ShadowScaleX = 80
+	ShadowScaleY = 80
+	ShadowX = -5
+	ShadowY = 5
+	ShadowSkew = 25
+	Scale = 64
+	CollisionRadius = 450
+	Mass = 2
+	HealthBar = "Medium"
+	HealthBarOffsetYRed = -18
+	HealthBarOffsetYBlue = -24
+	DamageExportName = "filter_damage"
+	ProjectileStartRadius = 350
+	ProjectileStartZ = 350
+	TID = "TID_SPELL_BERSERKER"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+	AttackSequenceMode="None"
+    AttackSequence=[0,1,2]
+	TryToFinishAttackAnimation=true
+	AnimationsKeepLastFrame=true
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	
+[CHARACTER.Berserker.OnStartingAction]
+	ClassType = "ActionBerserk"
+[[CHARACTER.Berserker.AttackSequenceList]]
+	Damage = 40
+	StatsTags.Damage = "damage"
+[[CHARACTER.Berserker.AttackSequenceList]]
+	Damage = 40
+[[CHARACTER.Berserker.AttackSequenceList]]
+	Damage = 40
+[STATS.berserker]
+	[[STATS.berserker.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.berserker.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.berserker.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.berserker.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.berserker.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.berserker.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.berserker.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

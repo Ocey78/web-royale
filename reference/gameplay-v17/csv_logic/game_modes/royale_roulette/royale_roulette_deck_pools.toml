@@ -1,0 +1,344 @@
+[ROULETTEDECKPOOL.DeckPool_Standard]
+  ConstraintCardCount = 8
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_HogCycle_Firecracker_Musketeer"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_HogEQ_FlyingMachine_MegaMinion"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_RoyalGiant_MagicArcher_MightyMiner"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_GolemBeatdown_NightWitch"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_LavaLoon_SkeletonDragons_Guards"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_XBowSiege_Tesla_Knight"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_MortarBait_Fisherman_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Graveyard_EvoBarbarians_Phoenix"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_MinerPoison_SuspiciousBush_Wizard"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_LogBait_GoblinBarrel_Guards"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_MegaKnightBait_GoblinDemolisher"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_RoyalHogsRocket_BombTower"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_ThreeMusketeers_Pump_HealSpirit"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_ElectroGiant_Tornado_FireSpirits"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_RuneGiant_DoublePrince_Hunter"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_GoblinDrill_Miner_MiniPekka"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_WallBreakers_Mirror_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Sparky_MegaKnight_GoblinMachine"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_ElixirGolem_BattleHealer_Balloon"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_RamRider_BridgeSpam_Ghost"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_GoblinGiant_Sparky_Wizard"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_SkeletonBarrel_Bait_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_ArcherQueen_MinerControl"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_SkeletonKing_Graveyard_Witch"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Monk_InfernoDragon_AirControl"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_LittlePrince_XBow_Guards"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_MightyMiner_BalloonCycle_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Goblinstein_AllGoblin_Swarm"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_BossBandit_Pekka_BridgeSpam"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Executioner_Tornado_Giant"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Lumberjack_Balloon_Freeze"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Furnace_RoyalGiant_Lightning"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_MinionHorde_LogBait_Fisherman"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Bowler_SpiritEmpress_GiantSkeleton"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_EliteBarbarians_Rascals_Hog"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_MotherWitch_Miner_Control"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Ronin_SkeletonDragons_Hog"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Ronin_GoblinCage_BattleRam"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Clone_LavaLoon_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_Vines_GiantSkeleton_Demolisher"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_GoblinHut_Mortar_Rocket"
+  [[ROULETTEDECKPOOL.DeckPool_Standard.Decks]]
+    Deck = "RR_ElectroWizard_Pekka_Miner"
+[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero]
+  ConstraintCardCount = 8
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_HogCycle_Firecracker_Musketeer"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_HogEQ_FlyingMachine_MegaMinion"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_GolemBeatdown_NightWitch"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_LavaLoon_SkeletonDragons_Guards"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_XBowSiege_Tesla_Knight"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_MortarBait_Fisherman_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Graveyard_EvoBarbarians_Phoenix"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_MinerPoison_SuspiciousBush_Wizard"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_LogBait_GoblinBarrel_Guards"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_MegaKnightBait_GoblinDemolisher"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_RoyalHogsRocket_BombTower"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_GoblinDrill_Miner_MiniPekka"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_WallBreakers_Mirror_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Sparky_MegaKnight_GoblinMachine"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_RamRider_BridgeSpam_Ghost"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_GoblinGiant_Sparky_Wizard"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_SkeletonBarrel_Bait_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_ArcherQueen_MinerControl"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_LittlePrince_XBow_Guards"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_MightyMiner_BalloonCycle_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Goblinstein_AllGoblin_Swarm"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_BossBandit_Pekka_BridgeSpam"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Executioner_Tornado_Giant"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Lumberjack_Balloon_Freeze"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Furnace_RoyalGiant_Lightning"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_MinionHorde_LogBait_Fisherman"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Bowler_SpiritEmpress_GiantSkeleton"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_EliteBarbarians_Rascals_Hog"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Ronin_SkeletonDragons_Hog"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Ronin_GoblinCage_BattleRam"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Clone_LavaLoon_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_Vines_GiantSkeleton_Demolisher"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_OneChampOrHero.Decks]]
+    Deck = "RR_GoblinHut_Mortar_Rocket"
+[ROULETTEDECKPOOL.DeckPool_Standard_Heavy]
+  ConstraintCardCount = 8
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_Golem_NightWitch_Lightning"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_LavaLoon_InfernoDragon_Air"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_ElectroGiant_Tornado_Phoenix"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_ThreeMusketeers_Pump_Giant"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_MegaKnight_Sparky_Rage"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_RoyalRecruits_RuneGiant_BarbHut"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_BossBandit_Pekka_BridgeSpam"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_SkeletonKing_Graveyard_Control"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_MightyMiner_RoyalGiant_Furnace"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_Goblinstein_AllGoblin_Machine"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_ArcherQueen_XBow_Siege"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_Monk_Ronin_DoublePrince"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_Lumberjack_Balloon_Freeze"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_SpiritEmpress_GiantSkeleton"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_EliteBarbarians_Rascals_Ronin"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_GoldenKnight_RoyalHogs_Rocket"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_LittlePrince_Giant_DoublePrince"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_Clone_LavaHound_AirBeatdown"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_MotherWitch_Bowler_Rocket"
+  [[ROULETTEDECKPOOL.DeckPool_Standard_Heavy.Decks]]
+    Deck = "RR_3X_RamRider_CannonCart_BridgeSpam"
+[ROULETTEDECKPOOL.DeckPool_SuperTroop]
+  ConstraintCardCount = 8
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperWitch_Golem_Beatdown"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperWitch_Graveyard_Control"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperLavaHound_LavaLoon"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperLavaHound_Miner_Chip"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperEliteArcher_Pekka_Spam"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperEliteArcher_Miner_Control"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperHogRider_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperHogRider_Earthquake_Bait"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperIceGolemite_MinerPoison"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperIceGolemite_RoyalGiant"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperArcher_XBow_Siege"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperArcher_Graveyard_Freeze"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperMiniPekka_RoyalHogs"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperMiniPekka_RamRider_Spam"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperKnight_LogBait"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_SuperKnight_WallBreakers_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_GoblinPartyRocket_Miner_Chip"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_GoblinPartyRocket_GoblinDrill"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_BarbarianLauncher_Bait"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_BarbarianLauncher_Control"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_GoblinPartyHut_Siege_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_SuperTroop.Decks]]
+    Deck = "RR_SuperTroop_GoblinPartyHut_Heavy_Defense"
+[ROULETTEDECKPOOL.DeckPool_AllEvo]
+  ConstraintCardCount = 8
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_MegaKnight_LogBait"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_RoyalGiant_Furnace"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_Mortar_Siege"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_GoblinDrill_Control"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_GoblinGiant_Beatdown"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_WallBreakers_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_BattleRam_BridgeSpam"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_RoyalHogs_Rocket"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_RoyalRecruits_Wall"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_SkeletonBarrel_Bait"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_Pekka_BridgeSpam"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_EliteBarbarians_Rage"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_HogRider_Cycle"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_Graveyard_Control"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_Balloon_Lumberjack"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_XBow_Siege"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_Miner_Control"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_Golem_Beatdown"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_LavaHound_AirBeatdown"
+  [[ROULETTEDECKPOOL.DeckPool_AllEvo.Decks]]
+    Deck = "RR_AllEvo_RamRider_BridgeSpam"
+[ROULETTEDECKPOOL.DeckPool_4Card]
+  ConstraintCardCount = 4
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Hog_Valkyrie_Musketeer"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_RoyalGiant_Knight_ArcherQueen"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Mortar_Berserker_Archer"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_GoblinBarrel_SkArmy_Princess"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Balloon_IceGolem_Bats"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Graveyard_Guards_IceWizard"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_XBow_Fisherman_Firecracker"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_GoblinDrill_GoldenKnight"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_WallBreakers_DarkPrince"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_BattleRam_Bandit_MagicArcher"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_RamRider_Ghost_Minions"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_RoyalHogs_Bowler_FlyingMachine"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_RoyalRecruits_Goblins_Zappies"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_SkeletonBarrel_SkKing_GobGang"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_MegaKnight_Skeletons_SkDragons"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Pekka_Goblins_ElectroWizard"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_GoblinGiant_Berserker_Witch"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_ElectroGiant_IceGolem_Phoenix"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Giant_Demolisher_MotherWitch"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Golem_Goblins_MegaMinion"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_LavaHound_Guards_Bats"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Prince_IceGolem_Hunter"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Ronin_Skeletons_Musketeer"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_EliteBarbarians_Skeletons"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_Sparky_Valkyrie_Bats"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_CannonCart_MightyMiner_Dart"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_GiantSkeleton_Goblins_Wizard"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_ElixirGolem_Monk_MinionHorde"
+  [[ROULETTEDECKPOOL.DeckPool_4Card.Decks]]
+    Deck = "RR_4Card_BossBandit_Berserker_Archer"

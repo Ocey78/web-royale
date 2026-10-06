@@ -1,0 +1,117 @@
+[EXT.Musketeer_EV1]
+    Base = "CHARACTER.Musketeer"
+    SpawnNumber=1
+	ClonedVersion = "Musketeer"
+    OnStartingAction = "Musketeer_EV1_snipe_targeting_group"
+    AttackSequenceMode="None"
+	AttackSequence=[0,1]
+	AttackStartEffect2="evo_musketeer_area_hit"
+	TryToFinishAttackAnimation=true
+	HealthBar = "Medium_EV1"
+    StatsTags.Hitpoints = "hitpoints"
+    StatsTags.Damage = "ranged_damage"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+	
+	FileName="sc/chr_musketeer_evolution.sc"
+	BlueExportName="chr_musketeer_evo"
+    RedExportName="chr_musketeer_evo_red"
+	Scale = 74
+	SpawnEffect = "vfx_musketeer_evo_deploy"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	MoveEffect = "evo_musketeer_steps"
+    DeathEffect = "evo_musketeer_die"
+	DamageEffect = "evo_musketeer_hit"
+	ProjectileEffect = "evo_musketeer_attack"
+[[EXT.Musketeer_EV1.AttackSequenceList]]
+	Projectile = "Musketeer_EV1_normal_projectile"
+[[EXT.Musketeer_EV1.AttackSequenceList]]
+	Projectile = "Musketeer_EV1_snipe_projectile"
+	CustomRange = 30000
+[EXT.Musketeer_EV1_normal_projectile]
+	Base = "PROJECTILE.MusketeerProjectile"
+[EXT.Musketeer_EV1_snipe_projectile]
+	Base = "PROJECTILE.MusketeerProjectile"
+	Damage = ["%",180]
+	TrailEffect="evo_musketeer_bullet"
+	Scale=80
+    Speed=2650
+    StatsTags.Damage = "snipe_damage"
+	FileName = "sc/chr_musketeer_evolution.sc"
+	ExportName = "evo_musketeer_projectile_long"
+	ShadowExportName = "evo_musketeer_projectile_shadow"
+	HitEffect = "evo_musketeer_hit_strong"
+[ACTION.Musketeer_EV1_snipe_targeting_group]
+	ClassType="ActionGroup"
+	SubActions=["Musketeer_EV1_snipe_deploy_effect", "Musketeer_EV1_snipe_targeting"]
+	SubActionsDelay=[550,0]
+[ACTION.Musketeer_EV1_snipe_deploy_effect]
+	ClassType="ActionPlayEffect"
+	Effect = "evo_musketeer_deploy_line"
+[ACTION.Musketeer_EV1_snipe_targeting]
+    ClassType="ActionMusketeerSnipe"
+    AmmoCount = 3
+    TargetingEffects = ["evo_musketeer_ammo1", "evo_musketeer_ammo2", "evo_musketeer_ammo3"]
+    TargetingEffectVerticalOffset = 15
+    IgnorePendingDamageTargets = true
+    SnipeSideClip = 1250
+	LockedTargetSnipeSideClip = 1500
+    SnipeTargetFilter = "default_targets_no_towers"
+    FinalCrosshairFadeTime = 150
+	SnipeMaxRange = 30000
+	SnipeMinRange = 6000
+	LoopingEffectWhileHasBullets = "evo_musketeer_ability_active"
+	ExtraSpellTargetIndicatorFile = "sc/chr_musketeer_evolution.sc"
+	ExtraSpellTargetIndicator = "evo_musketeer_trail_deploy_L"
+	ExtraSpellTargetIndicatorXOffset = 0
+	ExtraSpellTargetIndicatorYOffset = 0
+    StatsTags.SniperAmmo = "snipe_ammo"
+	StatsTags.SniperRange = "snipe_range"
+[STATS.Musketeer_EV1]
+    [[STATS.Musketeer_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.Musketeer_EV1.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.Musketeer_EV1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.Musketeer_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"        
+	[[STATS.Musketeer_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.Musketeer_EV1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.Musketeer_EV1.stats]]
+		Value = "snipe_ammo"
+		Unit = "INTEGER"
+		TID = "TID_SNIPER_AMMO"
+		Icon = "icons_stats_troop_count"
+	[[STATS.Musketeer_EV1.stats]]
+		Value = "snipe_damage"
+		Unit = "INTEGER"
+		TID = "TID_SNIPER_DAMAGE"
+		Icon = "icons_stats_strength"
+    [[STATS.Musketeer_EV1.stats]]
+		Value = "snipe_range"
+		Unit = "TID"
+		TID = "TID_SNIPER_RANGE"
+		Icon = "icons_stats_range"

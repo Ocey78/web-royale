@@ -1,0 +1,202 @@
+[AEO.BoostAOE_Event_LoveBuff]
+ExpireOnTrigger = true
+Rarity="Epic"
+LifeDuration=15000
+Radius=1000
+ScaledEffect="Boost_Object_LoveBuff"
+HitSpeed=300
+Buff="Event_LoveBuff"
+BuffTime=15000
+Filter="all_characters_from_both_teams"
+[AEO.BoostLevelUp]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 10000
+Radius = 1000
+ScaledEffect = "boost_levelup_continuous"
+HitSpeed = 300
+Buff = "LevelUp"
+BuffTime = 60000
+Filter = "friendly_troop"
+[AEO.BoostRageBottle]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 10000
+Radius = 1000
+ScaledEffect = "boost_rage_continous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnRage"
+[AEO.BoostRageBottle_Battleground]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 25000
+Radius = 1000
+ScaledEffect = "boost_rage_continous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnRage"
+[AEO.BoostCloneBottle]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 10000
+Radius = 1000
+ScaledEffect = "boost_clone_continuous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnClone"
+[AEO.BoostCloneBottle_Battleground]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 25000
+Radius = 1000
+ScaledEffect = "boost_clone_continuous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnClone"
+[AEO.BoostHealBottle]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 10000
+Radius = 1000
+ScaledEffect = "boost_heal_continuous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnHeal"
+[AEO.BoostHealBottle_Battleground]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 25000
+Radius = 1000
+ScaledEffect = "boost_heal_continuous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnHeal"
+[AEO.BoostShieldBottle]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 10000
+Radius = 1000
+ScaledEffect = "boost_shield_continuous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnShield"
+[AEO.BoostInvisibilityBottle_Battleground]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 25000
+Radius = 1000
+ScaledEffect = "boost_invisibility_continuous"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitAction = "BoostSpawnInvisibility"
+[AEO.BoostAOE_TrickOrTreat_Pekka]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 22000
+Radius = 1000
+ScaledEffect = "pumpkin_idle"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitSelfAction = "BoostSpawnPekka"
+[AEO.BoostAOE_TrickOrTreat_Bomb]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 22000
+Radius = 1000
+ScaledEffect = "pumpkin_idle"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitSelfAction = "BoostSpawnBomb"
+[AEO.BoostAOE_TrickOrTreat_Clone]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 22000
+Radius = 1000
+ScaledEffect = "pumpkin_idle"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitSelfAction = "BoostSpawnClone"
+[AEO.BoostAOE_TrickOrTreat_Elixir]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 22000
+Radius = 1000
+ScaledEffect = "pumpkin_idle"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitSelfAction = "BoostSpawnElixir"
+[AEO.BoostAOE_TrickOrTreat_Skeletons]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 22000
+Radius = 1000
+ScaledEffect = "pumpkin_idle"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitSelfAction = "BoostSpawnSkeletons"
+[AEO.BoostAOE_TrickOrTreat_SuperRage]
+ExpireOnTrigger = true
+Rarity = "Epic"
+LifeDuration = 22000
+Radius = 1000
+ScaledEffect = "pumpkin_idle"
+HitSpeed = 300
+Filter = "friendly_troop"
+OnHitSelfAction = "BoostSpawnSuperRage"
+[ACTION.BoostSpawnRage]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "BarbarianRage"
+[ACTION.BoostSpawnClone]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Clone"
+[ACTION.BoostSpawnHeal]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Heal"
+[ACTION.BoostSpawnShield]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "ShieldArea"
+[ACTION.BoostSpawnInvisibility]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "InvisibilityArea"
+[ACTION.BoostSpawnPekka]
+ClassType = "ActionSpawn"
+SpawnType = "CharacterType"
+SpawnData = "Pekka"
+[ACTION.BoostSpawnBomb]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "TrickOrTreat_Bomb_AOE"
+[AEO.TrickOrTreat_Bomb_AOE]
+Rarity = "Epic"
+LifeDuration = 1
+Radius = 3000
+ScaledEffect = "Fireball_explosion"
+Pushback = 2000
+PushbackAll = true
+Damage = { BaseDamage = 400 }
+Filter = "aeo_enemy_affects_hidden"
+[ACTION.BoostSpawnElixir]
+ClassType = "ActionSpawn"
+SpawnType = "CharacterType"
+SpawnData = "TrickOrTreat_Elixir"
+[BUILDING.TrickOrTreat_Elixir]
+Rarity = "Epic"
+IsBuilding = true
+DeployTime = 500
+SpawnEffect = "pumpkin_explosion"
+Scale = 100
+ManaOnDeath = 4
+[ACTION.BoostSpawnSkeletons]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Morph_SkeletonsFriend_AOE"
+[ACTION.BoostSpawnSuperRage]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "SuperRage_AOE"

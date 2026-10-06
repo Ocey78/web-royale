@@ -1,0 +1,644 @@
+[VARIABLE.Tombstone_HealthPercent]
+[VARIABLE.Tombstone_Champion_Inactive]
+[VARIABLE.Tombstone_Destroy_Sequence_Started]
+[EXT.TombstoneHeroSkeleton]
+	Base = "CHARACTER.Skeleton"
+	PrefabAsset = "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_skeleton_battle"
+	SpawnEffect              = "vfx_tombstone_hero_grave_deploy"
+	DeployBaseAnimExportName = "filter_deploy_unit_skeleton"
+	OnStartingClientActions           = ["Healthbar_Small"]
+	HideHealthbar           = true
+	FileName            = ""
+	BlueExportName      = ""
+	RedExportName       = ""
+	PrestigeSWF         = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+[EXT.TombstoneHero]
+	Base        = "BUILDING.Tombstone"
+	Rarity      = "Common"
+	PrefabAsset = "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_battle_dummy"
+	UseAnimator = true
+	
+	ShowAsGoodTargetGroupWide = true
+	PassBuffFiltersInGroup = true
+	
+	FileName = ""
+	BlueExportName = ""
+	RedExportName = ""
+	PrestigeSWF = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+	Scale       = 100
+	SpawnEffect = "vfx_tombstone_hero_deploy"
+	DeathEffect = ""
+	OnStartingClientActions = ["Healthbar_High"]
+	HealthBarOffsetYBlue = -60
+	HealthBarOffsetYRed = -55
+	HideHealthbar = true
+	SpawnCharacter = "TombstoneHeroSkeleton"
+	DeathSpawnCharacter = "TombstoneHeroSkeleton"
+	DeathSpawnCharacter2 = "TombstoneHeroSkeleton"
+	DeathSpawnCount = 3
+	DeathSpawnCount2 = 1
+	DeathSpawnCharacterIgnoreEffect = true
+	OnStartingAction = "Tombstone_hero_OnStartingGroup"
+	OnDeathAction = "TombstoneHero_visual_dummy_break_tomb"
+	StatsTags.Hitpoints       = "hitpoints"
+	StatsTags.Level           = "level"
+	StatsTags.TotalDeathSpawnCount = "death_spawn_count"
+	StatsTags.TotalSpawnDelay = "interval_of_spawns"
+	StatsTags.LifeTime        = "lifetime"
+[CHARACTER.TombstoneHero_visual_dummy]
+	Rarity           = "Common"
+	IsBuilding       = true
+	Hitpoints        = 999999
+	Scale            = 100
+	HitSpeed         = 9999999
+	Damage           = 0
+	Range            = 0
+	CollisionRadius  = 1000
+	Mass             = 10
+	SpawnNumber      = 0
+	DeathSpawnCount  = 0
+	SpawnPauseTime   = 0
+	DeployTime       = 1000
+	PrefabAsset      = "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_battle"
+	UseAnimator      = true
+	GameTagsToSet = "NO_DAMAGE,UNTARGETABLE,DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS,NO_CHECKCOLLISIONS,NO_BUFFS,NO_GIANTBUFFER_CHEF_ENCHANTMENT"
+	IsOccluder = true
+	IgnoreClone   = true
+	HideHealthbar = true
+	OnStartingAction = "TombstoneHero_check_tomb_interval"
+	DisableIndependentShowAsGoodTarget = true
+	ReceiveBuffFiltersFromGroup = true
+	IgnoreResurrect = true
+[EXT.TombstoneHero_broken_visual_dummy]
+	Base = "CHARACTER.TombstoneHero_visual_dummy"
+	PrefabAsset      = "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_broken_battle"
+	VisualLayer = "GROUND"
+	OnDeathAction = "Tombstone_hero_timer_ran_out_effect"
+	DisableIndependentShowAsGoodTarget = false
+[ACTION.Tombstone_hero_timer_ran_out_effect]
+	ClassType        = "ActionPlayEffect"
+	Effect           = "vfx_tombstone_hero_die"
+	ExecuteIfTrue    = "!UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_enable_custom_tag_1]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 99999
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.TombstoneHero_visual_dummy_break_tomb]
+	ClassType = "ActionRunOnMatchingUnitsInGroup"
+	ObjectFilter = "TombstoneHero_tombstone_visual_filter"
+	ActionToRun = "TombstoneHero_visual_dummy_break_tomb_group"
+[FILTER.TombstoneHero_tombstone_visual_filter]
+	MatchTeamOwn              = true
+	MatchTypeCharacters       = true
+	Filters                   = ["Summoner","PrincessTowers","Clones"]
+	IncludeCharactersWithData = ["TombstoneHero_visual_dummy"]
+[ACTION.TombstoneHero_visual_dummy_break_tomb_group]
+	ClassType = "ActionGroup"
+		SubActions = [
+		"Tombstone_hero_switch_dummy_to_broken_tomb",
+		"Tombstone_hero_play_break_animation"
+	]
+	SubActionsDelay = [0, 0]
+[ACTION.Tombstone_hero_switch_dummy_to_broken_tomb]
+	ClassType        = "ActionChangeGameObjectData"
+	NewCharacterData = "TombstoneHero_broken_visual_dummy"
+	NextAction = "Tombstone_hero_dummy_check_monster_exists_interval"
+[ACTION.Tombstone_hero_dummy_check_monster_exists_interval]
+	ClassType       = "ActionInterval"
+	Interval        = 100
+	ActionToExecute = "Tombstone_hero_dummy_check_monster_exists"
+[ACTION.Tombstone_hero_dummy_check_monster_exists]
+	ClassType = "ActionRunActionIfUnitGroupContains"
+	ObjectFilter = "Tombstone_hero_either_monster_exists"
+	ActionIfNoMatch = "TombstoneHero_visual_dummy_remove"	
+[FILTER.Tombstone_hero_either_monster_exists]
+	MatchTeamOwn              = true
+	MatchTypeCharacters       = true
+	Filters                   = ["Summoner","PrincessTowers","Clones"]
+	IncludeCharactersWithData = ["TombstoneHero_Monster_Active", "TombstoneHero_Monster_Passive"]
+[ACTION.TombstoneHero_check_tomb_interval]
+	ClassType = "ActionInterval"
+	Interval        = 100
+	ActionToExecute = "TombstoneHero_visual_dummy_start_monster_spawn"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.TombstoneHero_visual_dummy_start_monster_spawn]
+	ClassType = "ActionRunActionIfUnitGroupContains"
+	ObjectFilter = "Tombstone_hero_kill_filter"
+	Action = "TombstoneHero_visual_dummy_start_monster_spawn_group"
+[ACTION.TombstoneHero_visual_dummy_start_monster_spawn_group]
+	ClassType = "ActionGroup"
+		SubActions = [
+		"Tombstone_hero_switch_dummy_to_broken_tomb",
+		"Tombstone_hero_enable_custom_tag_1",
+		"Tombstone_hero_play_scatter_animation_dummy",
+		"Tombstone_hero_fade_out_filter",
+		"TombstoneHero_visual_dummy_remove"
+	]
+	SubActionsDelay = [0, 0, 0, 1000, 1800]
+[ACTION.TombstoneHero_visual_dummy_remove]
+	ClassType = "ActionKill"
+[ACTION.Tombstone_hero_play_break_animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 1
+[ACTION.Tombstone_hero_play_scatter_animation_dummy]
+	ClassType = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 2
+[ACTION.Tombstone_hero_fade_out_filter]
+	ClassType = "ActionPlayEffect"
+    Effect = "filter_fadeout"
+    OverrideDuration = 1500
+[ACTION.Tombstone_hero_OnStartingGroup]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Tombstone_hero_Monster_ShowChampionBadge",
+		"Tombstone_hero_kill_check",
+		"Tombstone_hero_transfer_hp_interval",
+		"Tombstone_hero_CheckForNewDeploys"
+	]
+	SubActionsDelay = [0, 0, 0, 0]
+[ACTION.Tombstone_hero_CheckForNewDeploys]
+	ClassType            = "ActionActivateOnCardDeploy"
+	OnActivateAction     = "Tombstone_hero_disable_spawn"
+	CardGroup            = "TombstoneHero"
+	EvaluateDeployedCard = true
+[FILTER.Tombstone_hero_OnlyPassiveMonster_Filter]
+	MatchTeamOwn              = true
+	MatchTypeCharacters       = true
+	Filters                   = ["Summoner","PrincessTowers","Clones"]
+	IncludeCharactersWithData = ["TombstoneHero_Monster_Passive"]
+[ACTION.Tombstone_hero_transfer_hp_interval]
+	ClassType       = "ActionInterval"
+	Interval        = 100
+	ActionToExecute = "Tombstone_hero_transfer_hp_group"
+	ForceStopIfTrue = "hp == 0"
+[ACTION.Tombstone_hero_transfer_hp_group]
+	ClassType       = "ActionGroup"
+	ContextMode     = "Create"
+	SubActions      = ["Tombstone_hero_set_hp"]
+	SubActionsDelay = [0]
+	ForceStopIfTrue = "hp == 0"
+[ACTION.Tombstone_hero_set_hp]
+	ClassType      = "ActionBlackboardSetInt"
+	UpdatePhase    = "PostGameObjectTick"
+	Key            = "tombstone_hp_percent"
+	Value          = "(hp * 10000) / max_hp"
+	UseScratch     = true
+	NextAction     = "Tombstone_hero_send_hp"
+	NextActionWait = true
+[ACTION.Tombstone_hero_send_hp]
+	ClassType    = "ActionRunOnMatchingUnitsInGroup"
+	ObjectFilter = "Tombstone_hero_OnlyPassiveMonster_Filter"
+	ActionToRun  = "Tombstone_hero_Monster_TrackHealthValue_Action"
+[ACTION.Tombstone_hero_Monster_ShowChampionBadge]
+	ClassType       = "ActionEnabbleHPBarConditionForDuration"
+	ActionDuration  = 99999
+	ContainerName   = "HealthBar"
+	Condition       = "ActiveChampion"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_kill_check]
+	ClassType       = "ActionInterval"
+	Interval        = 50
+	ActionToExecute = "Tombstone_hero_kill_tombstone"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_kill_tombstone]
+	ClassType     = "ActionRunActionIfUnitGroupContains"
+	Action        = "Tombstone_hero_kill_group"
+	ObjectFilter  = "Tombstone_hero_kill_filter"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_kill_group]
+	ClassType       = "ActionGroup"
+	SubActions      = ["Tombstone_hero_disable_spawn", "Tombstone_hero_kill"]
+	SubActionsDelay = [0, 100]
+[ACTION.Tombstone_hero_disable_spawn]
+	ClassType      = "ActionWithDuration"
+	ActionDuration = 99999
+	GameTagsToSet  = "UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_kill]
+	ClassType = "ActionKill"
+[FILTER.Tombstone_hero_kill_filter]
+	MatchTeamOwn              = true
+	MatchTypeCharacters       = true
+	Filters                   = ["Summoner","PrincessTowers","Clones"]
+	IncludeCharactersWithData = ["TombstoneHero_Monster_Active"]
+[CHARACTER.TombstoneHero_Monster_Passive]
+	Rarity           = "Common"
+	IsBuilding       = false
+	Hitpoints        = 207
+	Scale            = 100
+	LifeTime         = 41000
+	HitSpeed         = 31000
+	Damage           = 0
+	Range            = 1200
+	CollisionRadius  = 1000
+	Mass             = 10
+	IgnorePushback   = true
+	SpawnNumber      = 0
+	DeathSpawnCount  = 0
+	SpawnPauseTime   = 0
+	DeployTime       = 1000
+	Ability          = "Tombstone_hero_Ability"
+	OnStartingAction = "Tombstone_hero_Monster_OnStartingGroup"
+	PrefabAsset      = "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_battle_dummy"
+	UseAnimator      = true
+	FileName            = ""
+	BlueExportName      = ""
+	RedExportName       = ""
+	PrestigeSWF         = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+	GameTagsToSet = "NO_DAMAGE,UNTARGETABLE,DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS,NO_GIANTBUFFER_CHEF_ENCHANTMENT,NO_CHECKCOLLISIONS"
+	IsOccluder = true
+	IgnoreClone   = true
+	HideHealthbar = true
+	OnStartingClientActions = ["Tombstone_hero_Ability_Timer_Bar"]
+	IgnoreResurrect = true
+	StatsTags.Hitpoints = "monster_hitpoints_max"
+[CHARACTER.TombstoneHero_Monster_Active]
+	UseAnimator = true
+	Rarity = "Common"
+	PrefabAsset 		= "sc3d/characters/hero/hero_tombstone/hero_prefab_tombstone_skeletonqueen_battle"
+	IsBuilding          = false
+	LifeTime            = 0
+	Scale               = 100
+	Speed               = 60
+	TargetOnlyBuildings = true
+	AttacksAir          = false
+	AttacksGround       = true
+	Hitpoints           = 1650
+	HitSpeed            = 2100
+	LoadTime            = 1600
+	Damage              = 165
+	Range               = 1600
+	CollisionRadius     = 750
+	Mass                = 18
+	IgnorePushback      = true
+	
+	DeathSpawnCharacter = ""
+	DeathSpawnCount = 0
+	DeathAreaEffect = "TombstoneHero_Monster_Death_AEO"
+	HideHealthbar       = true
+	TID                 = "TID_HERO_TOMBSTONE_MONSTER"
+	OnStartingClientActions       = ["Healthbar_High"]
+	IgnoreClone         = false
+	IgnoreResurrect     = false
+	HealthBarOffsetYRed = -5
+	HealthBarOffsetYBlue = -30
+	DamageEffect        = "vfx_tombstone_hero_queen_hit" 
+	SightRange = 7000
+	StatsTags.TotalDeathSpawnCount = "monster_death_spawn_count"
+	StatsTags.Level     = "monster_level"
+	StatsTags.Damage    = "monster_melee_damage"
+	StatsTags.HitSpeed  = "monster_hit_speed"
+	StatsTags.Hitpoints = "monster_hitpoints"
+	StatsTags.Speed     = "monster_speed"
+	StatsTags.Range     = "monster_range"
+	StatsTags.Targets   = "monster_targets"
+	StatsTags.TID       = "monster_tid"
+[AEO.TombstoneHero_Monster_Death_AEO]
+	Rarity = "Common"
+	LifeDuration = 2000
+	OnStartingAction = "TombstoneHero_Monster_DeathSpawn_Group"
+[ACTION.TombstoneHero_Monster_DeathSpawn_Group]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"TombstoneHero_Monster_DeathSpawn_1",
+		"TombstoneHero_Monster_DeathSpawn_2",
+		"TombstoneHero_Monster_DeathSpawn_3",
+		"TombstoneHero_Monster_DeathSpawn_4",
+	]
+	SubActionsDelay = [0, 0, 0, 0]
+[ACTION.TombstoneHero_Monster_DeathSpawn_1]
+	ClassType        = "ActionSpawnToLocation"
+	SpawnType        = "CharacterType"
+	SpawnData        = "TombstoneHeroSkeleton"
+	UseDeploy        = true
+DeployTime       = 500
+	RelativeX        = 1
+	RelativeY        = 0
+	ParentGOAsSource = true
+[ACTION.TombstoneHero_Monster_DeathSpawn_2]
+	ClassType        = "ActionSpawnToLocation"
+	SpawnType        = "CharacterType"
+	SpawnData        = "TombstoneHeroSkeleton"
+	UseDeploy        = true
+	DeployTime       = 500
+	RelativeX        = -1
+	RelativeY        = 0
+	ParentGOAsSource = true
+[ACTION.TombstoneHero_Monster_DeathSpawn_3]
+	ClassType        = "ActionSpawnToLocation"
+	SpawnType        = "CharacterType"
+	SpawnData        = "TombstoneHeroSkeleton"
+	UseDeploy        = true
+	DeployTime       = 500
+	RelativeX        = -1
+	RelativeY        = -2
+	ParentGOAsSource = true
+[ACTION.TombstoneHero_Monster_DeathSpawn_4]
+	ClassType        = "ActionSpawnToLocation"
+	SpawnType        = "CharacterType"
+	SpawnData        = "TombstoneHeroSkeleton"
+	UseDeploy        = true
+	DeployTime       = 500
+	RelativeX        = 1
+	RelativeY        = -2
+	ParentGOAsSource = true
+[ACTION.Tombstone_hero_Monster_OnStartingGroup]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Tombstone_hero_Monster_Hide",
+		"Tombstone_hero_Monster_SetInitialHealthValue",
+		"Tombstone_hero_Monster_CheckForNewDeploys",
+	]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.Tombstone_hero_Monster_Hide]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Tombstone_hero_Monster_HideMonster",
+		"Tombstone_hero_Monster_NoAttacks",
+		"Tombstone_hero_Monster_HideHPBar",
+		"Tombstone_hero_monster_watch_death",
+	]
+	SubActionsDelay = [0, 0, 0, 0]
+[ACTION.Tombstone_hero_monster_watch_death]
+	ClassType       = "ActionInterval"
+	Interval        = 50
+	ActionToExecute = "Tombstone_hero_tombstone_check_death"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1 || Tombstone_Destroy_Sequence_Started > 0"
+[ACTION.Tombstone_hero_tombstone_check_death]
+	ActionDelay     = 50
+	ClassType       = "ActionRunActionIfUnitGroupContains"
+	ActionIfNoMatch = "Tombstone_hero_death_group"
+	ObjectFilter    = "Tombstone_hero_tombstone_finder"
+[ACTION.Tombstone_hero_death_group]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Tombstone_hero_monster_set_remaining_hp",
+		"Tombstone_hero_play_break_anim_broken_stone",
+		"Tombstone_hero_Limited_Time_Ability_Button",
+		"Tombstone_hero_Ability_Timer",
+		"Tombstone_hero_monster_set_destroy_sequence_started",
+	]
+	SubActionsDelay = [0, 0, 0, 0, 0]
+[ACTION.Tombstone_hero_monster_set_destroy_sequence_started]
+	ClassType = "ActionSetVariable"
+	Variable  = "Tombstone_Destroy_Sequence_Started"
+	Value     = "1"
+[ACTION.Tombstone_hero_play_break_anim_broken_stone]
+	ClassType         = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 1
+	PlaybackDuration  = -1
+[ACTION.Tombstone_hero_death_reset]
+	ClassType     = "ActionKill"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_monster_set_remaining_hp]
+	ClassType = "ActionSetVariable"
+	Variable  = "Tombstone_HealthPercent"
+	Value     = "0"
+[FILTER.Tombstone_hero_tombstone_finder]
+	MatchTeamOwn              = true
+	MatchTypeCharacters       = true
+	Filters                   = ["Summoner","PrincessTowers","Clones"]
+	IncludeCharactersWithData = ["TombstoneHero"]
+[ACTION.Tombstone_hero_Monster_HideMonster]
+	ClassType       = "ActionHide"
+	Duration        = 999999
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1 || Tombstone_HealthPercent == 0"
+	GameTagsToSet   = "DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS"
+[ACTION.Tombstone_hero_Monster_HideHPBar]
+	ClassType       = "ActionEnabbleHPBarConditionForDuration"
+	ActionDuration  = 99999
+	ContainerName   = "HealthBar"
+	Condition       = "Underground"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_Monster_NoAttacks]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "Tombstone_hero_Monster_NoAttacksBuff"
+	SpawnTime = 999999
+[BUFF.Tombstone_hero_Monster_NoAttacksBuff]
+	Rarity               = "Common"
+	SpeedMultiplier      = -100
+	DamageMultiplier     = -100
+	SpawnSpeedMultiplier = -100
+	AliveIfTrue          = "!UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_Monster_TrackHealthValue_Action]
+	ClassType      = "ActionContextToVariable"
+	OutputVariable = "Tombstone_HealthPercent"
+	BlackboardKey  = "tombstone_hp_percent"
+	UseScratch     = true
+[ACTION.Tombstone_hero_Monster_SetInitialHealthValue]
+	ClassType       = "ActionGroup"
+	SubActions      = ["Tombstone_hero_Monster_SetCurrentHealth"]
+	SubActionsDelay = [0]
+[ACTION.Tombstone_hero_Monster_SetCurrentHealth]
+	ClassType = "ActionSetVariable"
+	Variable  = "Tombstone_HealthPercent"
+	Value     = "0"
+[ACTION.Tombstone_hero_Monster_CheckForNewDeploys]
+	ClassType            = "ActionActivateOnCardDeploy"
+	OnActivateAction     = "Tombstone_hero_Monster_new_deploy_detected"
+	CardGroup            = "TombstoneHero"
+	EvaluateDeployedCard = true
+[ACTION.Tombstone_hero_Monster_new_deploy_detected]
+	ClassType       = "ActionGroup"
+	SubActions      = ["Tombstone_hero_flag_inactive", "Tombstone_hero_death_reset"]
+	SubActionsDelay = [0]
+[ACTION.Tombstone_hero_flag_inactive]
+	ClassType = "ActionSetVariable"
+	Variable  = "Tombstone_Champion_Inactive"
+	Value     = "1"
+[CARD_GROUP.TombstoneHero]
+	PlayableCards = ["Tombstone"]
+	SupportCards  = []
+	Heroes        = ["Tombstone_hero"]
+[CLIENT_ACTION.Tombstone_hero_Ability_Timer_Bar]
+	ClassType              = "ClientActionAddHealthBarPart"
+	PartType               = "SecondaryIndicator"
+	FileName               = "sc/ui.sc"
+	BlueExportName         = "quest_timer"
+	RedExportName          = "quest_timer"
+	OffsetX                = 99999
+	OffsetY                = 99999
+	SecondaryIndicatorName = "ability_available_timer"
+	ContainerName          = "TombstoneHero"
+[ACTION.Tombstone_hero_Ability_Timer]
+	ClassType               = "ActionTimerQuest"
+	Intervals               = [1500]
+	OpponentVisualInterval  = 2300
+	InvertBar               = true
+	IntervalStartAt         = 0
+	MaxResets               = 1
+	OnIntervalReachedAction = "Tombstone_hero_Ability_Timer_Ended_group"
+	BarIndicatorName        = "ability_available_timer"
+	ForceStopIfTrue         = "CASTING_ABILITY || UNIT_CUSTOM_TAG_1 || !is_active_or_secondary_champion"
+	BarNamesList            = ["bar3"]
+	ContainerName           = "TombstoneHero"
+	ExportNameAtFull        = ""
+[ACTION.Tombstone_hero_Ability_Timer_Ended_group]
+	ClassType       = "ActionGroup"
+	SubActions      = ["Tombstone_hero_Self_Destruct_Conditional", "Tombstone_hero_Ability_Timer_Ended"]
+	SubActionsDelay = [1000, 0]
+	
+[ACTION.Tombstone_hero_Limited_Time_Ability_Button]
+	ClassType             = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "TombstoneHero_Monster_Passive"
+	StateToSet            = "LimitedAvailability"
+	ExecuteIfTrue         = "is_active_or_secondary_champion"
+	ForceStopIfTrue       = "!is_active_or_secondary_champion || Tombstone_Champion_Inactive == 1"
+[ACTION.Tombstone_hero_Ability_Timer_Ended]
+	ClassType             = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "TombstoneHero_Monster_Passive"
+	StateToSet            = "ChampionAbsent"
+	ExecuteIfTrue         = "is_active_or_secondary_champion && !UNIT_CUSTOM_TAG_1 && !CASTING_ABILITY"
+	ForceStopIfTrue       = "UNIT_CUSTOM_TAG_1 || CASTING_ABILITY || Tombstone_Champion_Inactive == 1"
+[ACTION.Tombstone_hero_Self_Destruct_Conditional]
+	ClassType     = "ActionKill"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1 && !CASTING_ABILITY"
+[ABILITY.Tombstone_hero_Ability]
+	TID                          = "TID_HERO_TOMBSTONE_ABILITY"
+	TID_INFO                     = "TID_HERO_TOMBSTONE_ABILITY_INFO"
+	IconSWF                      = "sc/ability_icon_tombstone.sc"
+	IconExportName               = "ability_icon_tombstone"
+	IsChampion                   = true
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	CastTime                     = 0
+	TriggerDelay                 = 0
+	ManaCost                     = 5
+	MaxCharges                   = 1
+	DeployedEffect               = "vfx_tombstone_hero_ability_active"
+	DeployedClip                 = "filter_invisible"
+	PopoverIconFileName          = "sc/ui_spells.sc"
+	PopoverIconExportName        = "icon_ability_golden_knight"
+	OnActivationAction           = "Tombstone_hero_OnAbilityActivationGroup"
+	Stats                        = "Tombstone_hero_monster"
+[ACTION.Tombstone_hero_OnAbilityActivationGroup]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Tombstone_hero_SetData",
+		"Tombstone_hero_kill_fx",
+		"Tombstone_hero_DisableAbilityButton",
+		"Tombstone_hero_Activate",
+		"Tombstone_hero_Monster_StandStill",
+		"Tombstone_hero_play_skeletonqueen_deploy_animation",
+	]
+	SubActionsDelay = [0, 0, 0, 0, 0, 0, 0]
+[ACTION.Tombstone_hero_play_skeletonqueen_deploy_animation]
+	ClassType         = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 1
+	PlaybackDuration  = -1
+[ACTION.Tombstone_hero_Activate]
+	ClassType      = "ActionWithDuration"
+	ActionDuration = 99999
+	GameTagsToSet  = "UNIT_CUSTOM_TAG_1"
+[ACTION.Tombstone_hero_kill_fx]
+	ClassType        = "ActionPlayEffect"
+	Effect           = "vfx_tombstone_hero_queen_deploy"
+	OverrideDuration = 1800
+	OverrideScale    = 100
+[ACTION.Tombstone_hero_SetData]
+	ClassType        = "ActionChangeGameObjectData"
+	NewCharacterData = "TombstoneHero_Monster_Active"
+	NextAction       = "Tombstone_hero_ResetHealthValue"
+	NextActionWait   = true
+[ACTION.Tombstone_hero_DisableAbilityButton]
+	ClassType             = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "TombstoneHero_Monster_Passive"
+	StateToSet            = "AllChargesConsumed"
+	Persistent            = true
+	ApplyImmediate        = true
+	ForceStopIfTrue       = "Tombstone_Champion_Inactive == 1"
+[ACTION.Tombstone_hero_ResetHealthValue]
+	ClassType          = "ActionHeal"
+	Value              = "max_hp"
+	MaxOverHealPercent = 0
+	NextAction         = "Tombstone_hero_ApplyHealthBuff"
+	NextActionWait     = true
+[ACTION.Tombstone_hero_ApplyHealthBuff]
+	ClassType = "ActionHeal"
+Value                        = "0"
+	MaxOverHealPercent           = 150
+	StatsTags.MaxOverHealPercent = "max_overheal"
+[ACTION.Tombstone_hero_Monster_StandStill]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "Tombstone_hero_Monster_StandStillBuff"
+	SpawnTime = 2000
+[BUFF.Tombstone_hero_Monster_StandStillBuff]
+	Rarity           = "Common"
+	SpeedMultiplier  = -100
+	DamageMultiplier = -100
+[STATS.Tombstone_hero]
+	[[STATS.Tombstone_hero.stats]]
+		Value = "hitpoints"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon  = "icons_stats_hp"
+	[[STATS.Tombstone_hero.stats]]
+		Value  = "death_spawn_count"
+		Value2 = "TID_CHARACTER_SKELETON"
+		Unit   = "DEATH_SPAWN"
+		TID    = "TID_SPELL_ATTRIBUTE_DEATH_SPAWN"
+		Icon   = "icons_stats_troop_count"
+	[[STATS.Tombstone_hero.stats]]
+		Value                  = "level"
+		Unit                   = "INTEGER"
+		TID                    = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues       = ["TID_CHARACTER_SKELETON"]
+		Icon                   = "icons_stats_troop"
+		InfoPopoverTitle       = "TID_CHARACTER_SKELETON"
+		InfoButtonStats        = "skeleton"
+		PopupExcludeStatList   = ["skeleton_stat_count", "skeleton_stat_dps"]
+	[[STATS.Tombstone_hero.stats]]
+		Value = "interval_of_spawns"
+		Unit  = "TIME"
+		TID   = "TID_SPELL_ATTRIBUTE_SPAWN_TIME"
+		Icon  = "icons_stats_deploy_time"
+	[[STATS.Tombstone_hero.stats]]
+		Value = "lifetime"
+		Unit  = "TIME"
+		TID   = "TID_SPELL_ATTRIBUTE_LIFETIME"
+		Icon  = "icons_stats_deploy_time"
+[STATS.Tombstone_hero_monster]
+		OverrideStringValue = "TID_STATS_ABILITIES_SINGLEUSE"
+		Unit                = "TID"
+		TID                 = "TID_ABILITY_STAT_COOLDOWN"
+		Icon                = "icons_stats_cooldown"
+	[[STATS.Tombstone_hero_monster.stats]]
+		Value = "monster_melee_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon  = "icons_stats_dmg"
+	[[STATS.Tombstone_hero_monster.stats]]
+		Value = "monster_hitpoints"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon  = "icons_stats_hp"
+	[[STATS.Tombstone_hero_monster.stats]]
+		Value = "monster_hit_speed"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon  = "icons_stats_dmg_speed"
+	[[STATS.Tombstone_hero_monster.stats]]
+		Value = "monster_targets"
+		Unit  = "TARGETS"
+		TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon  = "icons_stats_target"
+	[[STATS.Tombstone_hero_monster.stats]]
+		Value = "monster_speed"
+		Unit  = "SPEED"
+		TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon  = "icons_stats_speed"
+	[[STATS.Tombstone_hero_monster.stats]]
+		Value  = "monster_death_spawn_count"
+		OverrideIntValue = 4
+		Value2 = "TID_CHARACTER_SKELETON"
+		Unit   = "DEATH_SPAWN"
+		TID    = "TID_SPELL_ATTRIBUTE_DEATH_SPAWN"
+		Icon   = "icons_stats_troop_count"

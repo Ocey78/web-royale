@@ -1,0 +1,95 @@
+[CHARACTER.IceSpirits]
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "icespirit"
+CollisionRadius = 400
+ContinuousEffect = "icespirit_continuous_fx"
+DamageExportName = "filter_damage"
+DeathEffect = "icespirit_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_ice_spirits.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 300
+Hitpoints = 84
+Kamikaze = true
+LoadTime = 100
+Mass = 1
+MoveEffect = "icespirit_steps"
+Name = "IceSpirits"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "IceSpiritsProjectile"
+ProjectileEffect = "icespirit_attack"
+Range = 2500
+Rarity = "Common"
+RedExportName = "icespirit"
+Scale = 100
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "icespirit_deploy"
+SpawnRadius = 650
+Speed = 120
+TID = "TID_CHARACTER_ICE_SPIRITS"
+UseAnimator = true
+StatsTags.Speed = "speed"
+StatsTags.Targets = "targets"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Range = "range"
+[PROJECTILE.IceSpiritsProjectile]
+AoeToAir = true
+AoeToGround = true
+BuffTime = 1100
+Damage = 43
+DeflectBehaviour = "NoDeflect"
+ExportName = "projectile_icespirit"
+FileName = "sc/effects.sc"
+Gravity = 400
+HitEffect = "icespirit_projectile_hit"
+Homing = true
+Name = "IceSpiritsProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 400
+TargetBuff = "Freeze"
+TrailEffect = "ice_wiz_emitter"
+use360Frames = true
+StatsTags.Damage = "damage"
+StatsTags.BuffTime = "stun_duration"
+[STATS.icespirits]
+	[[STATS.icespirits.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.icespirits.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.icespirits.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.icespirits.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.icespirits.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.icespirits.stats]]
+		Value = "stun_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_FREEZE_DURATION"
+		Icon = "icons_stats_boost_freeze"

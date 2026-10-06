@@ -1,0 +1,48 @@
+
+[BUILDING.Xbow]
+AttacksGround = true
+BlueExportName = "building_xbow_attack1_1"
+CollisionRadius = 600
+DeathEffect = "Cannon_die"
+DeployTime = 3500
+FileName = "sc/building_xbow.sc"
+HasRotationOnTimeline = true
+HitSpeed = 400
+Hitpoints = 625
+IsBuilding = true
+LifeTime = 30000
+Name = "Xbow"
+PrestigeExportName2 = "xbow_prestige"
+PrestigeExportName3 = "xbow_prestige2"
+PrestigeRedExportName2 = "xbow_red_prestige"
+PrestigeRedExportName3 = "xbow_red_prestige2"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "xbow_projectile"
+ProjectileEffect = "XbowAttack"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 2400
+Range = 11500
+Rarity = "Common"
+RedExportName = "building_xbow_red_attack1"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 11500
+SpawnEffect = "Xbow_deploy"
+TID = "TID_BUILDING_XBOW"
+TurretMovement = 10
+
+[PROJECTILE.xbow_projectile]
+Damage = 23
+ExportName = "projectile_arrow_basic"
+FileName = "sc/effects.sc"
+HitEffect = "ArrowHit"
+Homing = true
+Name = "xbow_projectile"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1600
+
+

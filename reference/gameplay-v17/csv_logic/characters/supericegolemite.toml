@@ -1,0 +1,72 @@
+
+[CHARACTER.SuperIceGolemite]
+AttackStartEffect = "snowman_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "snowman_blue"
+CollisionRadius = 700
+Damage = 100
+DamageEffect = "snowman_hit"
+DamageExportName = "filter_damage"
+DeathAreaEffect = "SuperFreezeIceGolemite"
+OnDeathAction = "SuperIceGolemiteExplosion"
+DeathEffect = "snowman_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+DontStopMoveAnim = true
+FileName = "sc/chr_snowman.sc"
+HealthBar = "High"
+HitSpeed = 2500
+Hitpoints = 3000
+LoadTime = 1500
+LoopingFilter = "filter_super_lava_hound"
+Mass = 6
+MoveEffect = "snowman_steps"
+Name = "SuperIceGolemite"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 750
+Rarity = "Legendary"
+RedExportName = "snowman_red"
+Scale = 180
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightClip = 2000
+SightClipSide = 2000
+SightRange = 7000
+SpawnEffect = "snowman_deploy"
+SpawnRadius = 1000
+Speed = 30
+StopMovementAfterMS = 470
+TID = "TID_CHARACTER_SMALL_GOLEM"
+TargetOnlyBuildings = true
+UseAnimator = true
+WaitMS = 80
+
+[AEO.SuperFreezeIceGolemite]
+Buff = "Freeze"
+BuffTime = 4000
+Filter = "aeo_enemy_affects_hidden"
+LifeDuration = 4000
+LoopingEffect = "Spell_freeze_loop"
+Name = "SuperFreezeIceGolemite"
+Radius = 40000
+Rarity = "Legendary"
+ScaledEffect = "Spell_freeze_ground"
+Damage = { BaseDamage = 72, TowerDamage = 22 }
+
+[ACTION.SuperIceGolemiteExplosion]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "SuperIceGolemiteDeathArea"
+
+[AEO.SuperIceGolemiteDeathArea]
+Rarity = "Common"
+Radius = 2000
+Damage = { BaseDamage = 40 }
+Filter = "CommonAreaDamageFilter" 
+

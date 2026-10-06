@@ -1,0 +1,19 @@
+[SPELL_HERO.IceGolemite_hero]
+	CardForm                = "HeroForm"
+	Stats                   = "icegolemite_hero"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_icegolem/hero_prefab_icegolem_collection"
+	UnlockArena             = "Arena8"
+	Rarity                  = "Rare"
+	ManaCost                = 2
+	PrestigeCount           = 1
+	SummonCharacter         = "IceGolemiteHero"
+	SummonNumber            = 1
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_ICEGOLEMITE"
+	TID_INFO                = "TID_SPELL_INFO_HERO_ICEGOLEMITE"
+	PveDefenseType          = "Defender"
+	IconSWF                 = "sc/ui_card_icegolem_hero.sc"
+	IconFile                = "icegolem_hero_card"
+[SPELL_CHARACTER.IceGolemite]
+	EvolvedSpells = ["IceGolemite_hero"]

@@ -1,0 +1,56 @@
+
+[CHARACTER.SpearGoblin]
+AttackStartEffect = "spear_goblin_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "goblinArcher_blue"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "spear_goblin_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_goblin_archer.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 1600
+Hitpoints = 52
+LoadTime = 1100
+Mass = 1
+MoveEffect = "spear_goblin_steps"
+Name = "SpearGoblin"
+PrestigeExportName2 = "spear_goblin_prestige"
+PrestigeExportName3 = "spear_goblin_prestige2"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "SpearGoblinProjectile"
+ProjectileEffect = "spear_goblin_attack"
+ProjectileStartZ = 600
+Range = 5000
+Rarity = "Common"
+RedExportName = "goblinArcher"
+Scale = 133
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "spear_goblin_deploy"
+Speed = 120
+TID = "TID_CHARACTER_SPEAR_GOBLIN"
+UseAnimator = true
+
+[PROJECTILE.SpearGoblinProjectile]
+Damage = 32
+ExportName = "projectile_spear_360"
+FileName = "sc/effects.sc"
+Gravity = 150
+HitEffect = "spear_goblin_projectile_hit"
+Homing = true
+Name = "SpearGoblinProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 500
+use360Frames = true
+
+

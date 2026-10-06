@@ -1,0 +1,212 @@
+[CHARACTER.SkeletonKing]
+Ability = "SkeletonKing"
+AbilityPendingEffect = "Heal_aura"
+AreaDamageRadius = 1300
+AttackStartEffect = "skeleton_king_attack_start"
+AttacksGround = true
+BlueExportName = "SkeletonKing"
+CollisionRadius = 1000
+ContinuousEffect = "ram_steps"
+CustomSpawnFilter = "filter_champion_skeleton_king"
+Damage = 80
+DamageEffect = "skeleton_king_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "skeleton_king_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_skeleton_king_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HealthBarOffsetYBlue = 0
+HealthBarOffsetYRed = 0
+HideHealthbar = true
+HitSpeed = 1600
+Hitpoints = 898
+IgnorePushback = true
+LoadTime = 1300
+Mass = 10
+MoveEffect = "giant_skeleton_steps"
+Name = "SkeletonKing"
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "SkeletonKing_enemy"
+Scale = 98
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "skeleton_king_deploy"
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+UseAnimator = true
+OnStartingClientActions = ["Healthbar_Medium", "SkeletonKing_ResurrectBar"]
+OnStartingAction = "SkeletonKing_Resurrect_Start_Group"
+[CHARACTER.SkeletonKing.StatsTags]
+Level = "skeleton_level"
+[VARIABLE.SkeletonKing_ResurrectCharges]
+DefaultValue = 0
+[ACTION.SkeletonKing_Resurrect_Start_Group]
+ClassType = "ActionGroup"
+SubActions = ["SkeletonKing_OnTroopDied"]
+[ACTION.SkeletonKing_OnTroopDied]
+ClassType = "ActionRunActionOnTroopDestroyed"
+ActionToRun = "SkeletonKing_Capture_Soul"
+TroopFilter = "skeletonking_resurrectable"
+MatchOnlyOwnSpawnedTroops = false
+MatchOnlyFromSameOwnerIndex = false
+[ACTION.SkeletonKing_Capture_Soul]
+ClassType = "ActionSoulDrain"
+ExecuteIfTrue = "is_active_or_secondary_champion && ability_charges_left != 0"
+Effect = "skeleton_king_soul"
+EffectAbsolutePositionToParent = true
+ConstantFlightDuration = 1450
+MinVisualWaitTime = 800
+MaxVisualWaitTime = 1250
+MinWobble = 200
+MaxWobble = 500
+UseLerpForSouls = true
+FlipPivotOffsetIfTopBottom = true
+ActionOnTargetReached = "SkeletonKing_OnSoulArrived"
+[ACTION.SkeletonKing_OnSoulArrived]
+ClassType = "ActionGroup"
+SubActions = ["SkeletonKing_Increment_Charges", "SkeletonKing_GainCharge_FX"]
+[ACTION.SkeletonKing_Increment_Charges]
+ClassType = "ActionSetVariable"
+Variable = "SkeletonKing_ResurrectCharges"
+Value = "SkeletonKing_ResurrectCharges + 1"
+[ACTION.SkeletonKing_GainCharge_FX]
+ClassType = "ActionPlayEffect"
+Effect = "skeleton_king_gain_charge"
+EffectFlags = "FollowParent"
+[ACTION.SkeletonKing_Reset_Charges]
+ClassType = "ActionSetVariable"
+Variable = "SkeletonKing_ResurrectCharges"
+Value = "0"
+[FILTER.skeletonking_resurrectable]
+MatchTeamOwn = true
+MatchTeamEnemy = true
+MatchTypeCharacters = true
+FilterDead = false
+Filters = ["Buildings", "Clones", "IgnoreResurrect"]
+[CLIENT_ACTION.SkeletonKing_ResurrectBar]
+ClassType = "ClientActionResurrectBar"
+HealthBar = "Resurrection"
+ValueExpression = "SkeletonKing_ResurrectCharges"
+ChargeFilter = "skeleton_king_charge_souls"
+VisibleExpression = "is_active_or_secondary_champion && ability_charges_left != 0"
+ExtraYOffsetExpression = "select(CAPTURED, -18, 0)"
+[ABILITY.SkeletonKing]
+AreaEffectObject = "SkeletonKingGraveyard"
+CastTime = 933
+MaxCharges = 1
+KeepIconEvenWhenOutOfCharges = true
+HideChargesTextField = true
+DeployedClip = "champion_select_ring_rampup_skeleton_king"
+DeployedEffect = "ability_charging_skeleton_king"
+IconExportName = "icon_ability_skeleton_king"
+IconSWF = "sc/ui_spells.sc"
+ManaCost = 2
+Name = "SkeletonKing"
+ResurrectBaseCount = 6
+ResurrectChargeFilter = "skeleton_king_charge_souls"
+ResurrectEnemies = true
+ResurrectGainChargeEffect = "skeleton_king_gain_charge"
+ResurrectHealthBar = "Resurrection"
+ResurrectOwnTroops = true
+SpawnLimit = 16
+ResurrectChargesExpression = "SkeletonKing_ResurrectCharges"
+SpawnCountResetAction = "SkeletonKing_Reset_Charges"
+Stats = "SkeletonKingAbility"
+TID = "TID_ABILITY_NAME_SKELETON_KING_RESURRECT"
+TID_INFO = "TID_ABILITY_DESCRIPTION_SKELETON_KING"
+TriggerDelay = 500
+[ABILITY.SkeletonKing.StatsTags]
+Cooldown = "ability_cooldown"
+ResurrectBaseCount = "min_skeleton_count"
+SpawnLimit = "max_skeleton_count"
+[AEO.SkeletonKingGraveyard]
+CapBuffTimeToAreaEffectTime = true
+FollowBehaviour = "FollowParent"
+Filter = "friendly_troop"
+LifeDuration = 10000
+Name = "SkeletonKingGraveyard"
+Radius = 3500
+Rarity = "Common"
+ScaledEffect = "Spell_skeleton_king_graveyard"
+ScaledEffectFollowAeO = true
+SpawnCharacter = "SkeletonKingSkeleton"
+SpawnClones = true
+SpawnDeployBaseAnim = "filter_deploy_unit_skeleton"
+SpawnEffect = "Graveyard_appear"
+SpawnInitialDelay = 250
+SpawnInterval = 250
+SpawnMinRadius = 2500
+SpawnRandomizeSequence = true
+SpawnTime = 400
+StayAfterParentDies = true
+[CHARACTER.SkeletonKingSkeleton]
+AttackStartEffect = "skeleton_attack_start"
+AttacksGround = true
+BlueExportName = "skeleton1"
+CollisionRadius = 500
+ContinuousEffect = "skeletons_king_aura"
+CustomCloneFilter = "filter_skeleton_king_skeletons"
+Damage = 32
+DamageEffect = "skeleton_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "skeleton_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_skeleton.sc"
+HealthBar = "Small"
+HitSpeed = 1100
+Hitpoints = 32
+LoadTime = 600
+Mass = 1
+MoveEffect = "skeleton_steps"
+Name = "SkeletonKingSkeleton"
+PrestigeExportName2 = "skeleton_prestige"
+PrestigeExportName3 = "skeleton_prestige2"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 500
+Rarity = "Common"
+RedExportName = "skeleton1"
+Scale = 130
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightRange = 5500
+SpawnEffect = "skeleton_deploy"
+Speed = 90
+TID = "TID_CHARACTER_SKELETON"
+UseAnimator = true
+[STATS.SkeletonKingAbility]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.SkeletonKingAbility.stats]]
+		Value = "min_skeleton_count"
+		Unit = "INTEGER"
+		TID = "TID_ABILITY_STAT_MINIMUM_SOULS"
+		Icon = "icons_stats_troop_count"
+	[[STATS.SkeletonKingAbility.stats]]
+		Value = "max_skeleton_count"
+		Unit = "INTEGER"
+		TID = "TID_ABILITY_STAT_MAXIMUM_SOULS"
+		Icon = "icons_stats_troop_count"
+	[[STATS.SkeletonKingAbility.stats]]
+		Value = "skeleton_level"
+		Unit = "INTEGER"
+		TID = "TID_ABILITY_STAT_SKELETON_LEVEL"
+		Icon = "icons_stats_troop"

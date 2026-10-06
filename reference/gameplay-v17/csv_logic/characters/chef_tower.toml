@@ -1,0 +1,234 @@
+[EXT.ChefTowerKing]
+    Base = "BUILDING.KingTower"
+    HealthBarOffsetYRed = -36
+    HealthBarOffsetY2v2Blue = -39
+    [EXT.ChefTowerKing.OnStartingAction]
+        ClassType = "ActionGroup"
+        SubActions = ["KingTower_StartingGroup", "ChefTower_CookingAction"]
+        SubActionsDelay = [0, 0]
+[CHARACTER.Chef]
+	Rarity = "Common"
+	SightRange = 5500
+	DeployTime = 1000
+	Speed = 60
+	Hitpoints = 5
+	HitSpeed = 1200
+	LoadTime = 1000
+	Projectile = "ChefTower_spatula_projectile"
+	Range = 5000
+	AttacksGround = true
+	AttacksAir = true
+	ProjectileEffect = "ArcherAttack"
+	FileName = "sc/chr_royal_chef.sc"
+	BlueExportName = "Royal_Chef_bot"
+	RedExportName = "Royal_Chef_bot_red"
+	UseAnimator = true
+	DeathEffect = "ArcherDie"
+	MoveEffect = "ArcherSteps"
+	SpawnEffect = "ArcherDeploy"
+	ShadowScaleX = 75
+	ShadowScaleY = 75
+	ShadowY = -15
+	ShadowSkew = 25
+	Scale = 70
+	CollisionRadius = 500
+	Mass = 3
+	HealthBar = "Small"
+	HealthBarOffsetY = -10
+	DamageExportName = "filter_damage"
+	AttackStartEffect = "ArcherAttackStart"
+	ProjectileStartRadius = 450
+	ProjectileStartZ = 700
+	TID = "TID_CHARACTER_ARCHER"
+	DeployDelay = 400
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+[BUILDING.ChefTower]
+    Rarity = "Common"
+    IsBuilding = true
+    SkinType="PrincessTower"
+    SightRange = 7500
+    Hitpoints = 1240
+    HitSpeed = 1000
+    LoadTime = 200
+    Projectile = "ChefTower_spatula_projectile"
+    Range = 7500
+    AttacksGround = true
+    AttacksAir = true
+    ProjectileEffect = "royal_chef_attack"
+    FileName = "sc/building_tower.sc"
+    BlueExportName = "StarTower_base_blue"
+    BlueTopExportName = "StarTower_top_blue"
+    RedExportName = "StarTower_base_red"
+    RedTopExportName = "StarTower_top_red"
+    PrestigeSWF = "sc/building_prestige_dl.sc"
+    AttachedCharacter = "Chef"
+    AttachedCharacterHeight = 2200
+    AttachedCharacterOffsetYRed = -350
+    AttachedCharacterOffsetYBlue = 200
+    DeathEffect = "TowerExplode"
+    CrowdEffects = true
+    ShadowScaleX = 102
+    ShadowScaleY = 70
+    ShadowX = -5
+    ShadowY = 5
+    ShadowSkew = 13
+    Scale = 100
+    CollisionRadius = 1000
+    ProjectileStartRadius = 300
+    ProjectileStartZ = 3000
+    IsSummonerTower = true
+    NoDeploySizeW = 11
+    NoDeploySizeH = 21
+    TID = "TID_BUILDING_ARCHER_TOWER"
+    AttachedCharacterOffsetY = 260
+    HealthBar = "Tower"
+    ShowHealthNumber = true
+    HealthBarOffsetYRed = -20
+    HealthBarOffsetYBlue = 72
+    OnStartingClientActions=["ChefVisualTop"]
+    CustomAnimationPostfix = "_attack2_"
+    StatsTags.Hitpoints = "hitpoints"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Range = "range"
+    
+[CLIENT_ACTION.ChefVisualTop]
+	ClassType = "ClientActionAnimatorLayer"
+	LayerName = "ChefVisualTop"
+	Filename = "sc/chr_royal_chef.sc"
+	BlueExportName = "Royal_Chef_top"
+	RedExportName = "Royal_Chef_top_red"
+	Visible = true
+    AttachToSprite = ""
+    MustBeOnTopOf = "TOP_SPRITE"
+    PositionToSprite = "GO_SPRITE"
+[ACTION.ChefTower_CookingAction]
+    ClassType = "ActionChefTower"
+    
+    AIStateName="ChefCooking"
+    StartCookingDelay = 7000
+    ContributionNeeded = 23000
+    ContributionBaseline = 600
+    ContributionIdle = 200
+    ContributionAttacking = 0
+    ContributionDestroyed = 0
+    TargetFilter = "friendly_troops_for_chef_giant_buffer"
+MinCurrentHpThreshold = 0
+MinMaxHpThreshold = 2
+    MinCurrentHpPercentageThreshold = 33
+    DeprioritizeBuffed = true
+    BuffProjectile = "ChefTower_pancake_projectile"
+    IndicatorFileName = "sc/ui.sc"
+    IndicatorExportName = "chef_pancake_charge_counter"
+    IndicatorOffsetYBlue = -65
+    IndicatorOffsetYRed = 33
+    PancakeThrowDelay = 250
+    PancakeStartOffset = 200
+    ContributionPercentForAltAnimation = 75
+    PancakeThrowDelayTreshold = 500
+    WaitPancakeThrowAfterAttackTime = 100
+    PancakeThrowDuration = 900
+    HoldFullBarTime = 1.2
+    StatsTags.BestCookingTime = "cooking_time_fast"
+    StatsTags.WorstCookingTime = "cooking_time_slow"
+    StatsTags.MinCurrentHpPercentageThreshold = "min_percent_hp"
+[BUFF.ChefTower_increase_level_buff]
+    Rarity = "Common"
+    DamagePerSecond = 0
+    
+    EnableStacking = true
+    [BUFF.ChefTower_increase_level_buff.OnStartAction]
+        ClassType="ActionGroup"
+        SubActionsDelay = [ 0, 0, 0]
+        SubActions = ["ChefTower_increase_level_action", "ChefTower_levelup_effect", "ChefTower_pancake_filter_mini_pekka"]
+[ACTION.ChefTower_increase_level_action]
+    ClassType = "ActionSetCharacterLevel"
+    RelativeLevelAdjustmentExpression = "1"
+[ACTION.ChefTower_pancake_filter_mini_pekka]
+    ClassType = "ActionFilter"
+    Condition = "has_data(MiniPekka)"
+    OnTrueAction = "ChefTower_pancake_reaction_mini_pekka"
+[ACTION.ChefTower_pancake_reaction_mini_pekka]
+    ClassType="ActionPlayEffect"
+    Effect = "minipekka_says_pancakes"
+    EffectFlags="FollowParent,FilterCanModifyTransform,ApplyToAttachedChildCharacters"
+    
+[ACTION.ChefTower_levelup_effect]
+    ClassType="ActionPlayEffect"
+    Effect = "royal_chef_pancake_hit"
+    EffectFlags="FollowParent,FilterCanModifyTransform,ApplyToAttachedChildCharacters"
+[EXT.ChefTower_pancake_projectile]
+    Base = "PROJECTILE.MusketeerProjectile"
+    Rarity = "Common"
+    FileName = "sc/chr_royal_chef.sc"
+    ExportName = "Royal_Chef_pancake_export"
+    ShadowExportName = "Royal_Chef_pancake_shadow_export"
+    TrailEffect = "royal_chef_pancake_trail"
+    Speed = 600
+    Gravity = 125
+    TargetBuff = "ChefTower_increase_level_buff"
+    ApplyBuffBeforeDamage = true
+    BuffTime = 99999
+    Damage = 0
+    Scale = 50
+    ApplyBuffEvenIfImmuneToDamage = true
+    AllowResetTarget = false
+[EXT.ChefTower_spatula_projectile]
+    Base = "PROJECTILE.MusketeerProjectile"
+    Rarity = "Common"
+    Speed = 600
+    Damage = 50
+    DamageScalingMode="PrincessTower"
+    FileName = "sc/chr_royal_chef.sc"
+    ExportName = "Royal_Chef_spatula_export_dir_bot"
+    RedExportName = "Royal_Chef_spatula_export_dir_top"
+    HitEffect = "royal_chef_spatula_die"
+    TrailEffect = "royal_chef_spatula_emitter"
+    Gravity = 20
+    ShadowExportName = "Royal_Chef_spatula_shadow_export"
+    Scale = 60
+    StatsTags.Damage = "damage"
+    
+[STATS.chef_tower]
+	[[STATS.chef_tower.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.chef_tower.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.chef_tower.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.chef_tower.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.chef_tower.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.chef_tower.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.chef_tower.stats]]
+        Value = "cooking_time_fast"
+        Value2 = "cooking_time_slow"
+        Unit = "TIME"
+        TID = "TID_SPELL_ATTRIBUTE_COOKING_TIME"
+        Icon = "icons_stats_cooking_time"
+    [[STATS.chef_tower.stats]]
+        Value = "min_percent_hp"
+        Unit = "PERCENT_NOSIGN"
+        TID = "TID_BUFF_THRESHOLD"
+        Icon = "icons_stats_hp_activation"

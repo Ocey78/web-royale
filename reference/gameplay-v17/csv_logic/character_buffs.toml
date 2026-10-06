@@ -1,0 +1,311 @@
+[LoveCharm]
+	Rarity="Epic"
+	NoEffectToCrownTowers=true
+	SwitchTeam=true
+	SwitchTeamContinuosEffect="SMArcher_Charming_Loop"
+[ImmuneToWeakPushback]
+	IgnorePushBack=true
+[Stun]
+Rarity = "Common"
+HitSpeedMultiplier = -100
+SpeedMultiplier = -100
+SpawnSpeedMultiplier = -100
+[RageModeRage]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 130
+SpeedMultiplier = 130
+SpawnSpeedMultiplier = 130
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage_mode"
+MarkEffect = "Healing"
+AudioPitchModifier = 125
+EnableStacking = true
+ContinuousEffect = "Spell_rage_mode_continuous"
+[PoisonModePoison]
+Rarity = "Epic"
+TID = "TID_SPELL_POISON"
+NoEffectToCrownTowers = true
+CrownTowerDamagePercent = -70
+DamagePerSecond = 50
+HitFrequency = 2000
+Effect = "PoisonSteam"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_poison"
+EnableStacking = true
+[InvisibilityRemoveOnAttack]
+Rarity = "Epic"
+Invisible = true
+RemoveOnAttack = true
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_invisible"
+ContinuousEffect = "ghost_aura"
+[LevelUp]
+Rarity = "Epic"
+LevelIncrease = 1
+[TripleDamage]
+Rarity = "Champion"
+TID = "TID_SPELL_RAGE"
+RemoveOnAttack = true
+DamageMultiplier = 300
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage"
+MarkEffect = "Healing"
+[ContinueFreeze]
+Rarity = "Epic"
+TID = "TID_SPELL_FREEZE"
+HitSpeedMultiplier = -100
+SpeedMultiplier = -100
+SpawnSpeedMultiplier = -100
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+[ElectroGiantZapFreeze]
+Rarity = "Common"
+TID = "TID_SPELL_ZAP_FREEZE"
+CrownTowerDamagePercent = -70
+HitSpeedMultiplier = -100
+SpeedMultiplier = -100
+SpawnSpeedMultiplier = -100
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+[GrowthBoost]
+Rarity = "Epic"
+DamageMultiplier = 120
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_growth"
+MarkEffect = "Healing"
+AudioPitchModifier = 85
+Scale = 130
+HitpointMultiplier = 120
+[ShieldBoost]
+Rarity = "Epic"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_shield"
+ContinuousEffect = "shield"
+Shield = 1
+[FireballProjectile]
+Rarity = "Epic"
+HitSpeedMultiplier = -75
+OverrideProjectile = "FireballSpell"
+[DropBomb]
+Rarity = "Common"
+HitFrequency = 1000
+SpawnNumber = 1
+SpawnInterval = 50
+SpawnObject = "CommonBomb"
+SpawnLimit = 1
+[Neutral_Rage]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 170
+SpeedMultiplier = 170
+SpawnSpeedMultiplier = 170
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage"
+MarkEffect = "Healing"
+AudioPitchModifier = 125
+[PancakesCurse]
+Rarity = "Rare"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_mw_curse"
+EnableStacking = true
+ContinuousEffect = "motherwitch_curse_cont_effect"
+DeathSpawn = "SuperMiniPekkaPancakes"
+DeathSpawnIsEnemy = true
+DeathSpawnCount = 1
+DeathSpawnDeployDelay = true
+IgnoreBuildings = true
+[BattleHealerSelf]
+Rarity = "Common"
+HitFrequency = 500
+HealPerSecond = 13
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_heal"
+ContinuousEffect = "healer_heal_effect"
+[SuperRage]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 170
+SpeedMultiplier = 170
+SpawnSpeedMultiplier = 170
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage"
+MarkEffect = "Healing"
+AudioPitchModifier = 170
+[HealModeHeal]
+Rarity = "Rare"
+HitFrequency = 1000
+HealPerSecond = 20
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_heal"
+[Event_LoveBuff]
+Rarity = "Epic"
+[IgnoreBarrel]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 100
+SpeedMultiplier = 100
+SpawnSpeedMultiplier = 100
+[NOTINUSEBUFF7]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 135
+SpeedMultiplier = 135
+SpawnSpeedMultiplier = 135
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage"
+MarkEffect = "Healing"
+AudioPitchModifier = 125
+[NOTINUSEBUFF8]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 135
+SpeedMultiplier = 135
+SpawnSpeedMultiplier = 135
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage"
+MarkEffect = "Healing"
+AudioPitchModifier = 125
+[NOTINUSEBUFF9]
+Rarity = "Epic"
+TID = "TID_SPELL_RAGE"
+HitSpeedMultiplier = 135
+SpeedMultiplier = 135
+SpawnSpeedMultiplier = 135
+Effect = "Spell_rage_hit_effect"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_rage"
+MarkEffect = "Healing"
+AudioPitchModifier = 125
+[RegenT]
+Rarity = "Common"
+HitFrequency = 2500
+HealPerSecond = 300
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_heal"
+EnableStacking = true
+[MysteryBuff_Spawn_Skeleton]
+Rarity = "Champion"
+SpawnNumber = 1
+SpawnInterval = 50
+SpawnObject = "Skeleton"
+SpawnLimit = 5
+[MysteryBuff_Projectile_Witch]
+Rarity = "Epic"
+OverrideProjectile = "MysteryBuff_WitchProjectile"
+[MysteryBuff_Projectile_Bomber]
+Rarity = "Common"
+OverrideProjectile = "MysteryBuff_BombSkeletonProjectile"
+[MysteryBuff_Projectile_BombTower]
+Rarity = "Epic"
+OverrideProjectile = "MysteryBuff_BombTowerProjectile"
+[MysteryBuff_DeathSpawn_Skeleton]
+Rarity = "Champion"
+DeathSpawn = "Skeleton"
+DeathSpawnCount = 5
+DeathSpawnDeployDelay = true
+[MysteryBuff_Projectile_SkeletonDragon]
+Rarity = "Common"
+OverrideProjectile = "MysteryBuff_SkeletonDragonProjectile"
+[MysteryBuff_Spawn_Hog]
+Rarity = "Legendary"
+SpawnNumber = 1
+SpawnInterval = 50
+SpawnObject = "VoodooHog"
+SpawnLimit = 3
+[MysteryBuff_Projectile_Axeman]
+Rarity = "Epic"
+OverrideProjectile = "MysteryBuff_AxeManProjectile"
+[MysteryBuff_Heal]
+Rarity = "Legendary"
+HitFrequency = 500
+HealPerSecond = 100
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_heal"
+[MysteryBuff_Invisibility]
+Rarity = "Common"
+Invisible = true
+RemoveOnAttack = true
+RemoveOnHit = true
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_invisible"
+ContinuousEffect = "ghost_aura"
+[SkeletonCurseFriend]
+Rarity = "Epic"
+EnableStacking = true
+DeathSpawn = "Skeleton"
+DeathSpawnCount = 1
+IgnoreBuildings = true
+[SkeletonCurseFoe]
+Rarity = "Epic"
+EnableStacking = true
+DeathSpawn = "Skeleton"
+DeathSpawnIsEnemy = true
+DeathSpawnCount = 1
+IgnoreBuildings = true
+[MysteryBuff_DeathSpawn_Bomb]
+Rarity = "Champion"
+DeathSpawn = "CommonBomb"
+DeathSpawnCount = 1
+DeathSpawnDeployDelay = true
+[MysteryBuff_DeathSpawn_Wallbreaker]
+Rarity = "Champion"
+DeathSpawn = "Wallbreaker"
+DeathSpawnCount = 1
+DeathSpawnDeployDelay = true
+[Event_FreezeTimer]
+Rarity = "Epic"
+TID = "TID_SPELL_FREEZE"
+NoEffectToCrownTowers = true
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+OnStartAction = "FreezeTimerAction"
+[Event_Freeze]
+Rarity = "Epic"
+TID = "TID_SPELL_FREEZE"
+HitSpeedMultiplier = -100
+SpeedMultiplier = -100
+SpawnSpeedMultiplier = -100
+Effect = "Blizzard_freeze"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+[MysteryBuff_Projectile_SpearGoblin]
+Rarity = "Common"
+OverrideProjectile = "MysteryBuff_SpearGoblinProjectile"
+[MysteryBuff_Projectile_BlowDartGoblin]
+Rarity = "Rare"
+OverrideProjectile = "MysteryBuff_BlowdartGoblinProjectile"
+[MysteryBuff_Poison]
+Rarity = "Rare"
+TID = "TID_SPELL_POISON"
+CrownTowerDamagePercent = -75
+DamagePerSecond = 57
+HitFrequency = 1000
+SpeedMultiplier = -15
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_poison"
+ContinuousEffect = "Spell_poison_loop_small"
+[MysteryBuff_DoubleBrawler]
+Rarity = "Rare"
+OnStartAction = "SpawnBrawler"
+[MysteryBuff_ZapFreeze]
+Rarity = "Common"
+TID = "TID_SPELL_ZAP_FREEZE"
+HitSpeedMultiplier = -100
+SpeedMultiplier = -100
+SpawnSpeedMultiplier = -100
+Effect = "Spell_zap_effect_small"
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_cold"
+[ImmuneToWeakPushback]
+Rarity = "Common"
+[JumpHack_Ignore_Pushback_Buff]
+	Rarity = "Common"
+	IgnorePushBack = true

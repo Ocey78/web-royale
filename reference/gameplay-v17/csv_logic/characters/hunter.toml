@@ -1,0 +1,70 @@
+
+[CHARACTER.Hunter]
+AreaDamageRadius = 70
+AttackStartEffect = "hunter_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "hunter"
+CollisionRadius = 600
+CustomFirstProjectile = "HunterProjectile"
+DamageEffect = "shotgun_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "hunter_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 300
+DeployTime = 1000
+FileName = "sc/chr_hunter_dl.sc"
+HealthBar = "Medium"
+HitSpeed = 2200
+Hitpoints = 346
+LoadTime = 1500
+Mass = 5
+MoveEffect = "hunter_steps"
+MultipleProjectiles = 10
+Name = "Hunter"
+PrestigeExportName2 = "hunter_prestige"
+PrestigeExportName3 = "hunter_prestige2"
+PrestigeSWF = "sc/chr_hunter_dl.sc"
+Projectile = "HunterProjectile"
+ProjectileEffect = "hunter_attack"
+ProjectileStartRadius = 1000
+ProjectileStartZ = 450
+Range = 4000
+Rarity = "Common"
+RedExportName = "hunter_red"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 50
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "hunter_deploy"
+Speed = 60
+TID = "TID_SPELL_HUNTER"
+UseAnimator = true
+GroupProjectiles = true
+
+[PROJECTILE.HunterProjectile]
+AoeToAir = true
+AoeToGround = true
+CheckCollisions = true
+ConstantHeight = 1000
+Damage = 33
+DeflectGroup = false
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+HitEffect = "shotgun_hit"
+Name = "HunterProjectile"
+OnlyEnemies = true
+ProjectileRadius = 300
+ProjectileRange = 6500
+ProjectileStartExtraRadius = 650
+RandomDelay = 200
+Rarity = "Common"
+Scatter = "Line"
+ShadowExportName = "projectile_arrow_shadow"
+ShakesShooter = 500
+ShakesTargets = true
+Speed = 550
+
+

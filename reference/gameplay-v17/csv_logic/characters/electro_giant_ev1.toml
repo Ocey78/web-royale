@@ -1,0 +1,186 @@
+[VARIABLE.ElectroGiant_EV1_Delevel_Counter]
+	DefaultValue = 0
+[VARIABLE.ElectroGiant_EV1_Delevel_Amount]
+	DefaultValue = -1
+[VARIABLE.ElectroGiant_EV1_First_Delevel_Amount]
+	DefaultValue = -1
+[VARIABLE.ElectroGiant_EV1_Charge_Reset]
+	DefaultValue = 0
+[EXT.ElectroGiant_EV1]
+    Base = "CHARACTER.ElectroGiant"
+    ClonedVersion = "ElectroGiant"
+    OnStartingAction = "ElectroGiant_EV1_Starting_Action"
+    PrefabAsset = "sc3d/characters/evolution/evo_electrogiant/evo_prefab_electrogiant_battle"
+    SpawnEffect = "vfx_electrogiant_evo_deploy"
+    DeployBaseAnimExportName = ""
+    CustomSpawnFilter= ""
+    ContinuousEffect = "vfx_electrogiant_evo_zaparea"
+    DamageEffect = "vfx_electrogiant_evo_hit_01"
+    ReflectedAttackEffect = "vfx_electrogiant_evo_hit_02"
+    ReflectedAttackTargetedEffect = "vfx_electrogiant_evo_beam"
+    StatsTags.Damage    = "damage"
+    StatsTags.ReflectedAttackDamage = "reflected_damage"
+    StatsTags.ReflectAttackCrownTowerDamage = "reflected_tower_damage"
+    StatsTags.DamagePerSecond = "damage_per_second"
+    StatsTags.Hitpoints = "hitpoints"
+    StatsTags.HitSpeed  = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed     = "speed"
+    StatsTags.Range     = "range"
+    StatsTags.ReflectedAttackBuffDuration  = "stun_duration"
+    TID = "TID_SPELL_ELECTRO_GIANT"
+[ACTION.ElectroGiant_EV1_Starting_Action]
+    ClassType = "ActionGroup"
+SubActions = ["ElectroGiant_EV1_Pulse_Attack_Interval", "ElectroGiant_EV1_Play_Charge_Sfx"]
+    SubActionsDelay = [250, 250]
+[ACTION.ElectroGiant_EV1_Pulse_Attack_Interval]
+    ClassType = "ActionInterval"
+    Interval = 6000
+    StartCounterAt = 2500
+    ActionToExecute = "ElectroGiant_EV1_Emit_Pulse_Attack_Group"
+    StatsTags.Interval = "pulse_interval"
+    PauseTag = "COMBAT_DISABLED"
+    AffectedByHitSpeed = true
+[ACTION.ElectroGiant_EV1_Emit_Pulse_Attack_Group]
+    ClassType = "ActionGroup"
+    SubActions = ["ElectroGiant_EV1_Charge_Reset_On", "ElectroGiant_EV1_Spawn_Pulse_AEO", "ElectroGiant_EV1_Play_Pulse_Effect", "ElectroGiant_EV1_Play_Hit_Sfx", "ElectroGiant_EV1_Charge_Reset_Off", "ElectroGiant_EV1_Play_Charge_Sfx"]
+    SubActionsDelay = [0, 0, 0, 0, 50, 100]
+[ACTION.ElectroGiant_EV1_Spawn_Pulse_AEO]
+    ClassType = "ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "ElectroGiant_EV1_Pulse_AEO"
+    ParentGOAsSource = true
+[ACTION.ElectroGiant_EV1_Play_Pulse_Effect]
+    ClassType = "ActionPlayEffect"
+    PrefabAsset = "sc3d/characters/evolution/evo_electrogiant/effect/prefabs/ingame/vfx_electrogiant_evo_skill"
+    Effect = ""
+    EffectFlags = "FollowParent,ParticlesFollowParent"
+[ACTION.ElectroGiant_EV1_Charge_Reset_On]
+    ClassType = "ActionSetVariable"
+    Variable = "ElectroGiant_EV1_Charge_Reset"
+    Value = "1"
+[ACTION.ElectroGiant_EV1_Charge_Reset_Off]
+    ClassType = "ActionSetVariable"
+    Variable = "ElectroGiant_EV1_Charge_Reset"
+    Value = "0"
+[ACTION.ElectroGiant_EV1_Play_Hit_Sfx]
+    ClassType = "ActionPlayEffect"
+    Effect = "vfx_electrogiant_evo_skill_hit_sfx"
+    EffectFlags = "FollowParent"
+[ACTION.ElectroGiant_EV1_Play_Charge_Sfx]
+    ClassType = "ActionPlayEffect"
+    Effect = "vfx_electrogiant_evo_skill_charge_sfx"
+    EffectFlags = "FollowParent,Looping,LinkLifeToActionLife"
+    ForceStopIfTrue = "ElectroGiant_EV1_Charge_Reset == 1"
+[AEO.ElectroGiant_EV1_Pulse_AEO]
+    Rarity = "Common"
+    Filter = "CommonAreaDamageFilter"
+    Radius = 1
+    MaxRadius = 6000
+    LifeDuration = 550
+    HitSpeed = 50
+    OneHitPerTarget = true
+    FollowBehaviour = "FollowParent"
+    OnHitAction = "ElectroGiant_EV1_Pulse_Hit_Group"
+    StatsTags.MaxRadius = "pulse_radius"
+	StayAfterParentDies = true
+[ACTION.ElectroGiant_EV1_Pulse_Hit_Group]
+    ClassType = "ActionGroup"
+    SubActions = ["ElectroGiant_EV1_Apply_Pulse_Damage", "ElectroGiant_EV_Apply_Pulse_Debuff"]
+    SubActionsDelay = [0, 0]
+[ACTION.ElectroGiant_EV1_Apply_Pulse_Damage]
+	ClassType = "ActionTakeDamage"
+	Damage = { BaseDamage = 0, TowerDamage = 0 }
+[ACTION.ElectroGiant_EV_Apply_Pulse_Debuff]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "ElectroGiant_EV1_Pulse_Debuff"
+    SpawnTime = 999999
+    ParentGOAsSource = true
+    ExecuteIfTrue = "!is_crown_tower"
+	
+[BUFF.ElectroGiant_EV1_Pulse_Debuff]
+    Rarity="Common"
+    Scale = 80
+    OnStartAction = "ElectroGiant_EV1_Reduce_Level_Action"
+    OnRemoveAction = "ElectroGiant_EV1_Increase_Level_Action"
+	EnableStacking = true
+	OnStackedAction = "ElectroGiant_EV1_Reduce_Level_Action"
+    
+[ACTION.ElectroGiant_EV1_Reduce_Level_Action]
+    ClassType = "ActionSetCharacterLevel"
+    RelativeLevelAdjustmentExpression = "ElectroGiant_EV1_Delevel_Amount"
+	ExecuteIfTrue = "character_level >= 1"
+	NextAction = "ElectroGiant_EV1_Level_Down_FX_Group"
+	NextActionWait = true
+[ACTION.ElectroGiant_EV1_Level_Down_FX_Group]
+    ClassType       = "ActionGroup"
+    SubActions      = ["ElectroGiant_EV1_Level_Down_Effect", "ElectroGiant_EV1_Increment_Delevel_Counter"]
+    SubActionsDelay = [0, 50]
+[ACTION.ElectroGiant_EV1_Level_Down_Effect]
+    ClassType  = "ActionPlayEffect"
+    Effect     = "vfx_electrogiant_evo_lvl_down"
+    EffectFlags = "FilterCanModifyTransform"
+[ACTION.ElectroGiant_EV1_Increase_Level_Action]
+    ClassType = "ActionSetCharacterLevel"
+	RelativeLevelAdjustmentExpression = "ElectroGiant_EV1_Delevel_Counter"
+	NextAction = "ElectroGiant_EV1_Reset_Delevel_Counter"
+[ACTION.ElectroGiant_EV1_Increment_Delevel_Counter]
+	ClassType = "ActionSetVariable"
+    Variable = "ElectroGiant_EV1_Delevel_Counter"
+    Value = "ElectroGiant_EV1_Delevel_Counter - ElectroGiant_EV1_Delevel_Amount"
+[ACTION.ElectroGiant_EV1_Reset_Delevel_Counter]
+	ClassType = "ActionSetVariable"
+    Variable = "ElectroGiant_EV1_Delevel_Counter"
+    Value = "0"
+[STATS.electrogiant_ev1]
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "damage"
+        Unit  = "INTEGER"
+        TID   = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon  = "icons_stats_dmg"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "reflected_damage"
+        Unit  = "INTEGER"
+        TID   = "TID_TYPE_REFLECTED_DAMAGE"
+        Icon  = "icons_stats_dmg"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "reflected_tower_damage"
+        Unit  = "INTEGER"
+        TID   = "TID_TYPE_REFLECTED_TOWER_DAMAGE"
+        Icon  = "icons_stats_dmg_crown"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "hitpoints"
+        Unit  = "INTEGER"
+        TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon  = "icons_stats_hp"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "hit_speed"
+        Unit  = "TIME_PRECISE"
+        TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+        Icon  = "icons_stats_dmg_speed"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "targets"
+        Unit  = "TARGETS"
+        TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+        Icon  = "icons_stats_target"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "speed"
+        Unit  = "SPEED"
+        TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+        Icon  = "icons_stats_speed"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "stun_duration"
+        Unit  = "TIME_PRECISE"
+        TID   = "TID_SPELL_ATTRIBUTE_STUN_DURATION"
+        Icon  = "icons_stats_boost_freeze"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "pulse_interval"
+        Unit  = "TIME_PRECISE"
+        TID   = "TID_EGIANT_EV1_STAT_PULSE_INTERVAL"
+        Icon  = "icons_stats_deploy_time"
+    [[STATS.electrogiant_ev1.stats]]
+        Value = "pulse_radius"
+        Unit  = "TILES"
+        TID   = "TID_TESLAPULSE_RADIUS"
+        Icon  = "icons_stats_radius"

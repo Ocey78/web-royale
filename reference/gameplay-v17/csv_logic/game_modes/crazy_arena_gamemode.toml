@@ -1,0 +1,192 @@
+[GAMEMODE.Crazy_Arena]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Crazy_Arena.Components]]
+		Name = "Crazy_Arena"
+		ClassType = "Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		WaveSelectionTimeLimitS = 7
+		SameVarietySelection = true
+		RarityFloorEnabled = true
+		RarityCeilingEnabled = true
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner = "KingTower_CrazyArena"
+		InitialBuffPrincessTowner = "PrincessTower_CrazyArena"
+		DisableTowerDeathCompensation = true
+		PauseGameOnAugmentSelection = true
+		PauseAfterAugmentSelectionMS = 1300
+		MinRequiredTicksToShowAugmentSelection = 20
+		[[GAMEMODE.Crazy_Arena.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Common"
+			CardOverlayEffect  = "card_item_augment_underlay_common"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Rare"
+			CardOverlayEffect  = "card_item_augment_underlay_rare"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Epic"
+			CardOverlayEffect  = "card_item_augment_underlay_epic"
+			CardUnderlayEffect = ""
+[GAMEMODE.Crazy_Arena_InfiniteElixir]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Crazy_Arena_InfiniteElixir.Components]]
+		Name = "Crazy_Arena_InfiniteElixir"
+		ClassType = "Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		WaveSelectionTimeLimitS = 7
+		SameVarietySelection = true
+		RarityFloorEnabled = true
+		RarityCeilingEnabled = true
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner = "KingTower_CrazyArena"
+		InitialBuffPrincessTowner = "PrincessTower_CrazyArena"
+		DisableTowerDeathCompensation = true
+		PauseGameOnAugmentSelection = true
+		PauseAfterAugmentSelectionMS = 1300
+		MinRequiredTicksToShowAugmentSelection = 20
+		[[GAMEMODE.Crazy_Arena_InfiniteElixir.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Common"
+			CardOverlayEffect  = "card_item_augment_underlay_common"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_InfiniteElixir.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Rare"
+			CardOverlayEffect  = "card_item_augment_underlay_rare"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_InfiniteElixir.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Epic"
+			CardOverlayEffect  = "card_item_augment_underlay_epic"
+			CardUnderlayEffect = ""
+[GAMEMODE.Crazy_Arena_SuddenDeath]
+	FixedArenaPool = "ChaosS2_RandomArena"
+	[[GAMEMODE.Crazy_Arena_SuddenDeath.Components]]
+		Name = "Crazy_Arena_SuddenDeath"
+		ClassType = "Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		WaveSelectionTimeLimitS = 7
+		SameVarietySelection = true
+		RarityFloorEnabled = true
+		RarityCeilingEnabled = true
+		SkipSelectionEnabled = false
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner = "KingTower_CrazyArena"
+		InitialBuffPrincessTowner = "PrincessTower_CrazyArena"
+		DisableTowerDeathCompensation = true
+		PauseGameOnAugmentSelection = true
+		PauseAfterAugmentSelectionMS = 1300
+		MinRequiredTicksToShowAugmentSelection = 20
+		[[GAMEMODE.Crazy_Arena_SuddenDeath.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Common"
+			CardOverlayEffect  = "card_item_augment_underlay_common"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_SuddenDeath.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Rare"
+			CardOverlayEffect  = "card_item_augment_underlay_rare"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_SuddenDeath.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Epic"
+			CardOverlayEffect  = "card_item_augment_underlay_epic"
+			CardUnderlayEffect = ""
+[GAMEMODE.Crazy_Arena_Blackout]
+	[[GAMEMODE.Crazy_Arena_Blackout.Components]]
+		Name = "Crazy_Arena_Blackout"
+		ClassType = "Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		WaveSelectionTimeLimitS = 7
+		SameVarietySelection = true
+		RarityFloorEnabled = true
+		RarityCeilingEnabled = true
+		SkipSelectionEnabled = true
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner = "KingTower_CrazyArena"
+		InitialBuffPrincessTowner = "PrincessTower_CrazyArena"
+		DisableTowerDeathCompensation = true
+		PauseGameOnAugmentSelection = true
+		PauseAfterAugmentSelectionMS = 1300
+		MinRequiredTicksToShowAugmentSelection = 20
+		[[GAMEMODE.Crazy_Arena_Blackout.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Common"
+			CardOverlayEffect  = "card_item_augment_underlay_common"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_Blackout.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Rare"
+			CardOverlayEffect  = "card_item_augment_underlay_rare"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_Blackout.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Epic"
+			CardOverlayEffect  = "card_item_augment_underlay_epic"
+			CardUnderlayEffect = ""
+[GAMEMODE.Crazy_Arena_PowerSurge]
+	[[GAMEMODE.Crazy_Arena_PowerSurge.Components]]
+		Name = "Crazy_Arena_PowerSurge"
+		ClassType = "Augment"
+		WaveData=["CrazyArenaWave1", "CrazyArenaWave2", "CrazyArenaWave3", "CrazyArenaWave4", "CrazyArenaWave5", "CrazyArenaWave6"]
+		WaveSelectionTimeLimitS = 7
+		SameVarietySelection = true
+		RarityFloorEnabled = true
+		RarityCeilingEnabled = true
+		SkipSelectionEnabled = true
+		SkipSelectionMaxWaves = 3
+		InitialBuffKingTowner = "KingTower_CrazyArena"
+		InitialBuffPrincessTowner = "PrincessTower_CrazyArena"
+		DisableTowerDeathCompensation = true
+		PauseGameOnAugmentSelection = true
+		PauseAfterAugmentSelectionMS = 1300
+		MinRequiredTicksToShowAugmentSelection = 20
+		[[GAMEMODE.Crazy_Arena_PowerSurge.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Common"
+			CardOverlayEffect  = "card_item_augment_underlay_common"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_PowerSurge.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Rare"
+			CardOverlayEffect  = "card_item_augment_underlay_rare"
+			CardUnderlayEffect = ""
+		[[GAMEMODE.Crazy_Arena_PowerSurge.Components.CardEffectsByRarity]]
+			Rarity             = "Rarity_Epic"
+			CardOverlayEffect  = "card_item_augment_underlay_epic"
+			CardUnderlayEffect = ""
+[BUFF.KingTower_CrazyArena]
+	Rarity             = "Common"
+	HitpointMultiplier = 200
+[BUFF.PrincessTower_CrazyArena]
+	Rarity             = "Common"
+	HitpointMultiplier = 200
+[AUGMENT_WAVE.CrazyArenaWave1]
+	StartTimeS   = 4
+	CommonWeight = 80
+	RareWeight   = 20
+	EpicWeight   = 0
+	GlobalWeight = 0
+[AUGMENT_WAVE.CrazyArenaWave2]
+	StartTimeS   = 49
+	CommonWeight = 50
+	RareWeight   = 50
+	EpicWeight   = 0
+	GlobalWeight = 0
+[AUGMENT_WAVE.CrazyArenaWave3]
+	StartTimeS   = 94
+	CommonWeight = 0
+	RareWeight   = 70
+	EpicWeight   = 30
+	GlobalWeight = 0
+[AUGMENT_WAVE.CrazyArenaWave4]
+	StartTimeS   = 139
+	CommonWeight = 0
+	RareWeight   = 0
+	EpicWeight   = 100
+	GlobalWeight = 0
+[AUGMENT_WAVE.CrazyArenaWave5]
+	StartTimeS                   = 199
+	CommonWeight                 = 0
+	RareWeight                   = 0
+	EpicWeight                   = 100
+	GlobalWeight                 = 0
+	AllowPreviouslyShownAugments = true
+[AUGMENT_WAVE.CrazyArenaWave6]
+	StartTimeS                   = 259
+	CommonWeight                 = 0
+	RareWeight                   = 0
+	EpicWeight                   = 100
+	GlobalWeight                 = 0
+	AllowPreviouslyShownAugments = true

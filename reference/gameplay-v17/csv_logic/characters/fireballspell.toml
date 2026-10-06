@@ -1,0 +1,21 @@
+
+[PROJECTILE.FireballSpell]
+AoeToAir = true
+AoeToGround = true
+CrownTowerDamagePercent = -77
+Damage = 269
+DeflectBehaviour = "UseSpellsTowerDamageMul"
+DeflectRadius = 700
+ExportName = "fireball_projectile1"
+FileName = "sc/effects.sc"
+Gravity = 50
+HitEffect = "Fireball_explosion"
+Name = "FireballSpell"
+OnlyEnemies = true
+Pushback = 1000
+Radius = 2500
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 600
+TrailEffect = "vfx_fireball_trail"
+

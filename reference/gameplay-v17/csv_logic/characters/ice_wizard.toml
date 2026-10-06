@@ -1,0 +1,141 @@
+[AEO.IceWizardCold]
+Buff = "IceWizardCold"
+BuffTime = 2500
+LifeDuration = 1
+Name = "IceWizardCold"
+OneShotEffect = "spell_ice_effect"
+Filter = "CommonAreaDamageFilter"
+Radius = 3000
+Rarity = "Common"
+Damage = "IceWizCold"
+[DAMAGE_TYPE.IceWizCold]
+BaseDamage = 33
+TowerDamage = 0
+[AEO.IceWizardCold.StatsTags]
+Damage = "spawn_damage"
+BuffTime = "slow_duration"
+[CHARACTER.IceWizard]
+AttackStartEffect = "ice_wizard_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "ice_wizard"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "ice_wizard_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_ice_wizard.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -8
+HitSpeed = 1700
+Hitpoints = 269
+LoadTime = 1200
+Mass = 5
+MoveEffect = "ice_wizard_steps"
+Name = "IceWizard"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+Projectile = "ice_wizardProjectile"
+ProjectileStartRadius = 550
+ProjectileStartZ = 1500
+Range = 5500
+Rarity = "Common"
+RedExportName = "ice_wizard_red"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "ice_wizard_deploy"
+Speed = 60
+TID = "TID_SPELL_ICE_WIZARD"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -26
+[CHARACTER.IceWizard.StatsTags]
+Damage = "damage"
+Hitpoints = "hitpoints"
+Speed = "speed"
+HitSpeed = "hit_speed"
+Targets = "targets"
+Range = "range"
+[PROJECTILE.ice_wizardProjectile]
+AoeToAir = true
+AoeToGround = true
+BuffTime = 2500
+Damage = 35
+ExportName = "ice_wizard_projectile"
+FileName = "sc/effects.sc"
+Gravity = 50
+HitEffect = "ice_wizard_hit"
+Homing = true
+Name = "ice_wizardProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+Speed = 700
+TargetBuff = "IceWizardSlowDown"
+TrailEffect = "vfx_icewizard_pjt"
+[BUFF.IceWizardSlowDown]
+AudioPitchModifier = 75
+FilterExportName = "filter_cold"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = -30
+MarkEffect = "Healing"
+Name = "IceWizardSlowDown"
+Rarity = "Common"
+SpawnSpeedMultiplier = -30
+SpeedMultiplier = -30
+TID = "TID_SPELL_ATTRIBUTE_SLOWDOWN"
+[BUFF.IceWizardCold]
+AudioPitchModifier = 75
+FilterExportName = "filter_cold"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = -30
+MarkEffect = "Healing"
+Name = "IceWizardCold"
+Rarity = "Common"
+SpawnSpeedMultiplier = -30
+SpeedMultiplier = -30
+TID = "TID_SPELL_ICEWIZARD_SLOW"
+[STATS.ice_wizard]
+	[[STATS.ice_wizard.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.ice_wizard.stats]]
+		Value = "spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.ice_wizard.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.ice_wizard.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.ice_wizard.stats]]
+		Value = "slow_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		Icon = "icons_stats_boost_freeze"
+		TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+		TIDReplaceValues = ["TID_SPELL_ATTRIBUTE_SLOWDOWN"]
+	[[STATS.ice_wizard.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.ice_wizard.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.ice_wizard.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

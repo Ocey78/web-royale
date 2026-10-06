@@ -7,7 +7,7 @@ function legacyRecord(b,id='legacy45'){
 }
 
 t('v045 historical FFA replays preserve four-team state through frozen engine',()=>{
- a.equal(R.ENGINE,'0.52');
+ a.equal(R.ENGINE,'0.53');
  const b=new Old45.Battle({mode:'FreeForAll',seed:4501,queue:'ffa',ai:false});
  const s=new R.Session(legacyRecord(b));
  a.equal(s.error,null);a.equal(s.battle.mode,'FreeForAll');a.equal(s.battle.teamCount,4);a.equal(s.battle.seatCount,4);

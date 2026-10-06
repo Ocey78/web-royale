@@ -1,0 +1,262 @@
+[VARIABLE.BarbLog_hero_another_deploy]
+[VARIABLE.BarbLog_hero_ability_played]
+[VARIABLE.BarbLog_hero_heal_percent]
+DefaultValue = 50
+[EXT.BarbLogHeroProjectile]
+Base = "PROJECTILE.BarbLogProjectile"
+PrefabAsset = "sc3d/characters/hero/hero_barbarian_barrel/hero_prefab_barbarian_barrel_projectile_fall"
+SpawnProjectile = "BarbLogHeroProjectileRolling"
+OnStartingAction = "BarbLogHero_override_ability_button_when_rolling"
+TrailEffect = "vfx_barbarian_barrel_hero_rolling_start"
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+[EXT.BarbLogHeroProjectileRolling]
+Base = "PROJECTILE.BarbLogProjectileRolling"
+PrefabAsset = "sc3d/characters/hero/hero_barbarian_barrel/hero_prefab_barbarian_barrel_projectile_roll"
+DeathEffect = "vfx_barbarian_barrel_hero_explosion_01"
+SpawnCharacter = "BarbLogBarbarianHero"
+OnStartingAction = "BarbLogHero_override_ability_button_when_rolling"
+TrailEffect = "vfx_barbarian_barrel_hero_rolling"
+HitEffect = "vfx_barbarian_barrel_hero_rolling_hit"
+DeflectedCharacterSpawn = "BarbLogBarbarianHeroNaked"
+StatsTags.Damage = "damage"
+StatsTags.Targets = "targets"
+StatsTags.ProjectileRange = "range"
+StatsTags.ProjectileWidth = "width"
+StatsTags.Level = "level"
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+[EXT.BarbLogHeroProjectileReRolling]
+Base = "PROJECTILE.BarbLogProjectileRolling"
+IgnoreReflectedAttack = true
+ProjectileRange = 3000
+DeathEffect = "vfx_barbarian_barrel_hero_explosion_02"
+SpawnCharacter = ""
+DeflectedCharacterSpawn = ""
+OnStartingAction = ""
+TrailEffect = "vfx_barbarian_barrel_hero_ability_rolling"
+HitEffect = "vfx_barbarian_barrel_hero_rolling_hit"
+CrownTowerDamagePercent = -50
+StatsTags.CrownTowerDamage="tower_damage"
+StatsTags.ProjectileRange = "reroll_range"
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+	FileName = ""
+	ExportName = ""
+	ShadowExportName = ""
+[EXT.BarbLogBarbarianHero]
+Base = "CHARACTER.Barbarian"
+ClonedVersion = "BarbLogBarbarianHeroNaked"
+PrefabAsset = "sc3d/characters/hero/hero_barbarian_barrel/hero_prefab_barbarian_barrel_on_battle"
+HideHealthbar = true
+OnStartingClientActions = ["Healthbar_Medium"]
+Ability = "BarbLogHeroAbility"
+Scale = 100
+OnStartingAction = "BarbLog_hero_starting_actions"
+DamageEffect = "vfx_barbarian_barrel_hero_hit"
+DeathEffect = "vfx_hero_die_m"
+    FileName = ""
+    BlueExportName = ""
+    RedExportName = ""
+    PrestigeSWF = ""
+    PrestigeExportName2 = ""
+    PrestigeExportName3 = ""
+[ACTION.BarbLog_hero_starting_actions]
+ClassType = "ActionGroup"
+SubActions = ["BarbLog_hero_Listen_To_New_Deploy", "BarbLog_hero_interval_check_ability_played"]
+SubActionsDelay = [0, 0]
+[ABILITY.BarbLogHeroAbility]
+	TID            			= "TID_HERO_BARBARIAN_LOG_ABILITY"
+	TID_INFO       			= "TID_HERO_BARBARIAN_LOG_ABILITY_INFO"
+	IconSWF        			= "sc/ability_icon_barbarian_barrel.sc"
+	IconExportName 			= "ability_icon_barbarian_barrel"
+	CastTime = 950
+	TriggerDelay = 50
+	RefundWindow = 400
+	ManaCost = 1
+	DeployedEffect        	= "vfx_hero_ability_active_m"
+	DeployedClip = "filter_invisible"
+	KeepCurrentTarget = true
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "pancake_button_icon_1"
+	MaxCharges = 1
+	OnActivationAction = "BarbLogHero_spawn_reroll"
+	OutOfChargesTID = "TID_ABILITY_NO_MORE_RESET"
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	CanBePreCasted = true
+    Stats = "barblog_hero_ability"
+[ACTION.BarbLogHero_spawn_reroll]
+            ClassType = "ActionBarbBarrelHeroReRoll"
+			OffsetY = -1000
+DeployDuration = 1000
+SpawnDelay = 350
+			ReSpawnDeployBaseAnim = "filter_deploy_unit_miner"
+            ReRollProjectile = "BarbLogHeroProjectileReRolling"
+			OnReRollStartAction = "BarbLogHero_on_rerroll_start_actions"
+			HideHealthbarWhileRolling = true
+OnReRollEndAction = "BarbLogHero_on_rerroll_end_actions"
+			GameTagsToSetWhileOnReRolling = "NO_GIANTBUFFER_CHEF_ENCHANTMENT,NO_CLONE, NO_ATTACK, UNTARGETABLE, DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS, NO_DAMAGE"
+			OnDeflectedAction = "barblog_hero_change_data"
+			TargetIndicatorBarrelScale = 115
+			TargetIndicatorUsesBarrelVersion = true
+			TargetIndicatorOffsetX = 0
+			TargetIndicatorOffsetY = 500
+			TargetIndicatorFileName = "sc/chr_barbarian_barrel_hero.sc"
+			TargetIndicatorEffectName = "vmc_barbarian_barrel_hero_deploy_indicator"
+				[ACTION.BarbLogHero_on_rerroll_start_actions]
+				ClassType = "ActionGroup"
+				SubActions = ["barblog_hero_set_roll_animation", "BarbLogHero_heal", "BarbLog_hero_set_ability_played_true"]
+				SubActionsDelay = [0, 0, 0]
+[ACTION.barblog_hero_set_roll_animation]
+					ClassType = "ActionRunForcedAnimationOnce"
+PlaybackDuration = 0
+ForcedDuration = 999999
+					[ACTION.BarbLogHero_heal]
+					ClassType = "ActionHeal"
+					Value = "(max_hp - hp) * BarbLog_hero_heal_percent / 100"
+				[ACTION.BarbLogHero_on_rerroll_end_actions]
+				ClassType = "ActionGroup"
+				SubActions = ["BarbLog_hero_reset_path", "BarbLog_hero_reset_target", "barblog_hero_set_re_deploy_animation"]
+				SubActionsDelay = [0, 0, 0]
+					[ACTION.BarbLog_hero_reset_path]
+					ClassType = "ActionResetPath"
+[ACTION.BarbLog_hero_reset_target]
+					ClassType = "ActionResetTarget"
+[ACTION.barblog_hero_set_re_deploy_animation]
+					ClassType = "ActionRunForcedAnimationOnce"
+PlaybackDuration = 0
+ForcedDuration = 1000
+					CustomStateNumber = 2
+			
+[EXT.BarbLogBarbarianHeroNaked]
+Base = "CHARACTER.BarbLogBarbarianHero"
+Ability = ""
+PrefabAsset = "sc3d/characters/hero/hero_barbarian_barrel/hero_prefab_barbarian_barrel_off_battle"
+Scale = 100
+OnStartingClientActions = ["BarbLog_hero_naked_Healthbar_Medium"]
+[ACTION.barblog_hero_change_data]
+ClassType = "ActionChangeGameObjectData"
+NewCharacterData = "BarbLogBarbarianHeroNaked"
+[ACTION.BarbLogHero_override_ability_button_when_rolling]
+ClassType               = "ActionOverrideAbilityButtonState"
+ChampionCharacterData   = "BarbLogBarbarianHero"
+StateToSet              = "Ready"
+EnableChampionHighlight = true
+ForceStopIfTrue 		= "BarbLog_hero_another_deploy > 0"
+[ACTION.BarbLog_hero_set_another_deploy_true]
+ClassType = "ActionSetVariable"
+Variable  = "BarbLog_hero_another_deploy"
+Value     = "1"
+[ACTION.BarbLog_hero_set_ability_played_true]
+ClassType = "ActionSetVariable"
+Variable  = "BarbLog_hero_ability_played"
+Value     = "1"
+ExecuteIfTrue = "BarbLog_hero_ability_played == 0"
+[ACTION.BarbLog_hero_interval_check_ability_played]
+ClassType = "ActionInterval"
+Interval = 50
+ActionToExecute = "BarbLog_hero_select_modifier"
+	[ACTION.BarbLog_hero_select_modifier]
+	ClassType = "ActionFilter"
+Condition = "BarbLog_hero_ability_played > 0"
+	OnTrueAction = "BarbLog_hero_set_origin_modifier"
+	OnFalseAction = "BarbLog_hero_set_pro_modifier"	
+[ACTION.BarbLog_hero_set_origin_modifier]
+ClassType = "ActionSetAnimationModifier"
+Parameter = "PropState"
+Value = 0
+[ACTION.BarbLog_hero_set_pro_modifier]
+ClassType = "ActionSetAnimationModifier"
+Parameter = "PropState"
+Value = 1
+[ACTION.BarbLog_hero_Listen_To_New_Deploy]
+ClassType            = "ActionActivateOnCardDeploy"
+OnActivateAction     = "BarbLog_hero_set_another_deploy_true"
+CardGroup            = "BarbLogHeroGroup"
+EvaluateDeployedCard = true
+	[CARD_GROUP.BarbLogHeroGroup]
+	PlayableCards = ["BarbLog"]
+	SupportCards  = []
+	Heroes        = ["BarbLog_hero"]
+[CLIENT_ACTION.BarbLog_hero_naked_Healthbar_Medium]
+	ClassType = "ClientActionGroup"
+	ClientActions = [
+		"Healthbar_Badge_Default",
+		"Healthbar_Badge_Default_LevelUp",
+		"Healthbar_Badge_Shield",
+		"Healthbar_Badge_Shield_LevelUp",
+		"Healthbar_Bar_Medium",
+"BarbLog_hero_naked_Healthbar_Badge_Champion",
+		"Healthbar_Badge_Champion_LevelUp",
+		"Healthbar_Badge_Shield_Champion",
+		"Healthbar_Badge_Shield_Champion_LevelUp",
+	]
+[CLIENT_ACTION.BarbLog_hero_naked_Healthbar_Badge_Champion]
+	ClassType      = "ClientActionAddHealthBarPart"
+	PartType       = "Badge"
+	Conditions     = ["ActiveChampion"]
+	FileName       = "sc/ui.sc"
+	BlueExportName = "healthbar_player_champion_anim"
+	RedExportName  = "healthbar_enemy_champion_anim"
+	HasIntroAnim   = false
+	ExcludeConditions = ["Underground"]
+[STATS.barblog_hero]
+	[[STATS.barblog_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.barblog_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.barblog_hero.stats]]
+		Value = "width"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_WIDTH"
+		Icon = "icons_stats_radius"
+	[[STATS.barblog_hero.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.barblog_hero.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_BARBARIAN"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_BARBARIAN"
+		InfoButtonStats="barbarian"
+		PopupExcludeStatList = ["barbarian_stat_count", "barbarian_stat_dps"]
+[STATS.barblog_hero_ability]
+		OverrideStringValue = "TID_STATS_ABILITIES_SINGLEUSE"
+		Unit = "TID"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.barblog_hero_ability.stats]]
+		Value = "reroll_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.barblog_hero_ability.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.barblog_hero_ability.stats]]
+		Value = "tower_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.barblog_hero_ability.stats]]
+		VariableValue = "BarbLog_hero_heal_percent"
+		Unit = "PERCENT_NOSIGN"
+		TID = "TID_SPELL_ATTRIBUTE_MATH_HEAL"
+		Icon = "icons_stats_hp_activation"

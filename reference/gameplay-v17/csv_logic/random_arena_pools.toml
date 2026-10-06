@@ -1,0 +1,102 @@
+[Placeholder]
+  [[Placeholder.Arenas]]
+    Arena = "Arena1"
+    Weight = 100
+
+[ChaosS2_RandomArena]
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena1"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena2"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena3"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena4"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena5"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena6"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena7"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena8"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena9"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_T"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L1"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L2"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L3"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L4"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L5"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L6"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L7"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L8"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L9"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_Electric"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L10"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena13"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena14"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L11"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L12"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L13"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L14"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L15"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L16"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L17"
+    Weight = 100
+  [[ChaosS2_RandomArena.Arenas]]
+    Arena = "Arena_L18"
+    Weight = 100

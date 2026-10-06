@@ -1,0 +1,82 @@
+
+[GoblinBarrel_EV1]
+ OnExecuteAction='GoblinBarrel_EV1_CreateDecoy'
+ SummonCharactersOffsetsX=[0,500,-500]
+ SummonCharactersOffsetsY=[-500,500,500]
+
+[GoblinCage_EV1]
+ Stats='goblin_cage_ev1'
+
+[Musketeer_EV1]
+ Stats='Musketeer_EV1'
+
+[Cannon_EV1]
+ Stats='Cannon_EV1'
+
+[Snowball_EV1]
+ Stats='snowball_spell_ev1'
+ InBattleStats='snowball_spell_ev1_in_battle'
+
+[ElectroDragon_EV1]
+ Stats='electro_dragon_ev1'
+
+[Hunter_EV1]
+ Stats='Hunter_EV1'
+
+[BlowdartGoblin_EV1]
+ Stats='BlowdartGoblin_EV1'
+
+[RageBarbarian_EV1]
+ Stats='RageBarbarian_EV1'
+
+[Pekka_EV1]
+ Stats='Pekka_EV1'
+
+[Witch_EV1]
+ Stats='witch_ev1'
+
+[AxeMan_EV1]
+ Stats='AxeMan_EV1'
+
+[InfernoDragon_EV1]
+ Stats='InfernoDragon_EV1'
+
+[SkeletonBalloon_EV1]
+ Stats='SkeletonBalloon_EV1'
+
+[FirespiritHut_EV1]
+ Stats='furnace_ev1'
+
+[BabyDragon_EV1]
+ Stats='babydragon_ev1'
+
+[SkeletonArmy_EV1]
+ SummonCharactersList=['SkeletonArmy_EV1_General']
+ SummonCharactersOffsetsX=[0]
+ SummonCharactersOffsetsY=[1000]
+ Stats='skeleton_army_ev1'
+
+[RoyalHogs_EV1]
+ Stats='royalhogs_ev1'
+
+[Ghost_EV1]
+ Stats='ghost_ev1'
+
+[MinionHorde_EV1]
+ Stats='minion_horde_ev1'
+
+[Princess_EV1]
+ Stats='princess_ev1'
+
+[MegaKnight_EV1]
+ Stats='MegaKnight_EV1'
+
+[ElectroGiant_EV1]
+ Stats='electrogiant_ev1'
+ TID_INFO='TID_SPELL_INFO_EVO_EGIANT'
+
+[IceSpirits_EV1]
+ Stats='icespirits_ev1'
+
+[Archer_EV1]
+ Stats='archer_ev1'

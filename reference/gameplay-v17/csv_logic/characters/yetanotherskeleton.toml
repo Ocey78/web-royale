@@ -1,0 +1,42 @@
+
+[CHARACTER.YetAnotherSkeleton]
+AttackStartEffect = "skeleton_attack_start"
+AttacksGround = true
+BlueExportName = "skeleton1"
+CollisionRadius = 500
+Damage = 32
+DamageEffect = "skeleton_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "skeleton_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_skeleton.sc"
+HealthBar = "Small"
+HitSpeed = 1000
+Hitpoints = 32
+LoadTime = 500
+Mass = 1
+MoveEffect = "skeleton_steps"
+Name = "YetAnotherSkeleton"
+PrestigeExportName2 = "skeleton_prestige"
+PrestigeExportName3 = "skeleton_prestige2"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 500
+Rarity = "Common"
+RedExportName = "skeleton1"
+Scale = 130
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightRange = 5500
+SpawnEffect = "skeleton_deploy"
+Speed = 90
+TID = "TID_CHARACTER_SKELETON"
+UseAnimator = true
+
+

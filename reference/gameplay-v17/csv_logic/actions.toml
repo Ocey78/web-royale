@@ -1,0 +1,113 @@
+[ChaosS2BadgeTracker]
+ClassType="ActionChaosS2BadgeTracker"
+[FreezeTimerAction]
+ActionDelay=10000
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Event_Freeze"
+SpawnTime = 999999
+[LoveBuffAOEAction]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "LoveBuffAOE"
+ParentGOAsSource=true
+[SpellCauldron_SpawnAction]
+ClassType = "ActionSelect"
+SubActions = ["GlobalLightning_Setup", "GlobalRage_Setup", "GlobalHeal_Setup", "GlobalFreeze_Setup","GlobalInvisibility_Setup","GlobalClone_Setup"]
+Condition = "rand(6)"
+[GlobalLightning_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Lightning_Setup"
+[GlobalLightning_Action]
+ActionDelay=1000
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Lightning"
+ParentGOAsSource=true
+[GlobalRage_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Rage_Setup"
+[GlobalRage_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Rage"
+ParentGOAsSource=true
+[GlobalHeal_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Heal_Setup"
+[GlobalHeal_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Heal"
+ParentGOAsSource=true
+[GlobalFreeze_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Freeze_Setup"
+[GlobalFreeze_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Freeze"
+ParentGOAsSource=true
+[GlobalInvisibility_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Invisibility_Setup"
+[GlobalInvisibility_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Invisibility"
+ParentGOAsSource=true
+[GlobalClone_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Clone_Setup"
+[GlobalClone_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "GlobalClone"
+[ElectroWizardChar]
+ClassType = "ActionSpawnToLocation"
+SpawnType = "CharacterType"
+SpawnData = "ElectroWizard"
+RelativeX = 5
+RelativeY = 0
+[IceWizardChar]
+ClassType = "ActionSpawnToLocation"
+SpawnType = "CharacterType"
+SpawnData = "IceWizard"
+RelativeX = -5
+RelativeY = 0
+[SpawnBrawler]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "CharacterType"
+SpawnData = "GoblinBrawlerDouble"
+ParentGOAsSource=true
+[ActivateEvolutionsInDeck]
+ClassType = "ActionActivateEvolutions"
+[CrazyArena_Epic_Spawn_Effect]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_crazyarena_m_deploy"
+EffectFlags = "FollowParent,ParticlesFollowParent"
+[JumpHack_Check_Jump_Interval]
+	ClassType = "ActionInterval"
+	Interval = 50
+	ActionToExecute = "JumpHack_Check_Self_Jump"
+[JumpHack_Check_Self_Jump]
+	ClassType = "ActionRunIfInstigatorMatches"
+	ActionToRunIfNoMatch = "JumpHack_Spawn_Buff"
+	GameObjectFilter = "JumpHack_Self_Jump_Filter"
+[JumpHack_Spawn_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 50
+	SpawnData = "JumpHack_Ignore_Pushback_Buff"

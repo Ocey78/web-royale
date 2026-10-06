@@ -1,0 +1,21 @@
+
+[AEO.Zap]
+Buff = "ZapFreeze"
+BuffTime = 500
+LifeDuration = 1
+Name = "Zap"
+OneShotEffect = "vfx_zap_polish"
+Filter = "CommonAreaDamageFilter"
+Radius = 2500
+Rarity = "Common"
+Damage = { BaseDamage = 75, TowerDamage = 19 }
+
+[BUFF.ZapFreeze]
+FilterExportName = "filter_cold"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = -100
+Name = "ZapFreeze"
+Rarity = "Common"
+SpawnSpeedMultiplier = -100
+SpeedMultiplier = -100
+TID = "TID_SPELL_ZAP_FREEZE"

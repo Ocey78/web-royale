@@ -1,0 +1,75 @@
+[CHARACTER.SuperKnight]
+    Rarity = "Common"
+    SightRange = 5500
+    DeployTime = 1000
+    Speed = 60
+    Hitpoints = 793
+    HitSpeed = 1200
+    LoadTime = 700
+    Damage = 90
+    Range = 1200
+    AttacksGround = true
+    FileName = "sc/chr_knight.sc"
+    BlueExportName = "Knight"
+    RedExportName = "Knight_enemy"
+    UseAnimator = true
+    DamageEffect = "knight_hit"
+    DeathEffect = "knight_die"
+    MoveEffect = "knight_steps"
+    SpawnEffect = "knight_deploy"
+    ShadowScaleX = 85
+    ShadowScaleY = 85
+    ShadowY = -10
+    ShadowSkew = 35
+    CollisionRadius = 500
+    Mass = 6
+    HealthBar = "Medium"
+    HealthBarOffsetY = 35
+    DamageExportName = "filter_damage"
+    AttackStartEffect = "knight_attack_start"
+    ProjectileStartRadius = 450
+    ProjectileStartZ = 450
+    TID = "TID_SPELL_KNIGHT"
+    DeployBaseAnimExportName = "filter_deploy_unit_default"
+    ShaderFXBase = "Outline_Blue"
+    ShaderFXTop = "Outline_Blue"
+    LoopingFilter = "filter_super_lava_hound"
+    Scale = 110
+    BuffWhenNotAttacking="SuperKnight_ShieldBuff"
+	BuffWhenNotAttackingTime=50
+[BUFF.SuperKnight_ShieldBuff]
+    Rarity = "Common"
+    ContinuousEffect = "SuperKnightAreaEffect"
+    GameTagsToSet = "SUPERKNIGHT_SHIELD_ON"
+    OnStartAction = "SuperKnight_Spawn_ShieldInterval"
+[ACTION.SuperKnight_Spawn_ShieldInterval]
+    ClassType="ActionInterval"
+    Interval = 50
+    ActionToExecute = "SuperKnight_AEO_Spawner"
+    ForceStopIfTrue="!SUPERKNIGHT_SHIELD_ON()"
+[ACTION.SuperKnight_AEO_Spawner]
+    ClassType="ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "SuperKnight_ShieldAEO"
+    AbortIfInstigatorDies=false
+[AEO.SuperKnight_ShieldAEO]
+    Rarity = "Common"
+    LifeDuration = 80
+    Radius = 8000
+    HitSpeed = 50
+    Buff = "SuperKnight_ShieldBuff_other"
+    BuffTime = 1000
+    CapBuffTimeToAreaEffectTime = true
+    Filter = "friendly_troop"
+    FollowBehaviour = "FollowParent"
+[BUFF.SuperKnight_ShieldBuff_other]
+    Rarity = "Common"
+	DamageReduction = 100
+    EnableStacking = false
+	OnDamageReductionAction = "SuperKnight_ProtectionVFX"
+    FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_shield"
+[ACTION.SuperKnight_ProtectionVFX]
+    ClassType="ActionPlayEffect"
+    Effect = "evo_knight_shield"
+    EffectFlags = "FollowParent,ParticlesFollowParent"

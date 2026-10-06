@@ -1,0 +1,35 @@
+
+[EXT.Mortar_EV1]
+Base = "BUILDING.Mortar"
+BlueExportName = "mortar_evolution"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_M"
+FileName = "sc/building_mortar_evolution.sc"
+HealthBar = "_EV1"
+HitSpeed = ["=", 4700]
+LoadTime = 3700
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+Projectile = "MortarProjectile_EV1"
+ProjectileEffect = "evo_mortar_attack"
+RedExportName = "enemy_mortar_evolution"
+SpawnEffect = "Deploy_Mortar_Evolution"
+
+
+[PROJECTILE.MortarProjectile_EV1]
+Rarity = "Common"
+Speed = 300
+FileName = "sc/effects_evolution.sc"
+ExportName = "mortar_evolved_projectile_v2"
+RedExportName = "enemy_mortar_evolved_projectile"
+Scale = 150
+HitEffect = "mortar_hit"
+Damage = 104
+Radius = 2000
+AoeToGround = true
+OnlyEnemies = true
+Gravity = 60
+SpawnCharacterDeployTime = 500
+SpawnCharacter = "Goblin"
+SpawnConstPriority = true

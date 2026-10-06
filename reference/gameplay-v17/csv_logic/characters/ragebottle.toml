@@ -1,0 +1,49 @@
+[BUILDING.RageBottle]
+BlueExportName = "rage_bottle_new"
+DeathAreaEffect = "Rage"
+DeathEffect = "rage_bottle_explode_02"
+DeployTime = 500
+FileName = "sc/building_rage_bottle.sc"
+IsBuilding = true
+Name = "RageBottle"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Rarity = "Common"
+RedExportName = "rage_bottle_new"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+[AEO.Rage]
+Buff = "Rage"
+BuffTime = 1000
+CapBuffTimeToAreaEffectTime = true
+HitSpeed = 300
+Filter = "all_friendly_troops"
+LifeDuration = 4500
+LoopingEffect = "Spell_rage_loop"
+Name = "Rage"
+OneShotEffect = "Spell_rage_effect"
+Radius = 3000
+Rarity = "Common"
+ScaledEffect = "Spell_rage_ground"
+SpawnAreaEffectObject = "RageDamage"
+[BUFF.Rage]
+AudioPitchModifier = 125
+Effect = "Spell_rage_hit_effect"
+FilterExportName = "filter_rage"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 130
+MarkEffect = "Healing"
+Name = "Rage"
+Rarity = "Common"
+SpawnSpeedMultiplier = 130
+SpeedMultiplier = 130
+TID = "TID_SPELL_RAGE"
+[AEO.RageDamage]
+Filter = "aeo_enemy_affects_hidden"
+LifeDuration = 1
+Name = "RageDamage"
+Radius = 3000
+Rarity = "Common"
+Damage = "RageDamage"
+[DAMAGE_TYPE.RageDamage]
+BaseDamage = 70
+TowerDamage = 18

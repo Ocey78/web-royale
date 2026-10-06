@@ -1,0 +1,96 @@
+[SPELL_CHARACTER.Archer]
+	StatsTags.SummonNumber = "archer_count"
+[CHARACTER.Archer]
+AttackStartEffect = "ArcherAttackStart"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "archer1"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "ArcherDie"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_archer.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 900
+Hitpoints = 119
+LoadTime = 400
+Mass = 3
+MoveEffect = "ArcherSteps"
+Name = "Archer"
+PrestigeExportName2 = "archer_prestige"
+PrestigeSWF = "sc/chr_prestige6_dl.sc"
+Projectile = "ArcherArrow"
+ProjectileEffect = "ArcherAttack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 5000
+Rarity = "Common"
+RedExportName = "archer1_enemy"
+Scale = 87
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "ArcherDeploy"
+Speed = 60
+TID = "TID_CHARACTER_ARCHER"
+UseAnimator = true
+[CHARACTER.Archer.StatsTags]
+Damage = "archer_damage"
+Hitpoints = "archer_hitpoints"
+HitSpeed = "archer_hit_speed"
+Range = "archer_range"
+Speed = "archer_speed"
+Targets = "archer_targets"
+[PROJECTILE.ArcherArrow]
+Damage = 44
+ExportName = "projectile_arrow_basic_enemy"
+FileName = "sc/effects.sc"
+Gravity = 60
+HitEffect = "ArrowHit"
+Homing = true
+Name = "ArcherArrow"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 600
+[STATS.archer]
+	[[STATS.archer.stats]]
+		Value = "archer_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.archer.stats]]
+		Value = "archer_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.archer.stats]]
+		Value = "archer_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.archer.stats]]
+		Value = "archer_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.archer.stats]]
+		Value = "archer_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.archer.stats]]
+		Value = "archer_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.archer.stats]]
+		Value = "archer_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_COUNT"
+		Icon = "icons_stats_troop_count"

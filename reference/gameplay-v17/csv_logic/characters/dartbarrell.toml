@@ -1,0 +1,59 @@
+
+[CHARACTER.DartBarrell]
+AttackStartEffect = "flying_machine_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "flying_machine"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "flying_machine_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_flying_machine.sc"
+FlyingHeight = 4000
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HitSpeed = 1100
+Hitpoints = 240
+LoadTime = 600
+LoopMoveEffect = true
+Mass = 3
+MoveEffect = "flying_machine_steps"
+Name = "DartBarrell"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "DartBarrellProjectile"
+ProjectileEffect = "flying_machine_attack"
+ProjectileStartRadius = 1500
+ProjectileStartZ = 1300
+Range = 6000
+Rarity = "Common"
+RedExportName = "flying_machine_red"
+RotateAngleSpeed = 224
+Scale = 90
+ShadowCustom = "flying_machine_shadow"
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = 5
+SightRange = 6000
+SpawnEffect = "flying_machine_deploy"
+Speed = 90
+TID = "TID_CHARACTER_BLOWDART_GOBLIN"
+UseAnimator = true
+
+[PROJECTILE.DartBarrellProjectile]
+Damage = 67
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+Gravity = 120
+HitEffect = "flying_machine_hit"
+Homing = true
+Name = "DartBarrellProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 800
+TrailEffect = "BlowdartProjectileEmitter"
+
+

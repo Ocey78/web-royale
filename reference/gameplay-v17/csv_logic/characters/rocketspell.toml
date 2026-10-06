@@ -1,0 +1,27 @@
+
+[PROJECTILE.RocketSpell]
+AoeToAir = true
+AoeToGround = true
+CrownTowerDamagePercent = -77
+Damage = 580
+DeflectBehaviour = "UseSpellsTowerDamageMul"
+DeflectRadius = 1000
+ExportName = "projectile_rocket"
+FileName = "sc/effects.sc"
+Gravity = 50
+HitEffect = "Rocket_explosion"
+Name = "RocketSpell"
+OnlyEnemies = true
+PrestigeExportName = "projectile_rocket_prestige1"
+PrestigeExportName2 = "projectile_rocket_prestige2"
+PrestigeExportName3 = "projectile_rocket_prestige3_blue"
+PrestigeRedExportName3 = "projectile_rocket_prestige3_red"
+PrestigeSWF = "sc/spell_prestige_dl.sc"
+Pushback = 1800
+Radius = 2000
+Rarity = "Common"
+ShadowExportName = "projectile_shadow_rocket"
+Speed = 350
+TrailEffect = "Rocket_Emitter"
+use360Frames = true
+

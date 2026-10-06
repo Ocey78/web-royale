@@ -1,0 +1,23 @@
+[Default]
+TID = "TID_RARITY_COMMON"
+SortOrder = 1
+SortCapacity = 1
+LevelCount = 6
+RelativeLevel = 0
+UpgradeExp = [0, 0, 0, 0, 0, 0]
+UpgradeCost = [0, 0, 0, 0, 0, 0]
+UpgradeMaterialCount = [5, 6, 8, 20, 40, 0]
+CardFileName = "sc/ui_support_cards_autochess.sc"
+CardExportName = "ruler_card"
+CardTextBgExportName = "ruler_card_level"
+CardCappedLevelBgFrameIdx = 0
+InfoPageFilename = "sc/ui_support_cards_autochess.sc"
+InfoPageExportName = "card_type_passive_ruler"
+TextColor = ["153-204-255"]
+OverflowPrestige = 1
+BlingTokenConversionValue = 480
+GoldConversionValue = 5
+AppearEffect = "openChest_get_common"
+LoopEffect = "openChest_loop_common"
+IconSWF = "sc/ui_card_items.sc"
+IconExportName = "icon_btn_card_ruler"

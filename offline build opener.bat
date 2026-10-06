@@ -62,7 +62,7 @@ public sealed class WebRoyaleOfflineHost : IDisposable
     private static string DefaultAiRoot() {
         string folder=Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         if(String.IsNullOrWhiteSpace(folder)||!Path.IsPathRooted(folder))throw new IOException("AppData path could not be resolved. No alternate folder was used.");
-        return Path.Combine(folder, "WebRoyaleMain", "AI");
+        return Path.Combine(folder, "WebRoyaleMain053", "AI");
     }
     public WebRoyaleOfflineHost(string siteRoot, int port) : this(siteRoot, port, DefaultAiRoot()) { }
 
@@ -483,7 +483,7 @@ try {
     Write-Host ''
     Write-Host 'Leave this window open while playing. Close it to stop the local host.'
     Write-Host 'Nothing is installed or published. This host only accepts local connections.'
-    Write-Host ('AI data: ' + [IO.Path]::Combine([Environment]::GetFolderPath('LocalApplicationData'),'WebRoyaleMain','AI'))
+    Write-Host ('AI data: ' + [IO.Path]::Combine([Environment]::GetFolderPath('LocalApplicationData'),'WebRoyaleMain053','AI'))
     Write-Host ''
     try { [WebRoyaleOfflineHost]::OpenBrowser($port) }
     catch { Write-Warning ('Automatic browser opening failed. Open this address yourself: ' + $url) }

@@ -1,0 +1,270 @@
+[VARIABLE.ValkyrieHero_SpinDuration]
+[VARIABLE.ValkyrieHero_Max_SpinDuration]
+DefaultValue = 3500
+[EXT.ValkyrieHero]
+	Base = "CHARACTER.Valkyrie"
+	Ability = "ValkyrieHero_Ability"
+	DashDamage = 0
+	DashPushBack = 0
+	DashToTargetRadius = true
+	DashLandingTime = 100
+	DashHitEffect = "vfx_goldenknight_dash_hit"
+	JumpSpeed = 100
+	LandingEffect = "vfx_goldenknight_dash_hit"
+	PrefabAsset = "sc3d/characters/hero/hero_valkyrie/hero_prefab_valkyrie_battle"
+	Scale = 100
+	SpawnEffect   = "vfx_valkyrie_hero_deploy"
+	DeathEffect   = "vfx_valkyrie_hero_die"
+	MoveEffect   = ""
+	AttackStartEffect   = ""
+	AbilityPendingEffect = "Heal_aura"
+	DisableMeleeAeoDamageEffect = true
+	FileName = ""
+	BlueExportName = ""
+	RedExportName = ""
+	PrestigeSWF = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed = 2
+	HealthBarOffsetYBlue = 0
+	HealthBarOffsetYRed = 0
+	StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[BUFF.ValkyrieHero_Charge]
+	Rarity = "Common"
+	SpeedMultiplier = 200
+	ContinuousEffect = "vfx_valkyrie_hero_ability_step"
+	NotCloned = true
+	AliveIfTrue = "ValkyrieHero_SpinDuration < ValkyrieHero_Max_SpinDuration"
+	GameTagsToSet = "ABILITY_PENDING"
+[ABILITY.ValkyrieHero_Ability]
+	TID = "TID_HERO_VALKYRIE_ABILITY"
+	TID_INFO = "TID_HERO_VALKYRIE_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_valkyrie.sc"
+	IconExportName = "ability_icon_valkyrie"
+	CastTime = 0
+	TriggerDelay = 0
+	RefundWindow = 50
+	ManaCost = 3
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	PendingBuff = ""
+	DeployedEffect = "vfx_valkyrie_hero_ability_active"
+	DeployedClip = "champion_select_ring_rampup_golden_knight"
+	OnActivationAction = "ValkyrieHero_OnAbilityActivationGroup"
+	IsChampion = true
+	Stats = "valkyrie_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+[ACTION.ValkyrieHero_OnAbilityActivationGroup]
+	ClassType = "ActionGroup"
+	SubActions = ["ValkyrieHero_Reset_Timer", "ValkyrieHero_Charge_Target", "ValkyrieHero_Pending_Buff", "ValkyrieHero_Set_Ability_Button_Pending", "ValkyrieHero_Set_Ability_Button_Pending"]
+	SubActionsDelay = [0, 0, 50, 0, 50]
+[ACTION.ValkyrieHero_Pending_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ValkyrieHero_Charge"
+	SpawnTime = 99999
+[ACTION.ValkyrieHero_Set_Ability_Button_Pending]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "ValkyrieHero"
+	StateToSet = "ChampionPending"
+	ApplyImmediate = true
+	Persistent = true
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1||!is_active_or_secondary_champion"
+[ACTION.ValkyrieHero_Charge_Target]
+	ClassType = "ActionRunActionListOnObjectsInShapeWithPrio"
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1,ABILITY_COOLDOWN_PAUSED"
+	OncePerTarget = true
+	WaitForTarget = true
+	TargetSelectionMode = "Closest"
+	TargetFilter = "GroundCharacterTargetsNoInactive"
+	Actions = ["ValkyrieHero_Dummy_Target"]
+	Delays = [0]
+	ActionOnSelfWhenTriggered = "ValkyrieHero_Execute_Charge_Group"
+	Shape = "ValkyrieHero_Charge_Shape"
+	PauseTags = "COMBAT_DISABLED, CAPTURED"
+	AbortIfInstigatorDies = false
+[ACTION.ValkyrieHero_Reset_Timer]
+	ClassType = "ActionSetVariable"
+	Variable = "ValkyrieHero_SpinDuration"
+	Value = "0"
+[ACTION.ValkyrieHero_Dummy_Target]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 50
+[ACTION.ValkyrieHero_Execute_Charge_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["ValkyrieHero_Whirlwind_Animation", "ValkyrieHero_Execute_Charge", "ValkyrieHero_Apply_Damage_Reduction"]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.ValkyrieHero_Apply_Damage_Reduction]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ValkyrieHero_Damage_Reduction_Buff"
+	SpawnTime = 99999
+[BUFF.ValkyrieHero_Damage_Reduction_Buff]
+	Rarity = "Common"
+	DamageReduction = 15
+	AliveIfTrue = "ValkyrieHero_SpinDuration < ValkyrieHero_Max_SpinDuration"
+	StatsTags.DamageReduction = "damage_reduction"
+[ACTION.ValkyrieHero_Whirlwind_Animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	ForcedDuration = 99999
+[ACTION.ValkyrieHero_Stop_Whirlwind_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["ValkyrieHero_Stop_Whirlwind_Animation", "ValkyrieHero_Apply_Forbid_Attack_After_Whirlwind"]
+	SubActionsDelay = [0, 0]
+[ACTION.ValkyrieHero_Apply_Forbid_Attack_After_Whirlwind]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ValkyrieHero_Forbid_Attack_After_Whirlwind_Buff"
+	SpawnTime = 400
+[BUFF.ValkyrieHero_Forbid_Attack_After_Whirlwind_Buff]
+	Rarity = "Common"
+	HitSpeedMultiplier = -100
+	NotCloned = true
+[ACTION.ValkyrieHero_Stop_Whirlwind_Animation]
+	ClassType = "ActionStopForcedAnimation"
+[ACTION.ValkyrieHero_Execute_Charge]
+	ClassType = "ActionAttackChain"
+	TargetResolver = "ValkyrieHero_Charge_Target_Resolver"
+	GameTagsToSet = "NO_ATTACK"
+	ChainCount = 24
+	ChainCompleteIfTrue = "ValkyrieHero_SpinDuration >= ValkyrieHero_Max_SpinDuration"
+	OnChainBegan = "ValkyrieHero_Spawn_AEO_Interval"
+	OnFinishedAction = "ValkyrieHero_Stop_Whirlwind_Group"
+	ChainPhaseBuff = "ValkyrieHero_AttackChain"
+	PerformAttackOnReach = false
+	ResetTargetAfterReach = true
+	PauseIfAttackSpeedZero = true
+	StopMovementWhenAtTarget = true
+	CanUseDefaultTargetAsFallback = false
+[BUFF.ValkyrieHero_AttackChain]
+	Rarity = "Common"
+	SpeedMultiplier = 250
+	NotCloned = true
+[TARGET_RESOLVER.ValkyrieHero_Charge_Target_Resolver]
+	Shape = "ValkyrieHero_Charge_Shape"
+	Filter = "GroundCharacterTargetsNoInactive"
+	StrategyList = ["RESOLVER_STRATEGY_CLOSEST_TARGET"]
+[SHAPE.ValkyrieHero_Charge_Shape]
+	ClassType = "Circle"
+	Radius = 5500
+	CheckOrigin = true
+	StatsTags.Radius = "ability_range"
+[ACTION.ValkyrieHero_Spawn_AEO_Interval]
+	ClassType = "ActionInterval"
+	Interval = 250
+	ActionToExecute = "ValkyrieHero_Interval_Group"
+	GameTagsToSet = "NO_ATTACK"
+	ForceStopIfTrue = "ValkyrieHero_SpinDuration >= ValkyrieHero_Max_SpinDuration"
+	StatsTags.Interval = "ability_hit_speed"
+[ACTION.ValkyrieHero_Interval_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["ValkyrieHero_Spawn_AEO_If_Chain_Active", "ValkyrieHero_Update_Timer"]
+	SubActionsDelay = [0,0]
+[ACTION.ValkyrieHero_Spawn_AEO_If_Chain_Active]
+	ClassType = "ActionGroup"
+	SubActions = ["ValkyrieHero_Spawn_AEO"]
+	SubActionsDelay = [0]
+[ACTION.ValkyrieHero_Spawn_AEO]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "AreaEffectType"
+	SpawnData = "ValkyrieHero_AEO"
+	TargetExprX = "x"
+	TargetExprY = "y"
+[AEO.ValkyrieHero_AEO]
+	Rarity = "Common"
+	LifeDuration = 350
+	Radius = 2500
+	ScaledEffect = "vfx_valkyrie_hero_ability_slash"
+	
+	Filter = "aeo_enemy_ground"
+    Damage = { BaseDamage = 38, TowerDamage = 19, Effect = "vfx_valkyrie_hero_ability_hit" }
+	StatsTags.Damage = "ability_damage"
+	StatsTags.CrownTowerDamage = "ability_crown_damage"
+	StatsTags.Radius = "ability_radius"
+[ACTION.ValkyrieHero_Update_Timer]
+	ClassType = "ActionSetVariable"
+	Variable = "ValkyrieHero_SpinDuration"
+	Value = "ValkyrieHero_SpinDuration + 250"
+[STATS.valkyrie_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.valkyrie_hero_ability.stats]]
+		Value = "ability_range"
+		Unit = "TILES"
+		TID = "TID_ABILITY_STAT_DASH_RANGE"
+		Icon = "icons_stats_dash_range"
+	[[STATS.valkyrie_hero_ability.stats]]
+		Value = "ability_damage"
+		Value2 = "ability_hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.valkyrie_hero_ability.stats]]
+		Value = "ability_crown_damage"
+		Value2 = "ability_hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DPS"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.valkyrie_hero_ability.stats]]
+		Value = "ability_radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"
+	[[STATS.valkyrie_hero_ability.stats]]
+		Value = "damage_reduction"
+		Unit = "PERCENT_NOSIGN"
+		TID = "TID_ABILITY_DAMAGE_RESISTANCE"
+		Icon = "icons_stats_shield_hp"
+	[[STATS.valkyrie_hero_ability.stats]]
+		VariableValue = "ValkyrieHero_Max_SpinDuration"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_DURATION"
+		Icon  = "icons_stats_deploy_time"
+[STATS.valkyrie_hero]
+	[[STATS.valkyrie_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.valkyrie_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.valkyrie_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.valkyrie_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.valkyrie_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.valkyrie_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.valkyrie_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

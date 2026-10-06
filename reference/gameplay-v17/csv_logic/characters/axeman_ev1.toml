@@ -1,0 +1,159 @@
+[EXT.AxeMan_EV1]
+	Base = "CHARACTER.AxeMan"
+    ClonedVersion = "AxeMan"
+	Projectile = "AxeMan_EV1_Projectile_Strong1"
+	ProjectileEffect = "AxeAEOEffectEmitter"
+ 	FileName = "sc/chr_executioner_evolution.sc"
+ 	BlueExportName = "executioner_evo"
+ 	RedExportName = "executioner_evo_red"
+	Scale = 70
+	SpawnEffect = "evo_executioner_deploy"
+	MoveEffect = "evo_executioner_steps"
+	DamageEffect = "evo_executioner_hit"
+	DeathEffect = "Death_card_evolution_M_new"
+	TargetedHitEffect = "evo_executioner_atk_start"
+	HealthBar = "Medium_EV1"
+	HealthBarOffsetYBlue = -17
+	HealthBarOffsetYRed = -9
+	ShadowScaleX = 75
+	ShadowScaleY = 80
+	ShadowY = -15
+	ShadowX = 5
+	ShadowSkew = 25
+		CustomSpawnFilter="filter_card_evolution"
+		DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+	StatsTags.Hitpoints = "hitpoints"
+    StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+    StatsTags.Speed = "speed"
+[PROJECTILE.AxeMan_EV1_Projectile_Normal]
+	Rarity = "Common"
+	Speed = 550
+	Damage = 0
+	Radius = 1000
+	AoeToAir = true
+	AoeToGround = true
+	OnlyEnemies = true
+	ProjectileRadius = 1000
+	Scale = 100
+	ProjectileRange = 7000
+	MinDistance = 4500
+	ConstantHeight = 3000
+	ShakesTargets = true
+	ShakesShooter = 500
+	PingpongVisualTime = 1500
+	FileName = "sc/chr_executioner_evolution.sc"
+	ExportName = "executioner_evo_normal_projectile"
+	ShadowExportName = "executioner_evo_strong_projectile_shadow"
+	TrailEffect = "evo_executioner_projectile_emitter"
+	PingpongDeathEffect = "evo_executioner_projectile_die"
+	StatsTags.ProjectileRange = "projectile_range"
+	StatsTags.PingpongVisualTime = "pingpong_time"
+[EXT.AxeMan_EV1_Projectile_Strong1]
+	Base = "PROJECTILE.AxeMan_EV1_Projectile_Normal"
+	FileName = "sc/chr_executioner_evolution.sc"
+	OnStartingAction = "AxeMan_EV1_Projectile_StartingActions"
+	ExportName = "executioner_evo_strong_projectile"
+	ShadowExportName = "executioner_evo_strong_projectile_shadow"
+	TrailEffect = "evo_executioner_projectile_emitter"
+	PingpongDeathEffect = "evo_executioner_projectile_die"
+[EXT.AxeMan_EV1_Projectile_Strong2]
+	Base = "PROJECTILE.AxeMan_EV1_Projectile_Strong1"
+[ACTION.AxeMan_EV1_Projectile_StartingActions]
+	ClassType = "ActionGroup"
+	SubActions = ["AxeMan_EV1_WaitToChangeProjectile1", "AxeMan_EV1_Projectile_Controller", "AxeMan_EV1_StrongProjectileEffect1"]
+[ACTION.AxeMan_EV1_WaitToChangeProjectile1]
+	ClassType = "ActionWaitToActivate"
+   	Condition = "get_ping_pong_projectile_distance > 2000"
+	[ACTION.AxeMan_EV1_WaitToChangeProjectile1.OnActivateAction]
+		ClassType="ActionChangeGameObjectData"
+		NewProjectileData = "AxeMan_EV1_Projectile_Normal"
+		NextAction = "AxeMan_EV1_WaitToChangeProjectile2"
+		NextActionWait = true
+[ACTION.AxeMan_EV1_WaitToChangeProjectile2]
+	ClassType = "ActionWaitToActivate"
+   	Condition = "get_ping_pong_projectile_distance < 3000"
+ActionDelay = 200
+	[ACTION.AxeMan_EV1_WaitToChangeProjectile2.OnActivateAction]
+		ClassType="ActionChangeGameObjectData"
+		NewProjectileData = "AxeMan_EV1_Projectile_Strong2"
+		NextAction = "AxeMan_EV1_StrongProjectileEffect2"
+		NextActionWait = true
+[ACTION.AxeMan_EV1_Projectile_Controller]
+	ClassType = "ActionExecutionerEvoProjectile"
+	Singleton = true
+	Damage = 70
+	StrongDamage = 94
+	StrongDamageRange = 2500
+	FirstStrongHitPushback = 1000
+	HitAction = "AxeMan_EV1_Projectile_Hit"
+	StrongHitAction = "AxeMan_EV1_Projectile_StrongHit"
+	StatsTags.Damage = "damage"
+	StatsTags.StrongDamage = "strong_damage"
+	StatsTags.StrongDamageRange = "strong_damage_range"
+	StatsTags.FirstStrongHitPushback = "first_strong_hit_pushback"
+[ACTION.AxeMan_EV1_StrongProjectileEffect1]
+	ClassType="ActionPlayEffect"
+	ForceStopIfTrue = "get_ping_pong_projectile_distance > 2000"
+	Effect = "evo_executioner_projectile_strong_emitter"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+[ACTION.AxeMan_EV1_StrongProjectileEffect2]
+	ClassType="ActionPlayEffect"
+	Effect = "evo_executioner_projectile_strong_emitter"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+[ACTION.AxeMan_EV1_Projectile_Hit]
+	ClassType = "ActionPlayEffect"
+	Effect = "evo_executioner_projectile_hit"
+[ACTION.AxeMan_EV1_Projectile_StrongHit]
+	ClassType = "ActionPlayEffect"
+	Effect = "evo_executioner_strong_hit"
+[STATS.AxeMan_EV1]
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "damage"
+		OverrideIntValue2 = 2
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "hit_speed"
+		Value2 = "pingpong_time"
+		Unit = "TIME_ADDITIVE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.AxeMan_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "projectile_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_BULLET_RANGE"
+		Icon = "icons_stats_radius"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "strong_damage"
+		OverrideIntValue2 = 2
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_STRONG_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.AxeMan_EV1.stats]]
+		Value = "strong_damage_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_STRONG_RANGE"
+		Icon = "icons_stats_range"

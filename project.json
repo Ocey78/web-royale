@@ -1,14 +1,14 @@
 {
   "id": "web-royale",
   "name": "Web Royale",
-  "version": "0.52.3",
+  "version": "0.53.0",
   "baseline": "0.50.0",
   "private": true,
   "purpose": "Modern features, arenas and future online development base",
   "defaultPort": 8081,
   "profileKey": "web-royale-main-profile-v1",
-  "learningKey": "web-royale-main-learning-v1",
-  "learningDatabase": "web-royale-main-learning-v1",
+  "learningKey": "web-royale-main-learning-v053",
+  "learningDatabase": "web-royale-main-learning-v053",
   "replayDatabase": "web-royale-main-replays-v1",
-  "aiFolder": "WebRoyaleMain"
+  "aiFolder": "WebRoyaleMain053"
 }

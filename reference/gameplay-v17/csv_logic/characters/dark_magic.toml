@@ -1,0 +1,133 @@
+[SPELL_OTHER.DarkMagic]
+	Stats = "dark_magic"
+[AEO.DarkMagicAOE]
+Filter = "ForcedCharacterTargets"
+HitSpeed = -1
+LifeDuration = 4000
+Name = "DarkMagicAOE"
+Radius = 2500
+Rarity = "Common"
+ScaledEffect = "Spell_Darkmagic_Deploy"
+[AEO.DarkMagicAOE.OnLifeTimeEndAction]
+ClassType = "ActionPlayEffect"
+Effect = "PaoloFirstEffectEverOutro"
+[AEO.DarkMagicAOE.OnStartingAction]
+ClassType = "ActionGroup"
+SubActionsDelay = [0, 500]
+[[AEO.DarkMagicAOE.OnStartingAction.SubActions]]
+ClassType = "ActionPlayEffect"
+Effect = "PaoloFirstEffectEverIntro"
+[[AEO.DarkMagicAOE.OnStartingAction.SubActions]]
+ClassType = "ActionLaserBall"
+DetectionRadius = 2500
+FirstHitDelay = 1000
+HitFrequency = 1000
+MaxUnitPerActionList = [1, 4]
+MainEffectList = ["PaoloFirstEffectEver"]
+HitFilter = "ForcedCharacterTargets"
+StatsTags.MinUnits_2 = "targets_mid_lower"
+StatsTags.MaxUnits_2 = "targets_mid_upper"
+StatsTags.MinUnits_3 = "targets_more_lower"
+	[[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList]]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 100
+		[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.NextAction]
+		ClassType = "ActionPlayEffect"
+		Effect = "Paolo_zap_effect3"
+		[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.SpawnData]
+		Name = "DarkMagicAOE_Damage_lv3"
+		Rarity = "Common"
+		DamagePerSecond = 2720
+		CrownTowerDamagePerHit = 38
+		HitFrequency = 100
+		AddAsIndividualBuff = true
+		HitEffect = "PaoloFirstEffectEverStrong"
+		StatsTags.DamagePerHit = "damage_first_target"
+		StatsTags.CrownTowerDamagePerHit = "damage_first_tower_target"
+	[[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList]]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 100
+		[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.NextAction]
+		ClassType = "ActionPlayEffect"
+		Effect = "Paolo_zap_effect2"
+		[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.SpawnData]
+		Name = "DarkMagicAOE_Damage_lv2"
+		Rarity = "Common"
+		DamagePerSecond = 1155
+		CrownTowerDamagePerHit = 20
+		HitFrequency = 100
+		AddAsIndividualBuff = true
+		HitEffect = "PaoloFirstEffectEverMedium"
+		StatsTags.DamagePerHit = "damage_mid_targets"
+		StatsTags.CrownTowerDamagePerHit = "damage_mid_tower_targets"
+	[[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList]]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 100
+		[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.NextAction]
+		ClassType = "ActionPlayEffect"
+		Effect = "Paolo_zap_effect"
+		[AEO.DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.SpawnData]
+		Name = "DarkMagicAOE_Damage_lv1"
+		Rarity = "Common"
+		DamagePerSecond = 600
+		CrownTowerDamagePerHit = 14
+		HitFrequency = 100
+		AddAsIndividualBuff = true
+		HitEffect = "PaoloFirstEffectEverLow"
+		StatsTags.DamagePerHit = "damage_more_targets"
+		StatsTags.CrownTowerDamagePerHit = "damage_more_tower_targets"
+[AEO.DarkMagicAOE.StatsTags]
+LifeDuration = "duration"
+Radius = "radius"
+[STATS.dark_magic]
+	[[STATS.dark_magic.stats]]
+		Value = "damage_first_target"
+		Unit = "INTEGER"
+		TID = "TID_DAMAGE_WITH_SINGLE_TARGET"
+		Icon = "icons_stats_high_damage"
+	[[STATS.dark_magic.stats]]
+		Value = "damage_first_tower_target"
+		Unit = "INTEGER"
+		TID = "TID_CROWN_DAMAGE_WITH_SINGLE_TARGET"
+		Icon = "icons_stats_high_damage_tower"
+	[[STATS.dark_magic.stats]]
+		Value = "damage_mid_targets"
+		Unit = "INTEGER"
+		TID = "TID_DAMAGE_WITH_MIN_MAX_TARGETS"
+		TIDReplacePlaceholders = ["<MIN_TARGETS>", "<MAX_TARGETS>"]
+		TIDReplaceValues = ["targets_mid_lower", "targets_mid_upper"]
+		Icon = "icons_stats_medium_damage"
+	[[STATS.dark_magic.stats]]
+		Value = "damage_mid_tower_targets"
+		Unit = "INTEGER"
+		TID = "TID_CROWN_DAMAGE_WITH_MIN_MAX_TARGETS"
+		TIDReplacePlaceholders = ["<MIN_TARGETS>", "<MAX_TARGETS>"]
+		TIDReplaceValues = ["targets_mid_lower", "targets_mid_upper"]
+		Icon = "icons_stats_medium_damage_tower"
+	[[STATS.dark_magic.stats]]
+		Value = "damage_more_targets"
+		Unit = "INTEGER"
+		TID = "TID_DAMAGE_WITH_MIN_OR_MORE_TARGETS"
+		TIDReplacePlaceholders = ["<MIN_TARGETS>"]
+		TIDReplaceValues = ["targets_more_lower"]
+		Icon = "icons_stats_low_damage"
+	[[STATS.dark_magic.stats]]
+		Value = "damage_more_tower_targets"
+		Unit = "INTEGER"
+		TID = "TID_CROWN_DAMAGE_WITH_MIN_OR_MORE_TARGETS"
+		TIDReplacePlaceholders = ["<MIN_TARGETS>"]
+		TIDReplaceValues = ["targets_more_lower"]
+		Icon = "icons_stats_low_damage_tower"
+	[[STATS.dark_magic.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.dark_magic.stats]]
+		Value = "radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"

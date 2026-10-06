@@ -1,0 +1,20 @@
+[SPELL_HERO.EliteArcher_hero]
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_magic_archer/hero_prefab_magicarcher_collection"
+	IconSWF                 = "sc/ui_card_magic_archer_hero.sc"
+	IconFile                = "magic_archer_hero_card"
+	UnlockArena             = "TrainingCamp"
+	Rarity                  = "Legendary"
+	ManaCost                = 4
+	PrestigeCount           = 3
+	SummonCharacter         = "EliteArcherHero"
+	SummonNumber			= 1
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_ELITE_ARCHER"
+	TID_INFO                = "TID_SPELL_INFO_HERO_ELITE_ARCHER"
+	PveDefenseType          = "Range"
+	CardForm                = "HeroForm"
+	Stats                   = "elitearcher_hero"
+	
+[SPELL_CHARACTER.EliteArcher]
+	EvolvedSpells = ["EliteArcher_hero"]

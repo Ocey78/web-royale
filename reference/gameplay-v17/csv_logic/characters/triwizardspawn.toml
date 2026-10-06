@@ -1,0 +1,81 @@
+[AEO.TriWizardSpawn]
+LifeDuration = 500
+Name = "TriWizardSpawn"
+OnStartingAction = "TriWizardSpawn"
+Radius = 1000
+Rarity = "Common"
+SpawnCharacter = "TriWizard"
+SpawnInterval = 300
+SpawnTime = 100
+[ACTION.TriWizardSpawn]
+AbortIfInstigatorDies = false
+ClassType = "ActionGroup"
+SubActions = ["ElectroWizardAOE", "IceWizardAOE","ElectroWizardCharSpawn","IceWizardCharSpawn"]
+SubActionsDelay = [300, 300, 350, 350]
+[ACTION.ElectroWizardAOE]
+ClassType = "ActionSpawnToLocation"
+RelativeX = 5
+RelativeY = 0
+SpawnData = "ElectroWizardZap"
+SpawnType = "AreaEffectType"
+[ACTION.IceWizardAOE]
+ClassType = "ActionSpawnToLocation"
+RelativeX = -5
+RelativeY = 0
+SpawnData = "IceWizardCold"
+SpawnType = "AreaEffectType"
+[ACTION.ElectroWizardCharSpawn]
+ClassType = "ActionSpawnToLocation"
+RelativeX = 5
+RelativeY = 0
+SpawnData = "ElectroWizard"
+SpawnType = "CharacterType"
+[ACTION.IceWizardCharSpawn]
+ClassType = "ActionSpawnToLocation"
+RelativeX = -5
+RelativeY = 0
+SpawnData = "IceWizard"
+SpawnType = "CharacterType"
+[CHARACTER.TriWizard]
+AttackStartEffect = "chr_wizard_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "wizard1"
+CollisionRadius = 500
+DamageEffect = "chr_wizard_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "chr_wizard_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_wizard.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -18
+HitSpeed = 1400
+Hitpoints = 295
+LoadTime = 1000
+Mass = 5
+MoveEffect = "chr_wizard_steps"
+Name = "TriWizard"
+PrestigeExportName2 = "wizard_prestige"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+Projectile = "chr_wizardProjectile"
+ProjectileStartRadius = 550
+ProjectileStartZ = 1500
+Range = 5500
+Rarity = "Common"
+RedExportName = "wizard1_red"
+Scale = 87
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "chr_wizard_deploy"
+Speed = 60
+TID = "TID_SPELL_WIZARD"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -10
+[ACTION.TriWizardCharSpawn]
+ClassType="ActionGroup"
+SubActions = ["ElectroWizardChar", "IceWizardChar"]
+AbortIfInstigatorDies=false
+SubActionsDelay=[0,0]

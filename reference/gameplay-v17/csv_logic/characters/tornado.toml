@@ -1,0 +1,53 @@
+[AEO.Tornado]
+Buff = "Tornado"
+BuffTime = 500
+ControlsBuff = true
+HitSpeed = 50
+HitSpeedOffset = 50
+LifeDuration = 1050
+Name = "Tornado"
+Filter = "CommonAreaDamageFilter"
+Radius = 5500
+Rarity = "Common"
+ScaledEffect = "Spell_tornado_deploy"
+[AEO.Tornado.StatsTags]
+LifeDuration = "duration"
+Radius = "radius"
+[BUFF.Tornado]
+AttractPercentage = 360
+ControlledByParent = true
+CrownTowerDamagePercent = -70
+DamagePerSecond = 60
+EnableStacking = true
+FilterExportName = "filter_poison"
+FilterFile = "sc/effects.sc"
+HitFrequency = 550
+MarkEffect = "Healing"
+Name = "Tornado"
+PushSpeedFactor = 100
+Rarity = "Common"
+TID = "TID_SPELL_TORNADO"
+[BUFF.Tornado.StatsTags]
+DamagePerHit = "damageperhit"
+CrownTowerDamagePerHit = "tower_damage"
+[STATS.tornado]
+	[[STATS.tornado.stats]]
+		Value = "damageperhit"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.tornado.stats]]
+		Value = "tower_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.tornado.stats]]
+		Value = "duration"
+		Unit = "TIME"
+		TID = "TID_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.tornado.stats]]
+		Value = "radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"

@@ -1,0 +1,13 @@
+[GAMEMODE.All_Random_Princess]
+	[[GAMEMODE.All_Random_Princess.Components]]
+		Name="AllRandom"
+		ClassType="AllRandom"
+		MaxEvoForms=4
+		MaxHeroForms=2
+
+[GAMEMODE.All_Random_Princess_Friendly]
+	[[GAMEMODE.All_Random_Princess_Friendly.Components]]
+		Name="AllRandom"
+		ClassType="AllRandom"
+		MaxEvoForms=4
+		MaxHeroForms=2

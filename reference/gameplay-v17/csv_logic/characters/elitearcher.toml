@@ -1,0 +1,69 @@
+
+[CHARACTER.EliteArcher]
+AttackStartEffect = "ArcherAttackStart"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "magic_archer"
+CollisionRadius = 600
+DamageExportName = "filter_damage"
+DeathEffect = "ArcherDie"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_magic_archer_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HitSpeed = 1100
+Hitpoints = 207
+LoadTime = 400
+Mass = 3
+MoveEffect = "MagicArcherSteps"
+Name = "EliteArcher"
+PrestigeExportName2 = "magic_archer_prestige"
+PrestigeExportName3 = "magic_archer_prestige2"
+PrestigeRedExportName2 = "magic_archer_red_prestige"
+PrestigeRedExportName3 = "magic_archer_red_prestige2"
+PrestigeSWF = "sc/chr_magic_archer_dl.sc"
+Projectile = "EliteArcherArrow"
+ProjectileEffect = "magic_archer_attack_start"
+ProjectileStartRadius = 800
+ProjectileStartZ = 500
+Range = 7000
+Rarity = "Common"
+RedExportName = "magic_archer_red"
+Scale = 105
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = -1
+ShadowY = -15
+SightRange = 7500
+SpawnEffect = "MagicArcherDeploy"
+Speed = 60
+TID = "TID_CHARACTER_ARCHER"
+UseAnimator = true
+
+[PROJECTILE.EliteArcherArrow]
+AoeToAir = true
+AoeToGround = true
+ConstantHeight = 2000
+Damage = 53
+DeathEffect = "magic_archer_arrow_die"
+ExportName = "magic_arrow_projectile_blue"
+FileName = "sc/chr_magic_archer_dl.sc"
+HitEffect = "cannon_hit"
+HomingMinDistance = 5000
+HomingTime = 100
+Name = "EliteArcherArrow"
+OnlyEnemies = true
+ProjectileRadius = 250
+ProjectileRange = 11000
+ProjectileStartExtraRadius = 400
+Radius = 250
+Rarity = "Common"
+RedExportName = "magic_arrow_projectile_red"
+ShadowExportName = "magic_arrow_projectile_blue"
+ShakesTargets = true
+Speed = 1000
+TrailEffect = "MagicArrowProjectile_blue"
+
+

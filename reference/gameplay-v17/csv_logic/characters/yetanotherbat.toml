@@ -1,0 +1,46 @@
+
+[CHARACTER.YetAnotherBat]
+AttackDashTime = 150
+AttackStartEffect = "bat_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "bat"
+CollisionRadius = 500
+Damage = 32
+DamageEffect = "bat_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "bat_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_bats.sc"
+FlyingHeight = 2000
+HealthBar = "Small"
+HitSpeed = 1300
+Hitpoints = 32
+LoadTime = 700
+LoopingFilter = "filter_wiggle"
+Mass = 1
+MoveEffect = "bat_steps"
+Name = "YetAnotherBat"
+PrestigeExportName2 = "bat_prestige"
+PrestigeSWF = "sc/chr_prestige3_dl.sc"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 1200
+Rarity = "Common"
+RedExportName = "bat"
+Scale = 105
+ShadowCustom = "bat_shadow"
+ShadowCustomLow = "bat_shadow"
+ShadowScaleX = 65
+ShadowScaleY = -60
+ShadowY = 20
+SightRange = 5500
+SpawnAngleShift = 45
+SpawnEffect = "bat_deploy"
+Speed = 120
+TID = "TID_CHARACTER_BAT"
+UseAnimator = true
+
+

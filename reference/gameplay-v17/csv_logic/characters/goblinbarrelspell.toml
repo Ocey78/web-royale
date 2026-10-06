@@ -1,0 +1,23 @@
+
+[PROJECTILE.GoblinBarrelSpell]
+AlwaysResetAnimation = true
+AoeToGround = true
+DeflectRadius = 800
+ExportName = "spell_goblin_barrel_projectile"
+FileName = "sc/spell_goblin_barrel.sc"
+Gravity = 40
+HitEffect = "goblin_barrel_explosion"
+Name = "GoblinBarrelSpell"
+OnlyEnemies = true
+PrestigeExportName2 = "spell_goblin_barrel_projectile_prestige"
+PrestigeExportName3 = "spell_goblin_barrel_projectile_prestige2"
+PrestigeSWF = "sc/spell_prestige_dl.sc"
+Radius = 1500
+Rarity = "Common"
+ShadowExportName = "Barrel_shadow"
+SpawnCharacter = "Goblin"
+SpawnCharacterCount = 3
+SpawnCharacterDeployTime = 1100
+SpawnConstPriority = true
+Speed = 400
+TrailEffect = "goblin_barrel_trail"

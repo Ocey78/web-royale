@@ -1,0 +1,155 @@
+[EXT.BerserkerHero]
+	Base = "CHARACTER.Berserker"
+	Ability = "BerserkerHeroAbility"
+	Scale = 100
+	UseAnimator = true
+	PrefabAsset = "sc3d/characters/hero/hero_berserker/hero_prefab_berserker_battle"
+	SpawnEffect   = "vfx_berserker_hero_deploy"
+	DeathEffect   = "vfx_berserker_hero_die"
+	MoveEffect        = ""
+	AttackStartEffect = ""
+	FileName = ""
+	BlueExportName = ""
+	RedExportName = ""
+	OnStartingClientActions = ["Healthbar_Medium"]
+    HideHealthbar = true
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[EXT.BerserkerHero_BearForm]
+	Base = "CHARACTER.BerserkerHero"
+	ClonedVersion = "BerserkerHero"
+	PrefabAsset = "sc3d/characters/hero/hero_berserker/hero_prefab_berserker_inbearform_battle"
+	DamageEffect = "vfx_berserker_hero_ability_hit_claw"	
+	OverrideAttackFinishTime = true
+	AttackFinishTime = 0
+[ABILITY.BerserkerHeroAbility]
+	TID = "TID_HERO_BERSERKER_ABILITY"
+	TID_INFO = "TID_HERO_BERSERKER_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_berserker.sc"
+	IconExportName = "ability_icon_berserker"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_boss_bandit"
+	CastTime = 1450
+	TriggerDelay = 100
+	RefundWindow = 150
+	ManaCost = 3
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	OnActivationAction = "BerserkerHero_ability_group"
+	DeployedEffect = "vfx_berserker_hero_ability_active"
+	Stats = "berserker_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+	StatsTags.Duration = "BerserkerHero_Rage_Duration"
+[ACTION.BerserkerHero_ability_group]
+	ClassType = "ActionGroup"
+	SubActions = ["BerserkerHero_effect", "BerserkerHero_spawn_buff", "BerserkerHero_change_to_bearform", "BerserkerHero_change_back_from_bearform"]
+	SubActionsDelay = [0, 0, 0, 3500]
+[ACTION.BerserkerHero_effect]
+	ClassType = "ActionPlayEffect"
+	Effect = ""
+	EffectFlags = "FollowParent"
+	OverrideDuration = 3500
+	OverrideScale = 50
+[ACTION.BerserkerHero_spawn_buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "BerserkerHero_buff"
+	SpawnTime = 3500
+	StatsTags.SpawnTime = "buff_duration"
+[ACTION.BerserkerHero_change_to_bearform]
+	ClassType = "ActionChangeGameObjectData"
+	NewCharacterData = "BerserkerHero_BearForm"
+[ACTION.BerserkerHero_change_back_from_bearform]
+	ClassType = "ActionChangeGameObjectData"
+	NewCharacterData = "BerserkerHero"
+[BUFF.BerserkerHero_buff]
+	Rarity = "Common"
+	NotCloned = true
+	HitSpeedMultiplier = 300
+	SpeedMultiplier = 150
+	SpawnSpeedMultiplier = 200
+	DamageMultiplier = 164
+	CharacterCrownTowerDamagePercent = 25
+	MarkEffect ="Healing"
+	AudioPitchModifier = 125
+	GameTagsToSet = "UNKILLABLE"
+	StatsTags.HitSpeedMultiplier = "hit_speed_multiplier"
+	StatsTags.DamageMultiplier = "damage_multiplier"
+	StatsTags.SpeedMultiplier = "speed_multiplier"
+	StatsTags.CharacterCrownTowerDamagePercent = "tower_damage"
+[STATS.berserker_hero]
+	[[STATS.berserker_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.berserker_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.berserker_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.berserker_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.berserker_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.berserker_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.berserker_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[STATS.berserker_hero_ability]
+	[[STATS.berserker_hero_ability.stats]]
+		Value = "hit_speed"
+		ValueMultiplier = "hit_speed_multiplier"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.berserker_hero_ability.stats]]
+		Value = "speed"
+		ValueMultiplier = "speed_multiplier"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.berserker_hero_ability.stats]]
+    	OverrideIntValue = -75
+		Unit = "PERCENT"
+    	TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+    	Icon = "icons_stats_dmg_crown"
+	[[STATS.berserker_hero_ability.stats]]
+		Value = "damage"
+		ValueMultiplier = "damage_multiplier"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.berserker_hero_ability.stats]]
+		Value = "buff_duration"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_DURATION"
+		Icon  = "icons_stats_deploy_time"
+	[[STATS.berserker_hero_ability.stats]]
+		Value = "hitpoints"
+		OverrideIntValue = 1
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_MINIMUM_HITPOINTS"
+		Icon = "icons_stats_hp"

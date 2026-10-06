@@ -1,0 +1,15 @@
+[SPELL_CHARACTER.MinionGiant]
+	SummonCharacter         = "MinionGiant"
+	Stats                   = "minion_giant"
+	IconSWF                 = "sc/ui_card_miniongiant.sc"
+	IconFile                = "miniongiant_card"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_rare"
+	HighresImageFilename    = "image/chr/miniongiant.png"
+	UnlockArena             = "Arena5"
+	Rarity                  = "Rare"
+	ManaCost                = 4
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_MINION_GIANT"
+	TID_INFO                = "TID_SPELL_INFO_MINION_GIANT"
+	PveDefenseType          = "Attacker"
+	PrestigeCount = 1

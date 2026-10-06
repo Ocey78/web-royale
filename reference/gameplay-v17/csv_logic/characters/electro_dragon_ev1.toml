@@ -1,0 +1,128 @@
+[EXT.electro_dragon_ev1]
+	Base = "CHARACTER.ElectroDragon"
+	PrestigeSWF=""
+	PrestigeExportName=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	PrestigeRedExportName=""
+	PrestigeRedExportName2=""
+	PrestigeRedExportName3=""
+	UseAnimator = true
+	FileName = "sc/chr_electro_dragon_evolution.sc"
+	BlueExportName = "electro_dragon_evo"
+	RedExportName = "electro_dragon_evo_red"
+	Scale = 90
+	SpawnEffect = "vfx_electrodragon_evo_deploy"
+	MoveEffect = "evo_electro_dragon_steps"
+	DeathEffect = "evo_electro_dragon_die"
+	ProjectileEffect = "evo_electro_dragon_attack"
+	ClonedVersion = "ElectroDragon"
+	HealthBar = "Medium_EV1"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.Range = "range"
+	StatsTags.Targets = "targets"
+[[EXT.electro_dragon_ev1.AttackSequenceList]]
+	DoAttackAction = "electro_dragon_ev1_attack_group"
+[ACTION.electro_dragon_ev1_attack_group]
+	ClassType = "ActionGroup"
+	SubActions = ["electro_dragon_ev1_attack", "electro_dragon_ev1_attack_sound"]
+	SubActionsDelay = [0,0]
+[ACTION.electro_dragon_ev1_attack_sound]
+	ClassType="ActionPlayEffect"
+	Effect = "evo_electro_dragon_attack"
+[ACTION.electro_dragon_ev1_attack]
+	ClassType = "ActionChainProjectileAttack"
+	Projectiles = ["electro_dragon_ev1_lightning_1", "electro_dragon_ev1_lightning_1_continued", "electro_dragon_ev1_lightning_1_continued", "electro_dragon_ev1_lightning_2"]
+	ChainRange = 4000
+	ChainTargets = ["default_targets_including_invisible", "default_targets_including_invisible", "default_targets_no_towers_including_invisible"]
+AbortIfInstigatorDies = false
+MaxChainLength = -1
+	RepeatTargets = true
+	DeprioritizeRepeatTargets = true
+	MaximumTargetsToRememberForRepeatChecks = 2
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+	StatsTags.MaxChainLength = "chain_attacks_count"
+	StatsTags.ProjectileDamage_4 = "extra_chain_damage"
+[ACTION.electro_dragon_ev1_attack.NextAction]
+	ClassType="ActionPlayEffect"
+Effect = "evo_electro_dragon_attack_purple_glow"
+	ForceStopIfTrue="!UNIT_CUSTOM_TAG_1()"
+[PROJECTILE.electro_dragon_ev1_lightning_1]
+	Rarity = "Common"
+	Speed = 2000
+	Homing = true
+	HitEffect = "vfx_electrodragon_evo_hit"
+	Damage = 75
+	OnlyEnemies = true
+	Gravity = 400
+	TargetBuff = "electro_dragon_hit_buff"
+	BuffTime = 500
+	TargettedEffect = "evo_electro_dragon_beam"
+	DeflectBehaviour = "NoDeflect"
+	UseFixedEffectSourcePosition = true
+	DoEffectSourcePositionHeightCorrection = false
+	FileName = "sc/effects.sc"
+	StatsTags.Damage = "ranged_damage"
+	StatsTags.BuffTime = "stun_duration"
+[EXT.electro_dragon_ev1_lightning_1_continued]
+	Base = "PROJECTILE.electro_dragon_ev1_lightning_1"
+	DoEffectSourcePositionHeightCorrection = true
+[EXT.electro_dragon_ev1_lightning_2]
+	Base = "PROJECTILE.electro_dragon_ev1_lightning_1_continued"
+	Speed = 400
+	Damage = 25
+	TargetBuff = ""
+	BuffTime = 0
+[EXT.electro_dragon_hit_buff]
+	Base = "BUFF.ZapFreeze"
+	StatsTags.TID = "stun_buff_tid"
+[STATS.electro_dragon_ev1]
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "chain_attacks_count"
+		Unit = "TID"
+		TID = "TID_TYPE_CHAINED_ATTACKS"
+		Icon = "icons_stats_strength"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "stun_duration"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_AREA_EFFECT_DURATION"
+		TIDReplacePlaceholders = ["<AREA_EFFECT>"]
+		TIDReplaceValues = ["stun_buff_tid"]
+		Icon = "icons_stats_boost_freeze"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.electro_dragon_ev1.stats]]
+		Value = "extra_chain_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_EXTRA_CHAIN_DAMAGE"
+		Icon = "icons_stats_strength"

@@ -1,0 +1,45 @@
+
+[CHARACTER.Prince]
+AttackStartEffect = "prince_attack_start"
+AttacksGround = true
+BlueExportName = "Prince"
+ChargeEffect = "prince_charge"
+ChargeRange = 250
+ChargeSpeedMultiplier = 200
+CollisionRadius = 600
+Damage = 153
+DamageEffect = "prince_hit"
+DamageEffectSpecial = "prince_charge_hit"
+DamageExportName = "filter_damage_wobble"
+DamageSpecial = 306
+DeathEffect = "prince_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_prince.sc"
+HealthBar = "Medium"
+HitSpeed = 1400
+Hitpoints = 750
+IgnorePushback = true
+JumpEnabled = true
+JumpHeight = 4000
+JumpSpeed = 160
+LandingEffect = "hog_rider_landing"
+LoadTime = 900
+Mass = 6
+MoveEffect = "prince_steps"
+Name = "Prince"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Range = 1600
+Rarity = "Common"
+RedExportName = "Prince_red"
+Scale = 92
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "prince_deploy"
+Speed = 60
+TID = "TID_SPELL_PRINCE"
+UseAnimator = true
+
+

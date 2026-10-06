@@ -1,0 +1,269 @@
+[CHARACTER.BossBandit]
+	Rarity = "Common"
+	Hitpoints = 1025
+	HitSpeed = 1100
+	LoadTime = 700
+	ProjectileStartRadius = 1500
+	ProjectileStartZ = 450
+	SightRange = 6000
+	DeployTime = 1000
+	Speed = 90
+	Damage = 96
+	Range = 800
+	AttacksGround = true
+	CollisionRadius = 600
+	Mass = 4
+	DashMinRange = 3500
+	DashMaxRange = 6000
+	JumpSpeed = 500
+	DashCooldown = 800
+	DashDamage = 192
+	DashImmuneToDamageTime = 150
+	OnKilledDoneAction = "BossBandit_won_against_bandit_check"
+	OnKilledAction = "BossBandit_defeated_by_bandit_check"
+	OnStartingClientActions = ["Healthbar_High"]
+	HideHealthbar = true
+	FileName = "sc/chr_boss_bandit.sc"
+	BlueExportName = "BossBandit"
+	RedExportName = "BossBandit_Enemy"
+	PrestigeSWF = "sc/chr_prestige_dl.sc"
+	UseAnimator = true
+	DamageEffect = "bossbandit_super_hit_melee"
+	DamageEffectSpecial = "bossbandit_super_hit_melee_02"
+	DeathEffect = "bossbandit_die"
+	MoveEffect = "bossbandit_steps"
+	SpawnEffect = "bossbandit_champion_deploy"
+	AttackStartEffect = "bossbandit_atk_start"
+	DashStartEffect = "bossbandit_dash_start"
+	DashEffect = "bossbandit_super_dash"
+	LandingEffect = "bossbandit_super_dash_end"
+	AbilityPendingEffect = "bossbandit_ability"
+	CustomSpawnFilter = "filter_champion_boss_bandit"
+	ShadowScaleX = 85
+	ShadowScaleY = 85
+	ShadowY = 10
+	ShadowSkew = 35
+	Scale = 52
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed = 2
+	HealthBarOffsetYBlue = -10
+	HealthBarOffsetYRed = -3
+	DamageExportName = "filter_damage"
+	DashFilter = "filter_bandit_charge"
+	DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+	OnStartingAction = "BossBandit_starting_action_group"
+	Ability = "BossBandit_ability"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage = "damage"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.DashDamage = "dash_damage"
+	StatsTags.DashMaxRange = "dash_max_range"
+	StatsTags.DashMinRange = "dash_min_range"
+	StatsTags.Speed = "speed"
+[ABILITY.BossBandit_ability]
+	TID = "TID_BOSS_BANDIT_ABILITY"
+    TID_INFO = "TID_BOSS_BANDIT_ABILITY_INFO"
+	IconSWF = "sc/ui_spells.sc"
+	IconExportName = "icon_ability_boss_bandit"
+	CastTime = 933
+	TriggerDelay = 200
+	ManaCost = 1
+	Cooldown = 3000
+	DeployedEffect = "bossbandit_ability_charge"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_boss_bandit"
+	OnActivationAction = "BossBandit_ability_warp_group"
+	Stats = "boss_bandit_ability"
+	MaxCharges = 2
+	HideChargesTextField = false
+	OutOfChargesTID = "TID_ABILITY_OUT_OF_CHARGES"
+	StatsTags.MaxCharges = "ability_charges"
+	StatsTags.Cooldown = "ability_cooldown"
+	
+[BUFF.BossBandit_ability_buff]
+	Rarity = "Common"
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_invisible"
+	Invisible = true
+	ContinuousEffect = "bossbandit_continuous"
+[ACTION.BossBandit_starting_action_group]
+	ClassType = "ActionGroup"
+	SubActions = ["BossBandit_rascals_only_check"]
+	SubActionsDelay = [0]
+[ACTION.BossBandit_rascals_only_check]
+	ClassType = "ActionRunIfGameObjectExists"
+	ActionToRun = "BossBandit_greet_rascals"
+	GameObjectFilter = "friendly_troop_no_buildings"
+	MatchName = ["RascalBoy", "RascalGirl"]
+	ExcludeName = ["Assassin", "EliteArcher", "Firecracker"]
+	ActionToRunIfNoMatch = "BossBandit_at_least_2_forestgangers_check"
+[ACTION.BossBandit_at_least_2_forestgangers_check]
+	ClassType = "ActionRunIfGameObjectExists"
+	ActionToRun = "BossBandit_greet_forest_gang"
+	GameObjectFilter = "friendly_troop_no_buildings"
+	MatchName = ["RascalBoy", "RascalGirl", "Assassin", "EliteArcher", "Firecracker"]
+	NumMatchesNeeded = 2
+	ActionToRunIfNoMatch = "BossBandit_bandit_check"
+[ACTION.BossBandit_bandit_check]
+	ClassType = "ActionRunIfGameObjectExists"
+	ActionToRun = "BossBandit_greet_bandit"
+	GameObjectFilter = "friendly_troop_no_buildings"
+	MatchName = ["Assassin"]
+	ActionToRunIfNoMatch = "BossBandit_magic_archer_check"
+[ACTION.BossBandit_magic_archer_check]
+	ClassType = "ActionRunIfGameObjectExists"
+	ActionToRun = "BossBandit_greet_magic_archer"
+	GameObjectFilter = "friendly_troop_no_buildings"
+	MatchName = ["EliteArcher"]
+	ActionToRunIfNoMatch = "BossBandit_firecracker_check"
+[ACTION.BossBandit_firecracker_check]
+	ClassType = "ActionRunIfGameObjectExists"
+	ActionToRun = "BossBandit_greet_firecracker"
+	GameObjectFilter = "friendly_troop_no_buildings"
+	MatchName = ["Firecracker"]
+	ActionToRunIfNoMatch = "BossBandit_default_voiceline"
+[ACTION.BossBandit_greet_rascals]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_rascals"
+[ACTION.BossBandit_greet_forest_gang]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_forest_gang"
+[ACTION.BossBandit_greet_bandit]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_bandit"
+[ACTION.BossBandit_greet_magic_archer]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_magic_archer"
+[ACTION.BossBandit_greet_firecracker]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_firecracker"
+[ACTION.BossBandit_default_voiceline]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_default"
+[ACTION.BossBandit_won_against_bandit_check]
+	ClassType = "ActionRunIfInstigatorMatches"
+	MatchName = ["Assassin"]
+	ActionToRun = "BossBandit_won_against_bandit_voiceline"
+	AbortIfInstigatorDies = false
+[ACTION.BossBandit_won_against_bandit_voiceline]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_defeated_a_bandit"
+	AbortIfInstigatorDies = false
+[ACTION.BossBandit_defeated_by_bandit_check]
+	ClassType = "ActionRunIfInstigatorMatches"
+	MatchName = ["Assassin"]
+	ActionToRun = "BossBandit_defeated_by_bandit_voiceline"
+	AbortIfInstigatorDies = false
+[ACTION.BossBandit_defeated_by_bandit_voiceline]
+	ClassType="ActionPlayEffect"
+	Effect = "bossbandit_easter_egg_defeated_by_bandit"
+	AbortIfInstigatorDies = false
+[ACTION.BossBandit_ability_warp_group]
+	ClassType = "ActionGroup"
+	SubActions = ["BossBandit_ability_spawn_buff", "BossBandit_ability_action", "BossBandit_ability_effect"]
+	SubActionsDelay = [0, 0, 0, 0]
+[ACTION.BossBandit_ability_spawn_buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "BossBandit_ability_buff"
+	SpawnTime = 1000
+	StatsTags.SpawnTime = "invisibility_time"
+[ACTION.BossBandit_ability_action]
+	ClassType = "ActionBossBanditAbility"
+	WarpDelay = 700
+	LockDelay = 0
+	WarpAction = "BossBandit_ability_warp"
+	ReleaseLockDelay = 50
+	AllowWarpWhenMovementSpeedZero = true
+	AllowWarpWhenAttackSpeedZero = true
+	
+[ACTION.BossBandit_ability_warp]
+	ClassType="ActionWarpCharacter"
+	WarpY = -6000
+	WarpTargetEffect = "bossbandit_super_spawn_trail"
+	WarpPositionEffect = "bossbandit_super_spawn_hit"
+	ResetTarget = true
+	StatsTags.WarpY = "warp_distance"
+	NextAction = "BossBandit_ability_warp_done_group"
+[ACTION.BossBandit_ability_warp_done_group]
+	ClassType="ActionGroup"
+	SubActions = ["BossBandit_ability_effect_warp"]
+	SubActionsDelay = [0]
+[ACTION.BossBandit_ability_effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "bossbandit_super_spawn_hit"
+[ACTION.BossBandit_ability_effect_warp]
+	ClassType = "ActionPlayEffect"
+	Effect = "bossbandit_super_spawn_warp"
+[STATS.boss_bandit]
+	[[STATS.boss_bandit.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.boss_bandit.stats]]
+		Value = "dash_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DASH_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.boss_bandit.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.boss_bandit.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.boss_bandit.stats]]
+		Value = "dash_min_range"
+		Value2 = "dash_max_range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_DASH_RANGE"
+		Icon = "icons_stats_dash_range"
+	[[STATS.boss_bandit.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.boss_bandit.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.boss_bandit.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.boss_bandit.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.boss_bandit_ability]
+	[[STATS.boss_bandit_ability.stats]]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.boss_bandit_ability.stats]]
+		Value = "ability_charges"
+		Unit = "INTEGER"
+		TID = "TID_BOSS_BANDIT_ABILITY_COUNT"
+		Icon = "icons_stats_smoke_bomb"
+	[[STATS.boss_bandit_ability.stats]]
+		Value = "warp_distance"
+		Unit = "TILES_NOSIGN"
+		TID = "TID_ABILITY_STAT_TELEPORT_RANGE"
+		Icon = "icons_stats_teleport_range"
+	[[STATS.boss_bandit_ability.stats]]
+		Value = "invisibility_time"
+		Unit = "TIME"
+		TID = "TID_ABILITY_STAT_INVISIBILITY_DURATION"
+		Icon = "icons_stats_deploy_time"

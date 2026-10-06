@@ -1,0 +1,108 @@
+[BUILDING.KingTower]
+AttachedCharacterHeight = 2400
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "KingTower_blue"
+CollisionRadius = 1400
+DamageEffect = "musketeer_hit"
+DeathEffect = "King_player_die"
+FileName = "sc/building_tower.sc"
+HasRotationOnTimeline = true
+HealthBar = "Summoner"
+HealthBarOffsetY2v2Blue = -39
+HealthBarOffsetYBlue = 170
+HealthBarOffsetYRed = -30
+HitSpeed = 1000
+Hitpoints = 2400
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+IsSummoner = true
+LoadTime = 500
+Name = "KingTower"
+NoDeploySizeH = 16
+NoDeploySizeW = 18
+OnStartingAction = "KingTower_StartingGroup"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "KingProjectile"
+ProjectileEffect = "King_attack"
+ProjectileStartRadius = 750
+ProjectileStartZ = 3500
+ProjectileYOffset = 400
+Range = 7000
+Rarity = "Common"
+RedExportName = "KingTower_red"
+Scale = 100
+ShadowScaleX = 102
+ShadowScaleY = 60
+ShadowSkew = 13
+ShadowX = -6
+ShadowY = 2
+ShowHealthNumber = true
+SightRange = 7000
+SkinType = "KingTower"
+TID = "TID_SPELL_WIZARD"
+TileSizeOverride = 2
+TurretMovement = 5
+[BUILDING.KingTower.StatsTags]
+Hitpoints = "king_hitpoints"
+HitSpeed = "king_hit_speed"
+Range = "king_range"
+[ACTION.KingTower_StartingGroup]
+ClassType = "ActionGroup"
+SubActions = ["WaitForKingTowerActivation"]
+SubActionsDelay = [0]
+[ACTION.WaitForKingTowerActivation]
+ClassType = "ActionWaitToActivate"
+Condition = "king_tower_damaged() || coop_king_tower_damaged() || tower_destroyed() || coop_tower_destroyed()"
+GameTagsToSet = "INACTIVE"
+[ACTION.WaitForKingTowerActivation.OnActivateAction]
+ClassType = "ActionWithDuration"
+ActionDuration = 3300
+GameTagsToSet = "ACTIVATING"
+NextAction = "KingTowerActivationEffect"
+[ACTION.KingTowerActivationEffect]
+ClassType = "ActionFilter"
+Condition = "is_npc_battle()"
+[ACTION.KingTowerActivationEffect.OnFalseAction]
+ClassType = "ActionPlayEffect"
+Effect = "King_player_activate"
+[ACTION.KingTowerActivationEffect.OnTrueAction]
+ClassType = "ActionPlayEffect"
+Effect = "King_enemy_activate_training"
+[ACTION.KingTower_ChampionAbility]
+    ClassType = "ActionChampionAbilityData"
+[PROJECTILE.KingProjectile]
+Damage = 50
+DamageScalingMode = "KingTower"
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+Gravity = 50
+HitEffect = "cannon_hit"
+Homing = true
+Name = "KingProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+Speed = 1000
+[PROJECTILE.KingProjectile.StatsTags]
+Damage = "king_damage"
+[STATS.king_tower]
+    [[STATS.king_tower.stats]]
+        Value = "king_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.king_tower.stats]]
+        Value = "king_hitpoints"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon = "icons_stats_hp"
+    [[STATS.king_tower.stats]]
+        Value = "king_hit_speed"
+        Unit = "TIME_PRECISE"
+        TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+        Icon = "icons_stats_dmg_speed"
+    [[STATS.king_tower.stats]]
+        Value = "king_range"
+        Unit = "TILES"
+        TID = "TID_SPELL_ATTRIBUTE_RANGE"
+        Icon = "icons_stats_range"

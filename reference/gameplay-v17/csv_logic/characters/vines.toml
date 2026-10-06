@@ -1,0 +1,170 @@
+[AEO.Vines_AeO]
+	Rarity = "Common"
+	Radius = 2500
+    MaximumTargets = 1
+    HitSpeedOffset = 900
+    HitSpeed = 250
+	LifeDuration = 1400
+    HitBiggestTargets = true
+    OneHitPerTarget = true
+	Filter = "enemy_troops_for_vines"
+	OnHitAction = "Vines_Action_Group"
+	ScaledEffect = "vines_spell_radius"
+	StatsTags.Radius = "vines_radius"
+	StatsTags.HitCount = "total_hit_count"
+[ACTION.Vines_Action_Group]
+	ClassType = "ActionGroup"
+	SubActions = [ "Vines_Air_To_Ground", "Vines_Select_Buff_Size"]
+	SubActionsDelay= [ 0, 0 ]
+[ACTION.Vines_Air_To_Ground]
+	ClassType = "ActionAirToGround"
+	TransitionDuration = 50
+	TotalDuration = 2000
+	AbortIfInstigatorDies = false
+	Singleton = true
+	StatsTags.TotalDuration = "duration"
+	AllowIsGroundTagOnIdle = true
+[ACTION.Vines_Select_Buff_Size]
+	ClassType = "ActionSelect"
+	SubActions = [
+		"Vines_Apply_Snare_XXLarge",
+		"Vines_Apply_Snare_XLarge",
+		"Vines_Apply_Snare_Large",
+		"Vines_Apply_Snare_Medium",
+		"Vines_Apply_Snare_Small",
+		"Vines_Apply_Snare_Medium",
+		"Vines_Apply_Snare_Large"]
+	PerActionConditions = [
+		"has_data(KingTower)",
+		"has_data(-1749071821) || has_data(-1103717791) || has_data(PrincessTower) || has_data(Cannoneer) || has_data(BarbarianHut)",
+		"has_data(ElixirGolem1) || has_data(InfernoDragon) || has_data(MergeMaiden_Mounted) || has_data(MightyMiner) || has_data(MovingCannon) || has_data(SuperHogRider_Terry) || has_data(SuperIceGolemite)|| has_data(BombTower) || has_data(InfernoTower)",
+		"has_data(MiniPekka) || has_data(SuperMiniPekka) || has_data(GoblinDrill) || has_data(Tombstone)",
+		"get_radius() <= 500",
+		"get_radius() < 750"
+	]
+[ACTION.Vines_Apply_Snare_Small]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 2000
+	SpawnData = "Vines_Trap_Snare_Small"
+[ACTION.Vines_Apply_Snare_Medium]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 2000
+	SpawnData = "Vines_Trap_Snare_Medium"
+[ACTION.Vines_Apply_Snare_Large]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 2000
+	SpawnData = "Vines_Trap_Snare_Large"
+[ACTION.Vines_Apply_Snare_XLarge]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 2000
+	SpawnData = "Vines_Trap_Snare_XLarge"
+[ACTION.Vines_Apply_Snare_XXLarge]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 2000
+	SpawnData = "Vines_Trap_Snare_XXLarge"
+[BUFF.Vines_Trap_Snare_Base]
+	Rarity = "Common"
+	DamagePerSecond = 60
+	CrownTowerDamagePerHit = 14
+	HitFrequency = 1000
+	SpeedMultiplier = -100
+	HitSpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+	HideEffectWhenUnderground = true
+	AttachedInheritAs = "Vines_Trap_Snare_No_Effect"
+	EnableStacking = true
+	HitEffect = "vine_spell_hit_01"
+	PreContinuousEffectExclusiveTime = 750
+	LoopContinuousEffect = true
+	StatsTags.DamagePerSecond="damagepersec"
+	StatsTags.CrownTowerDamagePerHit="tower_damage"
+	StatsTags.CrownTowerDamagePerSecond="tower_dps"
+	StatsTags.HitFrequency = "hit_frequency"
+[EXT.Vines_Trap_Snare_Small]
+	Base = "BUFF.Vines_Trap_Snare_Base"
+	PreContinuousEffect = "vine_spell_S_trap_start"
+	PreContinuousEffectExclusiveTime = 750
+	ContinuousEffect = "vine_spell_S_trap_loop"
+	LoopContinuousEffect = true
+	RemoveEffect = "vine_spell_S_trap_end"
+	EffectScale = 70
+[EXT.Vines_Trap_Snare_Medium]
+	Base = "BUFF.Vines_Trap_Snare_Base"
+	PreContinuousEffect = "vine_spell_M_trap_start"
+	PreContinuousEffectExclusiveTime = 750
+	ContinuousEffect = "vine_spell_M_trap_loop"
+	LoopContinuousEffect = true
+	RemoveEffect = "vine_spell_M_trap_end"
+	EffectScale = 70
+[EXT.Vines_Trap_Snare_Large]
+	Base = "BUFF.Vines_Trap_Snare_Base"
+	PreContinuousEffect = "vine_spell_L_trap_start"
+	PreContinuousEffectExclusiveTime = 750
+	ContinuousEffect = "vine_spell_L_trap_loop"
+	LoopContinuousEffect = true
+	RemoveEffect = "vine_spell_L_trap_end"
+	EffectScale = 70
+[EXT.Vines_Trap_Snare_XLarge]
+	Base = "BUFF.Vines_Trap_Snare_Base"
+	PreContinuousEffect = "vine_spell_XL_trap_start"
+	PreContinuousEffectExclusiveTime = 750
+	ContinuousEffect = "vine_spell_XL_trap_loop"
+	LoopContinuousEffect = true
+	RemoveEffect = "vine_spell_XL_trap_end"
+	DeathEffectOverride = "Vine_Ending"	
+	HitEffect = "vine_spell_hit_01"	
+	EffectScale = 70
+[EXT.Vines_Trap_Snare_XXLarge]
+	Base = "BUFF.Vines_Trap_Snare_Base"
+	PreContinuousEffect = "vine_spell_XXL_trap_start"
+	PreContinuousEffectExclusiveTime = 750
+	ContinuousEffect = "vine_spell_XXL_trap_loop"
+	LoopContinuousEffect = true
+	RemoveEffect = "vine_spell_XXL_trap_end"
+	DeathEffectOverride = "Vine_Ending"	
+	HitEffect = "vine_spell_hit_01"	
+	EffectScale = 70
+[BUFF.Vines_Trap_Snare_No_Effect]
+	Rarity = "Common"
+	SpeedMultiplier = -100
+	HitSpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+[STATS.vines]
+	[[STATS.vines.stats]]
+		Value = "damagepersec"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.vines.stats]]
+		Value = "tower_dps"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DPS"
+		Icon = "icons_stats_dmg_crown"
+	[[STATS.vines.stats]]
+		Value = "total_hit_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_COUNT"
+		Icon = "icons_stats_troop_count"
+	[[STATS.vines.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_DURATION"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.vines.stats]]
+		Value = "vines_radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"
+[STATS.vines_in_battle]
+	[[STATS.vines_in_battle.stats]]
+		Value = "tower_damage"
+		Value2 = "hit_frequency"
+		Value3 = "duration"
+		Unit = "TOTAL_DAMAGE_OVER_TIME"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"

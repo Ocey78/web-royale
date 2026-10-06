@@ -1,0 +1,55 @@
+[AEO.Earthquake]
+Buff = "Earthquake"
+BuffTime = 1000
+CapBuffTimeToAreaEffectTime = true
+Filter = "EarthquakeMainTargets"
+HitSpeed = 100
+LifeDuration = 3000
+LoopingEffect = "Spell_earthquake_loop"
+Name = "Earthquake"
+OneShotEffect = "Spell_earthquake_effect"
+OnStartingAction = "EarthquakeSpawnHiddenDamageAEO"
+Radius = 3500
+Rarity = "Common"
+[BUFF.Earthquake]
+AudioPitchModifier = -33
+BuildingDamagePercent = 350
+CrownTowerDamagePercent = -40
+DamagePerSecond = 32
+Effect = "PoisonSteam"
+EnableStacking = true
+FilterExportName = "filter_earthquake"
+FilterFile = "sc/effects.sc"
+HitFrequency = 1000
+HitTickFromSource = true
+Name = "Earthquake"
+Rarity = "Common"
+SpeedMultiplier = -50
+[FILTER.EarthquakeMainTargets]
+MatchTeamEnemy = true
+MatchTypeCharacters = true
+Filters = ["Flying", "Underground", "Cloning", "NoHitpointComponent"]
+FilterTags = "NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+ExcludeCharactersWithData = ["Tesla", "Tesla_EV1"]
+[ACTION.EarthquakeSpawnHiddenDamageAEO]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "EarthquakeHiddenDamage"
+[FILTER.EarthquakeHiddenTargets]
+MatchTeamEnemy = true
+MatchTypeBuildings = true
+IncludeCharactersWithData = ["Tesla", "Tesla_EV1"]
+Filters = ["Cloning", "NoHitpointComponent"]
+FilterTags = "NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+[AEO.EarthquakeHiddenDamage]
+Filter = "EarthquakeHiddenTargets"
+HitSpeed = 1000
+HitSpeedOffset = 1000
+LifeDuration = 3050
+Name = "EarthquakeHiddenDamage"
+OnHitAction = "EarthquakeHiddenDamage_Hit"
+Radius = 3500
+Rarity = "Common"
+[ACTION.EarthquakeHiddenDamage_Hit]
+ClassType = "ActionTakeDamage"
+Damage = { BaseDamage = 112, Flags = ["DamagesHidden"] } 

@@ -1,0 +1,111 @@
+[CHARACTER.ElectroGiant]
+AttackStartEffect = "electro_giant_attack_start"
+AttacksGround = true
+BlueExportName = "electrogiant"
+CollisionRadius = 750
+ContinuousEffect = "ElectroGiantZapAreaEffect"
+Damage = 72
+DamageEffect = "electro_giant_hit"
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "electro_giant_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_electro_giant_dl.sc"
+HasDamageVisualPivot = false
+HealthBar = "High"
+HitSpeed = 1800
+Hitpoints = 1544
+IgnorePushback = true
+LoadTime = 800
+Mass = 18
+MoveEffect = "electro_giant_steps"
+Name = "ElectroGiant"
+PrestigeSWF = "sc/chr_prestige3_dl.sc"
+ProjectileStartRadius = 500
+ProjectileStartZ = 1900
+Range = 1200
+Rarity = "Common"
+RedExportName = "electrogiant_enemy"
+ReflectAttackCrownTowerDamage = 38
+ReflectedAttackBuff = "ZapFreeze"
+ReflectedAttackBuffDuration = 500
+ReflectedAttackDamage = 75
+ReflectedAttackEffect = "electro_giant_beam_hit"
+ReflectedAttackRadius = 2000
+ReflectedAttackTargetedEffect = "electro_giant_beam"
+ReflectedAttackTargetedEffectSources = 2
+Scale = 90
+ShadowScaleX = 85
+ShadowScaleY = -60
+ShadowY = 20
+SightClip = 2000
+SightClipSide = 2000
+SightRange = 7500
+SpawnEffect = "electro_giant_deploy"
+Speed = 45
+TID = "TID_SPELL_BABY_DRAGON"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+StatsTags.Damage                        = "damage"
+StatsTags.Hitpoints                     = "hitpoints"
+StatsTags.HitSpeed                      = "hit_speed"
+StatsTags.Targets                      = "targets"
+StatsTags.Speed                         = "speed"
+StatsTags.Range                         = "range"
+StatsTags.ReflectedAttackDamage         = "reflected_damage"
+StatsTags.ReflectAttackCrownTowerDamage = "reflected_tower_damage"
+StatsTags.ReflectedAttackBuffDuration   = "stun_duration"
+
+[STATS.electrogiant]
+   [[STATS.electrogiant.stats]]
+        Value = "damage"
+        Unit  = "INTEGER"
+        TID   = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon  = "icons_stats_dmg"
+    [[STATS.electrogiant.stats]]
+        Value = "reflected_damage"
+        Unit  = "INTEGER"
+        TID   = "TID_TYPE_REFLECTED_DAMAGE"
+        Icon  = "icons_stats_dmg"
+    [[STATS.electrogiant.stats]]
+        Value = "reflected_tower_damage"
+        Unit  = "INTEGER"
+        TID   = "TID_TYPE_REFLECTED_TOWER_DAMAGE"
+        Icon  = "icons_stats_dmg_crown"
+    [[STATS.electrogiant.stats]]
+        Value = "damage"
+        Value2 = "hit_speed"
+        Unit  = "DPS"
+        TID   = "TID_SPELL_ATTRIBUTE_DPS"
+        Icon  = "icons_stats_dmg_dps"
+    [[STATS.electrogiant.stats]]
+        Value = "hitpoints"
+        Unit  = "INTEGER"
+        TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon  = "icons_stats_hp"
+    [[STATS.electrogiant.stats]]
+        Value = "hit_speed"
+        Unit  = "TIME_PRECISE"
+        TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+        Icon  = "icons_stats_dmg_speed"
+    [[STATS.electrogiant.stats]]
+        Value = "targets"
+        Unit  = "TARGETS"
+        TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+        Icon  = "icons_stats_target"
+    [[STATS.electrogiant.stats]]
+        Value = "speed"
+        Unit  = "SPEED"
+        TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+        Icon  = "icons_stats_speed"
+    [[STATS.electrogiant.stats]]
+        Value = "range"
+        Unit  = "MELEE_RANGE"
+        TID   = "TID_SPELL_ATTRIBUTE_RANGE"
+        Icon  = "icons_stats_range"
+    [[STATS.electrogiant.stats]]
+        Value = "stun_duration"
+        Unit  = "TIME_PRECISE"
+        TID   = "TID_SPELL_ATTRIBUTE_STUN_DURATION"
+        Icon  = "icons_stats_boost_freeze"

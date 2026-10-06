@@ -1,0 +1,14 @@
+[EXT.KingTower_AllRandom]
+    Base = "CHARACTER.KingTower"
+    SightRange = 10
+    Range = 10
+
+[EXT.PrincessTower_AllRandom]
+    Base = "CHARACTER.PrincessTower"
+    NoDeploySizeW = 11
+    NoDeploySizeH = 20
+
+[BUILDING.DummyKingTower3]
+    Rarity = "Common"
+    IsBuilding = true
+    IsSummonerTower = true

@@ -1,0 +1,24 @@
+
+[PROJECTILE.SnowballSpell]
+AoeToAir = true
+AoeToGround = true
+BuffTime = 3000
+CrownTowerDamagePercent = -75
+Damage = 70
+DeflectBehaviour = "UseSpellsTowerDamageMul"
+DeflectRadius = 700
+ExportName = "snowball_projectile"
+FileName = "sc/spell_snowball_dl.sc"
+Gravity = 50
+HitEffect = "Snowball_ground"
+Name = "SnowballSpell"
+OnlyEnemies = true
+Pushback = 1800
+Radius = 2500
+Rarity = "Common"
+RedExportName = "snowball_projectile_enemy"
+Scale = 95
+ShadowExportName = "snowball_shadow"
+Speed = 800
+TargetBuff = "IceWizardSlowDown"
+TrailEffect = "snowball_continuous"

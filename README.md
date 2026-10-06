@@ -1,7 +1,11 @@
-<!-- project-identity -->
-# Web Royale Main — v0.52.3
+# Gameplay update 0.53.0
 
-Main retains the supplied 16.402.2 catalogue, supported Hero/Evolution behaviors and separate Tower Troop selection. Imported totals do not imply that every entry is playable.
+See [current gameplay changes, verification and fidelity limits](BUILD-NOTES-v0.53.0.md). This package is a source-data interpreter, not the original native battle-engine code.
+
+<!-- project-identity -->
+# Web Royale Main — v0.53.0
+
+Main uses the verified 16.402.17 gameplay tables with the published October 6, 2026 numerical balance changes applied manually. It includes Tower Troops, Champions and supported Hero/Evolution behaviors. Imported totals do not imply that every entry is playable or natively equivalent.
 
 Original purple Evolution, gold Hero, Champion and Tower Troop frames now follow
 the actual selected card type across the deck builder, collection, shop,
@@ -18,10 +22,7 @@ require copies and gold and respect the KingTower cap. Existing 50 gem emotes,
 100 gem tower skins and 217 Main source road rows are preserved. Supplemental
 rewards and Tower-copy offers use this game's local economy.
 
-[Play Web Royale Main](https://ocey78.github.io/web-royale/). Live v0.52.3 matches the verified local
-release hash and passed actual desktop/mobile browser checks. Classic remains
-unchanged at 0.50.3. Full native-game parity is incomplete; there is no live
-human matchmaking, Supercell account connection or real payment.
+[Play Web Royale Main](https://ocey78.github.io/web-royale/). The v0.53.0 gameplay bundle matches the verified offline build; the hosted build retains compressed scene assets. See [the gameplay release notes](BUILD-NOTES-v0.53.0.md) for checks and unresolved behavior. Full native-game parity is incomplete; this is not validated real-game ground truth for learning. There is no live human matchmaking, Supercell account connection or real payment.
 
 See [BUILD-NOTES-v0.52.3.md](BUILD-NOTES-v0.52.3.md),
 [REFERENCE-NOTES-v0.52.3.md](REFERENCE-NOTES-v0.52.3.md) and

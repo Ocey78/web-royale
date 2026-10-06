@@ -1,0 +1,19 @@
+[SPELL_HERO.Valkyrie_hero]
+	SummonCharacter         = "ValkyrieHero"
+	CardForm                = "HeroForm"
+	Stats                   = "valkyrie_hero"
+	IconSWF                 = "sc/ui_card_valkyrie_hero.sc"
+	IconFile                = "valkyrie_hero_card"
+	HighresImageFilename    = "sc3d/characters/hero/hero_valkyrie/hero_prefab_valkyrie_collection"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	UnlockArena             = "Arena2"
+	Rarity                  = "Rare"
+	Tribe                   = ["Kingdom"]
+	ManaCost                = 4
+	PrestigeCount           = 3
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_VALKYRIE"
+	TID_INFO                = "TID_SPELL_INFO_HERO_VALKYRIE"
+	PveDefenseType          = "Defender"
+[SPELL_CHARACTER.Valkyrie]
+	EvolvedSpells = ["Valkyrie_EV1", "Valkyrie_hero"]

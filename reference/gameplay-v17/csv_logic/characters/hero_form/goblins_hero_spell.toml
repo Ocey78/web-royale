@@ -1,0 +1,26 @@
+[SPELL_HERO.Goblins_hero]
+	CardForm                = "HeroForm"
+	Stats                   = "goblin_hero"
+	SummonCharacter         = "GoblinHero"
+	LinkedChampionCharacter = "GoblinHero_Flag_Building"
+	IconSWF                 = "sc/ui_card_goblins_hero.sc"
+	IconFile                = "goblins_hero_card"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_goblins/hero_prefab_goblins_collection"
+	UnlockArena             = "Arena1"
+	Rarity                  = "Common"
+	Tribe                   = ["Goblin"]
+	ManaCost                = 2
+	PrestigeCount           = 3
+	IsAGroup                = true
+	SummonNumber            = 4
+	SummonRadius            = 700
+	SummonDeployDelay       = 200
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_GOBLINS"
+	TID_INFO                = "TID_SPELL_INFO_HERO_GOBLINS"
+	PveDefenseType          = "Defender"
+	StatsTags.Level         = "goblin_level"
+	StatsTags.SummonNumber  = "goblin_count"
+[SPELL_CHARACTER.Goblins]
+	EvolvedSpells = ["Goblins_hero"]

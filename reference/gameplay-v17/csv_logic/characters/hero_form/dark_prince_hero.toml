@@ -1,0 +1,409 @@
+[VARIABLE.WARP_TIME]
+[EXT.DarkPrinceHero]
+	Base             = "CHARACTER.DarkPrince"
+	Rarity           = "Common"
+	Ability          = "DarkPrinceHero_Ability"
+	SpawnEffect      = "vfx_darkprince_hero_deploy"
+	DeathEffect      = "vfx_darkprince_hero_die"
+	AttackStartEffect = ""
+	MoveEffect = ""
+ShieldLostEffect = "vfx_darkprince_hero_drop_2dshield"
+	DamageEffectSpecial      = "vfx_darkprince_hero_mounted_dashing_hit"
+	DamageEffect      = "vfx_darkprince_hero_mounted_atk"
+	
+	PrefabAsset = "sc3d/characters/hero/hero_darkprince/hero_prefab_darkprince_mounted_battle"
+	FileName            = ""
+	BlueExportName      = ""
+	RedExportName       = ""
+	PrestigeSWF         = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+	ChargeEffect        = ""
+	OnStartingClientActions           = ["Healthbar_Medium"]
+	HideHealthbar           = true
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed  = 2
+	HealthBarOffsetYBlue    = 5
+	HealthBarOffsetYRed     = -10
+	[EXT.DarkPrinceHero.StatsTags]
+		Damage          = "area_damage"
+		DamageSpecial   = "charge_damage"
+		Hitpoints       = "hitpoints"
+		ShieldHitpoints = "shield_hitpoints"
+		HitSpeed        = "hit_speed"
+		Targets         = "targets"
+		Speed           = "speed"
+		Range           = "range"
+		Level           = "level"
+[ABILITY.DarkPrinceHero_Ability]
+	TID                = "TID_DARK_PRINCE_HERO_ABILITY"
+	TID_INFO           = "TID_DARK_PRINCE_HERO_ABILITY_INFO"
+	IconSWF            = "sc/ability_icon_dark_prince.sc"
+	IconExportName     = "ability_icon_dark_prince"
+	IsChampion         = true
+	CastTime           = 2000
+	TriggerDelay       = 50
+	ManaCost           = 3
+	MaxCharges         = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect     = "vfx_hero_darkprince_ability_active"
+	DeployedClip       = "filter_invisible"
+	OnActivationAction = "DarkPrinceHero_Ability_Activation_Group"
+	Stats              = "Dark_prince_hero_ability_stats"
+	StatsTags.Cooldown = "ability_cooldown"
+	StatsTags.Level    = "level"
+	StatsTags.Damage   = "spawn_damage"
+[CHARACTER.DarkPrinceHero_Walking]
+	Rarity                   = "Common"
+	SightRange               = 5500
+	DeployTime               = 500
+	Range                    = 1200
+	IgnorePushback           = true
+	UseAnimator              = true
+	Scale                    = 100
+	DamageEffect             = "vfx_darkprince_hero_mounted_atk"
+	DeathEffect              = "vfx_darkprince_hero_die"
+	MoveEffect               = ""
+	SpawnEffect              = ""
+	AttackStartEffect        = ""
+	DamageExportName         = "filter_damage"
+	TID                      = "TID_CHARACTER_DARK_PRINCE"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+ShieldLostEffect 		 = "vfx_darkprince_hero_drop_2dshield"
+	Hitpoints        = 469
+	HitSpeed         = 1400
+	LoadTime         = 900
+	Speed            = 60
+	Damage           = 104
+	DamageSpecial    = 208
+	AttacksGround    = true
+	AreaDamageRadius = 1100
+	CollisionRadius  = 600
+	Mass             = 6
+	Ability = "DarkPrinceHero_Ability"
+	PrefabAsset = "sc3d/characters/hero/hero_darkprince/hero_prefab_darkprince_battle"
+	FileName            = ""
+	BlueExportName      = ""
+	RedExportName       = ""
+	PrestigeSWF         = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+	OnStartingClientActions           = ["Healthbar_Medium"]
+	HideHealthbar           = true
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed  = 2
+	HealthBarOffsetYBlue    = 10
+	HealthBarOffsetYRed     = 0
+	[CHARACTER.DarkPrinceHero_Walking.StatsTags]
+		Damage          = "walker_area_damage"
+		Hitpoints       = "walker_hitpoints"
+		ShieldHitpoints = "walker_shield_hitpoints"
+		HitSpeed        = "walker_hit_speed"
+		Targets         = "walker_targets"
+		Speed           = "walker_speed"
+		Range           = "walker_range"
+[CHARACTER.DarkPrinceHero_Mount]
+	Rarity = "Common"
+	SightRange            = 7500
+	DeployTime            = 1000
+	ChargeRange           = 250
+	ChargeSpeedMultiplier = 200
+	Speed                 = 60
+	Hitpoints             = 530
+	HitSpeed              = 1600
+	LoadTime              = 1200
+	Damage                = 70
+	DamageSpecial         = 140
+	Range                 = 800
+	AttacksGround         = true
+	TargetOnlyBuildings   = true
+	CollisionRadius       = 600
+	Mass                  = 15
+	Pushback              = 95
+	Scale                 = 95
+	Kamikaze              = false
+	JumpEnabled           = true
+	JumpHeight            = 4000
+	JumpSpeed             = 160
+	TID                   = "TID_CHARACTER_MOUNT"
+	StatsTags.Hitpoints     = "mount_hitpoints"
+	StatsTags.Damage        = "mount_damage"
+	StatsTags.DamageSpecial = "mount_charge_damage"
+	StatsTags.HitSpeed      = "mount_hit_speed"
+	StatsTags.Targets       = "mount_targets"
+	StatsTags.Speed         = "mount_speed"
+	StatsTags.Range         = "mount_range"
+	OnStartingAction      = "DarkPrinceHero_Mount_OnSpawn_Group"
+	FileName            = ""
+	BlueExportName      = ""
+	RedExportName       = ""
+	PrestigeSWF         = ""
+	PrestigeExportName2 = ""
+	PrestigeExportName3 = ""
+	PrefabAsset              = "sc3d/characters/hero/hero_darkprince/hero_prefab_darkprince_rhino_battle_walking"
+	UseAnimator              = true
+	SpawnEffect              = "vfx_darkprince_hero_charging_smoke"
+	DeathEffect              = "vfx_darkprince_hero_ram_die"
+	MoveEffect               = "vfx_darkprince_hero_charging_smoke"
+	DamageEffect             = "vfx_darkprince_hero_ram_hit"
+	ChargeEffect             = ""
+	DamageEffectSpecial      = "vfx_darkprince_hero_ram_dashing_hit_enemy"
+	DamageExportName         = "filter_damage"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+	AttackStartEffect        = ""
+	LandingEffect            = "ram_landing"
+	TargetEffectY            = 50
+	OnStartingClientActions           = ["Healthbar_Medium"]
+	HideHealthbar           = true
+	HealthBar               = "Medium"
+	NewHealthBarOffsetXBlue = 2
+	NewHealthBarOffsetXRed  = 2
+	HealthBarOffsetYBlue    = 0
+	HealthBarOffsetYRed     = 15
+	ShadowScaleX            = 85
+	ShadowScaleY            = 85
+	ShadowY                 = -10
+	ShadowSkew              = 35
+[ACTION.DarkPrinceHero_DisableAbility]
+	ClassType             = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "DarkPrinceHero"
+	StateToSet            = "AllChargesConsumed"
+	Persistent            = true
+	ApplyImmediate        = true
+	ForceStopIfTrue       = "UNIT_CUSTOM_TAG_1"
+	ActionPausedIfTrue    = "CAPTURED"
+[ACTION.DarkPrinceHero_Ability_Activation_Group]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"DarkPrinceHero_DisableAbility",
+		"DarkPrinceHero_Ability_Change_To_Walking",
+		"DarkPrinceHero_Ability_WarpBack_Group",
+		"DarkPrinceHero_Flag_Listen_To_New_Deploy",
+"DarkPrinceHero_Ability_Spawn_Mount",
+		"DarkPrinceHero_Ability_TransformVFX",
+	]
+	AbortIfInstigatorDies = false
+SubActionsDelay = [0, 0, 0, 0, 0, 550, 750]
+[ACTION.DarkPrinceHero_Ability_Change_To_Walking]
+	ClassType        = "ActionChangeGameObjectData"
+	ResetTarget      = false
+	NewCharacterData = "DarkPrinceHero_Walking"
+	NextAction       = "DarkPrinceHero_DisablePhysics"
+[ACTION.DarkPrinceHero_DisablePhysics]
+	ClassType      = "ActionWithDuration"
+	ActionDuration = 1000
+	GameTagsToSet  = "DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS"
+[ACTION.DarkPrinceHero_Ability_WarpBack_Group]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"DarkPrinceHero_Ability_WarpBack",
+		"DarkPrinceHero_Ability_IncrementWarpTime",
+	]
+	SubActionsDelay = [0, 50]
+	ExecuteIfTrue = "WARP_TIME < 500"
+[ACTION.DarkPrinceHero_Ability_WarpBack]
+	ClassType     = "ActionWarpCharacter"
+	WarpMode      = "RelativeWarp"
+	WarpY         = -200
+	ResetTarget   = true
+	ExecuteIfTrue = "WARP_TIME < 500"
+[ACTION.DarkPrinceHero_Ability_IncrementWarpTime]
+	ClassType      = "ActionSetVariable"
+	Variable       = "WARP_TIME"
+	Value          = "WARP_TIME + 50"
+	ExecuteIfTrue  = "WARP_TIME < 500"
+	NextAction     = "DarkPrinceHero_Ability_WarpBack_Group"
+	NextActionWait = true
+	ActionDelay    = 50
+[ACTION.DarkPrinceHero_Ability_TransformVFX]
+	ClassType = "ActionPlayEffect"
+	Effect    = "vfx_darkprince_hero_transform"
+[ACTION.DarkPrinceHero_Ability_Spawn_Mount]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "DarkPrinceHero_Mount"
+	TargetExprX        = "x"
+	TargetExprY        = "y"
+	ParentGOAsSource   = true
+	ActionPausedIfTrue = "CAPTURED"
+[ACTION.DarkPrinceHero_Mount_Spawn_Projectile_AOE]
+	ClassType = "ActionSpawn"
+	SpawnType = "ProjectileType"
+	SpawnData = "DarkPrinceHero_Mount_Spawn_Damage"
+	ExecuteIfTrue = "!is_clone"
+[PROJECTILE.DarkPrinceHero_Mount_Spawn_Damage]
+	Rarity           = "Common"
+	Speed            = 9999
+	Damage           = 120
+	Radius           = 3000
+	Pushback         = 1500
+	CrownTowerDamagePercent = -100
+	AoeToGround      = true
+	AoeToAir         = false
+	OnlyEnemies      = true
+	DeflectBehaviour = "NoDeflect"
+	StatsTags.Damage = "mount_spawn_damage"
+	FileName         = ""
+	ExportName       = ""
+	HitEffect        = "vfx_darkprince_hero_atk"
+[ACTION.DarkPrinceHero_Mount_OnSpawn_Group]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"DarkPrinceHero_Mount_NoMove",
+		"DarkPrinceHero_Mount_Spawn_Projectile_AOE",
+		"DarkPrinceHero_Mount_ScreenShake",
+		"JumpHack_Check_Jump_Interval"
+	]
+	SubActionsDelay = [
+		0,
+		500,
+		550,
+		2100,
+]
+[ACTION.DarkPrinceHero_Mount_ForceCustomAnimationState]
+	ClassType         = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 1
+	PlaybackDuration  = -1
+[ACTION.DarkPrinceHero_Mount_NoMove]
+	ClassType      = "ActionWithDuration"
+	GameTagsToSet  = "NO_MOVE_ALLOW_ATTRACT"
+	ActionDuration = 1000
+[ACTION.DarkPrinceHero_Mount_ImmediateCharge]
+	ClassType     = "ActionSetCharge"
+	UpdatePhase   = "PostComponentTick"
+	ChargePercent = 100
+[ACTION.DarkPrinceHero_Mount_ScreenShake]
+	ClassType = "ActionPlayEffect"
+	Effect    = "vfx_hero_m_deploy_camerashake_01"
+	ExecuteIfTrue = "!is_clone"
+[ACTION.DarkPrinceHero_Flag_Listen_To_New_Deploy]
+	ClassType            = "ActionActivateOnCardDeploy"
+	OnActivateAction     = "DarkPrinceHero_Reset_Ability_Button"
+	CardGroup            = "DarkPrince"
+	EvaluateDeployedCard = true
+[ACTION.DarkPrinceHero_Reset_Ability_Button]
+	ClassType      = "ActionWithDuration"
+	ActionDuration = 100
+	GameTagsToSet  = "UNIT_CUSTOM_TAG_1"
+[CARD_GROUP.DarkPrince]
+	PlayableCards = ["DarkPrince"]
+	SupportCards  = []
+	Heroes        = ["DarkPrince_hero"]
+	ClassType               = "ActionDamagingPushBack"
+	PushBackStrength        = 1000
+	PushBackRadius          = 2000
+	PushToSide              = true
+	DistanceProportinalPush = false
+	ContinuosPushBack       = true
+	PushBackDamage             = 90
+	AffectInvisible            = true
+	FullPushBackCollisionCheck = true
+	ActionDelay                = 50
+	UpdatePhase                = "PostComponentTick"
+	ForceStopIfTrue            = "CHARGING() == false"
+	PushRadiusDirectionalOffset = -250
+	GameObjectFilter = "passive_hit_ground_characters_not_same"
+	PushFilter       = "normal_pushback_ground_characters_not_same"
+[STATS.Dark_prince_hero]
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "area_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon  = "icons_stats_dmg_area"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "charge_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_CHARGE_DAMAGE"
+		Icon  = "icons_stats_strength"
+	[[STATS.Dark_prince_hero.stats]]
+		Value  = "area_damage"
+		Value2 = "hit_speed"
+		Unit   = "DPS"
+		TID    = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon   = "icons_stats_dmg_dps"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "hitpoints"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon  = "icons_stats_hp"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "shield_hitpoints"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_SHIELD_HEALTH"
+		Icon  = "icons_stats_shield_hp"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "hit_speed"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon  = "icons_stats_dmg_speed"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "targets"
+		Unit  = "TARGETS"
+		TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon  = "icons_stats_target"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "speed"
+		Unit  = "SPEED"
+		TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon  = "icons_stats_speed"
+	[[STATS.Dark_prince_hero.stats]]
+		Value = "range"
+		Unit  = "MELEE_RANGE"
+		TID   = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon  = "icons_stats_range"
+[STATS.Dark_prince_hero_ability_stats]
+		Value = "TID_STATS_ABILITIES_SINGLEUSE"
+		Unit  = "TID"
+		TID   = "TID_ABILITY_STAT_COOLDOWN"
+		Icon  = "icons_stats_cooldown"
+	[[STATS.Dark_prince_hero_ability_stats.stats]]
+		Value = "mount_spawn_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_SPAWN_DAMAGE"
+		Icon  = "icons_stats_dmg_area"
+	[[STATS.Dark_prince_hero_ability_stats.stats]]
+		Value                  = "level"
+		Unit                   = "INTEGER"
+		TID                    = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues       = ["TID_CHARACTER_MOUNT"]
+		Icon                   = "icons_stats_troop"
+		InfoPopoverTitle       = "TID_CHARACTER_MOUNT"
+		InfoButtonStats        = "Dark_prince_mount_info"
+[STATS.Dark_prince_mount_info]
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_hitpoints"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon  = "icons_stats_hp"
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon  = "icons_stats_dmg"
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_charge_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_CHARGE_DAMAGE"
+		Icon  = "icons_stats_strength"
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_hit_speed"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon  = "icons_stats_dmg_speed"
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_speed"
+		Unit  = "SPEED"
+		TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon  = "icons_stats_speed"
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_range"
+		Unit  = "MELEE_RANGE"
+		TID   = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon  = "icons_stats_range"
+	[[STATS.Dark_prince_mount_info.stats]]
+		Value = "mount_targets"
+		Unit  = "TARGETS"
+		TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon  = "icons_stats_target"

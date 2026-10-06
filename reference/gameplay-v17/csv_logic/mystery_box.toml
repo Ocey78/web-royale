@@ -1,0 +1,462 @@
+[CommonLuckyDrop]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[RareLuckyDrop]
+Rarities=["Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[24, 20, 8, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[EpicLuckyDrop]
+Rarities=["Epic","Legendary","Champion"]
+UpgradeProbabilities=[20, 2, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[ChampionLuckyDrop]
+Rarities=["Champion"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[CommonLuckyDropSpinPlus1]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 20, 20, 8, 0]
+SpinCount = 5
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[CommonLuckyDropSpinPlus2]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 20, 20, 8, 0]
+SpinCount = 6
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[CommonLuckyDropSpinPlus3]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 20, 20, 8, 0]
+SpinCount = 7
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[TestCommon]
+Rarities=["Common"]
+UpgradeProbabilities=[25]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[TestRare]
+Rarities=["TestThematicRare","TestThematicEpic","TestThematicLegendary","TestThematicChampion"]
+UpgradeProbabilities=[24, 20, 8, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[TestEpic]
+Rarities=["TestThematicEpic","TestThematicLegendary","TestThematicChampion"]
+UpgradeProbabilities=[20, 2, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[TestLegendary]
+Rarities=["TestThematicLegendary"]
+UpgradeProbabilities=[23]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[TestChampion]
+Rarities=["TestThematicChampion"]
+UpgradeProbabilities=[0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[CommonUpgradeToChampion]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[100, 100, 100, 100, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[CommonUpgradeToLegendary]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[100, 100, 100, 23, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[CommonUpgradeToEpic]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[100, 100, 23, 23, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[RareUpgradeToChampion]
+Rarities=["Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[100, 100, 100, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[RareUpgradeToLegendary]
+Rarities=["Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[100, 100, 23, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[EpicUpgradeToChampion]
+Rarities=["Epic","Legendary","Champion"]
+UpgradeProbabilities=[100, 100, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[LegendaryLuckyDrop]
+Rarities=["Legendary","Champion"]
+UpgradeProbabilities=[4, 0]
+SpinCount = 1
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[Tutorial2LuckyDrop]
+Rarities=["TutorialCommon","Tutorial2Rare"]
+UpgradeProbabilities=[100, 0]
+SpinCount = 3
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[Tutorial3LuckyDrop]
+Rarities=["TutorialCommon","Tutorial3Rare","Tutorial3Epic"]
+UpgradeProbabilities=[100, 100, 0]
+SpinCount = 3
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[LowArenaCommonLuckyDrop]
+Rarities=["Common","Rare","Epic","Legendary"]
+UpgradeProbabilities=[25, 24, 26, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[LowArenaRareLuckyDrop]
+Rarities=["Rare","Epic","Legendary"]
+UpgradeProbabilities=[24, 20, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[RareLuckyDrop3Spins]
+Rarities=["Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[30, 30, 12, 0]
+SpinCount = 3
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[EpicLuckyDrop2Spins]
+Rarities=["Epic","Legendary","Champion"]
+UpgradeProbabilities=[36, 6, 0]
+SpinCount = 2
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[LowArenaCommonLuckyDropCard]
+Rarities=["CommonCardInCommon","RareCardInCommon","EpicCardInCommon","LegendaryCardInCommon"]
+UpgradeProbabilities=[25, 24, 26, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[LowArenaRareLuckyDropGold]
+Rarities=["RareGoldInRare","EpicGoldInRare"]
+UpgradeProbabilities=[24, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[TestThematicLuckyChest]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[33, 62, 85, 95, 0]
+SpinCount = 4
+[TestThematicLuckyChestRare]
+Rarities=["Rare"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+[TestThematicLuckyChestEpic]
+Rarities=["Epic"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+[TestThematicLuckyChestLegendary]
+Rarities=["Legendary"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+[TestThematicLuckyChestChampion]
+Rarities=["Champion"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+[202510_Halloween_Chest]
+Rarities=["202510_Halloween_1Star","202510_Halloween_2Star","202510_Halloween_3Star","202510_Halloween_4Star","202510_Halloween_5Star"]
+UpgradeProbabilities=[50, 45, 40, 30, 0]
+SpinCount = 4
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Seasonal"
+[202510_RoyalGhost_Chest]
+Rarities=["202510_RoyalGhost_1Star","202510_RoyalGhost_2Star","202510_RoyalGhost_3Star","202510_RoyalGhost_4Star","202510_RoyalGhost_5Star"]
+UpgradeProbabilities=[50, 45, 40, 30, 0]
+SpinCount = 4
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Seasonal"
+[Magic_Lucky_Chest]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[Basic_Lucky_Chest]
+Rarities=["Basic_Lucky_Chest_1Star","Basic_Lucky_Chest_2Star","Basic_Lucky_Chest_3Star","Basic_Lucky_Chest_4Star"]
+UpgradeProbabilities=[32, 30, 45, 0]
+SpinCount = 3
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Basic"
+TID = "TID_STANDARD_LUCKY_DROP"
+InfoTID = "TID_SHOP_OFFER_INFO_STANDARD_LUCKY_DROP"
+[202511_Musketeer_Chest]
+Rarities=["202511_Musketeer_1Star","202511_Musketeer_2Star","202511_Musketeer_3Star","202511_Musketeer_4Star","202511_Musketeer_5Star"]
+UpgradeProbabilities=[50, 45, 40, 30, 0]
+SpinCount = 4
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Seasonal"
+[Hero_Coin_Chest]
+Rarities=["Hero_Coin_Chest_2Star","Hero_Coin_Chest_3Star","Hero_Coin_Chest_4Star","Hero_Coin_Chest_5Star"]
+UpgradeProbabilities=[30, 18, 18, 0]
+SpinCount = 3
+Theme = "2025_Hero_Coin_Chest"
+Category = "Basic"
+LevelData = "Hero_Coin_Chest"
+[EVO_Shard_5Star]
+Rarities=["EVO_Shard_5Star"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+Theme = "2025_Evo_Shards_Chest"
+Category = "Basic"
+TID = "TID_EVO_SHARD_CHEST"
+InfoTID = "TID_SHOP_OFFER_INFO_EVO_SHARD_CHEST"
+[EVO_Shard_3Star]
+Rarities=["EVO_Shard_3Star","EVO_Shard_4Star","EVO_Shard_5Star"]
+UpgradeProbabilities=[21, 9, 0]
+SpinCount = 3
+Theme = "2025_Evo_Shards_Chest"
+Category = "Basic"
+TID = "TID_EVO_SHARD_CHEST"
+InfoTID = "TID_SHOP_OFFER_INFO_EVO_SHARD_CHEST"
+[EVO_Shard_4Star]
+Rarities=["EVO_Shard_4Star","EVO_Shard_5Star"]
+UpgradeProbabilities=[11, 0]
+SpinCount = 2
+Theme = "2025_Evo_Shards_Chest"
+Category = "Basic"
+TID = "TID_EVO_SHARD_CHEST"
+InfoTID = "TID_SHOP_OFFER_INFO_EVO_SHARD_CHEST"
+[202512_Christmas_Chest]
+Rarities=["202512_Christmas_1Star","202512_Christmas_2Star","202512_Christmas_3Star","202512_Christmas_4Star","202512_Christmas_5Star"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Seasonal"
+[Max_Level_Lucky_Chest_1Star]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_Legendary_Magic_Lucky_Chest"
+Category = "Magic"
+[Max_Level_Lucky_Chest_5Star]
+Rarities=["Champion"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+Theme = "2025_Legendary_Magic_Lucky_Chest"
+Category = "Magic"
+[Non_Max_Level_Lucky_Chest_1Star]
+Rarities=["Common","Rare","Epic","Legendary","Champion"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[Non_Max_Level_Lucky_Chest_3Star]
+Rarities=["Epic","Legendary","Champion"]
+UpgradeProbabilities=[20, 2, 0]
+SpinCount = 4
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+[202601_FireIce_Chest]
+Rarities=["202601_FireIce_Chest_1Star","202601_FireIce_Chest_2Star","202601_FireIce_Chest_3Star","202601_FireIce_Chest_4Star","202601_FireIce_Chest_5Star"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Seasonal"
+[202602_Seasonal_Chest]
+Rarities=["202602_Seasonal_Chest_1Star","202602_Seasonal_Chest_2Star","202602_Seasonal_Chest_3Star","202602_Seasonal_Chest_4Star","202602_Seasonal_Chest_5Star"]
+UpgradeProbabilities=[25, 24, 26, 65, 0]
+SpinCount = 4
+Theme = "2025_October_Basic_Lucky_Chest"
+Category = "Seasonal"
+[AlbumSnippetDrop_Unique]
+Rarities=["AlbumSnippet_Unique"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Unique"
+Category = "Album"
+TID = "TID_UNIQUE_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_UNIQUE_SNIPPET"
+[AlbumSnippetDrop_Random]
+Rarities=["AlbumSnippet_Random"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[Max_Level_Lucky_Chest_3Star]
+Rarities=["Epic","Legendary","Champion"]
+UpgradeProbabilities=[20, 2, 0]
+SpinCount = 4
+Theme = "2025_Legendary_Magic_Lucky_Chest"
+Category = "Magic"
+[202603_Cosmetic_Chest]
+Rarities=["202603_Cosmetic_Chest_5Star"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "2026_March_Anniversary_Chest"
+Category = "Seasonal"
+TID = "TID_COSMETIC_LUCKY_CHEST"
+InfoTID = "TID_COSMETIC_LUCKY_CHEST_CONTENTS"
+[v2_AlbumSnippetDrop_Unique]
+Rarities=["v2_AlbumSnippet_Unique"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Unique"
+Category = "Album"
+TID = "TID_UNIQUE_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_UNIQUE_SNIPPET"
+[v2_AlbumSnippetDrop_Random]
+Rarities=["v2_AlbumSnippet_Random"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[LegendaryLuckyDrop_NoUpgrade]
+Rarities=["Legendary","Champion"]
+UpgradeProbabilities=[0, 0]
+SpinCount = 1
+Theme = "2025_October_Magic_Lucky_Chest"
+Category = "Magic"
+LevelData = "CommonLuckyDrop"
+[RareChoiceChest]
+Rarities=["RareChoiceChest","EpicChoiceChest","LegendaryChoiceChest","ChampionChoiceChest"]
+UpgradeProbabilities=[24, 20, 8, 0]
+SpinCount = 4
+Theme = "2026_Choice_Chest"
+Category = "Magic"
+LevelData = "ChoiceChest"
+[EpicChoiceChest]
+Rarities=["EpicChoiceChest","LegendaryChoiceChest","ChampionChoiceChest"]
+UpgradeProbabilities=[20, 2, 0]
+SpinCount = 4
+Theme = "2026_Choice_Chest"
+Category = "Magic"
+LevelData = "ChoiceChest"
+[LegendaryChoiceChest]
+Rarities=["LegendaryChoiceChest","ChampionChoiceChest"]
+UpgradeProbabilities=[4, 0]
+SpinCount = 1
+Theme = "2026_Choice_Chest"
+Category = "Magic"
+LevelData = "ChoiceChest"
+[ChampionChoiceChest]
+Rarities=["ChampionChoiceChest"]
+UpgradeProbabilities=[0]
+SpinCount = 1
+Theme = "2026_Choice_Chest"
+Category = "Magic"
+LevelData = "ChoiceChest"
+[v3_AlbumSnippetDrop_Unique]
+Rarities=["v3_AlbumSnippet_Unique"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Unique"
+Category = "Album"
+TID = "TID_UNIQUE_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_UNIQUE_SNIPPET"
+[v3_AlbumSnippetDrop_Random_Week1]
+Rarities=["v3_AlbumSnippet_Random_Week1"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v3_AlbumSnippetDrop_Random_Week2]
+Rarities=["v3_AlbumSnippet_Random_Week2"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v3_AlbumSnippetDrop_Random_Week3]
+Rarities=["v3_AlbumSnippet_Random_Week3"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v3_AlbumSnippetDrop_Random_Week4]
+Rarities=["v3_AlbumSnippet_Random_Week4"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v4_AlbumSnippetDrop_Unique]
+Rarities=["v4_AlbumSnippet_Unique"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "202610_AlbumSnippetDrop_Unique"
+Category = "Album"
+TID = "TID_UNIQUE_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_UNIQUE_SNIPPET"
+[v4_AlbumSnippetDrop_Random_Week1]
+Rarities=["v4_AlbumSnippet_Random_Week1"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "202610_AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v4_AlbumSnippetDrop_Random_Week2]
+Rarities=["v4_AlbumSnippet_Random_Week2"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "202610_AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v4_AlbumSnippetDrop_Random_Week3]
+Rarities=["v4_AlbumSnippet_Random_Week3"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "202610_AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"
+[v4_AlbumSnippetDrop_Random_Week4]
+Rarities=["v4_AlbumSnippet_Random_Week4"]
+UpgradeProbabilities=[0]
+SpinCount = 0
+Theme = "202610_AlbumSnippetDrop_Random"
+Category = "Album"
+TID = "TID_WILD_SNIPPET"
+InfoTID = "TID_SHOP_OFFER_INFO_WILD_SNIPPET"

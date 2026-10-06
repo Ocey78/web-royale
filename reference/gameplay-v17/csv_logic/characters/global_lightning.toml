@@ -1,0 +1,74 @@
+[AEO.Event_Global_Lightning_Charge1]
+	Name             = "Event_Global_Lightning_Charge1"
+	Rarity           = "Epic"
+	LifeDuration     = 100
+	Filter           = "aeo_dummy_no_targets"
+	OnStartingAction = "GlobalLightning_SpawnAtCenter"
+[ACTION.GlobalLightning_SpawnAtCenter]
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "AreaEffectType"
+	SpawnData           = "Event_Global_Lightning_Strike"
+	XPositionExpression = "map_width / 2"
+	YPositionExpression = "map_height / 2"
+[EXT.Event_Global_Lightning_Strike]
+	Base             = "AEO.Lightning"
+	LifeDuration     = 13000
+	HitSpeedOffset   = 12000
+	HitSpeed         = 500
+	Radius           = 40000
+	Filter           = "aeo_all_no_buildings_no_crown_towers"
+	Projectile       = "Event_Global_Lightning_Projectile"
+	OnStartingAction = "GlobalLightning_Stages"
+[ACTION.GlobalLightning_Stages]
+	ClassType       = "ActionGroup"
+	SubActions      = ["GlobalLightning_Charge1_Vfx", "GlobalLightning_Stage_Timer"]
+	SubActionsDelay = [0, 0]
+[ACTION.GlobalLightning_Charge1_Vfx]
+	ClassType        = "ActionPlayEffect"
+	Effect           = "GlobalLightning_Charging1"
+	EffectFlags      = ["FollowParent"]
+	OverrideDuration = 5000
+[ACTION.GlobalLightning_Stage_Timer]
+	ClassType     = "ActionAeoRunActionAtAliveTimer"
+	AliveTimeList = [5000, 11500]
+	Actions       = ["GlobalLightning_Charge2_Vfx", "GlobalLightning_Deploy_Vfx"]
+[ACTION.GlobalLightning_Charge2_Vfx]
+	ClassType        = "ActionPlayEffect"
+	Effect           = "GlobalLightning_Charging2"
+	EffectFlags      = ["FollowParent"]
+	OverrideDuration = 5000
+[ACTION.GlobalLightning_Deploy_Vfx]
+	ClassType        = "ActionPlayEffect"
+	Effect           = "GlobalLightning_deploy"
+	EffectFlags      = ["FollowParent"]
+	OverrideDuration = 3000
+[FILTER.aeo_all_no_buildings_no_crown_towers]
+	MatchTeamOwn = true
+	MatchTeamEnemy = true
+	MatchTypeCharacters = true
+	Filters = [
+		"Buildings",
+		"PrincessTowers",
+		"Hidden",
+		"Underground",
+		"Cloning",
+		"NoHitpointComponent",
+	]
+	FilterTags = "NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+[AEO.Event_Global_Lightning]
+	HitBiggestTargets     = true
+	HitSpeedOffset        = 1000
+	HitSpeed              = 1000
+	Filter                = "aeo_enemy_no_buildings_no_crown_towers"
+	LifeDuration          = 3000
+	LoopingEffect         = "GlobalLightning_deploy"
+	Name                  = "Event_Global_Lightning"
+	Projectile            = "LighningSpell"
+	ProjectileStartHeight = 10
+	Radius                = 40000
+	Rarity                = "Epic"
+[EXT.Event_Global_Lightning_Projectile]
+	Base        = "PROJECTILE.LighningSpell"
+	OnlyEnemies = false
+[DAMAGE_TYPE.GlobalLightning]
+	BaseDamage = 10

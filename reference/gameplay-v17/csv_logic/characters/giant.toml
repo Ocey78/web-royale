@@ -1,0 +1,45 @@
+
+[CHARACTER.Giant]
+AttackStartEffect = "giant_attack_start"
+AttacksGround = true
+BlueExportName = "giant1"
+CollisionRadius = 750
+CrowdEffects = true
+Damage = 99
+DamageEffect = "giant_hit"
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "giant_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_giant.sc"
+HealthBar = "High"
+HitSpeed = 1500
+Hitpoints = 1550
+IgnorePushback = true
+LoadTime = 1000
+Mass = 18
+MoveEffect = "giant_steps"
+Name = "Giant"
+PrestigeExportName2 = "giant_prestige"
+PrestigeSWF = "sc/chr_prestige3_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "giant1_enemy"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = 80
+ShadowSkew = 25
+SightClip = 2000
+SightClipSide = 2000
+SightRange = 7500
+SpawnEffect = "giant_deploy"
+Speed = 45
+StopMovementAfterMS = 640
+TID = "TID_SPELL_GIANT"
+TargetOnlyBuildings = true
+UseAnimator = true
+WaitMS = 100
+
+

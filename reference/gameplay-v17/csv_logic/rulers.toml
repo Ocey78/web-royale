@@ -1,0 +1,288 @@
+[Ruler_King]
+TID = "TID_RULER_KING"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_KING"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "ac_ruler_king"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/king/ruler_king"
+DefaultSkin = "Ruler_Skin_King_Default"
+DefaultVfx = "Ruler_VFX_King_Default"
+[[Ruler_King.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_King.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_King_T3_Green"
+[[Ruler_King.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_King_Ruler_levelup"
+[[Ruler_King.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_King_T3_Purple"
+[[Ruler_King.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_King_T3_Icy"
+[[Ruler_King.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_King_levelup_03"
+
+[Ruler_MergeMaiden]
+TID = "TID_RULER_MERGE_MAIDEN"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_MERGE_MAIDEN"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "ac_ruler_merge_maiden"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/mergemaiden/ruler_mergemaiden"
+DefaultSkin = "Ruler_Skin_MergeMaiden_Default"
+DefaultVfx = "Ruler_VFX_Maiden_Default"
+[[Ruler_MergeMaiden.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_MergeMaiden.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_MergeMaiden_T3_Green"
+[[Ruler_MergeMaiden.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_Maiden_Ruler_levelup"
+[[Ruler_MergeMaiden.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_MergeMaiden_T3_Yellow"
+[[Ruler_MergeMaiden.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_MergeMaiden_T3_Red"
+[[Ruler_MergeMaiden.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_Maiden_levelup_02"
+
+[Ruler_GoblinQueen]
+TID = "TID_RULER_GOBLIN_QUEEN"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_GOBLIN_QUEEN"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "ac_ruler_goblin_queen"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/goblinqueen/ruler_goblinqueen"
+DefaultSkin = "Ruler_Skin_GoblinQueen_Default"
+DefaultVfx = "Ruler_VFX_GoblinQueen_Default"
+[[Ruler_GoblinQueen.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_GoblinQueen.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_GoblinQueen_Blue"
+[[Ruler_GoblinQueen.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_GoblinQueen_Ruler_levelup"
+[[Ruler_GoblinQueen.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_GoblinQueen_Red"
+[[Ruler_GoblinQueen.LevelRewards]]
+	Type = "RewardUnknown"
+[[Ruler_GoblinQueen.LevelRewards]]
+	Type = "RewardUnknown"
+
+
+[Ruler_ElixirLoong]
+TID = "TID_RULER_ELIXIR_LOONG"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_ELIXIR_LOONG"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "ac_ruler_loong"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/elixirloong/ruler_elixirloong"
+DefaultSkin = "Ruler_Skin_ElixirLoong_Default"
+DefaultVfx = "Ruler_VFX_ElixirLoong_Default"
+[[Ruler_ElixirLoong.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_ElixirLoong.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_ElixirLoong_T3_Blue"
+[[Ruler_ElixirLoong.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_ElixirLoong_Ruler_levelup"
+[[Ruler_ElixirLoong.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_ElixirLoong_T3_Red"
+[[Ruler_ElixirLoong.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_ElixirLoong_T3_Brown"
+[[Ruler_ElixirLoong.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_ElixirLoong_Ruler_levelup_02"
+
+[Ruler_BattleMachine]
+TID = "TID_RULER_BATTLE_MACHINE"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_BATTLE_MACHINE"
+IconSWF = "sc/ac_ruler_battle_machine.sc"
+IconExportName = "ac_ruler_battle_machine"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/battlemachine/ruler_battlemachine"
+DefaultSkin = "Ruler_Skin_BattleMachine_Default"
+DefaultVfx = "Ruler_VFX_BattleMachine_Default"
+[[Ruler_BattleMachine.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_BattleMachine.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_BattleMachine_T3_White"
+[[Ruler_BattleMachine.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_BattleMachine_Ruler_levelup"
+[[Ruler_BattleMachine.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_BattleMachine_T3_Blue"
+[[Ruler_BattleMachine.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_BattleMachine_T3_Red"
+[[Ruler_BattleMachine.LevelRewards]]
+	Type = "RewardUnknown"
+
+[Ruler_EchoMonk]
+TID = "TID_RULER_ECHO_MONK"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_ECHO_MONK"
+IconSWF = "sc/ac_ruler_echo_monk.sc"
+IconExportName = "ac_ruler_echo_monk"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/echomonk/ruler_echomonk"
+DefaultSkin = "Ruler_Skin_EchoMonk_Default"
+DefaultVfx = "Ruler_VFX_EchoMonk_Default"
+[[Ruler_EchoMonk.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_EchoMonk.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_EchoMonk_T3_Yellow"
+[[Ruler_EchoMonk.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_EchoMonk_Ruler_levelup"
+[[Ruler_EchoMonk.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_EchoMonk_T3_Purple"
+[[Ruler_EchoMonk.LevelRewards]]
+	Type = "RewardUnknown"
+[[Ruler_EchoMonk.LevelRewards]]
+	Type = "RewardUnknown"
+
+[Ruler_DaggerDuchess]
+TID = "TID_RULER_DAGGER_DUCHESS"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_DAGGER_DUCHESS"
+IconSWF = "sc/ac_ruler_dagger_duchess.sc"
+IconExportName = "ac_ruler_dagger_duchess"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/daggerduchess/ruler_daggerduchess"
+DefaultSkin = "Ruler_Skin_DaggerDuchess_Default"
+DefaultVfx = "Ruler_VFX_DaggerDuchess_Default"
+[[Ruler_DaggerDuchess.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_DaggerDuchess.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_DaggerDuchess_T3_Green"
+[[Ruler_DaggerDuchess.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_DaggerDuchess_Ruler_levelup"
+[[Ruler_DaggerDuchess.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_DaggerDuchess_T3_Red"
+[[Ruler_DaggerDuchess.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_DaggerDuchess_T3_Blue"
+[[Ruler_DaggerDuchess.LevelRewards]]
+	Type = "RewardUnknown"
+
+[Ruler_GrandWarden]
+TID = "TID_RULER_GRAND_WARDEN"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_GRAND_WARDEN"
+IconSWF = "sc/ac_ruler_grand_warden.sc"
+IconExportName = "ac_ruler_grand_warden"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/grandwarden/ruler_grandwarden"
+DefaultSkin = "Ruler_Skin_GrandWarden_Default"
+DefaultVfx = "Ruler_VFX_GrandWarden_Default"
+[[Ruler_GrandWarden.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_GrandWarden.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_GrandWarden_T3_Purple"
+[[Ruler_GrandWarden.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_GrandWarden_Ruler_levelup"
+[[Ruler_GrandWarden.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_GrandWarden_T3_White"
+[[Ruler_GrandWarden.LevelRewards]]
+	Type = "RewardUnknown"
+[[Ruler_GrandWarden.LevelRewards]]
+	Type = "RewardUnknown"
+
+[Ruler_TombQueen]
+TID = "TID_RULER_TOMB_QUEEN"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_TOMB_QUEEN"
+IconSWF = "sc/ac_ruler_tomb_queen.sc"
+IconExportName = "ac_ruler_tomb_queen"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/tombqueen/ruler_tombqueen"
+DefaultSkin = "Ruler_Skin_TombQueen_Default"
+DefaultVfx = "Ruler_VFX_TombQueen_Default"
+[[Ruler_TombQueen.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_TombQueen.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_TombQueen_T3_Red"
+[[Ruler_TombQueen.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_TombQueen_Ruler_levelup"
+[[Ruler_TombQueen.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_TombQueen_T3_Black"
+[[Ruler_TombQueen.LevelRewards]]
+	Type = "RewardUnknown"
+[[Ruler_TombQueen.LevelRewards]]
+	Type = "RewardUnknown"
+
+[Ruler_Ronin]
+TID = "TID_RULER_RONIN"
+TID_TYPE = "TID_TYPE_RULER"
+TID_INFO = "TID_RULER_INFO_RONIN"
+IconSWF = "sc/ac_ruler_ronin.sc"
+IconExportName = "ac_ruler_ronin"
+Rarity = "Default"
+NotVisible = false
+NotInUse = false
+LogicAsset = "logic/autochess/rulers/ronin/ruler_ronin"
+DefaultSkin = "Ruler_Skin_Ronin_Default"
+DefaultVfx = "Ruler_VFX_Ronin_Default"
+[[Ruler_Ronin.LevelRewards]]
+	Type = "RewardAugmentUnlock"
+[[Ruler_Ronin.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_Ronin_T3_Blue"
+[[Ruler_Ronin.LevelRewards]]
+	Type = "RewardVfx"
+	Reward = "Ruler_VFX_Ronin_Ruler_levelup"
+[[Ruler_Ronin.LevelRewards]]
+	Type = "RewardSkin"
+	Reward = "Ruler_Skin_Ronin_T3_Black"
+[[Ruler_Ronin.LevelRewards]]
+	Type = "RewardUnknown"
+[[Ruler_Ronin.LevelRewards]]
+	Type = "RewardUnknown"

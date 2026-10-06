@@ -1,0 +1,176 @@
+[CHARACTER.SuspiciousBush]
+Rarity = "Common"
+TID = "TID_SUSPICIOUS_BUSH"
+SightRange = 7500
+SightClip = 2000
+SightClipSide = 2000
+DeployTime = 1000
+Speed = 60
+Hitpoints = 32
+HitSpeed = 300
+LoadTime = 300
+Damage = 0
+Range = 1600
+CollisionRadius = 500
+Mass = 2
+AttacksGround = true
+TargetOnlyBuildings = true
+Kamikaze = true
+IgnoreBuff = ["VoodooCurse", "GoblinCurse"]
+IgnoreResurrect = true
+HealthBar = "Medium"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DamageExportName = "filter_damage"
+FileName = "sc/chr_goblin_bush.sc"
+BlueExportName = "bush_goblin_bush"
+RedExportName = "bush_goblin_bush_red"
+SpawnEffect = "Deploy_Suspicious_Bush"
+MoveEffect = "Goblin_Bush_steps"
+DeathEffect = "Goblin_Bush_Die_Spell"
+KamikazeEffect = "Goblin_Bush_Die"
+LoopMoveEffect = false
+Scale = 90
+ShadowScaleX = 102
+ShadowScaleY = 70
+ShadowX = -5
+ShadowY = 5
+ShadowSkew = 13
+UseAnimator = true
+BuffWhenNotAttacking = "BushInvisibility"
+DeathAreaEffect = "SuspiciousBush_DummyAEO"
+AllowAreaDmgWhenInvisible=true
+StatsTags.Speed = "bush_speed"
+StatsTags.Targets = "bush_targets"
+StatsTags.Hitpoints = "bush_hitpoints"
+StatsTags.Level = "level"
+    [AEO.SuspiciousBush_DummyAEO]
+    Rarity = "Common"
+    LifeDuration = 1000
+    HitSpeed = -1
+    OnStartingAction="SuspiciousBush_SpawnBushGoblin"
+    [ACTION.SuspiciousBush_SpawnBushGoblin]
+    ClassType="ActionGroup"
+    SubActions = ["SuspiciousBush_SpawnBushGoblin1","SuspiciousBush_SpawnBushGoblin2"]
+    SubActionsDelay = [675, 625]
+    StatsTags.ActionCount = "goblin_count"
+    [ACTION.SuspiciousBush_SpawnBushGoblin1]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "BushGoblin"
+    UseDeploy=true
+    RelativeX = -1
+    RelativeY = 0
+    [ACTION.SuspiciousBush_SpawnBushGoblin2]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "BushGoblin"
+    UseDeploy=true
+    RelativeX = 1
+    RelativeY = 0
+[CHARACTER.BushGoblin]
+Rarity = "Common"
+TID = "TID_CHARACTER_BUSH_GOBLIN"
+SightRange = 5500
+DeployTime = 1000
+Speed = 60
+Hitpoints = 132
+HitSpeed = 1400
+LoadTime = 1100
+Damage = 100
+Range = 800
+AttacksGround = true
+FileName = "sc/chr_goblin_bush.sc"
+BlueExportName = "goblin_bush"
+RedExportName = "goblin_bush_enemy"
+UseAnimator = true
+DamageEffect = "goblins_hit"
+DeathEffect = "goblins_die"
+SpawnEffect = "goblin_bush_goblins_appear"
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowX = -5
+ShadowY = 5
+ShadowSkew = 35
+Scale = 66
+CollisionRadius = 500
+Mass = 2
+HealthBar = "Small"
+DamageExportName = "filter_damage"
+AttackStartEffect = "goblins_attack_start"
+DeployBaseAnimExportName = "filter_deploy_unit_bush_goblins"
+DeployDelay = 400
+StatsTags.TID = "spawn_tid"
+StatsTags.Hitpoints = "spawn_hitpoints"
+StatsTags.Damage = "spawn_damage"
+StatsTags.HitSpeed = "spawn_hit_speed"
+StatsTags.Speed = "spawn_speed"
+StatsTags.Range = "spawn_range"
+StatsTags.Targets = "spawn_targets"
+[BUFF.BushInvisibility]
+Rarity = "Common"
+Invisible = true
+FilterFile = "sc/chr_goblin_bush.sc"
+FilterExportName = "filter_bush_invisible"
+[STATS.suspicious_bush]
+    [[STATS.suspicious_bush.stats]]
+        Value = "bush_hitpoints"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon = "icons_stats_hp"
+    [[STATS.suspicious_bush.stats]]
+        Value = "goblin_count"
+        Unit = "COUNT"
+        TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+        TIDReplacePlaceholders = ["<CHARACTER>"]
+        TIDReplaceValues = ["spawn_tid"]
+        Icon = "icons_stats_troop_count"
+    [[STATS.suspicious_bush.stats]]
+        Value = "bush_targets"
+        Unit = "TARGETS"
+        TID = "TID_SPELL_ATTRIBUTE_TARGET"
+        Icon = "icons_stats_target"
+    [[STATS.suspicious_bush.stats]]
+        Value = "level"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+        TIDReplacePlaceholders = ["<CHARACTER>"]
+        TIDReplaceValues = ["spawn_tid"]
+        Icon = "icons_stats_troop"
+        InfoPopoverTitle = "spawn_tid"
+        InfoButtonStats="suspicious_bush_spawn_info"
+    [[STATS.suspicious_bush.stats]]
+        Value = "bush_speed"
+        Unit = "SPEED"
+        TID = "TID_SPELL_ATTRIBUTE_SPEED"
+        Icon = "icons_stats_speed"
+[STATS.suspicious_bush_spawn_info]
+    [[STATS.suspicious_bush_spawn_info.stats]]
+        Value = "spawn_hitpoints"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon = "icons_stats_hp"
+    [[STATS.suspicious_bush_spawn_info.stats]]
+        Value = "spawn_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.suspicious_bush_spawn_info.stats]]
+        Value = "spawn_hit_speed"
+        Unit = "TIME_PRECISE"
+        TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+        Icon = "icons_stats_dmg_speed"
+    [[STATS.suspicious_bush_spawn_info.stats]]
+        Value = "spawn_speed"
+        Unit = "SPEED"
+        TID = "TID_SPELL_ATTRIBUTE_SPEED"
+        Icon = "icons_stats_speed"
+    [[STATS.suspicious_bush_spawn_info.stats]]
+        Value = "spawn_range"
+        Unit = "MELEE_RANGE"
+        TID = "TID_SPELL_ATTRIBUTE_RANGE"
+        Icon = "icons_stats_range"
+    [[STATS.suspicious_bush_spawn_info.stats]]
+        Value = "spawn_targets"
+        Unit = "TARGETS"
+        TID = "TID_SPELL_ATTRIBUTE_TARGET"
+        Icon = "icons_stats_target"

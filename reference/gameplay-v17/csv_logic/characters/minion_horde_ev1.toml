@@ -1,0 +1,173 @@
+[SPELL_EVOLVED.MinionHorde_EV1]
+    StatsTags.SummonNumber = "count"
+[VARIABLE.MinionHorde_EV1_has_taken_damage]
+[EXT.MinionHorde_EV1]
+Base = "CHARACTER.Minion"
+ClonedVersion = "Minion"
+OnStartingClientActions = ["Healthbar_Small_Evo", "MinionHorde_EV1_GlowLayer_On", "MinionHorde_EV1_invincible_bar", "MinionHorde_EV1_invincible_badge"]
+HideHealthbar = true
+OnStartingAction = "MinionHorde_EV1_Hide_Glow_Filter"
+OnDamageTakenAction = "MinionHorde_EV1_OnDamage_Group"
+OnDamageTakenActionInstigatorAsSelf = true
+Projectile = "MinionHorde_EV1_spit"
+FileName = "sc/chr_minionhorde_evolution.sc"
+BlueExportName = "minion_evolution"
+RedExportName = "minion_evolution_red"
+PrestigeSWF = ""
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+Scale = 72
+SpawnEffect = "vfx_minionhorde_evo_deploy"
+SpawnEffectOnce = false
+DeathEffect = "Death_card_evolution_S"
+MoveEffect = "minion_steps"
+AttackStartEffect = "vfx_minionhorde_evo_attack"
+ProjectileEffect = ""
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+CustomSpawnFilter = "filter_card_evolution"
+HealthBarOffsetYRed = -5
+HealthBarOffsetYBlue = -10
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Targets = "targets"
+StatsTags.Speed = "speed"
+StatsTags.Range = "range"
+[ACTION.MinionHorde_EV1_OnDamage_Group]
+ClassType = "ActionGroup"
+SubActions = ["MinionHorde_EV1_ApplyGhostBuff", "MinionHorde_EV1_set_damage_taken_true", "MinionHorde_EV1_Play_Ability_Effect", "MinionHorde_EV1_Tint_Ability_Effect_GlowLayer"]
+SubActionsDelay = [0, 0, 50, 50]
+ExecuteIfTrue = "MinionHorde_EV1_has_taken_damage == 0"
+[ACTION.MinionHorde_EV1_set_damage_taken_true]
+ClassType = "ActionSetVariable"
+Variable  = "MinionHorde_EV1_has_taken_damage"
+Value     = "1"
+[ACTION.MinionHorde_EV1_ApplyGhostBuff]
+ClassType = "ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "MinionHorde_EV1_GhostBuff"
+SpawnTime = 3000
+StatsTags.SpawnTime = "spawn_time"
+[ACTION.MinionHorde_EV1_Play_Ability_Effect]
+ClassType = "ActionPlayEffect"
+Effect = "vfx_minionhorde_evo_ability"
+EffectFlags = "FollowParent"
+Singleton = true
+SpriteName = "GO_SPRITE"
+ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.MinionHorde_EV1_Tint_Ability_Effect_GlowLayer]
+ClassType = "ActionPlayEffect"
+Effect = "filter_minionhorde_evolution_layer_tint"
+EffectFlags = "FollowParent,Looping"
+Singleton = true
+SpriteName = "MinionGlowing"
+ExecuteIfTrue = "!is_clone()"
+ForceStopIfTrue = "is_clone()"
+[BUFF.MinionHorde_EV1_GhostBuff]
+Rarity = "Common"
+Invisible = true
+GameTagsToSet = "NO_DAMAGE,UNIT_CUSTOM_TAG_1"
+SpeedMultiplier = -33
+HitSpeedMultiplier = -33
+StatsTags.SpeedMultiplier = "speed_multiplier"
+StatsTags.HitSpeedMultiplier = "hit_speed_multiplier"
+ShadowAlpha = 40
+NotCloned = true
+OnRemoveAction = "MinionHorde_EV1_OnGhostBuffRemove"
+ [ACTION.MinionHorde_EV1_Reapply_Shadow]
+ ClassType = "ActionSpawn"
+ SpawnType = "BuffType"
+ SpawnData = "MinionHorde_EV1_Reapply_Shadow_Buff"
+ SpawnTime = 50
+ [BUFF.MinionHorde_EV1_Reapply_Shadow_Buff]
+ Rarity = "Common"
+ ShadowAlpha = 75
+[ACTION.MinionHorde_EV1_OnGhostBuffRemove]
+ClassType = "ActionGroup"
+SubActions = ["MinionHorde_EV1_Reapply_Shadow", "MinionHorde_EV1_Hide_Glow_Filter"]
+SubActionsDelay = [0, 0]
+[ACTION.MinionHorde_EV1_Hide_Glow_Filter]
+ClassType = "ActionPlayEffect"
+Effect = "filter_royal_ghost_alpha_zero"
+EffectFlags = "FollowParent,Looping"
+SpriteVisibility = -1
+Singleton = true
+SpriteName = "MinionGlowing"
+ForceStopIfTrue = "UNIT_CUSTOM_TAG_1 || is_clone()"
+ExecuteIfTrue = "!is_clone()"
+[CLIENT_ACTION.MinionHorde_EV1_GlowLayer_On]
+    ClassType="ClientActionAnimatorLayer"
+    LayerName="MinionGlowing"
+    Filename="sc/chr_minionhorde_evolution.sc"
+    BlueExportName="minion_evolution_layer"
+    RedExportName="minion_evolution_layer"
+    Visible=true
+[CLIENT_ACTION.MinionHorde_EV1_invincible_bar]
+	ClassType      = "ClientActionAddHealthBarPart"
+	PartType       = "Bar"
+	Conditions     = ["Invincible"]
+	FileName       = "sc/ui.sc"
+	BlueExportName = "healthbar_player_bar_small_invincible"
+	RedExportName  = "healthbar_enemy_bar_small_invincible"
+	HasIntroAnim   = true
+[CLIENT_ACTION.MinionHorde_EV1_invincible_badge]
+	ClassType      = "ClientActionAddHealthBarPart"
+	PartType       = "Badge"
+	Conditions     = ["Invincible"]
+	FileName       = "sc/ui.sc"
+	BlueExportName = "healthbar_player_bg_evo_invincible"
+	RedExportName  = "healthbar_enemy_bg_evo_invincible"
+	HasIntroAnim   = true
+[EXT.MinionHorde_EV1_spit]
+Base = "PROJECTILE.MinionSpit"
+StatsTags.Damage = "damage"
+[STATS.minion_horde_ev1]
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "hitpoints"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+        Icon = "icons_stats_hp"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "hitspeed"
+        Unit = "TIME_PRECISE"
+        TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+        Icon = "icons_stats_dmg_speed"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "targets"
+        Unit = "TARGETS"
+        TID = "TID_SPELL_ATTRIBUTE_TARGET"
+        Icon = "icons_stats_target"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "speed"
+        Unit = "SPEED"
+        TID = "TID_SPELL_ATTRIBUTE_SPEED"
+        Icon = "icons_stats_speed"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "range"
+        Unit = "TILES"
+        TID = "TID_SPELL_ATTRIBUTE_RANGE"
+        Icon = "icons_stats_range"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "count"
+        Unit = "COUNT"
+        TID = "TID_SPELL_ATTRIBUTE_COUNT"
+        Icon = "icons_stats_troop_count"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "spawn_time"
+        Unit = "TIME_PRECISE"
+        TID = "TID_SPELL_ATTRIBUTE_INVINCIBLE_DURATION"
+        Icon = "icons_stats_deploy_time"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "speed_multiplier"
+        Unit = "PERCENT"
+        TID = "TID_SPELL_ATTRIBUTE_MOVEMENT_SPEED_SLOW"
+        Icon = "icons_stats_speeddown"
+    [[STATS.minion_horde_ev1.stats]]
+        Value = "hit_speed_multiplier"
+        Unit = "PERCENT"
+        TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED_SLOW"
+        Icon = "icons_stats_negative_hit_speed"

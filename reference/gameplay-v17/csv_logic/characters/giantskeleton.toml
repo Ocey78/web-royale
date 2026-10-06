@@ -1,0 +1,125 @@
+
+[CHARACTER.GiantSkeleton]
+AttackStartEffect = "giant_skeleton_attack_start"
+AttacksGround = true
+BlueExportName = "giant_skeleton"
+CollisionRadius = 750
+CrowdEffects = true
+Damage = 108
+DamageEffect = "giant_skeleton_hit"
+DamageExportName = "filter_damage_wobble"
+DeathSpawnCharacter = "GiantSkeletonBomb"
+DeathSpawnCount = 1
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_giant_skeleton.sc"
+HealthBar = "High"
+HitSpeed = 1300
+Hitpoints = 1313
+IgnorePushback = true
+LoadTime = 1000
+Mass = 18
+MoveEffect = "giant_skeleton_steps"
+Name = "GiantSkeleton"
+PrestigeExportName2 = "giant_skeleton_prestige"
+PrestigeExportName3 = "giant_skeleton_prestige2"
+PrestigeRedExportName2 = "giant_skeleton_prestige_red"
+PrestigeRedExportName3 = "giant_skeleton_prestige_red2"
+PrestigeSWF = "sc/chr_prestige4_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 800
+Rarity = "Common"
+RedExportName = "giant_skeleton_enemy"
+Scale = 95
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightRange = 5000
+SpawnEffect = "giant_skeleton_deploy"
+Speed = 60
+TID = "TID_SPELL_GIANT_SKELETON"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -12
+
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+StatsTags.Damage = "damage"
+StatsTags.Speed = "speed"
+
+[BUILDING.GiantSkeletonBomb]
+AttacksAir = true
+AttacksGround = true
+AvoidCountingForBuffAmountStats = true
+BlueExportName = "giant_skeleton_bomb_blue"
+CollisionRadius = 450
+DeathAreaEffect = "GiantSkeletonExplosion"
+DeathEffect = "vfx_giantskeleton_death_bomb_explosion"
+DeployTime = 3000
+FileName = "sc/building_mega_bomb.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "GiantSkeletonBomb"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Common"
+RedExportName = "giant_skeleton_bomb_red"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+TID = "TID_BUILDING_GIANT_SKELETON_BOMB"
+
+[AEO.GiantSkeletonExplosion]
+Rarity = "Common"
+Radius = 3000
+Damage = { BaseDamage = 269 }
+Pushback = 1800
+Filter = "CommonAreaDamageFilter" 
+StatsTags.Damage = "death_damage"
+
+[STATS.GiantSkeleton]
+    [[STATS.GiantSkeleton.stats]]
+		Value = "damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.GiantSkeleton.stats]]
+		Value = "death_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+        Icon = "icons_stats_dmg_death"
+	[[STATS.GiantSkeleton.stats]]
+		Value = "damage"
+		Value2 = "hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.GiantSkeleton.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.GiantSkeleton.stats]]
+		Value = "hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.GiantSkeleton.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.GiantSkeleton.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.GiantSkeleton.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

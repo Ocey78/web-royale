@@ -1,0 +1,98 @@
+
+[CHARACTER.SuperMiniPekka]
+AttackStartEffect = "supermini_pekka_attack_start"
+AttacksGround = true
+BlueExportName = "minipekka"
+CollisionRadius = 450
+DamageEffect = "mini_pekka_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "mini_pekka_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_mini_pekka.sc"
+HealthBar = "Medium"
+HitSpeed = 1600
+Hitpoints = 1300
+LoadTime = 1100
+LoopingFilter = "filter_super_lava_hound"
+Mass = 4
+MoveEffect = "mini_pekka_steps"
+Name = "SuperMiniPekka"
+PrestigeExportName2 = "minipekka_prestige"
+PrestigeSWF = "sc/chr_prestige5_dl.sc"
+Projectile = "SuperMiniPekkaHit"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 800
+Rarity = "Legendary"
+RedExportName = "minipekka_red"
+Scale = 130
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnCharacter = "SuperMiniPekkaPancakes"
+SpawnEffect = "supermini_pekka_deploy"
+SpawnNumber = 1
+SpawnPauseTime = 3000
+SpawnStartTime = 1000
+Speed = 90
+TID = "TID_SPELL_MINIPEKKA"
+UseAnimator = true
+
+[PROJECTILE.SuperMiniPekkaHit]
+Damage = 99999
+DeflectBehaviour = "NoDeflect"
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+HitEffect = "mega_minion_hit"
+Homing = true
+Name = "SuperMiniPekkaHit"
+OnlyEnemies = true
+Rarity = "Legendary"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 3000
+
+[BUILDING.SuperMiniPekkaPancakes]
+AttacksAir = true
+AttacksGround = true
+AvoidCountingForBuffAmountStats = true
+BlueExportName = "pancake_blue"
+CollisionRadius = 450
+DeathAreaEffect = "SuperMiniPekkaPancakesHeal"
+DeathEffect = "pancake_explode"
+DeployTime = 1000
+FileName = "sc/building_pancakes.sc"
+IsBuilding = true
+Name = "SuperMiniPekkaPancakes"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Rare"
+RedExportName = "pancake_red"
+Scale = 70
+SpawnEffect = "pancake_drop"
+TID = "TID_BUILDING_GIANT_SKELETON_BOMB"
+
+[AEO.SuperMiniPekkaPancakesHeal]
+Buff = "SuperMiniPekkaPancakesHeal"
+BuffTime = 1000
+Filter = "friendly_troop_no_buildings"
+HitSpeed = 0
+LifeDuration = 1000
+Name = "SuperMiniPekkaPancakesHeal"
+Radius = 2500
+Rarity = "Rare"
+ScaledEffect = "HealSpirit_burst_blue"
+
+[BUFF.SuperMiniPekkaPancakesHeal]
+EnableStacking = true
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 100
+HitFrequency = 250
+Name = "SuperMiniPekkaPancakesHeal"
+Rarity = "Rare"
+
+
+

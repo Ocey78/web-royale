@@ -1,0 +1,96 @@
+
+[CHARACTER.SuperArcher]
+AttackPushBack = 1000
+AttackStartEffect = "ArcherAttackStart"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "archer1"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "ArcherDie"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_archer.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -10
+HitSpeed = 2000
+Hitpoints = 580
+LoadTime = 1500
+LoopingFilter = "filter_super_lava_hound"
+Mass = 3
+MoveEffect = "ArcherSteps"
+Name = "SuperArcher"
+PrestigeExportName2 = "archer_prestige"
+PrestigeSWF = "sc/chr_prestige6_dl.sc"
+Projectile = "SuperArcherChargeArrow"
+ProjectileEffect = "ArcherAttack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 5000
+Rarity = "Legendary"
+RedExportName = "archer1_enemy"
+Scale = 100
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -15
+SightRange = 5500
+SpawnEffect = "ArcherDeploy"
+Speed = 60
+TID = "TID_CHARACTER_ARCHER"
+UseAnimator = true
+
+[PROJECTILE.SuperArcherChargeArrow]
+AoeToAir = true
+AoeToGround = true
+ConstantHeight = 2000
+DeathEffect = "magic_archer_arrow_die"
+DeflectBehaviour = "NoDeflect"
+ExportName = "magic_arrow_projectile_blue"
+FileName = "sc/chr_magic_archer_dl.sc"
+HitEffect = "cannon_hit"
+HomingMinDistance = 5000
+HomingTime = 100
+Name = "SuperArcherChargeArrow"
+OnlyEnemies = true
+ProjectileRadius = 250
+ProjectileRange = 10000
+ProjectileStartExtraRadius = 400
+Radius = 250
+Rarity = "Legendary"
+RedExportName = "magic_arrow_projectile_red"
+ShadowExportName = "magic_arrow_projectile_blue"
+ShakesTargets = true
+SpawnAreaEffectObject = "SuperArcherChargePull"
+Speed = 400
+TrailEffect = "MagicArrowProjectile_blue"
+
+[AEO.SuperArcherChargePull]
+Buff = "SuperArcherTornado"
+BuffTime = 500
+ControlsBuff = true
+FollowBehaviour = "FollowParent"
+HitSpeed = 50
+LifeDuration = 1050
+Name = "SuperArcherChargePull"
+Filter = "CommonAreaDamageFilter"
+Radius = 3000
+Rarity = "Legendary"
+ScaledEffect = "SuperArcher_Spell_tornado_deploy"
+StayAfterParentDies = true
+
+[BUFF.SuperArcherTornado]
+AttractMaxAngle = 90
+AttractMinAngle = 0
+AttractPercentage = 450
+ControlledByParent = true
+CrownTowerDamagePercent = -50
+DamagePerSecond = 200
+EnableStacking = true
+HitFrequency = 500
+Name = "SuperArcherTornado"
+PushSpeedFactor = 120
+Rarity = "Legendary"
+
+

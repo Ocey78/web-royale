@@ -1,0 +1,54 @@
+[BUILDING.Event_HolidayFeast_Pancake]
+    Rarity = "Common"
+    Hitpoints = 586
+    Lifetime = 999999
+    IsBuilding = true
+    FileName = "sc/building_pancakes.sc"
+    BlueExportName = "pancake_idle"
+    RedExportName = "pancake_idle"
+    DeathEffect = "pancake_explode"
+    SpawnEffect = "pancake_drop"
+    ShadowScaleX = 100
+    ShadowScaleY = -90
+    ShadowX = -8
+    ShadowY = 15
+    ShadowSkew = -15
+    Scale = 110
+    CollisionRadius = 1000
+    DamageExportName = "filter_damage_wobble"
+    HealOnMorph = true
+    DeathSpawnDeployBaseAnim = "filter_deploy_unit_miner"
+    DeathSpawnCharacter = "Event_HolidayFeast_Pancake_Object"
+    DeathSpawnAllowOverRiver = true
+    CapturableBuilding = true
+    SightRangeForCharacters = 4000
+
+[BUILDING.Event_HolidayFeast_Pancake_Object]
+    Rarity = "Common"
+    IsBuilding = true
+    DeployTime = 500
+    Scale = 100
+    DeathAreaEffect = "Event_HolidayFeast_AEO"
+
+[AEO.Event_HolidayFeast_AEO]
+	Rarity="Common"
+	LifeDuration=800
+	Radius=40000
+    LoopingEffect="Global_Healing"
+    HitSpeed=500
+    Buff = "Event_increase_level_buff"
+    BuffTime=800
+    CapBuffTimeToAreaEffectTime=true
+    Filter="friendly_troop"
+
+[BUFF.Event_increase_level_buff]
+    Rarity = "Common"
+    DamagePerSecond = 0
+    OnStartAction = "Event_increase_level_action"
+    EnableStacking = true
+    NoEffectToCrownTowers = true
+
+[ACTION.Event_increase_level_action]
+    ClassType = "ActionSetCharacterLevel"
+    RelativeLevelAdjustmentExpression = "1"
+    

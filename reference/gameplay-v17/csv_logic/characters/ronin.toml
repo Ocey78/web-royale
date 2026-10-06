@@ -1,0 +1,145 @@
+[CHARACTER.Ronin]
+Rarity = "Common"
+SightRange = 5500
+DeployTime = 1000
+Speed = 90
+Hitpoints = 695
+HitSpeed = 1300
+LoadTime = 900
+Damage = 145
+Range = 1200
+AttacksGround = true
+CollisionRadius = 600
+Mass = 6
+OnStartingClientActions = ["Healthbar_Medium"]
+HideHealthbar = true
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+PrefabAsset = "sc3d/characters/ronin_vanilla/chr_prefab_ronin_battle"
+UseAnimator = true
+DamageEffect = "vfx_ronin_hit"
+DeathEffect = "vfx_ronin_die"
+MoveEffect = "vfx_ronin_step_ink"
+SpawnEffect = "vfx_ronin_deploy"
+ShadowScaleX = 100
+ShadowScaleY = 100
+ShadowY = -10
+ShadowSkew = 35
+Scale = 100
+DamageExportName = "filter_damage"
+AttackStartEffect = ""
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+TID = "TID_CHARACTER_RONIN"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+OnStartingAction = "ronin_reflect_group"
+StatsTags.Damage = "damage"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Speed = "speed"
+StatsTags.HitSpeed = "hit_speed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+[ACTION.ronin_reflect_group]
+	ClassType = "ActionGroup"
+	SubActions = ["ronin_parry", "ronin_cooldown_effect"]
+	SubActionsDelay = [0, 0]
+	ContextMode = "Create"
+[ACTION.ronin_cooldown_effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_ronin_cooldown"
+	EffectFlags = "FollowParent, Looping"
+	PauseIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.ronin_cooldown_tag]
+	ClassType = "ActionWithDuration"
+ActionDuration = 3500
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.ronin_parry]
+	ClassType = "ActionCounter"
+Cooldown = 3500
+	DeployActive = true
+	SelfAction = "ronin_counter_self_group"
+	InstigatorAction = "ronin_reflect_target_group"
+	DamageKey = "damage"
+	DefenseScalar = 0
+    IncludedFilter = "ronin_parry_included"
+	StatsTags.Cooldown = "parry_cooldown"
+[FILTER.ronin_parry_included]
+    MatchTeamEnemy = true
+    MatchTypeCharacters = true
+    IncludeCharactersWithData = ["ThreeMusketeer_Rework_Character_1", "ThreeMusketeer_Rework_Character_2", "ThreeMusketeer_Rework_Character_3"]
+[ACTION.ronin_counter_self_group]
+	ClassType = "ActionGroup"
+	SubActions = ["ronin_play_deflect_animation", "ronin_cooldown_tag"]
+	SubActionsDelay = [0, 0]
+[ACTION.ronin_play_deflect_animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	CustomStateNumber = 1
+	PointToInstigator = true
+	PlaybackDuration = 500
+	ForcedDuration = 500
+[ACTION.ronin_reflect_target_group]
+	ClassType = "ActionGroup"
+	SubActions = ["ronin_reflect_stun", "ronin_reflect_damage", "ronin_reflect_vfx"]
+	SubActionsDelay = [50, 300, 150]
+	ContextMode = "Inherit"
+[ACTION.ronin_reflect_damage]
+	ClassType = "ActionTakeDamage"
+	Damage = { BaseDamage = 0, Flags = "Reflected,NoScaling" }
+    AddedDamage = "as_int(#damage) * 2"
+[ACTION.ronin_reflect_vfx]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_ronin_hit_reflect"
+[ACTION.ronin_reflect_stun]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "ronin_reflect_stun_buff"
+	SpawnTime = 500
+[BUFF.ronin_reflect_stun_buff]
+	Rarity = "Common"
+	HitSpeedMultiplier = -95
+	SpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_cold"
+[STATS.ronin]
+	[[STATS.ronin.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.ronin.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.ronin.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.ronin.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.ronin.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.ronin.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.ronin.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.ronin.stats]]
+		Value = "parry_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_PARRY_COOLDOWN"
+		Icon = "icons_stats_cooldown"

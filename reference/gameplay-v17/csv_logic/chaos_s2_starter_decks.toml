@@ -1,0 +1,12 @@
+[PREDEFINEDDECK.Chaos_S2_StarterDeck_ForestGang]
+Spells = ["Ronin", "Assassin", "Firecracker", "Rascals", "Tesla", "SuspiciousBush", "Hunter", "Arrows"]
+SpellLevel = [1, 1, 1, 1, 1, 1, 1, 1]
+SupportCards = ["King_PrincessTowers"]
+SupportCardLevel = [1]
+TID = "TID_CHAOS_S2_DECK_FOREST_GANG"
+[PREDEFINEDDECK.Chaos_S2_StarterDeck_RedKing]
+Spells = ["Pekka", "MegaKnight", "DarkPrince", "InfernoTower", "Fireball", "Musketeer", "ElectroWizard", "Zap"]
+SpellLevel = [1, 1, 1, 1, 1, 1, 1, 1]
+SupportCards = ["King_PrincessTowers"]
+SupportCardLevel = [1]
+TID = "TID_CHAOS_S2_DECK_RED_KING"

@@ -1,0 +1,52 @@
+
+[CHARACTER.MegaMinion]
+AttackStartEffect = "royal_minion_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "mega_minion"
+CollisionRadius = 600
+DamageExportName = "filter_damage"
+DeathEffect = "royal_minion_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_mega_minion.sc"
+FlyingHeight = 1500
+HealthBar = "Medium"
+HitSpeed = 1500
+Hitpoints = 327
+LoadTime = 1100
+Mass = 6
+MoveEffect = "royal_minion_steps"
+Name = "MegaMinion"
+PrestigeExportName2 = "mega_minion_prestige"
+PrestigeSWF = "sc/chr_prestige5_dl.sc"
+Projectile = "MegaMinionSpit"
+ProjectileEffect = "royal_minion_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1600
+Rarity = "Common"
+RedExportName = "mega_minion_red"
+Scale = 110
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "royal_minion_deploy"
+Speed = 60
+TID = "TID_CHARACTER_MEGAMINION"
+UseAnimator = true
+
+[PROJECTILE.MegaMinionSpit]
+Damage = 122
+ExportName = "projectile_cannonball_small"
+FileName = "sc/effects.sc"
+HitEffect = "mega_minion_hit"
+Homing = true
+Name = "MegaMinionSpit"
+OnlyEnemies = true
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1000
+
+

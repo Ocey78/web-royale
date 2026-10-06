@@ -1,0 +1,20 @@
+[SPELL_HERO.BarbLog_hero]
+    CardForm = "HeroForm"
+	Stats = "barblog_hero"
+    HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_barbarian_barrel/hero_prefab_barbarian_barrel_collection"
+	IconSWF                 = "sc/ui_card_barbarian_barrel_hero.sc"
+	IconFile                = "barbarian_barrel_hero_card"
+	Projectile = "BarbLogHeroProjectile"
+    LinkedChampionCharacter = "BarbLogBarbarianHero"
+	IndicatorFileName       = "sc/chr_barbarian_barrel_hero.sc"
+	IndicatorEffect         = "vmc_barbarian_barrel_hero_deploy_indicator"
+	IndicatorPrestigeSWF    = ""
+	IndicatorPrestigeExportName = ""
+	IndicatorPrestigeExportName2 = ""
+    HideRadiusIndicator = true
+    TargetIndicatorType = "BarbBarrelHero"
+	TID_INFO                = "TID_SPELL_INFO_HERO_BARBARIAN_LOG"
+
+[SPELL_OTHER.BarbLog]
+    EvolvedSpells = ["BarbLog_hero"]

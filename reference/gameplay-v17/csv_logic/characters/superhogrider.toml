@@ -1,0 +1,209 @@
+
+[CHARACTER.SuperHogRider]
+AttackStartEffect = "hog_rider_attack_start"
+AttacksGround = true
+BlueExportName = "hog_rider"
+CollisionRadius = 600
+Damage = 265
+DamageEffect = "hog_rider_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "hog_rider_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_hog_rider.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -15
+HitSpeed = 1600
+Hitpoints = 1400
+JumpEnabled = true
+JumpHeight = 4000
+JumpSpeed = 160
+LandingEffect = "hog_rider_landing"
+LoadTime = 1000
+LoopingFilter = "filter_super_lava_hound"
+Mass = 4
+MoveEffect = "hog_rider_steps"
+Name = "SuperHogRider"
+PrestigeExportName2 = "hog_rider_prestige"
+PrestigeExportName3 = "hog_rider_prestige2"
+PrestigeSWF = "sc/chr_prestige4_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 800
+Rarity = "Legendary"
+RedExportName = "hog_rider_red"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightClip = 4000
+SightClipSide = 4000
+SightRange = 9500
+SpawnCharacter = "SantaPresent"
+SpawnEffect = "superhog_rider_deploy"
+SpawnNumber = 1
+SpawnPauseTime = 4000
+SpawnStartTime = 3000
+Speed = 120
+TID = "TID_SPELL_HOG_RIDER"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+[BUILDING.SantaPresent]
+BlueExportName = "Present_Santa"
+BoostItems = ["SantaPresentBoostClone", "SantaPresentBoostHeal", "SantaPresentBoostInvisibility", "SantaPresentBoostRage"]
+DeathAreaEffect = "BoostInvisibilityBottle"
+DeployTime = 1000
+FileName = "sc/building_present_santa.sc"
+IsBuilding = true
+Name = "SantaPresent"
+Rarity = "Epic"
+RedExportName = "Present_Santa_Enemy"
+Scale = 100
+
+[AEO.BoostInvisibilityBottle]
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "friendly_troop"
+HitSpeed = 300
+LifeDuration = 10000
+Name = "BoostInvisibilityBottle"
+Radius = 1000
+Rarity = "Epic"
+ScaledEffect = "boost_invisibility_continuous"
+
+[BUFF.DummyCollisionBoostEpic]
+Name = "DummyCollisionBoostEpic"
+Rarity = "Epic"
+
+[BUILDING.InvisibilityBottle]
+BlueExportName = "rage_bottle_fall"
+DeathAreaEffect = "InvisibilityArea"
+DeathEffect = "rage_bottle_explode"
+DeployTime = 500
+FileName = "sc/building_rage_bottle.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "InvisibilityBottle"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Rarity = "Epic"
+RedExportName = "rage_bottle_fall"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+
+[AEO.InvisibilityArea]
+Buff = "InvisibilityTemp"
+BuffTime = 3000
+Filter = "friendly_troop_no_buildings"
+LifeDuration = 1000
+Name = "InvisibilityArea"
+Radius = 3000
+Rarity = "Epic"
+ScaledEffect = "spell_clone_ground"
+SpawnDeployBaseAnim = "filter_hologram"
+
+[BUFF.InvisibilityTemp]
+ContinuousEffect = "ghost_aura"
+FilterExportName = "filter_invisible"
+FilterFile = "sc/effects.sc"
+Invisible = true
+Name = "InvisibilityTemp"
+Rarity = "Epic"
+ShadowAlpha = 20
+
+
+[AEO.SantaPresentBoostClone]
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "friendly_troop"
+HitSpeed = 300
+LifeDuration = 10000
+LoopingEffect = "santa_present"
+Name = "SantaPresentBoostClone"
+Radius = 1000
+Rarity = "Epic"
+
+[BUILDING.CloneBottle]
+BlueExportName = "rage_bottle_fall"
+DeathAreaEffect = "Clone"
+DeathEffect = "rage_bottle_explode"
+DeployTime = 500
+FileName = "sc/building_rage_bottle.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "CloneBottle"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Rarity = "Common"
+RedExportName = "rage_bottle_fall"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+
+
+[AEO.SantaPresentBoostHeal]
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "friendly_troop"
+HitSpeed = 300
+LifeDuration = 10000
+LoopingEffect = "santa_present"
+Name = "SantaPresentBoostHeal"
+Radius = 1000
+Rarity = "Epic"
+
+[BUILDING.HealBottle]
+BlueExportName = "rage_bottle_fall"
+DeathAreaEffect = "Heal"
+DeathEffect = "rage_bottle_explode"
+DeployTime = 500
+FileName = "sc/building_rage_bottle.sc"
+IsBuilding = true
+Name = "HealBottle"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Rarity = "Epic"
+RedExportName = "rage_bottle_fall"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+
+[AEO.Heal]
+Buff = "Heal"
+BuffTime = 500
+Filter = "friendly_troop_no_buildings"
+HitSpeed = 50
+LifeDuration = 2000
+Name = "Heal"
+Radius = 4000
+Rarity = "Rare"
+ScaledEffect = "Healing"
+
+[BUFF.Heal]
+EnableStacking = true
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 37
+HitFrequency = 500
+Name = "Heal"
+Rarity = "Rare"
+
+[AEO.SantaPresentBoostInvisibility]
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "friendly_troop"
+HitSpeed = 300
+LifeDuration = 10000
+LoopingEffect = "santa_present"
+Name = "SantaPresentBoostInvisibility"
+Radius = 1000
+Rarity = "Epic"
+
+[AEO.SantaPresentBoostRage]
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "friendly_troop"
+HitSpeed = 300
+LifeDuration = 10000
+LoopingEffect = "santa_present"
+Name = "SantaPresentBoostRage"
+Radius = 1000
+Rarity = "Epic"

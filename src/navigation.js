@@ -92,7 +92,7 @@ function travelPermission(u){return {air:!!u.air,water:!!(u.air||u.def.hover||u.
 class Navigator{
  constructor(){this.signature='';this.obstacles=[];this.solids=[];this.revision=0;this.sampleTime=-1;this.searches=0;}
  refresh(b){if(this.sampleTime===b.time)return;this.sampleTime=b.time;const structures=[];for(const collection of [b.towers,b.units])for(const u of collection)if(u.building&&!u.effectCarrier&&!u.attachedTo&&b.isPresent(u))structures.push(u);const signature=structures.map(u=>u.id+':'+u.x+':'+u.y).join('|');this.solids=structures;if(signature!==this.signature){this.signature=signature;this.revision++;this.obstacles=structures.map(u=>({id:u.id,x:u.x/b.constructor.SX,y:u.y/b.constructor.SY,radius:u.def.radiusTiles}));}}
- next(b,u,t,intent=null){this.refresh(b);const SX=b.constructor.SX,SY=b.constructor.SY,start={x:u.x/SX,y:u.y/SY},target={x:t.x/SX,y:t.y/SY,radius:t.def?.radiusTiles||0},r=u.def.radiusTiles,free=travelPermission(u),reach=u.def.range+r+target.radius;
+ next(b,u,t,intent=null){this.refresh(b);const SX=b.constructor.SX,SY=b.constructor.SY,start={x:u.x/SX,y:u.y/SY},target={x:t.x/SX,y:t.y/SY,radius:t.def?.radiusTiles||0},r=u.def.radiusTiles,free=travelPermission(u),reach=(b.attackRange?.(u)??u.def.range)+r+target.radius;
   const obstacles=u.building?this.obstacles.filter(o=>o.id!==u.id):this.obstacles;const d=length(start,target);if(d<=reach-EPS)return null;
   if(!pointClear(start,r,obstacles,free)){let recovery=u.navRecovery;if(!recovery||!recovery.point||recovery.revision!==this.revision||!pointClear(recovery.point,r,obstacles,free))recovery=u.navRecovery={revision:this.revision,point:nearestClearPoint(start,r,obstacles,free,{x:0,y:u.team?1:-1})};u.navPath=null;return recovery.point;}u.navRecovery=null;
   // Lane preference selects the Crown in targetDecision; it is not a mandatory
@@ -101,7 +101,7 @@ class Navigator{
   // bodies still use the swept, radius-aware route below for terrain/buildings.
   const stop=Math.max(r+target.radius+.04,reach-.015),direct={x:target.x+(start.x-target.x)*stop/d,y:target.y+(start.y-target.y)*stop/d};
   if(segmentClear(start,direct,r,obstacles,free)){u.navPath=null;return direct;}
-  let state=u.navPath;if(!state||state.revision!==this.revision||state.targetId!==t.id||length(target,state.target)>.8||b.time>=state.expires){this.searches++;state=u.navPath={revision:this.revision,targetId:t.id,target,expires:t.building?Infinity:b.time+.65,path:route(start,target,r,reach,obstacles,free)};if(!state.path.length)state.expires=b.time+.25;}
+  let state=u.navPath;if(!state||state.revision!==this.revision||state.targetId!==t.id||state.reach!==reach||length(target,state.target)>.8||b.time>=state.expires){this.searches++;state=u.navPath={revision:this.revision,targetId:t.id,target,reach,expires:t.building?Infinity:b.time+.65,path:route(start,target,r,reach,obstacles,free)};if(!state.path.length)state.expires=b.time+.25;}
   // A bridge approach can have zero spare clearance. Being 0.04 tiles
   // from a corner is NOT equivalent to reaching it: only skip it if the
   // complete next segment remains clear from the actor's real position.

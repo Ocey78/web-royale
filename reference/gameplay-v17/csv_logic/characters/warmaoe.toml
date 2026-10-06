@@ -1,0 +1,29 @@
+
+[AEO.WarmAOE]
+Buff = "WarmUp"
+BuffTime = 1000
+HitSpeedOffset = 500
+HitSpeed = 500
+Filter = "friendly_troop"
+LifeDuration = 1000
+Name = "WarmAOE"
+Radius = 4000
+Rarity = "Common"
+ScaledEffect = "WarmUp_Effect"
+
+[BUFF.WarmUp]
+EnableStacking = true
+FilterExportName = "filter_heal"
+FilterFile = "sc/effects.sc"
+HealPerSecond = 10
+HitFrequency = 550
+Name = "WarmUp"
+NoEffectToCrownTowers = true
+OnStartAction = "WarmUpAction"
+Rarity = "Common"
+
+[ACTION.WarmUpAction]
+ActionDuration = 100
+ClassType = "ActionWithDuration"
+GameTagsToSet = "STOP_FREEZE"
+

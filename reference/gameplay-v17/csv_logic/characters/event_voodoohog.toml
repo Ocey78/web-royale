@@ -1,0 +1,58 @@
+
+[CHARACTER.Event_VoodooHog]
+AttackStartEffect = "mow_hog_attack_start"
+AttacksGround = true
+BlueExportName = "hog"
+CollisionRadius = 600
+Damage = 44
+DamageEffect = "mow_hog_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "mow_hog_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 200
+FileName = "sc/chr_mother_witch_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -15
+HitSpeed = 1200
+Hitpoints = 520
+IgnoreBuff = ["Event_Global_VoodooCurse"]
+JumpEnabled = true
+JumpHeight = 4000
+JumpSpeed = 160
+LandingEffect = "mow_hog_landing"
+LoadTime = 950
+Mass = 2
+MoveEffect = "mow_hog_steps"
+Name = "Event_VoodooHog"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 750
+Rarity = "Champion"
+RedExportName = "hog_red"
+Scale = 85
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightClip = 4000
+SightClipSide = 4000
+SightRange = 9500
+SpawnEffect = "mow_hog_deploy"
+Speed = 120
+TID = "TID_SPELL_HOG"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+
+[BUFF.Event_Global_VoodooCurse]
+DeathSpawn = "Event_VoodooHog"
+DeathSpawnCount = 1
+DeathSpawnDeployDelay = true
+DeathSpawnIsEnemy = true
+FilterExportName = "filter_mw_curse"
+FilterFile = "sc/effects.sc"
+IgnoreBuildings = true
+Name = "Event_Global_VoodooCurse"
+Rarity = "Champion"
+

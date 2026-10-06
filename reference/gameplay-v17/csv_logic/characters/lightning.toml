@@ -1,0 +1,26 @@
+
+[AEO.Lightning]
+HitBiggestTargets = true
+HitSpeedOffset = 500
+HitSpeed = 500
+LifeDuration = 1500
+Name = "Lightning"
+Filter = "CommonAreaDamageFilter"
+Projectile = "LighningSpell"
+ProjectileStartHeight = 10
+Radius = 3500
+Rarity = "Common"
+OneHitPerTarget = true
+MaximumTargets = 1
+
+[PROJECTILE.LighningSpell]
+BuffTime = 500
+CrownTowerDamagePercent = -75
+Damage = 413
+DeflectBehaviour = "NoDeflect"
+HitEffect = "Spell_lightning_effect"
+Name = "LighningSpell"
+OnlyEnemies = true
+Rarity = "Common"
+Speed = 500
+TargetBuff = "ZapFreeze"

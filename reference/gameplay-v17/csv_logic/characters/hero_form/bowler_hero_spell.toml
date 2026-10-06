@@ -1,0 +1,20 @@
+[SPELL_HERO.Bowler_hero]
+	SummonCharacter         = "BowlerHero"
+	CardForm                = "HeroForm"
+	Stats                   = "bowler_hero"
+	IconSWF                 = "sc/ui_card_bowler_hero.sc"
+	IconFile                = "bowler_hero_card"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero_large"
+	HighresImageFilename    = "sc3d/characters/hero/hero_bowler/hero_prefab_bowler_collection"
+	UnlockArena             = "Arena13"
+	Rarity                  = "Epic"
+	Tribe                   = []
+	ManaCost                = 5
+	PrestigeCount           = 2
+	Effect                  = "CharacterDeploy"
+	OnlyOwnTroops           = true
+	TID                     = "TID_SPELL_BOWLER"
+	TID_INFO                = "TID_SPELL_INFO_HERO_BOWLER"
+	PveDefenseType          = "Defender"
+[SPELL_CHARACTER.Bowler]
+	EvolvedSpells = ["Bowler_hero"]

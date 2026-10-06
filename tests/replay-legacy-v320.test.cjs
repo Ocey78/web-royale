@@ -69,7 +69,7 @@ test('browser loading keeps current and all historical engine globals isolated',
  assert.equal(context.RoyaleLegacyCore028,Legacy028);
  assert.equal(context.RoyaleLegacyCore030,Legacy030);
  assert.notEqual(context.RoyaleLegacyCore031.Battle,Current.Battle);
- assert.equal(context.RoyaleReplay.ENGINE,'0.52');
+ assert.equal(context.RoyaleReplay.ENGINE,'0.53');
  const record=require('./fixtures/replay-v031/boat.json'),session=new context.RoyaleReplay.Session(record);
  assert.ok(session.battle instanceof context.RoyaleLegacyCore031.Battle);
  session.seek(record.duration);

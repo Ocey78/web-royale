@@ -1,0 +1,64 @@
+"Name","Description","Note"
+"String","String","String"
+"MOVING",,
+"JUMPING",,
+"DASHING",,"Implemented"
+"CHARGING",,"Implemented"
+"PATHFINDING",,
+"ATTACKING",,
+"NO_MOVE",,"Implemented"
+"NO_JUMP",,
+"NO_DASH",,
+"NO_CHARGE",,
+"NO_ATTACK",,"Implemented"
+"NO_TARGET",,
+"LOCK_TARGET",,
+"NO_SPAWNTIMER","Equivalent to ModifySpawnTimer, back compatibility tag, it will be removed","Implemented"
+"NO_CHECKCOLLISIONS","Disable MoveComponent check collisions","Implemented"
+"NO_CHECKAVOIDANCE","Disable MoveComponent check avoidance","Implemented"
+"NO_BUFFS","New buffs are ignored","Implemented"
+"NO_PUSHED_BY_ENEMY","Unit is not pushed by enemies (only walking ground units)","Implemented"
+"NO_SHADOW","If the tag is active the character will not have a shadow (temp tag?)","Implemented"
+"STOP_FREEZE","If the tag is active Global Freeze is disabled (event December 2023)",
+"INACTIVE","Character is not activated and will not attack, (eg king tower)",
+"ACTIVATING","Character is in process of activating, will not yet attack but will play activation animation",
+"HAS_SHIELD","Character has all or some shield hitpoints left","Implemented"
+"TAKING_DAMAGE","Character did take damage in the previous tick","Implemented"
+"HIDDEN","Character is hidden","Functional, but not used in all cases. Implemented when character is captured by evo cards"
+"ABILITY_DISABLED","Executing champion ability is completely disabled and the button is greyed out.","Functional, but not used in all cases. Implemented when character is captured by evo cards"
+"BUILDING_DEATH_SPAWN_FIND_LOCATION","If this character has a death spawn, it will need to find a location for itself. Used for better positioning","Implemented"
+"ABILITY_ACTIVATION","Play ability activation animation","Implemented"
+"ABILITY_READY","Play ability ready animation","Implemented"
+"ABILITY_POSTPONED","Executing champion ability is currently postponed until the tag is no longer set.","Implemented"
+"UNIT_CUSTOM_TAG_1","Used for very specific and contained cases","In use by only 1 evo. Should be replaced by blackboard eventually. Used by 1 champion also"
+"NO_SUMMON","Character can not summon others (does not affect death spawns)","Implemented for evo cards"
+"SUPERKNIGHT_SHIELD_ON","Shield AEO is on",
+"SPAWNED_PEKKA","Spawn Melee Event, When Pekka is spawned to set tag for Mega knight",
+"SPAWNED_MK","Spawn Melee Event, When Mega knight is spawned to set tag for Pekka",
+"NO_SPECIAL_ATTACK","Character is not allowed to use their special attack while this is active","Implemented"
+"DEFLECTING_PROJECTILES","Character is deflecting projectiles","Implemented"
+"HAS_CAPTURE","Character has captured another character","Implemented"
+"COMBAT_DISABLED","Character's combat component is disabled for any reason","Implemented"
+"FORCE_IS_GROUND","Character is forced to be a ground unit for the duration","Implemented"
+"NO_PUSHBACK","No pushbacks are allowed to this unit","Implemented, note: forced pushbacks still go through"
+"NO_DAMAGE","Game object doesnt suffer any damage","Implemented, note: flag returns false on LogicHitpointComponent::takeDamage function"
+"GIANTBUFFER_ENCHANTMENT",,
+"NO_GIANTBUFFER_CHEF_ENCHANTMENT","Used to filter units that can’t be enchanted by GiantBuffer or Chef (maybe generalize later)",
+"FORCE_IS_AIR","Character is forced to be a air (ie flying) troop for the duration","Implemented"
+"CAPTURED","Character is captured by LogicActionCaptureCharacter","Implemented"
+"DISABLE_PHYSICAL_INTERACTIONS_WITH_OBJECTS","Character's collisions and avoidance with other game objects is disabled","Implemented"
+"FURNACE_STOP_QUICK_SPAWN","Used to signal furnace evolution to stop its quick spawn",
+"FURNACE_DELAY_NORMAL_SPAWN","Used to signal furnace evolution to delay its normal spawn",
+"ABILITY_CASTED","Set when a champion/hero card cast the ability. Only set on the exact same tick of the cast",
+"CASTING_ABILITY","Enabled while character is in ability casting state, ie has started the cast"
+"UNTARGETABLE","This is make the object not beeing a valid target to other objects"
+"NO_PUSHED_BY_ALLY","Unit is not pushed by allies (only walking ground units)","Implemented"
+"AVOIDANCE_AS_OBSTACLE","Unit behaves in avoidance checks as if it had no movement component, but they can still be pushedback by unchecked pushbacks","Implemented"
+"ABILITY_COOLDOWN_PAUSED","While active champion ability cooldown is not ticked down / will not progress","Implemented"
+"WARP","Active while game object is warping at a constant speed.","Implemented"
+"NO_CLONE","While active this object cant be cloned","Implemented"
+"NO_MOVE_ALLOW_ATTRACT","While unit will not move on it's own but can still be affected by things like tornado","Implemented"
+"SKELETROOPER_HIT","Temporary data-only tag to control skeletrooper target indicator",
+"ABILITY_PENDING","Ability is pending and waiting for manual activation.","Implemented"
+"UNKILLABLE","Character is not able to be reduced below 1 health","Implemented"
+"IGNORE_RANGE_EXTENSION_TO_KEEP_TARGET","LogicCombatComponent will ignore the extra ruberband margin to keep target","Implemented"

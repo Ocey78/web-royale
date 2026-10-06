@@ -1,0 +1,284 @@
+[EXT.EliteArcherHero]
+	Base = "CHARACTER.EliteArcher"
+	Rarity = "Common"
+	Ability = "EliteArcherHero_Ability"
+	Projectile = "EliteArcherHero_arrow_projectile"
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	AttackSequenceMode = "None"
+	AttackSequence = [0,1]
+	OnAttackSelfAction = "EliteArcherHero_Set_Attack_Sequence_0"
+	PrefabAsset = "sc3d/characters/hero/hero_magic_archer/hero_prefab_magicarcher_battle"
+	SpawnEffect = "vfx_magicarcher_hero_deploy"
+	DeathEffect="vfx_magicarcher_hero_die"
+	ProjectileEffect = "vfx_magicarcher_hero_muzzle"
+	ProjectileStartRadius = 2000
+	StatsTags.Hitpoints = "hitpoints"
+    StatsTags.Damage = "ranged_damage"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+[[CHARACTER.EliteArcherHero.AttackSequenceList]]
+	Projectile = "EliteArcherHero_arrow_projectile"
+[[CHARACTER.EliteArcherHero.AttackSequenceList]]
+	Projectile = "EliteArcherHero_Ability_Power_Shot_Projectile_Middle"
+	
+[ACTION.EliteArcherHero_Set_Attack_Sequence_0]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 0
+	SetEvenIfCombatDisabled = true
+[ACTION.EliteArcherHero_Set_Attack_Sequence_1]
+	ClassType = "ActionSetAttackSequenceIndex"
+	AttackIndex = 1
+	SetEvenIfCombatDisabled = true
+[EXT.EliteArcherHero_arrow_projectile]
+	Base = "PROJECTILE.EliteArcherArrow"
+	StatsTags.ProjectileRange = "projectile_range"
+	FileName = "sc/chr_magic_archer_hero.sc"
+	ExportName = "vmc_magicarcher_hero_projectile_arrow"
+	RedExportName = "vmc_magicarcher_hero_projectile_arrow"
+	Scale = 40
+	ShadowExportName = "vmc_magicarcher_hero_projectile_shadow"
+	HitEffect = "vfx_magicarcher_hero_atk_hit_small"
+	DeathEffect = "vfx_magicarcher_hero_arrow_die"
+	TrailEffect = "vfx_magicarcher_hero_arrow_trail"
+	HitEffectFilters = ["EnemyTowersOnly"]
+	FilteredHitEffects = ["vfx_magicarcher_hero_tower_hit"]
+	FilteredHitEffectOnlyIfNotShootersTarget = true
+	MinimumLengthForVisualAngleCalculation = 10
+	InitialCollisionCheckFilter = "areadamage_filter"
+[EXT.EliteArcherHero_Ability_Triple_Shot_Projectile]
+	Base = "PROJECTILE.EliteArcherHero_arrow_projectile"
+	Radius = 1000
+	ProjectileRadius = 1000
+	ProjectileRange = 13500
+	FilteredHitEffectOnlyIfNotShootersTarget = false
+HomingTime = 0
+HomingMinDistance = 0
+	InitialCollisionCheckFilter = "areadamage_filter"
+	MinimumLengthForVisualAngleCalculation = 10
+	Damage = 18
+	StatsTags.Damage = "triple_shot_damage"
+	StatsTags.CrownTowerDamage="tower_damage"
+	StatsTags.ProjectileRange = "projectile_range_triple"
+[EXT.EliteArcherHero_Ability_Power_Shot_Projectile_Middle]
+	Base = "PROJECTILE.EliteArcherHero_Ability_Triple_Shot_Projectile"
+Speed = 1100
+	OnStartingAction = "EliteArcherHero_Triple_Shot_Action"
+[ACTION.EliteArcherHero_Triple_Shot_Action]
+	ClassType = "ActionCreateParallelProjectiles"
+	ProjectileType = "EliteArcherHero_Ability_Triple_Shot_Projectile"
+	ProjectileCount = 2
+	ProjectileDistance = 1500
+	StatsTags.ProjectileCountIncludingNormalShot = "triple_shot_projectiles"
+[ABILITY.EliteArcherHero_Ability]
+	TID = "TID_HERO_ELITE_ARCHER_ABILITY"
+	TID_INFO = "TID_HERO_ELITE_ARCHER_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_magic_archer.sc"
+	IconExportName = "ability_icon_magic_archer"
+	IsChampion = true
+	CastTime = 950
+	TriggerDelay = 250
+	ManaCost = 2
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect = "vfx_magicarcher_hero_ability_charging"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OnActivationAction = "EliteArcherHero_Ability_Activation_Group"
+	DeployedEffectAbsolutePositionToParent = true
+	Stats = "elitearcher_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+[ACTION.EliteArcherHero_Enable_Triple_Shot]
+	ClassType = "ActionWithDuration"
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+	ForceStopIfTrue = "ATTACKING"
+	ActionDuration = 7000
+[ACTION.EliteArcherHero_Play_Triple_Shot_Effect]
+	ClassType="ActionPlayEffect"
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1"
+	Effect = "vfx_magicarcher_hero_tripleshot_ready"
+	PrefabAsset = "sc3d/characters/hero/hero_magic_archer/effect/prefabs/ingame/glow_mat_vfx/vfx_glow_mat"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+[CHARACTER.EliteArcherHero_Dummy]
+	Rarity = "Common"
+	TID = "TID_CHARACTER_HERO_ELITE_ARCHER_DUMMY"
+	SightRange = 5500
+	DeployTime = 1000
+Speed = 40
+	Hitpoints = 106
+	HitSpeed = 1000
+	LoadTime = 500
+	Range = 5500
+	AttacksGround = true
+	CollisionRadius = 335
+	Mass = 3
+	HealthBar = "Small"
+	OnStartingClientActions = ["Healthbar_Small"]
+	HideHealthbar = true
+	IgnoreResurrect = true
+	UntargetableWhenSpawned = false
+	IgnoreBuff = [ "VoodooCurse", "GoblinCurse" ]
+	DeployDelay = 400
+	OnStartingAction = "EliteArcherHero_Dummy_Start_Group"
+	GameTagsToSet = "NO_MOVE_ALLOW_ATTRACT, AVOIDANCE_AS_OBSTACLE, NO_GIANTBUFFER_CHEF_ENCHANTMENT, NO_ATTACK"
+	IsOccluder = true
+	UseAnimator = true
+	PrefabAsset = "sc3d/characters/hero/hero_magic_archer/hero_prefab_magicarcher_decoy_battle"
+	DeathEffect = "vfx_magicarcher_hero_die"
+	Scale = 100
+	DamageExportName = "filter_damage"
+	ContinuousEffect = "vfx_magicarcher_hero_dummy_idle"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+   		  FileName = ""
+  		  BlueExportName = ""
+  		  RedExportName = ""
+ 		  PrestigeSWF = ""
+  		  PrestigeExportName2 = ""
+  		  PrestigeExportName3 = ""
+	StatsTags.Hitpoints = "dummy_hitpoints"
+[ACTION.EliteArcherHero_Dummy_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["EliteArcherHero_Dummy_Duration", "EliteArcherHero_Dummy_Hit_Threshold"]
+	SubActionsDelay = [0, 0]
+[ACTION.EliteArcherHero_Dummy_Duration]
+	ClassType = "ActionInterval"
+	Interval = 7000
+	StartCounterAt = 7000
+	ActionToExecute = "EliteArcherHero_Destroy_Dummy"
+	StatsTags.Interval = "dummy_duration"
+[ACTION.EliteArcherHero_Destroy_Dummy]
+	ClassType = "ActionKill"
+[ACTION.EliteArcherHero_Dummy_Hit_Threshold]
+	ClassType = "ActionRunActionOnCallbackWithThreshold"
+	TimeThreshold = 1000
+	TriggerOnParentDamaged = true
+	ActionToRun = "EliteArcherHero_Dummy_Hit_Animation"
+[ACTION.EliteArcherHero_Dummy_Hit_Animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	PlaybackDuration = 0
+[ACTION.EliteArcherHero_Ability_Activation_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["EliteArcherHero_Ability_Spawn_Buff", "EliteArcherHero_Ability_Action", "EliteArcherHero_Ability_Effect", "EliteArcherHero_Ability_Spawn_Dummy", "EliteArcherHero_Set_Attack_Sequence_1", "EliteArcherHero_Enable_Triple_Shot", "EliteArcherHero_Play_Triple_Shot_Effect", "EliteArcherHero_Set_Attack_Sequence_0"]
+	SubActionsDelay = [50, 50, 0, 0, 0, 0, 0, 7000]
+[ACTION.EliteArcherHero_Ability_Spawn_Dummy]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "EliteArcherHero_Dummy"
+	RelativeX = 0
+	RelativeY = 0
+	UseDeploy = true
+	ValidatePlacementAsBuilding = false
+	IsDeathSpawn = false
+[ACTION.EliteArcherHero_Ability_Spawn_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "EliteArcherHero_Ability_Buff"
+	SpawnTime = 100
+	StatsTags.SpawnTime = "invisibility_time"
+[BUFF.EliteArcherHero_Ability_Buff]
+	Rarity = "Common"
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_invisible"
+	Invisible = true
+	ContinuousEffect = ""
+	
+[ACTION.EliteArcherHero_Ability_Action]
+	ClassType = "ActionBossBanditAbility"
+	WarpDelay = 50
+	LockDelay = 0
+	WarpAction = "EliteArcherHero_Ability_Warp"
+	ReleaseLockDelay = 50
+	AllowWarpWhenMovementSpeedZero = true
+	AllowWarpWhenAttackSpeedZero = true
+	
+[ACTION.EliteArcherHero_Ability_Warp]
+	ClassType="ActionWarpCharacter"
+	WarpY = -3500
+	WarpTargetEffect = "vfx_magicarcher_hero_ability_trail"
+	WarpPositionEffect = "vfx_magicarcher_hero_ability_spawn"
+	ResetTarget = true
+	StatsTags.WarpY = "warp_distance"
+	NextAction = "EliteArcherHero_Ability_Warp_Done_Group"
+[ACTION.EliteArcherHero_Ability_Warp_Done_Group]
+	ClassType="ActionGroup"
+	SubActions = ["EliteArcherHero_Ability_Effect_Warp"]
+	SubActionsDelay = [0]
+[ACTION.EliteArcherHero_Ability_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = ""
+[ACTION.EliteArcherHero_Ability_Effect_Warp]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_magicarcher_hero_ability_warp"
+	
+[STATS.elitearcher_hero]
+	[[STATS.elitearcher_hero.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+    [[STATS.elitearcher_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.elitearcher_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.elitearcher_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"        
+	[[STATS.elitearcher_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.elitearcher_hero.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.elitearcher_hero.stats]]
+		Value = "projectile_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_BULLET_RANGE"
+		Icon = "icons_stats_radius"
+[STATS.elitearcher_hero_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.elitearcher_hero_ability.stats]]
+		Value = "dummy_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DUMMY_HITPOINTS"
+		Icon = "icons_stats_hp"
+	[[STATS.elitearcher_hero_ability.stats]]
+		Value = "triple_shot_damage"
+        Value2 = "triple_shot_projectiles"
+		OverrideIntValue2 = 3
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_TRIPLE_SHOT"
+		Icon = "icons_stats_strength"
+	[[STATS.elitearcher_hero_ability.stats]]
+		Value = "projectile_range_triple"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_TRIPLE_SHOT_RANGE"
+		Icon = "icons_stats_radius"
+	[[STATS.elitearcher_hero_ability.stats]]
+		Value = "warp_distance"
+		Unit = "TILES_NOSIGN"
+		TID = "TID_ABILITY_STAT_TELEPORT_RANGE"
+		Icon = "icons_stats_dash_range"
+	[[STATS.elitearcher_hero_ability.stats]]
+		Value = "dummy_duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_DUMMY_DURATION"
+		Icon = "icons_stats_deploy_time"

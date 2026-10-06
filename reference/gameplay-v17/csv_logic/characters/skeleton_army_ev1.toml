@@ -1,0 +1,191 @@
+[SPELL_EVOLVED.SkeletonArmy_EV1]
+	StatsTags.SummonNumber = "skeleton_amount"
+	StatsTags.SummonNumberListOnly = "general_amount"
+[CHARACTER.SkeletonArmy_EV1_General_Base]
+	Rarity = "Common"
+	OnStartingClientActions = ["Healthbar_Small_Evo"]
+	HideHealthbar = true
+	SightRange = 5500
+	DeployTime = 1000
+	Speed = 90
+	Hitpoints = 32
+	ShieldHitpoints = 32
+	HitSpeed = 1000
+	LoadTime = 500
+	Damage = 32
+	Range = 1600
+	AttacksGround = true
+	AttacksAir = false
+	CollisionRadius = 500
+	Mass = 2
+	SpawnRadius = 800
+	ProjectileStartRadius = 350
+	ProjectileStartZ = 350
+	TID = "TID_CHARACTER_SKELETON_ARMY_EV1_GENERAL"
+	DeployDelay = 400
+	GameTagsToSet = "AVOIDANCE_AS_OBSTACLE"
+	UseAnimator = true
+	FileName = "sc/chr_skeleton_army_evolution.sc"
+	Scale = 60
+	BlueExportName = "skeleton_general"
+ 	RedExportName = "skeleton_general_red"
+	BlueShieldExportName = "skeleton_general_shield"
+	RedShieldExportName = "skeleton_general_shield_red"
+	SpawnEffect = "vfx_skeletonarmy_evo_deploy"
+	DamageEffect = "Damage"
+	DeathEffect = "vfx_skeletonarmy_evo_death"
+	MoveEffect = "skeleton_warrior_steps"
+	ShieldLostEffect = "vfx_skeletonarmy_evo_general_lose_shield"
+	ShadowScaleX = 50
+	ShadowScaleY = 50
+	ShadowX = -5
+	ShadowY = 5
+	ShadowSkew = 35
+	HealthBarOffsetYRed = 15
+	HealthBarOffsetYBlue = 15
+	DamageExportName = "filter_damage"
+	AttackStartEffect = "skeleton_warrior_attack_start"
+	
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	CustomSpawnFilter="filter_card_evolution"
+[EXT.SkeletonArmy_EV1_General]
+	Base = "CHARACTER.SkeletonArmy_EV1_General_Base"
+	OnDeathAction = "SkeletonArmy_EV1_Kill_All_Spectrals"
+	ClonedVersion = "SkeletonArmy_EV1_General_Base"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.Speed = "speed"
+	StatsTags.Damage = "damage"
+	StatsTags.Level = "level"
+	StatsTags.ShieldHitpoints = "shield_hitpoints"
+[EXT.SkeletonArmy_EV1_Soldier]
+	Base = "CHARACTER.Skeleton"
+	OnDeathAction = "SkeletonArmy_EV1_Check_General_Alive"
+	DeathEffect = ""
+	ClonedVersion = "Skeleton"
+	OnStartingClientActions = ["Healthbar_Small_Evo"]
+	HideHealthbar = true
+	HealthBarOffsetYRed = -5
+	HealthBarOffsetYBlue = -2
+	
+[EXT.SkeletonArmy_EV1_Spectral]
+	Base = "CHARACTER.SkeletonArmy_EV1_Soldier"
+	OnStartingClientActions = []
+	HideHealthbar = true
+	GameTagsToSet = "NO_DAMAGE"
+	Hitpoints = 1
+	Speed = 60
+	IgnoreClone = true
+	IgnoreResurrect = true
+	ContinuousEffect = "vfx_skeletonarmy_evo_aura"
+	OnStartingAction = "SkeletonArmy_EV1_Spectral_Start_Group"
+	IgnoreBuff = ["GoblinCurse", "VoodooCurse"]
+[ACTION.SkeletonArmy_EV1_Kill_All_Spectrals]
+	ClassType = "ActionRunOnMatchingUnitsInGroup"
+	ObjectFilter = "skeleton_army_spectral"
+	ActionToRun = "SkeletonArmy_EV1_Kill"
+[ACTION.SkeletonArmy_EV1_Kill]
+	ClassType = "ActionKill"
+[ACTION.SkeletonArmy_EV1_Spectral_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["SkeletonArmy_EV1_Spectral_Spawn_Invisibility_Buff", "SkeletonArmy_EV1_Spectral_Continuous_Effect"]
+	SubActionsDelay = [0, 0]
+[ACTION.SkeletonArmy_EV1_Spectral_Spawn_Invisibility_Buff]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "SkeletonArmy_EV1_Spectral_Invisibility_Buff"
+	SpawnTime = 999999
+[ACTION.SkeletonArmy_EV1_Spectral_Continuous_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_skeletonarmy_evo_aura"
+	EffectFlags = ["FollowParent,Looping,ParticlesFollowParent"]
+[ACTION.SkeletonArmy_EV1_Check_General_Alive]
+	ClassType = "ActionRunActionIfUnitGroupContains"
+	ObjectFilter = "skeleton_army_general"
+	Action = "SkeletonArmy_EV1_Spawn_Spectral"
+	ActionIfNoMatch = "SkeletonArmy_EV1_Spawn_Skeleton_Death_Effect"
+[ACTION.SkeletonArmy_EV1_Spawn_Spectral]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "CharacterType"
+    SpawnData = "SkeletonArmy_EV1_Spectral"
+	AddToSourceGroup = true
+[ACTION.SkeletonArmy_EV1_Spawn_Skeleton_Death_Effect]
+	ClassType="ActionPlayEffect"
+	Effect = "skeleton_die"
+[BUFF.SkeletonArmy_EV1_Spectral_Invisibility_Buff]
+	Rarity = "Common"
+	Invisible = true
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_invisible"
+[STATS.skeleton_army_ev1]
+	[[STATS.skeleton_army_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETON"
+		InfoButtonStats = "skeleton"
+		PopupExcludeStatList = ["skeleton_stat_count", "skeleton_stat_dps"]
+	[[STATS.skeleton_army_ev1.stats]]
+		Value = "skeleton_amount"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop_count"
+	[[STATS.skeleton_army_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON_ARMY_EV1_GENERAL_SHORT"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETON_ARMY_EV1_GENERAL"
+		InfoButtonStats = "skeleton_army_ev1_general"
+	[[STATS.skeleton_army_ev1.stats]]
+		Value = "general_amount"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON_ARMY_EV1_GENERAL_SHORT"]
+		Icon = "icons_stats_troop_count"
+[STATS.skeleton_army_ev1_general]
+	[[STATS.skeleton_army_ev1_general.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.skeleton_army_ev1_general.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.skeleton_army_ev1_general.stats]]
+		Value = "shield_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SHIELD_HEALTH"
+		Icon = "icons_stats_shield_hp"
+	[[STATS.skeleton_army_ev1_general.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.skeleton_army_ev1_general.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.skeleton_army_ev1_general.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.skeleton_army_ev1_general.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

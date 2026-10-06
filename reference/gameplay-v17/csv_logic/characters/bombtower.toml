@@ -1,0 +1,125 @@
+
+[BUILDING.BombTower]
+AttachedCharacter = "Bomber"
+AttachedCharacterHeight = 3200
+AttackStartEffect = "BombTower_attack_start"
+AttacksGround = true
+BlueExportName = "building_bomb_tower_blue"
+BlueTopExportName = "building_bomb_tower_top_blue"
+CollisionRadius = 600
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "BombTower_die"
+DeathSpawnCharacter = "BombTowerBomb"
+DeathSpawnCount = 1
+DeployTime = 1000
+FileName = "sc/building_bomb_tower.sc"
+HealthBarOffsetY = -15
+HitSpeed = 1800
+Hitpoints = 530
+IsBuilding = true
+LifeTime = 30000
+LoadTime = 1300
+Name = "BombTower"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+Projectile = "BombTowerProjectile"
+ProjectileEffect = "BombTower_attack"
+ProjectileStartZ = 4500
+Range = 6000
+Rarity = "Common"
+RedExportName = "building_bomb_tower_red"
+RedTopExportName = "building_bomb_tower_top_red"
+Scale = 100
+ShadowScaleX = 100
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowX = -8
+SightRange = 6000
+SpawnEffect = "vfx_bombtower_deploy"
+TID = "TID_BUILDING_BOMB_TOWER"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+StatsTags.LifeTime = "lifetime"
+
+[PROJECTILE.BombTowerProjectile]
+AoeToGround = true
+Damage = 87
+ExportName = "projectile_bomb"
+FileName = "sc/effects.sc"
+Gravity = 200
+HitEffect = "vfx_bombtower_explosion"
+Name = "BombTowerProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 500
+TrailEffect = "vfx_bombtower_pjt_fire"
+StatsTags.Damage = "bomb_damage"
+
+[BUILDING.BombTowerBomb]
+AttacksAir = true
+AttacksGround = true
+AvoidCountingForBuffAmountStats = true
+BlueExportName = "giant_skeleton_bomb_blue"
+CollisionRadius = 450
+DeathAreaEffect = "BombTowerExplosion"
+DeathEffect = "vfx_bombtower_death_bomb_explosion"
+DeployTime = 3000
+FileName = "sc/building_mega_bomb.sc"
+IgnoreBuff = ["Event_Berserk_OnStartBuff"]
+IsBuilding = true
+Name = "BombTowerBomb"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Common"
+RedExportName = "giant_skeleton_bomb_red"
+Scale = 100
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+TID = "TID_BUILDING_GIANT_SKELETON_BOMB"
+
+[AEO.BombTowerExplosion]
+Rarity = "Common"
+Radius = 3000 
+Damage = { BaseDamage = 87 }
+Filter = "CommonAreaDamageFilter"
+StatsTags.Damage = "death_damage"
+
+[STATS.BombTower]
+    [[STATS.BombTower.stats]]
+		Value = "bomb_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+        Icon = "icons_stats_dmg_area"
+    [[STATS.BombTower.stats]]
+		Value = "death_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+		Icon = "icons_stats_dmg_death"
+	[[STATS.BombTower.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.BombTower.stats]]
+		Value = "hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.BombTower.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.BombTower.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.BombTower.stats]]
+		Value = "lifetime"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_LIFETIME"
+		Icon = "icons_stats_deploy_time"

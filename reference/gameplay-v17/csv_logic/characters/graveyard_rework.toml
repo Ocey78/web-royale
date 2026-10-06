@@ -1,0 +1,134 @@
+[AEO.Graveyard_rework]
+	Rarity           = "Common"
+	LifeDuration     = 9000
+	Radius           = 4000
+	ScaledEffect     = "Spell_graveyard_ground"
+	OnStartingAction = "Graveyard_rework_Group"
+    StatsTags.LifeDuration="duration"
+    StatsTags.Radius="radius"
+	StatsTags.Level="level"
+[ACTION.Graveyard_rework_Group]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Graveyard_rework_Spawn_Skeleton_2",
+		"Graveyard_rework_Spawn_Skeleton_3",
+		"Graveyard_rework_Spawn_Skeleton_4",
+		"Graveyard_rework_Spawn_Skeleton_5",
+		"Graveyard_rework_Spawn_Skeleton_6",
+		"Graveyard_rework_Spawn_Skeleton_2",
+		"Graveyard_rework_Spawn_Skeleton_4",
+		"Graveyard_rework_Spawn_Skeleton_7",
+		"Graveyard_rework_Spawn_Skeleton_5",
+		"Graveyard_rework_Spawn_Skeleton_1",
+		"Graveyard_rework_Spawn_Skeleton_8",
+		"Graveyard_rework_Spawn_Skeleton_3",
+	]
+	SubActionsDelay = [
+		2200,
+		2700,
+		3300,
+		3800,
+		4400,
+		4900,
+		5500,
+		6000,
+		6500,
+		7100,
+		7600,
+		8200,
+	]
+	StatsTags.ActionCount="skeletoncount"
+[ACTION.Graveyard_rework_Spawn_Skeleton_Base]
+	ClassType     = "ActionSpawnToLocation"
+	DeployTime    = 500
+	UseDeploy     = true
+	IgnoreEffects = true
+	SpawnType = "CharacterType"
+	SpawnData = "Graveyard_rework_Skeleton"
+[EXT.Graveyard_rework_Spawn_Skeleton_1]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (0 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (3500 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Spawn_Skeleton_2]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (-3500 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (0 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Spawn_Skeleton_3]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (-2500 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (2500 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Spawn_Skeleton_4]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (0 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (-3500 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Spawn_Skeleton_5]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (3500 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (0 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Spawn_Skeleton_6]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (2500 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (-2500 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Spawn_Skeleton_7]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (-2500 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (-2500 * team_y_direction(team_index))"
+[EXT.Graveyard_rework_Spawn_Skeleton_8]
+	Base                = "ACTION.Graveyard_rework_Spawn_Skeleton_Base"
+	ClassType           = "ActionSpawnToLocation"
+	SpawnType           = "CharacterType"
+	XPositionExpression = "x + (2500 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (2500 * team_y_direction(team_index))"
+	InheritPrestigeFromParent = true
+[EXT.Graveyard_rework_Skeleton]
+	Base = "CHARACTER.Skeleton"
+	SpawnEffect              = "Graveyard_appear"
+	DeployBaseAnimExportName = "filter_deploy_unit_skeleton"
+[STATS.Graveyard_rework]
+[[STATS.Graveyard_rework.stats]]
+		Value = "duration"
+		Unit = "TIME_PRECISE"
+		TID = "TID_DURATION"
+		Icon = "icons_stats_deploy_time"
+    [[STATS.Graveyard_rework.stats]]
+		Value = "radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"
+	[[STATS.Graveyard_rework.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SKELETON"
+		InfoButtonStats = "skeleton"
+		PopupExcludeStatList = ["skeleton_stat_count", "skeleton_stat_dps"]
+	[[STATS.Graveyard_rework.stats]]
+		Value = "skeletoncount"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_COUNT"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SKELETON"]
+		Icon = "icons_stats_troop_count"

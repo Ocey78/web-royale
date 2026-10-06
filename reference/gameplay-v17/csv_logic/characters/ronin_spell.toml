@@ -1,0 +1,16 @@
+[SPELL_CHARACTER.Ronin]
+	SummonCharacter         = "Ronin"
+	Stats                   = "ronin"
+	IconSWF                 = "sc/ui_card_ronin.sc"
+	IconFile                = "ronin_card"
+	HighresImageFilename    = "image/chr/ronin.png"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_legendary"
+	UnlockArena             = "Arena14"
+	Rarity                  = "Legendary"
+	Tribe                   = ["Kingdom"]
+	ManaCost                = 5
+	PrestigeCount			= 1
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_RONIN"
+	TID_INFO                = "TID_SPELL_INFO_RONIN"
+	PveDefenseType          = "Defender"

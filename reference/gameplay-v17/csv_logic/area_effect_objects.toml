@@ -1,0 +1,171 @@
+[LoveBuffAOE]
+	Rarity="Epic"
+	LifeDuration=15000
+	Radius=3000
+    HitEffect="Love_Buff_AOE_hit"
+    HitSpeed=3000
+    HitSpeedOffset=2500
+    Buff="LoveCharm"
+    BuffTime=4000
+    Filter="aeo_enemy_no_crown_towers"
+    FollowBehaviour="FollowParent"
+[Event_Global_Lightning_Setup]
+	Rarity="Epic"
+    OnStartingAction="GlobalLightning_Action"
+    LoopingEffect="GlobalLightning_Charging2"
+    LifeDuration=1000
+[Event_Global_Rage_Setup]
+	Rarity="Epic"
+    OnStartingAction="GlobalRage_Action"
+    LoopingEffect="Spell_rage_effect_small"
+    LifeDuration=500
+[Event_Global_Heal_Setup]
+	Rarity="Epic"
+    OnStartingAction="GlobalHeal_Action"
+    LoopingEffect="Global_Healing_Setup"
+    LifeDuration=500
+[Event_Global_Freeze_Setup]
+	Rarity="Epic"
+    OnStartingAction="GlobalFreeze_Action"
+    LoopingEffect="Global_Freeze_Setup"
+    LifeDuration=500
+[Event_Global_Invisibility_Setup]
+	Rarity="Epic"
+    OnStartingAction="GlobalInvisibility_Action"
+    ScaledEffect="Invisibilty_Fog_Setup"
+    LifeDuration=500
+[Event_Global_Clone_Setup]
+	Rarity="Epic"
+    OnStartingAction="GlobalClone_Action"
+    ScaledEffect="Global_Clone_Setup"
+    LifeDuration=500
+[Event_Global_Rage]
+	Rarity="Epic"
+	LifeDuration=8000
+	Radius=40000
+    LoopingEffect="GlobalRage_mode"
+    HitSpeed=50
+    Buff="SuperRage"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    Filter="friendly_troop"
+[Event_Global_Heal]
+	Rarity="Epic"
+	LifeDuration=8000
+	Radius=40000
+    LoopingEffect="Global_Healing"
+    HitSpeed=50
+    Buff="Heal"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    Filter="friendly_troop_no_buildings"
+[Event_Global_Freeze]
+	Rarity="Epic"
+	LifeDuration=6000
+	Radius=40000
+    LoopingEffect="Global_Freeze_blizzard"
+    HitSpeed=50
+    Buff="Freeze"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    Filter="CommonAreaDamageFilter"
+[Event_Global_Invisibility]
+	Rarity="Epic"
+	LifeDuration=6000
+	Radius=40000
+    LoopingEffect="Invisibilty_Fog"
+    HitSpeed=50
+    Buff="Invisibility"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    Filter="friendly_troop_no_buildings"
+[Graveyard]
+Rarity = "Common"
+LifeDuration = 9000
+Radius = 4000
+ScaledEffect = "Spell_graveyard_ground"
+CapBuffTimeToAreaEffectTime = true
+SpawnCharacter = "Skeleton"
+SpawnInterval = 500
+SpawnRandomizeSequence = true
+SpawnEffect = "Graveyard_appear"
+SpawnDeployBaseAnim = "filter_deploy_unit_skeleton"
+SpawnTime = 400
+SpawnInitialDelay = 2200
+SpawnMinRadius = 3000
+Filter = "friendly_troop"
+[SuperWitchCurse]
+Rarity = "Legendary"
+LifeDuration = 1000
+Radius = 2500
+ScaledEffect = "HealSpirit_burst_blue"
+HitSpeed = 0
+Damage = { BaseDamage = 50 }
+Buff = "VoodooCurse"
+BuffTime = 5000
+Filter = "aeo_enemy_no_buildings"
+[GoldenKnightShield]
+Rarity = "Champion"
+LifeDuration = 1
+Radius = 4000
+Buff = "ShieldBoost"
+BuffTime = 45000
+Filter = "friendly_troop_no_buildings"
+[GraveyardOrb]
+Rarity = "Legendary"
+LifeDuration = 180000
+Radius = 4000
+ScaledEffect = "Spell_graveyard_ground"
+CapBuffTimeToAreaEffectTime = true
+SpawnCharacter = "Skeleton"
+SpawnInterval = 500
+SpawnRandomizeSequence = true
+SpawnEffect = "Graveyard_appear"
+SpawnDeployBaseAnim = "filter_deploy_unit_skeleton"
+SpawnTime = 400
+SpawnInitialDelay = 2000
+SpawnMinRadius = 3000
+Filter = "friendly_troop"
+[ShieldArea]
+Rarity = "Epic"
+LifeDuration = 1000
+Radius = 3000
+ScaledEffect = "spell_clone_ground"
+Buff = "ShieldBoost"
+BuffTime = 45000
+SpawnDeployBaseAnim = "filter_hologram"
+Filter = "friendly_troop_no_buildings"
+[Morph_SkeletonsFriend_AOE]
+Rarity = "Epic"
+LifeDuration = 1000
+Radius = 3000
+Buff = "SkeletonCurseFriend"
+BuffTime = 2000
+Filter = "aeo_own_no_buildings_affects_hidden"
+SpawnAreaEffectObject = "Morph_SkeletonsFoe_AOE"
+[Morph_SkeletonsFoe_AOE]
+Rarity = "Epic"
+LifeDuration = 1000
+Radius = 3000
+Buff = "SkeletonCurseFoe"
+BuffTime = 2000
+Filter = "aeo_enemy_no_buildings_affects_hidden"
+SpawnAreaEffectObject = "Morph_SkeletonsDamage_AOE"
+[Morph_SkeletonsDamage_AOE]
+Rarity = "Epic"
+LifeDuration = 1
+Radius = 3000
+Damage = { BaseDamage = 9999, TowerDamage = 0 }
+Filter = "aeo_all_affects_hidden"
+[SuperRage_AOE]
+Rarity = "Epic"
+LifeDuration = 6000
+Radius = 3000
+LoopingEffect = "Spell_rage_loop"
+OneShotEffect = "Spell_rage_effect"
+ScaledEffect = "Spell_rage_ground"
+HitSpeed = 300
+Buff = "SuperRage"
+BuffTime = 2000
+CapBuffTimeToAreaEffectTime = true
+Filter = "friendly_troop"

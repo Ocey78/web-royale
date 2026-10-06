@@ -1,0 +1,136 @@
+[BUILDING.Event_BushSpawner]
+Rarity = "Common"
+IsBuilding = true
+Hitpoints = 999999
+HealthBarOffsetY = -1000
+NeutralObject = true
+NoDeploySizeW = 18
+NoDeploySizeH = 36
+OnStartingAction = "Event_BushSpawner_Repeat_Action"
+    
+    [ACTION.Event_BushSpawner_Repeat_Action]
+    ClassType = "ActionInterval"
+    Interval = 25000
+    StartCounterAt = 1000
+    ActionToExecute = "Event_BushSpawner_SpawnGroup"
+    [ACTION.Event_BushSpawner_SpawnGroup]
+    ClassType="ActionGroup"
+    SubActions = ["Event_GoblinBush_1","Event_GoblinBush_2","Event_GoblinBush_3"]
+    SubActionsDelay=[0,0,0]
+    [ACTION.Event_GoblinBush_1]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "AreaEffectType"
+    SpawnData = "BushStatic"
+    RelativeX = 11
+    RelativeY = 20
+    SpawnLevelIndex = 10
+    [ACTION.Event_GoblinBush_2]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "AreaEffectType"
+    SpawnData = "BushStatic"
+    RelativeX = -11
+    RelativeY = 20
+    SpawnLevelIndex = 10
+    [ACTION.Event_GoblinBush_3]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "AreaEffectType"
+    SpawnData = "BushStatic_Middle"
+    RelativeX = 2
+    RelativeY = 26
+    SpawnLevelIndex = 10
+[AEO.BushStatic]
+Rarity = "Common"
+LifeDuration = 25000
+Radius = 1000
+ScaledEffect = "BushStatic_idle"
+HitSpeed = 300
+OneShotEffect = "Event_Goblin_Bush_Spawn"
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "all_characters_from_both_teams"
+[AEO.BushStatic_Middle]
+Rarity = "Common"
+LifeDuration = 25000
+Radius = 1000
+ScaledEffect = "BushStatic_idle"
+HitSpeed = 300
+OneShotEffect = "Event_Goblin_Bush_Spawn"
+Buff = "DummyCollisionBoostEpic"
+BuffTime = 500
+Filter = "all_characters_from_both_teams"
+[BUILDING.BushSpawner]
+Rarity = "Common"
+IsBuilding = true
+DeployTime = 500
+SpawnEffect = "Event_Goblin_Bush_Die"
+OnStartingAction = "Spawn_Action_Bush"
+[BUILDING.BushStatic_Randomiser]
+Rarity = "Common"
+IsBuilding = true
+DeployTime = 500
+SpawnEffect = "Event_Goblin_Bush_Die"
+OnStartingAction = "BushStatic_Randomiser_Action"
+[ACTION.BushStatic_Randomiser_Action]
+ClassType = "ActionSelect"
+SubActions = ["Spawn_Action_Bush", "Spawn_Action_Bush", "Spawn_Action_Bush", "Spawn_Action_Bush", "Spawn_Action_Sparky"]
+Condition = "rand(5)"
+    [ACTION.Spawn_Action_Bush]
+    ActionDelay=500
+    ClassType="ActionSpawn"
+    SpawnType = "CharacterType"
+    SpawnData = "SuspiciousBush"
+    ParentGOAsSource=true
+    [ACTION.Spawn_Action_Sparky]
+    ActionDelay=500
+    ClassType="ActionSpawn"
+    SpawnType = "CharacterType"
+    SpawnData = "ZapMachine"
+    ParentGOAsSource=true
+    
+    [ACTION.Spawn_Action_Rage]
+    ActionDelay=500
+    ClassType="ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Event_Rage"
+    ParentGOAsSource=true
+        [AEO.Event_Rage]
+        Rarity = "Common"
+        LifeDuration = 5000
+        Radius = 3000
+        LoopingEffect = "Spell_rage_loop"
+        ScaledEffect = "Spell_rage_ground"
+        HitSpeed = 300
+        Buff = "Rage"
+        BuffTime = 2000
+        CapBuffTimeToAreaEffectTime = true
+        Filter = "friendly_troop"
+    [ACTION.Spawn_Action_Heal]
+    ActionDelay=500
+    ClassType="ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Event_Heal"
+    ParentGOAsSource=true
+        [AEO.Event_Heal]
+        Rarity = "Common"
+        LifeDuration = 5000
+        Radius = 3000
+        ScaledEffect = "Healing_3Radius"
+        HitSpeed = 50
+        Buff = "Heal"
+        BuffTime = 2000
+        CapBuffTimeToAreaEffectTime = true
+        Filter = "friendly_troop_no_buildings"
+    [ACTION.Spawn_Action_Invisibilty]
+    ActionDelay=500
+    ClassType="ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "Event_Invisibility"
+    ParentGOAsSource=true
+        [AEO.Event_Invisibility]
+        Rarity = "Epic"
+        LifeDuration = 1000
+        Radius = 3000
+        ScaledEffect = "spell_clone_ground"
+        Buff = "Invisibility"
+        BuffTime = 5000
+        Filter = "friendly_troop_no_buildings"

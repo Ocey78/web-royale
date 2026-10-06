@@ -1,0 +1,19 @@
+[SPELL_HERO.Wizard_hero]
+	CardForm                = "HeroForm"
+	Stats                   = "wizard_hero"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_wizard/hero_prefab_wizard_collection"
+	UnlockArena             = "Arena4"
+	Rarity                  = "Rare"
+	ManaCost                = 5
+	PrestigeCount           = 2
+	SummonCharacter         = "WizardHero"
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_WIZARD"
+	TID_INFO                = "TID_SPELL_INFO_HERO_WIZARD"
+	PveDefenseType          = "Range"
+	IconSWF                 = "sc/ui_card_wizard_hero.sc"
+	IconFile                = "wizard_hero_card"
+
+[SPELL_CHARACTER.Wizard]
+	EvolvedSpells = ["Wizard_EV1", "Wizard_hero"]

@@ -1,0 +1,44 @@
+[TOWER_SKIN_SET.Default]
+	[TOWER_SKIN_SET.Default.KingTower]
+		ExportName = "KingTower_blue"
+		ExportNameRed = "KingTower_red"
+	[TOWER_SKIN_SET.Default.PrincessTower]
+		ExportName = "StarTower_base_blue"
+		ExportNameRed = "StarTower_base_red"
+		TopExportName = "StarTower_top_blue"
+		TopExportNameRed = "StarTower_top_red"
+[TOWER_SKIN_SET.GoldRush]
+	[TOWER_SKIN_SET.GoldRush.KingTower]
+		ExportName = "kingtower_goldrush_01"
+		ExportNameRed = "kingtower_goldrush_02"
+	[TOWER_SKIN_SET.GoldRush.PrincessTower]
+		ExportName = "princesstower_goldrush_01"
+		ExportNameRed = "princesstower_goldrush_02"
+		TopExportName = "princesstower_goldrush_01_top"
+		TopExportNameRed = "princesstower_goldrush_02_top"
+[TOWER_SKIN_SET.GemRush]
+	[TOWER_SKIN_SET.GemRush.KingTower]
+		ExportName = "kingtower_gemrush_01"
+		ExportNameRed = "kingtower_gemrush_02"
+	[TOWER_SKIN_SET.GemRush.PrincessTower]
+		ExportName = "princesstower_gemrush_01"
+		ExportNameRed = "princesstower_gemrush_02"
+		TopExportName = "princesstower_gemrush_01_top"
+		TopExportNameRed = "princesstower_gemrush_02_top"
+	
+[TOWER_SKIN_SET.ElixerPump]
+	[TOWER_SKIN_SET.ElixerPump.KingTower]
+		ExportName = "kingtower_pump_01"
+		ExportNameRed = "kingtower_pump_02"
+	[TOWER_SKIN_SET.ElixerPump.PrincessTower]
+		ExportName = "princesstower_pump_01"
+		ExportNameRed = "princesstower_pump_02"
+[TOWER_SKIN_SET.Flood]
+	[TOWER_SKIN_SET.Flood.KingTower]
+		ExportName = "KingTower_blue"
+		ExportNameRed = "KingTower_red"
+	[TOWER_SKIN_SET.Flood.PrincessTower]
+		ExportName = "StarTower_base_blue"
+		ExportNameRed = "StarTower_base_red"
+		TopExportName = "StarTower_top_blue"
+		TopExportNameRed = "StarTower_top_red"

@@ -34,7 +34,7 @@ public sealed class WebRoyaleOfflineHost : IDisposable
     private static string DefaultAiRoot() {
         string folder=Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         if(String.IsNullOrWhiteSpace(folder)||!Path.IsPathRooted(folder))throw new IOException("AppData path could not be resolved. No alternate folder was used.");
-        return Path.Combine(folder, "WebRoyaleMain", "AI");
+        return Path.Combine(folder, "WebRoyaleMain053", "AI");
     }
     public WebRoyaleOfflineHost(string siteRoot, int port) : this(siteRoot, port, DefaultAiRoot()) { }
 

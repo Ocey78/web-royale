@@ -1,0 +1,42 @@
+
+[BUILDING.DarkElixir_Bottle]
+BlueExportName = "dark_elixir_drop"
+DeathAreaEffect = "DarkElixirAOE"
+DeathEffect = "Death_card_evolution_M"
+DeployTime = 500
+FileName = "sc/effects.sc"
+IsBuilding = true
+Name = "DarkElixir_Bottle"
+Rarity = "Champion"
+RedExportName = "dark_elixir_drop"
+Scale = 200
+SpawnEffect = "GiantSkeleton_Bomb_deploy"
+
+[AEO.DarkElixirAOE]
+Buff = "DarkElixirBuff"
+BuffTime = 1000
+Filter = "all_characters_from_both_teams"
+HitSpeedOffset = 1000
+HitSpeed = 1000
+LifeDuration = 12000
+LoopingEffect = "Spell_DarkElixir_loop"
+Name = "DarkElixirAOE"
+OneShotEffect = "Spell_DarkElixir_effect"
+Radius = 3500
+Rarity = "Champion"
+ScaledEffect = "Spell_DarkElixir_ground"
+
+[BUFF.DarkElixirBuff]
+DamageReduction = -100
+Effect = "Spell_rage_hit_effect"
+FilterExportName = "filter_rage_mode"
+FilterFile = "sc/effects.sc"
+HitSpeedMultiplier = 200
+Name = "DarkElixirBuff"
+NoEffectToCrownTowers = true
+Rarity = "Champion"
+SpawnSpeedMultiplier = 200
+SpeedMultiplier = 200
+TID = "TID_SPELL_RAGE"
+
+

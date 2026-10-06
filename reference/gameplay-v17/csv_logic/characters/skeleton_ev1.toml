@@ -1,0 +1,29 @@
+[EXT.Skeleton_EV1]
+Base = "CHARACTER.Skeleton"
+BlueExportName = "evoskeleton1"
+BuffAfterHits = ["SkeletonDuplication_EV1"]
+BuffAfterHitsCount = [1]
+BuffAfterHitsTime = [500]
+ClonedVersion = "Skeleton"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_S"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+FileName = "sc/chr_skeleton_evolution.sc"
+GroupMaxSize = 8
+HealthBar = "Small_EV1"
+HealthBarOffsetY = ["=", -10]
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+RedExportName = "evoskeleton1"
+Scale = ["=", 40]
+SpawnCharacterEffect = "vfx_skeleton_evo_spawn"
+SpawnEffect = "vfx_skeleton_evo_deploy"
+[BUFF.SkeletonDuplication_EV1]
+MarkEffect = "Healing"
+Rarity = "Common"
+SpawnInterval = 50
+SpawnLimit = 1
+SpawnNumber = 1
+SpawnObject = "Skeleton_EV1"
+SpawnerAliveRequired = true

@@ -1,0 +1,257 @@
+[MightyMiner]
+	CardPropertyTags = "Melee,Tank"
+	Stats = "mighty_miner"
+[GoblinMachine]
+	CardPropertyTags = "Melee,Ranged,Tank,HighDamage"
+	Stats = "goblin_machine"
+	AutoChessForm = "logic/autochess/draft_units/chess_goblin_machine"
+[SuspiciousBush]
+	CardPropertyTags = "Melee,Fragile"
+	Stats = "suspicious_bush"
+[Goblinstein]
+	CardPropertyTags = "Melee,Ranged,Tank"
+	Stats = "goblinstein_doctor"
+[LittlePrince]
+	CardPropertyTags = "Ranged,HighDamage"
+	Stats = "little_prince"
+[Knight]
+	CardPropertyTags = "Melee,Tank"
+	Stats = "knight"
+	AutoChessForm = "logic/autochess/draft_units/chess_knight"
+[GiantBuffer]
+	CardPropertyTags = "Melee,Tank"
+	Stats = "giantbuffer"
+[Berserker]
+	CardPropertyTags = "Melee,Fragile"
+	Stats = "berserker"
+[BossBandit]
+	CardPropertyTags = "Melee,Tank,HighDamage"
+	Stats = "boss_bandit"
+	AutoChessForm = "logic/autochess/draft_units/chess_boss_bandit"
+[BattleHealer]
+	CardPropertyTags = "Melee,Tank"
+	Stats = "battlehealer"
+[MovingCannon]
+	CardPropertyTags = "Ranged,HighDamage"
+	Stats = "MovingCannon"
+[MergeMaiden_Normal]
+	Stats = "MergeMaiden_Normal"
+[MergeMaiden_Mounted]
+	Stats = "MergeMaiden_Mounted"
+[Skeletons]
+	CardPropertyTags = "Melee,Fragile"
+	Stats = "skeleton"
+[FireSpirits]
+	CardPropertyTags = "Ranged,Fragile"
+	Stats = "firespirits"
+[IceWizard]
+	CardPropertyTags = "Ranged,Fragile"
+	Stats = "ice_wizard"
+	AreaEffectObject        = "IceWizardCold"
+	SummonCharactersList    = ["IceWizard"]
+	SummonCharactersOffsetsX = [0]
+	SummonCharactersOffsetsY = [0]
+	SummonNumber 				= 1
+	SummonCharactersDelayList = [50]
+[ThreeMusketeers]
+	CardPropertyTags = "Ranged,HighDamage"
+	SummonCharactersList = ["ThreeMusketeer_Rework_Character_1", "ThreeMusketeer_Rework_Character_2", "ThreeMusketeer_Rework_Character_3" ]
+	SummonCharactersOffsetsX = [0, -1000, 1000]
+	SummonCharactersOffsetsY = [-1000, 1000, 1000]
+	CharactersOffsetsXMirrored = true
+	Stats = "three_musketeers"
+[Princess]
+	CardPropertyTags = "Ranged,Fragile"
+	Stats = "princess"
+	AutoChessForm = "logic/autochess/draft_units/chess_princess"
+[Archer]
+	CardPropertyTags = "Ranged,Fragile"
+	Stats = "archer"
+	AutoChessForm = "logic/autochess/draft_units/chess_archer"
+[ArcherQueen]
+	CardPropertyTags = "Ranged,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_archer_queen"
+[Assassin]
+	CardPropertyTags = "Melee,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_bandit"
+[BabyDragon]
+	CardPropertyTags = "Ranged,Flying"
+	AutoChessForm = "logic/autochess/draft_units/chess_baby_dragon"
+[Barbarians]
+	CardPropertyTags = "Melee"
+	AutoChessForm = "logic/autochess/draft_units/chess_barbarian"
+[Bomber]
+	CardPropertyTags = "Ranged,Fragile,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_bomber"
+[BlowdartGoblin]
+	CardPropertyTags = "Ranged,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_dart_goblin"
+[DarkPrince]
+	CardPropertyTags = "Melee,Tank"
+	AutoChessForm = "logic/autochess/draft_units/chess_dark_prince_champion"
+[ElectroGiant]
+	CardPropertyTags = "Melee,Tank"
+	AutoChessForm = "logic/autochess/draft_units/chess_electro_giant"
+	Stats = "electrogiant"
+[ElectroWizard]
+	CardPropertyTags = "Ranged,Fragile"
+	Stats = "electro_wizard"
+	AutoChessForm = "logic/autochess/draft_units/chess_electro_wizard"
+	AreaEffectObject        = "ElectroWizardZap"
+	SummonCharactersList    = ["ElectroWizard"]
+	SummonCharactersOffsetsX = [0]
+	SummonCharactersOffsetsY = [0]
+	SummonNumber 				= 1
+	SummonCharactersDelayList = [50]
+[AxeMan]
+	CardPropertyTags = "Ranged,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_executioner"
+[GiantSkeleton]
+	CardPropertyTags = "Melee,Tank,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_giant_skeleton"
+    Stats = "GiantSkeleton"
+[Goblins]
+	CardPropertyTags = "Melee,Fragile"
+	AutoChessForm = "logic/autochess/draft_units/chess_goblin"
+[GoldenKnight]
+	CardPropertyTags = "Melee,Tank,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_golden_knight"
+[MegaKnight]
+	CardPropertyTags = "Melee,Tank,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_mega_knight_champion"
+[Musketeer]
+	CardPropertyTags = "Ranged,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_musketeer"
+[Pekka]
+	CardPropertyTags = "Melee,Tank,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_pekka_champion"
+[Prince]
+	CardPropertyTags = "Melee,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_prince_champion"
+[Ghost]
+	CardPropertyTags = "Melee"
+	AutoChessForm = "logic/autochess/draft_units/chess_royal_ghost"
+[SkeletonDragons]
+	CardPropertyTags = "Ranged,Fragile,Flying,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_skeleton_dragon"
+[SkeletonKing]
+	CardPropertyTags = "Melee,Tank"
+	AutoChessForm = "logic/autochess/draft_units/chess_skeleton_king"
+[SpearGoblins]
+	CardPropertyTags = "Ranged,Fragile"
+	AutoChessForm = "logic/autochess/draft_units/chess_spear_goblin"
+[Valkyrie]
+	CardPropertyTags = "Melee,Tank,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_valkyrie"
+[Witch]
+	CardPropertyTags = "Ranged,Spawner"
+	AutoChessForm = "logic/autochess/draft_units/chess_witch"
+[Wizard]
+	CardPropertyTags = "Ranged,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_wizard"
+[MiniPekka]
+	CardPropertyTags = "Melee,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_mini_pekka_champion"
+[RoyalGiant]
+	CardPropertyTags = "Ranged,Tank"
+	AutoChessForm = "logic/autochess/draft_units/chess_royal_giant"
+[Monk]
+	CardPropertyTags = "Melee,Tank"
+	AutoChessForm = "logic/autochess/draft_units/chess_monk_champion"
+	
+[GoblinDemolisher]
+	CardPropertyTags = "Ranged,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_goblin_demolisher"
+	
+[Giant]
+	CardPropertyTags = "Melee,Tank"
+	AutoChessForm = "logic/autochess/draft_units/chess_giant"	
+[Firecracker]
+	CardPropertyTags = "Ranged,Fragile,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_firecracker"
+[EliteArcher]
+	CardPropertyTags = "Ranged,Fragile,HighDamage"
+	AutoChessForm = "logic/autochess/draft_units/chess_magic_archer"
+[HogRider]
+	CardPropertyTags = "Melee"
+	AutoChessForm = "logic/autochess/draft_units/chess_hog_rider_champion"
+[RamRider]
+	CardPropertyTags = "Melee"
+	AutoChessForm = "logic/autochess/draft_units/chess_ram_rider_champion"
+[Minions]
+	CardPropertyTags = "Ranged,Fragile,Flying"
+[Balloon]
+	CardPropertyTags = "Melee,Flying"
+    Stats = "Balloon"
+[Golem]
+	CardPropertyTags = "Melee,Tank"
+    Stats = "Golem"
+[SkeletonArmy]
+	CardPropertyTags = "Melee,Fragile"
+[MinionHorde]
+	CardPropertyTags = "Ranged,Fragile,Flying"
+[SkeletonWarriors]
+	CardPropertyTags = "Melee,Fragile"
+[LavaHound]
+	CardPropertyTags = "Ranged,Tank"
+[IceSpirits]
+	CardPropertyTags = "Ranged,Fragile"
+    Stats = "icespirits"
+[Miner]
+	CardPropertyTags = "Melee"
+[BattleRam]
+	CardPropertyTags = "Melee"
+[IceGolemite]
+	CardPropertyTags = "Melee,Tank"
+	Stats = "icegolemite"
+[MegaMinion]
+	CardPropertyTags = "Ranged,Flying"
+[GoblinGang]
+	CardPropertyTags = "Melee,Ranged,Fragile"
+[RoyalRecruits]
+	CardPropertyTags = "Melee,Tank"
+[DarkWitch]
+	CardPropertyTags = "Melee,Spawner"
+[Bats]
+	CardPropertyTags = "Melee,Fragile,Flying"
+[MiniSparkys]
+	CardPropertyTags = "Ranged,Fragile"
+[Rascals]
+	CardPropertyTags = "Melee,Ranged"
+[SkeletonBalloon]
+	CardPropertyTags = "Melee,Flying"
+    Stats = "SkeletonBalloon"
+[Wallbreakers]
+	CardPropertyTags = "Melee"
+[RoyalHogs]
+	CardPropertyTags = "Melee"
+[GoblinGiant]
+	CardPropertyTags = "Melee,Tank"
+[Fisherman]
+	CardPropertyTags = "Melee,Tank"
+[ElixirGolem]
+	CardPropertyTags = "Melee,Tank"
+[WitchMother]
+	CardPropertyTags = "Ranged,Fragile,Spawner"
+[ElectroSpirit]
+	CardPropertyTags = "Ranged,Fragile"
+[Phoenix]
+	CardPropertyTags = "Melee,Flying"
+[ZapMachine]
+	CardPropertyTags = "Ranged,HighDamage"
+[Bowler]
+	CardPropertyTags = "Ranged,Tank,HighDamage"
+[RageBarbarian]
+	CardPropertyTags = "Melee,HighDamage"
+[InfernoDragon]
+	CardPropertyTags = "Ranged,HighDamage"
+[AngryBarbarians]
+	CardPropertyTags = "Melee,HighDamage"
+[Hunter]
+	CardPropertyTags = "Ranged,HighDamage"
+[DartBarrell]
+	CardPropertyTags = "Ranged,Fragile,Flying,HighDamage"
+[ElectroDragon]
+	CardPropertyTags = "Ranged,Flying,HighDamage"
+[Ronin]
+	CardPropertyTags = "Melee,Tank,HighDamage"

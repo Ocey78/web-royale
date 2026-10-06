@@ -1,0 +1,9 @@
+{
+  "archive": "Web-Royale-v0.53.0.zip",
+  "archiveSha256": "9d45e4ebc032fb17e900322e8faac6cbe3eb915c451b5dd7b6a6aaf8060c3c2e",
+  "tests": "tests/stress.test.cjs",
+  "start": "2026-10-06T19:46:55.0927694Z",
+  "end": "2026-10-06T19:52:51.9929684Z",
+  "exitCode": 0,
+  "log": "stress-final-archive.tap"
+}

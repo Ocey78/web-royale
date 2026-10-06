@@ -1,0 +1,601 @@
+[Common]
+Gold = 500
+RandomCard = 500
+CardCommon = 100
+CardRare = 90
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Common"
+Theme="Common"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+[Rare]
+Gold = 400
+ItemPool = 40
+RandomCard = 600
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+SupportCardEpic = 80
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Rare"
+Theme="Rare"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+[Epic]
+Gold = 300
+ItemPool = 40
+RandomCard = 700
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+SupportCardEpic = 80
+SupportCardLegendary = 70
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Epic"
+Theme="Epic"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+[Legendary]
+WildcardCommon = 80
+WildcardRare = 75
+WildcardEpic = 70
+WildcardLegendary = 65
+WildcardChampion = 65
+RandomCard = 590
+ItemPool = 55
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+SupportCardEpic = 80
+SupportCardLegendary = 70
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Legendary"
+Theme="Legendary"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+[Champion]
+WildcardCommon = 90
+WildcardRare = 80
+WildcardEpic = 65
+WildcardLegendary = 55
+WildcardChampion = 40
+RandomCard = 575
+ItemPool = 95
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+SupportCardEpic = 80
+SupportCardLegendary = 70
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Champion"
+Theme="Champion"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+[Common100]
+[Rare100]
+[Epic100]
+[Epic22]
+[Epic25]
+[Legendary100]
+[Legendary25]
+[Legendary15]
+[TutorialCommon]
+Gold = 100
+ArenaData = "TutorialCommon"
+Theme="Common"
+[Tutorial2Rare]
+FixedCard = "MiniPekka"
+FixedAmount = 1
+ArenaData = "Tutorial2Rare"
+Theme="Rare"
+[Tutorial3Rare]
+FixedCard = "Archer"
+FixedAmount = 3
+ArenaData = "Tutorial3Rare"
+Theme="Rare"
+[Tutorial3Epic]
+FixedCard = "Archer"
+FixedAmount = 5
+ArenaData = "Tutorial3Epic"
+Theme="Epic"
+[RareInRare]
+[RareInCommonPlus]
+[LegendaryInEpic]
+[LegendaryInLegendary]
+[RareInRare3Spins]
+[EpicInRare3Spins]
+[LegendaryInRare3Spins]
+[CommonCardInCommon]
+RandomCard = 1000
+CardCommon = 100
+CardRare = 90
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Common"
+Theme="Common"
+[RareCardInCommon]
+RandomCard = 1000
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Rare"
+Theme="Rare"
+[EpicCardInCommon]
+RandomCard = 1000
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Epic"
+Theme="Epic"
+[LegendaryCardInCommon]
+RandomCard = 1000
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Legendary"
+Theme="Legendary"
+[RareGoldInRare]
+Gold = 1000
+ArenaData = "Rare"
+Theme = "Rare"
+[EpicGoldInRare]
+Gold = 1000
+ArenaData = "Epic"
+Theme = "Epic"
+[LegendaryGoldInRare]
+[TestThematicCommon]
+Gold = 500
+RandomCard = 500
+CardCommon = 100
+CardRare = 90
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Common"
+Theme="Common"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+[TestThematicRare]
+ItemPool = 40
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Rare"
+Theme="Rare"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[TestThematicEpic]
+ItemPool = 40
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Epic"
+Theme="Epic"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[TestThematicLegendary]
+ItemPool = 55
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Legendary"
+Theme="Legendary"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[TestThematicChampion]
+ItemPool = 95
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Champion"
+Theme="Champion"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[202510_Halloween_1Star]
+ItemPool = 1
+ArenaData = "202510_Halloween_1Star"
+Theme="Common"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202510_Halloween_2Star]
+ItemPool = 1
+ArenaData = "202510_Halloween_2Star"
+Theme="Rare"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_rare"
+[202510_Halloween_3Star]
+ItemPool = 1
+ArenaData = "202510_Halloween_3Star"
+Theme="Epic"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_epic"
+[202510_Halloween_4Star]
+ItemPool = 1
+ArenaData = "202510_Halloween_4Star"
+Theme="Legendary"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_legendary"
+[202510_Halloween_5Star]
+ItemPool = 1
+ArenaData = "202510_Halloween_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[Basic_Lucky_Chest_1Star]
+Gold = 500
+RandomCard = 500
+CardCommon = 100
+CardRare = 90
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+ArenaData = "Common"
+Theme="Common"
+[Basic_Lucky_Chest_2Star]
+Gold = 400
+RandomCard = 600
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+SupportCardEpic = 80
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 2.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Rare"
+Theme="Rare"
+[Basic_Lucky_Chest_3Star]
+Gold = 300
+RandomCard = 700
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+SupportCardEpic = 80
+SupportCardLegendary = 70
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 20.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Epic"
+Theme="Epic"
+[Basic_Lucky_Chest_4Star]
+RandomCard = 1000
+CardCommon = 100
+CardRare = 90
+CardEpic = 80
+CardLegendary = 70
+CardChampion = 60
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 20.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "Legendary"
+Theme="Legendary"
+[202510_RoyalGhost_1Star]
+ItemPool = 1
+ArenaData = "202510_RoyalGhost_1Star"
+Theme="Common"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202510_RoyalGhost_2Star]
+ItemPool = 1
+ArenaData = "202510_RoyalGhost_2Star"
+Theme="Rare"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_rare"
+[202510_RoyalGhost_3Star]
+ItemPool = 1
+ArenaData = "202510_RoyalGhost_3Star"
+Theme="Epic"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_epic"
+[202510_RoyalGhost_4Star]
+ItemPool = 1
+ArenaData = "202510_RoyalGhost_4Star"
+Theme="Legendary"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_legendary"
+[202510_RoyalGhost_5Star]
+ItemPool = 1
+ArenaData = "202510_RoyalGhost_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202511_Musketeer_1Star]
+ItemPool = 1
+ArenaData = "202511_Musketeer_1Star"
+Theme="Common"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202511_Musketeer_2Star]
+ItemPool = 1
+ArenaData = "202511_Musketeer_2Star"
+Theme="Rare"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_rare"
+[202511_Musketeer_3Star]
+ItemPool = 1
+ArenaData = "202511_Musketeer_3Star"
+Theme="Epic"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_epic"
+[202511_Musketeer_4Star]
+ItemPool = 1
+ArenaData = "202511_Musketeer_4Star"
+Theme="Legendary"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_legendary"
+[202511_Musketeer_5Star]
+ItemPool = 1
+ArenaData = "202511_Musketeer_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[Hero_Coin_Chest_2Star]
+HeroCoin = 100
+ArenaData = "Hero_Coin_Chest_2Star"
+Theme= "Hero_Rare"
+[Hero_Coin_Chest_3Star]
+HeroCoin = 100
+ArenaData = "Hero_Coin_Chest_3Star"
+Theme= "Hero_Epic"
+[Hero_Coin_Chest_4Star]
+HeroCoin = 100
+ArenaData = "Hero_Coin_Chest_4Star"
+Theme= "Hero_Legendary"
+[Hero_Coin_Chest_5Star]
+HeroCoin = 100
+ArenaData = "Hero_Coin_Chest_5Star"
+Theme= "Hero_Champion"
+[EVO_Shard_5Star]
+ItemPool = 1
+ArenaData = "EVO_Shard_5Star"
+Theme="Champion"
+[EVO_Shard_4Star]
+ItemPool = 1
+ArenaData = "EVO_Shard_4Star"
+Theme="Legendary"
+[EVO_Shard_3Star]
+ItemPool = 1
+ArenaData = "EVO_Shard_3Star"
+Theme="Epic"
+[202512_Christmas_1Star]
+ItemPool = 1
+ArenaData = "202512_Christmas_1Star"
+Theme="Common"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202512_Christmas_2Star]
+ItemPool = 1
+ArenaData = "202512_Christmas_2Star"
+Theme="Rare"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_rare"
+[202512_Christmas_3Star]
+ItemPool = 1
+ArenaData = "202512_Christmas_3Star"
+Theme="Epic"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_epic"
+[202512_Christmas_4Star]
+ItemPool = 1
+ArenaData = "202512_Christmas_4Star"
+Theme="Legendary"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_legendary"
+[202512_Christmas_5Star]
+ItemPool = 1
+ArenaData = "202512_Christmas_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202601_FireIce_Chest_1Star]
+ItemPool = 1
+ArenaData = "202601_FireIce_Chest_1Star"
+Theme="Common"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202601_FireIce_Chest_2Star]
+ItemPool = 1
+ArenaData = "202601_FireIce_Chest_2Star"
+Theme="Rare"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_rare"
+[202601_FireIce_Chest_3Star]
+ItemPool = 1
+ArenaData = "202601_FireIce_Chest_3Star"
+Theme="Epic"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_epic"
+[202601_FireIce_Chest_4Star]
+ItemPool = 1
+ArenaData = "202601_FireIce_Chest_4Star"
+Theme="Legendary"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_legendary"
+[202601_FireIce_Chest_5Star]
+ItemPool = 1
+ArenaData = "202601_FireIce_Chest_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202602_Seasonal_Chest_1Star]
+ItemPool = 1
+ArenaData = "202602_Seasonal_Chest_1Star"
+Theme="Common"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202602_Seasonal_Chest_2Star]
+ItemPool = 1
+ArenaData = "202602_Seasonal_Chest_2Star"
+Theme="Rare"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_rare"
+[202602_Seasonal_Chest_3Star]
+ItemPool = 1
+ArenaData = "202602_Seasonal_Chest_3Star"
+Theme="Epic"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_epic"
+[202602_Seasonal_Chest_4Star]
+ItemPool = 1
+ArenaData = "202602_Seasonal_Chest_4Star"
+Theme="Legendary"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_legendary"
+[202602_Seasonal_Chest_5Star]
+ItemPool = 1
+ArenaData = "202602_Seasonal_Chest_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[AlbumSnippet_Unique]
+ItemPool = 1
+ArenaData = "AlbumSnippet_Unique"
+Theme = "Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[AlbumSnippet_Random]
+ItemPool = 1
+ArenaData = "AlbumSnippet_Random"
+Theme = "Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[202603_Cosmetic_Chest_5Star]
+ItemPool = 1
+ArenaData = "202603_Cosmetic_Chest_5Star"
+Theme="Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[v2_AlbumSnippet_Unique]
+ItemPool = 1
+ArenaData = "v2_AlbumSnippet_Unique"
+Theme = "Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[v2_AlbumSnippet_Random]
+ItemPool = 1
+ArenaData = "v2_AlbumSnippet_Random"
+Theme = "Champion"
+AudioTapSoundOverride="soundbanks/ui_menu_general/ui_menu_general_jingle_tap_lootdrop_common"
+[RareChoiceChest]
+ItemPool = 1
+CardNewWeightFactor = 0.1
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "RareChoiceChest"
+Theme="Rare"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[EpicChoiceChest]
+ItemPool = 1
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "EpicChoiceChest"
+Theme="Epic"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[LegendaryChoiceChest]
+ItemPool = 1
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "LegendaryChoiceChest"
+Theme="Legendary"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[ChampionChoiceChest]
+ItemPool = 1
+CardNewWeightFactor = 50.0
+CardCatchupWeightFactor = 1.0
+CardAmountMinFactor = 1.0
+CardAmountMaxFactor = 1.0
+ArenaData = "ChampionChoiceChest"
+Theme="Champion"
+MaxLevelCardThreshold = 60
+MaxLevelCardWeightFactor = 0.1
+RewardOptionsCount = 2
+RewardOptionsMode = "ItemPool"
+[v3_AlbumSnippet_Unique]
+ItemPool = 1
+ArenaData = "v3_AlbumSnippet_Unique"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v3_AlbumSnippet_Random_Week1]
+ItemPool = 1
+ArenaData = "v3_AlbumSnippet_Random_Week1"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v3_AlbumSnippet_Random_Week2]
+ItemPool = 1
+ArenaData = "v3_AlbumSnippet_Random_Week2"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v3_AlbumSnippet_Random_Week3]
+ItemPool = 1
+ArenaData = "v3_AlbumSnippet_Random_Week3"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v3_AlbumSnippet_Random_Week4]
+ItemPool = 1
+ArenaData = "v3_AlbumSnippet_Random_Week4"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v4_AlbumSnippet_Unique]
+ItemPool = 1
+ArenaData = "v4_AlbumSnippet_Unique"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v4_AlbumSnippet_Random_Week1]
+ItemPool = 1
+ArenaData = "v4_AlbumSnippet_Random_Week1"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v4_AlbumSnippet_Random_Week2]
+ItemPool = 1
+ArenaData = "v4_AlbumSnippet_Random_Week2"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v4_AlbumSnippet_Random_Week3]
+ItemPool = 1
+ArenaData = "v4_AlbumSnippet_Random_Week3"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"
+[v4_AlbumSnippet_Random_Week4]
+ItemPool = 1
+ArenaData = "v4_AlbumSnippet_Random_Week4"
+Theme = "Champion"
+AudioTapSoundOverride="sound_tap_lootdrop_common"

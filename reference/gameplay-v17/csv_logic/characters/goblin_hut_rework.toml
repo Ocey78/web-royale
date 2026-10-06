@@ -1,0 +1,165 @@
+[BUILDING.GoblinHut_Rework]
+	Rarity = "Common"
+	IsBuilding = true
+	DeployTime = 1000
+	Hitpoints = 461
+	HitSpeed = 10000
+	AttacksGround = true
+	AttacksAir = true
+	LifeTime = 30000
+	FileName = "sc/building_goblin_hut.sc"
+	BlueExportName = "Building_Goblin_Hut_2025Rework_Blue"
+	RedExportName = "Building_Goblin_Hut_2025Rework_Red"
+	DeathEffect = "goblin_hut_die"
+	SpawnEffect = "goblin_hut_deploy"
+	ShadowScaleX = 90
+	ShadowScaleY = 60
+	ShadowX = -8
+	ShadowSkew = 5
+	Scale = 100
+	CollisionRadius = 1000
+	HealthBarOffsetY = -10
+	DamageExportName = "filter_damage_wobble"
+	DeathSpawnCount = 1
+	DeathSpawnCharacter = "SpearGoblin"
+	ProjectileStartRadius = 400
+	ProjectileStartZ = 400
+	TID = "TID_BUILDING_GOBLIN_HUT"
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+    Range = 6000
+    SpawnInterval = 0
+    SpawnNumber = 0
+    SpawnPauseTime = 0
+    SpawnCharacter = ""
+    OnStartingAction = "goblin_hut_life_time_controller"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Range = "range"
+	StatsTags.DeathSpawnCount = "death_spawn_count"
+	StatsTags.LifeTime = "life_time"
+	StatsTags.Level = "spear_goblin_level"
+	StatsTags.Targets = "targets"
+    [ACTION.goblin_hut_life_time_controller]
+    ClassType = "ActionGoblinHutLifeState"
+	ActionDelay = 1000
+    SpawnInterval = 2200
+    SpawnData = "SpearGoblin_Dummy"
+    SpawnNumber = 1
+	SingleDeployOffsetAngle = 20
+    SpawnOffset = 1200
+    ObjectFilter = "DefaultCharacterTargets"
+    OnStartWaitingAction = "goblin_hut_sleeping_effects_group"
+    OnStartSpawningAction = "goblin_hut_start_dark_activate"
+	OnSpawnAction = "goblin_hut_start_dark_smoke"
+ToggleEffectTag = "UNIT_CUSTOM_TAG_1"
+	StatsTags.SpawnNumber = "spawn_number"
+	StatsTags.SpawnInterval = "spawn_interval"
+		[ACTION.goblin_hut_sleeping_effects_group]
+		ClassType = "ActionGroup"
+		SubActions = ["goblin_hut_sleeping_sound_hook", "goblin_hut_start_waiting"]
+		SubActionsDelay = [0,0]
+        [ACTION.goblin_hut_sleeping_sound_hook]
+        ClassType = "ActionPlayEffect"
+        Effect = "goblin_hut_rework_sleeping_sound_hook"
+        PauseIfTrue = "UNIT_CUSTOM_TAG_1()"
+		ForceStopIfTrue = "UNIT_CUSTOM_TAG_1()"
+        [ACTION.goblin_hut_start_waiting]
+        ClassType = "ActionPlayEffect"
+        Effect = "goblin_hut_rework_sleeping_effect"
+        EffectFlags = ["Looping"]
+        PauseIfTrue = "UNIT_CUSTOM_TAG_1()"
+		ForceStopIfTrue = "UNIT_CUSTOM_TAG_1()"
+		[ACTION.goblin_hut_start_dark_smoke]
+		ClassType = "ActionPlayEffect"
+		Effect = "goblin_hut_rework_activated_smoke"
+		PauseIfTrue = "!UNIT_CUSTOM_TAG_1()"
+		[ACTION.goblin_hut_start_dark_activate]
+		ClassType = "ActionPlayEffect"
+		Effect = "goblin_hut_rework_activate"
+		EffectFlags = ["FilterCanModifyTransform"]
+		PauseIfTrue = "!UNIT_CUSTOM_TAG_1()"
+[EXT.GoblinHut_Rework_SpearGoblin]
+Base = "CHARACTER.SpearGoblin"
+TID = "TID_CHARACTER_SPEAR_GOBLIN"
+StatsTags.TID = "spawn_tid"
+[STATS.goblin_hut_rework]
+	[[STATS.goblin_hut_rework.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.goblin_hut_rework.stats]]
+        Value = "spear_goblin_level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["spawn_tid"]
+		Icon = "icons_stats_troop"
+        InfoButtonStats = "spear_goblins_dummy"
+		InfoPopoverTitle = "spawn_tid"
+	[[STATS.goblin_hut_rework.stats]]
+		Value = "spawn_interval"
+        Unit = "TIME"
+        TID = "TID_SPAWN_INTERVAL"
+        Icon = "icons_stats_deploy_time"
+	[[STATS.goblin_hut_rework.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.goblin_hut_rework.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.goblin_hut_rework.stats]]
+		Value = "death_spawn_count"
+		Value2 = "spawn_tid"
+		Unit = "DEATH_SPAWN"
+		TID = "TID_SPELL_ATTRIBUTE_DEATH_SPAWN"
+		Icon = "icons_stats_troop_count"
+	[[STATS.goblin_hut_rework.stats]]
+		Value = "life_time"
+        Unit = "TIME"
+        TID = "TID_SPELL_ATTRIBUTE_LIFETIME"
+        Icon = "icons_stats_deploy_time"
+[EXT.SpearGoblin_Dummy]
+Base = "CHARACTER.SpearGoblin"
+DeployTime = 500
+StatsTags.Hitpoints = "spear_goblin_dummy_hitpoints"
+StatsTags.Range = "spear_goblin_dummy_range"
+StatsTags.HitSpeed = "spear_goblin_dummy_hitspeed"
+StatsTags.Damage = "spear_goblin_dummy_damage"
+StatsTags.Speed = "spear_goblin_dummy_speed"
+StatsTags.Targets = "spear_goblin_dummy_targets"
+StatsTags.TID = "spawn_tid"
+[STATS.spear_goblins_dummy]
+	[[STATS.spear_goblins_dummy.stats]]
+		Value = "spear_goblin_dummy_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+    [[STATS.spear_goblins_dummy.stats]]
+		Value = "spear_goblin_dummy_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.spear_goblins_dummy.stats]]
+		Value = "spear_goblin_dummy_hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.spear_goblins_dummy.stats]]
+		Value = "spear_goblin_dummy_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.spear_goblins_dummy.stats]]
+		Value = "spear_goblin_dummy_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.spear_goblins_dummy.stats]]
+		Value = "spear_goblin_dummy_range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

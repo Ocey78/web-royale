@@ -1,0 +1,47 @@
+[SPELL_OTHER.Arrows]
+	StatsTags.ProjectileWaves = "projectile_waves"
+    StatsTags.Radius = "radius"
+
+[PROJECTILE.ArrowsSpell]
+AoeToAir = true
+AoeToGround = true
+CrownTowerDamagePercent = -80
+Damage = 48
+DeflectBehaviour = "CheckOnlyTargetPosition,UseSpellsTowerDamageMul"
+DeflectRadius = 1400
+ExportName = "projectile_arrow_basic_enemy"
+FileName = "sc/effects.sc"
+Gravity = 50
+HideWhenDelayed = true
+HitEffect = "ArrowHitGround"
+Homing = true
+Name = "ArrowsSpell"
+OnlyEnemies = true
+Radius = 1400
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 1100
+TrailEffect = "arrows_trail"
+
+[PROJECTILE.ArrowsSpell.StatsTags]
+Damage = "damage"
+CrownTowerDamage = "tower_damage"
+
+[STATS.arrows]
+	[[STATS.arrows.stats]]
+		Value = "damage"
+		Value2 = "projectile_waves"
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.arrows.stats]]
+		Value = "tower_damage"
+		Value2 = "projectile_waves"
+		Unit = "INTEGER_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_TOWER_DAMAGE"
+		Icon = "icons_stats_dmg_crown"
+    [[STATS.arrows.stats]]
+		Value = "radius"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RADIUS"
+		Icon = "icons_stats_radius"

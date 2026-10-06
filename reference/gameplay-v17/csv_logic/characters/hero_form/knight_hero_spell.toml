@@ -1,0 +1,19 @@
+[SPELL_HERO.Knight_hero]
+	SummonCharacter         = "KnightHero"
+	CardForm                = "HeroForm"
+	Stats                   = "knight_hero"
+	IconSWF                 = "sc/ui_card_knight_hero.sc"
+	IconFile                = "knight_hero_card"
+	HighresImageFilename    = "sc3d/characters/hero/hero_knight/hero_prefab_knight_collection"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	UnlockArena             = "TrainingCamp"
+	Rarity                  = "Common"
+	Tribe                   = ["Kingdom"]
+	ManaCost                = 3
+	PrestigeCount           = 3
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_KNIGHT"
+	TID_INFO                = "TID_SPELL_INFO_HERO_KNIGHT"
+	PveDefenseType          = "Defender"
+[SPELL_CHARACTER.Knight]
+	EvolvedSpells = ["Knight_EV1", "Knight_hero"]

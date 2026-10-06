@@ -1,0 +1,6 @@
+[GAMEMODE.RoyaleRoulette]
+	[[GAMEMODE.RoyaleRoulette.Components]]
+		Name = "RoyaleRoulette_Default"
+		ClassType = "Roulette"
+		RegistryName = "RoyaleRoulette_Default"
+		MaxModeRollAttempts = 8

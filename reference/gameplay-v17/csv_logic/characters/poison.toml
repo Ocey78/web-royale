@@ -1,0 +1,28 @@
+
+[AEO.Poison]
+Buff = "Poison"
+BuffTime = 1000
+HitSpeedOffset = 250
+HitSpeed = 250
+LifeDuration = 8000
+LoopingEffect = "Spell_poison_loop"
+Name = "Poison"
+OneShotEffect = "Spell_poison_effect"
+Filter = "CommonAreaDamageFilter"
+Radius = 3500
+Rarity = "Common"
+ScaledEffect = "Spell_poison_ground"
+
+[BUFF.Poison]
+CrownTowerDamagePercent = -78
+DamagePerSecond = 36
+Effect = "PoisonSteam"
+EnableStacking = true
+FilterExportName = "filter_poison"
+FilterFile = "sc/effects.sc"
+HitFrequency = 1000
+Name = "Poison"
+Rarity = "Common"
+SpeedMultiplier = -15
+TID = "TID_SPELL_POISON"
+

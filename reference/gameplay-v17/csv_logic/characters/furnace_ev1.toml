@@ -1,0 +1,205 @@
+[VARIABLE.Furnace_EV1_Spawn_Side_Ticker]
+[EXT.Furnace_EV1]
+	Base = "CHARACTER.Furnace_rework"
+	OnStartingAttackAction = "Furnace_EV1_Attack_Group"
+	Projectile = "Furnace_Evolution_Projectile"
+	OnStartingAction = "Furnace_EV1_Start_Group"
+	ClonedVersion = "Furnace_rework"
+	OnStartingClientActions = ["Furnace_EV1_Hat_Spawn_Spirit_Visual", "Healthbar_Medium_WithEvoBadge"]
+	FileName="sc/chr_furnace_evolution.sc"
+	BlueExportName="furnace_evo"
+	RedExportName="furnace_evo_red"
+	Scale = 64
+	MoveEffect = "furnace_evolution_step"
+	SpawnEffect = "furnace_evolution_deploy_02"
+	DeathEffect = "Death_card_evolution_M_new"
+	AttackStartEffect = "furnace_evolution_attack_start"
+	ContinuousEffect = ""
+	HealthBarOffsetYRed = -7
+	HealthBarOffsetYBlue = -2
+		DeployBaseAnimExportName="filter_deploy_unit_legendary"
+		CustomSpawnFilter="filter_card_evolution"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage = "damage"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+	StatsTags.Level = "level"
+	StatsTags.Speed = "speed"
+[ACTION.Furnace_EV1_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Furnace_EV1_continuous_spawn", "Furnace_EV1_Check_Moving"]
+	SubActionsDelay = [0, 0]
+[ACTION.Furnace_EV1_continuous_spawn]
+	ClassType = "ActionInterval"
+	StartCounterAt = 1950
+	Interval = 5000
+	ActionToExecute = "Furnace_rework_spawn_forward"
+	AffectedBySpawnSpeed = true
+	PauseTag = "NO_SUMMON,UNIT_CUSTOM_TAG_1,FURNACE_DELAY_NORMAL_SPAWN"
+	StatsTags.Interval = "interval_of_spawns"
+[ACTION.Furnace_EV1_Attack_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Furnace_EV1_Pause_Normal_Spawn", "Furnace_EV1_Quick_Spawn", "Furnace_EV1_Quick_Spawn_Effect_Loop"]
+	SubActionsDelay = [0, 400, 400]
+	AbortIfInstigatorDies = false
+[ACTION.Furnace_EV1_Pause_Normal_Spawn]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 99999
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+	ForceStopIfTrue = "FURNACE_STOP_QUICK_SPAWN()"
+	AbortIfInstigatorDies = false
+[ACTION.Furnace_EV1_Check_Moving]
+	ClassType = "ActionFlipFlop"
+	Condition = "is_moving()"
+	ActivationTime = 1000
+	OnActivatedAction = "Furnace_EV1_Stop_Quick_Spawn_Group"
+[ACTION.Furnace_EV1_Stop_Quick_Spawn_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["Furnace_EV1_Enable_Stop_Quick_Spawn_Tag", "Furnace_EV1_Enable_Delay_Normal_Spawn_Tag"]
+	SubActionsDelay = [0, 0]
+	AbortIfInstigatorDies = false
+[ACTION.Furnace_EV1_Enable_Stop_Quick_Spawn_Tag]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 50
+	GameTagsToSet = "FURNACE_STOP_QUICK_SPAWN"
+[ACTION.Furnace_EV1_Enable_Delay_Normal_Spawn_Tag]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 400
+	GameTagsToSet = "FURNACE_DELAY_NORMAL_SPAWN"
+[ACTION.Furnace_EV1_Quick_Spawn_Effect_Loop]
+	ClassType="ActionPlayEffect"
+	Effect = "filter_furnace_evo_overheat_body"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	Singleton = true
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1"
+	AbortIfInstigatorDies = false
+[ACTION.Furnace_EV1_Quick_Spawn]
+	ClassType = "ActionInterval"
+	Interval = 2400
+	StartCounterAt = 0
+	ActionToExecute = "Furnace_EV1_Quick_Spawn_Start"
+	AffectedBySpawnSpeed = true
+	PauseTag = "NO_SUMMON"
+	ForceStopIfTrue = "!UNIT_CUSTOM_TAG_1"
+	AbortIfInstigatorDies = false
+	Singleton = true
+	StatsTags.Interval = "interval_of_quick_spawn"
+[ACTION.Furnace_EV1_Quick_Spawn_Start]
+	ClassType = "ActionGroup"
+	SubActions = ["Furnace_EV1_Hat_Spawn_Firespirits_Effect", "Furnace_EV1_Quick_Spawn_Select_Side"]
+	SubActionsDelay = [0, 200]
+[ACTION.Furnace_EV1_Quick_Spawn_Select_Side]
+	ClassType = "ActionSelect"
+	SubActions = [
+		"Furnace_EV1_Spawn_Behind_Left",
+		"Furnace_EV1_Spawn_Behind_Right",]
+	PerActionConditions = [
+		"!Furnace_EV1_Spawn_Side_Ticker"
+	]
+	PassOptionalActionDelay = true
+[ACTION.Furnace_EV1_Spawn_Behind_Left]
+	ClassType = "ActionSpawnToLocation"
+	ActionToRunOnSpawned="Furnace_rework_spawning_effect"
+	SpawnType = "ProjectileType"
+	SpawnData = "Furnace_EV1_Spawn_Spirit_Projectile"
+	NextAction = "Furnace_EV1_Increment_Quick_Spawn_Count"
+	NextActionWait = true
+	TargetExprX = "x - (team_y_direction(team_index) * 1500)"
+	TargetExprY = "team_y_direction(team_index) * 1000 + y"
+	StartPositionZOffset = 6000
+	ParentGOAsSource = true
+[ACTION.Furnace_EV1_Spawn_Behind_Right]
+	ClassType = "ActionSpawnToLocation"
+	ActionToRunOnSpawned="Furnace_rework_spawning_effect"
+	SpawnType = "ProjectileType"
+	SpawnData = "Furnace_EV1_Spawn_Spirit_Projectile"
+	NextAction = "Furnace_EV1_Increment_Quick_Spawn_Count"
+	NextActionWait = true
+	TargetExprX = "x + (team_y_direction(team_index) * 1500)"
+	TargetExprY = "team_y_direction(team_index) * 1000 + y"
+	StartPositionZOffset = 6000
+	ParentGOAsSource = true
+[EXT.Furnace_EV1_Spawn_Spirit_Projectile]
+	Base = "PROJECTILE.FireSpiritsProjectile"
+	Rarity = "Common"
+	FileName = "sc/effects.sc"
+	ExportName = "projectile_firespirit"
+	HitEffect = "firespirit_projectile_hit_02"
+	Speed = 200
+	Gravity = 450
+	Damage = 0
+	SpawnCharacter = "FireSpirits"
+[EXT.Furnace_Evolution_Projectile]
+	Base = "PROJECTILE.Furnace_Rework_Projectile"
+	FileName = "sc/chr_furnace_evolution.sc"
+	ExportName = "furnace_evo_projectile"
+	ShadowExportName = ""
+	TrailEffect = "furnace_evolution_projectile_emitter"
+	HitEffect = "furnace_evolution_projectile_hit_02"
+[ACTION.Furnace_EV1_Increment_Quick_Spawn_Count]
+	ClassType = "ActionSetVariable"
+	Variable = "Furnace_EV1_Spawn_Side_Ticker"
+	Value = "!Furnace_EV1_Spawn_Side_Ticker"
+[ACTION.Furnace_EV1_Hat_Spawn_Firespirits_Effect]
+	ClassType="ActionPlayEffect"
+	Effect="furnace_evo_overheat_02"
+	EffectFlags="FilterCanModifyTransform"
+	SpriteName="Furnace_EV1_Hat"
+[CLIENT_ACTION.Furnace_EV1_Hat_Spawn_Spirit_Visual]
+	ClassType="ClientActionAnimatorLayer"
+	LayerName="Furnace_EV1_Hat"
+	Filename="sc/chr_furnace_evolution.sc"
+	BlueExportName="furnace_evo_hat"
+	RedExportName="furnace_evo_hat"
+	Visible=true
+[STATS.furnace_ev1]
+	[[STATS.furnace_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.furnace_ev1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.furnace_ev1.stats]]
+		Value = "level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_FIRE_SPIRITS"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_FIRE_SPIRITS"
+		InfoButtonStats="firespirits"
+	[[STATS.furnace_ev1.stats]]
+		Value = "interval_of_spawns"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_TIME"
+		Icon = "icons_stats_deploy_time"
+	[[STATS.furnace_ev1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.furnace_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.furnace_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.furnace_ev1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.furnace_ev1.stats]]
+		Value = "interval_of_quick_spawn"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_QUICK_SPAWN_SPEED"
+		Icon = "icons_stats_deploy_time"

@@ -10,7 +10,7 @@ function registry(){return F.createRegistry({forms:[
 const equipped=['position-knight-evo','position-archer-hero',null,null,null,null,null,null];
 function battle(extra={}){return new C.Battle({seed:52206,deck,enemyDeck:deck,ai:false,formRegistry:registry(),seatForms:[equipped,[]],formContext:{arena:10,casual:true,positionalSlots:true,unlockedForms:equipped.filter(Boolean)},...extra});}
 test('old 0.52 virtual-slot replay reproduces its recorded result with its exact registry fingerprint',()=>{
- a.equal(F.defaultRegistry.fingerprint,saved.initial.formRegistryFingerprint);
+ a.equal(R.engineFor('0.52').FormRegistry.fingerprint,saved.initial.formRegistryFingerprint);
  a.notEqual(saved.initial.formContext.positionalSlots,true);
  const s=new R.Session(saved);s.seek(saved.duration);a.equal(s.error,null);a.deepEqual(R.digest(s.battle),saved.expected);
 });

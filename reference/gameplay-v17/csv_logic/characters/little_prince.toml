@@ -1,0 +1,337 @@
+[VARIABLE.LP_AttackCount]
+[VARIABLE.LP_GraceTimer]
+[CHARACTER.LittlePrince]
+Ability = "ChampGuardianAbility"
+AbilityPendingEffect = "Heal_aura"
+AnimationsKeepLastFrame = true
+AttackFinishTime = 0
+AttackSequence = [0, 1, 2]
+AttackSequenceMode = "None"
+AttackStartEffect = "ArcherAttackStart"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "LittlePrince"
+CollisionRadius = 500
+CustomSpawnFilter = "filter_champion_golden_knight"
+DamageExportName = "filter_damage"
+DeathEffect = "LittlePrince_Die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_little_prince_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HealthBarOffsetYBlue = -10
+HealthBarOffsetYRed = -10
+HideHealthbar = true
+HitSpeed = 1200
+Hitpoints = 273
+LoadTime = 800
+Mass = 4
+MoveEffect = "FemRasSteps"
+Name = "LittlePrince"
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+OnStartingAttackAction = "LP_OnStartingAttack"
+OnStartingAction = "LP_ConstantTicker"
+OnAttackAction = "LP_OnAttack"
+OverrideAttackFinishTime = true
+Projectile = "LittlePrinceProjectile"
+Projectile2 = "LittlePrinceProjectile"
+Projectile3 = "LittlePrinceProjectile"
+ProjectileEffect = "LittlePrince_attack"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 5500
+Rarity = "Common"
+RedExportName = "LittlePrince_enemy"
+ResetHitTimerWhenNoTarget = true
+Scale = 70
+ShadowScaleX = 75
+ShadowScaleY = 75
+ShadowSkew = 25
+ShadowY = -5
+SightRange = 5500
+SpawnEffect = "Deploy_Little_Prince"
+Speed = 60
+TID = "TID_CHARACTER_ARCHER"
+UseAnimator = true
+OnStartingClientActions = ["Healthbar_Medium"]
+[CHARACTER.LittlePrince.StatsTags]
+Damage = "damage"
+Hitpoints = "hitpoints"
+Targets = "targets"
+Speed = "speed"
+HitSpeed = "hit_speed_min"
+Range = "range"
+[PROJECTILE.LittlePrinceProjectile]
+Damage = 41
+ExportName = "projectile_arrow_basic_enemy"
+FileName = "sc/effects.sc"
+Gravity = 120
+HitEffect = "BlowdartArrowHit"
+Homing = true
+Name = "LittlePrinceProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+Scale = 75
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 800
+TrailEffect = "BlowdartProjectileEmitter"
+[ACTION.LP_OnStartingAttack]
+ClassType = "ActionSetVariable"
+Variable = "LP_GraceTimer"
+Value = "300"
+NextAction = "LittlePrinceChooseAttack"
+[ACTION.LittlePrinceChooseAttack]
+ClassType = "ActionFilter"
+Condition = "LP_AttackCount == 0"
+OnTrueAction = "LittlePrinceChangeAnim_to_0"
+	
+	[ACTION.LittlePrinceChangeAnim_to_0]
+	AttackIndex = 0
+	ClassType = "ActionSetAttackSequenceIndex"
+[ACTION.LittlePrinceChooseAttack.OnFalseAction]
+ClassType = "ActionFilter"
+Condition = "LP_AttackCount == 3"
+OnTrueAction = "LittlePrinceSpeedup1"
+	[ACTION.LittlePrinceSpeedup1]
+	ClassType = "ActionSpawn"
+	SpawnData = "LittlePrinceLvl1"
+	SpawnTime = 999999
+	SpawnType = "BuffType"
+	[ACTION.LittlePrinceChooseAttack.OnFalseAction.OnFalseAction]
+	ClassType = "ActionFilter"
+	Condition = "LP_AttackCount == 6"
+	OnTrueAction = "LittlePrinceSpeedup2"
+		[ACTION.LittlePrinceSpeedup2]
+		ClassType = "ActionSpawn"
+		NextAction = "LittlePrinceChangeAnim_to_1"
+		SpawnData = "LittlePrinceLvlMax"
+		SpawnTime = 999999
+		SpawnType = "BuffType"
+			[ACTION.LittlePrinceChangeAnim_to_1]
+			AttackIndex = 1
+			ClassType = "ActionSetAttackSequenceIndex"
+			NextAction = "LittlePrinceMaxSpeedSFX"
+				[ACTION.LittlePrinceMaxSpeedSFX]
+				ClassType = "ActionPlayEffect"
+				Effect = "little_prince_maxed_speed"
+		[ACTION.LittlePrinceChooseAttack.OnFalseAction.OnFalseAction.OnFalseAction]
+		ClassType = "ActionFilter"
+		Condition = "LP_AttackCount == 7"
+		OnTrueAction = "LittlePrinceChangeAnim_to_2"
+			[ACTION.LittlePrinceChangeAnim_to_2]
+			AttackIndex = 2
+			ClassType = "ActionSetAttackSequenceIndex"
+[ACTION.LP_ConstantTicker]
+ClassType = "ActionInterval"
+Interval = 50
+	[ACTION.LP_ConstantTicker.ActionToExecute]
+	ClassType = "ActionGroup"
+	SubActions = ["LP_DecrGrace", "LP_CheckReset", "LP_CheckCombatDisabled"]
+[ACTION.LP_DecrGrace]
+ClassType = "ActionSetVariable"
+Variable = "LP_GraceTimer"
+Value = "max(0, LP_GraceTimer - 50 * is_moving)"
+ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+[ACTION.LP_CheckReset]
+ClassType = "ActionSetVariable"
+ExecuteIfTrue = "LP_GraceTimer == 0 && LP_AttackCount > 0"
+Variable = "LP_AttackCount"
+Value = "0"
+[ACTION.LP_CheckCombatDisabled]
+ClassType = "ActionSetVariable"
+ExecuteIfTrue = "COMBAT_DISABLED"
+Variable = "LP_AttackCount"
+Value = "0"
+[ACTION.LP_OnAttack]
+ClassType = "ActionGroup"
+SubActions = ["LP_IncrAttackCount", "LP_SetGrace"]
+[ACTION.LP_IncrAttackCount]
+ClassType = "ActionSetVariable"
+Variable = "LP_AttackCount"
+Value = "min(99, LP_AttackCount + 1)"
+[ACTION.LP_SetGrace]
+ClassType = "ActionSetVariable"
+Variable = "LP_GraceTimer"
+Value = "300"
+[BUFF.LittlePrinceLvl1]
+AliveIfTrue = "LP_AttackCount >= 3 && LP_AttackCount <= 5"
+HitSpeedMultiplier = 200
+Name = "LittlePrinceLvl1"
+Rarity = "Champion"
+TID = "TID_SPELL_RAGE"
+[BUFF.LittlePrinceLvlMax]
+AliveIfTrue = "LP_AttackCount >= 6"
+HitSpeedMultiplier = 300
+Name = "LittlePrinceLvlMax"
+Rarity = "Champion"
+TID = "TID_SPELL_RAGE"
+[BUFF.LittlePrinceLvlMax.StatsTags]
+HitSpeedMultiplier = "max_hitspeed_multiplier"
+[ABILITY.ChampGuardianAbility]
+CastTime = 944
+MaxCharges = 1
+KeepIconEvenWhenOutOfCharges = true
+HideChargesTextField = true
+DeployedClip = "champion_select_ring_rampup_golden_knight"
+DeployedEffect = "ability_charging_little_prince"
+IconExportName = "icon_ability_little_prince"
+IconSWF = "sc/ui_spells.sc"
+KeepCurrentTarget = false
+ManaCost = 3
+Name = "ChampGuardianAbility"
+OnActivationAction = "LittlePrinceWaitGuard"
+PopoverIconExportName = "icon_ability_little_prince"
+PopoverIconFileName = "sc/ui_spells.sc"
+Stats = "little_prince_ability"
+TID = "TID_ABILITY_NAME_LITTLE_PRINCE_RESCUE"
+TID_INFO = "TID_ABILITY_DESCRIPTION_LITTLE_PRINCE"
+TriggerDelay = 50
+[ABILITY.ChampGuardianAbility.StatsTags]
+Cooldown = "ability_cooldown"
+[ACTION.LittlePrinceWaitGuard]
+ActionDuration = 1500
+ClassType = "ActionWithDuration"
+GameTagsToSet = "NO_MOVE, UNIT_CUSTOM_TAG_1"
+[ACTION.LittlePrinceWaitGuard.NextAction]
+ClassType = "ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "DummySpawnLittlePrinceGuard"
+[AEO.DummySpawnLittlePrinceGuard]
+HitSpeed = 0
+LifeDuration = 1000
+Name = "DummySpawnLittlePrinceGuard"
+OnStartingAction = "Spawn_ChampionGuardCharge"
+Rarity = "Common"
+[ACTION.Spawn_ChampionGuardCharge]
+ActionDelay = 850
+ClassType = "ActionSpawnGuard"
+ContinuosPushBack = true
+DistanceProportinalPush = true
+HitFilter = "PassiveForcedHitGroundCharacters"
+PushBackDamage = 125
+PushBackRadius = 2500
+PushBackStrength = 2500
+SpawnData = "ChampionGuard"
+SpawnAEO = "ChampionGuardCleave"
+AppearBehindAtDistance = 2000
+TargetRadius = 4000
+[AEO.ChampionGuardCleave]
+Radius = 2500
+HitSpeed = 50
+LifeDuration = 99999
+Filter = "PassiveForcedHitGroundCharacters"
+FollowBehaviour = "FollowParent"
+OneHitPerTarget = true
+Damage = { BaseDamage = 125 }
+Pushback = 2500
+PushbackAll = true
+RelativePushback = true
+ContinuousPushback = true
+Rarity = "Common"
+StatsTags.Damage = "charge_damage"
+[CHARACTER.ChampionGuard]
+AttackStartEffect = "guardienne_attack_start"
+AttacksGround = true
+BlueExportName = "PrinceGuard"
+CollisionRadius = 800
+ContinuousEffect = "Guardienne_steps"
+CustomSpawnFilter = "filter_champion_golden_knight"
+Damage = 91
+DamageEffect = "golden_knight_hit"
+DashEffect = "guardienne_dashing"
+DashHitEffect = "assassin_hit_special"
+DashImmuneToDamageTime = 100
+DashLandingTime = 200
+DashMaxRange = 999999
+DeathEffect = "Guardienne_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 300
+DeployTimeChangesDeployAnim = true
+FileName = "sc/chr_little_prince_guard_dl.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = 30
+HitSpeed = 1200
+Hitpoints = 625
+IngamePathfindVisible = true
+JumpSpeed = 400
+LoadTime = 700
+Mass = 10
+MoveEffect = "Guardienne_steps"
+Name = "ChampionGuard"
+Range = 1200
+Rarity = "Common"
+RedExportName = "PrinceGuard_enemy"
+Scale = 70
+ShadowScaleX = 80
+ShadowScaleY = 60
+ShadowSkew = 25
+ShadowY = 10
+SightRange = 5500
+SpawnEffect = "Deploy_Guardienne"
+Speed = 60
+TID = "TID_SPELL_KNIGHT"
+UseAnimator = true
+[CHARACTER.ChampionGuard.StatsTags]
+Hitpoints = "ability_spawn_hitpoints"
+Damage = "ability_spawn_damage"
+HitSpeed = "ability_spawn_hit_speed"
+[STATS.little_prince]
+	[[STATS.little_prince.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.little_prince.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.little_prince.stats]]
+		Value = "hit_speed_min"
+		Value2 = "hit_speed_min"
+		Value2Multiplier = "max_hitspeed_multiplier"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.little_prince.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.little_prince.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.little_prince.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.little_prince_ability]
+		Value = "ability_cooldown"
+		Unit = "TIME_PRECISE"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.little_prince_ability.stats]]
+		Value = "charge_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_CHARGE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.little_prince_ability.stats]]
+		Value = "ability_spawn_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.little_prince_ability.stats]]
+		Value = "ability_spawn_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.little_prince_ability.stats]]
+		Value = "ability_spawn_hit_speed"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"

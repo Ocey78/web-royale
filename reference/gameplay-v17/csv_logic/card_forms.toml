@@ -1,0 +1,46 @@
+[BasicForm]
+TID = "TID_BASIC_FORM"
+RequiredShards = 0
+SlotExportName = "card_slot"
+DefaultFrameExportName = "card_item_frame"
+LegendaryFrameExportName = "card_item_frame_legendary"
+ChampionFrameExportName = "card_item_frame_champion"
+[EvoForm]
+TID = "TID_TITLE_EVOLUTION"
+RequiredShards = 6
+SlotExportName = "card_evolution_slot_v2"
+SlotActivationSfx = "soundbanks/ui_menu_general/ui_menu_general_sound_evo_activated"
+DefaultFrameExportName = "card_item_frame_evolution"
+LegendaryFrameExportName = "card_item_frame_evolution_legendary"
+ChampionFrameExportName = "card_item_frame_champion"
+TopDiamondLabelLocked = "evo_locked"
+TopDiamondLabelUnlocked = "evo_unlocked"
+TopDiamondLabelActive = "evo_active"
+ShardProgressBarExportName = "card_item_evolution_progress_bar"
+BattleTopDiamondExportName = "card_item_evolution_cycle"
+BattleLegendaryTopDiamondExportName = "card_item_evolution_cycle_legendary"
+[AutoChessForm]
+TID = "TID_MERGE_TACTICS"
+RequiredShards = 0
+[HeroForm]
+TID = "TID_HERO_FORM"
+RequiredShards = 200
+SlotExportName = "card_hero_slot"
+SlotActivationSfx = "soundbanks/ui_hero_form/ui_menu_general_hero_slot_activate"
+DefaultFrameExportName = "card_item_frame_hero"
+LegendaryFrameExportName = "card_item_frame_hero_legendary"
+ChampionFrameExportName = "card_item_frame_champion"
+TopDiamondLabelLocked = "hero_locked"
+TopDiamondLabelUnlocked = "hero_unlocked"
+TopDiamondLabelActive = "hero_active"
+ShardProgressBarExportName = "card_item_hero_progress_bar"
+BattleTopDiamondExportName = "card_item_hero_top_in_game"
+BattleLegendaryTopDiamondExportName = "card_item_hero_top_in_game_legendary"
+[FlexSlot]
+TID = "TID_FLEX_SLOT"
+RequiredShards = 0
+SlotExportName = "card_flex_slot"
+[FusionPair]
+TID = "TID_FUSION_SLOT"
+RequiredShards = 0
+SlotExportName = "card_flex_slot"

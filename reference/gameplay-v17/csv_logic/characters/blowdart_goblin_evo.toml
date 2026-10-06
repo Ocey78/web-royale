@@ -1,0 +1,144 @@
+[EXT.BlowdartGoblin_EV1]
+Base = "CHARACTER.BlowdartGoblin"
+ClonedVersion = "BlowdartGoblin"
+Projectile = "BlowdartGoblinEvoProjectile"
+OnStartingAction = "blowdart_goblin_evo_select_projectile"
+StatsTags.Damage = "damage"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Speed = "speed"
+StatsTags.HitSpeed = "hit_speed"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+HealthBar = "Small_EV1"
+FileName = "sc/chr_goblin_blowdart_evolution.sc"
+BlueExportName = "Blowdart_Goblin_Evo"
+RedExportName = "Blowdart_Goblin_Evo_red"
+Scale = 65
+SpawnEffect = "vfx_dartgoblin_evo_deploy"
+MoveEffect = "evo_blowdart_goblin_steps"
+DeathEffect = "Death_card_evolution_M"
+AttackStartEffect="evo_blowdart_goblin_atk_start"
+DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	[ACTION.blowdart_goblin_evo_select_projectile]
+	ClassType = "ActionBlowdartGoblinEvoDartSelect"
+	SpecialProjectile = "BlowdartGoblinEvoProjectile_Special"
+	ActionToTakeDataFrom = "blowdart_evo_darts_controller"
+[EXT.BlowdartGoblinEvoProjectile]
+Base = "PROJECTILE.BlowdartGoblinProjectile"
+FileName = "sc/chr_goblin_blowdart_evolution.sc"
+ExportName = "projectile_evo_dart"
+RedExportName = "projectile_evo_dart"
+ShadowExportName = ""
+OnHitTargetAction = "blowdart_evo_darts_controller"
+    [ACTION.blowdart_evo_darts_controller]
+    ClassType = "ActionBlowdartGoblinEvoController"
+    StackAmountChecks = [1, 4, 7]
+    MaxStacks = 3
+    SpawnInterval = 1000
+    Duration = 999999
+    CrownTowerDuration = 3000
+	AeoList = ["BlowDartPoisonAeO_baseDamage", "BlowDartPoisonAeO_midDamage", "BlowDartPoisonAeO_fullDamage"]
+	StatsTags.CrownTowerDuration = "poison_crown_tower_duration"
+    Singleton = true
+[EXT.BlowdartGoblinEvoProjectile_Special]
+Base = "PROJECTILE.BlowdartGoblinEvoProjectile"
+FileName = "sc/chr_goblin_blowdart_evolution.sc"
+ExportName = "projectile_evo_ability_dart"
+RedExportName = "projectile_evo_ability_dart"
+HitEffect= "dartgoblin_evo_proj_hit_01"
+TrailEffect = "evo_blowdartgoblin_projectilespecial_emitter"
+ShadowExportName = "projectile_arrow_shadow"
+[STATS.BlowdartGoblin_EV1]
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "min_damage"
+        Value2 = "max_damage"
+        Unit = "INTEGER"
+        TID = "TID_POISON_DPS"
+        Icon = "icons_stats_dmg_dps"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "poison_radius"
+		Unit = "TILES"
+		TID = "TID_POISON_RADIUS"
+		Icon = "icons_stats_radius"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "min_crown_tower_damage"
+        Value2 = "max_crown_tower_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_TOWER_DPS"
+        Icon = "icons_stats_dmg_crown"
+	[[STATS.BlowdartGoblin_EV1.stats]]
+		Value = "poison_duration"
+        Unit = "TIME"
+        TID = "TID_POISON_DURATION"
+        Icon = "icons_stats_deploy_time"
+[AEO.BlowDartPoisonAeO_baseDamage]
+Rarity = "Common"
+Radius = 1500
+LifeDuration = 1000
+HitSpeedOffset = 250
+HitSpeed = 250
+Buff = "BlowdartPoisonBuff"
+BuffTime = 1000
+Filter = "CommonAreaDamageFilter"
+LoopingEffect = "evo_blowdartgoblin_poison_smoke_aoe_04"
+OnHitAction = "blowdart_aeo_evo_poison"
+StatsTags.Radius = "poison_radius"
+StatsTags.LifeDuration = "poison_duration"
+    [ACTION.blowdart_aeo_evo_poison]
+    ClassType = "ActionBlowdartGoblinEvoDamage"
+HitSpeed = 1000
+    Duration = 1000
+ActionToGetDataFrom = "blowdart_evo_darts_controller"
+    CrownDamageDamageMultiplier = 25
+    CrownTowerDuration = 1000
+	DamageList = [25, 50, 120]
+    Singleton = true
+	StatsTags.MinDamage = "min_damage"
+	StatsTags.MaxDamage = "max_damage"
+StatsTags.MinCrownTowerDamage = "min_crown_tower_damage"
+StatsTags.MaxCrownTowerDamage = "max_crown_tower_damage"
+[EXT.BlowDartPoisonAeO_midDamage]
+Base = "AEO.BlowDartPoisonAeO_baseDamage"
+LoopingEffect = "evo_blowdartgoblin_poison_smoke_aoe_02"
+[EXT.BlowDartPoisonAeO_fullDamage]
+Base = "AEO.BlowDartPoisonAeO_baseDamage"
+LoopingEffect = "evo_blowdartgoblin_poison_smoke_aoe_03"
+[BUFF.BlowdartPoisonBuff]
+Rarity = "Common"
+Effect = ""
+EnableStacking = false
+DamagePerSecond = 0
+TID = "TID_SPELL_POISON"
+HitFrequency = 1000
+FilterFile = "sc/effects.sc"
+FilterExportName = "filter_poison"

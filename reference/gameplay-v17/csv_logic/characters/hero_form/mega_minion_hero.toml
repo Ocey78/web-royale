@@ -1,0 +1,248 @@
+[VARIABLE.MegaMinion_override_button]
+[VARIABLE.MegaMinion_has_returned]
+[EXT.MegaMinionHero]
+	Base = "CHARACTER.MegaMinion"
+	Rarity = "Common"
+	Ability = "MegaMinion_Teleport_Ability"
+	OnStartingAction = "MegaMinion_hero_start_actions"
+	Projectile = "MegaMinionHeroProjectile"
+	Scale = 100
+    PrefabAsset = "sc3d/characters/hero/hero_megaminion/hero_prefab_megaminion_battle"
+	SpawnEffect = "vfx_megaminion_hero_deploy"
+	DeathEffect="vfx_hero_die_m"
+	AttackStartEffect = ""
+	AbilityPendingEffect = "Heal_aura"
+	CustomSpawnFilter = ""
+	LoopingFilter = ""
+	OnStartingClientActions = ["Healthbar_Medium"]
+	HideHealthbar = true
+	StatsTags.Hitpoints = "hitpoints"
+    StatsTags.Damage = "ranged_damage"
+    StatsTags.HitSpeed = "hit_speed"
+    StatsTags.Targets = "targets"
+    StatsTags.Speed = "speed"
+    StatsTags.Range = "range"
+[EXT.MegaMinionHeroProjectile]
+	Base = "PROJECTILE.MegaMinionSpit"
+	HitEffect = "vfx_megaminion_hero_hit"
+[ABILITY.MegaMinion_Teleport_Ability]
+	TID = "TID_HERO_MEGAMINION_ABILITY"
+	TID_INFO = "TID_HERO_MEGAMINION_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_mega_minion.sc"
+	IconExportName = "ability_icon_mega_minion"
+CastTime = 250
+	TriggerDelay = 200
+	ManaCost = 2
+Cooldown = 1000
+	DeployedEffect = "vfx_hero_ability_active_m"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_boss_bandit"
+	OnActivationAction = "MegaMinion_Hero_Ability_Start_Group"
+	MaxCharges = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	OutOfChargesTID = "TID_ABILITY_NO_MORE_RESET"
+    Stats = "megaminion_hero_ability"
+	StatsTags.Cooldown = "ability_cooldown"
+[ACTION.MegaMinion_hero_start_actions]
+	ClassType = "ActionGroup"
+	SubActions = ["MegaMinion_set_override_button", "MegaMinion_hero_mark_target", "MegaMinion_hero_hide_ability_button"]
+	SubActionsDelay = [1500, 1500, 0]
+	ContextMode = "Create"
+[ACTION.MegaMinion_hero_hide_ability_button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "MegaMinionHero"
+	StateToSet = "NoYetAvailable"
+	ForceStopIfTrue = "MegaMinion_override_button == 1 || !is_active_or_secondary_champion"
+[ACTION.MegaMinion_hero_mark_target]
+	ClassType = "ActionSetIndicatorOnTarget"
+	TargetResolver = "MegaMinion_hero_target_resolver"
+	PlayerTargetterEffect = "vfx_megaminion_hero_targetter_blue"
+	EnemyTargetterEffect = "vfx_megaminion_hero_targetter_red"
+	RadiusListForEffectSelection = [500,750,9999]
+	PlayerTargettedEffectList = ["vfx_megaminion_hero_targetted_blue","vfx_megaminion_hero_targetted_blue","vfx_megaminion_hero_targetted_blue"]
+	EnemyTargettedEffectList = ["vfx_megaminion_hero_targetted_red","vfx_megaminion_hero_targetted_red","vfx_megaminion_hero_targetted_red"]
+	PlayerCircleTargetIndicatorList = ["vfx_megaminion_hero_target_blue_small_intro","vfx_megaminion_hero_target_blue_intro","vfx_megaminion_hero_target_blue_large_intro"]
+	EnemyCircleTargetIndicatorList = ["vfx_megaminion_hero_target_red_small_intro","vfx_megaminion_hero_target_red_intro","vfx_megaminion_hero_target_red_large_intro"]
+	OnPickNewTargetAction = "MegaMinion_hero_give_bot_buff_to_targets"
+	OnTargetDiedAction = "MegaMinion_hero_reset_ability"
+GameTagsToSetWhileHasNotTarget = "ABILITY_DISABLED"
+	PauseIfInCooldown = true
+DelayBeforeSearchForNextTarget = 1000
+	Singleton = true
+NextAction = "MegaMinion_hero_ability_action"
+	PinnedActiveExpression = "as_int(#MegaMinionWarpActive, 0)"
+	PinnedPositionXExpression = "as_int(#MegaMinionWarpOriginX, 0)"
+	PinnedPositionYExpression = "as_int(#MegaMinionWarpOriginY, 0)"
+	ForceStopIfTrue = "(!is_active_or_secondary_champion  && !UNIT_CUSTOM_TAG_1) || MegaMinion_has_returned > 0"
+[ACTION.MegaMinion_Hero_Ability_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["MegaMinion_Hero_Apply_Custom_Tag", "MegaMinion_Lock_ability_action"]
+	SubActionsDelay = [0, 0]
+[ACTION.MegaMinion_Hero_Apply_Custom_Tag]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 999999
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+	ForceStopIfTrue = "MegaMinion_has_returned > 0"
+[ACTION.MegaMinion_Lock_ability_action]
+	ClassType = "ActionBossBanditAbility"
+	WarpDelay = 0
+	LockDelay = 0
+	WarpAction = "MegaMinion_hero_ability_action"
+	ReleaseLockDelay = 50
+	AllowWarpWhenMovementSpeedZero = true
+	AllowWarpWhenAttackSpeedZero = true
+[ACTION.MegaMinion_hero_reset_ability]
+	ClassType = "ActionReadyChampionAbility"
+	ReadyAbility = false
+	RecoverCharge = false
+	ForceCooldown = true
+[ACTION.MegaMinion_hero_ability_action]
+	ClassType = "ActionMegaMinionHeroAbility"
+	ActionToGetTargetFrom = "MegaMinion_hero_mark_target"
+	ActionToExecute = "MegaMinion_hero_teleport_action"
+	SpellTargetIndicatorFilename = "sc/chr_mega_minion_hero.sc"
+	SpellTargetIndicatorClipName = "vmc_megaminion_hero_target_indicator"
+	HasTargetOnDeployAction = "MegaMinion_hero_enable_ability_button"
+	NoTargetOnDeployAction = "MegaMinion_hero_disable_ability_button"
+	Singleton = true
+	ReturnToOrigin = true
+ReturnOnTargetDeath = true
+ReturnDelay = 3500
+	ReturnWarpAction = "MegaMinion_hero_return_action"
+	WarpWindowActiveKey = "MegaMinionWarpActive"
+	WarpWindowOriginXKey = "MegaMinionWarpOriginX"
+	WarpWindowOriginYKey = "MegaMinionWarpOriginY"
+[ACTION.MegaMinion_hero_teleport_action]
+	ClassType="ActionWarpCharacter"
+	WarpMode = "InjectedCharacter"
+	Speed = 1500
+	Acceleration = 400
+	TargetResolver = "MegaMinion_hero_target_resolver"
+	OnWarpEndAction = "MegaMinion_hero_on_teleport_group"
+	WarpTargetEffect = "vfx_megaminion_hero_ability_dash"
+	OffsetToTargetConsideringDirectionToTower = 0
+	ResetPendingDamageAtWarp = true
+	OffsetX = 0
+	OffsetY = 0
+	ForceKeepTargetAfterWarp = true
+	Singleton = true
+[ACTION.MegaMinion_hero_return_action]
+	ClassType="ActionWarpCharacter"
+	WarpMode = "InjectedCharacter"
+	Speed = 1500
+	Acceleration = 400
+	WarpTargetEffect = "vfx_megaminion_hero_ability_dash"
+	OffsetToTargetConsideringDirectionToTower = 0
+	ResetPendingDamageAtWarp = true
+	OffsetX = 0
+	OffsetY = 0
+	Singleton = true
+	OnWarpEndAction = "MegaMinion_hero_on_return"
+[ACTION.MegaMinion_hero_on_return]
+	ClassType = "ActionSetVariable"
+	Variable = "MegaMinion_has_returned"
+	Value = "1"
+[TARGET_RESOLVER.MegaMinion_hero_target_resolver]
+	Shape = "MegaMinion_hero_shape"
+	Filter = "default_targets_no_towers"
+	StrategyList = ["RESOLVER_STRATEGY_LOWEST_MAX_HP", "RESOLVER_STRATEGY_FURTHEST_TARGET"]
+	
+[SHAPE.MegaMinion_hero_shape]
+ClassType = "Global"
+[ACTION.MegaMinion_hero_on_teleport_group]
+	ClassType = "ActionGroup"
+	SubActions = ["MegaMinion_hero_DamageBuff_Spawn" ,"MegaMinion_hero_first_hit"]
+	SubActionsDelay = [0,0]
+[ACTION.MegaMinion_hero_DamageBuff_Spawn]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "MegaMinion_hero_Damage_Buff"
+	SpawnTime = 500
+[BUFF.MegaMinion_hero_Damage_Buff]
+	Rarity = "Common"
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_invisible"
+	Invisible = true
+	RemoveOnAttack = true
+	ContinuousEffect = "vfx_megaminion_hero_continuous"
+	OverrideProjectile = "MegaMinionSpit_DoubleDamage"
+	NotCloned = true
+[EXT.MegaMinionSpit_DoubleDamage]
+	Base = "PROJECTILE.MegaMinionSpit"
+Damage = 165
+	StatsTags.Damage = "damage"
+	HitEffect = "vfx_megaminion_hero_ability_hit"
+[ACTION.MegaMinion_hero_first_hit]
+	ClassType = "ActionSetInstantHit"
+ExecuteIfTrue = "target_in_range(1600) && is_combat_enabled"
+[ACTION.MegaMinion_hero_disable_ability_button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "MegaMinionHero"
+	StateToSet = "Disabled"
+	ForceStopIfTrue = "!is_deploying"
+[ACTION.MegaMinion_hero_enable_ability_button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "MegaMinionHero"
+	StateToSet = "Ready"
+	ForceStopIfTrue = "!is_deploying"
+[ACTION.MegaMinion_hero_give_bot_buff_to_targets]
+	ClassType = "ActionRunOnInstigator"
+	ActionToExecute = "MegaMinion_hero_spawn_buff_for_bots"
+[ACTION.MegaMinion_hero_spawn_buff_for_bots]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnData = "MegaMinionHeroBuffForBots"
+	SpawnTime = 999999
+	InstigatorAsBuffController = true
+[BUFF.MegaMinionHeroBuffForBots]
+	Rarity = "Common"
+	EnableStacking = true
+	ControlledByParent = true
+[ACTION.MegaMinion_set_override_button]
+	ClassType = "ActionSetVariable"
+	Variable = "MegaMinion_override_button"
+	Value = "1"
+[STATS.megaminion_hero]
+    [[STATS.megaminion_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.megaminion_hero.stats]]
+		Value = "ranged_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_RANGED_DAMAGE"
+		Icon = "icons_stats_strength"
+	[[STATS.megaminion_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+    [[STATS.megaminion_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"        
+	[[STATS.megaminion_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.megaminion_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[STATS.megaminion_hero_ability]
+	[[STATS.megaminion_hero_ability.stats]]
+		OverrideStringValue = "TID_INFINITE"
+		Unit = "TID"
+		TID = "TID_SPELL_ATTRIBUTE_TELEPORT_RANGE"
+		Icon = "icons_stats_teleport_range"
+	[[STATS.megaminion_hero_ability.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_WARP_DAMAGE"
+		Icon = "icons_stats_dmg"

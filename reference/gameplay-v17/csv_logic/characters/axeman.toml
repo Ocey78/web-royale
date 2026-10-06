@@ -1,0 +1,63 @@
+
+[CHARACTER.AxeMan]
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "axe_man"
+CollisionRadius = 600
+DamageEffect = "ragebarbarian_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "barbarian_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_axe_man.sc"
+HealthBar = "Medium"
+HitSpeed = 900
+Hitpoints = 500
+LoadTime = 400
+Mass = 4
+MoveEffect = "executioner_steps"
+Name = "AxeMan"
+PrestigeExportName2 = "axe_man_prestige"
+PrestigeSWF = "sc/chr_prestige6_dl.sc"
+Projectile = "AxeManProjectile"
+ProjectileStartRadius = 600
+ProjectileStartZ = 600
+Range = 4500
+Rarity = "Common"
+RedExportName = "axe_man_red"
+Scale = 110
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = -4
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "executioner_deploy"
+Speed = 60
+TID = "TID_SPELL_AXEMAN"
+TargetedHitEffect = "executioner_attack_start"
+UseAnimator = true
+
+[PROJECTILE.AxeManProjectile]
+AoeToAir = true
+AoeToGround = true
+ConstantHeight = 3000
+Damage = 70
+ExportName = "executioner_projectile"
+FileName = "sc/effects.sc"
+HitEffect = "axe_man_projectile_hit"
+MinDistance = 4500
+Name = "AxeManProjectile"
+OnlyEnemies = true
+PingpongDeathEffect = "axe_man_projectile_die"
+PingpongVisualTime = 1500
+ProjectileRadius = 1000
+ProjectileRange = 7000
+Radius = 1000
+Rarity = "Common"
+ShadowExportName = "bowler_projectile_shadow"
+ShakesTargets = true
+Speed = 550
+TrailEffect = "AxeProjectileEmitter"
+
+

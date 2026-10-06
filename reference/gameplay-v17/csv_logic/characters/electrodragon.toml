@@ -1,0 +1,57 @@
+
+[CHARACTER.ElectroDragon]
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "electro_dragon"
+CollisionRadius = 600
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "baby_dragon_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_electro_dragon_dl.sc"
+FlyingHeight = 3500
+HealthBar = "Medium"
+HitSpeed = 2100
+Hitpoints = 410
+LoadAttackEffect1 = "electro_dragon_load_weapon_1"
+LoadAttackEffect2 = "electro_dragon_load_weapon_2"
+LoadAttackEffect3 = "electro_dragon_load_weapon_3"
+LoadAttackEffectReady = "electro_dragon_load_weapon_4"
+LoadTime = 1400
+Mass = 7
+MoveEffect = "electro_dragon_steps"
+Name = "ElectroDragon"
+OverrideAttackFinishTime = true
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+Projectile = "ElectroDragonProjectile"
+ProjectileEffect = "electro_dragon_attack"
+ProjectileStartRadius = 1250
+ProjectileStartZ = 1900
+Range = 3500
+Rarity = "Common"
+RedExportName = "electro_dragon_red"
+Scale = 90
+ShadowScaleX = 85
+ShadowScaleY = -60
+ShadowY = 20
+SightRange = 5500
+SpawnEffect = "electro_dragon_deploy"
+Speed = 60
+TID = "TID_SPELL_ELECTRO_DRAGON"
+UseAnimator = true
+
+[PROJECTILE.ElectroDragonProjectile]
+BuffTime = 500
+ChainedHitCount = 3
+ChainedHitRadius = 4000
+Damage = 75
+DeflectBehaviour = "NoDeflect"
+Gravity = 400
+HitEffect = "vfx_electrodragon_hit"
+Homing = true
+Name = "ElectroDragonProjectile"
+OnlyEnemies = true
+Rarity = "Common"
+Speed = 2000
+TargetBuff = "ZapFreeze"
+TargettedEffect = "electro_dragon_beam"

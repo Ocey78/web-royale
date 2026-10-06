@@ -3,4 +3,5 @@
 const W=540,H=960,AW=480,AH=640;
 function fitViewport(width,height){if(!Number.isFinite(width)||!Number.isFinite(height)||width<=0||height<=0)throw RangeError('Viewport dimensions must be positive');const scale=Math.min(width/W,height/H);return {width:W*scale,height:H*scale,x:(width-W*scale)/2,y:(height-H*scale)/2,scale};}
 function pointInViewport(x,y,width,height){const v=fitViewport(width,height);if(x<v.x||y<v.y||x>v.x+v.width||y>v.y+v.height)return null;return {x:(x-v.x)/v.scale,y:(y-v.y)/v.scale};}
-return {...K,...P,...B,W,H,AW,AH,fitViewport,pointInViewport};});
+const SIMULATION_CONTRACT=Object.freeze({engine:'0.53',snapshot:K.DATA.snapshot,sourceFingerprint:K.DATA.sourceFingerprint||null,balanceDate:K.DATA.balanceOverlay?.date||null,stepSeconds:1/60,nativeBattleCode:false,nativeParityVerified:false,execution:'Web Royale source-data interpreter'});
+return {...K,...P,...B,W,H,AW,AH,SIMULATION_CONTRACT,fitViewport,pointInViewport};});

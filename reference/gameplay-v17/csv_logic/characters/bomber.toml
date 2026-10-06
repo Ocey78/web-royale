@@ -1,0 +1,58 @@
+
+[CHARACTER.Bomber]
+AttackStartEffect = "bomber_attack_start"
+AttacksGround = true
+BlueExportName = "chr_bomber"
+CollisionRadius = 500
+DamageExportName = "filter_damage"
+DeathEffect = "bomber_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_bomber.sc"
+HealthBar = "Small"
+HealthBarOffsetY = -18
+HitSpeed = 1800
+Hitpoints = 119
+LoadTime = 1600
+Mass = 4
+MoveEffect = "bomber_steps"
+Name = "Bomber"
+PrestigeExportName2 = "chr_bomber_prestige2"
+PrestigeRedExportName2 = "chr_bomber_prestige2"
+PrestigeSWF = "sc/chr_bomber.sc"
+Projectile = "BombSkeletonProjectile"
+ProjectileEffect = "bomber_attack"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 4500
+Rarity = "Common"
+RedExportName = "chr_bomber_RED"
+Scale = 100
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightRange = 5500
+SpawnEffect = "bomber_deploy"
+Speed = 60
+TID = "TID_SPELL_BOMBER"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -10
+
+[PROJECTILE.BombSkeletonProjectile]
+AoeToGround = true
+Damage = 83
+ExportName = "projectile_bomb"
+FileName = "sc/effects.sc"
+Gravity = 200
+HitEffect = "vfx_bomber_explosion"
+Name = "BombSkeletonProjectile"
+OnlyEnemies = true
+Radius = 1500
+Rarity = "Common"
+ShadowExportName = "projectile_arrow_shadow"
+Speed = 400
+TrailEffect = "vfx_bomber_pjt_fire"
+
+

@@ -1,0 +1,225 @@
+
+[CHARACTER.Golem]
+AttackStartEffect = "golem_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "golem1"
+CollisionRadius = 750
+ContinuousEffect = "golem_cont_effect"
+CrowdEffects = true
+Damage = 122
+DamageEffect = "golem_hit"
+DamageExportName = "filter_damage"
+DeathAreaEffect = "GolemDeathExplosion"
+DeathEffect = "golem_die"
+DeathSpawnCharacter = "Golemite"
+DeathSpawnCount = 2
+DeathSpawnPushback = true
+DeathSpawnRadius = 1500
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 3000
+DontStopMoveAnim = true
+FileName = "sc/chr_golem_dl.sc"
+HealthBar = "High"
+HitSpeed = 2500
+Hitpoints = 2000
+IgnoreBuff = ["VoodooCurse", "GoblinCurse"]
+IgnorePushback = true
+IgnoreResurrect = true
+LoadTime = 1500
+Mass = 20
+MoveEffect = "golem_steps"
+Name = "Golem"
+PrestigeExportName2 = "golem1_prestige"
+PrestigeSWF = "sc/chr_golem_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 750
+Rarity = "Common"
+RedExportName = "golem1_red"
+Scale = 130
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 25
+ShadowY = -15
+SightClip = 2000
+SightClipSide = 1900
+SightRange = 7500
+SpawnEffect = "golem_deploy"
+Speed = 45
+StopMovementAfterMS = 1000
+TID = "TID_SPELL_GOLEM"
+TargetOnlyBuildings = true
+UseAnimator = true
+WaitMS = 200
+WalkingSpeedTweakPercentage = 15
+
+StatsTags.Damage = "damage"
+StatsTags.HitSpeed = "hitspeed"
+StatsTags.Speed = "speed"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Targets = "targets"
+StatsTags.Range = "range"
+StatsTags.DeployTime = "deploy_time"
+
+[AEO.GolemDeathExplosion]
+Rarity = "Common"
+Radius = 2000
+Damage = { BaseDamage = 88 }
+Pushback = 1800
+Filter = "CommonAreaDamageFilter" 
+StatsTags.Damage = "death_damage"
+
+[CHARACTER.Golemite]
+AttackStartEffect = "small_golem_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "golemite"
+CollisionRadius = 500
+Damage = 33
+DamageEffect = "small_golem_hit"
+DamageExportName = "filter_damage"
+DeathAreaEffect = "GolemiteDeathExplosion"
+DeathEffect = "small_golem_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_golemite.sc"
+HealthBar = "Medium"
+HitSpeed = 2500
+Hitpoints = 406
+LoadTime = 1500
+Mass = 6
+MoveEffect = "golem_steps"
+Name = "Golemite"
+PrestigeExportName2 = "golemite_prestige"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+Range = 250
+Rarity = "Common"
+RedExportName = "golemite_red"
+Scale = 120
+ShadowScaleX = 50
+ShadowScaleY = 50
+ShadowSkew = 35
+ShadowX = -5
+ShadowY = 5
+SightClip = 2000
+SightClipSide = 2000
+SightRange = 7000
+SpawnEffect = "small_golem_deploy"
+Speed = 45
+TID = "TID_CHARACTER_SMALL_GOLEM"
+TargetOnlyBuildings = true
+UseAnimator = true
+
+StatsTags.Level = "golemite_level"
+StatsTags.Damage = "golemite_damage"
+StatsTags.HitSpeed = "golemite_hitspeed"
+StatsTags.Speed = "golemite_speed"
+StatsTags.Hitpoints = "golemite_hitpoints"
+StatsTags.Targets = "golemite_targets"
+StatsTags.Range = "golemite_range"
+
+[AEO.GolemiteDeathExplosion]
+Rarity = "Common"
+Radius = 2000
+Damage = { BaseDamage = 39 }
+Pushback = 900
+Filter = "CommonAreaDamageFilter" 
+StatsTags.Damage = "golemite_death_damage"
+
+[STATS.Golem]
+    [[STATS.Golem.stats]]
+		Value = "damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.Golem.stats]]
+		Value = "death_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+        Icon = "icons_stats_dmg_death"
+	[[STATS.Golem.stats]]
+		Value = "damage"
+		Value2 = "hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.Golem.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.Golem.stats]]
+		Value = "golemite_level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_SPAWN_CHARACTER_LEVEL"
+		TIDReplacePlaceholders = ["<CHARACTER>"]
+		TIDReplaceValues = ["TID_CHARACTER_SMALL_GOLEM"]
+		Icon = "icons_stats_troop"
+		InfoPopoverTitle = "TID_CHARACTER_SMALL_GOLEM"
+		InfoButtonStats="Golemite"
+	[[STATS.Golem.stats]]
+		Value = "hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.Golem.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.Golem.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.Golem.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+    [[STATS.Golem.stats]]
+        Value = "deploy_time"
+        Unit = "TIME_PRECISE"
+        TID = "TID_SPELL_ATTRIBUTE_DEPLOY_TIME"
+        Icon = "icons_stats_deploy_speed"
+
+[STATS.Golemite]
+    [[STATS.Golemite.stats]]
+		Value = "golemite_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+        Icon = "icons_stats_dmg"
+    [[STATS.Golemite.stats]]
+		Value = "golemite_death_damage"
+        Unit = "INTEGER"
+        TID = "TID_SPELL_ATTRIBUTE_DEATH_DAMAGE"
+        Icon = "icons_stats_dmg_death"
+	[[STATS.Golemite.stats]]
+		Value = "golemite_damage"
+		Value2 = "hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.Golemite.stats]]
+		Value = "golemite_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.Golemite.stats]]
+		Value = "golemite_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.Golemite.stats]]
+		Value = "golemite_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.Golemite.stats]]
+		Value = "golemite_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"

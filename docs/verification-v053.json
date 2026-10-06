@@ -1,0 +1,123 @@
+{
+  "version": "0.53.0",
+  "generatedAt": "2026-10-06T19:39:26.026839+00:00",
+  "nativeParityVerified": false,
+  "build": {
+    "files": 1897,
+    "bytes": 1032622584,
+    "app": "app.1d353ca472af.js",
+    "runtime": "runtime.cc8d57ef5480.json",
+    "releaseSha256": "710ddcb0d61115903c17908a5c774aa22caad4568e2def136ea80b3877c6153f",
+    "allManifestHashesVerified": true,
+    "target": "offline archive"
+  },
+  "tests": {
+    "fullIntegration": {
+      "passed": 1639,
+      "failed": 0,
+      "skipped": 1,
+      "durationMs": 499721.3149,
+      "scope": "Full suite including all-card sustained fights and six event-mode stress cases, completed before the final zero-lifetime periodic-area first-tick guard."
+    },
+    "finalSourceNonStress": {
+      "passed": 1639,
+      "failed": 0,
+      "skipped": 1,
+      "durationMs": 140694.8125,
+      "scope": "Every non-stress test rerun against final source and rebuilt packaged worker; includes two new landing-area guard tests."
+    },
+    "independentFinalDeltaReview": {
+      "passed": 38,
+      "failed": 0
+    },
+    "reproducibleImport": {
+      "passed": 5,
+      "failed": 0,
+      "byteIdenticalCheck": true
+    },
+    "intentionalSkip": "Production Custom content-isolation case is skipped for this Main build.",
+    "finalSourceStress": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 356829.0711,
+      "scope": "Both stress cases run independently from the extracted final ZIP after the last source change."
+    },
+    "finalSourceAllCases": {
+      "passed": 1641,
+      "failed": 0,
+      "skipped": 1,
+      "scope": "Final non-stress suite plus both final extracted-archive stress tests, in separate runs."
+    },
+    "publicationBuildChecks": {
+      "passed": 19,
+      "failed": 0
+    },
+    "independentPublicationReview": {
+      "passed": 28,
+      "failed": 0,
+      "reproducibleImportTestsPassed": 5
+    }
+  },
+  "browserSmoke": {
+    "browser": "Codex in-app browser",
+    "app": "app.1d353ca472af.js",
+    "matchedFinalRelease": true,
+    "finalBundleLoaded": true,
+    "battleStarted": true,
+    "matchCompleted": true,
+    "consoleErrors": [],
+    "earlierDeploymentSmoke": "Knight deployed, hand cycled and elixir spent before final zero-lifetime guard; rendering/control code unchanged by that guard."
+  },
+  "provenance": {
+    "package": "160402017",
+    "sourceFingerprint": "504fe9d1820c587deda31030c70bc4d1121fea4f",
+    "balanceDate": "2026-10-06"
+  },
+  "sourceHashes": {
+    "src/battle.js": "71eee306b73e2c60e0cb8cac1d5845d65e7e9350f3da09b4360d423699ee3949",
+    "src/catalog.js": "08a45853457e1ad0bbb4fd90aba24c4e214b73949e59a2fc34f526eab6d81b23",
+    "src/navigation.js": "2b53288f5ae7f10282bec9a4a8157df8cd82535cc12ce72ca353e59677347824",
+    "src/modern-actions.js": "444aeafc89a6e8a4650e13487ab8d2a2befdfcc2bcef663632b8f9d1f1a560af",
+    "src/source-resolvers.js": "bca4ab6b5d86a8cc2fda92c6c1b3f244840c9610423ab7702be56c50b21e48de",
+    "src/form-state.js": "97a08166160f37f4052ced8c45f3021f43765624bfff80bb545cd475002da9bf",
+    "src/replay.js": "1cb6f106a4c3a7b9358895a5669294129726078c8b683e4606d2481f0da9b9a1",
+    "src/game-data.js": "8965f89b297c50ada246474a34a8b8251ba1561c2a4150a655dc2a8185d101b7",
+    "src/core.js": "e62df2ae095aca3200015a6b222e003bf81662160fee6a32d80471216c38cb21",
+    "src/training-worker.js": "2f7e7650ba6efc0896e5771f68492e66a52a916aecbe68bf9c5f5514a9aac071",
+    "assets/game/data.json": "cfe8c24d957564b066c8e265f1b0be1f0f0ab0b2c5a5694bb78dccdb393d6629"
+  },
+  "publicationBuild": {
+    "files": 1897,
+    "bytesIncludingManifest": 922354653,
+    "releaseSha256": "12e53238b5acdb6b8644aad5e7a4d204bec11cb0c8a38f9491b9eb56a86741d8",
+    "app": "app.1d353ca472af.js",
+    "runtime": "runtime.ab37993451eb.json",
+    "compactScenes": true,
+    "allManifestHashesVerified": true,
+    "identicalFilesToOfflineBuild": 1679,
+    "losslessCompressedSceneFiles": 214,
+    "packagingOnlyDifferences": [
+      "asset-index.fcb535490fc6.json",
+      "runtime.ab37993451eb.json",
+      "bootstrap.dafd65fbfa8d.js",
+      "index.html"
+    ],
+    "browserSmoke": {
+      "homeLoaded": true,
+      "battleStarted": true,
+      "arenaAndTroopsRendered": true,
+      "consoleErrors": [],
+      "app": "app.1d353ca472af.js",
+      "bootstrap": "bootstrap.dafd65fbfa8d.js"
+    },
+    "target": "GitHub Pages"
+  },
+  "archiveVerification": {
+    "sha256": "9d45e4ebc032fb17e900322e8faac6cbe3eb915c451b5dd7b6a6aaf8060c3c2e",
+    "crc": "passed",
+    "pathSafety": "passed",
+    "entries": 3570,
+    "allExtractedFilesMatchBuild": true
+  }
+}

@@ -1,0 +1,373 @@
+[EXT.GoblinHero_Base]
+	Base = "CHARACTER.Goblin_Stab"
+	Rarity = "Common"
+	PrefabAsset = "sc3d/characters/hero/hero_goblins/hero_prefab_goblins_armor_battle"
+	OnStartingClientActions = ["Healthbar_Small"]
+	HideHealthbar = true
+[EXT.GoblinHero]
+	Base = "CHARACTER.GoblinHero_Base"
+	Rarity = "Common"
+	SpawnEffect = "vfx_goblins_hero_deploy"
+	DeathEffect= "vfx_goblins_hero_special_death"
+	DamageEffect = "vfx_goblins_hero_attack_hit"
+	PrefabAsset = "sc3d/characters/hero/hero_goblins/hero_prefab_goblins_armor_battle"
+	OnStartingAction = "GoblinHero_Start_Group"
+	OnDeathAction = "GoblinHero_Check_Last_Goblin_To_Fall"
+	ClonedVersion = "GoblinHero_Base"
+    StatsTags.Damage = "damage"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Speed = "speed"
+	StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+[ACTION.GoblinHero_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["GoblinHero_Listen_To_New_Deploy", "GoblinHero_Enable_Champion_HP_Bar", "GoblinHero_Show_Disabled_Button", "GoblinHero_Reset_Ability_Charges"]
+	SubActionsDelay = [0, 0]
+[ACTION.GoblinHero_Listen_To_New_Deploy]
+	ClassType = "ActionActivateOnCardDeploy"
+	OnActivateAction = "GoblinHero_Set_Custom_Tag"
+	CardGroup = "GoblinsHero"
+	EvaluateDeployedCard = true
+[ACTION.GoblinHero_Set_Custom_Tag]
+	ClassType = "ActionWithDuration"
+	ActionDuration = 99999
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.GoblinHero_Enable_Champion_HP_Bar]
+	ClassType = "ActionEnabbleHPBarConditionForDuration"
+	ActionDuration = 99999
+	ContainerName = "HealthBar"
+	Condition = "ActiveChampion"
+	RequestShowBadge = true
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.GoblinHero_Show_Disabled_Button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "GoblinHero_Flag_Building"
+	StateToSet = "NoYetAvailable"
+[ACTION.GoblinHero_Reset_Ability_Charges]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "GoblinHero_Flag_Building"
+	ResetCharges = true
+	Persistent = false
+[ACTION.GoblinHero_Check_Last_Goblin_To_Fall]
+	ClassType = "ActionRunActionIfUnitGroupContains"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+	ObjectFilter = "friendly_troop"
+	ActionIfNoMatch = "GoblinHero_Spawn_Flag"
+	Action = "GoblinHero_Check_Group_Last_Survivor_For_Effect"
+[ACTION.GoblinHero_Last_To_Fall_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["GoblinHero_Spawn_Flag"]
+[ACTION.GoblinHero_Spawn_Flag]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "GoblinHero_Flag_Building"
+	AddToSourceGroup = true
+	ValidatePlacementAsBuilding = true
+[ACTION.GoblinHero_Check_Group_Last_Survivor_For_Effect]
+	ClassType = "ActionRunOnMatchingUnitsInGroup"
+	ObjectFilter = "friendly_troop_no_buildings"
+	ActionToRun = "GoblinHero_Check_To_Enable_Last_Survivor_Effect"
+[ACTION.GoblinHero_Check_To_Enable_Last_Survivor_Effect]
+	ClassType = "ActionRunActionIfUnitGroupContains"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1"
+	ObjectFilter = "friendly_troop"
+	ActionIfNoMatch = "GoblinHero_Last_To_Fall_Spawn_Override_Effect"
+[ACTION.GoblinHero_Last_To_Fall_Spawn_Override_Effect]
+	ClassType = "ActionSpawn"
+	SpawnType = "BuffType"
+	SpawnTime = 99999
+	SpawnData = "GoblinHero_Last_To_Fall_Override_Effect_Buff"
+[BUFF.GoblinHero_Last_To_Fall_Override_Effect_Buff]
+	Rarity = "Common"
+	AliveIfTrue = "!UNIT_CUSTOM_TAG_1"
+[CHARACTER.GoblinHero_Flag_Building]
+	Rarity = "Common"
+	IsBuilding = true
+	Hitpoints = 1000
+	AttacksGround = false
+	AttacksAir = false
+	LifeTime = 99999
+	PrefabAsset = "sc3d/characters/hero/hero_goblins/hero_prefab_goblins_totem_battle"
+	UseAnimator = true
+	SpawnEffect = "vfx_goblins_hero_banner_drop_blue"
+	DeathEffect = "vfx_goblins_hero_banner_break_blue"
+	IgnorePushback = true
+	Scale = 100
+	DamageExportName = "filter_damage"
+	DeployDelay = 0
+	DeployBaseAnimExportName = "filter_deploy_unit_default"
+	IgnoreBuff = [ "VoodooCurse", "GoblinCurse" ]
+	IgnoreResurrect = true
+OnStartingClientActions = ["GoblinHero_Flag_Building_Timer_Bar"]
+	HideHealthbar = true
+	GameTagsToSet = "NO_DAMAGE,NO_CHECKCOLLISIONS,UNTARGETABLE"
+	OnStartingAction = "GoblinHero_Flag_Start_Group"
+	AbilityPendingEffect = "Heal_aura"
+	Ability = "GoblinHero_Ability"
+[ACTION.GoblinHero_Flag_Start_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["GoblinHero_Flag_Listen_To_New_Deploy", "GoblinHero_Flag_Building_Timer", "GoblinHero_Flag_Immediate_Enable_Button", "GoblinHero_Flag_Limited_Time_Ability_Button", "GoblinHero_Flag_Start_Effect", "GoblinHero_Flag_Active_Effect", "GoblinHero_Flag_Building_Play_Custom_Animation_1"]
+	SubActionsDelay = [0, 0, 0, 5000, 0, 0, 0]
+[ACTION.GoblinHero_Flag_Building_Play_Custom_Animation_1]
+	ClassType = "ActionRunForcedAnimationOnce"
+	PlaybackDuration = 0
+[ACTION.GoblinHero_Flag_Active_Effect]
+	ClassType = "ActionPlayEffect"
+	EffectFlags = "FollowParent,Looping,LinkLifeToActionLife"
+	Effect = "vfx_goblins_hero_banner_active_blue"
+	ForceStopIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.GoblinHero_Flag_Immediate_Enable_Button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "GoblinHero_Flag_Building"
+	StateToSet = "Ready"
+	Persistent = false
+	ApplyImmediate = true
+[ACTION.GoblinHero_Flag_Limited_Time_Ability_Button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "GoblinHero_Flag_Building"
+	StateToSet = "LimitedAvailability"
+	ExecuteIfTrue = "is_active_or_secondary_champion"
+	ForceStopIfTrue = "!is_active_or_secondary_champion"
+[ACTION.GoblinHero_Flag_Start_Effect]
+	ClassType="ActionPlayEffect"
+	Effect = "vfx_minipekka_hero_die"
+	EffectFlags = "FollowParent,ParticlesFollowParent"
+[ACTION.GoblinHero_Flag_Building_Timer]
+	ClassType = "ActionTimerQuest"
+Intervals = [5000]
+	OpponentVisualInterval = 5800
+	InvertBar = true
+	IntervalStartAt = 0
+	MaxResets = 1
+	OnIntervalReachedAction = "GoblinHero_Flag_About_To_Disappears_Group"
+	BarIndicatorName = "ability_available_timer"
+	ForceStopIfTrue = "CASTING_ABILITY || UNIT_CUSTOM_TAG_1 || !is_active_or_secondary_champion"
+	BarNamesList = ["bar3"]
+	ContainerName = "GoblinHero_Flag"
+	ExportNameAtFull = ""
+	StatsTags.MaxInterval = "banner_lifetime"
+[CLIENT_ACTION.GoblinHero_Flag_Building_Timer_Bar]
+	ClassType      = "ClientActionAddHealthBarPart"
+	PartType       = "SecondaryIndicator"
+	FileName       = "sc/ui.sc"
+	BlueExportName = "quest_timer"
+	RedExportName  = "quest_timer"
+	OffsetX        = 15
+	OffsetY	       = -1000
+	SecondaryIndicatorName = "ability_available_timer"
+	ContainerName = "GoblinHero_Flag"
+[ACTION.GoblinHero_Flag_About_To_Disappears_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["GoblinHero_Flag_About_To_Disappear_Effect", "GoblinHero_Flag_Disable_Ability_Button", "GoblinHero_Flag_Self_Destruct_Conditional"]
+	SubActionsDelay = [0, 0, 1500]
+[ACTION.GoblinHero_Flag_Disable_Ability_Button]
+	ClassType = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData = "GoblinHero_Flag_Building"
+	StateToSet = "ChampionAbsent"
+	ExecuteIfTrue = "is_active_or_secondary_champion"
+[ACTION.GoblinHero_Flag_About_To_Disappear_Effect]
+	ClassType = "ActionPlayEffect"
+	Effect = "vfx_goblins_hero_banner_disappear"
+	EffectFlags = "FollowParent,ParticlesFollowParent"
+	GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+[ACTION.GoblinHero_Flag_Listen_To_New_Deploy]
+	ClassType = "ActionActivateOnCardDeploy"
+	OnActivateAction = "GoblinHero_Flag_Self_Destruct_Conditional"
+	CardGroup = "GoblinsHero"
+	EvaluateDeployedCard = true
+[ACTION.GoblinHero_Flag_Self_Destruct_Conditional]
+	ClassType = "ActionKill"
+	ExecuteIfTrue = "!UNIT_CUSTOM_TAG_1 && !CASTING_ABILITY"
+[ABILITY.GoblinHero_Ability]
+	TID = "TID_HERO_GOBLINS_ABILITY"
+    TID_INFO = "TID_HERO_GOBLINS_ABILITY_INFO"
+	IconSWF = "sc/ability_icon_goblins.sc"
+	IconExportName = "ability_icon_goblins"
+    IsChampion = true
+	CastTime = 500
+	TriggerDelay = 500
+	ManaCost = 1
+	DeployedEffect = "vfx_hero_ability_active_m"
+	DeployedClip = "filter_invisible"
+	PopoverIconFileName = "sc/ui_spells.sc"
+	PopoverIconExportName = "icon_ability_golden_knight"
+	OnActivationAction = "GoblinHero_Ability_Activated_Group"
+	MaxCharges = 1
+    Stats = "goblin_hero_ability"
+	OnDeathAction = "GoblinHero_Flag_Disable_Ability_Button"
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+[ACTION.GoblinHero_Ability_Activated_Group]
+	ClassType = "ActionGroup"
+	SubActions = ["GoblinHero_Set_Custom_Tag", "GoblinHero_Spawn_Second_Wave_0", "GoblinHero_Spawn_Second_Wave_1", "GoblinHero_Flag_Self_Destruct"]
+	SubActionsDelay = [0, 0, 200, 450]
+StatsTags.ActionCount_GoblinHero_Spawn_Second_Wave = "goblin_spawn"
+[ACTION.GoblinHero_Flag_Self_Destruct]
+	ClassType = "ActionKill"
+[ACTION.GoblinHero_Spawn_Second_Wave_0]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "Goblin_dummy"
+	UseDeploy = true
+	IgnoreEffects = true
+	AddToSourceGroup = true
+	XPositionExpression = "x + (1000 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (-500 * team_y_direction(team_index))"
+[ACTION.GoblinHero_Spawn_Second_Wave_1]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "Goblin_dummy"
+	UseDeploy = true
+	IgnoreEffects = true
+	AddToSourceGroup = true
+	XPositionExpression = "x - (1000 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y - (-500 * team_y_direction(team_index))"
+[ACTION.GoblinHero_Spawn_Second_Wave_2]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "Goblin_dummy"
+	UseDeploy = true
+	IgnoreEffects = true
+	AddToSourceGroup = true
+	XPositionExpression = "x + (0 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y + (2000 * team_y_direction(team_index))"
+[ACTION.GoblinHero_Spawn_Second_Wave_3]
+	ClassType = "ActionSpawnToLocation"
+	SpawnType = "CharacterType"
+	SpawnData = "Goblin_dummy"
+	UseDeploy = true
+	IgnoreEffects = true
+	AddToSourceGroup = true
+	XPositionExpression = "x - (1000 * select(x > (map_width / 2), -1, 1))"
+	YPositionExpression = "y + (1000 * team_y_direction(team_index))"
+[CARD_GROUP.GoblinsHero]
+	PlayableCards = ["Goblins"]
+	SupportCards = []
+	Heroes = ["Goblins_hero"]
+[EXT.Goblin_dummy]
+	Base = "CHARACTER.Goblin"
+	DeployTime = 1000
+	PrefabAsset = "sc3d/characters/hero/hero_goblins/hero_prefab_goblins_noarmor_battle"
+	TID = "TID_HERO_GOBLINS_BRIGADE"
+	SpawnEffect = "vfx_goblins_hero_backup_deploy"
+	DeathEffect= "vfx_goblins_hero_special_death"
+	OnStartingClientActions = ["Healthbar_Small"]
+	HideHealthbar = true
+	HealthBarOffsetYBlue = -15
+	HealthBarOffsetYRed = -16
+	StatsTags.Hitpoints = "goblin_dummy_hitpoints"
+	StatsTags.Range = "goblin_dummy_range"
+	StatsTags.HitSpeed = "goblin_dummy_hitspeed"
+	StatsTags.Damage = "goblin_dummy_damage"
+	StatsTags.Speed = "goblin_dummy_speed"
+	StatsTags.Targets = "goblin_dummy_targets"
+	StatsTags.TID = "spawn_tid"
+	StatsTags.DeployTime = "deploy_time"
+[STATS.goblin_hero]
+	[[STATS.goblin_hero.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.goblin_hero.stats]]
+		Value = "damage"
+		Value2 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.goblin_hero.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.goblin_hero.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.goblin_hero.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.goblin_hero.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.goblin_hero.stats]]
+		Value = "range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.goblin_hero.stats]]
+		Value = "goblin_count"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_COUNT"
+		Icon = "icons_stats_troop_count"
+[STATS.goblin_hero_ability]
+	[[STATS.goblin_hero_ability.stats]]
+		OverrideStringValue = "TID_STATS_ABILITIES_SINGLEUSE"
+		Unit = "TID"
+		TID = "TID_ABILITY_STAT_COOLDOWN"
+		Icon = "icons_stats_cooldown"
+	[[STATS.goblin_hero_ability.stats]]
+		Value = "goblin_spawn"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_GOBLIN_REINFORCEMENTS_COUNT"
+		Icon = "icons_stats_troop_count"
+	[[STATS.goblin_hero_ability.stats]]
+        Value = "goblin_level"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_GOBLIN_REINFORCEMENTS_LEVEL"
+		Icon = "icons_stats_troop"
+        InfoButtonStats = "goblin_dummy"
+		InfoPopoverTitle = "spawn_tid"
+	[[STATS.goblin_hero_ability.stats]]
+		Value = "banner_lifetime"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_GOBLIN_BANNER_LIFETIME"
+		Icon = "icons_stats_deploy_time"
+[STATS.goblin_dummy]
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_damage"
+		Value2 = "goblin_dummy_hitspeed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_hitspeed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.goblin_dummy.stats]]
+		Value = "goblin_dummy_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+[[STATS.goblin_dummy.stats]]
+		Value = "deploy_time"
+    Unit = "TIME_PRECISE"
+    TID = "TID_SPELL_ATTRIBUTE_DEPLOY_TIME"
+    Icon = "icons_stats_deploy_speed"

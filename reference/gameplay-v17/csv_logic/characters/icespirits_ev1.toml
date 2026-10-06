@@ -1,0 +1,103 @@
+[EXT.IceSpirits_EV1]
+Base = "CHARACTER.IceSpirits"
+BlueExportName = "icespirit_evolution"
+ClonedVersion = "IceSpirits"
+ContinuousEffect = "Evolution_IceSpirit_Continuous_fx"
+CustomSpawnFilter = "filter_card_evolution"
+DeathEffect = "Death_card_evolution_S"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+FileName = "sc/chr_ice_spirit_evolution.sc"
+HealthBar = "Small_EV1"
+PrestigeExportName2 = ""
+PrestigeExportName3 = ""
+PrestigeSWF = ""
+Projectile = "IceSpiritsProjectile_EV1"
+RedExportName = "icespirit_evolution"
+Scale = 110
+SpawnEffect = "vfx_icespirit_evo_deploy"
+StatsTags.Speed = "speed"
+StatsTags.Targets = "targets"
+StatsTags.Hitpoints = "hitpoints"
+StatsTags.Range = "range"
+[PROJECTILE.IceSpiritsProjectile_EV1]
+AoeToAir = true
+AoeToGround = true
+BuffTime = 1100
+Damage = 43
+DeflectBehaviour = "NoDeflect"
+ExportName = "projectile_icespirit_evo"
+FileName = "sc/chr_ice_spirit_evolution.sc"
+Gravity = 400
+HitEffect = "Evo_icespirit_projectile_hit"
+Homing = true
+OnHitTargetAction = "IceSpirits_Hit_EV1"
+OnlyEnemies = true
+Radius = 2000
+Rarity = "Common"
+SpawnAreaEffectObject = "IceSpiritsAOE_EV1"
+Speed = 400
+TargetBuff = "Freeze"
+TrailEffect = "ice_wiz_emitter"
+use360Frames = true
+StatsTags.Damage = "damage"
+[AEO.IceSpiritsAOE_EV1]
+Buff = "Freeze"
+BuffTime = 1100
+Filter = "aeo_enemy_affects_hidden"
+FollowBehaviour = "FollowTarget"
+HitEffect = "Evo_icespirit_projectile_hit"
+HitSpeedOffset = 3000
+LifeDuration = 3000
+NoFollowObjectEffect = "Evolution_Ice_Spirit_Crystal_Ground"
+Radius = 2000
+Rarity = "Common"
+StayAfterParentDies = true
+Damage = { BaseDamage = 43 }
+StatsTags.BuffTime = "stun_duration"
+[ACTION.IceSpirits_Hit_EV1]
+ClassType = "ActionSpawn"
+SpawnData = "IceSpirits_Target_EV1"
+SpawnTime = 3000
+SpawnType = "BuffType"
+[BUFF.IceSpirits_Target_EV1]
+FilterExportName = "filter_cold"
+FilterFile = "sc/effects.sc"
+Name = "IceSpirits_Target_EV1"
+NotCloned = true
+Rarity = "Common"
+TID = "TID_SPELL_RAGE"
+TopEffect = "Evolution_Ice_Spirit_Crystal"
+TopEffectDisabledForAttachedCharacters = true
+TopEffectVerticalOffset = 28
+[STATS.icespirits_ev1]
+	[[STATS.icespirits_ev1.stats]]
+		Value = "damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon = "icons_stats_dmg_area"
+	[[STATS.icespirits_ev1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.icespirits_ev1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.icespirits_ev1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.icespirits_ev1.stats]]
+		Value = "range"
+		Unit = "TILES"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.icespirits_ev1.stats]]
+		Value = "stun_duration"
+        OverrideIntValue2 = 2
+        Unit = "TIME_PRECISE_TIMES_X"
+		TID = "TID_SPELL_ATTRIBUTE_FREEZE_DURATION"
+		Icon = "icons_stats_boost_freeze"

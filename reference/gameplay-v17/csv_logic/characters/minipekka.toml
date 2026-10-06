@@ -1,0 +1,39 @@
+
+[CHARACTER.MiniPekka]
+AttackStartEffect = "mini_pekka_attack_start"
+AttacksGround = true
+BlueExportName = "minipekka"
+CollisionRadius = 450
+Damage = 295
+DamageEffect = "mini_pekka_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "mini_pekka_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployTime = 1000
+FileName = "sc/chr_mini_pekka.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -12
+HitSpeed = 1600
+Hitpoints = 543
+LoadTime = 1100
+Mass = 4
+MoveEffect = "mini_pekka_steps"
+Name = "MiniPekka"
+PrestigeExportName2 = "minipekka_prestige"
+PrestigeSWF = "sc/chr_prestige5_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 800
+Rarity = "Common"
+RedExportName = "minipekka_red"
+Scale = 100
+ShadowScaleX = 80
+ShadowScaleY = 80
+ShadowSkew = 35
+SightRange = 5500
+SpawnEffect = "mini_pekka_deploy"
+Speed = 90
+TID = "TID_SPELL_MINIPEKKA"
+UseAnimator = true
+
+

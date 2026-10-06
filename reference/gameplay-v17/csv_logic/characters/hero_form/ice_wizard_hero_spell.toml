@@ -1,0 +1,26 @@
+[SPELL_HERO.IceWizard_hero]
+	CardForm                = "HeroForm"
+	Stats                   = "ice_wizard_hero"
+	AreaEffectObject        = "IceWizardColdHero"
+	SummonCharactersList    = ["IceWizardHero"]
+	SummonCharactersOffsetsX = [0]
+	SummonCharactersOffsetsY = [0]
+	SummonNumber 				= 1
+	SummonCharactersDelayList = [50]
+	IconSWF                 = "sc/ui_card_ice_wizard_hero.sc"
+	IconFile                = "ice_wizard_hero_card"
+	HighresPlaceholderAsset = "sc/ui_card_info_fx.sc#card_info_fx_hero"
+	HighresImageFilename    = "sc3d/characters/hero/hero_icewizard/hero_prefab_icewizard_collection"
+	UnlockArena             = "Arena_T"
+	Rarity                  = "Legendary"
+	ManaCost                = 3
+	PrestigeCount           = 1
+	Effect                  = "CharacterDeploy"
+	TID                     = "TID_SPELL_ICE_WIZARD"
+	TID_INFO                = "TID_SPELL_INFO_HERO_ICE_WIZARD"
+	PveDefenseType          = "Range"
+	LinkedChampionCharacter = "IceWizardHero"
+
+[SPELL_CHARACTER.IceWizard]
+	EvolvedSpells = ["IceWizard_hero"]
+	

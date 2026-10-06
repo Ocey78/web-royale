@@ -1,0 +1,233 @@
+[VARIABLE.InfernoDragon_EV1_AttackCount]
+[VARIABLE.InfernoDragon_EV1_AttackDecayCounter]
+[VARIABLE.InfernoDragon_EV1_DecayTime]
+DefaultValue = 7000
+[EXT.InfernoDragon_EV1]
+	Base = "CHARACTER.InfernoDragon"
+	ClonedVersion = "InfernoDragon"
+	FileName = "sc/chr_inferno_dragon_evolution.sc"
+AttackSequence = [0, 1, 2, 3]
+	AttackSequenceMode = "Manual"
+	OnAttackAction = "InfernoDragon_EV1_IncrementAttackCount"
+	OnStartingAttackAction = "InfernoDragon_EV1_ResetDecayCounter"
+	OnStartingAction = "InfernoDragon_EV1_ConstantTicker"
+    Scale = 110
+   	BlueExportName = "inferno_dragon_evo"
+    RedExportName = "inferno_dragon_evo_enemy"
+	SpawnEffect = "InfernoDragon_EV1_Deploy2"
+	MoveEffect = "InfernoDragon_EV1_steps"
+	DeathEffect = "InfernoDragon_EV1_die2"
+	DamageEffect = "InfernoDragon_EV1_hit_lvl1"
+	ProjectileEffect = "InfernoDragon_EV1_attack"
+	AttackStartEffect = "InfernoDragon_EV1_attack_start"
+	OnStartingClientActions=["InfernoDragon_EV1_Barrel", "InfernoDragon_EV1_Glow"]
+	HealthBar = "Medium_EV1"
+		DeployBaseAnimExportName="filter_deploy_unit_legendary"
+		CustomSpawnFilter="filter_card_evolution"
+	StatsTags.Hitpoints = "hitpoints"
+    StatsTags.HitSpeed = "hit_speed"
+	StatsTags.Targets = "targets"
+	StatsTags.Range = "range"
+    StatsTags.Speed = "speed"
+[ACTION.InfernoDragon_EV1_IncrementAttackCount]
+	ClassType = "ActionSetVariable"
+	Variable = "InfernoDragon_EV1_AttackCount"
+	Value = "min(50, InfernoDragon_EV1_AttackCount + 1)"
+	NextActionWait = true
+	NextAction = "InfernoDragon_EV1_ResetDecayCounter"
+[[EXT.InfernoDragon_EV1.AttackSequenceList]]
+	Damage = 14
+	TargettedDamageEffect = "InfernoDragon_EV1_beam_lvl1"
+	FlameEffect = "InfernoDragon_EV1_muzzle"
+	VisualHitSpeed = 1200
+	StatsTags.Damage = "min_damage"
+[[EXT.InfernoDragon_EV1.AttackSequenceList]]
+	Damage = 47
+	TargettedDamageEffect = "InfernoDragon_EV1_beam_lvl2"
+	FlameEffect = "InfernoDragon_EV1_muzzle_stage2"
+	VisualHitSpeed = 1200
+[[EXT.InfernoDragon_EV1.AttackSequenceList]]
+	Damage = 165
+	TargettedDamageEffect = "InfernoDragon_EV1_beam_lvl3"
+	FlameEffect = "InfernoDragon_EV1_muzzle_stage3"
+	VisualHitSpeed = 1200
+	StatsTags.Damage = "max_damage"
+[[EXT.InfernoDragon_EV1.AttackSequenceList]]
+	Damage = 330
+	TargettedDamageEffect = "InfernoDragon_EV1_beam_lvl4"
+	FlameEffect = "InfernoDragon_EV1_muzzle_stage4"
+	VisualHitSpeed = 1200
+[ACTION.InfernoDragon_EV1_ConstantTicker]
+	ClassType = "ActionInterval"
+	Interval = 50
+	[ACTION.InfernoDragon_EV1_ConstantTicker.ActionToExecute]
+		ClassType = "ActionGroup"
+		SubActions = [ "InfernoDragon_EV1_UpdateDecayCounter", "InfernoDragon_EV1_UpdateAttackSequence", "InfernoDragon_EV1_CheckCombatDisabled" ]
+[ACTION.InfernoDragon_EV1_UpdateAttackSequence]
+	ClassType = "ActionSelect"
+	PerActionConditions = [
+		"InfernoDragon_EV1_AttackCount < 4",
+		"InfernoDragon_EV1_AttackCount < 9",
+		"InfernoDragon_EV1_AttackCount < 49"
+	]
+	SubActions = [
+		{ ClassType = "ActionSetAttackSequenceIndex", AttackIndex = 0 },
+		{ ClassType = "ActionSetAttackSequenceIndex", AttackIndex = 1 },
+		{ ClassType = "ActionSetAttackSequenceIndex", AttackIndex = 2 },
+		{ ClassType = "ActionSetAttackSequenceIndex", AttackIndex = 3 }
+	]
+	[ACTION.InfernoDragon_EV1_UpdateAttackSequence.NextAction]
+		ClassType = "ActionWithDuration"
+		ActionDuration = 50
+		GameTagsToSet = "UNIT_CUSTOM_TAG_1"
+		ExecuteIfTrue = "InfernoDragon_EV1_AttackCount >= 4"
+[ACTION.InfernoDragon_EV1_UpdateDecayCounter]
+	ClassType = "ActionSetVariable"
+	Variable = "InfernoDragon_EV1_AttackDecayCounter"
+	Value = "max(0, InfernoDragon_EV1_AttackDecayCounter - 50)"
+	NextActionWait = true
+	[ACTION.InfernoDragon_EV1_UpdateDecayCounter.NextAction]
+		ClassType = "ActionGroup"
+		ExecuteIfTrue = "InfernoDragon_EV1_AttackDecayCounter == 0"
+		SubActions = [
+			"InfernoDragon_EV1_DoAttackDecay",
+			"InfernoDragon_EV1_ResetDecayCounter",
+			"InfernoDragon_EV1_UpdateDamageStateVFX",
+			"InfernoDragon_EV1_Reset_Attack_Level_Effect"
+		]
+[ACTION.InfernoDragon_EV1_Reset_Attack_Level_Effect]
+	ClassType="ActionPlayEffect"
+	Effect = "evo_inferno_dragon_fizzle"
+	EffectFlags = "FollowParent,ParticlesFollowParent"
+	ExecuteIfTrue = "UNIT_CUSTOM_TAG_1"
+[ACTION.InfernoDragon_EV1_CheckCombatDisabled]
+	ClassType = "ActionSetVariable"
+	ExecuteIfTrue = "COMBAT_DISABLED"
+	Variable = "InfernoDragon_EV1_AttackCount"
+	Value = "0"
+	NextAction = "InfernoDragon_EV1_UpdateDamageStateVFX"
+[ACTION.InfernoDragon_EV1_ResetDecayCounter]
+	ClassType = "ActionSetVariable"
+	Variable = "InfernoDragon_EV1_AttackDecayCounter"
+	
+	Value = "InfernoDragon_EV1_DecayTime"
+	NextAction = "InfernoDragon_EV1_UpdateDamageStateVFX"
+[ACTION.InfernoDragon_EV1_DoAttackDecay]
+	ClassType = "ActionSelect"
+	PerActionConditions = [
+		"InfernoDragon_EV1_AttackCount >= 49",
+		"InfernoDragon_EV1_AttackCount >= 9"
+	]
+	SubActions = [
+		{ ClassType = "ActionSetVariable", Variable = "InfernoDragon_EV1_AttackCount", Value = "0" },
+		{ ClassType = "ActionSetVariable", Variable = "InfernoDragon_EV1_AttackCount", Value = "0" },
+		{ ClassType = "ActionSetVariable", Variable = "InfernoDragon_EV1_AttackCount", Value = "0" }
+	]
+[CLIENT_ACTION.InfernoDragon_EV1_Barrel]
+	ClassType="ClientActionAnimatorLayer"
+	LayerName="InfernoDragonEvoBarrel"
+	Filename="sc/chr_inferno_dragon_evolution.sc"
+	BlueExportName="inferno_dragon_evo_barrel"
+	RedExportName="inferno_dragon_evo_barrel"
+	Visible=true
+	
+[CLIENT_ACTION.InfernoDragon_EV1_Glow]
+	ClassType="ClientActionAnimatorLayer"
+	LayerName="InfernoDragonEvoGlow"
+	Filename="sc/chr_inferno_dragon_evolution.sc"
+	BlueExportName="inferno_dragon_evo_glow"
+	RedExportName="inferno_dragon_evo_glow"
+	Visible=true
+[ACTION.InfernoDragon_EV1_UpdateDamageStateVFX]
+	ClassType = "ActionSelect"
+	PerActionConditions = [
+		"InfernoDragon_EV1_AttackCount < 4",
+		"InfernoDragon_EV1_AttackCount < 9",
+		"InfernoDragon_EV1_AttackCount < 49"
+	]
+	SubActions = [
+		"InfernoDragon_EV1_DamageStateVFX_Level0",
+		"InfernoDragon_EV1_DamageStateVFX_Level1",
+		"InfernoDragon_EV1_DamageStateVFX_Level2",
+		"InfernoDragon_EV1_DamageStateVFX_Level3"
+	]
+[ACTION.InfernoDragon_EV1_DamageStateVFX_Level0]
+	ClassType="ActionPlayEffect"
+	SpriteName="InfernoDragonEvoBarrel"
+	Effect = "InfernoDragon_EV1_DamageState1"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	Singleton = true
+	ForceStopIfTrue = "InfernoDragon_EV1_AttackCount >= 4"
+	NextAction = "InfernoDragon_EV1_Dim_Spark_Layer"
+[ACTION.InfernoDragon_EV1_Dim_Spark_Layer]
+	ClassType="ActionPlayEffect"
+	Effect = "InfernoDragon_EV1_invisible_vfx"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	SpriteName="InfernoDragonEvoGlow"
+	Singleton = true
+	ForceStopIfTrue = "InfernoDragon_EV1_AttackCount >= 4"
+[ACTION.InfernoDragon_EV1_DamageStateVFX_Level1]
+	ClassType="ActionPlayEffect"
+	SpriteName="InfernoDragonEvoBarrel"
+	Effect = "InfernoDragon_EV1_DamageState2"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	Singleton = true
+	ForceStopIfTrue = "InfernoDragon_EV1_AttackCount >= 9 || InfernoDragon_EV1_AttackCount < 4"
+[ACTION.InfernoDragon_EV1_DamageStateVFX_Level2]
+	ClassType="ActionPlayEffect"
+	SpriteName="InfernoDragonEvoBarrel"
+	Effect = "InfernoDragon_EV1_DamageState3"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	Singleton = true
+	ForceStopIfTrue = "InfernoDragon_EV1_AttackCount >= 49 || InfernoDragon_EV1_AttackCount < 9"
+[ACTION.InfernoDragon_EV1_DamageStateVFX_Level3]
+	ClassType="ActionPlayEffect"
+	SpriteName="InfernoDragonEvoBarrel"
+	Effect = "InfernoDragon_EV1_DamageState4"
+	EffectFlags = "FollowParent,ParticlesFollowParent,LinkLifeToActionLife,Looping"
+	Singleton = true
+	ForceStopIfTrue = "InfernoDragon_EV1_AttackCount < 49"
+[STATS.InfernoDragon_EV1]
+	[[STATS.InfernoDragon_EV1.stats]]
+		Value = "min_damage"
+		Value2 = "max_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.InfernoDragon_EV1.stats]]
+		Value = "min_damage"
+		Value2 = "max_damage"
+		Value3 = "hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+	[[STATS.InfernoDragon_EV1.stats]]
+		Value = "hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.InfernoDragon_EV1.stats]]
+		Value = "hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.InfernoDragon_EV1.stats]]
+		Value = "targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+    [[STATS.InfernoDragon_EV1.stats]]
+		Value = "speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.InfernoDragon_EV1.stats]]
+		Value = "range"
+		Unit = "RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.InfernoDragon_EV1.stats]]
+		VariableValue = "InfernoDragon_EV1_DecayTime"
+		Unit = "TIME"
+		TID = "TID_SPELL_ATTRIBUTE_DECAY_TIME"
+		Icon = "icons_stats_deploy_time"

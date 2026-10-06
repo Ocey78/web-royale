@@ -1,0 +1,250 @@
+[VARIABLE.WizardHero_is_flying]
+[EXT.WizardHero]
+	Base          = "CHARACTER.Wizard"
+	Rarity        = "Common"
+	Ability       = "WizardHeroAbility"
+	ClonedVersion = "WizardHero"
+	StatsTags.Hitpoints = "hitpoints"
+	StatsTags.Damage    = "ranged_damage"
+	StatsTags.HitSpeed  = "hit_speed"
+	StatsTags.Targets   = "targets"
+	StatsTags.Speed     = "speed"
+	StatsTags.Range     = "range"
+Scale = 100
+PrefabAsset = "sc3d/characters/hero/hero_wizard/hero_prefab_wizard_battle"
+SpawnEffect = "vfx_wizard_hero_deploy"
+DeathEffect="vfx_musketeer_hero_die"
+DamageEffect = "vfx_wizard_hero_pjt_hit"
+AttackStartEffect = ""
+AbilityPendingEffect = "Heal_aura"
+CustomSpawnFilter = "filter_champion_golden_knight"
+Projectile = "Wizard_hero_ground_projectile"
+ProjectileEffect = ""
+ProjectileStartRadius = 1800
+ProjectileStartZ = 1200
+ProjectileYOffset = 300
+OnStartingClientActions = ["Healthbar_Medium"]
+HideHealthbar = true
+NewHealthBarOffsetXBlue = 2
+NewHealthBarOffsetXRed = 2
+[EXT.Wizard_hero_ground_projectile]
+Base = "PROJECTILE.chr_wizardProjectile"
+TrailEffect = "vfx_wizard_hero_pjt"
+HitEffect="vfx_wizard_hero_pjt_hit"
+[EXT.WizardHeroAbilityProjectile]
+	Base              = "PROJECTILE.Wizard_hero_ground_projectile"
+	Damage = 102
+	TargetBuff        = "HeroWizardNoMove"
+	BuffTime          = 1200
+	Pushback          = 0
+	OnTargetReachedAction = "WizardHeroAbilityProjectile_hit_target_action_group"
+[ABILITY.WizardHeroAbility]
+	TID            = "TID_HERO_WIZARD_ABILITY"
+	TID_INFO       = "TID_HERO_WIZARD_ABILITY_INFO"
+	IconSWF        = "sc/ability_icon_wizard.sc"
+	IconExportName = "ability_icon_wizard"
+	CastTime              = 950
+	TriggerDelay          = 200
+	ManaCost              = 1
+	MaxCharges            = 1
+	KeepIconEvenWhenOutOfCharges = true
+	HideChargesTextField = true
+	DeployedEffect        = "vfx_hero_ability_active_m"
+	DeployedClip          = "filter_invisible"
+	KeepCurrentTarget     = true
+	PopoverIconFileName   = "sc/ui_spells.sc"
+	PopoverIconExportName = "pancake_button_icon_1"
+	OnActivationAction    = "WizardHero_ability_activation"
+	Stats                 = "wizard_hero_ability"
+	StatsTags.Cooldown    = "ability_cooldown"
+[ACTION.WizardHero_ability_activation]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"WizardHero_ground_to_air",
+		"WizardHero_self_buff",
+		"WizardHero_first_hit",
+	]
+	SubActionsDelay = [0, 0, 0]
+[ACTION.WizardHero_ground_to_air]
+	ClassType                 = "ActionGroundToAir"
+	FlyingHeight              = 3500
+	TransitionDuration        = 200
+	TotalDuration             = 3500
+	ResetPathInAir            = true
+	ResetPathWhenBackToGround = true
+	ActionOnFlyHeightReached  = "WizardHero_on_max_height_reached"
+	ActionOnStartDescending   = "Wizardhero_actions_on_change_to_ground_version"
+	GameTagsToSetOnToAirState = "NO_ATTACK"
+	GameTagsToSetOnToGroundState = "NO_ATTACK"
+[ACTION.WizardHero_landing_action]
+	ClassType   = "ActionPlayEffect"
+	Effect      = ""
+	EffectFlags = "FollowParent"
+[ACTION.WizardHero_self_buff]
+	ClassType           = "ActionSpawn"
+	SpawnType           = "BuffType"
+	SpawnData           = "WizardHeroAbilityBuff"
+	SpawnTime           = 3500
+	StatsTags.SpawnTime = "duration"
+[ACTION.WizardHero_first_hit]
+	ClassType = "ActionSetInstantHit"
+	ExecuteIfTrue = "target_in_range(5500)"
+[BUFF.WizardHeroAbilityBuff]
+	Rarity                            = "Common"
+	SpeedMultiplier                   = 150
+	ContinuousEffect                  = "vfx_wizard_hero_ability_fly"
+	NotCloned                         = true
+	StatsTags.SpeedMultiplierForStats = "speed_bonus"
+[ACTION.WizardHeroAbilityProjectile_hit_target_action_group]
+ClassType = "ActionGroup"
+SubActions = ["WizardHeroAbilityProjectile_spawn_tornado", "WizardHeroAbilityProjectile_spawn_damage_aeo"]
+SubActionsDelay = [0, 0]
+[ACTION.WizardHeroAbilityProjectile_spawn_damage_aeo]
+	ClassType = "ActionSpawn"
+	SpawnType = "AreaEffectType"
+	SpawnData = "WizardHero_DamageAEO"
+	OffsetY   = 1000
+[AEO.WizardHero_DamageAEO]
+	Rarity = "Common"
+	LifeDuration = 1
+    Damage = { BaseDamage = 17 }
+	Radius = 4000
+	Filter = "CommonAreaDamageFilter"
+    StatsTags.Damage = "tornado_damage"
+[ACTION.WizardHeroAbilityProjectile_spawn_tornado]
+	ClassType = "ActionSpawn"
+	SpawnType = "AreaEffectType"
+	SpawnData = "WizardHero_MiniTornadoAEO"
+	OffsetY   = 1000
+[AEO.WizardHero_MiniTornadoAEO]
+	Rarity       = "Common"
+	LifeDuration = 500
+	BuffTime     = 500
+	Radius              = 4000
+	Buff                = "WizardHero_MiniTornadoBuff"
+	ScaledEffect        = "vfx_wizard_hero_tornado_TEMP"
+	StayAfterParentDies = true
+	HitSpeed            = 50
+	Filter              = "CommonAreaDamageFilter"
+	ControlsBuff        = true
+	StatsTags.Radius    = "tornado_radius"
+[BUFF.WizardHero_MiniTornadoBuff]
+	Rarity = "Common"
+	HitFrequency           = 200
+	FilterFile             = "sc/effects.sc"
+	FilterExportName       = "filter_poison"
+	MarkEffect             = "Healing"
+	AttractPercentage      = 250
+	PushSpeedFactor        = 100
+	ControlledByParent     = true
+	EnableStacking         = true
+[BUFF.HeroWizardNoMove]
+	Rarity        = "Common"
+	GameTagsToSet = "NO_PUSHED_BY_ALLY"
+[EXT.WizardHero_air]
+Base = "CHARACTER.WizardHero"
+Projectile = "WizardHeroAbilityProjectile"
+ClonedVersion = "WizardHero"
+FlyingHeight = 3500
+PrefabAsset = "sc3d/characters/hero/hero_wizard/hero_prefab_wizard_battle_fly"
+[ACTION.WizardHero_on_max_height_reached]
+	ClassType = "ActionGroup"
+	SubActions = [
+		"Wizard_hero_set_is_flying_true",
+		"WizardHero_change_to_air_version",
+		"WizardHero_air_Listen_To_New_Deploy",
+		"WizardHero_set_ability_button_cooldown",
+	]
+	SubActionsDelay = [0, 0, 0, 0]
+[ACTION.Wizard_hero_set_is_flying_true]
+	ClassType = "ActionSetVariable"
+	Variable  = "WizardHero_is_flying"
+	Value     = "1"
+[ACTION.WizardHero_change_to_air_version]
+	ClassType        = "ActionChangeGameObjectData"
+	NewCharacterData = "WizardHero_air"
+[ACTION.WizardHero_air_Listen_To_New_Deploy]
+	ClassType            = "ActionActivateOnCardDeploy"
+	OnActivateAction     = "Wizard_hero_set_is_flying_false"
+	CardGroup            = "WizardHero"
+	EvaluateDeployedCard = true
+[CARD_GROUP.WizardHero]
+	PlayableCards = ["Wizard"]
+	SupportCards  = []
+	Heroes        = ["Wizard_hero"]
+[ACTION.WizardHero_set_ability_button_cooldown]
+	ClassType               = "ActionOverrideAbilityButtonState"
+	ChampionCharacterData   = "WizardHero"
+	StateToSet              = "OnCooldown"
+	EnableChampionHighlight = true
+	ForceStopIfTrue         = "UNIT_CUSTOM_TAG_1 || WizardHero_is_flying == 0"
+[ACTION.Wizardhero_actions_on_change_to_ground_version]
+ClassType = "ActionGroup"
+SubActions = ["Wizard_hero_set_is_flying_false", "WizardHero_change_to_ground_version", "WizardHero_Play_Falling_Animation"]
+SubActionsDelay = [0, 0, 0]
+[ACTION.Wizard_hero_set_is_flying_false]
+	ClassType = "ActionSetVariable"
+	Variable  = "WizardHero_is_flying"
+	Value     = "0"
+[ACTION.WizardHero_change_to_ground_version]
+	ClassType        = "ActionChangeGameObjectData"
+	NewCharacterData = "WizardHero"
+[ACTION.WizardHero_Play_Falling_Animation]
+	ClassType = "ActionRunForcedAnimationOnce"
+	PlaybackDuration  = 200
+[STATS.wizard_hero]
+	[[STATS.wizard_hero.stats]]
+		Value = "ranged_damage"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_AREA_DAMAGE"
+		Icon  = "icons_stats_dmg_area"
+	[[STATS.wizard_hero.stats]]
+		Value = "hitpoints"
+		Unit  = "INTEGER"
+		TID   = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon  = "icons_stats_hp"
+	[[STATS.wizard_hero.stats]]
+		Value = "hit_speed"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon  = "icons_stats_dmg_speed"
+	[[STATS.wizard_hero.stats]]
+		Value = "targets"
+		Unit  = "TARGETS"
+		TID   = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon  = "icons_stats_target"
+	[[STATS.wizard_hero.stats]]
+		Value = "speed"
+		Unit  = "SPEED"
+		TID   = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon  = "icons_stats_speed"
+	[[STATS.wizard_hero.stats]]
+		Value = "range"
+		Unit  = "TILES"
+		TID   = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon  = "icons_stats_range"
+[STATS.wizard_hero_ability]
+		Value = "ability_cooldown"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_ABILITY_STAT_COOLDOWN"
+		Icon  = "icons_stats_cooldown"
+	[[STATS.wizard_hero_ability.stats]]
+		Value = "duration"
+		Unit  = "TIME_PRECISE"
+		TID   = "TID_SPELL_ATTRIBUTE_FLIGHT_DURATION"
+		Icon  = "icons_stats_deploy_time"
+	[[STATS.wizard_hero_ability.stats]]
+		Value = "tornado_radius"
+		Unit  = "TILES"
+		TID   = "TID_SPELL_ATTRIBUTE_HEROWIZ_RAD2"
+		Icon  = "icons_stats_radius"
+	[[STATS.wizard_hero_ability.stats]]
+		Value             = "tornado_damage"
+		Unit              = "INTEGER"
+		TID               = "TID_SPELL_ATTRIBUTE_HEROWIZ_DAMAGE2"
+		Icon              = "icons_stats_dmg_area"
+	[[STATS.wizard_hero_ability.stats]]
+		Value = "speed_bonus"
+		Unit  = "PERCENT"
+		TID   = "TID_SPELL_ATTRIBUTE_FLIGHT_SPEED"
+		Icon  = "icons_stats_speedup"

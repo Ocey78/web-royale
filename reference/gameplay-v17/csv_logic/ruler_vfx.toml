@@ -1,0 +1,297 @@
+[Ruler_VFX_King_Default]
+TID = "TID_RULER_VFX_KING_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_KING_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_king_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/king_def/ra_t4_king_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_King"
+
+[Ruler_VFX_King_Ruler_levelup]
+TID = "TID_RULER_VFX_KING_RULER_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_KING_RULER_LEVELUP_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_king_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/king_levelup/ra_t3_king_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_Maiden_Default]
+TID = "TID_RULER_VFX_MAIDEN_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_MAIDEN_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_merge_maiden_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/merge_maiden_def/ra_t4_merge_maiden_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_MergeMaiden"
+
+[Ruler_VFX_Maiden_Ruler_levelup]
+TID = "TID_RULER_VFX_MAIDEN_RULER_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_MAIDEN_RULER_LEVELUP_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_merge_maiden_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/merge_maiden_levelup/ra_t3_merge_maiden_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_GoblinQueen_Default]
+TID = "TID_RULER_VFX_GOBLIN_QUEEN_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_GOBLIN_QUEEN_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_goblin_queen_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/goblinqueen_def/ra_t4_goblinqueen_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_GoblinQueen"
+
+[Ruler_VFX_GoblinQueen_Ruler_levelup]
+TID = "TID_RULER_VFX_GOBLIN_QUEEN_RULER_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_GOBLIN_QUEEN_RULER_LEVELUP_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_goblin_queen_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/goblin_queen_levelup/ra_t3_goblinqueen_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_ElixirLoong_Default]
+TID = "TID_RULER_VFX_ELIXIR_LOONG_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_ELIXIR_LOONG_DEFAULT_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_loong_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/loong_def/ra_t4_loong_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_ElixirLoong"
+
+[Ruler_VFX_ElixirLoong_Ruler_levelup]
+TID = "TID_RULER_VFX_ELIXIR_LOONG_RULER_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_ELIXIR_LOONG_RULER_LEVELUP_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_loong_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/loong_levelup/ra_t3_loong_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_ElixirLoong_Ruler_seahorse]
+TID = "TID_RULER_VFX_ELIXIR_LOONG_T2_SEAHORSE"
+DescriptionTID = "TID_RULER_VFX_ELIXIR_LOONG_T2_SEAHORSE_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_loong_T2_seahorse"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/loong/ra_t2_loong_001_seahorse"
+Tier = "T2"
+
+[Ruler_VFX_Maiden_Ruler_sailor]
+TID = "TID_RULER_VFX_MAIDEN_T2_SAILOR"
+DescriptionTID = "TID_RULER_VFX_MAIDEN_T2_SAILOR_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_merge_maiden_T2_sailor"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/mergemaiden/ra_t2_mergemaiden_001_sailor"
+Tier = "T2"
+
+[Ruler_VFX_GoblinQueen_Ruler_gown]
+TID = "TID_RULER_VFX_GOBLIN_QUEEN_T2_GOWN"
+DescriptionTID = "TID_RULER_VFX_GOBLIN_QUEEN_T2_GOWN_DESC"
+IconSWF = "sc/ui_autochess_icons.sc"
+IconExportName = "thumb_vfx_goblin_queen_T2_gown"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/goblinqueen/ra_t2_goblinqueen_001_gown"
+Tier = "T2"
+
+[Ruler_VFX_BattleMachine_Default]
+TID = "TID_RULER_VFX_BATTLE_MACHINE_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_BATTLE_MACHINE_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_battle_machine.sc"
+IconExportName = "thumb_vfx_battle_machine_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/battle_machine_def/ra_t4_battle_machine_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_BattleMachine"
+
+[Ruler_VFX_BattleMachine_Ruler_levelup]
+TID = "TID_RULER_VFX_BATTLE_MACHINE_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_BATTLE_MACHINE_LEVELUP_DESC"
+IconSWF = "sc/thumb_vfx_battle_machine_T3_levelup_01.sc"
+IconExportName = "thumb_vfx_battle_machine_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/battle_machine_levelup/ra_t3_battlemachine_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_BattleMachine_Ruler_iron]
+TID = "TID_RULER_VFX_BATTLE_MACHINE_T2_IRON"
+DescriptionTID = "TID_RULER_VFX_BATTLE_MACHINE_T2_IRON_DESC"
+IconSWF = "sc/thumb_vfx_battle_machine_T2_iron.sc"
+IconExportName = "thumb_vfx_battle_machine_T2_iron"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/battlemachine/ra_t2_battlemachine_001_iron"
+Tier = "T2"
+
+[Ruler_VFX_King_Ruler_santa_levelup]
+TID = "TID_RULER_VFX_KING_LEVELUP_SANTA"
+DescriptionTID = "TID_RULER_VFX_KING_LEVELUP_SANTA_DESC"
+IconSWF = "sc/thumb_vfx_king_T3_levelup_02_santa.sc"
+IconExportName = "thumb_vfx_king_T3_levelup_02_santa"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/king_levelup/ra_t3_king_levelup_02_santa"
+Tier = "T3"
+
+[Ruler_VFX_EchoMonk_Default]
+TID = "TID_RULER_VFX_ECHO_MONK_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_ECHO_MONK_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_echo_monk.sc"
+IconExportName = "thumb_vfx_echo_monk_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/echomonk_def/ra_t4_echomonk_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_EchoMonk"
+
+[Ruler_VFX_EchoMonk_Ruler_levelup]
+TID = "TID_RULER_VFX_ECHO_MONK_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_ECHO_MONK_LEVELUP_DESC"
+IconSWF = "sc/thumb_vfx_echo_monk_T3_levelup_01.sc"
+IconExportName = "thumb_vfx_echo_monk_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/echomonk_levelup/ra_t3_echomonk_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_EchoMonk_Ruler_exorcist]
+TID = "TID_RULER_VFX_ECHO_MONK_T2_EXORCIST"
+DescriptionTID = "TID_RULER_VFX_ECHO_MONK_T2_EXORCIST_DESC"
+IconSWF = "sc/thumb_vfx_echo_monk_T2_exorcist.sc"
+IconExportName = "thumb_vfx_echo_monk_T2_exorcist"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/echomonk/ra_t2_echomonk_001_exorcist"
+Tier = "T2"
+
+[Ruler_VFX_King_levelup_03]
+TID = "TID_RULER_VFX_KING_LEVELUP_03"
+DescriptionTID = "TID_RULER_VFX_KING_LEVELUP_03_DESC"
+IconSWF = "sc/thumb_vfx_king_T3_levelup_03.sc"
+IconExportName = "thumb_vfx_king_T3_levelup_03"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/king_levelup/ra_t3_king_levelup_03"
+Tier = "T3"
+
+[Ruler_VFX_Maiden_levelup_02]
+TID = "TID_RULER_VFX_MAIDEN_LEVELUP_02"
+DescriptionTID = "TID_RULER_VFX_MAIDEN_LEVELUP_02_DESC"
+IconSWF = "sc/thumb_vfx_merge_maiden_T3_levelup_02.sc"
+IconExportName = "thumb_vfx_merge_maiden_T3_levelup_02"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/merge_maiden_levelup/ra_t3_merge_maiden_levelup_02"
+Tier = "T3"
+
+[Ruler_VFX_Maiden_warrior]
+TID = "TID_RULER_VFX_MAIDEN_T2_WARRIOR"
+DescriptionTID = "TID_RULER_VFX_MAIDEN_T2_WARRIOR_DESC"
+IconSWF = "sc/thumb_vfx_merge_maiden_T2_warrior.sc"
+IconExportName = "thumb_vfx_merge_maiden_T2_warrior"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/mergemaiden/ra_t2_mergemaiden_002_warrior"
+Tier = "T2"
+
+[Ruler_VFX_DaggerDuchess_Default]
+TID = "TID_RULER_VFX_DAGGER_DUCHESS_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_DAGGER_DUCHESS_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_dagger_duchess.sc"
+IconExportName = "thumb_vfx_dagger_duchess_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/dagger_duchess_def/ra_t4_dagger_duchess_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_DaggerDuchess"
+
+[Ruler_VFX_DaggerDuchess_Ruler_levelup]
+TID = "TID_RULER_VFX_DAGGER_DUCHESS_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_DAGGER_DUCHESS_LEVELUP_DESC"
+IconSWF = "sc/thumb_vfx_dagger_duchess_T3_levelup_01.sc"
+IconExportName = "thumb_vfx_dagger_duchess_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/dagger_duchess_levelup/ra_t3_daggerduchess_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_DaggerDuchess_Ruler_crystal]
+TID = "TID_RULER_VFX_DAGGER_DUCHESS_T2_CRYSTAL"
+DescriptionTID = "TID_RULER_VFX_DAGGER_DUCHESS_T2_CRYSTAL_DESC"
+IconSWF = "sc/thumb_vfx_dagger_duchess_T2_crystal.sc"
+IconExportName = "thumb_vfx_dagger_duchess_T2_crystal"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/daggerduchess/ra_t2_daggerduchess_crystal_01"
+Tier = "T2"
+
+[Ruler_VFX_GoblinQueen_Ruler_medusa]
+TID = "TID_RULER_VFX_GOBLIN_QUEEN_T2_MEDUSA"
+DescriptionTID = "TID_RULER_VFX_GOBLIN_QUEEN_T2_MEDUSA_DESC"
+IconSWF = "sc/thumb_vfx_goblin_queen_T2_medusa.sc"
+IconExportName = "thumb_vfx_goblin_queen_T2_medusa"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/goblinqueen/ra_t2_goblinqueen_002_medusa"
+Tier = "T2"
+
+[Ruler_VFX_GrandWarden_Default]
+TID = "TID_RULER_VFX_GRAND_WARDEN_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_GRAND_WARDEN_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_grand_warden.sc"
+IconExportName = "thumb_vfx_grand_warden_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/grandwarden_def/ra_t4_grandwarden_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_GrandWarden"
+
+[Ruler_VFX_GrandWarden_Ruler_levelup]
+TID = "TID_RULER_VFX_GRAND_WARDEN_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_GRAND_WARDEN_LEVELUP_DESC"
+IconSWF = "sc/thumb_vfx_grand_warden_T3_levelup_01.sc"
+IconExportName = "thumb_vfx_grand_warden_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/grandwarden_levelup/ra_t3_grandwarden_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_GrandWarden_Ruler_Soapman]
+TID = "TID_RULER_VFX_GRAND_WARDEN_T2_SOAPMAN"
+DescriptionTID = "TID_RULER_VFX_GRAND_WARDEN_T2_SOAPMAN_DESC"
+IconSWF = "sc/thumb_vfx_grand_warden_T2_soapman.sc"
+IconExportName = "thumb_vfx_grand_warden_T2_soapman"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/grandwarden/ra_t2_grandwarden_001_soapman"
+Tier = "T2"
+
+[Ruler_VFX_ElixirLoong_Ruler_levelup_02]
+TID = "TID_RULER_VFX_ELIXIR_LOONG_RULER_LEVELUP_02"
+DescriptionTID = "TID_RULER_VFX_ELIXIR_LOONG_RULER_LEVELUP_02_DESC"
+IconSWF = "sc/thumb_vfx_loong_T3_levelup_02.sc"
+IconExportName = "thumb_vfx_loong_T3_levelup_02"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/loong_levelup/ra_t3_loong_levelup_02"
+Tier = "T3"
+
+[Ruler_VFX_ElixirLoong_Ruler_mono]
+TID = "TID_RULER_VFX_ELIXIR_LOONG_T2_MONO"
+DescriptionTID = "TID_RULER_VFX_ELIXIR_LOONG_T2_MONO_DESC"
+IconSWF = "sc/thumb_vfx_loong_T2_mono.sc"
+IconExportName = "thumb_vfx_loong_T2_mono"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/loong/ra_t2_loong_002_mono"
+Tier = "T2"
+
+[Ruler_VFX_TombQueen_Default]
+TID = "TID_RULER_VFX_TOMB_QUEEN_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_TOMB_QUEEN_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen.sc"
+IconExportName = "thumb_vfx_tomb_queen_T4_default"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/tombqueen_def/ra_t4_tombqueen_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_TombQueen"
+
+[Ruler_VFX_TombQueen_Ruler_levelup]
+TID = "TID_RULER_VFX_TOMB_QUEEN_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_TOMB_QUEEN_LEVELUP_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen.sc"
+IconExportName = "thumb_vfx_tomb_queen_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/tombqueen_levelup/ra_t3_tombqueen_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_TombQueen_Ruler_pharaoh]
+TID = "TID_RULER_VFX_TOMB_QUEEN_T2_PHARAOH"
+DescriptionTID = "TID_RULER_VFX_TOMB_QUEEN_T2_PHARAOH_DESC"
+IconSWF = "sc/ac_ruler_tomb_queen_pharaoh.sc"
+IconExportName = "thumb_vfx_tomb_queen_T2_pharaoh"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/tombqueen/ra_t2_tombqueen_001_pharaoh"
+Tier = "T2"
+
+[Ruler_VFX_Ronin_Default]
+TID = "TID_RULER_VFX_RONIN_DEFAULT"
+DescriptionTID = "TID_RULER_VFX_RONIN_DEFAULT_DESC"
+IconSWF = "sc/ac_ruler_ronin.sc"
+IconExportName = "thumb_vfx_ronin_T4"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t4/ronin_def/ra_t4_ronin_01"
+Tier = "T4"
+SpecificToRuler = "Ruler_Ronin"
+
+[Ruler_VFX_Ronin_Ruler_levelup]
+TID = "TID_RULER_VFX_RONIN_LEVELUP"
+DescriptionTID = "TID_RULER_VFX_RONIN_LEVELUP_DESC"
+IconSWF = "sc/ac_ruler_ronin.sc"
+IconExportName = "thumb_vfx_ronin_T3_levelup_01"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t3/ronin_levelup/ra_t3_ronin_levelup_01"
+Tier = "T3"
+
+[Ruler_VFX_BattleMachine_Ruler_arcade]
+TID = "TID_RULER_VFX_BATTLE_MACHINE_T2_ARCADE"
+DescriptionTID = "TID_RULER_VFX_BATTLE_MACHINE_T2_ARCADE_DESC"
+IconSWF = "sc/ac_ruler_battle_machine_arcade.sc"
+IconExportName = "thumb_vfx_battle_machine_T2_arcade"
+AssetPath = "logic/autochess/ruler_attack_vfx_skins/t2/battlemachine/ra_t2_battlemachine_002_arcade"
+Tier = "T2"

@@ -1,0 +1,54 @@
+
+[CHARACTER.InfernoDragon]
+AttackStartEffect = "inferno_dragon_attack_start"
+AttacksAir = true
+AttacksGround = true
+BlueExportName = "inferno_dragon"
+CollisionRadius = 500
+CrowdEffects = true
+Damage = 14
+DamageEffect = "inferno_hit_effect"
+DeathEffect = "inferno_dragon_die"
+DeployBaseAnimExportName = "filter_deploy_unit_legendary"
+DeployTime = 1000
+FileName = "sc/chr_baby_dragon.sc"
+FlameEffect1 = "inferno_dragon_muzzle"
+FlameEffect2 = "inferno_dragon_muzzle_stage2"
+FlameEffect3 = "inferno_dragon_muzzle_stage3"
+FlyingHeight = 4000
+HealthBar = "Medium"
+HealthBarOffsetY = -12
+HitSpeed = 400
+Hitpoints = 506
+LoadTime = 1200
+Mass = 5
+MoveEffect = "inferno_dragon_steps"
+Name = "InfernoDragon"
+PrestigeExportName2 = "inferno_dragon_prestige"
+PrestigeExportName3 = "inferno_dragon_prestige2"
+PrestigeSWF = "sc/chr_prestige_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 3500
+Rarity = "Common"
+RedExportName = "inferno_dragon_red"
+Scale = 115
+ShadowScaleX = 85
+ShadowScaleY = -60
+ShadowY = 20
+SightRange = 5500
+SpawnEffect = "inferno_dragon_deploy"
+Speed = 60
+TID = "TID_CHARACTER_INFERNO_DRAGON"
+TargetEffectY = -20
+TargettedDamageEffect1 = "inferno_dragon_beam_lvl1"
+TargettedDamageEffect2 = "inferno_dragon_beam_lvl2"
+TargettedDamageEffect3 = "inferno_dragon_beam_lvl3"
+UseAnimator = true
+VariableDamage2 = 47
+VariableDamage3 = 165
+VariableDamageTime1 = 2000
+VariableDamageTime2 = 2000
+VisualHitSpeed = 1200
+
+

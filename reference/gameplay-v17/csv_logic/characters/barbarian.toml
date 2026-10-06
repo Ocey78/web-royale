@@ -1,0 +1,95 @@
+[SPELL_CHARACTER.Barbarians]
+	StatsTags.SummonNumber = "barbarians_summon_amount"
+
+[CHARACTER.Barbarian]
+AttackStartEffect = "barbarian_attack_start"
+AttacksGround = true
+BlueExportName = "barbarian1"
+CollisionRadius = 500
+Damage = 75
+DamageEffect = "barbarian_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "barbarian_die"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+DeployDelay = 400
+DeployTime = 1000
+FileName = "sc/chr_barbarian.sc"
+HealthBar = "Medium"
+HitSpeed = 1400
+Hitpoints = 280
+LoadTime = 1000
+Mass = 4
+MoveEffect = "barbarian_steps"
+Name = "Barbarian"
+PrestigeExportName2 = "barbarian_prestige"
+PrestigeSWF = "sc/chr_prestige2_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 700
+Rarity = "Common"
+RedExportName = "barbarian1_enemy"
+Scale = 95
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "barbarian_deploy"
+Speed = 60
+TID = "TID_CHARACTER_BARBARIAN"
+UseAnimator = true
+WalkingSpeedTweakPercentage = -20
+
+[CHARACTER.Barbarian.StatsTags]
+Damage = "barbarian_damage"
+Hitpoints = "barbarian_hitpoints"
+Speed = "barbarian_speed"
+HitSpeed = "barbarian_hit_speed"
+Targets = "barbarian_targets"
+Range = "barbarian_range"
+
+[STATS.barbarian]
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_damage"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_DAMAGE"
+		Icon = "icons_stats_dmg"
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_damage"
+		Value2 = "barbarian_hit_speed"
+		Unit = "DPS"
+		TID = "TID_SPELL_ATTRIBUTE_DPS"
+		Icon = "icons_stats_dmg_dps"
+		PopupIgnoreFieldReferenceName = "barbarian_stat_dps"
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_hitpoints"
+		Unit = "INTEGER"
+		TID = "TID_SPELL_ATTRIBUTE_HEALTH"
+		Icon = "icons_stats_hp"
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_hit_speed"
+		Unit = "TIME_PRECISE"
+		TID = "TID_SPELL_ATTRIBUTE_HIT_SPEED"
+		Icon = "icons_stats_dmg_speed"
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_targets"
+		Unit = "TARGETS"
+		TID = "TID_SPELL_ATTRIBUTE_TARGET"
+		Icon = "icons_stats_target"
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_speed"
+		Unit = "SPEED"
+		TID = "TID_SPELL_ATTRIBUTE_SPEED"
+		Icon = "icons_stats_speed"
+	[[STATS.barbarian.stats]]
+		Value = "barbarian_range"
+		Unit = "MELEE_RANGE"
+		TID = "TID_SPELL_ATTRIBUTE_RANGE"
+		Icon = "icons_stats_range"
+	[[STATS.barbarian.stats]]
+		Value = "barbarians_summon_amount"
+		Unit = "COUNT"
+		TID = "TID_SPELL_ATTRIBUTE_COUNT"
+		Icon = "icons_stats_troop_count"
+		PopupIgnoreFieldReferenceName = "barbarian_stat_count"
+

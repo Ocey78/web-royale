@@ -1,0 +1,36 @@
+
+[BUILDING.Tombstone]
+AttacksGround = true
+BlueExportName = "building_tombstone_blue"
+CollisionRadius = 1000
+DamageExportName = "filter_damage_wobble"
+DeathEffect = "tombstone_die"
+DeathSpawnCharacter = "Skeleton"
+DeathSpawnCount = 4
+DeployTime = 1000
+FileName = "sc/building_tombstone.sc"
+HitSpeed = 10000
+Hitpoints = 207
+IsBuilding = true
+LifeTime = 30000
+Name = "Tombstone"
+PrestigeExportName2 = "tombstone_prestige_blue"
+PrestigeExportName3 = "tombstone_prestige_blue"
+PrestigeRedExportName2 = "tombstone_prestige_red"
+PrestigeRedExportName3 = "tombstone_prestige_red"
+PrestigeSWF = "sc/building_prestige_dl.sc"
+ProjectileStartRadius = 400
+ProjectileStartZ = 400
+Rarity = "Common"
+RedExportName = "building_tombstone_red"
+Scale = 100
+ShadowScaleX = 90
+ShadowScaleY = 60
+ShadowSkew = 5
+ShadowX = -8
+SpawnCharacter = "Skeleton"
+SpawnEffect = "tombstone_deploy"
+SpawnInterval = 500
+SpawnNumber = 2
+SpawnPauseTime = 3500
+TID = "TID_BUILDING_TOMBSTONE"

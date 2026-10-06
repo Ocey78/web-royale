@@ -1,0 +1,44 @@
+
+[CHARACTER.Miner]
+AttackStartEffect = "miner_attack_start"
+AttacksGround = true
+BlueExportName = "miner_blue"
+CollisionRadius = 500
+CrownTowerDamagePercent = -80
+Damage = 76
+DamageEffect = "miner_hit"
+DamageExportName = "filter_damage"
+DeathEffect = "miner_die"
+DeployBaseAnimExportName = "filter_deploy_unit_miner"
+DeployTime = 1000
+FileName = "sc/chr_miner.sc"
+HealthBar = "Medium"
+HealthBarOffsetY = -10
+HitSpeed = 1300
+Hitpoints = 473
+LoadTime = 800
+Mass = 6
+MoveEffect = "miner_steps"
+Name = "Miner"
+PrestigeExportName2 = "miner_prestige"
+PrestigeSWF = "sc/chr_prestige7_dl.sc"
+ProjectileStartRadius = 450
+ProjectileStartZ = 450
+Range = 1200
+Rarity = "Common"
+RedExportName = "miner_red"
+Scale = 100
+ShadowScaleX = 85
+ShadowScaleY = 85
+ShadowSkew = 35
+ShadowY = -10
+SightRange = 5500
+SpawnEffect = "miner_deploy"
+SpawnPathfindEffect = "miner_travel_effect"
+SpawnPathfindSpeed = 650
+Speed = 90
+TID = "TID_SPELL_MINER"
+UseAnimator = true
+WalkingSpeedTweakPercentage = 20
+
+

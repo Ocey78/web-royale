@@ -34,7 +34,7 @@ for(const level of [0,99]){
   const s=make(level),b=s.battle;place(s,'golem',level);const parent=b.units.find(u=>u.entity==='Golem');checkUnit(parent,level);parent.hp=0;b.deaths();
   const children=b.units.filter(u=>u.entity==='Golemite');A.equal(children.length,2);for(const child of children)checkUnit(child,level);
  });
- for(const [card,child,seconds]of [['goblin-giant','SpearGoblinGiant',2],['witch','Skeleton',12],['graveyard','Graveyard_rework_Skeleton',5],['goblin-barrel','Goblin',5],['barbarian-barrel','Barbarian',6],['royal-delivery','DeliveryRecruit',5]]){
+ for(const [card,child,seconds]of [['goblin-giant','SpearGoblinGiant',2],['witch','Skeleton',12],['graveyard','Graveyard_rework_Skeleton',5],['goblin-barrel','GoblinBarrelGoblin',5],['barbarian-barrel','Barbarian',6],['royal-delivery','DeliveryRecruit',5]]){
   test('Level'+level+' '+card+' propagates its level through the live child-spawn chain',()=>{
    const s=make(level);place(s,card,level);advance(s,seconds);const children=s.battle.units.filter(u=>u.entity===child);A.ok(children.length>0,child+' actually spawned');for(const unit of children)checkUnit(unit,level);
   });
