@@ -24,6 +24,12 @@ The full regression run passed 1,736 tests with no failures and one existing ski
 
 The final `app.13d922b94aac.js` passes fresh source and built GPU sweeps. All 252 effect frames, 532 actor body/shadow samples and 25 action images match between source and production. Simultaneous-material isolation, effect stop/restoration, late deployment, both teams and Evolution throw visibility pass with no shader or missing-asset errors. Detailed built evidence is in [action-gpu-built.json](action-gpu-built.json) and [effects/source-built-comparison.json](effects/source-built-comparison.json).
 
+## Publication
+
+Release commit `f4129b97165c379a6d17dac7bc0c439dba8e3511` was pushed to `main` and published by [Pages workflow 38450960899](https://github.com/Ocey78/web-royale/actions/runs/38450960899). Live verification matched the release manifest and 129 application, material, mesh and texture files to their local SHA-256 values. A fresh Chrome session reached the home screen with version 0.56.0, native assets ready and no page errors. See [deployment.json](deployment.json) and [live-site.png](live-site.png).
+
+An initial asset request received a transient CDN 503 immediately after publication; it returned 200 on a later direct check. The successful complete verification needed no retries. A parallel 30-second diagnostic was still downloading the existing 841 MB cold-start asset set; the full verification allowed it to finish. These observations do not establish a first-load performance improvement.
+
 ## Practical limits
 
 The source data is exact; the browser's particle integration is a bounded interpretation, not recovered native engine code. Unseen birth poses clamp to the earliest observed pose. Billboard compositing, native blend enum equivalence, advanced trail/gradient controllers and lower-level native timing are not established as bit-identical. Mesh normal/additive blending follows preserved material render-state values, with the enum interpretation documented in the import notes.

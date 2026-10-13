@@ -7,6 +7,6 @@ Continue from published 0.55.0 (`62801c8`). User authorizes direct comparison wi
 - [x] Import referenced effect meshes, textures, materials and timelines with provenance, then implement animated source material/mesh presentation and body overrides.
 - [x] Integrate effect lifetime, team color, bone attachments, depth, caches and quality budgets without modifying simulation or replay state.
 - [x] Compare before/after motion and both teams, check all relevant Evo/Hero coverage, review independently, run regressions and production browser checks.
-- [ ] Publish and verify the live release; document concrete remaining limitations instead of claiming unsupported native parity.
+- [x] Publish and verify the live release; document concrete remaining limitations instead of claiming unsupported native parity.
 
 Ownership: fx_assets_v056 handles extraction; particles_v056 handles source particle sampling; live_fx_reference_v056 handles real-client evidence; root handles material/mesh rendering, integration, verification and deployment.

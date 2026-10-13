@@ -1,0 +1,534 @@
+{
+  "verifiedAt": "2026-10-13T19:02:42.706Z",
+  "url": "https://ocey78.github.io/web-royale/",
+  "releaseCommit": "f4129b97165c379a6d17dac7bc0c439dba8e3511",
+  "workflow": "https://github.com/Ocey78/web-royale/actions/runs/38450960899",
+  "version": "0.56.0",
+  "releaseSha256": "f07e0ec80c0ab8f7e38c8791a3e717af1c13add7b170d2d5c3f67c7ad5cc68a1",
+  "assets": [
+    {
+      "file": "app.13d922b94aac.js",
+      "sha256": "13d922b94aac5cfc1b74286883c3af498de7fd61b0603fbe3a3253ef3087fa7b"
+    },
+    {
+      "file": "assets/modern-heroes/evo-actor-3a0e709e3d5970ad.glb",
+      "sha256": "f0967f43ba68cc3fa8dc2f4f77e09a9a2d342fdaaca44c82bc1ab8e231be3b65"
+    },
+    {
+      "file": "assets/modern-heroes/evo-texture-0e7537fe9eb9bb00.png",
+      "sha256": "f7f30fbc331da5a5bb4d62d100a510045ed07140cf1df1ed48b4b77a29b3b66c"
+    },
+    {
+      "file": "assets/modern-heroes/evo-texture-d140e0f13532cd84.png",
+      "sha256": "247562aca39cc25ce7c68ca38a1c1c89ef94571cdfa5048eb342d6eeef3bc846"
+    },
+    {
+      "file": "assets/modern-heroes/fx-manifest.json",
+      "sha256": "1b26908196e48427ce45b42d4ce284d6cd69d975084e3901b5fc42e4af6169d6"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-061a3c5eddf95e4e.glb",
+      "sha256": "30fb2f57561c637d147ea641d0fe4ed17c20e3038924f24dea8ad597d385c259"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-4525c6da03c90951.glb",
+      "sha256": "fda18ac56d6e87f62c167bbeff8fb4b95bf31150f6aea538dcb75c5c73fe893a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-48fa687f2fd42572.glb",
+      "sha256": "6e9d40a953ea86b377c2fd0bc1d615e9c037262aeec61dfaa46b2b528f78ad27"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-7b097a926449aa94.glb",
+      "sha256": "2f8898c3aad9fc5bbfcab75b182bf18add3c14aaf745499cffbfa2a7fbd46a99"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-8f8adce78183620d.glb",
+      "sha256": "f6b7469ea26f9042f4c91aa5876d8bfc6689cc73cf6b153f248d88af1b892373"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-9a4ad0fa96696bac.glb",
+      "sha256": "a50d030f55e0dc8b47b4169eba895b415e8331e77ff3a82133cd5accab144776"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-9ab768587ec04c18.glb",
+      "sha256": "bb05e7c048568221ec965dfafc979e565f0dcf1389eab87fc908eb6bd4dd4b59"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-ab305fa04677e5ce.glb",
+      "sha256": "1b55e74357ee24f0a16ba2fb1968232f8221eb0efe1c1373575fe8f3dae60679"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-ba8299833b24224c.glb",
+      "sha256": "8f8304b615df020124063d910237057b3f431a1d5c00be1d35c690e7402676f8"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-dc9eabb731f71ea7.glb",
+      "sha256": "bce5c92adf5ed024c7adac7b6f07f69a502b8a0d2c8832c73606da8d85597333"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-df12d1d1c9bec4cb.glb",
+      "sha256": "42b2c31ae8274fc4ae2070f39328ba037800d7149cee64fad54880f5f1671f96"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-df2839989e32a6b7.glb",
+      "sha256": "91b2c55a1786e64ec1413217888aceee2c989461caace03b8ef4901ad30237e5"
+    },
+    {
+      "file": "assets/modern-heroes/fx-mesh-fe82ba5325cb5e2a.glb",
+      "sha256": "58c1f191dfff92d30aa81faf742cc64cdebcbb428827e845ba2577abfb919fd4"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-00e062f44fd28349.png",
+      "sha256": "2cb327099aa8d1666cf077a2f259ad22820977473868b5ea4181f0601df1e78d"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-03e36ecf916a7ffe.png",
+      "sha256": "6c8ec623822f13f4bd4e5082e3ee5508afc5ca8d56795926f35ca0ee4a8bc436"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-041739ae0084e556.png",
+      "sha256": "53e99b9de244b19b85aa3861c74c345cee6a5423cad1ffaf51a0c1996a01cd12"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-04728208167d878e.png",
+      "sha256": "10e219dd983f8b6101c15aac15eb60ee463ba8bf0747e440e74d358bab09a9b9"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-07bfc965ab1c497b.png",
+      "sha256": "f31d4b093521640d61be1e89099f41b6cfe7119a4f10c96784b09a9914a2ec01"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-0951dce8011e777d.png",
+      "sha256": "b41201d412010e05108c2df007eed3bb281c68f36f48408735a0ab504dd8b154"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-09ea95f09aa52d7b.png",
+      "sha256": "f9f19c442b9619a96b0c21e6e9490677d5d008cd41982bb1c16e9e7ab6c855c9"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-0a24577127aedbbe.png",
+      "sha256": "dc533544efeb4f026fc3ed066e916488145c6a136f8ff47b9269b21eeb8fe5d4"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-0d6ca1e0ec80bc47.png",
+      "sha256": "d4a4d544f4b150802f322549720a4ab504e59966b4d6c471431f9ecfea223e57"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-1058ef62bae5ad00.png",
+      "sha256": "081e7c1dd437fb918f38e77e8e625b3b24f604fe60a9ec6db2a208ce07e1765a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-112d61d1f754e624.png",
+      "sha256": "9499fd04e0351b037d3cefdc161baf70e018a23e67334a78401227841ac4de77"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-11b35c2de8397b31.png",
+      "sha256": "076fdb51f40d6c67f7f98a8f570ce96a6c5cf45d3d4f025ec7e459f11f2542d5"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-20ec200bfa7542df.png",
+      "sha256": "d260d5541403fe4467beceeceba7666f638f7913ab453bc31765b3be9006f1db"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-23c40510f108aaeb.png",
+      "sha256": "cb4ced98f396fcdc0f7ab0d5ab3369fa2dea06280a8dbfa7d931940d286200d9"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-2fe90f7b6514b9a8.png",
+      "sha256": "920afa0a416c1045c19b4b50c8a940804214091a77b247a23e5c497e3347ea0c"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-3096a1b675ce98bd.png",
+      "sha256": "2763122061fc26d41d1aa933093728179190e1619bab7659bab452ca55fcb0f4"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-30e988f5a97aa808.png",
+      "sha256": "3d2bcbc4542ab7cff6edcd15078e1ea608602eeeb01f3c63fb62b9b95fb6f54a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-317b7ba693c60a94.png",
+      "sha256": "4dcae75d4228cab7bfaf5dd739d38d395583af9f8d99c1ce97cc7c46cdc2d439"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-35458424c00f60a0.png",
+      "sha256": "237c73d39a3e23a306f615eec1aa4c588619f0baabca7beacb48438edacfc113"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-3a1bdab46c96b5aa.png",
+      "sha256": "8b888dcaaa946fdd7366698199645458011ca0df9e039319e40a6b12c420aaf5"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-3b0abf78ccc7fe61.png",
+      "sha256": "2c6bcdd6760b0543c89a92b7bd25b0def469756c57bd8656f59c617c69270d90"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-3de51f0b9db2e1b2.png",
+      "sha256": "6b2356615d92ba0ae3467ad48e340297e8c0555440f03517c5e988fd4e743bba"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-3ee78121c387fc51.png",
+      "sha256": "aa5293f3160fdb9af7095ad4de734c56725c88c290bfe03111ac7f98aeddcd8a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-40e7f382627123e1.png",
+      "sha256": "cf089bbb78d73e3524e7fe82b2f77e9db84d1e833b18ebd751a00b159adf84e5"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-42163e9506e164bc.png",
+      "sha256": "da3f9637b9994907275875111f179c09f7869cfd90282f0ba725bcc12958774d"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-447e6a9f8cea3028.png",
+      "sha256": "6cae956419c92986b374874f65b8a9e9e90720df5c2e4269617b53b94017c5a8"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-461367474aac8379.png",
+      "sha256": "41b92c181b5e80ab5fb83aac975f9c0b216a808d035c6338efcb40ca108b9cb3"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-46580ce2b1457aad.png",
+      "sha256": "a3607c693ed2bc9ae52ec3ffaac435e1d9acd0345a932de911fd1ced1b16e7e6"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-46c05e9286695497.png",
+      "sha256": "b8ddc7e8394b0e7d839dc56ca84d00c4ffb7c9a4c512f260ed322ef87f548d09"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-4710df0c6b02c1e3.png",
+      "sha256": "00e353026f29d946d8a6d08ee84deb9804b60911a35b9b47309d3a9ac3d237de"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-4f6e70bde7c9285e.png",
+      "sha256": "fbedabfcc600bc8f05038b727fd891098906853f51c3fa9b03f1bcd340485023"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-5282549d6ba2618e.png",
+      "sha256": "aad329c296e0b36e41e8a6f6366a61c029b083cbc42cf06a6c904495a0db336a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-530815c694e1827d.png",
+      "sha256": "6d4bf42f8991bae91d25806b34f141b9cc354f239fb61cca2def2aac15a26a1a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-57caae7df054b956.png",
+      "sha256": "3972b64940e0a558fe8c5dce4c0ae2a75c4e333ca3c0ff344d0c74fa52272446"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-5830586a2991d4b7.png",
+      "sha256": "ab7d64aeb1636f2d531af71babf045f8a36ac67fd934f6af9a632d2e87bb211d"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-5927a2e8fe7afc43.png",
+      "sha256": "241a8a96d8a358f11fb0fe2707eb7086bad909d8c5dce139c28e59ee72afeeb0"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-5fc5a384adb6ed1b.png",
+      "sha256": "d04b9195186a75d75086c1afa88348e40aff823a37baa5843d1a593a6ef246d5"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-6037f1f9f912cd5a.png",
+      "sha256": "0d1e34616908cb43c19476a9571fcb6242054a95680421105536d891cbf4dd33"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-61a671d03ed4b8d2.png",
+      "sha256": "0accb369089cf5f79f52c9ae42080f8cb328c64448fb76a0828a9e4dc4964e8e"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-65083b4f0b0d45c2.png",
+      "sha256": "e9fe73b545fd2707d3499f85d0b9296cffdb01c432dcc63c917344b3e61d854a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-66d53485ee9ff4c7.png",
+      "sha256": "f59860bb829f78d90328a63f72c931715f19801b2cad1f30fb5f6f8600d89ef2"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-67ad9967c9713874.png",
+      "sha256": "2ad615bec161856039418153bb730a05a3546e895c5ae5bcdbcffb4cd63250fe"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-6be8b07681285ea7.png",
+      "sha256": "8fdd527fba8281ed6b13a292ab546d0b73d786e14ff9e9007833f5c608d8942b"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-6c273809f668b835.png",
+      "sha256": "143fa535fceb9e2e27f8d506698335121aa92adf2e3f349b336144abbdcc1e1f"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-6f24b5689d84f74b.png",
+      "sha256": "b44c094f310cf7a8d961019f7b3b45b3703439879b113da6e4ec0bfc407cb7c9"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-7817b694ce1debba.png",
+      "sha256": "ef05881be6e37986da10fc95455cd6de42d6d964f1727c307716ccb0b89a872c"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-7c959393e09da80f.png",
+      "sha256": "fc7640547be46986877416f1a02eeb29d53d501429b089d5d702fe7c95855fba"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-7e459bcfd1618733.png",
+      "sha256": "b06339246f04382d02ead95ab3b13e1ae35873240225e26f17e99de138928c9a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-803ea24c71cdda33.png",
+      "sha256": "203bac18eb5095a0454a204ca194d7c5d085554e65cfb33fcd1cd282b971c912"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-80471528a152bed4.png",
+      "sha256": "e05a369599b69bce447caf298527d8172c885110f510f8013f84df2240ce10a4"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-83f9a9d52ac396f0.png",
+      "sha256": "fd2be38f79ffe7e8d05e458123c600e638204ea2cde24fef2e18c6681fbc28a7"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-8415bfeb7543b616.png",
+      "sha256": "12896288f69fb4ba203dca1a6e1aca032829ca6ce41b5cafadb896a769dfbcdf"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-879f395a316f98c8.png",
+      "sha256": "c9ac3e02438072e213c701256d069a0dd6d051cd8896251dfca461e44f3d4347"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-89c7fc18927dd153.png",
+      "sha256": "fa6389e8d7382db8d5470aeb1b5b1dacbb6d586843bb0ff566110c738bfeb143"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-8f87b4854d8044eb.png",
+      "sha256": "665e7e62917371aca70064dbe252e8299b90abf2344cebdc0257e15de4c86098"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-920deb3576c6255d.png",
+      "sha256": "a2e590453f74b57d351e14259180f833d243219a4ce020d826a257b7d74d6429"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-9b1265d14ed0fef4.png",
+      "sha256": "0cf7120c33a168f0962ef0689f83c45079422c063e19cbe7314ff46b62899fe6"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-9d2a9c1224f6f171.png",
+      "sha256": "55e79ad9815d98ffff96c0ab49e0f91c1d16255e0f4eb5f200d65878e19089d4"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-a1bdd488614ed832.png",
+      "sha256": "3542ab541545bf21264b7edf44f37466b6419cfcb1781ff6cd1a15aabf71d5c0"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-a4cb9462eef6b17c.png",
+      "sha256": "794cd7e665439290618fb83623847ab9dd1f961e601f7043e65cc901bfdf5057"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-a72bfa30c3a5eea5.png",
+      "sha256": "42c06072e51e17ebe1b85395b14de6ed564d73de85c94e0f3a12541e5093dbc4"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-acbf57e0943f0ffa.png",
+      "sha256": "bc4ccffd1ec740a63a28dcafe5abc3e84d655c259b43820ac2ace7702589eed3"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-ad10bf31d42c21da.png",
+      "sha256": "37963719652d24b51a35c40d94faf085f2b7275d792050ac3d83fc84f1a907ae"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-b0d4f4b030749def.png",
+      "sha256": "3111ee4bb229257c334b94dd3dbee5b3df533f2694d616625bccac3f04d8bd2a"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-b2759b868c9cc183.png",
+      "sha256": "f3744d59d785433171d423ab17198b7fca1c2c13fca59468a6e154bd4bb98c28"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-b593e43aee96a06d.png",
+      "sha256": "3e1930fb0b255091f5f593151a569ffc920e09e5dcd2ffc865e54fc5237d79c7"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-ba7d4898fdcc7546.png",
+      "sha256": "852b63c8fadd511ad91c91df5166d79e6016a62cdaf5f294fa0ca82f6e20e8a0"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-bc8879e604b558f4.png",
+      "sha256": "79b4ae3d4447a9963246f6d981238dbe0e2ad18dbaad57b001fffe74a528d7f2"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-c07f3fe247e8bfc4.png",
+      "sha256": "9fc1394f6ba8be3aa3fac8f84a35d1aa0e8caed49122245d41bead0d0c56fc54"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-c6cf2d64e083ada0.png",
+      "sha256": "cce8cedf59551fd61d9ec5f01ebd01d0979f1fe95c17c385a3dcbc821137850f"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-cceaf0028462a1e5.png",
+      "sha256": "1b285f3936913e90a0dd6e0e07b8f09b964a4e4b95cca70b1883a576183642fc"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-d0bd0a4a9b52394f.png",
+      "sha256": "6e503d8f2be7d2d3beb3afee2721c6163b977a2ee9a9caa0ea4544c763362699"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-d2e7fff4f493cfff.png",
+      "sha256": "61e59f48bbba5e7fdb4a3d4dd8d7100dbcb82b7825b2ac1a09ea1fb3b7f78cb5"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-e1a6cdf8e5e68fb8.png",
+      "sha256": "2bb3062ccf6cd7880ae6d887b9c4bf3abc6da8f3dd7caa3675646b04db2a92fb"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-e43a4148115aa8e3.png",
+      "sha256": "e729ffee941b409ae0bb8b204e02ae8e2369c290fe265fbb61406a4097ccf9c8"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-e93ddcba6668c195.png",
+      "sha256": "ca1045789f88e33cf25a12e6b1c21d786463002eb90036112a5ff11d9198ccc6"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-ea03961c0b44ce73.png",
+      "sha256": "8110c26ba3bebe3846692ec2c9ad1779b447f468709a3360e9840f656f6f5402"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-ec597d27fcc143f8.png",
+      "sha256": "9f5a96c766e9d839d6267fca188ba6b9a41b90eb96798329f6e613e1d849d067"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-f0a2eb7967af7880.png",
+      "sha256": "7512d36d8afb82ae2680f3ebc3fbb0db03e0f4e5cd90bc211ab4c56f34e5b420"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-f1bd704cc4e90c6b.png",
+      "sha256": "64644becffa8e8e152d43892914bc1476d0a662b99118cbcd20df67405a432fa"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-f365d673247ac492.png",
+      "sha256": "383f7e7fffc0f959201a785f5897a794d3301ac20841c6605465c99ad0792775"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-f4a4ae0ea2a7ad29.png",
+      "sha256": "3bd87b355882c7044751d208e6daa1fe260ad648fe6becba5f7e3627d98c1626"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-f68a6933f133018e.png",
+      "sha256": "4d9f0b8c2fe2ce4885da75669a3e08d14082656f8082683961f67bb736bbf970"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-f6e41c4512b1b4c9.png",
+      "sha256": "1f870a095506d9581dcfd5db9aeadf55a8a7c6095464a876841d6ec5b8e04928"
+    },
+    {
+      "file": "assets/modern-heroes/fx-texture-fb607cd0e931b50b.png",
+      "sha256": "56cbd72db30fe2efc0d1963cf547f17fc90ab181e1e4896964d8a997cfa61ed4"
+    },
+    {
+      "file": "assets/modern-heroes/manifest.json",
+      "sha256": "d0e9c60bb671fec2fdce539c8f991963aaea4d15ead6eb0c3c78ad3a4ff4b9d9"
+    },
+    {
+      "file": "assets/modern-heroes/material-01342375c53f054c.png",
+      "sha256": "7cae592ac0a5a64102b50cf31ba777ff455926170bafe287f35e890e3d76e304"
+    },
+    {
+      "file": "assets/modern-heroes/material-12483989dea6fcb1.png",
+      "sha256": "a97fad2d5581f678a8f399b585a22e807309ecaa6f36ba2f4ca286558153fa3b"
+    },
+    {
+      "file": "assets/modern-heroes/material-1e90b6e034a090be.png",
+      "sha256": "985962de146fae0c3972be47d18fae4fd57b1158435e5d6f37b879d62a35d6b9"
+    },
+    {
+      "file": "assets/modern-heroes/material-2e484b3714f3bc17.png",
+      "sha256": "5886df7d4fdb570997ea0c3bc07776ef57f6724acf933dff25604af84fcd1821"
+    },
+    {
+      "file": "assets/modern-heroes/material-52328044b4b5e21f.png",
+      "sha256": "e02a3319b1386cab91b3d2b3030c50b9477d248961d796aa0d9202dbf6687635"
+    },
+    {
+      "file": "assets/modern-heroes/material-6994fe285c512911.png",
+      "sha256": "fd587defb02450f61da8a49030fd5ad42f62b9beb4cd6e2f4f5da653f9b4d95e"
+    },
+    {
+      "file": "assets/modern-heroes/material-7284ec3a57d43e37.png",
+      "sha256": "3d471a58ff56b7728ae3f61fece7dfa9d48d9dbaeccfe3f5c64876e0bc39c2c0"
+    },
+    {
+      "file": "assets/modern-heroes/material-792add49806a2206.png",
+      "sha256": "9ad02028e453bc226fbe703ff91454fac3cc7ef6c351fb8c4122a62f889bc435"
+    },
+    {
+      "file": "assets/modern-heroes/material-8ee6888724619e2e.png",
+      "sha256": "38a07f75e7f518687e0c66329ff58455e8bac5f39faf757abd027bd8e0512143"
+    },
+    {
+      "file": "assets/modern-heroes/material-9146e85baa380f76.png",
+      "sha256": "d76220ad41608d9aa5525bc5a23551b3468b56453fbcec3e7771bdf622044478"
+    },
+    {
+      "file": "assets/modern-heroes/material-94d065ac96275b78.png",
+      "sha256": "8e2cb1d10e52ebf1376229fb62752b7909258ec1616e50bc5c7ae5d614e86422"
+    },
+    {
+      "file": "assets/modern-heroes/material-a1097b2771ee13bc.png",
+      "sha256": "fd0aa8e041edb10bd9299cb26182688c1d05ab19deae65604f11c2e0ae42ad85"
+    },
+    {
+      "file": "assets/modern-heroes/material-aea78410fdd3abca.png",
+      "sha256": "c7605095138d64e4e9f8a6ea7519f82ea39f62be3fd2055b374185712f9b04d9"
+    },
+    {
+      "file": "assets/modern-heroes/material-bb4a137747011c8c.png",
+      "sha256": "e28192e50fec8c54c479a03d604c6b48e43f369def9428e37ff73f3adabe266b"
+    },
+    {
+      "file": "assets/modern-heroes/material-d6c34e4c5e1f74f3.png",
+      "sha256": "87a6917f88517ed28ca5075c76dd832f09a7b0af93d22268547e3121c6c52b68"
+    },
+    {
+      "file": "assets/modern-heroes/material-dea4215018eed848.png",
+      "sha256": "e3a8e78971a76b29b99130d1c89747b2d05da4f5337b3db28b8bc036c0382f3b"
+    },
+    {
+      "file": "assets/modern-heroes/material-df589128004317be.png",
+      "sha256": "14bfba33ec02d05c322fdd719429bd6d4d6aaf94252c37e353e6234c5a0433b9"
+    },
+    {
+      "file": "assets/modern-heroes/material-e1b21801d2b55d9f.png",
+      "sha256": "b663d44013976ae35fd77f73dc60e2eedf8882862c93c9eea1248d9b9d786875"
+    },
+    {
+      "file": "assets/modern-heroes/material-e8ee2ee9e0097b54.png",
+      "sha256": "f98f82d44c8a0702cd9a32796fc18b7abbdb4cdb10f71b707e99e140a4e58116"
+    },
+    {
+      "file": "assets/modern-heroes/material-eb032d2a372d0937.png",
+      "sha256": "8732220f78a6c71a62ec187d9da37d5022e3a6e5aa01bf9eb8b9b9a18be766f8"
+    },
+    {
+      "file": "assets/modern-heroes/material-f01e2a134f77ca04.png",
+      "sha256": "3c3350996fdd624701243c8e265a81bc424789c4dff5d8e71f67ec152446fc12"
+    },
+    {
+      "file": "assets/modern-heroes/material-f30591e96cdbeb74.png",
+      "sha256": "b017ff02472d07b47f5a568bb0186b6829771259712c1f60e914679732343614"
+    },
+    {
+      "file": "assets/modern-heroes/material-fe51d2a1bd3e942e.png",
+      "sha256": "b559f612f76513c5432487d984d10f09f72ac3f8f82699b29eaa04080e6b0fc0"
+    },
+    {
+      "file": "runtime.36ea84117f3a.json",
+      "sha256": "36ea84117f3a7632b1c13429b87979a6cd323b0dedb87e9d67c43125ff47dbba"
+    },
+    {
+      "file": "styles.cdacf7dcad18.css",
+      "sha256": "cdacf7dcad1898f25237dc3e36cf53f67f8a407ef51e934a9977877b653bf517"
+    }
+  ],
+  "state": {
+    "version": "0.56.0",
+    "ready": true,
+    "title": "Web Royale",
+    "app": "https://ocey78.github.io/web-royale/app.13d922b94aac.js"
+  },
+  "errors": [],
+  "retries": []
+}
