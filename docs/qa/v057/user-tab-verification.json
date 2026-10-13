@@ -1,0 +1,13 @@
+{
+  "verifiedAt": "2026-10-13T19:36:39.0839151Z",
+  "url": "https://ocey78.github.io/web-royale/?release=0.57.0",
+  "method": "Existing in-app browser, Settings text and selected controls",
+  "loadedVersion": "0.57.0",
+  "textures": "Good",
+  "animations": "Good (60 FPS)",
+  "particles": "Good",
+  "arenaBackgrounds": "Good",
+  "potatoMode": "Off",
+  "settingsChanged": false,
+  "finalScreen": "Battle home"
+}

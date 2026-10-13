@@ -22,3 +22,7 @@ Browser checks of the actual production bundle pass for 38 actors / 532 body-and
 See `performance/` for measured rendering workloads and CPU profiles, `menu-quality/` for matching menu screenshots, and the GPU reports for complete actor/action/effect coverage. These timing numbers measure rendering work, not end-to-end game FPS, and depend on hardware. The 0.55.0 baseline lacks effects restored in 0.56.0; comparisons against 0.56.0 are the retained-graphics comparison.
 
 The Good preset has no global noise or sharpening filter. Menu smoothing improves sampling subtly; it cannot recover missing detail from original small bitmap icons. No claim of a complete grain-removal fix or exact native-game parity is made.
+
+## Published release
+
+Release commit `b320e483be04230f876da9f1e1bc3129765c9992` was deployed successfully by Pages run [38455791103](https://github.com/Ocey78/web-royale/actions/runs/38455791103). Live verification matched the release manifest and 129 app/runtime/modern-art files byte-for-byte, then loaded 0.57.0 in a fresh Chrome profile with no page errors or retries (`deployment.json`, `live-site.png`). The user's existing in-app tab was also refreshed and confirmed 0.57.0 with all four graphics categories still set to Good (`user-tab-verification.json`).
