@@ -24,7 +24,7 @@
 - [x] Models: reproduce missing assets/render readiness and incorrect animation state routing; fix evo/hero visibility, timing, bounds, lighting where evidence supports it, and particle dependencies. Owner: models. Files: modern-3d/native model paths and regression tests.
 - [x] Menus: implement the reference slot backplates, independent active variant borders, collection roofs, cycle diamonds, cleaner shop layout, unclipped tower previews, and themed mode cards. Owner: reference_review. Files: app.js menu functions, v540.css, menu/shop helpers as necessary.
 - [x] Spells and density: restore missing modern spell effect definitions/scenes and verify both teams, lifetimes, target attachments, and lazy loading; preserve layout while raising raster density to at least 1080 across the 540-wide logical frame. Owner: parent. Files: fx.js, native dependency integration, ui-polish.js and assets.
-- [ ] Integration: include stylesheet, update release version, run regression suite/build, inspect representative browser screens and animated combat, review combined diff, publish main and dispatch existing Pages workflow, verify live release.
+- [x] Integration: include stylesheet, update release version, run regression suite/build, inspect representative browser screens and animated combat, review combined diff, publish main and dispatch existing Pages workflow, verify live release.
 
 ## Review focus
 
@@ -44,4 +44,5 @@
 - All 18 new Trophy Road platform URLs load with distinct hashes. Twelve reference UI screens, tower preview bounds, phone layout, and 1080 backing density were checked in the built browser.
 - Void particle tails were corrected and regression tested, including moving projectile and rising-spark history.
 - The user requested multiple-video verification before publishing. Actual BaleGG and FinalClash footage exposed repeated field creation, cast-center damage beams, missing source target filters, and field blending with terrain. These were corrected, with current official damage rounding, one-second timing, and flying-target previews covered by focused tests.
-- Final source and frozen build passed 1,689 regression tests, with one existing skip; 802 Void browser checks passed across ten scenarios. All 2,119 release hashes and current source modules were verified. Publication and live verification remain pending.
+- Final source and frozen build passed 1,689 regression tests, with one existing skip; 802 Void browser checks passed across ten scenarios. All 2,119 release hashes and current source modules were verified.
+- Published release commit `9f1af5e1912d54be1204ef92b41f8bde01233c2b` to `main`. Pages workflow `38364602173` completed successfully. A fresh browser loaded live version 0.54.0 with no JavaScript errors; the live release, app, runtime, stylesheet, modern portrait, arena platform, model manifest, and modern effect atlas match verified local hashes. Evidence: `docs/qa/v054/deployment.json`.

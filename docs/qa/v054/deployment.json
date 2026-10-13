@@ -1,0 +1,46 @@
+{
+  "verifiedAt": "2026-10-13T07:48:21.417Z",
+  "url": "https://ocey78.github.io/web-royale/",
+  "releaseCommit": "9f1af5e1912d54be1204ef92b41f8bde01233c2b",
+  "workflow": "https://github.com/Ocey78/web-royale/actions/runs/38364602173",
+  "version": "0.54.0",
+  "releaseSha256": "42818848de4fd1e929926732750fb68b1ec1479d2c8b052de7230b0b46049bc5",
+  "assets": [
+    {
+      "file": "app.e42a24133e00.js",
+      "sha256": "e42a24133e00b2f893e0093823cb05c623d3b5b8f04247c46eaaac2a9d8b088b"
+    },
+    {
+      "file": "styles.d0ca8c2d9108.css",
+      "sha256": "d0ca8c2d9108c9737d31796b0143e353e8a6913d86579339424fe88b7a13b4eb"
+    },
+    {
+      "file": "runtime.2ced295cf572.json",
+      "sha256": "2ced295cf572077684e839e7022e8eae59a77e9dec6a6f95d205b0e01ed2d4ac"
+    },
+    {
+      "file": "assets/ui/modern-road-platform-32.png",
+      "sha256": "8a48ba0a144de704efe1c4d9cbdd71252f1e24a46b848d5cfce45a54ccfb2a58"
+    },
+    {
+      "file": "assets/ui/modern-form-Skeletons_EV1.png",
+      "sha256": "1430a6084cc75f098c1c03d32f39a513a080bd7fb189afcc631b3aed2c31a7d7"
+    },
+    {
+      "file": "assets/modern-heroes/manifest.json",
+      "sha256": "a3217fe0974c31d8a18fd18b74bf5e22018307e3cb761e5a3d936d1e7794643f"
+    },
+    {
+      "file": "assets/native/modernfx-effects-packed-0.webp",
+      "sha256": "b1212bd7cf8b8fece41c45ad6c56ea2681c7d16c42b96b3f8616f6e8d24b4b5c"
+    }
+  ],
+  "state": {
+    "version": "0.54.0",
+    "ready": true,
+    "title": "Web Royale",
+    "app": "https://ocey78.github.io/web-royale/app.e42a24133e00.js"
+  },
+  "errors": [],
+  "workflowConclusion": "success"
+}
