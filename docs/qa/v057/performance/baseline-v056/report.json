@@ -1,0 +1,623 @@
+{
+  "label": "baseline-v056",
+  "ref": "ab7e0b0",
+  "frames": 60,
+  "warmup": 45,
+  "count": 12,
+  "quality": "good",
+  "errors": [],
+  "warnings": [],
+  "cases": [
+    {
+      "name": "repeat-idle",
+      "frames": 60,
+      "start": 0.75,
+      "unitCount": 12,
+      "failures": 0,
+      "meanMs": 11.686666666716338,
+      "p50Ms": 12.5,
+      "p95Ms": 16.899999991059303,
+      "maxMs": 18.599999994039536,
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 84,
+        "poseBytes": 12498200,
+        "poseBudget": 0,
+        "renders": 301,
+        "hits": 1139,
+        "fxSprites": 0,
+        "fxMeshes": 0,
+        "fxMaterialDraws": 301,
+        "fxDraws": 0,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "allocations": {
+        "canvases": 301,
+        "widthWrites": 819,
+        "heightWrites": 819
+      },
+      "after": {
+        "actors": 7,
+        "actorIds": [
+          "KnightHero",
+          "MiniPekkaHero",
+          "DarkPrinceHero",
+          "WizardHero_air",
+          "IceWizardHero",
+          "Ronin",
+          "GiantHero"
+        ],
+        "modelBytes": 55548846.66666667,
+        "modelBudget": 134217728,
+        "activeActors": 1,
+        "activeRequested": 1,
+        "inactiveActors": 6,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 346,
+        "poseBytes": 50277032,
+        "poseBudget": 50331648,
+        "renders": 563,
+        "hits": 1957,
+        "fxSprites": 0,
+        "fxMeshes": 0,
+        "fxMaterialDraws": 563,
+        "fxDraws": 0,
+        "fxHistoryEntries": 0,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      },
+      "times": [
+        9.299999997019768,
+        14.799999997019768,
+        10.100000008940697,
+        15.799999997019768,
+        8.599999994039536,
+        15.299999997019768,
+        7.800000011920929,
+        14.099999994039536,
+        7.5999999940395355,
+        15.5,
+        7.9000000059604645,
+        13.200000002980232,
+        7.899999991059303,
+        12.5,
+        8.800000011920929,
+        13,
+        7.5999999940395355,
+        12.900000005960464,
+        7.899999991059303,
+        13.5,
+        7.799999997019768,
+        14.300000011920929,
+        7.5999999940395355,
+        14.200000002980232,
+        8,
+        14.5,
+        7.5999999940395355,
+        15.799999997019768,
+        7.5,
+        14.900000005960464,
+        7.700000002980232,
+        16.899999991059303,
+        8.600000008940697,
+        17.099999994039536,
+        7.700000002980232,
+        14.600000008940697,
+        7.899999991059303,
+        13.900000005960464,
+        7.799999997019768,
+        15.400000005960464,
+        13.200000002980232,
+        14.5,
+        7.199999988079071,
+        15.900000005960464,
+        8.700000002980232,
+        15.399999991059303,
+        9,
+        15.799999997019768,
+        11.400000005960464,
+        18.599999994039536,
+        10.200000002980232,
+        15.799999997019768,
+        8.800000011920929,
+        15,
+        8.899999991059303,
+        14.299999997019768,
+        8,
+        12.200000002980232,
+        9.5,
+        14.900000005960464
+      ]
+    },
+    {
+      "name": "mixed-effects",
+      "frames": 60,
+      "start": 0.75,
+      "unitCount": 12,
+      "failures": 0,
+      "meanMs": 113.078333333383,
+      "p50Ms": 107.1000000089407,
+      "p95Ms": 155.79999999701977,
+      "maxMs": 220.70000000298023,
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 67,
+        "poseBytes": -2136,
+        "poseBudget": 0,
+        "renders": 1311,
+        "hits": 129,
+        "fxSprites": 1145,
+        "fxMeshes": 594,
+        "fxMaterialDraws": 1666,
+        "fxDraws": 234,
+        "fxHistoryEntries": -4,
+        "pending": 0
+      },
+      "allocations": {
+        "canvases": 2456,
+        "widthWrites": 5245,
+        "heightWrites": 5245
+      },
+      "after": {
+        "actors": 7,
+        "actorIds": [
+          "GiantHero",
+          "KnightHero",
+          "MiniPekkaHero",
+          "DarkPrinceHero",
+          "WizardHero_air",
+          "IceWizardHero",
+          "Ronin"
+        ],
+        "modelBytes": 55548846.66666667,
+        "modelBudget": 134217728,
+        "activeActors": 6,
+        "activeRequested": 6,
+        "inactiveActors": 1,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 857,
+        "poseBytes": 50325836,
+        "poseBudget": 50331648,
+        "renders": 2911,
+        "hits": 2129,
+        "fxSprites": 1997,
+        "fxMeshes": 1080,
+        "fxMaterialDraws": 3489,
+        "fxDraws": 450,
+        "fxHistoryEntries": 2,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      },
+      "times": [
+        103.5,
+        107.1000000089407,
+        134.09999999403954,
+        118.70000000298023,
+        115.09999999403954,
+        111.1000000089407,
+        106.09999999403954,
+        104.5,
+        103.29999999701977,
+        103.6000000089407,
+        99.29999999701977,
+        102.79999999701977,
+        105.29999999701977,
+        107.1000000089407,
+        113.79999999701977,
+        112.5,
+        116.29999999701977,
+        102.5,
+        110.59999999403954,
+        113.30000001192093,
+        113.59999999403954,
+        108.70000000298023,
+        102.8999999910593,
+        100.5,
+        99.70000000298023,
+        98.70000000298023,
+        98.79999999701977,
+        99.40000000596046,
+        97.09999999403954,
+        96.40000000596046,
+        94.79999999701977,
+        91.5,
+        98.6000000089407,
+        106.3999999910593,
+        106.20000000298023,
+        99.20000000298023,
+        96.20000000298023,
+        96.40000000596046,
+        99.20000000298023,
+        95.59999999403954,
+        97.6000000089407,
+        133.70000000298023,
+        155.79999999701977,
+        121.70000000298023,
+        100.3999999910593,
+        113.5,
+        134.20000000298023,
+        159.69999998807907,
+        113.09999999403954,
+        115.29999999701977,
+        220.70000000298023,
+        116.70000000298023,
+        119.59999999403954,
+        119.6000000089407,
+        120.70000000298023,
+        124.29999999701977,
+        136.3999999910593,
+        145.90000000596046,
+        116.29999999701977,
+        129
+      ]
+    }
+  ],
+  "prepared": {
+    "actors": [
+      {
+        "id": "GiantHero",
+        "ready": true,
+        "error": null
+      },
+      {
+        "id": "KnightHero",
+        "ready": true,
+        "error": null
+      },
+      {
+        "id": "MiniPekkaHero",
+        "ready": true,
+        "error": null
+      },
+      {
+        "id": "DarkPrinceHero",
+        "ready": true,
+        "error": null
+      },
+      {
+        "id": "WizardHero_air",
+        "ready": true,
+        "error": null
+      },
+      {
+        "id": "IceWizardHero",
+        "ready": true,
+        "error": null
+      },
+      {
+        "id": "Ronin",
+        "ready": true,
+        "error": null
+      }
+    ],
+    "policy": {
+      "textures": "good",
+      "animations": "good",
+      "particles": "good",
+      "arenaBackgrounds": "good",
+      "renderMode": "native",
+      "textureScale": 1,
+      "animationFps": 60,
+      "arenaScale": 2,
+      "superResolutionScale": 1,
+      "battleDensity": 2,
+      "postProcessing": false,
+      "arenaAnimated": true,
+      "arenaFps": 60,
+      "frameParticles": 120,
+      "emitterParticles": 10
+    },
+    "gpu": "ANGLE (AMD, AMD Radeon RX 6600 (0x000073FF) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "summary": {
+      "actors": 7,
+      "actorIds": [
+        "GiantHero",
+        "KnightHero",
+        "MiniPekkaHero",
+        "DarkPrinceHero",
+        "WizardHero_air",
+        "IceWizardHero",
+        "Ronin"
+      ],
+      "modelBytes": 55548846.66666667,
+      "modelBudget": 134217728,
+      "activeActors": 7,
+      "activeRequested": 7,
+      "inactiveActors": 0,
+      "actorTarget": 16,
+      "overActorLimit": 0,
+      "overBudgetBytes": 0,
+      "poseEntries": 0,
+      "poseBytes": 0,
+      "poseBudget": 50331648,
+      "renders": 0,
+      "hits": 0,
+      "fxSprites": 0,
+      "fxMeshes": 0,
+      "fxMaterialDraws": 0,
+      "fxDraws": 0,
+      "fxHistoryEntries": 0,
+      "pending": 0,
+      "error": null,
+      "failed": {}
+    }
+  },
+  "profile": [
+    {
+      "name": "getImageData",
+      "url": "",
+      "line": 0,
+      "ms": 664.715
+    },
+    {
+      "name": "set width",
+      "url": "",
+      "line": 0,
+      "ms": 424.634
+    },
+    {
+      "name": "(program)",
+      "url": "",
+      "line": 0,
+      "ms": 319.035
+    },
+    {
+      "name": "set height",
+      "url": "",
+      "line": 0,
+      "ms": 306.11
+    },
+    {
+      "name": "getImageData",
+      "url": "",
+      "line": 0,
+      "ms": 223.362
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 190.025
+    },
+    {
+      "name": "set width",
+      "url": "",
+      "line": 0,
+      "ms": 188.134
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 184.957
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 149.361
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 145.985
+    },
+    {
+      "name": "set width",
+      "url": "",
+      "line": 0,
+      "ms": 145.71
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 143.228
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 135.544
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 133.012
+    },
+    {
+      "name": "set width",
+      "url": "",
+      "line": 0,
+      "ms": 132.291
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 131.919
+    },
+    {
+      "name": "set width",
+      "url": "",
+      "line": 0,
+      "ms": 117.605
+    },
+    {
+      "name": "set height",
+      "url": "",
+      "line": 0,
+      "ms": 101.998
+    },
+    {
+      "name": "set height",
+      "url": "",
+      "line": 0,
+      "ms": 96.523
+    },
+    {
+      "name": "applyMatrix4",
+      "url": "three.core.js",
+      "line": 4777,
+      "ms": 82.721
+    },
+    {
+      "name": "applyMatrix4",
+      "url": "three.core.js",
+      "line": 4777,
+      "ms": 80.931
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 73.437
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 73.025
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 65.913
+    },
+    {
+      "name": "set height",
+      "url": "",
+      "line": 0,
+      "ms": 65.889
+    },
+    {
+      "name": "applyMatrix4",
+      "url": "three.core.js",
+      "line": 4777,
+      "ms": 63.193
+    },
+    {
+      "name": "coloredShape",
+      "url": "native.js",
+      "line": 250,
+      "ms": 57.83
+    },
+    {
+      "name": "set height",
+      "url": "",
+      "line": 0,
+      "ms": 57.339
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 57.276
+    },
+    {
+      "name": "applyBoneTransform",
+      "url": "three.core.js",
+      "line": 25004,
+      "ms": 50.85
+    },
+    {
+      "name": "computeBoundingBox",
+      "url": "three.core.js",
+      "line": 24794,
+      "ms": 48.968
+    },
+    {
+      "name": "fromBufferAttribute",
+      "url": "three.core.js",
+      "line": 8663,
+      "ms": 46.443
+    },
+    {
+      "name": "computeBoundingBox",
+      "url": "three.core.js",
+      "line": 24794,
+      "ms": 46.412
+    },
+    {
+      "name": "applyMatrix4",
+      "url": "three.core.js",
+      "line": 4777,
+      "ms": 45.005
+    },
+    {
+      "name": "multiplyMatrices",
+      "url": "three.core.js",
+      "line": 11843,
+      "ms": 44.78
+    }
+  ],
+  "final": {
+    "summary": {
+      "actors": 7,
+      "actorIds": [
+        "GiantHero",
+        "KnightHero",
+        "MiniPekkaHero",
+        "DarkPrinceHero",
+        "WizardHero_air",
+        "IceWizardHero",
+        "Ronin"
+      ],
+      "modelBytes": 55548846.66666667,
+      "modelBudget": 134217728,
+      "activeActors": 6,
+      "activeRequested": 6,
+      "inactiveActors": 1,
+      "actorTarget": 16,
+      "overActorLimit": 0,
+      "overBudgetBytes": 0,
+      "poseEntries": 849,
+      "poseBytes": 50304516,
+      "poseBudget": 50331648,
+      "renders": 4223,
+      "hits": 2257,
+      "fxSprites": 3184,
+      "fxMeshes": 1668,
+      "fxMaterialDraws": 5155,
+      "fxDraws": 678,
+      "fxHistoryEntries": 6,
+      "pending": 0,
+      "error": null,
+      "failed": {}
+    }
+  },
+  "passed": true,
+  "notes": [
+    "Render workload timings are main-thread synchronous draw cost, not full-game FPS.",
+    "Twelve actor instances use both shadow and body passes with six unique hero assets in the effects case.",
+    "The v0.55 baseline predates added source mesh/billboard effects and is historical context; use v0.56 for preserved-graphics comparison.",
+    "Timed samples do not include initial model/texture loading or shader compilation.",
+    "CPU profile is a separate60frame workload, not included in timed statistics."
+  ]
+}

@@ -1,0 +1,2020 @@
+{
+  "rows": [
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-00.png",
+      "changedPixels": 124,
+      "premultipliedMeanError": 0.0012717363261093909,
+      "premultipliedMaxError": 24.0,
+      "materiallyChangedPixels": 49
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-01.png",
+      "changedPixels": 137,
+      "premultipliedMeanError": 0.0016322239422084624,
+      "premultipliedMaxError": 40.0,
+      "materiallyChangedPixels": 45
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-02.png",
+      "changedPixels": 141,
+      "premultipliedMeanError": 0.0018801277089783282,
+      "premultipliedMaxError": 44.0,
+      "materiallyChangedPixels": 45
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-03.png",
+      "changedPixels": 62,
+      "premultipliedMeanError": 0.000535515028379773,
+      "premultipliedMaxError": 17.368627450980384,
+      "materiallyChangedPixels": 17
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-04.png",
+      "changedPixels": 110,
+      "premultipliedMeanError": 0.000744783604231166,
+      "premultipliedMaxError": 12.0,
+      "materiallyChangedPixels": 29
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-ability-06.png",
+      "changedPixels": 129,
+      "premultipliedMeanError": 0.0009074029282765739,
+      "premultipliedMaxError": 17.0,
+      "materiallyChangedPixels": 39
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-00.png",
+      "changedPixels": 147,
+      "premultipliedMeanError": 0.0031430034184726516,
+      "premultipliedMaxError": 46.0,
+      "materiallyChangedPixels": 83
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-01.png",
+      "changedPixels": 156,
+      "premultipliedMeanError": 0.0023056791795665636,
+      "premultipliedMaxError": 51.0,
+      "materiallyChangedPixels": 69
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-03.png",
+      "changedPixels": 41,
+      "premultipliedMeanError": 0.0005222039473684211,
+      "premultipliedMaxError": 27.0,
+      "materiallyChangedPixels": 17
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-04.png",
+      "changedPixels": 74,
+      "premultipliedMeanError": 0.000390625,
+      "premultipliedMaxError": 12.0,
+      "materiallyChangedPixels": 19
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-00.png",
+      "changedPixels": 77,
+      "premultipliedMeanError": 0.0004525525670794634,
+      "premultipliedMaxError": 13.0,
+      "materiallyChangedPixels": 18
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-01.png",
+      "changedPixels": 98,
+      "premultipliedMeanError": 0.000688483617131063,
+      "premultipliedMaxError": 25.0,
+      "materiallyChangedPixels": 18
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-02.png",
+      "changedPixels": 83,
+      "premultipliedMeanError": 0.0005797697368421053,
+      "premultipliedMaxError": 20.0,
+      "materiallyChangedPixels": 26
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-03.png",
+      "changedPixels": 29,
+      "premultipliedMeanError": 0.0001377467105263158,
+      "premultipliedMaxError": 6.0,
+      "materiallyChangedPixels": 7
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-04.png",
+      "changedPixels": 69,
+      "premultipliedMeanError": 0.0004842218137254901,
+      "premultipliedMaxError": 16.0,
+      "materiallyChangedPixels": 19
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-05.png",
+      "changedPixels": 116,
+      "premultipliedMeanError": 0.000931170988132095,
+      "premultipliedMaxError": 27.0,
+      "materiallyChangedPixels": 29
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-ability-06.png",
+      "changedPixels": 76,
+      "premultipliedMeanError": 0.000433267221362229,
+      "premultipliedMaxError": 11.0,
+      "materiallyChangedPixels": 20
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-00.png",
+      "changedPixels": 98,
+      "premultipliedMeanError": 0.000506296762125903,
+      "premultipliedMaxError": 18.0,
+      "materiallyChangedPixels": 16
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-01.png",
+      "changedPixels": 84,
+      "premultipliedMeanError": 0.0006332236842105263,
+      "premultipliedMaxError": 27.0,
+      "materiallyChangedPixels": 12
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-02.png",
+      "changedPixels": 49,
+      "premultipliedMeanError": 0.00039884868421052633,
+      "premultipliedMaxError": 20.0,
+      "materiallyChangedPixels": 16
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-03.png",
+      "changedPixels": 29,
+      "premultipliedMeanError": 0.0001254111842105263,
+      "premultipliedMaxError": 4.0,
+      "materiallyChangedPixels": 7
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-04.png",
+      "changedPixels": 79,
+      "premultipliedMeanError": 0.0003680098684210526,
+      "premultipliedMaxError": 10.0,
+      "materiallyChangedPixels": 12
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BalloonHero-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "BerserkerHero-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "DarkPrinceHero-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "IceWizardHero-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-03.png",
+      "changedPixels": 3,
+      "premultipliedMeanError": 1.4802631578947491e-05,
+      "premultipliedMaxError": 1.3019607843137209,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-03.png",
+      "changedPixels": 1,
+      "premultipliedMeanError": 2.0962332301341586e-06,
+      "premultipliedMaxError": 1.0196078431372548,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "KnightHero-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "MiniPekkaHero-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-00.png",
+      "changedPixels": 1,
+      "premultipliedMeanError": 4.160216718266261e-06,
+      "premultipliedMaxError": 1.0117647058823547,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-01.png",
+      "changedPixels": 3,
+      "premultipliedMeanError": 8.352683178534571e-06,
+      "premultipliedMaxError": 1.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-02.png",
+      "changedPixels": 2,
+      "premultipliedMeanError": 4.740712074303379e-06,
+      "premultipliedMaxError": 1.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-01.png",
+      "changedPixels": 134,
+      "premultipliedMeanError": 0.0026971829850361197,
+      "premultipliedMaxError": 40.0,
+      "materiallyChangedPixels": 67
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-02.png",
+      "changedPixels": 126,
+      "premultipliedMeanError": 0.0020638625515995873,
+      "premultipliedMaxError": 51.0,
+      "materiallyChangedPixels": 62
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-03.png",
+      "changedPixels": 109,
+      "premultipliedMeanError": 0.0011079318240454076,
+      "premultipliedMaxError": 33.0,
+      "materiallyChangedPixels": 29
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-04.png",
+      "changedPixels": 46,
+      "premultipliedMeanError": 0.00029391608617131067,
+      "premultipliedMaxError": 11.0,
+      "materiallyChangedPixels": 13
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "Ronin-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-0-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-02.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source",
+      "file": "WizardHero_air-1-attack-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-01.png",
+      "changedPixels": 284,
+      "premultipliedMeanError": 0.001182098168214654,
+      "premultipliedMaxError": 5.0,
+      "materiallyChangedPixels": 16
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-02.png",
+      "changedPixels": 163,
+      "premultipliedMeanError": 0.0007085026444788444,
+      "premultipliedMaxError": 3.46666666666664,
+      "materiallyChangedPixels": 20
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-0-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-01.png",
+      "changedPixels": 118,
+      "premultipliedMeanError": 0.000507594814241486,
+      "premultipliedMaxError": 3.0,
+      "materiallyChangedPixels": 13
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-02.png",
+      "changedPixels": 196,
+      "premultipliedMeanError": 0.0010328221749226004,
+      "premultipliedMaxError": 4.423529411764719,
+      "materiallyChangedPixels": 36
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-03.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-berserker",
+      "file": "BerserkerHero_BearForm-1-ability-06.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-01.png",
+      "changedPixels": 25,
+      "premultipliedMeanError": 6.641834365325073e-05,
+      "premultipliedMaxError": 1.8274509803921575,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-02.png",
+      "changedPixels": 7,
+      "premultipliedMeanError": 1.980940402476782e-05,
+      "premultipliedMaxError": 1.75686274509804,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-03.png",
+      "changedPixels": 127,
+      "premultipliedMeanError": 0.00031264512383900926,
+      "premultipliedMaxError": 1.7960784313725497,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-04.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-0-charge-06.png",
+      "changedPixels": 43,
+      "premultipliedMeanError": 9.941789215686278e-05,
+      "premultipliedMaxError": 1.7960784313725497,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-00.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-01.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-02.png",
+      "changedPixels": 159,
+      "premultipliedMeanError": 0.00035271542827657385,
+      "premultipliedMaxError": 1.7098039215686356,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-03.png",
+      "changedPixels": 143,
+      "premultipliedMeanError": 0.0003107907636738906,
+      "premultipliedMaxError": 1.647058823529413,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-04.png",
+      "changedPixels": 3,
+      "premultipliedMeanError": 1.1650219298245625e-05,
+      "premultipliedMaxError": 1.176470588235297,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-05.png",
+      "changedPixels": 0,
+      "premultipliedMeanError": 0.0,
+      "premultipliedMaxError": 0.0,
+      "materiallyChangedPixels": 0
+    },
+    {
+      "scope": "source-charge-moving",
+      "file": "DarkPrinceHero-1-charge-06.png",
+      "changedPixels": 169,
+      "premultipliedMeanError": 0.00036626031991744066,
+      "premultipliedMaxError": 2.0,
+      "materiallyChangedPixels": 0
+    }
+  ]
+}

@@ -2,6 +2,15 @@
    come from the supplied client. Browser code has no network dependency. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleNative=api;})(globalThis,function(){'use strict';
 const I=[1,0,0,1,0,0],NONE=65535,TINT_RASTER_PIXELS=16777216;
+// A particle's authored color can change every frame. Keep its unmodified RGBA
+// source once, avoiding a synchronous GPU readback for every new tint. The pool
+// is shared across scenes and capped at 8 MiB; quality/source changes evict it.
+class TintSourceCache{
+ constructor(maxPixels=2097152,maxEntries=64){this.maxPixels=maxPixels;this.maxEntries=maxEntries;this.entries=new Map();this.pixels=0;}
+ get(image,read){let entry=this.entries.get(image);if(entry){this.entries.delete(image);this.entries.set(image,entry);return entry.data;}const data=read(),pixels=image.width*image.height;if(pixels<=this.maxPixels){while(this.entries.size&&(this.entries.size>=this.maxEntries||this.pixels+pixels>this.maxPixels))this.delete(this.entries.keys().next().value);entry={data,pixels};this.entries.set(image,entry);this.pixels+=pixels;}return data;}
+ delete(image){const entry=this.entries.get(image);if(entry){this.entries.delete(image);this.pixels-=entry.pixels;}}
+}
+const tintSources=new TintSourceCache();
 const UNIT_SHADOW_PIXELS=2097152,UNIT_SHADOW_ENTRIES=96;
 // The SC fields supply actor-specific proportions and offsets. Projecting the
 // screen-space pose onto the floor is an interpreter approximation: scale and
@@ -175,7 +184,7 @@ class Scene{
  textureIndices(name,seconds=0,options={}){const result=new Set(),visit=(id,t,depth)=>{if(depth>20)throw Error('SC nesting limit');if(options.replaceNodes?.[id])return;const shape=this.data.shapes[id];if(shape){for(const chunk of shape)result.add(chunk.texture);return;}const clip=this.data.clips[id];if(!clip)return;const f=depth===0&&options.frame!==undefined?Math.max(0,Math.min(clip.frames.length-1,options.frame)):frameAt(t,clip.fps,clip.frames.length,depth===0?options.loop!==false:true);for(const [child]of clip.frames[f])visit(child,t,depth+1);};visit(this.id(name),seconds,0);return[...result];}
  async prewarm(name,seconds=0,options={}){if(!this.lazyLoader)return this;const pages=this.data.texturePages?.[name]||this.textureIndices(name,seconds,options);await Promise.all(pages.map(i=>this.loadTexture(i)));return this;}
  frameReady(name,seconds=0,options={}){if(!this.lazyLoader)return true;let ready=true;for(const i of this.textureIndices(name,seconds,options))if(!this.texture(i))ready=false;return ready;}
- releaseTextures(){if(this.decodedArt)for(const key of [...this.resources])this.decodedArt.delete(key);this.resources.clear();}
+ releaseTextures(){for(const shape of this.cache.values())tintSources.delete(shape.image);if(this.decodedArt)for(const key of [...this.resources])this.decodedArt.delete(key);this.resources.clear();}
  id(name){return typeof name==='string'&&!/^\d+$/.test(name)?this.data.exports[name]:name;}
  clip(name){return this.data.clips[this.id(name)]}
  animated(name){const id=this.id(name);if(this.animationCache.has(id))return this.animationCache.get(id);const seen=new Set(),visit=(idx)=>{if(seen.has(idx))return false;seen.add(idx);const c=this.data.clips[idx];return !!c&&(c.frames.length>1||c.frames.some(f=>f.some(i=>visit(i[0]))));};const result=visit(id);this.animationCache.set(id,result);return result;}
@@ -226,6 +235,7 @@ class Scene{
  }
  releaseRasters(){
   const images=new Set([...this.cache.values(),...this.tintCache.values()].map(s=>s.image));
+  for(const image of images)tintSources.delete(image);
   if(this.decodedArt)for(const key of [...this.resources])if(!key.includes(':page:'))this.decodedArt.delete(key);this.stillPlans?.clear();this.cache.clear();this.tintCache.clear();this.tintPixels=0;
   for(const image of images)if(image&&typeof image==='object'){image.width=1;image.height=1;}
  }
@@ -248,7 +258,7 @@ class Scene{
   const result={image:cv,x:lo[0],y:lo[1],w:logicalW,h:logicalH};this.cache.set(id,result);if(this.decodedArt){const key=this.resourcePrefix+':shape:'+id;this.resources.add(key);this.decodedArt.remember(key,cv,()=>{this.cache.delete(id);this.resources.delete(key);});}return result;
  }
  coloredShape(id,color){const sh=this.shape(id);if(!sh||!color||color[0]===0&&color[1]===0&&color[2]===0&&color[3]===255&&color[4]===255&&color[5]===255&&color[6]===255)return sh;const key=`${id}:${color.join(',')}`;let painted=this.tintCache.get(key);if(painted){this.decodedArt?.get(this.resourcePrefix+':tint:'+key);this.tintCache.delete(key);this.tintCache.set(key,painted);return painted;}
-  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true});ct.drawImage(sh.image,0,0);const px=ct.getImageData(0,0,cv.width,cv.height),p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,p[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,p[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,p[i+2]*color[6]/255+color[2]);p[i+3]*=color[3]/255;}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;if(this.decodedArt){const resource=this.resourcePrefix+':tint:'+key;this.resources.add(resource);this.decodedArt.remember(resource,cv,()=>{if(this.tintCache.get(key)===painted){this.tintCache.delete(key);this.tintPixels=Math.max(0,this.tintPixels-pixels);}this.resources.delete(resource);});}}return painted;
+  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true}),source=tintSources.get(sh.image,()=>{ct.drawImage(sh.image,0,0);return ct.getImageData(0,0,cv.width,cv.height).data;}),px=ct.createImageData?ct.createImageData(cv.width,cv.height):{data:new Uint8ClampedArray(source.length)},p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,source[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,source[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,source[i+2]*color[6]/255+color[2]);p[i+3]=source[i+3]*(color[3]/255);}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;if(this.decodedArt){const resource=this.resourcePrefix+':tint:'+key;this.resources.add(resource);this.decodedArt.remember(resource,cv,()=>{if(this.tintCache.get(key)===painted){this.tintCache.delete(key);this.tintPixels=Math.max(0,this.tintPixels-pixels);}this.resources.delete(resource);});}}return painted;
  }
  // Explicitly still HUD assemblies can reuse resolved source geometry. This
  // keeps the original shape textures and live glyph painter; it does not flatten
@@ -559,4 +569,4 @@ class Library{
  }
  summary(){return{ready:this.ready,error:this.error,arenas:this.data.arenas.length,units:Object.keys(this.data.units).length,textures:this.loadedTextures,residentTextures:this.textureImages.size,residentScenes:Object.keys(this.scenes).length,shapeCache:[...Object.values(this.scenes)].reduce((n,s)=>n+s.cache.size,0),frameSamples:[...Object.values(this.scenes)].reduce((n,s)=>n+s.frameSamples.size,0)}}
 }
-return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,unitShadowTransform,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});
+return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,unitShadowTransform,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,TintSourceCache,Scene,Library};});

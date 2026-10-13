@@ -1,9 +1,9 @@
 {
-  "version": "0.56.0",
+  "version": "0.57.0",
   "project": {
     "id": "web-royale",
     "name": "Web Royale",
-    "version": "0.56.0",
+    "version": "0.57.0",
     "baseline": "0.50.0",
     "private": true,
     "purpose": "Modern features, arenas and future online development base",
@@ -18,9 +18,9 @@
   "snapshot": "16.402.17+balance-2026-10-06",
   "cards": 123,
   "scenes": 282,
-  "runtime": "runtime.36ea84117f3a.json",
-  "app": "app.13d922b94aac.js",
-  "bootstrap": "bootstrap.d988377cccf3.js",
+  "runtime": "runtime.f011ddf651c1.json",
+  "app": "app.fc3e93dc3af2.js",
+  "bootstrap": "bootstrap.62a4859713dc.js",
   "styles": "styles.cdacf7dcad18.css",
   "files": {
     "assets/modern-heroes/0c29f6a413b8f355.png": "738569e72d43946482499b6c76e9c3d247225ef7ce31e3ceb3506ceb4df2743e",
@@ -2259,13 +2259,13 @@
     "assets/webapp/icon-180.png": "95d25ecc83f4ae6bbd6b39309963e7afae3d143e32a258dc434cfa99b2689ded",
     "assets/webapp/icon-192.png": "08fa53a097998183ede6d12af2f507f94e5235dc04fcad38448620a553c1dbb5",
     "assets/webapp/icon-512.png": "81577df60036377a5613428ebbd787de1a1954a953a1f00035576b71def08457",
-    "asset-index.de51577eb356.json": "de51577eb356bc1cdd5875255440e5eefb02a84917ad513da73cd4b993dd16f9",
+    "asset-index.c09da9d8e133.json": "c09da9d8e133dfc10b92a0af7835de17035eea1d2cf0bb3c85579e840c6c8534",
     "asset-worker.js": "621ef7e59d2fb7416590455fbecabdd37eb0604a7b41e81bc0b6f13b4c0b77de",
-    "runtime.36ea84117f3a.json": "36ea84117f3a7632b1c13429b87979a6cd323b0dedb87e9d67c43125ff47dbba",
-    "app.13d922b94aac.js": "13d922b94aac5cfc1b74286883c3af498de7fd61b0603fbe3a3253ef3087fa7b",
+    "runtime.f011ddf651c1.json": "f011ddf651c125a2d50cf6728096777cd1392bcf5e24648ef8e1f46f716963ed",
+    "app.fc3e93dc3af2.js": "fc3e93dc3af2a7879c9f3f594593f30c541a250bedeb3f21e78c8ea5b0bb9200",
     "manifest.json": "44874443c977476debf4e3cf4ae3e05b27c86f913534f40dfafdb2d76b1a3fae",
     "styles.cdacf7dcad18.css": "cdacf7dcad1898f25237dc3e36cf53f67f8a407ef51e934a9977877b653bf517",
-    "bootstrap.d988377cccf3.js": "d988377cccf3ee71c222bcc5aba95976f12d44bf6a48e01dde0c8cd31d7b3ebd",
-    "index.html": "a9cdea8be340ac5efc721e441ef580cbedbeebcccedf0e63a48cac3be20dbd5f"
+    "bootstrap.62a4859713dc.js": "62a4859713dc9d19190145734992c7f4a44718a9e74fd3b10dfa985be571197f",
+    "index.html": "aa73a3f60e34c9dfb5a23c5c753bd028bd965459014e0acdf083efda933f8009"
   }
 }

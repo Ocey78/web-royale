@@ -1,0 +1,11 @@
+{
+  "samples": 40,
+  "channels": 163840,
+  "differentChannels": 1824,
+  "inputChanged": 0,
+  "maxAlphaDelta": 0,
+  "maxChannelDelta": 1,
+  "passed": true,
+  "reference": "ab7e0b0 native Scene.coloredShape",
+  "browser": "155.0.8059.40"
+}

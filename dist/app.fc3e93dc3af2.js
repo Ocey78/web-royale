@@ -3037,6 +3037,16 @@ function timelineState(timeline,time,loop=false){
  for(const [i,path]of (timeline?.anims?.nodes||[]).entries())for(const track of timeline.anims.data[i]?.anims||[]){const value=timelineValue(track.value,t);if(value!==null)(result[path]??={})[track.id]=value;}
  return result;
 }
+// A mesh uses the same timeline age for its transform, visibility and each
+// material. Share those samples internally without retaining unloaded records
+// or exposing cached objects through the public, caller-mutable sampler.
+const timelineSamples=new WeakMap(),MAX_TIMELINE_SAMPLES=16;
+function sampledTimelineState(timeline,time,loop=false){
+ if(!timeline||typeof timeline!=='object')return timelineState(timeline,time,loop);
+ const duration=Number(timeline.total_time)||0,age=loop&&duration>0?Math.max(0,time)%duration:Math.max(0,time);let cache=timelineSamples.get(timeline);if(!cache)timelineSamples.set(timeline,cache=new Map());
+ if(cache.has(age)){const value=cache.get(age);cache.delete(age);cache.set(age,value);return value;}
+ const result=timelineState(timeline,age);for(const row of Object.values(result))Object.freeze(row);Object.freeze(result);cache.set(age,result);if(cache.size>MAX_TIMELINE_SAMPLES)cache.delete(cache.keys().next().value);return result;
+}
 function timelineBindings(node,records){
  const list=(node.components||[]).find(c=>c.objectType===5014),play=(node.components||[]).find(c=>c.objectType===5016),name=play?.TimelineName||list?.defaultTimeline;
  const entries=list?.timelines||[],selected=entries.some(t=>t.name===name)?name:list?.defaultTimeline;
@@ -3056,9 +3066,9 @@ function sourceMeshPlan(contract,partPoses,records,time,team){
   const components=node.components||[],model=components.find(c=>c.Model),mount=components.find(c=>c.objectType===5012);
   if(model){const index=contract.parts.findIndex(p=>p.sourceModel===reference(model.Model));if(index>=0)part=index;}
   if(mount){bone=mount;chain=[];}
-  const localScopes=[...scopes,...timelineBindings(node,records).map(t=>({...t,path,values:timelineState(t.record,age,t.loop)}))],values={};
+  const localScopes=[...scopes,...timelineBindings(node,records).map(t=>({...t,path,values:sampledTimelineState(t.record,age,t.loop)}))],values={};
   for(const scope of localScopes){const relative=path===scope.path?'':path.startsWith(scope.path+'/')?path.slice(scope.path.length+1):scope.path===''?path:null;if(relative!==null)Object.assign(values,scope.values[relative]);}
-  const tracks=localScopes.map(scope=>{const relative=path===scope.path?'':path.startsWith(scope.path+'/')?path.slice(scope.path.length+1):scope.path===''?path:null;return relative===null?null:{...scope,relative};}).filter(Boolean);
+  const tracks=localScopes.map(scope=>{const relative=path===scope.path?'':path.startsWith(scope.path+'/')?path.slice(scope.path.length+1):scope.path===''?path:null;return relative===null?null:{record:scope.record,loop:scope.loop,path:scope.path,relative};}).filter(Boolean);
   const tr={pos:[...(node.pos||[0,0,0])],rot:[...(node.rot||[0,0,0])],scl:[...(node.scl||[1,1,1])]};
   tr.source={pos:[...tr.pos],rot:[...tr.rot],scl:[...tr.scl]};tr.tracks=tracks;
   for(const [i,axis]of['x','y','z'].entries()){if(values[axis]!==undefined)tr.pos[i]=values[axis];if(values['rot_'+axis]!==undefined)tr.rot[i]=values['rot_'+axis];if(values['scl_'+axis]!==undefined)tr.scl[i]=values['scl_'+axis];}
@@ -3076,7 +3086,7 @@ function sourceMeshPlan(contract,partPoses,records,time,team){
  }
  return out;
 }
-function scopedValues(tracks,age){const result={};for(const t of tracks||[])Object.assign(result,timelineState(t.record,age,t.loop)[t.relative]);return result;}
+function scopedValues(tracks,age){const result={};for(const t of tracks||[])Object.assign(result,sampledTimelineState(t.record,age,t.loop)[t.relative]);return result;}
 function sampledTransform(tr,age){const result={pos:[...(tr.source?.pos||tr.pos||[0,0,0])],rot:[...(tr.source?.rot||tr.rot||[0,0,0])],scl:[...(tr.source?.scl||tr.scl||[1,1,1])]},v=scopedValues(tr.tracks,age);for(const[i,a]of['x','y','z'].entries())for(const[key,prefix]of[['pos',''],['rot','rot_'],['scl','scl_']])if(v[prefix+a]!==undefined)result[key][i]=v[prefix+a];for(const[i,key]of['pitch','roll','yaw'].entries())if(v[key]!==undefined)result.rot[i]=v[key];return result;}
 function shaderSource(source){return source.replace(/\0/g,'').replace(/^#version[^\n]+\n/,'').replace(/layout\(std140\) uniform (\w+)\s*\{([\s\S]*?)\}\s*(\w+);/g,(_,name,fields,variable)=>`struct ${name}{${fields}};uniform ${name} ${variable};`);}
 function vertexSource(source){
@@ -3096,10 +3106,22 @@ function vertexSource(source){
 }
 function bodyOverrides(contract){const result=[];const walk=n=>{for(const c of n?.components||[])if(c.Model){const part=contract.parts.findIndex(p=>p.sourceModel===reference(c.Model));if(part>=0)for(const g of c.Geometries||[])if(g.MaterialOverride)result.push({part,name:g.Name,index:g.GeomIndex||0,material:reference(g.MaterialOverride)});}for(const child of n?.children||[])walk(child);};walk(contract.sourcePrefab?.data);return result;}
 function cloneUniforms(uniforms){const copy=v=>v?.isTexture?v:v?.clone?v.clone():Array.isArray(v)?v.map(copy):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,copy(x)])):v;return copy(uniforms);}
+// Follow the source graph once at load time. Unrelated actors do not need the
+// Bowler, Magic Archer and Evo Barbarian body overlays on every body mesh.
+function reachableActionRoots(contract,definition,data=root.RoyaleCatalog?.DATA){
+ const roots=definition.actionRoots||{},directory=/^(sc3d\/characters\/[^/]+\/[^/]+\/)/.exec(reference(contract.prefab))?.[1],result=new Set(directory?Object.values(roots).filter(path=>path.startsWith(directory)):[]);if(!data?.actions)return directory?[...result]:Object.values(roots);
+ const seen=new Set(),tables=['actions','abilities','entities','buffs','projectiles','areas'];
+ const visit=value=>{if(typeof value==='string'){if(roots[value])result.add(roots[value]);for(const table of tables){const record=data[table]?.[value];if(record&&!seen.has(record)){seen.add(record);visit(record);}}}else if(Array.isArray(value)){for(const child of value)visit(child);}else if(value&&typeof value==='object'){for(const [key,child]of Object.entries(value))if(key!=='Name'&&key!=='Base')visit(child);}};
+ visit(contract.sourceEntity);return [...result];
+}
+function timeDependentShader(source,variables={}){
+ let animated=false;const remaining=source.replace(/fragmentMaterialUniforms\.(\w+)(?:\.([xyzwrgba]+))?\s*\*\s*sceneUniforms\.u_lightDirectionTime\.w/g,(_,key,components)=>{const value=variables[key],indices=components?[...components].map(c=>'xyzw'.indexOf(({r:'x',g:'y',b:'z',a:'w'})[c]||c)):null;animated||=Array.isArray(value)?(indices?indices.map(i=>value[i]):value).some(v=>Number(v)!==0):Number(value)!==0;return '';});
+ return animated||/sceneUniforms\.u_lightDirectionTime\.w/.test(remaining);
+}
 // The imported fragment equations are unchanged. The adapter only replaces
 // native instancing/UBO bindings with Three's skinned vertices and uniforms.
 class Renderer{
- constructor(T,definition,loader,textureLoader,url){Object.assign(this,{T,definition,loader,textureLoader,url});this.textures=new Map();this.materials=new Set();this.templates=new Map();this.instances=new Map();this.group=new T.Group();this.body=[];this.overlays=new Map();this.draws=0;this.materialDraws=0;}
+ constructor(T,definition,loader,textureLoader,url){Object.assign(this,{T,definition,loader,textureLoader,url});this.textures=new Map();this.materials=new Set();this.templates=new Map();this.instances=new Map();this.group=new T.Group();this.body=[];this.overlays=new Map();this.overlaysByPath=new Map();this.activeOverlays=new Map();this.bodyMaterials=[];this.draws=0;this.materialDraws=0;}
  async texture(ref){const key=reference(ref).split('#')[0],entry=this.definition.textures[key];if(!entry)return null;if(!this.textures.has(key))this.textures.set(key,this.textureLoader.loadAsync(this.url(entry.file)).then(t=>{t.flipY=false;t.colorSpace=entry.colorSpace==='srgb'?this.T.SRGBColorSpace:this.T.NoColorSpace;t.wrapS=t.wrapT=this.T.RepeatWrapping;return t;}));return this.textures.get(key);}
  async material(path,base=null){
   const d=this.definition.materials[path];if(!d)return null;const T=this.T,family=d.resolvedShader,shaders=this.definition.shaders[family];if(!shaders)return null;
@@ -3113,15 +3135,16 @@ class Renderer{
   for(const[k,v]of Object.entries(uniforms.fragmentMaterialUniforms?.value||{}))initial[k]=v?.clone?v.clone():v;
   const material=new T.ShaderMaterial({name:path.split('/').pop(),glslVersion:T.GLSL3,vertexShader:vertexSource(vert),fragmentShader:shaderSource(frag),uniforms,toneMapped:false,side:family==='uber_pbr'?(base?.side??T.FrontSide):T.DoubleSide,transparent:family!=='uber_pbr'||!!base?.transparent,depthWrite:family==='uber_pbr'&&!base?.transparent,blending:d.resolvedRenderStateFields?.[6]===6?T.AdditiveBlending:T.NormalBlending});
   if(family==='uber_pbr')material.defines.USE_TANGENT='';
-  material.userData={...base?.userData,sourceLodMaterial:false,sourceFXMaterial:true,sourceFXFamily:family,sourceFXPath:path,initial};material.defaultAttributeValues={...material.defaultAttributeValues,tangent:[1,0,0,1]};this.materials.add(material);return material;
+  material.userData={...base?.userData,sourceLodMaterial:false,sourceFXMaterial:true,sourceFXFamily:family,sourceFXPath:path,sourceFXTimeDependent:timeDependentShader(frag,variables),initial};material.defaultAttributeValues={...material.defaultAttributeValues,tangent:[1,0,0,1]};this.materials.add(material);return material;
  }
  async prepare(actor){
-  const records=this.definition.records,refs=new Set(),models=new Set(),overlays=new Set();const visit=n=>{for(const c of n?.components||[]){if(c.Model&&this.definition.meshes[reference(c.Model)])models.add(reference(c.Model));if(c.MaterialAsset)overlays.add(reference(c.MaterialAsset));for(const v of[c.Prefab,c.Effect,c.BlueVfx,c.RedVfx])walk(reference(v));}for(const child of n?.children||[])visit(child);},walk=key=>{if(!key||refs.has(key))return;refs.add(key);visit(records[key]?.data);};visit(actor.contract.sourcePrefab?.data);for(const p of actor.contract.parts)for(const state of p.asm?.States||[])for(const e of state.Events||[])walk(reference(e.Effect));
-  for(const path of Object.values(this.definition.actionRoots||{}))walk(path);
+  const records=this.definition.records,refs=new Set(),models=new Set(),overlays=new Map();const visit=n=>{for(const c of n?.components||[]){if(c.Model&&this.definition.meshes[reference(c.Model)])models.add(reference(c.Model));if(c.MaterialAsset){const path=reference(c.MaterialAsset),names=c.GeometryNames;if(!names?.length)overlays.set(path,null);else if(!overlays.has(path)||overlays.get(path)){const target=overlays.get(path)||new Set();for(const name of names)target.add(name);overlays.set(path,target);}}for(const v of[c.Prefab,c.Effect,c.BlueVfx,c.RedVfx])walk(reference(v));}for(const child of n?.children||[])visit(child);},walk=key=>{if(!key||refs.has(key))return;refs.add(key);visit(records[key]?.data);};visit(actor.contract.sourcePrefab?.data);for(const p of actor.contract.parts)for(const state of p.asm?.States||[])for(const e of state.Events||[])walk(reference(e.Effect));
+  for(const path of reachableActionRoots(actor.contract,this.definition))walk(path);
   for(const key of models)this.templates.set(key,(await this.loader.loadAsync(this.url(this.definition.meshes[key].file))).scene);
   for(const binding of bodyOverrides(actor.contract)){const part=actor.parts[binding.part];let mesh=part.gltf.scene.getObjectByName(binding.name);if(!mesh)part.gltf.scene.traverse(o=>{if(o.isMesh&&o.userData.sourceName===binding.name)mesh=o;});if(!mesh?.material)continue;const original=mesh.material,materials=Array.isArray(original)?original:[original],changed=[];for(const base of materials)changed.push(await this.material(binding.material,base)||base);mesh.material=Array.isArray(original)?changed:changed[0];this.body.push({mesh,original,current:mesh.material});}
   const bodies=[];actor.group.traverse(mesh=>{if(mesh.isMesh&&mesh.material)bodies.push(mesh);});
-  for(const path of overlays)for(const mesh of bodies){if(Array.isArray(mesh.material))continue;const mat=await this.material(path,mesh.material);if(mat)this.overlays.set(path+':'+mesh.uuid,{mesh,material:mat,base:mesh.material});}
+  this.bodyMaterials=[...new Set(bodies.flatMap(mesh=>Array.isArray(mesh.material)?mesh.material:[mesh.material]).filter(m=>m.userData.sourceFXMaterial))];
+  for(const [path,names]of overlays)for(const mesh of bodies){if(Array.isArray(mesh.material)||names&&!names.has(mesh.name))continue;const mat=await this.material(path,mesh.material);if(mat){const binding={mesh,material:mat,base:mesh.material};this.overlays.set(path+':'+mesh.uuid,binding);if(!this.overlaysByPath.has(path))this.overlaysByPath.set(path,[]);this.overlaysByPath.get(path).push(binding);}}
   // Resolve material/texture loading before the first frame, never mid-draw.
   for(const key of refs){const scan=n=>{for(const c of n?.components||[])if(c.Model&&this.templates.has(reference(c.Model)))for(const g of c.Geometries||[])if(g.MaterialOverride){const path=reference(g.MaterialOverride);if(!this.instances.has('warm:'+path))this.instances.set('warm:'+path,{material:awaitable(path)});}for(const ch of n?.children||[])scan(ch);};const awaitable=path=>this.material(path);scan(records[key]?.data);}
   await Promise.all([...this.instances.values()].map(v=>v.material));for(const[k,v]of this.instances)if(k.startsWith('warm:'))v.material=await v.material;
@@ -3133,10 +3156,12 @@ class Renderer{
   const target=u.fragmentMaterialUniforms?.value;if(target){for(const[k,v]of Object.entries(material.userData.initial))if(target[k]?.copy)target[k].copy(v);else target[k]=v;for(const[k,v]of Object.entries(values)){const m=/^(?:Model\.mat(\d+)\.|Material\.|MaterialEffect\.mat\.)(\w+)(?:\.([xyzwrgba]))?$/.exec(k);if(!m||m[1]!==undefined&&Number(m[1])!==index||!(m[2]in target))continue;const component=m[3]&&({r:'x',g:'y',b:'z',a:'w'}[m[3]]||m[3]);if(component&&target[m[2]]?.isVector4||component&&target[m[2]]?.isVector3||component&&target[m[2]]?.isVector2)target[m[2]][component]=v;else if(!component&&typeof target[m[2]]==='number')target[m[2]]=v;}}
  }
  updateBody(effects,time,team,camera,light){
-  for(const v of this.overlays.values())v.mesh.material=v.base;
-  this.actor.group.traverse(o=>{for(const mat of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])if(mat.userData.sourceFXMaterial){this.uniformState(mat,time,team,camera,light);this.materialDraws++;}});
-  for(const effect of effects)if(effect.bodyMaterial&&effect.age>=0&&(effect.looped||effect.age<effect.duration)){for(const v of this.overlays.values())if(v.material.userData.sourceFXPath===effect.bodyMaterial&&(!effect.component.GeometryNames?.length||effect.component.GeometryNames.includes(v.mesh.name))){v.mesh.material=v.material;this.uniformState(v.material,time,team,camera,light,scopedValues(effect.tracks,effect.age));this.materialDraws++;}}
+  for(const [mesh,base]of this.activeOverlays)mesh.material=base;this.activeOverlays.clear();
+  for(const mat of this.bodyMaterials){this.uniformState(mat,time,team,camera,light);this.materialDraws++;}
+  for(const effect of effects)if(effect.bodyMaterial&&effect.age>=0&&(effect.looped||effect.age<effect.duration)){const values=scopedValues(effect.tracks,effect.age);for(const v of this.overlaysByPath.get(effect.bodyMaterial)||[])if(!effect.component.GeometryNames?.length||effect.component.GeometryNames.includes(v.mesh.name)){v.mesh.material=v.material;this.activeOverlays.set(v.mesh,v.base);this.uniformState(v.material,time,team,camera,light,values);this.materialDraws++;}}
  }
+ bodyTimeDependent(effects=[]){return this.bodyMaterials.some(m=>m.userData.sourceFXTimeDependent)||effects.some(e=>e.bodyMaterial&&e.age>=0&&(e.looped||e.age<e.duration)&&(this.overlaysByPath.get(e.bodyMaterial)||[]).some(v=>v.material.userData.sourceFXTimeDependent));}
+ refreshMeshCamera(camera){this.group.traverse(o=>{for(const material of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){const s=material.uniforms?.sceneUniforms?.value;if(s){s.u_invView.copy(camera.matrixWorld);s.u_projectionView.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);s.u_cameraPosition.set(camera.position.x,camera.position.y,camera.position.z,1);}}});}
  updateMeshes(effects,time,team,camera,light,budget=96){
   const T=this.T;this.group.clear();let count=0;
   for(const effect of effects){if(!effect.model||effect.age<0||!effect.looped&&effect.age>=effect.duration||effect.chain.some(tr=>scopedValues(tr.tracks,effect.age).visible===0))continue;const template=this.templates.get(effect.model);if(!template)continue;const key=(effect.historyKey||effect.eventKey||'ambient')+':'+effect.model+':'+effect.path;let instance=this.instances.get(key);
@@ -3153,11 +3178,12 @@ class Renderer{
   for(const[key,v]of this.instances)if(!key.startsWith('warm:')&&this.instances.size>160&&v.object.parent!==this.group){for(const m of v.materials){m.dispose();this.materials.delete(m);}this.instances.delete(key);}
   this.draws+=count;return count;
  }
- get dynamic(){return this.body.length>0||this.overlays.size>0;}
+ get dynamic(){return this.bodyTimeDependent();}
+ get shadowDiffers(){return this.bodyMaterials.some(m=>m.userData.sourceFXFamily?.startsWith('vfx_'));}
  async bytes(){const textures=await Promise.all(this.textures.values());return textures.reduce((n,t)=>n+(t.image?.width||0)*(t.image?.height||0)*4*4/3,0)+[...this.templates.values()].reduce((n,g)=>{g.traverse(o=>{if(o.geometry){for(const a of Object.values(o.geometry.attributes))n+=a.array.byteLength;n+=o.geometry.index?.array.byteLength||0;}});return n;},0);}
  dispose(){for(const v of this.overlays.values())v.mesh.material=v.base;for(const v of this.body)v.mesh.material=v.original;for(const m of this.materials)m.dispose();for(const p of this.textures.values())p.then(t=>t.dispose());for(const g of this.templates.values())g.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});this.instances.clear();this.group.clear();}
 }
-return {reference,bezier,timelineValue,timelineState,timelineBindings,prefabLifetime,sourceMeshPlan,scopedValues,sampledTransform,shaderSource,vertexSource,bodyOverrides,cloneUniforms,Renderer};
+return {reference,bezier,timelineValue,timelineState,timelineBindings,prefabLifetime,sourceMeshPlan,scopedValues,sampledTransform,shaderSource,vertexSource,bodyOverrides,cloneUniforms,reachableActionRoots,timeDependentShader,Renderer};
 });
 
 ;
@@ -3270,6 +3296,16 @@ function drawSourceFX(c,actor,partPoses,team,time,seed,effects,presentation={clo
  }
 }
 function rasterDensity(policy={}){const value=Math.max(Number(policy.battleDensity)||1,(Number(policy.textureScale)||1)*1.5);return Math.max(1,Math.min(4,value));}
+function bodyAppearanceKey(effects,shadowOnly,traits,time,fps){
+ if(shadowOnly)return traits.shadowDiffers?'shadow':'base';
+ const active=effects.filter(e=>e.bodyMaterial&&e.age>=0&&(e.looped||e.age<e.duration));
+ if(!active.length&&!traits.timeDependent&&!traits.shadowDiffers)return 'base';
+ return ['body',traits.timeDependent?Math.floor(time*fps):'',...active.map(e=>[e.bodyMaterial,e.effectKey||e.historyKey||e.eventKey||e.path,e.component.GeometryNames?.join(','),e.age.toFixed(4)].join(':'))].join('|');
+}
+// Keep the multisampled drawing buffer resident. Changing canvas dimensions
+// for every troop reallocates it; the viewport still renders at exact density.
+function rasterTarget(previous,w,h){w=Math.min(1536,w);h=Math.min(1536,h);const width=Math.min(1536,Math.max(previous.width||0,Math.ceil(w/128)*128)),height=Math.min(1536,Math.max(previous.height||0,Math.ceil(h/128)*128));return {width,height,w,h,sy:height-h};}
+function prepareRaster(w,h){const target=rasterTarget(rasterCapacity,w,h);if(target.width!==rasterCapacity.width||target.height!==rasterCapacity.height){renderer.setSize(target.width,target.height,false);rasterCapacity=target;}renderer.setViewport(0,0,target.w,target.h);renderer.setScissor(0,0,Math.min(target.width,target.w+8),Math.min(target.height,target.h+8));renderer.setScissorTest(true);return target;}
 class PoseCache{
  constructor(limit=POSE_BYTES,release=value=>{if(value?.image){value.image.width=1;value.image.height=1;}}){this.limit=limit;this.release=release;this.entries=new Map();this.bytes=0;}
  get(key){const e=this.entries.get(key);if(!e)return undefined;this.entries.delete(key);this.entries.set(key,e);return e.value;}
@@ -3293,12 +3329,12 @@ class ActorCache{
  stats(){return {activeActors:[...this.active].filter(id=>this.entries.has(id)).length,activeRequested:this.active.size,inactiveActors:[...this.entries.keys()].filter(id=>!this.active.has(id)).length,actorTarget:this.maxActors,overActorLimit:Math.max(0,this.size-this.maxActors),overBudgetBytes:Math.max(0,this.bytes-this.budget)};}
 }
 let manifest={heroes:{},errors:{}},fxManifest=null,actionEffects=[],actionEffectsTime=0,fxMeshes=0,fxMaterialDraws=0,fxDraws=0,assetBase='assets/modern-heroes/',vendorBase='assets/vendor/three/',configured=Promise.resolve(),onError=null,error=null,contextLost=false,enginePromise=null,T,loader,textureLoader,renderer,scene,camera,ambient,sun;
-const actors=new ActorCache(),pending=new Map(),failed=new Map(),metrics=new Map(),poses=new PoseCache(),poseHistory=new PoseHistory();let renders=0,hits=0,generation=0;
+const actors=new ActorCache(),pending=new Map(),failed=new Map(),metrics=new Map(),bodyTraits=new Map(),poses=new PoseCache(),poseHistory=new PoseHistory();let renders=0,hits=0,generation=0,rasterCapacity={width:0,height:0};
 function report(e,id){const message=`Original 3D art${id?' for '+id:''}: ${e?.message||e}`;error=message;if(id)failed.set(id,message);if(onError)onError(message,id);return message;}
 function localURL(file,base=assetBase){return new URL(file,new URL(base,root.document?.baseURI||root.location?.href||'http://localhost/')).href;}
 function configure(value,base='assets/modern-heroes/',options={}){
  generation++;assetBase=base;vendorBase=options.vendorBase||'assets/vendor/three/';onError=options.onError||null;error=null;failed.clear();poses.clear();
- actors.clear();pending.clear();metrics.clear();fxHistory.clear();poseHistory.clear();particleTransforms?.clear();fxSprites=0;
+ actors.clear();pending.clear();metrics.clear();bodyTraits.clear();fxHistory.clear();poseHistory.clear();particleTransforms?.clear();fxSprites=0;
  if(typeof value==='string')configured=fetch(localURL(value,'')).then(r=>{if(!r.ok)throw Error('manifest '+r.status);return r.json();}).then(v=>{manifest=v;return manifest;}).catch(e=>{report(e);throw e;});
  else{manifest=value||{heroes:{},errors:{}};configured=Promise.resolve(manifest);}
  fxManifest=null;actionEffects=[];fxMeshes=fxMaterialDraws=fxDraws=0;
@@ -3346,7 +3382,7 @@ async function sourceMaterial(material,part){const plan=sourceMaterialPlan(mater
 function configureLighting(actor){const light=lightFromPrefab(actor.contract.sourcePrefab),rgb=value=>new T.Color().setRGB((value?.r??255)/255,(value?.g??255)/255,(value?.b??255)/255);
  sun.color.copy(rgb(light?.Color));sun.intensity=Number(light?.Intensity)||3;ambient.color.copy(rgb(light?.Ambient));ambient.intensity=2;
  const rotation=light?.rot||[-80.6,0,-32.6];sun.position.set(0,-1,0).applyEuler(new T.Euler(...rotation.map(d=>d*Math.PI/180))).multiplyScalar(8);sun.target.position.set(0,0,0);sun.target.updateMatrixWorld();
- const source=sourceLighting(actor.contract),direction=sun.position.clone().normalize();actor.group.traverse(o=>{for(const material of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){if(!material.userData.sourceLodMaterial)continue;const u=material.uniforms,scene=u.sceneUniforms.value;scene.u_lightDirectionTime.set(direction.x,direction.y,direction.z,0);scene.u_cameraPosition.set(camera.position.x,camera.position.y,camera.position.z,1);scene.u_dirLightColor.set(...source.direct,1);scene.u_sceneAmbientColor.set(...source.ambient,source.ambientSpec);u.fragmentObjectUniforms.value.u_color.set(...(actor.team===1?[1,.12,.16]:[.12,.4,1]),1);}});
+ const source=sourceLighting(actor.contract),direction=sun.position.clone().normalize();for(const material of actor.sourceLodMaterials){const u=material.uniforms,scene=u.sceneUniforms.value;scene.u_lightDirectionTime.set(direction.x,direction.y,direction.z,0);scene.u_cameraPosition.set(camera.position.x,camera.position.y,camera.position.z,1);scene.u_dirLightColor.set(...source.direct,1);scene.u_sceneAmbientColor.set(...source.ambient,source.ambientSpec);u.fragmentObjectUniforms.value.u_color.set(...(actor.team===1?[1,.12,.16]:[.12,.4,1]),1);}
 }
 function materialTextures(material){return [...Object.values(material),...Object.values(material.uniforms||{}).map(u=>u.value)].filter(value=>value?.isTexture);}
 function actorMemory(actor){const geometry=new Set(),textures=new Set();let bytes=0;actor.group.traverse(o=>{if(o.geometry&&!geometry.has(o.geometry)){geometry.add(o.geometry);for(const attribute of Object.values(o.geometry.attributes))bytes+=attribute.array.byteLength;bytes+=o.geometry.index?.array?.byteLength||0;}for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])for(const texture of materialTextures(m))textures.add(texture);});for(const part of actor.parts)for(const texture of part.masks)textures.add(texture);for(const texture of textures){const im=texture.source?.data||texture.image;bytes+=(im?.width||0)*(im?.height||0)*4*(texture.generateMipmaps?4/3:1);}return Math.ceil(bytes);}
@@ -3366,9 +3402,10 @@ async function loadActor(id){
    const mixer=new T.AnimationMixer(gltf.scene);Object.assign(part,{mixer,actions:new Map(gltf.animations.map(clip=>[clip.name,mixer.clipAction(clip)]))});parts.push(part);
   }
   if(!parts.length)throw Error('source actor contains no converted geometry');group.updateMatrixWorld(true);
+  const baseMaterials=new Set();group.traverse(o=>{for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])if(m.userData.sourceLodMaterial)baseMaterials.add(m);});actor.sourceLodMaterials=[...baseMaterials];
   if(fxManifest&&root.RoyaleModernFX3D){actor.fx=new root.RoyaleModernFX3D.Renderer(T,fxManifest,loader,textureLoader,localURL);await actor.fx.prepare(actor);}
   actor.bytes=actorMemory(actor)+(actor.fx?await actor.fx.bytes():0);
-  if(epoch!==generation){disposeActor(actor);return null;}measureHead(actor);actors.set(id,actor);return actor;
+  if(epoch!==generation){disposeActor(actor);return null;}bodyTraits.set(id,{shadowDiffers:!!actor.fx?.shadowDiffers,timeDependent:!!actor.fx?.bodyTimeDependent([])});measureHead(actor);actors.set(id,actor);return actor;
   }catch(e){disposeActor(actor);if(epoch===generation)report(e,id);return null;}
  })();pending.set(id,promise);promise.finally(()=>{if(pending.get(id)===promise)pending.delete(id);}).catch(()=>{});return promise;
 }
@@ -3381,7 +3418,20 @@ function choosePartPose(part,state,elapsed,options,actor){
  if(state==='attack'&&pose.done){name=choose(['Idle'])||name;pose=clipPose(part.metadata.animations[name],options.idleTime??0,'idle',null,0,part.metadata.asm?.States?.find(s=>s.Name===name));}return {name,...pose};
 }
 function applyPose(actor,partPoses,team,yaw,blends=[]){actor.group.rotation.z=yaw;for(let index=0;index<actor.parts.length;index++){const part=actor.parts[index],pose=partPoses[index],blend=blends.find(b=>b.index===index);part.actions.forEach(a=>a.stop());const play=(p,weight)=>{const action=part.actions.get(p.name);if(!action)return;action.reset();action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.setEffectiveWeight(weight);action.play();action.time=p.time;};if(pose){play(pose,blend?blend.weight:1);if(blend)play(blend.from,1-blend.weight);part.mixer.update(0);}const visibility=meshVisibility(part.metadata,pose?.name,pose?.frame??0);part.gltf.scene.traverse(o=>{if(o.isMesh)o.visible=visibility[o.name]??true;});part.uniform.value.set(...(team===1?[1,.12,.16]:[.12,.4,1]));}actor.group.updateMatrixWorld(true);}
-function actorBounds(actor){actor.group.traverse(o=>{if(o.isSkinnedMesh){o.skeleton.update();o.computeBoundingBox();}});return new T.Box3().setFromObject(actor.group);}
+const skinBoundsScratch=new WeakMap();
+function computeSkinnedBounds(mesh,Three=T){
+ let s=skinBoundsScratch.get(mesh);if(!s){s={matrices:[],base:new Three.Vector3(),point:new Three.Vector3(),vertex:new Three.Vector3(),indices:new Three.Vector4(),weights:new Three.Vector4()};skinBoundsScratch.set(mesh,s);}
+ const skeleton=mesh.skeleton,g=mesh.geometry;for(let i=0;i<skeleton.bones.length;i++)(s.matrices[i]??=new Three.Matrix4()).multiplyMatrices(skeleton.bones[i].matrixWorld,skeleton.boneInverses[i]);
+ const box=mesh.boundingBox??=new Three.Box3();box.makeEmpty();
+ for(let i=0;i<g.attributes.position.count;i++){
+  // Match Three's getVertexPosition/applyBoneTransform arithmetic, including
+  // morph targets, but multiply each bone matrix once instead of per vertex.
+  Three.Mesh.prototype.getVertexPosition.call(mesh,i,s.base);s.base.applyMatrix4(mesh.bindMatrix);s.indices.fromBufferAttribute(g.attributes.skinIndex,i);s.weights.fromBufferAttribute(g.attributes.skinWeight,i);s.vertex.set(0,0,0);
+  for(let j=0;j<4;j++){const weight=s.weights.getComponent(j);if(weight!==0)s.vertex.addScaledVector(s.point.copy(s.base).applyMatrix4(s.matrices[s.indices.getComponent(j)]),weight);}
+  s.vertex.applyMatrix4(mesh.bindMatrixInverse);box.expandByPoint(s.vertex);
+ }return box;
+}
+function actorBounds(actor){actor.group.traverse(o=>{if(o.isSkinnedMesh){o.skeleton.update();computeSkinnedBounds(o);}});return new T.Box3().setFromObject(actor.group);}
 function projectedBounds(box){let left=Infinity,right=-Infinity,top=-Infinity,bottom=Infinity;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const py=.75*y+Math.sqrt(7)/4*z;left=Math.min(left,x);right=Math.max(right,x);top=Math.max(top,py);bottom=Math.min(bottom,py);}return {left,right,top,bottom};}
 function measureHead(actor){if(metrics.has(actor.id))return;const p=actor.parts.map(part=>choosePartPose(part,'idle',0,{},actor));applyPose(actor,p,0,0);const box=projectedBounds(actorBounds(actor)),factor=(5/6)*(Number(actor.contract.sourceEntity?.Scale)||100)/100;metrics.set(actor.id,Math.max(18,Math.min(140,box.top*UNITS*factor))+5);}
 function fxLight(actor){return {...sourceLighting(actor.contract),direction:sun.position.clone().normalize().toArray()};}
@@ -3390,10 +3440,10 @@ function rasterPose(actor,partPoses,team,yaw,density,blends=[],effects=[],time=0
  const left=bounds.left-margin,right=bounds.right+margin,top=bounds.top+margin,bottom=bounds.bottom-margin,width=right-left,height=top-bottom;
  if(![width,height].every(v=>Number.isFinite(v)&&v>0))throw Error('invalid source model bounds');
  const effective=Math.min(density,1536/(width*UNITS),1536/(height*UNITS)),w=Math.max(2,Math.ceil(width*UNITS*effective)),h=Math.max(2,Math.ceil(height*UNITS*effective));
- camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();camera.updateMatrixWorld();renderer.setSize(w,h,false);actor.team=team;configureLighting(actor);
+ camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();camera.updateMatrixWorld();const target=prepareRaster(w,h);actor.team=team;configureLighting(actor);
  const hidden=[];if(actor.fx){const before=actor.fx.materialDraws;actor.fx.updateBody(shadowOnly?[]:effects,time,team,camera,fxLight(actor));fxMaterialDraws+=actor.fx.materialDraws-before;if(shadowOnly)actor.group.traverse(o=>{if(o.visible&&o.material?.userData.sourceFXFamily?.startsWith('vfx_')){o.visible=false;hidden.push(o);}});}
  scene.add(actor.group);try{renderer.render(scene,camera);}finally{scene.remove(actor.group);for(const o of hidden)o.visible=true;}
- const image=root.document.createElement('canvas');image.width=w;image.height=h;image.getContext('2d').drawImage(renderer.domElement,0,0);renders++;return {image,x:left*UNITS,y:-top*UNITS,width:width*UNITS,height:height*UNITS};
+ const image=root.document.createElement('canvas');image.width=target.w;image.height=target.h;image.getContext('2d').drawImage(renderer.domElement,0,target.sy,target.w,target.h,0,0,target.w,target.h);renders++;return {image,x:left*UNITS,y:-top*UNITS,width:width*UNITS,height:height*UNITS};
 }
 function drawMeshFX(c,actor,effects,time,team,density){
  const policy=root.RoyaleGraphics?.current,nativeFX=root.RoyaleNative?.library?.fx,budget=policy?Math.max(0,Math.min(root.RoyaleGraphics.particleBudget(policy.particles,false)*2,policy.frameParticles-(nativeFX?.particlesUsed||0))):96;
@@ -3401,11 +3451,11 @@ function drawMeshFX(c,actor,effects,time,team,density){
  const bounds=projectedBounds(new T.Box3().setFromObject(actor.fx.group)),pad=.12,left=bounds.left-pad,right=bounds.right+pad,top=bounds.top+pad,bottom=bounds.bottom-pad,width=right-left,height=top-bottom;
  if(![width,height].every(v=>Number.isFinite(v)&&v>0&&v<128))return;
  const effective=Math.min(density,1536/(width*UNITS),1536/(height*UNITS));camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();camera.updateMatrixWorld();
- actor.fx.updateMeshes(effects,time,team,camera,light,budget);actor.fx.updateBody(effects,time,team,camera,light);renderer.setSize(Math.max(2,Math.ceil(width*UNITS*effective)),Math.max(2,Math.ceil(height*UNITS*effective)),false);
+ actor.fx.refreshMeshCamera(camera);actor.fx.updateBody(effects,time,team,camera,light);const target=prepareRaster(Math.max(2,Math.ceil(width*UNITS*effective)),Math.max(2,Math.ceil(height*UNITS*effective)));
  // The body writes depth without repainting color, so rear slashes stay behind
  // the actual moving mesh while front sparks remain visible.
  const changed=new Map();actor.group.traverse(o=>{for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])if(!changed.has(m)){changed.set(m,m.colorWrite);m.colorWrite=false;}});
- scene.add(actor.group,actor.fx.group);try{renderer.render(scene,camera);c.drawImage(renderer.domElement,left*UNITS,-top*UNITS,width*UNITS,height*UNITS);fxMeshes+=count;fxDraws++;if(nativeFX)nativeFX.particlesUsed+=count;}finally{scene.remove(actor.group,actor.fx.group);for(const[m,value]of changed)m.colorWrite=value;}
+ scene.add(actor.group,actor.fx.group);try{renderer.render(scene,camera);c.drawImage(renderer.domElement,0,target.sy,target.w,target.h,left*UNITS,-top*UNITS,width*UNITS,height*UNITS);fxMeshes+=count;fxDraws++;if(nativeFX)nativeFX.particlesUsed+=count;}finally{scene.remove(actor.group,actor.fx.group);for(const[m,value]of changed)m.colorWrite=value;}
 }
 function setActionEffects(effects=[],time=0){actionEffectsTime=time;actionEffects=effects.filter(e=>e.sourcePrefab&&time<(e.born??time)+(e.ttl??4));}
 function actionMeshPlan(actor,id,time,team){if(!fxManifest)return[];const F=root.RoyaleModernFX3D,out=[];for(const e of actionEffects){if(e.sourceActor!==id)continue;const record=fxManifest.records[F.reference(e.sourcePrefab)];if(!record?.data)continue;const age=Math.max(0,actionEffectsTime-(e.born??actionEffectsTime));for(const row of [...F.sourceMeshPlan({...actor.contract,sourcePrefab:record},[],fxManifest.records,age,team),...sourceFXPlan({...actor.contract,sourcePrefab:record},[],fxManifest.records,age,team)])out.push({...row,eventKey:null,effectKey:e.sourceActionToken||e.sourcePrefab+String(e.born),age,looped:e.loop||row.looped,duration:e.ttl??row.duration});}return out;}
@@ -3413,20 +3463,21 @@ function tintRaster(raster,color,key){if(!color)return raster;const cacheKey=key
 function draw(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
  if(!has(id)||failed.has(id)||contextLost)return false;actors.markActive(id);const actor=actors.get(id),contract=manifest.heroes[id];
  try{
-  // An exact source pose raster remains usable after its inactive mesh was
-  // evicted. Metadata derives the same clip/frame key; a different pose still
-  // loads the original mesh, rather than substituting a stale cached image.
+  // Keep a cached pose visible while an evicted actor reloads. Effects need its
+  // mesh even when a frozen or repeated pose never causes another cache miss.
+  if(!actor)loadActor(id).catch(e=>report(e,id));
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';const elapsed=options.elapsed??Math.max(0,time-started),partPoses=(actor?.parts||contract.parts.map(metadata=>({metadata}))).map(part=>choosePartPose(part,state,elapsed,{...options,idleTime:options.idleTime??time},actor||{contract}));
   const policy=root.RoyaleGraphics?.current||{},density=rasterDensity(policy),fps=Math.max(12,Math.min(120,policy.animationFps||60)),steps=policy.textures==='ultra'?180:policy.textures==='max'?144:72,index=((Math.round(sourceYaw(heading)/TAU*steps)%steps)+steps)%steps,yaw=index/steps*TAU;
   for(const [i,p]of partPoses.entries())if(p){const descriptor=contract.parts[i].asm?.States?.find(s=>s.Name===p.name),first=(Number(descriptor?.StartFrame)||0)/(Number(contract.parts[i].animations[p.name]?.fps)||30);p.time=Math.max(first,Math.floor(p.time*fps+1e-7)/fps);}
   const entity=options.entity,clock=entity?.visualTime??time,activation=[id,state,entity?.visualStarted??started,entity?.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),attack=state==='attack'&&entity?.visualAttack,blends=poseHistory.sample(entity?.id,activation,clock,partPoses,contract.parts,attack?{...attack,windup:Number.isFinite(attack.releasedAt)?0:Math.max(0,(Number(attack.windup)||0)-elapsed)}:null);
   for(const blend of blends)blend.weight=Math.floor(blend.weight*fps+1e-7)/fps;
   let effects=[];if(actor&&entity&&!options.ghost&&!options.shadowOnly){const records=fxManifest?.records||manifest.vfxAssets||{},current=[...sourceFXPlan(contract,partPoses,records,clock,team),...(actor.fx?root.RoyaleModernFX3D.sourceMeshPlan(contract,partPoses,records,clock,team):[])];effects=fxHistory.update(entity.id??id,activation,clock,current,e=>e.model||e.bodyMaterial?e.duration:sourceFXLifetime(e,records,root.RoyaleNative?.library));effects.push(...actionMeshPlan(actor,entity.id,clock,team));}
-  const key=[id,team===1?1:0,density,steps,index,options.shadowOnly?'shadow':'body',fxManifest&&!options.shadowOnly?Math.floor(clock*fps):'',...effects.filter(e=>e.bodyMaterial).map(e=>[e.bodyMaterial,e.effectKey||e.historyKey||e.eventKey||e.path,e.component.GeometryNames?.join(','),e.age.toFixed(4)].join(':')),...partPoses.map(p=>p?`${p.name}:${p.frame}:${p.time.toFixed(6)}`:'static'),...blends.map(b=>`${b.index}:${b.from.name}:${b.from.time.toFixed(6)}:${b.weight}`)].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density,blends,effects,clock,options.shadowOnly);poses.set(key,raster,raster.image.width*raster.image.height*4);}
+  const traits={...(bodyTraits.get(id)||{}),timeDependent:actor?.fx?.bodyTimeDependent(effects)??bodyTraits.get(id)?.timeDependent},appearance=bodyAppearanceKey(effects,options.shadowOnly,traits,clock,fps);
+  const key=[id,team===1?1:0,density,steps,index,appearance,...partPoses.map(p=>p?`${p.name}:${p.frame}:${p.time.toFixed(6)}`:'static'),...blends.map(b=>`${b.index}:${b.from.name}:${b.from.time.toFixed(6)}:${b.weight}`)].join('|');let raster=poses.get(key),posed=false;if(raster)hits++;else{if(!actor)return false;raster=rasterPose(actor,partPoses,team,yaw,density,blends,effects,clock,options.shadowOnly);posed=true;poses.set(key,raster,raster.image.width*raster.image.height*4);}
   const source=contract.sourceEntity||{},factor=scale*(5/6)*(Number(source.Scale)||100)/100,height=options.height??Math.max(0,Number(source.FlyingHeight)||0)/1000*20;
   if(options.shadowOnly){if(!options.paint)return false;options.paint(c,raster,factor);return true;}
   c.save();try{c.translate(x,y-height);c.scale(factor,factor);c.filter=root.RoyaleNative?.teamFilter?.(team)||'none';const paint=color=>{const image=tintRaster(raster,color,key);c.drawImage(image.image,image.x,image.y,image.width,image.height);};
-  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&entity&&!options.ghost&&effects.length){applyPose(actor,partPoses,team,yaw,blends);drawMeshFX(c,actor,effects,clock,team,density);drawSourceFX(c,actor,partPoses,team,clock,entity.id??id,effects.filter(e=>e.particle||e.movieclip),{clock:time,origin:[x,y-height],factor});particleTransforms?.prune(time);}}finally{c.restore();}return true;
+  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&entity&&!options.ghost&&effects.length){if(!posed)applyPose(actor,partPoses,team,yaw,blends);drawMeshFX(c,actor,effects,clock,team,density);drawSourceFX(c,actor,partPoses,team,clock,entity.id??id,effects.filter(e=>e.particle||e.movieclip),{clock:time,origin:[x,y-height],factor});particleTransforms?.prune(time);}}finally{c.restore();}return true;
  }catch(e){report(e,id);return false;}
 }
 function headHeight(id){return metrics.get(id)||null;}
@@ -3436,7 +3487,7 @@ function endFrame(){actors.endFrame();}
 // modelBytes estimates geometry and decoded textures, not total browser/GPU
 // memory. modelBudget is a soft inactive target; active overflow is explicit.
 function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,fxSprites,fxMeshes,fxMaterialDraws,fxDraws,fxHistoryEntries:fxHistory.size,pending:pending.size,error,failed:Object.fromEntries(failed)};}
-return {configure,prepareActors,beginFrame,endFrame,setActionEffects,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
+return {configure,prepareActors,beginFrame,endFrame,setActionEffects,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,computeSkinnedBounds,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,bodyAppearanceKey,rasterTarget,PoseCache,ActorCache,get error(){return error;}};
 });
 
 ;
@@ -3444,6 +3495,15 @@ return {configure,prepareActors,beginFrame,endFrame,setActionEffects,has,unsuppo
    come from the supplied client. Browser code has no network dependency. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleNative=api;})(globalThis,function(){'use strict';
 const I=[1,0,0,1,0,0],NONE=65535,TINT_RASTER_PIXELS=16777216;
+// A particle's authored color can change every frame. Keep its unmodified RGBA
+// source once, avoiding a synchronous GPU readback for every new tint. The pool
+// is shared across scenes and capped at 8 MiB; quality/source changes evict it.
+class TintSourceCache{
+ constructor(maxPixels=2097152,maxEntries=64){this.maxPixels=maxPixels;this.maxEntries=maxEntries;this.entries=new Map();this.pixels=0;}
+ get(image,read){let entry=this.entries.get(image);if(entry){this.entries.delete(image);this.entries.set(image,entry);return entry.data;}const data=read(),pixels=image.width*image.height;if(pixels<=this.maxPixels){while(this.entries.size&&(this.entries.size>=this.maxEntries||this.pixels+pixels>this.maxPixels))this.delete(this.entries.keys().next().value);entry={data,pixels};this.entries.set(image,entry);this.pixels+=pixels;}return data;}
+ delete(image){const entry=this.entries.get(image);if(entry){this.entries.delete(image);this.pixels-=entry.pixels;}}
+}
+const tintSources=new TintSourceCache();
 const UNIT_SHADOW_PIXELS=2097152,UNIT_SHADOW_ENTRIES=96;
 // The SC fields supply actor-specific proportions and offsets. Projecting the
 // screen-space pose onto the floor is an interpreter approximation: scale and
@@ -3617,7 +3677,7 @@ class Scene{
  textureIndices(name,seconds=0,options={}){const result=new Set(),visit=(id,t,depth)=>{if(depth>20)throw Error('SC nesting limit');if(options.replaceNodes?.[id])return;const shape=this.data.shapes[id];if(shape){for(const chunk of shape)result.add(chunk.texture);return;}const clip=this.data.clips[id];if(!clip)return;const f=depth===0&&options.frame!==undefined?Math.max(0,Math.min(clip.frames.length-1,options.frame)):frameAt(t,clip.fps,clip.frames.length,depth===0?options.loop!==false:true);for(const [child]of clip.frames[f])visit(child,t,depth+1);};visit(this.id(name),seconds,0);return[...result];}
  async prewarm(name,seconds=0,options={}){if(!this.lazyLoader)return this;const pages=this.data.texturePages?.[name]||this.textureIndices(name,seconds,options);await Promise.all(pages.map(i=>this.loadTexture(i)));return this;}
  frameReady(name,seconds=0,options={}){if(!this.lazyLoader)return true;let ready=true;for(const i of this.textureIndices(name,seconds,options))if(!this.texture(i))ready=false;return ready;}
- releaseTextures(){if(this.decodedArt)for(const key of [...this.resources])this.decodedArt.delete(key);this.resources.clear();}
+ releaseTextures(){for(const shape of this.cache.values())tintSources.delete(shape.image);if(this.decodedArt)for(const key of [...this.resources])this.decodedArt.delete(key);this.resources.clear();}
  id(name){return typeof name==='string'&&!/^\d+$/.test(name)?this.data.exports[name]:name;}
  clip(name){return this.data.clips[this.id(name)]}
  animated(name){const id=this.id(name);if(this.animationCache.has(id))return this.animationCache.get(id);const seen=new Set(),visit=(idx)=>{if(seen.has(idx))return false;seen.add(idx);const c=this.data.clips[idx];return !!c&&(c.frames.length>1||c.frames.some(f=>f.some(i=>visit(i[0]))));};const result=visit(id);this.animationCache.set(id,result);return result;}
@@ -3668,6 +3728,7 @@ class Scene{
  }
  releaseRasters(){
   const images=new Set([...this.cache.values(),...this.tintCache.values()].map(s=>s.image));
+  for(const image of images)tintSources.delete(image);
   if(this.decodedArt)for(const key of [...this.resources])if(!key.includes(':page:'))this.decodedArt.delete(key);this.stillPlans?.clear();this.cache.clear();this.tintCache.clear();this.tintPixels=0;
   for(const image of images)if(image&&typeof image==='object'){image.width=1;image.height=1;}
  }
@@ -3690,7 +3751,7 @@ class Scene{
   const result={image:cv,x:lo[0],y:lo[1],w:logicalW,h:logicalH};this.cache.set(id,result);if(this.decodedArt){const key=this.resourcePrefix+':shape:'+id;this.resources.add(key);this.decodedArt.remember(key,cv,()=>{this.cache.delete(id);this.resources.delete(key);});}return result;
  }
  coloredShape(id,color){const sh=this.shape(id);if(!sh||!color||color[0]===0&&color[1]===0&&color[2]===0&&color[3]===255&&color[4]===255&&color[5]===255&&color[6]===255)return sh;const key=`${id}:${color.join(',')}`;let painted=this.tintCache.get(key);if(painted){this.decodedArt?.get(this.resourcePrefix+':tint:'+key);this.tintCache.delete(key);this.tintCache.set(key,painted);return painted;}
-  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true});ct.drawImage(sh.image,0,0);const px=ct.getImageData(0,0,cv.width,cv.height),p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,p[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,p[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,p[i+2]*color[6]/255+color[2]);p[i+3]*=color[3]/255;}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;if(this.decodedArt){const resource=this.resourcePrefix+':tint:'+key;this.resources.add(resource);this.decodedArt.remember(resource,cv,()=>{if(this.tintCache.get(key)===painted){this.tintCache.delete(key);this.tintPixels=Math.max(0,this.tintPixels-pixels);}this.resources.delete(resource);});}}return painted;
+  const cv=canvas(sh.image.width,sh.image.height),ct=cv.getContext('2d',{willReadFrequently:true}),source=tintSources.get(sh.image,()=>{ct.drawImage(sh.image,0,0);return ct.getImageData(0,0,cv.width,cv.height).data;}),px=ct.createImageData?ct.createImageData(cv.width,cv.height):{data:new Uint8ClampedArray(source.length)},p=px.data;for(let i=0;i<p.length;i+=4){p[i]=Math.min(255,source[i]*color[4]/255+color[0]);p[i+1]=Math.min(255,source[i+1]*color[5]/255+color[1]);p[i+2]=Math.min(255,source[i+2]*color[6]/255+color[2]);p[i+3]=source[i+3]*(color[3]/255);}ct.putImageData(px,0,0);painted={...sh,image:cv};const pixels=cv.width*cv.height;while(this.tintCache.size&&(this.tintCache.size>=256||this.tintPixels+pixels>TINT_RASTER_PIXELS)){const oldest=this.tintCache.keys().next().value,evicted=this.tintCache.get(oldest);this.tintPixels-=evicted.image.width*evicted.image.height;this.tintCache.delete(oldest);}if(pixels<=TINT_RASTER_PIXELS){this.tintCache.set(key,painted);this.tintPixels+=pixels;if(this.decodedArt){const resource=this.resourcePrefix+':tint:'+key;this.resources.add(resource);this.decodedArt.remember(resource,cv,()=>{if(this.tintCache.get(key)===painted){this.tintCache.delete(key);this.tintPixels=Math.max(0,this.tintPixels-pixels);}this.resources.delete(resource);});}}return painted;
  }
  // Explicitly still HUD assemblies can reuse resolved source geometry. This
  // keeps the original shape textures and live glyph painter; it does not flatten
@@ -4001,7 +4062,7 @@ class Library{
  }
  summary(){return{ready:this.ready,error:this.error,arenas:this.data.arenas.length,units:Object.keys(this.data.units).length,textures:this.loadedTextures,residentTextures:this.textureImages.size,residentScenes:Object.keys(this.scenes).length,shapeCache:[...Object.values(this.scenes)].reduce((n,s)=>n+s.cache.size,0),frameSamples:[...Object.values(this.scenes)].reduce((n,s)=>n+s.frameSamples.size,0)}}
 }
-return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,unitShadowTransform,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});
+return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,unitShadowTransform,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,TintSourceCache,Scene,Library};});
 
 ;
 /* Locally streamed, original emote timelines. This cache is deliberately separate
@@ -4237,10 +4298,16 @@ root.RoyaleUI={hydrate,resize,paint,prepareCanvas,prepareBattleCanvas,get scale(
 let hud=null,filters=null,metadata=null,ready=false;const stats={healthDraws:0,filterDraws:0,shadowDraws:0,deployDraws:0};
 async function scene(data){const images=await Promise.all(data.textures.map(t=>new Promise((resolve,reject)=>{const im=new Image();im.crossOrigin='anonymous';im.onload=()=>resolve(im);im.onerror=()=>reject(Error('Original HUD texture failed: '+t.file));im.src=new URL(t.file,document.baseURI).href;})));return new RoyaleNative.Scene({...data,rasterScale:2,qualityIndependent:true},images);}
 async function load(data){metadata=data;await root.RoyaleText.load(data.text);[hud,filters]=await Promise.all([scene(data.hud),scene(data.filters)]);ready=true;return api;}
-let homes={},homeLoading={};
+let homes={},homeLoading={};const homePlans=new WeakMap(),homeSurfaces=new WeakMap();
+// Resolve fixed framing and repeated SC frame tuples once. Nested animation
+// clips retain their own authored FPS; an unchanged source pose need not repaint.
+function homePlan(s,name){let plans=homePlans.get(s);if(!plans){plans=new Map();homePlans.set(s,plans);}if(plans.has(name))return plans.get(name);
+ const clips=[],seen=new Set(),visit=id=>{if(seen.has(id))return;seen.add(id);const clip=s.data.clips[id];if(!clip)return;const frames=clip.frames||[];if(frames.length>1){const signatures=new Map(),ids=frames.map(frame=>{const key=JSON.stringify(frame);if(!signatures.has(key))signatures.set(key,signatures.size);return signatures.get(key);});if(signatures.size>1)clips.push({fps:clip.fps,ids});}for(const frame of frames)for(const child of frame)visit(child[0]);};visit(s.data.exports[name]);const plan={bounds:s.bounds(name,0),clips};plans.set(name,plan);return plan;
+}
 function home(c,id,time=0){const source=id==='rascals'?'ui_arena_icon_season_10':'ui_arena';const name=({training:'arena_00',goblin:'arena_01',bone:'arena_02',barbarian:'arena_03',pekka:'arena_04',spell:'arena_05',builder:'arena_06',royal:'arena_07',frozen:'arena_08',jungle:'arena_09',hog:'arena_legendary',electro:'arena_electric',spooky:'arena_spooky',rascals:'arena_heist_season',serenity:'arena_lunar_season'})[id];
  if(!metadata?.homes?.[source]||!name)return false;if(!homes[source]){if(!homeLoading[source])homeLoading[source]=scene(metadata.homes[source]).then(s=>{homes[source]=s;}).catch(e=>{console.error(e);delete homeLoading[source];});return false;}
- const s=homes[source],r=s.bounds(name,0),scale=Math.min(c.canvas.width/r.width,c.canvas.height/r.height);c.clearRect(0,0,c.canvas.width,c.canvas.height);c.save();c.translate((c.canvas.width-r.width*scale)/2-r.x*scale,(c.canvas.height-r.height*scale)/2-r.y*scale);c.scale(scale,scale);s.draw(c,name,time);c.restore();return true;
+ const s=homes[source],plan=homePlan(s,name),r=plan.bounds,cv=c.canvas,key=[name,cv.width,cv.height,...plan.clips.map(clip=>clip.ids[Math.max(0,Math.floor((Number.isFinite(time)?time:0)*clip.fps+1e-7))%clip.ids.length])].join(':'),previous=homeSurfaces.get(cv);if(previous?.scene===s&&previous.key===key)return true;
+ const scale=Math.min(cv.width/r.width,cv.height/r.height);c.clearRect(0,0,cv.width,cv.height);c.save();c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';c.translate((cv.width-r.width*scale)/2-r.x*scale,(cv.height-r.height*scale)/2-r.y*scale);c.scale(scale,scale);s.draw(c,name,time);c.restore();homeSurfaces.set(cv,{scene:s,key});return true;
 }
 const hidden={visible:false};
 // The crown timeline encodes cosmetics, not card level. Ammo is not lifetime.

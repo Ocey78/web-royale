@@ -4,10 +4,16 @@
 let hud=null,filters=null,metadata=null,ready=false;const stats={healthDraws:0,filterDraws:0,shadowDraws:0,deployDraws:0};
 async function scene(data){const images=await Promise.all(data.textures.map(t=>new Promise((resolve,reject)=>{const im=new Image();im.crossOrigin='anonymous';im.onload=()=>resolve(im);im.onerror=()=>reject(Error('Original HUD texture failed: '+t.file));im.src=new URL(t.file,document.baseURI).href;})));return new RoyaleNative.Scene({...data,rasterScale:2,qualityIndependent:true},images);}
 async function load(data){metadata=data;await root.RoyaleText.load(data.text);[hud,filters]=await Promise.all([scene(data.hud),scene(data.filters)]);ready=true;return api;}
-let homes={},homeLoading={};
+let homes={},homeLoading={};const homePlans=new WeakMap(),homeSurfaces=new WeakMap();
+// Resolve fixed framing and repeated SC frame tuples once. Nested animation
+// clips retain their own authored FPS; an unchanged source pose need not repaint.
+function homePlan(s,name){let plans=homePlans.get(s);if(!plans){plans=new Map();homePlans.set(s,plans);}if(plans.has(name))return plans.get(name);
+ const clips=[],seen=new Set(),visit=id=>{if(seen.has(id))return;seen.add(id);const clip=s.data.clips[id];if(!clip)return;const frames=clip.frames||[];if(frames.length>1){const signatures=new Map(),ids=frames.map(frame=>{const key=JSON.stringify(frame);if(!signatures.has(key))signatures.set(key,signatures.size);return signatures.get(key);});if(signatures.size>1)clips.push({fps:clip.fps,ids});}for(const frame of frames)for(const child of frame)visit(child[0]);};visit(s.data.exports[name]);const plan={bounds:s.bounds(name,0),clips};plans.set(name,plan);return plan;
+}
 function home(c,id,time=0){const source=id==='rascals'?'ui_arena_icon_season_10':'ui_arena';const name=({training:'arena_00',goblin:'arena_01',bone:'arena_02',barbarian:'arena_03',pekka:'arena_04',spell:'arena_05',builder:'arena_06',royal:'arena_07',frozen:'arena_08',jungle:'arena_09',hog:'arena_legendary',electro:'arena_electric',spooky:'arena_spooky',rascals:'arena_heist_season',serenity:'arena_lunar_season'})[id];
  if(!metadata?.homes?.[source]||!name)return false;if(!homes[source]){if(!homeLoading[source])homeLoading[source]=scene(metadata.homes[source]).then(s=>{homes[source]=s;}).catch(e=>{console.error(e);delete homeLoading[source];});return false;}
- const s=homes[source],r=s.bounds(name,0),scale=Math.min(c.canvas.width/r.width,c.canvas.height/r.height);c.clearRect(0,0,c.canvas.width,c.canvas.height);c.save();c.translate((c.canvas.width-r.width*scale)/2-r.x*scale,(c.canvas.height-r.height*scale)/2-r.y*scale);c.scale(scale,scale);s.draw(c,name,time);c.restore();return true;
+ const s=homes[source],plan=homePlan(s,name),r=plan.bounds,cv=c.canvas,key=[name,cv.width,cv.height,...plan.clips.map(clip=>clip.ids[Math.max(0,Math.floor((Number.isFinite(time)?time:0)*clip.fps+1e-7))%clip.ids.length])].join(':'),previous=homeSurfaces.get(cv);if(previous?.scene===s&&previous.key===key)return true;
+ const scale=Math.min(cv.width/r.width,cv.height/r.height);c.clearRect(0,0,cv.width,cv.height);c.save();c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';c.translate((cv.width-r.width*scale)/2-r.x*scale,(cv.height-r.height*scale)/2-r.y*scale);c.scale(scale,scale);s.draw(c,name,time);c.restore();homeSurfaces.set(cv,{scene:s,key});return true;
 }
 const hidden={visible:false};
 // The crown timeline encodes cosmetics, not card level. Ammo is not lifetime.

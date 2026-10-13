@@ -1,0 +1,81 @@
+{
+  "reference": "baseline-v056/workload.png",
+  "candidate": "source-final/workload.png",
+  "differentPixels": 1302,
+  "totalPixels": 1382400,
+  "maxChannelDelta": 135,
+  "meanChannelDelta": 0.0017185691550925925,
+  "nontransparentReferencePixels": 15621,
+  "nontransparentCandidatePixels": 15622,
+  "maxAlphaDelta": 50,
+  "premultipliedRGBMaxDelta": 136.15686274509804,
+  "visibleMeanChannelDelta": 0.21988012020432138,
+  "visibleP99ChannelDelta": 1.4685882352941098,
+  "actors": [
+    {
+      "name": "Knight",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "MiniPekka",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "DarkPrince",
+      "differentPixels": 638,
+      "maxPremultipliedRGBDelta": 2.35294117647058
+    },
+    {
+      "name": "Wizard",
+      "differentPixels": 98,
+      "maxPremultipliedRGBDelta": 136.15686274509804
+    },
+    {
+      "name": "IceWizard",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "Ronin",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "KnightRed",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "MiniPekkaRed",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "DarkPrinceRed",
+      "differentPixels": 523,
+      "maxPremultipliedRGBDelta": 2.682352941176468
+    },
+    {
+      "name": "WizardRed",
+      "differentPixels": 43,
+      "maxPremultipliedRGBDelta": 67.94117647058823
+    },
+    {
+      "name": "IceWizardRed",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    },
+    {
+      "name": "RoninRed",
+      "differentPixels": 0,
+      "maxPremultipliedRGBDelta": 0.0
+    }
+  ],
+  "notes": [
+    "Eight primary-capture actor regions are pixel-identical. The two Dark Prince smoke regions preserve exact numeric RGBA tint inputs; browser backing-store conversion differs by <=1byte per individual tinted sprite with exact alpha, accumulating minor differences after compositing.",
+    "The two Wizard wing flame regions differ in141pixels in the primary source-final fresh load. A subsequent fresh-source load matches the baseline flames exactly; see flame-order-check.json. Both meshes have equal sort depth and renderOrder, so Three breaks their normal/additive blend ordering tie using asynchronous allocation ids. The tie mechanism predates this change; baseline variability is inferred, not observed in these two baseline runs.",
+    "Body silhouettes, particle counts and source meshes remain unchanged. No sampling-border artifact remains."
+  ]
+}

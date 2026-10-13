@@ -1,0 +1,132 @@
+{
+  "baselineReference": "ab7e0b0",
+  "baselineRepeat": {
+    "differentPixels": 0,
+    "wizardRegions": [
+      {
+        "team": 0,
+        "differentPixels": 0,
+        "maxChannelDelta": 0
+      },
+      {
+        "team": 1,
+        "differentPixels": 0,
+        "maxChannelDelta": 0
+      }
+    ]
+  },
+  "candidateRepeat": {
+    "differentPixels": 141,
+    "wizardRegions": [
+      {
+        "team": 0,
+        "differentPixels": 98,
+        "maxChannelDelta": 135
+      },
+      {
+        "team": 1,
+        "differentPixels": 43,
+        "maxChannelDelta": 49
+      }
+    ]
+  },
+  "freshBaselineVersusCandidate": {
+    "differentPixels": 1161,
+    "wizardRegions": [
+      {
+        "team": 0,
+        "differentPixels": 0,
+        "maxChannelDelta": 0
+      },
+      {
+        "team": 1,
+        "differentPixels": 0,
+        "maxChannelDelta": 0
+      }
+    ]
+  },
+  "observedBaselineOrder": [
+    {
+      "name": "wings_LOD1",
+      "id": 705,
+      "team": 0,
+      "shadow": false,
+      "z": -0.7046771226923404,
+      "renderOrder": 0,
+      "blend": 2
+    },
+    {
+      "name": "innerWing_LOD1",
+      "id": 706,
+      "team": 0,
+      "shadow": false,
+      "z": -0.7046771226923404,
+      "renderOrder": 0,
+      "blend": 1
+    },
+    {
+      "name": "wings_LOD1",
+      "id": 705,
+      "team": 1,
+      "shadow": false,
+      "z": -0.6982344974390873,
+      "renderOrder": 0,
+      "blend": 2
+    },
+    {
+      "name": "innerWing_LOD1",
+      "id": 706,
+      "team": 1,
+      "shadow": false,
+      "z": -0.6982344974390873,
+      "renderOrder": 0,
+      "blend": 1
+    }
+  ],
+  "observedCandidateOrder": [
+    {
+      "name": "wings_LOD1",
+      "id": 705,
+      "team": 0,
+      "shadow": false,
+      "z": -0.7046771226923404,
+      "renderOrder": 0,
+      "blend": 2
+    },
+    {
+      "name": "innerWing_LOD1",
+      "id": 706,
+      "team": 0,
+      "shadow": false,
+      "z": -0.7046771226923404,
+      "renderOrder": 0,
+      "blend": 1
+    },
+    {
+      "name": "wings_LOD1",
+      "id": 705,
+      "team": 1,
+      "shadow": false,
+      "z": -0.6982344974390873,
+      "renderOrder": 0,
+      "blend": 2
+    },
+    {
+      "name": "innerWing_LOD1",
+      "id": 706,
+      "team": 1,
+      "shadow": false,
+      "z": -0.6982344974390873,
+      "renderOrder": 0,
+      "blend": 1
+    }
+  ],
+  "evidence": {
+    "sort": "assets/vendor/three/three.module.js reversePainterSortStable: equal groupOrder/renderOrder/depth falls back to object allocation id",
+    "loading": "assets/vendor/three/GLTFLoader.js loadMesh: creates each mesh after its independent material/geometry dependency Promise resolves",
+    "materials": "Wizard air wings_LOD1 uses additive blending; innerWing_LOD1 uses normal blending; their observed projected sort depths are exactly equal."
+  },
+  "conclusion": "A fresh source reload reproduced the baseline flames exactly while a prior fresh source load differed only in141wing-flame pixels. Equal-depth draw ordering is consistent with the localized brightness variation and uses a mechanism already present in v0.56. Variation was observed in the candidate; the two measured baseline loads matched, so baseline variability remains an inference rather than an observed result.",
+  "runtimeChangeRequired": false,
+  "sourceHashMatchesFinal": true
+}

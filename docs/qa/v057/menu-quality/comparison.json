@@ -1,0 +1,22 @@
+{
+  "method": "Same browser,1251×930 viewport,DPR1,Good textures. Fixed original home source time1.2s. After substitutes only current presentation.js; same textures,source resolutions and layout.",
+  "errors": [],
+  "before": {
+    "width": 652,
+    "height": 644,
+    "quality": "low",
+    "cssWidth": 315.8125,
+    "cssHeight": 311.9375,
+    "arenaSha256": "46e4afb35b07bcde0a9024bdb0db62b6fc791dd13951b2402d460b824d088391"
+  },
+  "after": {
+    "width": 652,
+    "height": 644,
+    "quality": "low",
+    "cssWidth": 315.8125,
+    "cssHeight": 311.9375,
+    "arenaSha256": "d3c6a1a77a5d8ba17f348580105024be691467b6ccb90346268a48a5155c0284"
+  },
+  "release": "0.56.0",
+  "sameLayout": true
+}
