@@ -1,0 +1,138 @@
+{
+  "builtBundle": true,
+  "sourcePreview": false,
+  "url": "http://127.0.0.1:8087/",
+  "release": {
+    "version": "0.55.0",
+    "app": "app.c99cbaf49401.js",
+    "styles": "styles.cdacf7dcad18.css"
+  },
+  "loadedApp": "http://127.0.0.1:8087/app.c99cbaf49401.js",
+  "results": [
+    {
+      "entity": "Giant",
+      "state": "idle",
+      "heading": -1.5707963267948966,
+      "shadow": true,
+      "pixels": 1273,
+      "belowGround": 1245,
+      "bounds": {
+        "left": 116,
+        "right": 187,
+        "top": 108,
+        "bottom": 139
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Giant",
+      "state": "idle",
+      "heading": 0,
+      "shadow": true,
+      "pixels": 1135,
+      "belowGround": 951,
+      "bounds": {
+        "left": 116,
+        "right": 180,
+        "top": 102,
+        "bottom": 140
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Bowler",
+      "state": "attack",
+      "heading": -1.5707963267948966,
+      "shadow": true,
+      "pixels": 1056,
+      "belowGround": 1025,
+      "bounds": {
+        "left": 115,
+        "right": 178,
+        "top": 107,
+        "bottom": 137
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Bowler",
+      "state": "attack",
+      "heading": 3.141592653589793,
+      "shadow": true,
+      "pixels": 1125,
+      "belowGround": 980,
+      "bounds": {
+        "left": 107,
+        "right": 176,
+        "top": 104,
+        "bottom": 132
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Knight",
+      "state": "run",
+      "heading": 0,
+      "shadow": true,
+      "pixels": 594,
+      "belowGround": 419,
+      "bounds": {
+        "left": 118,
+        "right": 167,
+        "top": 99,
+        "bottom": 137
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Cannon",
+      "state": "idle",
+      "heading": 0,
+      "shadow": true,
+      "pixels": 1219,
+      "belowGround": 1219,
+      "bounds": {
+        "left": 125,
+        "right": 181,
+        "top": 110,
+        "bottom": 137
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Minion",
+      "state": "idle",
+      "heading": -1.5707963267948966,
+      "shadow": true,
+      "pixels": 205,
+      "belowGround": 205,
+      "bounds": {
+        "left": 137,
+        "right": 167,
+        "top": 129,
+        "bottom": 140
+      },
+      "unchanged": true
+    },
+    {
+      "entity": "Balloon",
+      "state": "idle",
+      "heading": -1.5707963267948966,
+      "shadow": true,
+      "pixels": 969,
+      "belowGround": 789,
+      "bounds": {
+        "left": 117,
+        "right": 174,
+        "top": 103,
+        "bottom": 127
+      },
+      "unchanged": true
+    }
+  ],
+  "cache": {
+    "entries": 8,
+    "pixels": 49426
+  },
+  "errors": []
+}

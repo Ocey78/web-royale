@@ -1,0 +1,17 @@
+# Source-pose troop shadows
+
+`native-silhouettes.png` is a browser rendering of the real native Giant, Bowler, Knight, Cannon, Minion and Balloon assets. Each example shows body plus shadow and, underneath, the same shadow alone. `native-report.json` records the visible mask pixels, ground-relative bounds, unchanged entity state and cache footprint.
+
+The live Bowler preview screenshots were inspected before implementation. In live frame 03 the Giant's broad body/arm shadow extends down and left, approximately 26 pixels beyond its lowest visible foot, rather than remaining a symmetric contact blob. The implemented Giant sample extends about 29 pixels below its ground anchor. Frames, facing, scale and viewport differ, so this is directional/proportional evidence rather than a pixel-match assertion.
+
+The renderer uses current native source pose alpha, or the modern renderer's original cached pose raster. Native body and shadow share pose resolution. Damage/deployment/cold tint filters, labels, and separately rendered effects do not enter the mask. Flying actors project from their ground position. Buildings can use their source silhouette; hidden/burrowed actors, attached children, effect carriers and Crown Towers are excluded from this path. Crown Tower shadow behavior is unchanged.
+
+Projection is explicitly an interpreter approximation: source ShadowScaleX/Y and ShadowSkew magnitudes control the projected shape under consistent lower-left light; signed source ShadowX/Y offsets are preserved. The current 0.42 opacity and 0.58 depth factor are visual interpretations, not claims to reproduce the original client's hidden shader. No synthetic ellipse replaces a successfully rendered source silhouette.
+
+Masks are at most 384×384 pixels. A shared LRU retains at most 96 masks or 2,097,152 pixels (8 MiB RGBA), and battle scene retention clears them. Native cache keys use authored nested clip frames, so distinct units at the same pose share a mask. Modern masks reuse the original pose image as their key. The eight native proof poses occupy 49,426 mask pixels, about 193 KiB.
+
+Verification: six focused shadow tests cover source pose/state consistency, facing, filter exclusion, no entity mutation, shared-pose reuse, cache bounds/release, modern callback/native fallback, building support and hidden exclusions. The native/frame/variant/tower/lazy-filter and battle-layer regressions also passed (30 tests together). Browser proof asserts visible masks for all eight examples, bounded cache size, no entity mutation and no page errors.
+
+The final built release was verified on 2026-10-13 at `http://127.0.0.1:8087/`: version `0.55.0`, `app.c99cbaf49401.js`, `styles.cdacf7dcad18.css`. `built/native-report.json` records `builtBundle: true` and `sourcePreview: false`, the advertised release metadata and the exact bundle requested by the browser. No module or style overrides were installed. All eight native samples passed with 8 cached masks / 49,426 pixels and no browser errors. The built `native-silhouettes.png` was inspected directly; silhouette direction, body contact and independent air-unit ground anchors remain coherent.
+
+Repeat with `SHADOW_BUILT=1`, `WEB_ROYALE_URL=http://127.0.0.1:8087/`, `EXPECTED_RELEASE=0.55.0` and `PROOF=docs/qa/v055/shadows/built`, then run `node tests/browser_shadows_v055.cjs`. Omitting `SHADOW_BUILT` retains the source-preview mode. `PROOF` selects the output directory. This native visual proof complements, but does not substitute for, the modern model renderer's separate GPU verification.

@@ -50,7 +50,7 @@ function groupLevel(c,group,alpha=1){if(!group.members.length)return false;let x
 const filterNodes=new WeakMap(),inheritedFilters=new WeakMap();
 function deployment(c,u,time){if(!ready||u.wait<=0||u.effectCarrier||u.attachedTo)return false;const name='troopDeployTimer_'+(u.team?'enemy':'player');const duration=Math.max(.01,u.readyAt-u.born),progress=Math.max(0,Math.min(1,(time-u.born)/duration));
  c.save();c.translate(u.x,u.y-RoyaleNative.entityElevation(u)-20);c.scale(.62,.62);hud.draw(c,name,0,{frame:Math.floor(progress*298)});c.restore();stats.deployDraws++;return true;}
-function shadow(c,u){if(!ready||u.building||u.attachedTo||u.hidden)return false;const name='lores_blob_shadow';if(!filters.clip(name))return false;const r=u.def.source;c.save();c.translate(u.x,u.y+2);c.scale((r.ShadowScaleX||75)/100*.48,(r.ShadowScaleY||60)/100*.28);c.globalAlpha*=.7;filters.draw(c,name,0);c.restore();stats.shadowDraws++;return true;}
+function shadow(c,u,time=0){if(!ready||u.attachedTo||u.hidden||u.burrowing||u.effectCarrier)return false;if(root.RoyaleNative?.library?.drawUnitShadow?.(c,u,time)){stats.shadowDraws++;return true;}if(u.building)return false;const name='lores_blob_shadow';if(!filters.clip(name))return false;const r=u.def.source;c.save();c.translate(u.x,u.y+2);c.scale((r.ShadowScaleX||75)/100*.48,(r.ShadowScaleY||60)/100*.28);c.globalAlpha*=.7;filters.draw(c,name,0);c.restore();stats.shadowDraws++;return true;}
 function filtered(c,u,time,paint,options={}){if(!ready||u.preview){paint(null);return;}
  // A Crown Tower paints its attached defender inside this same source filter.
  // Inherit its color without applying the timeline and its transforms twice.

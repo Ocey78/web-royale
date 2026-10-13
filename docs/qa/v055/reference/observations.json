@@ -1,0 +1,58 @@
+{
+  "access": {
+    "adb": "E:/Games/GooglePlayGamesDeveloper/current/emulator/adb.exe",
+    "serial": "localhost:6520",
+    "package": "com.supercell.clashroyale",
+    "activity": "com.supercell.titan.GameApp",
+    "installed_versionName": "160402020",
+    "installed_versionCode": "160402020",
+    "capture_command": "adb -s localhost:6520 exec-out screencap -p",
+    "native_dimensions": [
+      419,
+      633
+    ]
+  },
+  "scope": "Authorized app launch and read-only menu navigation. No purchases, claims, deck changes, settings changes, matches, messages, or login/security interactions. Ended back on home.",
+  "references": {
+    "home": "02-loaded.png",
+    "deck": "03-deck.png",
+    "collection": "04-collection.png",
+    "shop": "05-shop.png",
+    "resource_offers": "06-shop-scroll.png",
+    "hero_3d": "10-bowler-info.png",
+    "battle_preview_contact": "bowler-preview-contact.jpg",
+    "battle_preview_native_frames": "bowler-preview-00.png through bowler-preview-07.png",
+    "unchanged_deck_after": "14-deck-finished.png",
+    "finished_home": "15-home-finished.png"
+  },
+  "observations": [
+    "Home has compact single-row currency counters, banner/profile upper-left, centered3D arena on teal diamond background, event tile below arena, Battle button set into rounded blue tray, compact metallic bottom navigation.",
+    "Deck uses4x2 grid, three highlighted special slots, small gray diamond badges, progress bars immediately beneath cards, two top tabs, average elixir bottom-left, tower troop renders below divider.",
+    "Collection uses4 columns and compact horizontal category icons with a thin divider framing group labels.",
+    "Resource offers are turquoise rectangular cards in two columns; quantity gold plates stay under art and prices sit in separate dark footer rows.",
+    "Live Bowler Hero model shows purple skin, pale shorts, gold accents, yellow emissive eyes and stone-face details.",
+    "Built-in Bowler Hero gameplay preview visibly shows a directional Giant silhouette shadow with body/arm outline, plus separate displaced shadow under airborne thrown stone. A generic small symmetric blob does not reproduce this."
+  ],
+  "source_materials": {
+    "original_sc_ui_root": "E:/CodexBuilds/WebRoyale-2026-10-06-01a1127a/reference-cache-v14/raw/assets/sc",
+    "useful_sc_files": [
+      "ui_spells.sc",
+      "ui_common.sc",
+      "ui_deck_builder.sc",
+      "ui_main_screen_touchdown.sc",
+      "ui_evolution_shards.sc"
+    ],
+    "decoded_game_tables": "E:/CodexBuilds/WebRoyale-2026-10-06-01a1127a/reference-cache-v14/decoded/assets",
+    "modern_fx_source": "C:/Users/Oceyi/.codex/.chatgpt-projects/g-p-6ab30a4cba6481918c10cd093df5b570/work/modern-assets/assets",
+    "webroyale_original_asset_mapping": "E:/Projects/WebRoyale/assets/ui/manifest.json",
+    "ui_importer": "E:/Projects/WebRoyale/tools/reference-ui-assets.py",
+    "battle_geometry_reference_spec": "E:/Projects/WebRoyale/docs/superpowers/specs/2026-09-25-reference-fidelity.md",
+    "capture_adapter": "E:/Projects/py-clash-bot/pyclashbot/emulators/adb_base.py",
+    "alternative_WGC_capture": "E:/Projects/ClashRoyaleAi/perception/capture/window.py"
+  },
+  "limitations": [
+    "Current emulator resolution419x633 was not changed; use user-supplied Photos-1-001 captures for higher-resolution deck/shop edge detail.",
+    "The py-clash-bot reference_images and ClashRoyaleAi images/screen files are mostly tiny detection crops, not suitable full-screen layout references.",
+    "No claim that a source ShadowSkew or signed ShadowScaleY field independently reveals the complete native projection algorithm."
+  ]
+}

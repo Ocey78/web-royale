@@ -2,6 +2,13 @@
    come from the supplied client. Browser code has no network dependency. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleNative=api;})(globalThis,function(){'use strict';
 const I=[1,0,0,1,0,0],NONE=65535,TINT_RASTER_PIXELS=16777216;
+const UNIT_SHADOW_PIXELS=2097152,UNIT_SHADOW_ENTRIES=96;
+// The SC fields supply actor-specific proportions and offsets. Projecting the
+// screen-space pose onto the floor is an interpreter approximation: scale and
+// skew magnitudes retain actor proportions under a shared lower-left light;
+// authored signed X/Y offsets are preserved at the actor's ground position.
+function unitShadowTransform(u){const r=u.def?.source||{},number=(key,fallback)=>Number.isFinite(r[key])?r[key]:fallback;return[Math.abs(number('ShadowScaleX',85))/100,0,Math.tan(Math.min(70,Math.abs(number('ShadowSkew',25)))*Math.PI/180),-.58*Math.abs(number('ShadowScaleY',80))/100,number('ShadowX',0)*5/6,2+number('ShadowY',0)*5/6];}
+function unitShadowPoseKey(p){const frames=[],visit=(name,time,options,depth=0)=>{if(depth>20)return;const id=p.sc.id(name),clip=p.sc.clip(id);if(!clip)return;const frame=options.frame??frameAt(time,clip.fps,clip.frames.length,options.loop!==false);frames.push(id+':'+frame);for(const [child]of clip.frames[frame]||[])visit(child,time,{},depth+1);};visit(p.name,p.seconds,p.drawOptions);if(p.top)visit(p.top,p.seconds,{loop:!p.pose});return[p.sc.resourcePrefix||p.cfg.scene,p.name,p.top||'',...frames].join('|');}
 function frameAt(seconds,fps,count,loop=true){if(!count)return 0;const f=Math.max(0,Math.floor((Number.isFinite(seconds)?seconds:0)*fps+1e-7));return loop?f%count:Math.min(f,count-1)}
 function direction(dx,dy,count=9){if(!Number.isFinite(dx)||!Number.isFinite(dy))return{index:1,flip:false};count=Math.max(1,count);const a=Math.atan2(Math.abs(dx),-dy);return{index:Math.max(1,Math.min(count,1+Math.round(a/Math.PI*(count-1)))),flip:dx< -1e-9};}
 // Direction exports span north -> east -> south. Some machines have eighteen
@@ -341,7 +348,7 @@ function customSourceArenaId(layout){
 }
 function arenaLayers(a,overtime=false){const layers={Base:0,Ground:1,Object:2,Above:3};return[{name:a.export,x:0,y:0,scene:a.scene,layer:'Base'},...a.objects.filter(o=>!o.visibility||o.visibility==='Always'||(overtime?o.visibility==='Overtime':o.visibility==='NormalTime')).slice().sort((x,y)=>(layers[x.layer]??2)-(layers[y.layer]??2)||(x.sort||0)-(y.sort||0)||x.y-y.y)];}
 class Library{
- constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.decodedArt=new DecodedArtCache();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
+ constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.unitShadowCache=new Map();this.unitShadowPixels=0;this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.decodedArt=new DecodedArtCache();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
  async fetchScene(name){
   if(this.scenes[name])return this.scenes[name];if(this.pending.has(name))return this.pending.get(name);
   const pending=(async()=>{let definition=this.data.scenes[name];if(!definition)throw Error('Unknown native scene: '+name);
@@ -361,15 +368,14 @@ class Library{
   })();this.pending.set(name,pending);try{return await pending;}finally{this.pending.delete(name);}
  }
  async ensureScenes(names){const queue=[...new Set(names)];let index=0;const worker=async()=>{while(index<queue.length){const name=queue[index++];await this.fetchScene(name);}};await Promise.all(Array.from({length:Math.min(4,queue.length)},worker));return this;}
- retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();scene.releaseTextures?.();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.metricCache?.clear();}
+ retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();scene.releaseTextures?.();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.releaseUnitShadows();this.metricCache?.clear();}
  async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId,[...(battle.towers||[]).map(t=>t.entity),...(battle.seatForms||[]).flat().map(id=>battle.formRegistry?.get(id)?.source).filter(Boolean)]),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}this.touchdownSourceError=null;if(battle.arenaLayout?.touchdown&&this.data.touchdownArena){try{const optional=touchdownSceneDependencies(this.data);await this.ensureScenes(optional);if(globalThis.RoyaleCustomArena?.sourceStadiumReady&&!globalThis.RoyaleCustomArena.sourceStadiumReady(this))throw Error('Incomplete original Touchdown stadium');for(const name of optional)if(!names.includes(name))names.push(name);}catch(e){this.touchdownSourceError=e.message;}}try{await this.ensureScenes(names);await this.prewarmBattleActors(battle);await globalThis.RoyaleCustomArena?.prepareAssets?.(battle,this.assetBase,this);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}await this.fx?.prewarmSpells?.([...(battle.initialDecks?.flat()||[]),...(battle.seatForms?.flat()||[])],game);}return this;}catch(e){this.error=e.message;throw e;}}
  async prewarmBattleActors(battle){const requests=[],actors=new Set(),visit=(value,depth=0)=>{if(depth>30||value==null)return;if(Array.isArray(value)){for(const v of value)visit(v,depth+1);return;}if(typeof value==='object'){for(const v of Object.values(value))visit(v,depth+1);return;}if(typeof value==='string'&&battle.catalog?.DATA.entities[value]&&!actors.has(value)){actors.add(value);visit(battle.catalog.DATA.entities[value],depth+1);}};for(const id of battle.initialDecks?.flat()||[])visit(battle.catalog?.CARD_BY_ID[id]?.source);for(const id of battle.seatForms?.flat()||[])visit(battle.formRegistry?.get(id)?.source);if(globalThis.RoyaleModern3D)requests.push(RoyaleModern3D.prepareActors([...actors]));for(const [seat,forms]of (battle.seatForms||[]).entries())for(const id of forms){const form=battle.formRegistry?.get(id),source=form?.source||{},actor=source.SummonCharacter||source.SummonCharactersList?.[0],base=this.data.units[actor];if(!base)continue;const cfg=Number(battle.catalog?.DATA.entities[actor]?.ShieldHitpoints)>0&&base.variants?.shield?{...base,...base.variants.shield}:base,sc=this.scenes[cfg.scene];if(!sc?.lazyLoader)continue;const team=battle.teamOf(seat),heading=(team===1?Math.PI/2:-Math.PI/2)+(Number(cfg.headingOffset)||0),view=direction(Math.cos(heading),Math.sin(heading),sourceDirectionCount(cfg,sc,team)).index,name=resolveAnimation(cfg,sc,team,'idle',view);if(name)requests.push(sc.prewarm(name));}await Promise.all(requests);}
  async loadHUD(urls){this.ui={};await Promise.all(['level-crown'].map(async key=>{if(urls[key])this.ui[key]=await imageFrom(urls[key]);}));}
  async load(){try{if(!this.data.streamed)await this.ensureScenes(Object.keys(this.data.scenes));this.ready=true;return this;}catch(e){this.error=e.message;throw e;}}
  setArena(id){if(!this.data.arenas.some(a=>a.id===id))throw RangeError('Unknown arena');if(this.arenaId!==id)this.releaseArenaCache();this.arenaId=id;}
  get arena(){return this.data.arenas.find(a=>a.id===this.arenaId)}
- unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
-  const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
+ nativeUnitPose(id,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
   const base=this.data.units[id];if(!base)return false;const cfg=options.entity?.shield>0&&base.variants?.shield?{...base,...base.variants.shield}:base;const sc=this.scenes[cfg.scene];if(!sc)return false;
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';
   if(!options.entity?.visualAttackCancelled&&(options.entity?.hook||options.entity?.visualHook&&state!=='run'&&state!=='dash'))state='loading';
@@ -389,16 +395,45 @@ class Library{
    elapsed*=Math.max(.1,1+(cfg.walkTweak||0)/100);
   }
   if(globalThis.RoyaleGraphics)elapsed=globalThis.RoyaleGraphics.animationTime(elapsed);
-  c.save();c.translate(x,y-(options.height??cfg.flightHeight??0));
   const factor=scale*(5/6)*cfg.scale;
   const views=cfg.animations?.[`${team===1?1:0}:${state}`]||[],directional=new Set(views.filter(v=>v&&sc.id(v)!==undefined)).size>1;
   const rotation=!directional&&(options.entity?.def?.source?.HasRotationOnTimeline===true||cfg.rotationTimeline===true);
-  c.scale((d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*factor,factor);
-  c.filter=teamFilter(team);
-  const clip=sc.clip(name),pose=frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);if(pose?.flip)c.scale(-1,1);
-  let painted=false;const paint=color=>{painted=(sc.draw(c,name,pose?pose.frame/(clip.fps||30):elapsed,{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{}),initialColor:color})!==false)||painted;
-   const top=cfg.top?.[team];if(top&&sc.id(top)!==undefined)sc.draw(c,top,pose?pose.frame/(clip.fps||30):elapsed,{loop:!pose,initialColor:color});};
+  const clip=sc.clip(name),pose=frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);
+  const flip=(d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*(pose?.flip?-1:1);
+  return{cfg,sc,name,factor,flip,pose,seconds:pose?pose.frame/(clip.fps||30):elapsed,drawOptions:{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{})},top:cfg.top?.[team]};
+ }
+ unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
+  const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
+  const p=this.nativeUnitPose(id,team,time,state,heading,started,scale,options);if(!p)return false;
+  c.save();c.translate(x,y-(options.height??p.cfg.flightHeight??0));c.scale(p.flip*p.factor,p.factor);c.filter=teamFilter(team);
+  let painted=false;const paint=color=>{painted=(p.sc.draw(c,p.name,p.seconds,{...p.drawOptions,initialColor:color})!==false)||painted;
+   if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(c,p.top,p.seconds,{loop:!p.pose,initialColor:color});};
   if(options.entity&&globalThis.RoyalePresentation?.ready)RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);c.restore();return painted;
+ }
+ releaseUnitShadows(){for(const mask of this.unitShadowCache.values())mask.image.width=mask.image.height=1;this.unitShadowCache.clear();this.unitShadowPixels=0;}
+ unitShadowRaster(key,bounds,paint){
+  let mask=this.unitShadowCache.get(key);if(mask){this.unitShadowCache.delete(key);this.unitShadowCache.set(key,mask);return mask;}
+  if(![bounds.x,bounds.y,bounds.width,bounds.height].every(Number.isFinite)||bounds.width<=0||bounds.height<=0)return null;
+  const x=Math.floor(bounds.x)-2,y=Math.floor(bounds.y)-2,width=Math.ceil(bounds.x+bounds.width)-x+2,height=Math.ceil(bounds.y+bounds.height)-y+2,density=Math.min(1,384/width,384/height),image=canvas(width*density,height*density),c=image.getContext('2d');
+  c.setTransform(density,0,0,density,-x*density,-y*density);if(paint(c)===false){image.width=image.height=1;return null;}
+  // Color the combined alpha once. Internal layers cannot darken one another,
+  // and body damage/cold/deploy filters, labels and separate FX never enter it.
+  c.setTransform(1,0,0,1,0,0);c.globalCompositeOperation='source-in';c.fillStyle='#211915';c.fillRect(0,0,image.width,image.height);
+  mask={image,x,y,width,height,pixels:image.width*image.height};
+  while(this.unitShadowCache.size&&(this.unitShadowCache.size>=UNIT_SHADOW_ENTRIES||this.unitShadowPixels+mask.pixels>UNIT_SHADOW_PIXELS)){const oldest=this.unitShadowCache.keys().next().value,evicted=this.unitShadowCache.get(oldest);this.unitShadowPixels-=evicted.pixels;evicted.image.width=evicted.image.height=1;this.unitShadowCache.delete(oldest);}
+  this.unitShadowCache.set(key,mask);this.unitShadowPixels+=mask.pixels;return mask;
+ }
+ paintUnitShadow(c,u,mask,factor,flip=1){if(!mask)return false;c.save();c.filter='none';c.shadowBlur=0;c.globalCompositeOperation='source-over';c.globalAlpha*=.42;c.translate(u.x,u.y);c.transform(...unitShadowTransform(u));c.scale(factor*flip,factor);c.drawImage(mask.image,mask.x,mask.y,mask.width,mask.height);c.restore();return true;}
+ drawUnitShadow(c,u,time=0){
+  if(!this.ready||!u||u.hp<=0||u.king!==undefined||u.hidden||u.burrowing||u.attachedTo||u.effectCarrier)return false;
+  const state=u.wait>0?'idle':u.charged&&u.visualState==='run'?'charge':u.visualState||'idle',started=u.visualStarted||0,options={entity:u,elapsed:u.animationTime??0,idleTime:u.visualTime??0,attackDuration:u.visualDuration,height:0},modern=globalThis.RoyaleModern3D;
+  if(modern?.has(u.entity)&&modern.shadow){let painted=false;modern.shadow(c,u.entity,u.x,u.y,u.team,time,state,u.heading,started,1,{...options,paint:(ctx,raster,factor)=>{const mask=this.unitShadowRaster(raster.image,raster,m=>{m.drawImage(raster.image,raster.x,raster.y,raster.width,raster.height);});painted=this.paintUnitShadow(ctx,u,mask,factor);}});if(painted)return true;}
+  const p=this.nativeUnitPose(u.entity,u.team,time,state,u.heading,started,1,options);if(!p)return false;
+  if(!p.sc.frameReady(p.name,p.seconds,p.drawOptions)||p.top&&!p.sc.frameReady(p.top,p.seconds,{loop:!p.pose}))return false;
+  const key=unitShadowPoseKey(p);let mask=this.unitShadowCache.get(key);
+  if(mask){this.unitShadowCache.delete(key);this.unitShadowCache.set(key,mask);}else{const b=p.sc.bounds(p.name,p.seconds),top=p.top&&p.sc.id(p.top)!==undefined?p.sc.bounds(p.top,p.seconds):null,bounds=top?{x:Math.min(b.x,top.x),y:Math.min(b.y,top.y),width:Math.max(b.x+b.width,top.x+top.width)-Math.min(b.x,top.x),height:Math.max(b.y+b.height,top.y+top.height)-Math.min(b.y,top.y)}:b;
+   mask=this.unitShadowRaster(key,bounds,m=>{const painted=p.sc.draw(m,p.name,p.seconds,p.drawOptions);if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(m,p.top,p.seconds,{loop:!p.pose});return painted;});}
+  return this.paintUnitShadow(c,u,mask,p.factor,p.flip);
  }
  // A stable head anchor measured from the original idle views, independent of
  // the current attack frame. This keeps health bars from bouncing with swings.
@@ -524,4 +559,4 @@ class Library{
  }
  summary(){return{ready:this.ready,error:this.error,arenas:this.data.arenas.length,units:Object.keys(this.data.units).length,textures:this.loadedTextures,residentTextures:this.textureImages.size,residentScenes:Object.keys(this.scenes).length,shapeCache:[...Object.values(this.scenes)].reduce((n,s)=>n+s.cache.size,0),frameSamples:[...Object.values(this.scenes)].reduce((n,s)=>n+s.frameSamples.size,0)}}
 }
-return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});
+return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,unitShadowTransform,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});

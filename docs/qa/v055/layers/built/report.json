@@ -1,0 +1,40 @@
+{
+  "mode": "built-release",
+  "errors": [],
+  "screenshots": [
+    "home.png",
+    "home-390.png",
+    "home-1440.png",
+    "battle.png"
+  ],
+  "version": "0.55.0",
+  "layout390": {
+    "overflow": false,
+    "navInside": true,
+    "battleInside": true
+  },
+  "layout1440": {
+    "overflow": false,
+    "navInside": true,
+    "battleInside": true
+  },
+  "actors": [
+    "Knight",
+    "Giant",
+    "Musketeer",
+    "BabyDragon",
+    "Skeleton",
+    "Golem",
+    "Knight",
+    "Giant",
+    "Musketeer",
+    "BabyDragon",
+    "Skeleton",
+    "Golem",
+    "KnightHero",
+    "BowlerHero",
+    "KnightHero",
+    "BowlerHero"
+  ],
+  "passed": true
+}

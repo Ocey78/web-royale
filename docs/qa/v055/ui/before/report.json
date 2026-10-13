@@ -1,0 +1,313 @@
+{
+  "baseline": true,
+  "errors": [],
+  "screenshots": [
+    "deck-active.png",
+    "deck-inactive.png",
+    "collection.png",
+    "shop-cards.png",
+    "phone-deck.png",
+    "phone-shop.png"
+  ],
+  "metrics": {
+    "deck": {
+      "gridWidth": 516,
+      "padding": "42px 62px 35.3px",
+      "cards": [
+        {
+          "x": 64,
+          "y": 44,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 164,
+          "y": 44,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 264,
+          "y": 44,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 364,
+          "y": 44,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 64,
+          "y": 230,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 164,
+          "y": 230,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 264,
+          "y": 230,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        },
+        {
+          "x": 364,
+          "y": 230,
+          "width": 88,
+          "height": 154,
+          "artWidth": 86,
+          "artHeight": 106
+        }
+      ],
+      "background": "none",
+      "allVisible": true,
+      "screenCardFraction": 0.15925925925925927
+    },
+    "shop": [
+      {
+        "title": "Hog Rider",
+        "titleSize": 16,
+        "raritySize": 13.870640027091094,
+        "portrait": {
+          "top": 150.390625,
+          "bottom": 293.390625,
+          "width": 108,
+          "height": 143
+        },
+        "progress": {
+          "top": 303.390625,
+          "bottom": 323.390625,
+          "width": 133,
+          "height": 20
+        },
+        "price": {
+          "top": 328.390625,
+          "bottom": 370.390625,
+          "width": 146,
+          "height": 42
+        },
+        "ordered": true,
+        "priceInside": false
+      },
+      {
+        "title": "Bats",
+        "titleSize": 16,
+        "raritySize": 13.89505165186925,
+        "portrait": {
+          "top": 150.390625,
+          "bottom": 293.390625,
+          "width": 108,
+          "height": 143
+        },
+        "progress": {
+          "top": 303.390625,
+          "bottom": 323.390625,
+          "width": 133,
+          "height": 20
+        },
+        "price": {
+          "top": 328.390625,
+          "bottom": 370.390625,
+          "width": 146,
+          "height": 42
+        },
+        "ordered": true,
+        "priceInside": false
+      },
+      {
+        "title": "Giant Snowball",
+        "titleSize": 16,
+        "raritySize": 13.89505165186925,
+        "portrait": {
+          "top": 150.390625,
+          "bottom": 293.390625,
+          "width": 108,
+          "height": 143
+        },
+        "progress": {
+          "top": 303.390625,
+          "bottom": 323.390625,
+          "width": 133,
+          "height": 20
+        },
+        "price": {
+          "top": 328.390625,
+          "bottom": 370.390625,
+          "width": 146,
+          "height": 42
+        },
+        "ordered": true,
+        "priceInside": false
+      },
+      {
+        "title": "Inferno Tower",
+        "titleSize": 16,
+        "raritySize": 13.870640027091094,
+        "portrait": {
+          "top": 450.390625,
+          "bottom": 593.390625,
+          "width": 108,
+          "height": 143
+        },
+        "progress": {
+          "top": 603.390625,
+          "bottom": 623.390625,
+          "width": 133,
+          "height": 20
+        },
+        "price": {
+          "top": 628.390625,
+          "bottom": 670.390625,
+          "width": 146,
+          "height": 42
+        },
+        "ordered": true,
+        "priceInside": false
+      },
+      {
+        "title": "P.E.K.K.A",
+        "titleSize": 16,
+        "raritySize": 13.937908252085583,
+        "portrait": {
+          "top": 450.390625,
+          "bottom": 593.390625,
+          "width": 108,
+          "height": 143
+        },
+        "progress": {
+          "top": 603.390625,
+          "bottom": 623.390625,
+          "width": 133,
+          "height": 20
+        },
+        "price": {
+          "top": 628.390625,
+          "bottom": 670.390625,
+          "width": 146,
+          "height": 42
+        },
+        "ordered": true,
+        "priceInside": false
+      },
+      {
+        "title": "Skeleton Barrel",
+        "titleSize": 16,
+        "raritySize": 13.89505165186925,
+        "portrait": {
+          "top": 450.390625,
+          "bottom": 593.390625,
+          "width": 108,
+          "height": 143
+        },
+        "progress": {
+          "top": 603.390625,
+          "bottom": 623.390625,
+          "width": 133,
+          "height": 20
+        },
+        "price": {
+          "top": 628.390625,
+          "bottom": 670.390625,
+          "width": 146,
+          "height": 42
+        },
+        "ordered": true,
+        "priceInside": false
+      }
+    ],
+    "phoneDeck": {
+      "gridWidth": 515.999985914964,
+      "padding": "42px 62px 35.3px",
+      "cards": [
+        {
+          "x": 64.00000146719125,
+          "y": 43.99999060997596,
+          "width": 87.99999706561749,
+          "height": 154.00000939002405,
+          "artWidth": 85.9999994131235,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 163.99999501154974,
+          "y": 43.99999060997596,
+          "width": 87.99999178372897,
+          "height": 154.00000939002405,
+          "artWidth": 86.00000469501202,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 263.99999383779675,
+          "y": 43.99999060997596,
+          "width": 88.00000234750601,
+          "height": 154.00000939002405,
+          "artWidth": 85.99998356745793,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 363.99998210026666,
+          "y": 43.99999060997596,
+          "width": 88.0000234750601,
+          "height": 154.00000939002405,
+          "artWidth": 86.00000469501202,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 64.00000146719125,
+          "y": 230.00000469501202,
+          "width": 87.99999706561749,
+          "height": 154.00000939002405,
+          "artWidth": 85.9999994131235,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 163.99999501154974,
+          "y": 230.00000469501202,
+          "width": 87.99999178372897,
+          "height": 154.00000939002405,
+          "artWidth": 86.00000469501202,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 263.99999383779675,
+          "y": 230.00000469501202,
+          "width": 88.00000234750601,
+          "height": 154.00000939002405,
+          "artWidth": 85.99998356745793,
+          "artHeight": 106.0000234750601
+        },
+        {
+          "x": 363.99998210026666,
+          "y": 230.00000469501202,
+          "width": 88.0000234750601,
+          "height": 154.00000939002405,
+          "artWidth": 86.00000469501202,
+          "artHeight": 106.0000234750601
+        }
+      ],
+      "background": "none",
+      "allVisible": true,
+      "screenCardFraction": 0.15925925817245093
+    }
+  },
+  "passed": true
+}

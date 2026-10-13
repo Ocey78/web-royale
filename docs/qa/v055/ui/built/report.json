@@ -1,0 +1,101 @@
+{
+  "sourcePreview": false,
+  "errors": [],
+  "screenshots": [
+    "deck-active.png",
+    "deck-inactive.png",
+    "collection-unlocked.png",
+    "collection-locked.png",
+    "shop-cards.png",
+    "shop-tower-skins.png",
+    "other-modes.png",
+    "four-card-deck.png",
+    "battle-cycles-0.png",
+    "battle-cycles-1.png",
+    "battle-cycles-2.png",
+    "phone-deck.png"
+  ],
+  "passed": true,
+  "activeSlots": [
+    {
+      "kind": "evolution",
+      "status": "active",
+      "frame": "card-frame-evolution-active",
+      "progress": true,
+      "active": [
+        "Snowball_EV1"
+      ]
+    },
+    {
+      "kind": "hero",
+      "status": "active",
+      "frame": "card-frame-hero-active",
+      "progress": true,
+      "active": [
+        "Knight_hero"
+      ]
+    },
+    {
+      "kind": "wild",
+      "status": "active",
+      "frame": "card-frame-evolution-active",
+      "progress": true,
+      "active": [
+        "Wizard_EV1"
+      ]
+    }
+  ],
+  "formPortraits": [
+    "modern-form-Snowball_EV1",
+    "modern-form-Knight_hero",
+    "modern-form-Wizard_EV1"
+  ],
+  "shop": {
+    "quantityInside": true,
+    "progressBelow": true,
+    "priceBelow": true
+  },
+  "towerPreviews": [
+    {
+      "canvasHeight": 195.75,
+      "nameHeight": 47.25,
+      "separated": true,
+      "edgePixels": 0
+    },
+    {
+      "canvasHeight": 195.75,
+      "nameHeight": 47.25,
+      "separated": true,
+      "edgePixels": 0
+    },
+    {
+      "canvasHeight": 195.75,
+      "nameHeight": 47.25,
+      "separated": true,
+      "edgePixels": 0
+    }
+  ],
+  "modes": [
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(142, 86, 204), rgb(82, 45, 134))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(142, 86, 204), rgb(82, 45, 134))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(142, 86, 204), rgb(82, 45, 134))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(53, 141, 170), rgb(32, 87, 111))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(53, 141, 170), rgb(32, 87, 111))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(53, 141, 170), rgb(32, 87, 111))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(53, 141, 170), rgb(32, 87, 111))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(167, 76, 192), rgb(106, 39, 137))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(167, 76, 192), rgb(106, 39, 137))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(167, 76, 192), rgb(106, 39, 137))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(167, 76, 192), rgb(106, 39, 137))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(167, 76, 192), rgb(106, 39, 137))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(167, 76, 192), rgb(106, 39, 137))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.086), rgba(0, 0, 0, 0) 45%), linear-gradient(rgb(42, 135, 206), rgb(23, 82, 146))"
+  ]
+}

@@ -1,11 +1,43 @@
-/* Reference card presentation. Slot eligibility and card activation are separate. */
-#viewport .card-tile.special-slot{padding-bottom:0;border:0;border-radius:12px;background:linear-gradient(180deg,#34217eaa,#37289688);box-shadow:inset 0 0 12px 2px #bb32f6,inset 0 -3px #d854ff,0 2px #6822ae;isolation:isolate}
+/* Deck and collection proportions follow the four-column reference. The old
+   fixed 62px deck gutters reduced portraits to 16% of the logical screen. */
+#viewport .reference-cards #deckRegion{padding:0 0 8px;margin:0 0 12px;border:0;border-radius:0;background:linear-gradient(#102360,#172f77 48%,#284891);box-shadow:inset 0 -3px #385caf;color:#fff}
+#viewport .reference-cards #deckRegion:after{content:none}
+#viewport .reference-cards .deck-segments{border-bottom-color:#6471ff;background:linear-gradient(transparent,#0b224477)}
+#viewport .reference-cards .deck-segments button.selected{border-color:#536aff;background:linear-gradient(#305cec,#293acb 35%,#2524a7);box-shadow:inset 0 5px #496cef,0 -2px #10205b}
+#viewport .reference-cards .deck-toolbar{margin:0;border:0;border-radius:0;background:linear-gradient(#393adc,#2b25b3);box-shadow:inset 0 4px #6560ef,inset 0 -4px #191783;padding-left:12px;padding-right:12px}
+#viewport .reference-cards .deck-tabs .deck-tab{border:2px solid #084c69;background:linear-gradient(#1be2b0 0 7%,#00bc8d 12% 75%,#009370 76%);box-shadow:inset 0 2px #50f3c5,0 3px #09244c}
+#viewport .reference-cards .deck-tabs .deck-tab.active{border-color:#ffdc69;background:linear-gradient(#ffe589 0 8%,#ffca35 12% 77%,#e9a021 78%);box-shadow:inset 0 2px #fff2a6,0 3px #a46e15}
+#viewport .reference-cards #deckFormButton{border-color:#8582f3;background:linear-gradient(#4946b7,#363392);box-shadow:inset 0 1px #b4a8ff44;font-size:14px}
+#viewport .reference-cards #deckGrid{height:430px;padding:16px 12px 14px;gap:20px 8px;border:0;background:transparent;box-shadow:none;grid-template-columns:repeat(4,minmax(0,1fr))}
+#viewport .reference-cards #deckGrid .card-tile{height:190px;min-width:0}
+#viewport .reference-cards #deckGrid .card-tile>.card-visual{top:24px;left:5px;right:auto;bottom:auto;width:calc(100% - 10px);height:auto;aspect-ratio:258/318;transform:none}
+#viewport .reference-cards #deckGrid .card-tile>.card-visual.legendary{top:15px;aspect-ratio:259/352}
+#viewport .reference-cards #deckGrid .card-tile .cost{width:32px;height:41px;left:0;top:20px;font-size:26px;z-index:6}
+#viewport .reference-cards .card-tile>.card-visual>.card-level{height:27px;min-height:27px;bottom:5%;left:5%;right:5%;font-size:20px;line-height:27px}
+#viewport .reference-cards .card-level>.royale-label{font-size:20px}
+#viewport .reference-cards .card-progress.original{height:39px;bottom:-1px;left:0;right:0}
+#viewport .reference-cards .card-progress.original>b{height:19px;font-size:13px;line-height:19px}
+#viewport .reference-cards .card-progress.original>b canvas{max-height:21px}
+#viewport .reference-cards .deck-footer{height:62px;margin:0;padding:5px 16px 8px;background:none;border-radius:0;box-shadow:none}
+#viewport .reference-cards .average-chip{min-width:112px;border:2px solid #18346f;border-radius:15px;background:linear-gradient(#324783,#233870);box-shadow:inset 0 2px #6473aa77,0 2px #5270b0;font-size:28px}
+#viewport .reference-cards .average-chip img{width:30px;height:35px}
+#viewport .reference-cards .deck-name-label input{background:#172e64;border-color:#4872b1;border-top-color:#7499d3;box-shadow:inset 0 2px #0b2048}
+#viewport .reference-cards .collection-grid{padding-top:23px;row-gap:23px;background-image:linear-gradient(#09527d,#0f6c9c),var(--ui-ref-deck-bg);background-size:100% 100%,540px 1080px;background-blend-mode:screen}
+#viewport .reference-cards .collection-header,#viewport .reference-cards .deck-pool-header{background:linear-gradient(#124770,#10385e);box-shadow:inset 0 2px #397aa344,0 3px #082a4b}
+
+/* Slot eligibility remains visible even when no variant is equipped. */
+#viewport .card-tile.special-slot{padding-bottom:0;border:0;border-radius:15px;background:radial-gradient(ellipse at 50% 25%,#7a40cda8,transparent 72%),linear-gradient(#452991b0,#412783b8);box-shadow:inset 0 0 0 1px #c57aff,inset 0 0 14px 3px #a128db,inset 0 -4px #e15aff,0 3px #6920a3;isolation:isolate}
 #viewport .card-tile.slot-hero{background:linear-gradient(180deg,#443472aa,#3b308588);box-shadow:inset 0 0 12px 2px #ffcf47,inset 0 -3px #ffbd25,0 2px #96600e}
 #viewport .card-tile.slot-wild{background:linear-gradient(100deg,#58359688,#363c7b88,#9f792988);box-shadow:inset 6px 0 11px -3px #d02afa,inset -6px 0 11px -3px #ffce49,inset 0 -3px #e8a7e5,0 2px #6e39a6}
 #viewport .card-tile.slot-locked{box-shadow:inset 0 0 9px #977bb766,inset 0 -2px #92859f;background:#27285080}
 #viewport .card-tile.special-slot .slot-caption{position:absolute;width:1px;height:1px;min-height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #viewport .card-tile.special-slot .card-visual{overflow:visible}
-#viewport .card-tile .card-level{background:repeating-linear-gradient(120deg,#ffffff12 0 6px,transparent 6px 12px),linear-gradient(#318cccbb,#145ca1dd);border-radius:0 0 4px 4px;color:#9ed8ff}
+#viewport .card-tile.slot-active{box-shadow:inset 0 0 0 1px #ffb5ff,inset 0 0 16px 4px #b81ae9,inset 0 -4px #e45cfa,0 3px #7826bc}
+#viewport .card-tile.slot-hero.slot-active{box-shadow:inset 0 0 0 1px #fff1ae,inset 0 0 17px 4px #eebb48,inset 0 -4px #ffdc60,0 3px #a06d21}
+#viewport .card-tile.slot-wild.slot-active{box-shadow:inset 0 0 0 1px #ffcde9,inset 7px 0 15px -1px #e63aff,inset -7px 0 15px -1px #ffd65b,inset 0 -4px #e899f5,0 3px #784cb0}
+#viewport .card-tile.slot-active .card-visual:after{content:"";position:absolute;inset:4% 3% 1%;z-index:3;border:2px solid #fff2ff;border-radius:9px;box-shadow:0 0 3px 1px #fff,0 0 8px 3px #ef50ff,inset 0 0 6px #fb7fff;pointer-events:none}
+#viewport .card-tile.slot-active .card-visual.card-type-hero:after{border-color:#fffbc7;box-shadow:0 0 3px 1px #fffca5,0 0 8px 3px #ffca25,inset 0 0 6px #ffdf5c}
+#viewport .card-tile .card-level{background:repeating-linear-gradient(120deg,#ffffff20 0 7px,transparent 7px 14px),linear-gradient(#389ed1db,#136ea8ee);border-radius:0 0 4px 4px;color:#a7ddff}
 #viewport .card-tile .rare .card-level{background:repeating-linear-gradient(120deg,#ffffff12 0 6px,transparent 6px 12px),linear-gradient(#d79340bb,#a85e19dd);color:#ffdd89}
 #viewport .card-tile .epic .card-level{background:repeating-linear-gradient(120deg,#ffffff12 0 6px,transparent 6px 12px),linear-gradient(#b954d6bb,#913cafdd);color:#f5b5ff}
 #viewport .card-tile .legendary .card-level{background:repeating-linear-gradient(120deg,#ffffff12 0 6px,transparent 6px 12px),linear-gradient(#75c5cfbb,#538dbeee);color:#d3fdff}
@@ -16,6 +48,8 @@
 .variant-roof.variant-locked{--roof-top:#636775;--roof-bottom:#34384c}
 .variant-roof.variant-active{filter:drop-shadow(0 0 3px #f686ff)}
 .variant-roof.hero.variant-active{filter:drop-shadow(0 0 3px #ffdc51)}
+.variant-roof.variant-active:after{background:linear-gradient(#fff3ff 0 8%,#d460ff 15%,#9404d8 57%,#fa8dff 88%,#fff1ff 93%)}
+.variant-roof.hero.variant-active:after{background:linear-gradient(#fffbd6 0 8%,#ffe35c 15%,#f4a400 57%,#ffdb49 88%,#fff8c2 93%)}
 .variant-gems{position:absolute;z-index:1;left:0;right:0;top:34%;height:62%;display:flex;justify-content:center;align-items:center;gap:12%}
 .variant-diamond{--gem-light:#f294ff;--gem-dark:#7807c9;display:block;width:22%;aspect-ratio:1;box-sizing:border-box;flex:none;transform:rotate(45deg);border:2px solid #ffc53a;border-radius:23%;background:conic-gradient(from -45deg,#fff3ba 0 25%,var(--gem-light) 25% 50%,var(--gem-dark) 50% 75%,#b947f0 75%);box-shadow:0 0 0 1px #7d4d18,inset 0 0 0 1px #fff0a8;position:relative}
 .variant-diamond.hero{--gem-light:#fff576;--gem-dark:#f18a00;background:conic-gradient(from -45deg,#fffcca 0 25%,#ffd93d 25% 50%,#e58200 50% 75%,#ffbb22 75%)}
@@ -28,31 +62,37 @@
 #viewport .hand-card:has(.evolution-cycle-tab){overflow:visible}
 #viewport .hand-card .evolution-cycle-tab~.card-level{display:none}
 
-/* Shop offers retain the established grid and height, with reference hierarchy. */
+/* Shop offers keep their three-column grid, with space for larger source lettering. */
+#viewport .reference-shop .shop-deals-section{padding:10px 10px 15px;border:0;border-radius:0;background:linear-gradient(#3d878899,#2b6c7799);box-shadow:none}
+#viewport .reference-shop .shop-deals-section:before{content:none}
+#viewport .reference-shop .shop-grid{gap:12px 9px}
+#viewport .reference-shop .card-shop-offer,#viewport .reference-shop .daily-free-offer{height:322px;padding:12px 8px 11px}
 #viewport .reference-shop .shop-offer{border:2px solid #202b40!important;border-top:2px solid #202b40!important;border-radius:12px!important;background:linear-gradient(100deg,#a9bee9,#bed0ef 10%,#b6c9ef 88%,#a0b5df)!important;box-shadow:inset 0 3px 1px #edf5ff, inset 0 -6px #7c91c2,0 3px #182335!important;color:#fff}
-#viewport .reference-shop .shop-offer:before{content:"";position:absolute;top:8px;right:12px;width:5px;height:8px;border-radius:50%;background:#eff5ffc7;transform:rotate(-25deg);pointer-events:none}
+#viewport .reference-shop .shop-offer:before{content:"";position:absolute;left:auto;top:8px;right:12px;width:5px;height:8px;border-radius:50%;background:#eff5ffc7;transform:rotate(-25deg);pointer-events:none}
 #viewport .reference-shop .shop-offer h3,#viewport .reference-shop .shop-offer[data-rarity] h3{color:#fff;font-size:16px;line-height:18px;text-shadow:0 2px #15182a,1px 0 #15182a,-1px 0 #15182a;font-weight:900}
+#viewport .reference-shop .card-shop-offer[data-rarity] h3,#viewport .reference-shop .daily-free-offer h3{font-size:20px;line-height:22px;height:41px;min-height:41px}
 #viewport .reference-shop .shop-offer .offer-rarity{font-size:14px;color:#8ad7ff;font-weight:900;height:21px;min-height:21px;text-shadow:0 1px #172137}
 #viewport .reference-shop .offer-rarity .royale-label{font-size:14px;height:20px}
+#viewport .reference-shop .card-shop-offer .offer-rarity,#viewport .reference-shop .card-shop-offer .offer-rarity .royale-label{max-width:100%;font-size:20px;height:27px;min-height:27px}
 #viewport .reference-shop .shop-offer.rare .offer-rarity{color:#ffd76d}
 #viewport .reference-shop .shop-offer.epic .offer-rarity{color:#f0a7ff}
 #viewport .reference-shop .shop-offer.legendary .offer-rarity{color:#c6ffde}
-#viewport .reference-shop .card-shop-offer .offer-portrait{width:108px;max-width:88%;height:143px;min-height:143px;margin:5px auto 10px;overflow:visible}
+#viewport .reference-shop .card-shop-offer .offer-portrait{width:120px;max-width:92%;height:148px;min-height:148px;margin:6px auto 10px;overflow:visible}
 #viewport .reference-shop .card-shop-offer.rare .offer-portrait{filter:drop-shadow(0 0 2px #f88928)}
 #viewport .reference-shop .card-shop-offer.epic .offer-portrait{filter:drop-shadow(0 0 3px #bf05fa)}
 #viewport .reference-shop .card-shop-offer .offer-quantity{position:absolute;z-index:4;left:0;right:0;bottom:8px;height:33px;min-height:0;margin:0;color:#fff;line-height:33px;text-shadow:0 3px #090d15,2px 0 #090d15,-2px 0 #090d15;pointer-events:none}
 #viewport .reference-shop .card-shop-offer .offer-quantity b{font-size:34px;line-height:33px;font-weight:900;letter-spacing:-1px}
-#viewport .reference-shop .offer-copy-progress{height:20px;min-height:20px;width:calc(100% - 13px);margin:0 0 5px 10px;border:2px solid #1b253c;border-radius:2px;background:linear-gradient(#738496,#b8c6d4);box-shadow:inset 0 2px #25364a,0 1px #f4f7ff;overflow:visible;color:#e8fcff;text-shadow:1px 1px #10182c,-1px -1px #10182c}
-#viewport .reference-shop .offer-copy-progress b{font-size:13px;line-height:16px}
+#viewport .reference-shop .offer-copy-progress{height:23px;min-height:23px;width:calc(100% - 15px);margin:0 0 5px 10px;border:2px solid #1b253c;border-radius:3px;background:linear-gradient(#607491,#b0c0d7);box-shadow:inset 0 2px #25364a,0 1px #f4f7ff;overflow:visible;color:#e8fcff;text-shadow:1px 1px #10182c,-1px -1px #10182c}
+#viewport .reference-shop .offer-copy-progress b{font-size:16px;line-height:19px}
 #viewport .reference-shop .offer-copy-progress i{background:linear-gradient(#88f3ff,#1eaedf)}
 #viewport .reference-shop .offer-copy-progress.ready i{background:linear-gradient(#76ff7a,#1bd133)}
 #viewport .reference-shop .offer-copy-progress .upgrade-arrow{width:25px;height:29px;left:-13px;top:-7px;background:linear-gradient(#72eeff,#04aeeb);filter:drop-shadow(0 1px #102ec9)}
 #viewport .reference-shop .offer-copy-progress.ready .upgrade-arrow{background:linear-gradient(#b1ff74,#36e117)}
 #viewport .reference-shop .offer-price{background:none;border:0;padding:0 1px 5px;height:42px;min-height:42px;color:#fff;text-shadow:0 3px #15182a,2px 0 #15182a,-2px 0 #15182a;gap:5px}
-#viewport .reference-shop .offer-price strong{font-size:32px;line-height:36px}
+#viewport .reference-shop .offer-price strong{font-size:36px;line-height:40px}
 #viewport .reference-shop .offer-price>img{width:26px;height:30px;flex-basis:26px}
 #viewport .reference-shop .daily-free-offer:not(.purchased){background:linear-gradient(100deg,#52df94,#8bf2b0 13%,#66e89d 87%,#43ca83)!important;box-shadow:inset 0 3px #b1ffd3,inset 0 -6px #2ba568,0 3px #15372b!important}
-#viewport .reference-shop .daily-free-offer .daily-reward-art{width:94%;height:143px;min-height:143px;margin-top:13px;border:3px solid #273440;border-radius:10px;background:linear-gradient(#5b718f,#566b89 60%,#aaa996);box-shadow:inset 0 3px #fff,inset 0 -3px #ced9e5}
+#viewport .reference-shop .daily-free-offer .daily-reward-art{width:94%;height:157px;min-height:157px;margin-top:26px;border:3px solid #273440;border-radius:10px;background:linear-gradient(#5b718f,#566b89 60%,#aaa996);box-shadow:inset 0 3px #fff,inset 0 -3px #ced9e5}
 #viewport .reference-shop .daily-free-offer .daily-reward-art>img{max-height:125px}
 #viewport .reference-shop .daily-free-offer>.native-button{background:none!important;box-shadow:none!important;font-size:29px;text-shadow:0 2px #13231a,2px 0 #13231a,-2px 0 #13231a}
 #viewport .reference-shop .daily-free-offer p{color:#0a4632;font-weight:800;margin-top:4px}
@@ -63,6 +103,7 @@
 #viewport .reference-shop .tower-shop-preview canvas{width:100%;height:100%;max-height:100%;object-fit:contain;min-height:0;align-self:stretch}
 #viewport .reference-shop .tower-shop-preview strong{display:flex;align-items:center;justify-content:center;min-height:0;line-height:18px;font-size:15px;color:#fff;text-shadow:0 2px #162440;overflow-wrap:anywhere}
 #viewport .reference-shop .tower-skin-offers .offer-price{flex:none;margin-top:6px}
+@media(max-width:430px){#viewport .reference-shop .shop-offer .offer-title{font-size:20px!important}#viewport .reference-cards #deckRegion{padding-left:0;padding-right:0}}
 
 /* Other modes use saturated panels and metal rims without moving controls. */
 #viewport #eventsContent .mode-group{--mode-top:#2a87ce;--mode-bottom:#175292;background:linear-gradient(#194f7e,#113b65);border-color:#3879ae;border-top-color:#83c7f0;color:#fff;box-shadow:inset 0 2px #88c9ef66,inset 0 -4px #092a50,0 5px #081d38}

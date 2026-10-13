@@ -1,0 +1,18 @@
+{
+  "version": "0.55.0",
+  "releaseSha256": "4c1781be775d2439c046b940c42cb54bdcd1c10eeaa128ab33e2e2de9f0337e3",
+  "app": "app.c99cbaf49401.js",
+  "styles": "styles.cdacf7dcad18.css",
+  "normalizedModuleSha256": {
+    "draw": "3fcf3592329052af62d17892d746cb8809cc047a3e20d04c42288e9c0ad98481",
+    "native": "5c7521e9f7bdf89e71631b530c737f761ce9921e3938d5cda53f4e6e7dc17037",
+    "modern-3d": "ce5fd87843ebb2bda1c6cdf057c1eca27bad3666b18ba10e9cf619d887820130",
+    "presentation": "2c73a40b29d04efa11a63cb7755ce6bb0a6d85909b946705a1a4ce6020aa2673",
+    "app": "d4a8e456c32cc5c4d8842d2dd006321a3fee96221e61f9c10763953b071916f9",
+    "battle": "684551981e2b3636decd8faf1c24d4b9c73b06083e67933ddbc70f4b8f13f1c2",
+    "fx": "a4589a9625ded55c07dd3312610d7159bff6d77bda2c56f712f8641f9ce694d5",
+    "modern-spells": "2da6976ae0892b13c6d08ab8cb4d50e3185cc51f478e41e53f2d3fb518f612ca"
+  },
+  "verifiedAssetCount": 2142,
+  "totalBytes": 966770087
+}

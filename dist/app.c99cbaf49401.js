@@ -2827,7 +2827,29 @@ function clipPose(clip,elapsed,state,attack=null,attackDuration=0,descriptor={})
   else if(attackDuration>0){done=t>=attackDuration;t*=(end-start+1)/fps/attackDuration;}else {done=t>=duration;t*=speed;}
  }else {done=oneShot&&t>=duration;t*=speed;}
  if(oneShot)t=Math.min(last,t);else t%=((end-start+1)/fps);
- const frame=Math.max(start,Math.min(end,start+Math.floor(t*fps+1e-7)));return {frame,time:frame/fps,done,duration};
+ const frame=Math.max(start,Math.min(end,start+Math.floor(t*fps+1e-7)));return {frame,time:start/fps+t,done,duration};
+}
+// Authored transitions retain only the previous presented pose. Absolute time
+// makes shadow/body sampling idempotent and clears future poses on replay seek.
+class PoseHistory{
+ constructor({maxUnits=64}={}){this.maxUnits=maxUnits;this.entries=new Map();}
+ get size(){return this.entries.size;}
+ clear(){this.entries.clear();}
+ sample(id,activation,now,partPoses,parts,attack=null){
+  if(id===undefined||!Number.isFinite(now))return[];
+  let old=this.entries.get(id);if(old&&(now<old.time||now-old.time>.5)){this.entries.delete(id);old=null;}
+  let transitions=old?.transitions||[];
+  if(old&&old.activation!==activation){transitions=[];for(let index=0;index<partPoses.length;index++){
+   const from=old.poses[index],to=partPoses[index];if(!from||!to||from.name===to.name)continue;
+   const states=parts[index]?.asm?.States||[],incoming=states.find(s=>s.Name===to.name),outgoing=states.find(s=>s.Name===from.name),times=[incoming?.TransInTime,outgoing?.TransOutTime].filter(v=>Number(v)>0);
+   let duration=times.length?Math.min(...times):0;if(attack)duration=Math.min(duration,Math.max(0,Number(attack.windup)||0));
+   if(duration>0)transitions.push({index,from:{...from},born:now,duration});
+  }}
+  transitions=transitions.filter(t=>now-t.born<t.duration);
+  this.entries.delete(id);this.entries.set(id,{activation,time:now,poses:partPoses.map(p=>p&&({...p})),transitions});
+  while(this.entries.size>this.maxUnits)this.entries.delete(this.entries.keys().next().value);
+  return transitions.map(t=>({index:t.index,from:t.from,weight:Math.max(0,Math.min(1,(now-t.born)/t.duration))}));
+ }
 }
 function meshVisibility(metadata,name,frame){
  const result={};for(const event of metadata.asm?.States?.find(s=>s.Name===name)?.Events||[]){
@@ -2929,12 +2951,12 @@ class ActorCache{
  stats(){return {activeActors:[...this.active].filter(id=>this.entries.has(id)).length,activeRequested:this.active.size,inactiveActors:[...this.entries.keys()].filter(id=>!this.active.has(id)).length,actorTarget:this.maxActors,overActorLimit:Math.max(0,this.size-this.maxActors),overBudgetBytes:Math.max(0,this.bytes-this.budget)};}
 }
 let manifest={heroes:{},errors:{}},assetBase='assets/modern-heroes/',vendorBase='assets/vendor/three/',configured=Promise.resolve(),onError=null,error=null,contextLost=false,enginePromise=null,T,loader,textureLoader,renderer,scene,camera,ambient,sun;
-const actors=new ActorCache(),pending=new Map(),failed=new Map(),metrics=new Map(),poses=new PoseCache();let renders=0,hits=0,generation=0;
+const actors=new ActorCache(),pending=new Map(),failed=new Map(),metrics=new Map(),poses=new PoseCache(),poseHistory=new PoseHistory();let renders=0,hits=0,generation=0;
 function report(e,id){const message=`Original 3D art${id?' for '+id:''}: ${e?.message||e}`;error=message;if(id)failed.set(id,message);if(onError)onError(message,id);return message;}
 function localURL(file,base=assetBase){return new URL(file,new URL(base,root.document?.baseURI||root.location?.href||'http://localhost/')).href;}
 function configure(value,base='assets/modern-heroes/',options={}){
  generation++;assetBase=base;vendorBase=options.vendorBase||'assets/vendor/three/';onError=options.onError||null;error=null;failed.clear();poses.clear();
- actors.clear();pending.clear();metrics.clear();fxHistory.clear();fxSprites=0;
+ actors.clear();pending.clear();metrics.clear();fxHistory.clear();poseHistory.clear();fxSprites=0;
  if(typeof value==='string')configured=fetch(localURL(value,'')).then(r=>{if(!r.ok)throw Error('manifest '+r.status);return r.json();}).then(v=>{manifest=v;return manifest;}).catch(e=>{report(e);throw e;});
  else{manifest=value||{heroes:{},errors:{}};configured=Promise.resolve(manifest);}return configured;
 }
@@ -2951,12 +2973,40 @@ async function engine(){
  })().catch(e=>{report(e);throw e;});return enginePromise;
 }
 function lightFromPrefab(prefab){let found;const visit=node=>{for(const c of node?.components||[])if(c.objectType===5007&&!found)found={...c,rot:node.rot||[0,0,0]};for(const child of node?.children||[])visit(child);};visit(prefab?.data);return found;}
+function sourceLighting(contract){const light=lightFromPrefab(contract.sourcePrefab),rgb=value=>[(value?.r??255)/255,(value?.g??255)/255,(value?.b??255)/255],intensity=Number(light?.Intensity)||3;return{direct:rgb(light?.Color).map(v=>v*intensity),ambient:rgb(light?.Ambient),ambientSpec:Number(light?.AmbientSpecIntensity)||0,rotation:light?.rot||[-80.6,0,-32.6]};}
+function sourceMaterialPlan(extras,definition=manifest){const variables=extras?.sourceVariables||{},textures=variables.textures||{},floats={...definition.sourceMaterialDefaults,...variables.floats},mra=definition.materialTextures?.[textures.mraTex?.split('#')[0]];return{shader:extras?.sourceShader,mraFile:mra?.file,metalness:Number(floats.metalness)||0,roughness:Number(floats.roughness)||0,emissiveStrength:Number(floats.emissiveStrength)||0};}
+function sourceFragment(fragment){return fragment.replace(/^#version[^\n]+\n/,'').replace(/layout\(std140\) uniform (\w+)\s*\{([\s\S]*?)\}\s*(\w+);/g,(_,name,fields,variable)=>`struct ${name}{${fields}};uniform ${name} ${variable};`);}
+const sourceVertex=`
+out vec2 v_texCoord;out vec3 v_worldPos;out vec3 v_worldNormal;
+#include <common>
+#include <skinning_pars_vertex>
+void main(){
+ #include <beginnormal_vertex>
+ #include <skinbase_vertex>
+ #include <skinnormal_vertex>
+ #include <begin_vertex>
+ #include <skinning_vertex>
+ v_texCoord=uv;v_worldPos=(modelMatrix*vec4(transformed,1.0)).xyz;
+ v_worldNormal=normalize(mat3(modelMatrix)*objectNormal);
+ gl_Position=projectionMatrix*modelViewMatrix*vec4(transformed,1.0);
+}`;
+async function sourceMaterial(material,part){const plan=sourceMaterialPlan(material.userData);if(plan.shader!=='uber_pbr'||!plan.mraFile||!manifest.sourceLodShader?.fragment)return material;
+ const mra=await textureLoader.loadAsync(localURL(plan.mraFile));mra.flipY=false;mra.colorSpace=T.NoColorSpace;mra.wrapS=mra.wrapT=T.RepeatWrapping;part.masks.push(mra);
+ const mask=part.masksByFile.get(material.userData.teamMask);if(!mask)return material;
+ // Source diffuse KTX2 is ASTC sRGB; MRA/team masks are linear data textures.
+ material.map.colorSpace=T.SRGBColorSpace;material.map.wrapS=material.map.wrapT=T.RepeatWrapping;
+ const uniforms={diffuseTex:{value:material.map},mraTex:{value:mra},teamColorTex:{value:mask},fragmentMaterialUniforms:{value:{fresnelColor:new T.Vector4(),rimLightColor:new T.Vector4(),rimLightDir:new T.Vector3(),metalness:plan.metalness,roughness:plan.roughness,emissiveStrength:plan.emissiveStrength,specularStrength:0,sssStrength:0,fr_IOR:0,fr_colorMul:0,fr_weight:0,rl_colorMul:0,rl_lowTolerance:0,rl_pow:0,rl_weight:0}},fragmentObjectUniforms:{value:{u_color:new T.Vector4(1,1,1,1),u_clipPlane:new T.Vector4(),color_mul:new T.Vector4(1,1,1,1),color_add:new T.Vector4()}},sceneUniforms:{value:{u_invView:new T.Matrix4(),u_projectionView:new T.Matrix4(),u_shadowProjectionView:new T.Matrix4(),u_lightDirectionTime:new T.Vector4(),u_cameraPosition:new T.Vector4(),u_dirLightColor:new T.Vector4(),u_sceneAmbientColor:new T.Vector4(),u_skyboxParams:new T.Vector4()}}};
+ const replacement=new T.ShaderMaterial({name:material.name,glslVersion:T.GLSL3,vertexShader:sourceVertex,fragmentShader:sourceFragment(manifest.sourceLodShader.fragment),uniforms,side:material.side,transparent:material.transparent,depthWrite:material.depthWrite,toneMapped:false});
+ replacement.userData=material.userData;replacement.userData.sourceLodMaterial=true;material.dispose();return replacement;
+}
 function configureLighting(actor){const light=lightFromPrefab(actor.contract.sourcePrefab),rgb=value=>new T.Color().setRGB((value?.r??255)/255,(value?.g??255)/255,(value?.b??255)/255);
  sun.color.copy(rgb(light?.Color));sun.intensity=Number(light?.Intensity)||3;ambient.color.copy(rgb(light?.Ambient));ambient.intensity=2;
  const rotation=light?.rot||[-80.6,0,-32.6];sun.position.set(0,-1,0).applyEuler(new T.Euler(...rotation.map(d=>d*Math.PI/180))).multiplyScalar(8);sun.target.position.set(0,0,0);sun.target.updateMatrixWorld();
+ const source=sourceLighting(actor.contract),direction=sun.position.clone().normalize();actor.group.traverse(o=>{for(const material of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){if(!material.userData.sourceLodMaterial)continue;const u=material.uniforms,scene=u.sceneUniforms.value;scene.u_lightDirectionTime.set(direction.x,direction.y,direction.z,0);scene.u_cameraPosition.set(camera.position.x,camera.position.y,camera.position.z,1);scene.u_dirLightColor.set(...source.direct,1);scene.u_sceneAmbientColor.set(...source.ambient,source.ambientSpec);u.fragmentObjectUniforms.value.u_color.set(...(actor.team===1?[1,.12,.16]:[.12,.4,1]),1);}});
 }
-function actorMemory(actor){const geometry=new Set(),textures=new Set();let bytes=0;actor.group.traverse(o=>{if(o.geometry&&!geometry.has(o.geometry)){geometry.add(o.geometry);for(const attribute of Object.values(o.geometry.attributes))bytes+=attribute.array.byteLength;bytes+=o.geometry.index?.array?.byteLength||0;}for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])for(const v of Object.values(m))if(v?.isTexture)textures.add(v);});for(const part of actor.parts)for(const texture of part.masks)textures.add(texture);for(const texture of textures){const im=texture.source?.data||texture.image;bytes+=(im?.width||0)*(im?.height||0)*4*(texture.generateMipmaps?4/3:1);}return Math.ceil(bytes);}
-function disposeActor(actor){if(!actor)return;scene?.remove(actor.group);const geometries=new Set(),materials=new Set(),textures=new Set();actor.group.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const v of Object.values(m))if(v?.isTexture)textures.add(v);}});for(const part of actor.parts){part.mixer.stopAllAction();part.mixer.uncacheRoot(part.gltf.scene);for(const t of part.masks)textures.add(t);}for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures){t.source?.data?.close?.();t.dispose();}}
+function materialTextures(material){return [...Object.values(material),...Object.values(material.uniforms||{}).map(u=>u.value)].filter(value=>value?.isTexture);}
+function actorMemory(actor){const geometry=new Set(),textures=new Set();let bytes=0;actor.group.traverse(o=>{if(o.geometry&&!geometry.has(o.geometry)){geometry.add(o.geometry);for(const attribute of Object.values(o.geometry.attributes))bytes+=attribute.array.byteLength;bytes+=o.geometry.index?.array?.byteLength||0;}for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])for(const texture of materialTextures(m))textures.add(texture);});for(const part of actor.parts)for(const texture of part.masks)textures.add(texture);for(const texture of textures){const im=texture.source?.data||texture.image;bytes+=(im?.width||0)*(im?.height||0)*4*(texture.generateMipmaps?4/3:1);}return Math.ceil(bytes);}
+function disposeActor(actor){if(!actor)return;scene?.remove(actor.group);const geometries=new Set(),materials=new Set(),textures=new Set();actor.group.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const texture of materialTextures(m))textures.add(texture);}});for(const part of actor.parts){part.mixer.stopAllAction();part.mixer.uncacheRoot(part.gltf.scene);for(const t of part.masks)textures.add(t);}for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures){t.source?.data?.close?.();t.dispose();}}
 async function loadActor(id){
  const resident=actors.get(id);if(resident)return resident;if(pending.has(id))return pending.get(id);if(!has(id)||failed.has(id))return null;
  const epoch=generation,promise=(async()=>{
@@ -2967,7 +3017,9 @@ async function loadActor(id){
    if(p.attach){const bone=parts[p.attach.part]?.gltf.scene.getObjectByName(p.attach.bone);if(!bone)throw Error('missing source mount bone '+p.attach.bone);bone.add(outer);}else group.add(outer);
    const uniform={value:new T.Vector3(1,1,1)},masks=[],materials=[];gltf.scene.traverse(o=>{for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])if(m.userData.teamMask)materials.push(m);});
    for(const m of new Set(materials)){const texture=await textureLoader.loadAsync(localURL(m.userData.teamMask));texture.flipY=false;masks.push(texture);m.onBeforeCompile=shader=>{shader.uniforms.sourceTeamMask={value:texture};shader.uniforms.sourceTeamColor=uniform;shader.fragmentShader='uniform sampler2D sourceTeamMask;uniform vec3 sourceTeamColor;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#include <map_fragment>\ndiffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*sourceTeamColor,texture2D(sourceTeamMask,vMapUv).b);');};m.customProgramCacheKey=()=>`source-team-mask:${m.userData.teamMask}`;m.needsUpdate=true;}
-   const mixer=new T.AnimationMixer(gltf.scene);parts.push({gltf,metadata:p,mixer,uniform,masks,actions:new Map(gltf.animations.map(clip=>[clip.name,mixer.clipAction(clip)]))});
+   const masksByFile=new Map([...new Set(materials)].map((m,i)=>[m.userData.teamMask,masks[i]])),part={gltf,metadata:p,uniform,masks,masksByFile};
+   const replacements=new Map();for(const m of new Set(materials))replacements.set(m,await sourceMaterial(m,part));gltf.scene.traverse(o=>{if(o.material)o.material=Array.isArray(o.material)?o.material.map(m=>replacements.get(m)||m):(replacements.get(o.material)||o.material);});
+   const mixer=new T.AnimationMixer(gltf.scene);Object.assign(part,{mixer,actions:new Map(gltf.animations.map(clip=>[clip.name,mixer.clipAction(clip)]))});parts.push(part);
   }
   if(!parts.length)throw Error('source actor contains no converted geometry');group.updateMatrixWorld(true);actor.bytes=actorMemory(actor);
   if(epoch!==generation){disposeActor(actor);return null;}measureHead(actor);actors.set(id,actor);return actor;
@@ -2982,16 +3034,16 @@ function choosePartPose(part,state,elapsed,options,actor){
  let pose=clipPose(part.metadata.animations[name],t,state,entity.visualAttack,options.attackDuration||0,part.metadata.asm?.States?.find(s=>s.Name===name));
  if(state==='attack'&&pose.done){name=choose(['Idle'])||name;pose=clipPose(part.metadata.animations[name],options.idleTime??0,'idle',null,0,part.metadata.asm?.States?.find(s=>s.Name===name));}return {name,...pose};
 }
-function applyPose(actor,partPoses,team,yaw){actor.group.rotation.z=yaw;for(let index=0;index<actor.parts.length;index++){const part=actor.parts[index],pose=partPoses[index];part.actions.forEach(a=>a.stop());if(pose){const action=part.actions.get(pose.name);action.reset();action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();part.mixer.setTime(pose.time);}const visibility=meshVisibility(part.metadata,pose?.name,pose?.frame??0);part.gltf.scene.traverse(o=>{if(o.isMesh)o.visible=visibility[o.name]??true;});part.uniform.value.set(...(team===1?[1,.12,.16]:[.12,.4,1]));}actor.group.updateMatrixWorld(true);}
+function applyPose(actor,partPoses,team,yaw,blends=[]){actor.group.rotation.z=yaw;for(let index=0;index<actor.parts.length;index++){const part=actor.parts[index],pose=partPoses[index],blend=blends.find(b=>b.index===index);part.actions.forEach(a=>a.stop());const play=(p,weight)=>{const action=part.actions.get(p.name);if(!action)return;action.reset();action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.setEffectiveWeight(weight);action.play();action.time=p.time;};if(pose){play(pose,blend?blend.weight:1);if(blend)play(blend.from,1-blend.weight);part.mixer.update(0);}const visibility=meshVisibility(part.metadata,pose?.name,pose?.frame??0);part.gltf.scene.traverse(o=>{if(o.isMesh)o.visible=visibility[o.name]??true;});part.uniform.value.set(...(team===1?[1,.12,.16]:[.12,.4,1]));}actor.group.updateMatrixWorld(true);}
 function actorBounds(actor){actor.group.traverse(o=>{if(o.isSkinnedMesh){o.skeleton.update();o.computeBoundingBox();}});return new T.Box3().setFromObject(actor.group);}
 function projectedBounds(box){let left=Infinity,right=-Infinity,top=-Infinity,bottom=Infinity;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const py=.75*y+Math.sqrt(7)/4*z;left=Math.min(left,x);right=Math.max(right,x);top=Math.max(top,py);bottom=Math.min(bottom,py);}return {left,right,top,bottom};}
 function measureHead(actor){if(metrics.has(actor.id))return;const p=actor.parts.map(part=>choosePartPose(part,'idle',0,{},actor));applyPose(actor,p,0,0);const box=projectedBounds(actorBounds(actor)),factor=(5/6)*(Number(actor.contract.sourceEntity?.Scale)||100)/100;metrics.set(actor.id,Math.max(18,Math.min(140,box.top*UNITS*factor))+5);}
-function rasterPose(actor,partPoses,team,yaw,density){
- applyPose(actor,partPoses,team,yaw);const bounds=projectedBounds(actorBounds(actor)),margin=.08;
+function rasterPose(actor,partPoses,team,yaw,density,blends=[]){
+ applyPose(actor,partPoses,team,yaw,blends);const bounds=projectedBounds(actorBounds(actor)),margin=.08;
  const left=bounds.left-margin,right=bounds.right+margin,top=bounds.top+margin,bottom=bounds.bottom-margin,width=right-left,height=top-bottom;
  if(![width,height].every(v=>Number.isFinite(v)&&v>0))throw Error('invalid source model bounds');
  const effective=Math.min(density,1536/(width*UNITS),1536/(height*UNITS)),w=Math.max(2,Math.ceil(width*UNITS*effective)),h=Math.max(2,Math.ceil(height*UNITS*effective));
- camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();renderer.setSize(w,h,false);configureLighting(actor);scene.add(actor.group);try{renderer.render(scene,camera);}finally{scene.remove(actor.group);}
+ camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();renderer.setSize(w,h,false);actor.team=team;configureLighting(actor);scene.add(actor.group);try{renderer.render(scene,camera);}finally{scene.remove(actor.group);}
  const image=root.document.createElement('canvas');image.width=w;image.height=h;image.getContext('2d').drawImage(renderer.domElement,0,0);renders++;return {image,x:left*UNITS,y:-top*UNITS,width:width*UNITS,height:height*UNITS};
 }
 function tintRaster(raster,color,key){if(!color)return raster;const cacheKey=key+':'+color.join(','),existing=poses.get(cacheKey);if(existing)return existing;const image=root.document.createElement('canvas');image.width=raster.image.width;image.height=raster.image.height;const c=image.getContext('2d',{willReadFrequently:true});c.drawImage(raster.image,0,0);const pixels=c.getImageData(0,0,image.width,image.height);for(let i=0;i<pixels.data.length;i+=4){for(let j=0;j<3;j++)pixels.data[i+j]=Math.min(255,pixels.data[i+j]*color[4+j]/255+color[j]);pixels.data[i+3]*=color[3]/255;}c.putImageData(pixels,0,0);const result={...raster,image};poses.set(cacheKey,result,image.width*image.height*4);return result;}
@@ -3002,20 +3054,25 @@ function draw(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale
   // evicted. Metadata derives the same clip/frame key; a different pose still
   // loads the original mesh, rather than substituting a stale cached image.
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';const elapsed=options.elapsed??Math.max(0,time-started),partPoses=(actor?.parts||contract.parts.map(metadata=>({metadata}))).map(part=>choosePartPose(part,state,elapsed,{...options,idleTime:options.idleTime??time},actor||{contract}));
-  const policy=root.RoyaleGraphics?.current||{},density=rasterDensity(policy),steps=policy.textures==='ultra'?180:policy.textures==='max'?144:72,index=((Math.round(sourceYaw(heading)/TAU*steps)%steps)+steps)%steps,yaw=index/steps*TAU;
-  const key=[id,team===1?1:0,density,steps,index,...partPoses.map(p=>p?`${p.name}:${p.frame}`:'static')].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density);poses.set(key,raster,raster.image.width*raster.image.height*4);}
+  const policy=root.RoyaleGraphics?.current||{},density=rasterDensity(policy),fps=Math.max(12,Math.min(120,policy.animationFps||60)),steps=policy.textures==='ultra'?180:policy.textures==='max'?144:72,index=((Math.round(sourceYaw(heading)/TAU*steps)%steps)+steps)%steps,yaw=index/steps*TAU;
+  for(const [i,p]of partPoses.entries())if(p){const descriptor=contract.parts[i].asm?.States?.find(s=>s.Name===p.name),first=(Number(descriptor?.StartFrame)||0)/(Number(contract.parts[i].animations[p.name]?.fps)||30);p.time=Math.max(first,Math.floor(p.time*fps+1e-7)/fps);}
+  const entity=options.entity,clock=entity?.visualTime??time,activation=[id,state,entity?.visualStarted??started,entity?.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),attack=state==='attack'&&entity?.visualAttack,blends=poseHistory.sample(entity?.id,activation,clock,partPoses,contract.parts,attack?{...attack,windup:Number.isFinite(attack.releasedAt)?0:Math.max(0,(Number(attack.windup)||0)-elapsed)}:null);
+  for(const blend of blends)blend.weight=Math.floor(blend.weight*fps+1e-7)/fps;
+  const key=[id,team===1?1:0,density,steps,index,...partPoses.map(p=>p?`${p.name}:${p.frame}:${p.time.toFixed(6)}`:'static'),...blends.map(b=>`${b.index}:${b.from.name}:${b.from.time.toFixed(6)}:${b.weight}`)].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density,blends);poses.set(key,raster,raster.image.width*raster.image.height*4);}
   const source=contract.sourceEntity||{},factor=scale*(5/6)*(Number(source.Scale)||100)/100,height=options.height??Math.max(0,Number(source.FlyingHeight)||0)/1000*20;
+  if(options.shadowOnly){if(!options.paint)return false;options.paint(c,raster,factor);return true;}
   c.save();try{c.translate(x,y-height);c.scale(factor,factor);c.filter=root.RoyaleNative?.teamFilter?.(team)||'none';const paint=color=>{const image=tintRaster(raster,color,key);c.drawImage(image.image,image.x,image.y,image.width,image.height);};
-  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&options.entity&&!options.ghost){const fxTime=options.entity.visualTime??time,current=sourceFXPlan(actor.contract,partPoses,manifest.vfxAssets||{},fxTime,team),activation=[id,state,options.entity.visualStarted??started,options.entity.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),effects=fxHistory.update(options.entity.id??id,activation,fxTime,current,e=>sourceFXLifetime(e,manifest.vfxAssets||{},root.RoyaleNative?.library));if(effects.length){applyPose(actor,partPoses,team,yaw);drawSourceFX(c,actor,partPoses,team,fxTime,options.entity.id??id,effects);}}}finally{c.restore();}return true;
+  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&options.entity&&!options.ghost){const fxTime=options.entity.visualTime??time,current=sourceFXPlan(actor.contract,partPoses,manifest.vfxAssets||{},fxTime,team),activation=[id,state,options.entity.visualStarted??started,options.entity.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),effects=fxHistory.update(options.entity.id??id,activation,fxTime,current,e=>sourceFXLifetime(e,manifest.vfxAssets||{},root.RoyaleNative?.library));if(effects.length){applyPose(actor,partPoses,team,yaw,blends);drawSourceFX(c,actor,partPoses,team,fxTime,options.entity.id??id,effects);}}}finally{c.restore();}return true;
  }catch(e){report(e,id);return false;}
 }
 function headHeight(id){return metrics.get(id)||null;}
-function beginFrame(ids=[]){if(!ids.length)fxHistory.clear();actors.beginFrame([...new Set(ids)].filter(has));}
+function shadow(c,id,x,y,team,time,state,heading,started,scale,options={}){return draw(c,id,x,y,team,time,state,heading,started,scale,{...options,shadowOnly:true});}
+function beginFrame(ids=[]){if(!ids.length){fxHistory.clear();poseHistory.clear();}actors.beginFrame([...new Set(ids)].filter(has));}
 function endFrame(){actors.endFrame();}
 // modelBytes estimates geometry and decoded textures, not total browser/GPU
 // memory. modelBudget is a soft inactive target; active overflow is explicit.
 function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,fxSprites,fxHistoryEntries:fxHistory.size,pending:pending.size,error,failed:Object.fromEntries(failed)};}
-return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,FXHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
+return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
 });
 
 ;
@@ -3023,6 +3080,13 @@ return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,headHei
    come from the supplied client. Browser code has no network dependency. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleNative=api;})(globalThis,function(){'use strict';
 const I=[1,0,0,1,0,0],NONE=65535,TINT_RASTER_PIXELS=16777216;
+const UNIT_SHADOW_PIXELS=2097152,UNIT_SHADOW_ENTRIES=96;
+// The SC fields supply actor-specific proportions and offsets. Projecting the
+// screen-space pose onto the floor is an interpreter approximation: scale and
+// skew magnitudes retain actor proportions under a shared lower-left light;
+// authored signed X/Y offsets are preserved at the actor's ground position.
+function unitShadowTransform(u){const r=u.def?.source||{},number=(key,fallback)=>Number.isFinite(r[key])?r[key]:fallback;return[Math.abs(number('ShadowScaleX',85))/100,0,Math.tan(Math.min(70,Math.abs(number('ShadowSkew',25)))*Math.PI/180),-.58*Math.abs(number('ShadowScaleY',80))/100,number('ShadowX',0)*5/6,2+number('ShadowY',0)*5/6];}
+function unitShadowPoseKey(p){const frames=[],visit=(name,time,options,depth=0)=>{if(depth>20)return;const id=p.sc.id(name),clip=p.sc.clip(id);if(!clip)return;const frame=options.frame??frameAt(time,clip.fps,clip.frames.length,options.loop!==false);frames.push(id+':'+frame);for(const [child]of clip.frames[frame]||[])visit(child,time,{},depth+1);};visit(p.name,p.seconds,p.drawOptions);if(p.top)visit(p.top,p.seconds,{loop:!p.pose});return[p.sc.resourcePrefix||p.cfg.scene,p.name,p.top||'',...frames].join('|');}
 function frameAt(seconds,fps,count,loop=true){if(!count)return 0;const f=Math.max(0,Math.floor((Number.isFinite(seconds)?seconds:0)*fps+1e-7));return loop?f%count:Math.min(f,count-1)}
 function direction(dx,dy,count=9){if(!Number.isFinite(dx)||!Number.isFinite(dy))return{index:1,flip:false};count=Math.max(1,count);const a=Math.atan2(Math.abs(dx),-dy);return{index:Math.max(1,Math.min(count,1+Math.round(a/Math.PI*(count-1)))),flip:dx< -1e-9};}
 // Direction exports span north -> east -> south. Some machines have eighteen
@@ -3362,7 +3426,7 @@ function customSourceArenaId(layout){
 }
 function arenaLayers(a,overtime=false){const layers={Base:0,Ground:1,Object:2,Above:3};return[{name:a.export,x:0,y:0,scene:a.scene,layer:'Base'},...a.objects.filter(o=>!o.visibility||o.visibility==='Always'||(overtime?o.visibility==='Overtime':o.visibility==='NormalTime')).slice().sort((x,y)=>(layers[x.layer]??2)-(layers[y.layer]??2)||(x.sort||0)-(y.sort||0)||x.y-y.y)];}
 class Library{
- constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.decodedArt=new DecodedArtCache();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
+ constructor(data,embedded){this.data=data;this.embedded=embedded;this.scenes={};this.ready=false;this.error=null;this.arenaId=data.arenas[0].id;this.arenaCache=new Map();this.towerShadowCache=new Map();this.unitShadowCache=new Map();this.unitShadowPixels=0;this.loadedTextures=0;this.pending=new Map();this.textureImages=new Map();this.decodedArt=new DecodedArtCache();this.assetBase=globalThis.document?.baseURI||'http://localhost/';}
  async fetchScene(name){
   if(this.scenes[name])return this.scenes[name];if(this.pending.has(name))return this.pending.get(name);
   const pending=(async()=>{let definition=this.data.scenes[name];if(!definition)throw Error('Unknown native scene: '+name);
@@ -3382,15 +3446,14 @@ class Library{
   })();this.pending.set(name,pending);try{return await pending;}finally{this.pending.delete(name);}
  }
  async ensureScenes(names){const queue=[...new Set(names)];let index=0;const worker=async()=>{while(index<queue.length){const name=queue[index++];await this.fetchScene(name);}};await Promise.all(Array.from({length:Math.min(4,queue.length)},worker));return this;}
- retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();scene.releaseTextures?.();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.metricCache?.clear();}
+ retainScenes(names){const keep=new Set(names),textures=new Set();for(const n of keep)for(const t of this.data.scenes[n]?.textures||[])textures.add(t.file);for(const [n,scene]of Object.entries(this.scenes))if(!keep.has(n)){if(scene.releaseRasters)scene.releaseRasters();else scene.cache.clear();scene.releaseTextures?.();delete this.scenes[n];}for(const key of this.textureImages.keys())if(!textures.has(key))this.textureImages.delete(key);this.releaseArenaCache();this.releaseUnitShadows();this.metricCache?.clear();}
  async prepareBattle(battle,game){this.error=null;if(globalThis.RoyaleGraphics?.current?.potato){this.preparation=(this.preparation||0)+1;await this.ensureScenes(['ui_battle_end']);this.retainScenes(['ui_battle_end']);globalThis.RoyaleCustomArena?.clear();return this;}const names=sceneDependencies(this.data,game,battle.boatConfiguration?[...battle.initialDecks,...battle.boatConfiguration.cards]:battle.initialDecks,battle.arenaLayout?.custom?'custom':this.arenaId,[...(battle.towers||[]).map(t=>t.entity),...(battle.seatForms||[]).flat().map(id=>battle.formRegistry?.get(id)?.source).filter(Boolean)]),generation=this.preparation=(this.preparation||0)+1;for(const tower of battle.towers||[]){const skin=globalThis.RoyaleCosmetics?.skin(tower.skin);if(skin?.scene&&this.data.scenes[skin.scene]&&!names.includes(skin.scene))names.push(skin.scene);}if(battle.arenaLayout?.custom){const sourceId=customSourceArenaId(battle.arenaLayout);for(const dep of sceneDependencies(this.data,game,[],sourceId))if(!names.includes(dep))names.push(dep);if(!names.includes('level_spooky_arena')&&this.data.scenes.level_spooky_arena)names.push('level_spooky_arena');}this.touchdownSourceError=null;if(battle.arenaLayout?.touchdown&&this.data.touchdownArena){try{const optional=touchdownSceneDependencies(this.data);await this.ensureScenes(optional);if(globalThis.RoyaleCustomArena?.sourceStadiumReady&&!globalThis.RoyaleCustomArena.sourceStadiumReady(this))throw Error('Incomplete original Touchdown stadium');for(const name of optional)if(!names.includes(name))names.push(name);}catch(e){this.touchdownSourceError=e.message;}}try{await this.ensureScenes(names);await this.prewarmBattleActors(battle);await globalThis.RoyaleCustomArena?.prepareAssets?.(battle,this.assetBase,this);if(generation===this.preparation){this.retainScenes(names);if(battle.arenaLayout?.custom)globalThis.RoyaleCustomArena?.prepare(battle,this);else{this.arenaRuns(false);this.arenaRuns(true);}await this.fx?.prewarmSpells?.([...(battle.initialDecks?.flat()||[]),...(battle.seatForms?.flat()||[])],game);}return this;}catch(e){this.error=e.message;throw e;}}
  async prewarmBattleActors(battle){const requests=[],actors=new Set(),visit=(value,depth=0)=>{if(depth>30||value==null)return;if(Array.isArray(value)){for(const v of value)visit(v,depth+1);return;}if(typeof value==='object'){for(const v of Object.values(value))visit(v,depth+1);return;}if(typeof value==='string'&&battle.catalog?.DATA.entities[value]&&!actors.has(value)){actors.add(value);visit(battle.catalog.DATA.entities[value],depth+1);}};for(const id of battle.initialDecks?.flat()||[])visit(battle.catalog?.CARD_BY_ID[id]?.source);for(const id of battle.seatForms?.flat()||[])visit(battle.formRegistry?.get(id)?.source);if(globalThis.RoyaleModern3D)requests.push(RoyaleModern3D.prepareActors([...actors]));for(const [seat,forms]of (battle.seatForms||[]).entries())for(const id of forms){const form=battle.formRegistry?.get(id),source=form?.source||{},actor=source.SummonCharacter||source.SummonCharactersList?.[0],base=this.data.units[actor];if(!base)continue;const cfg=Number(battle.catalog?.DATA.entities[actor]?.ShieldHitpoints)>0&&base.variants?.shield?{...base,...base.variants.shield}:base,sc=this.scenes[cfg.scene];if(!sc?.lazyLoader)continue;const team=battle.teamOf(seat),heading=(team===1?Math.PI/2:-Math.PI/2)+(Number(cfg.headingOffset)||0),view=direction(Math.cos(heading),Math.sin(heading),sourceDirectionCount(cfg,sc,team)).index,name=resolveAnimation(cfg,sc,team,'idle',view);if(name)requests.push(sc.prewarm(name));}await Promise.all(requests);}
  async loadHUD(urls){this.ui={};await Promise.all(['level-crown'].map(async key=>{if(urls[key])this.ui[key]=await imageFrom(urls[key]);}));}
  async load(){try{if(!this.data.streamed)await this.ensureScenes(Object.keys(this.data.scenes));this.ready=true;return this;}catch(e){this.error=e.message;throw e;}}
  setArena(id){if(!this.data.arenas.some(a=>a.id===id))throw RangeError('Unknown arena');if(this.arenaId!==id)this.releaseArenaCache();this.arenaId=id;}
  get arena(){return this.data.arenas.find(a=>a.id===this.arenaId)}
- unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
-  const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
+ nativeUnitPose(id,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
   const base=this.data.units[id];if(!base)return false;const cfg=options.entity?.shield>0&&base.variants?.shield?{...base,...base.variants.shield}:base;const sc=this.scenes[cfg.scene];if(!sc)return false;
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';
   if(!options.entity?.visualAttackCancelled&&(options.entity?.hook||options.entity?.visualHook&&state!=='run'&&state!=='dash'))state='loading';
@@ -3410,16 +3473,45 @@ class Library{
    elapsed*=Math.max(.1,1+(cfg.walkTweak||0)/100);
   }
   if(globalThis.RoyaleGraphics)elapsed=globalThis.RoyaleGraphics.animationTime(elapsed);
-  c.save();c.translate(x,y-(options.height??cfg.flightHeight??0));
   const factor=scale*(5/6)*cfg.scale;
   const views=cfg.animations?.[`${team===1?1:0}:${state}`]||[],directional=new Set(views.filter(v=>v&&sc.id(v)!==undefined)).size>1;
   const rotation=!directional&&(options.entity?.def?.source?.HasRotationOnTimeline===true||cfg.rotationTimeline===true);
-  c.scale((d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*factor,factor);
-  c.filter=teamFilter(team);
-  const clip=sc.clip(name),pose=frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);if(pose?.flip)c.scale(-1,1);
-  let painted=false;const paint=color=>{painted=(sc.draw(c,name,pose?pose.frame/(clip.fps||30):elapsed,{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{}),initialColor:color})!==false)||painted;
-   const top=cfg.top?.[team];if(top&&sc.id(top)!==undefined)sc.draw(c,top,pose?pose.frame/(clip.fps||30):elapsed,{loop:!pose,initialColor:color});};
+  const clip=sc.clip(name),pose=frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);
+  const flip=(d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*(pose?.flip?-1:1);
+  return{cfg,sc,name,factor,flip,pose,seconds:pose?pose.frame/(clip.fps||30):elapsed,drawOptions:{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{})},top:cfg.top?.[team]};
+ }
+ unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
+  const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
+  const p=this.nativeUnitPose(id,team,time,state,heading,started,scale,options);if(!p)return false;
+  c.save();c.translate(x,y-(options.height??p.cfg.flightHeight??0));c.scale(p.flip*p.factor,p.factor);c.filter=teamFilter(team);
+  let painted=false;const paint=color=>{painted=(p.sc.draw(c,p.name,p.seconds,{...p.drawOptions,initialColor:color})!==false)||painted;
+   if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(c,p.top,p.seconds,{loop:!p.pose,initialColor:color});};
   if(options.entity&&globalThis.RoyalePresentation?.ready)RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);c.restore();return painted;
+ }
+ releaseUnitShadows(){for(const mask of this.unitShadowCache.values())mask.image.width=mask.image.height=1;this.unitShadowCache.clear();this.unitShadowPixels=0;}
+ unitShadowRaster(key,bounds,paint){
+  let mask=this.unitShadowCache.get(key);if(mask){this.unitShadowCache.delete(key);this.unitShadowCache.set(key,mask);return mask;}
+  if(![bounds.x,bounds.y,bounds.width,bounds.height].every(Number.isFinite)||bounds.width<=0||bounds.height<=0)return null;
+  const x=Math.floor(bounds.x)-2,y=Math.floor(bounds.y)-2,width=Math.ceil(bounds.x+bounds.width)-x+2,height=Math.ceil(bounds.y+bounds.height)-y+2,density=Math.min(1,384/width,384/height),image=canvas(width*density,height*density),c=image.getContext('2d');
+  c.setTransform(density,0,0,density,-x*density,-y*density);if(paint(c)===false){image.width=image.height=1;return null;}
+  // Color the combined alpha once. Internal layers cannot darken one another,
+  // and body damage/cold/deploy filters, labels and separate FX never enter it.
+  c.setTransform(1,0,0,1,0,0);c.globalCompositeOperation='source-in';c.fillStyle='#211915';c.fillRect(0,0,image.width,image.height);
+  mask={image,x,y,width,height,pixels:image.width*image.height};
+  while(this.unitShadowCache.size&&(this.unitShadowCache.size>=UNIT_SHADOW_ENTRIES||this.unitShadowPixels+mask.pixels>UNIT_SHADOW_PIXELS)){const oldest=this.unitShadowCache.keys().next().value,evicted=this.unitShadowCache.get(oldest);this.unitShadowPixels-=evicted.pixels;evicted.image.width=evicted.image.height=1;this.unitShadowCache.delete(oldest);}
+  this.unitShadowCache.set(key,mask);this.unitShadowPixels+=mask.pixels;return mask;
+ }
+ paintUnitShadow(c,u,mask,factor,flip=1){if(!mask)return false;c.save();c.filter='none';c.shadowBlur=0;c.globalCompositeOperation='source-over';c.globalAlpha*=.42;c.translate(u.x,u.y);c.transform(...unitShadowTransform(u));c.scale(factor*flip,factor);c.drawImage(mask.image,mask.x,mask.y,mask.width,mask.height);c.restore();return true;}
+ drawUnitShadow(c,u,time=0){
+  if(!this.ready||!u||u.hp<=0||u.king!==undefined||u.hidden||u.burrowing||u.attachedTo||u.effectCarrier)return false;
+  const state=u.wait>0?'idle':u.charged&&u.visualState==='run'?'charge':u.visualState||'idle',started=u.visualStarted||0,options={entity:u,elapsed:u.animationTime??0,idleTime:u.visualTime??0,attackDuration:u.visualDuration,height:0},modern=globalThis.RoyaleModern3D;
+  if(modern?.has(u.entity)&&modern.shadow){let painted=false;modern.shadow(c,u.entity,u.x,u.y,u.team,time,state,u.heading,started,1,{...options,paint:(ctx,raster,factor)=>{const mask=this.unitShadowRaster(raster.image,raster,m=>{m.drawImage(raster.image,raster.x,raster.y,raster.width,raster.height);});painted=this.paintUnitShadow(ctx,u,mask,factor);}});if(painted)return true;}
+  const p=this.nativeUnitPose(u.entity,u.team,time,state,u.heading,started,1,options);if(!p)return false;
+  if(!p.sc.frameReady(p.name,p.seconds,p.drawOptions)||p.top&&!p.sc.frameReady(p.top,p.seconds,{loop:!p.pose}))return false;
+  const key=unitShadowPoseKey(p);let mask=this.unitShadowCache.get(key);
+  if(mask){this.unitShadowCache.delete(key);this.unitShadowCache.set(key,mask);}else{const b=p.sc.bounds(p.name,p.seconds),top=p.top&&p.sc.id(p.top)!==undefined?p.sc.bounds(p.top,p.seconds):null,bounds=top?{x:Math.min(b.x,top.x),y:Math.min(b.y,top.y),width:Math.max(b.x+b.width,top.x+top.width)-Math.min(b.x,top.x),height:Math.max(b.y+b.height,top.y+top.height)-Math.min(b.y,top.y)}:b;
+   mask=this.unitShadowRaster(key,bounds,m=>{const painted=p.sc.draw(m,p.name,p.seconds,p.drawOptions);if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(m,p.top,p.seconds,{loop:!p.pose});return painted;});}
+  return this.paintUnitShadow(c,u,mask,p.factor,p.flip);
  }
  // A stable head anchor measured from the original idle views, independent of
  // the current attack frame. This keeps health bars from bouncing with swings.
@@ -3545,7 +3637,7 @@ class Library{
  }
  summary(){return{ready:this.ready,error:this.error,arenas:this.data.arenas.length,units:Object.keys(this.data.units).length,textures:this.loadedTextures,residentTextures:this.textureImages.size,residentScenes:Object.keys(this.scenes).length,shapeCache:[...Object.values(this.scenes)].reduce((n,s)=>n+s.cache.size,0),frameSamples:[...Object.values(this.scenes)].reduce((n,s)=>n+s.frameSamples.size,0)}}
 }
-return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});
+return{teamFilter,battleEndState,rotationPose,arenaLayers,expandStripeUV,sceneDependencies,touchdownSceneDependencies,frameAt,direction,sourceDirectionCount,exportName,resolveAnimation,renderPosition,flightOffset,entityElevation,attackClipTime,frameRangePose,hidingClipPose,towerArtPosition,towerAttachmentOffset,unitShadowTransform,shapeRasterScale,kingTowerPose,effectOpacity,projectilePosition,projectileArtScale,rocketAtlasPose,projectilePose,affine,mul,DecodedArtCache,Scene,Library};});
 
 ;
 /* Locally streamed, original emote timelines. This cache is deliberately separate
@@ -3827,7 +3919,7 @@ function groupLevel(c,group,alpha=1){if(!group.members.length)return false;let x
 const filterNodes=new WeakMap(),inheritedFilters=new WeakMap();
 function deployment(c,u,time){if(!ready||u.wait<=0||u.effectCarrier||u.attachedTo)return false;const name='troopDeployTimer_'+(u.team?'enemy':'player');const duration=Math.max(.01,u.readyAt-u.born),progress=Math.max(0,Math.min(1,(time-u.born)/duration));
  c.save();c.translate(u.x,u.y-RoyaleNative.entityElevation(u)-20);c.scale(.62,.62);hud.draw(c,name,0,{frame:Math.floor(progress*298)});c.restore();stats.deployDraws++;return true;}
-function shadow(c,u){if(!ready||u.building||u.attachedTo||u.hidden)return false;const name='lores_blob_shadow';if(!filters.clip(name))return false;const r=u.def.source;c.save();c.translate(u.x,u.y+2);c.scale((r.ShadowScaleX||75)/100*.48,(r.ShadowScaleY||60)/100*.28);c.globalAlpha*=.7;filters.draw(c,name,0);c.restore();stats.shadowDraws++;return true;}
+function shadow(c,u,time=0){if(!ready||u.attachedTo||u.hidden||u.burrowing||u.effectCarrier)return false;if(root.RoyaleNative?.library?.drawUnitShadow?.(c,u,time)){stats.shadowDraws++;return true;}if(u.building)return false;const name='lores_blob_shadow';if(!filters.clip(name))return false;const r=u.def.source;c.save();c.translate(u.x,u.y+2);c.scale((r.ShadowScaleX||75)/100*.48,(r.ShadowScaleY||60)/100*.28);c.globalAlpha*=.7;filters.draw(c,name,0);c.restore();stats.shadowDraws++;return true;}
 function filtered(c,u,time,paint,options={}){if(!ready||u.preview){paint(null);return;}
  // A Crown Tower paints its attached defender inside this same source filter.
  // Inherit its color without applying the timeline and its transforms twice.
@@ -4731,6 +4823,10 @@ function drawPlacementLabel(c,f){if(!f||!Number.isFinite(f.x)||!Number.isFinite(
 function drawTargetWarnings(c,f,time){for(const e of f?.retargeting||[]){const bob=Math.sin(time*8+e.id)*1.2,x=e.x,y=e.y-49+bob;c.save();c.font='900 28px Arial Black,Arial,sans-serif';c.textAlign='center';c.textBaseline='middle';c.lineJoin='round';c.lineWidth=6;c.strokeStyle='#5c1730';c.strokeText('!',x,y);c.lineWidth=2;c.strokeStyle='#19070e';c.strokeText('!',x,y);c.fillStyle='#fff';c.fillText('!',x,y);c.restore();}}
 function drawSpellHighlights(c,f,time,b,lib){if(!f?.spell||!f.ok)return;for(const hit of f.affected||[]){const u=b.getEntity(hit.id);if(!u||u.hp<=0)continue;c.save();c.globalAlpha=.58;c.globalCompositeOperation='screen';c.filter='brightness(1.65) saturate(.55)';if(u.king!==undefined)lib.drawTower(c,u,time);else lib.unit(c,u.entity,u.x,u.y,u.team,b.time,u.wait>0?'idle':u.visualState||'idle',u.heading,u.visualStarted||0,1,{elapsed:u.animationTime||0,idleTime:u.visualTime||0,attackDuration:u.visualDuration,height:RoyaleNative.entityElevation(u),entity:u});c.restore();}}
 function battle(c,b,time,pointer,selected,alpha=1,compactSwarmLevels=true){const modern=root.RoyaleModern3D;if(root.RoyaleGraphics?.current?.potato){modern?.beginFrame([]);modern?.endFrame();return root.RoyalePotato.draw(c,b,time,pointer,selected,alpha,compactSwarmLevels);}modern?.beginFrame(b.units.filter(u=>b.isPresent(u)).map(u=>u.entity));try{const lib=root.RoyaleNative?.library,visualTime=Number.isFinite(b.visualTime)?b.visualTime:time;c.clearRect(0,0,540,root.RoyaleBattleView.layout.height);c.fillStyle=b.mode==='TeamRumble'?'#19283d':'#22202a';c.fillRect(0,0,540,root.RoyaleBattleView.layout.height);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';const V=root.RoyaleBattleView;c.save();c.beginPath();c.rect(V.viewport.x,V.viewport.y,V.viewport.width,V.viewport.height);c.clip();c.translate(V.camera.x,V.camera.y);c.scale(V.camera.scale,V.camera.scale);if(!root.RoyaleCustomArena?.draw(c,b,lib))arenaBase(c,visualTime,b.overtime);for(const t of b.towers)lib?.drawTowerShadow(c,t);
+ // Ground contact is a separate pass: a front troop's shadow must never
+ // darken an already-painted body or label behind it.
+ const renderedUnits=b.units.filter(u=>b.isPresent(u)).map(u=>({...u,...root.RoyaleNative.renderPosition(u,alpha)}));
+ for(const u of renderedUnits){c.save();c.globalAlpha=u.cloned?.58:u.invisible?.48:u.hidden?.25:1;root.RoyalePresentation?.shadow(c,u,visualTime);c.restore();}
  const fx=lib?.fx;fx?.begin();fx?.prepareUnitFilters?.(b);fx?.areas(c,b,'ground');fx?.events(c,b,'ground');fx?.movement(c,b,'ground');fx?.unitStates(c,b,'ground');
  let placementForecast=null;
  if(selected!==null){const original=b.card(0,selected),card=original?.mirrorCard?{...RoyaleCore.cardAt(original.mirrorCard,original.level),cost:original.cost}:original;
@@ -4740,10 +4836,8 @@ function battle(c,b,time,pointer,selected,alpha=1,compactSwarmLevels=true){const
  // Teammate intent is a declared placement, not access to an opponent's hand.
  if(b.is2v2&&b.bots[2]?.intent){const a=b.bots[2].intent.action,card=RoyaleCore.CARD_BY_ID[a.card];c.save();c.globalAlpha=.42;if(card?.entity)lib.unit(c,card.entity,a.x,a.y,0,visualTime,'idle',-Math.PI/2,0,1);c.setLineDash([4,3]);c.strokeStyle='#a4eaff';c.lineWidth=2;c.beginPath();c.ellipse(a.x,a.y,card?.spell?(card.radiusTiles||1)*RoyaleCore.SX:21,card?.spell?(card.radiusTiles||1)*RoyaleCore.SY:13,0,0,TAU);c.stroke();c.restore();}
  const levels=root.RoyaleLevelLabels?.plan(b.units,u=>b.isPresent(u)&&!u.hidden&&!u.burrowing&&!u.effectCarrier&&!u.attachedTo,compactSwarmLevels);
- const objs=[...b.towers,...b.units].sort((a,d)=>Number(a.air)-Number(d.air)||a.y-d.y);for(const raw of objs){const pos=root.RoyaleNative.renderPosition(raw,alpha),o=raw.king!==undefined?raw:{...raw,...pos};if(o.king!==undefined){tower(c,o,!o.localKing,visualTime);continue;}if(!b.isPresent(o))continue;c.save();c.globalAlpha=o.cloned?.58:o.invisible?.48:o.hidden?.25:1;const r=o.def.source;root.RoyalePresentation?.shadow(c,o);lib.unit(c,o.entity,o.x,o.y,o.team,visualTime,o.wait>0?'idle':(o.charged&&o.visualState==='run'?'charge':o.visualState||'idle'),o.heading,o.visualStarted||0,1,{elapsed:o.effectCarrier?Math.max(0,b.time-o.born):(o.animationTime??0),idleTime:o.visualTime??0,attackDuration:o.visualDuration,height:RoyaleNative.entityElevation(o),entity:o});
-  root.RoyalePresentation?.health(c,o,visualTime,!levels||levels.individual.has(o.id));root.RoyalePresentation?.deployment(c,o,visualTime);
+ const objs=[...b.towers,...renderedUnits].sort((a,d)=>Number(a.air)-Number(d.air)||a.y-d.y);for(const o of objs){if(o.king!==undefined){tower(c,o,false,visualTime);continue;}c.save();c.globalAlpha=o.cloned?.58:o.invisible?.48:o.hidden?.25:1;lib.unit(c,o.entity,o.x,o.y,o.team,visualTime,o.wait>0?'idle':(o.charged&&o.visualState==='run'?'charge':o.visualState||'idle'),o.heading,o.visualStarted||0,1,{elapsed:o.effectCarrier?Math.max(0,b.time-o.born):(o.animationTime??0),idleTime:o.visualTime??0,attackDuration:o.visualDuration,height:RoyaleNative.entityElevation(o),entity:o});
   c.restore();}
- for(const group of levels?.groups||[])root.RoyalePresentation?.groupLevel(c,group,alpha);
  if(placementForecast){drawSpellHighlights(c,placementForecast,visualTime,b,lib);drawTargetWarnings(c,placementForecast,visualTime);}
  for(const o of b.units.concat(b.towers)){if(!o.def.source.VariableDamage2||o.hp<=0||o.wait>0||o.visualState!=='attack'||o.buffs.Freeze||o.buffs.ZapFreeze)continue;
   const target=b.getEntity(o.targetId);if(!target||target.hp<=0||o.lockTime<=0)continue;
@@ -4756,6 +4850,10 @@ function battle(c,b,time,pointer,selected,alpha=1,compactSwarmLevels=true){const
  fx?.events(c,b,'above');
  for(const e of b.effects){if(e.sourceEffect||e.sourceBeam||e.kind==='arrowsFly'&&fx)continue;if(lib.drawEffect(c,e,visualTime))continue;const progress=Math.max(0,Math.min(1,(visualTime-e.born)/e.ttl));c.save();c.globalAlpha=1-progress;if(e.kind==='beam'){line(c,e.x,e.y,e.tx,e.ty,'#97e7ff',4);line(c,e.x,e.y,e.tx,e.ty,'#f0fdff',1.2);}else if(e.kind==='impact'){for(let i=0;i<4;i++){const ang=i*1.57+progress;line(c,e.x+Math.cos(ang)*3,e.y-12+Math.sin(ang)*3,e.x+Math.cos(ang)*(4+progress*7),e.y-12+Math.sin(ang)*(4+progress*7),'#ffeabf',1.5);}}else if(e.kind==='cleave'){c.strokeStyle='#fff0b3';c.lineWidth=2;c.beginPath();c.ellipse(e.x,e.y-17,12+progress*10,7+progress*4,-.5,-.8,1.9);c.stroke();}else if(e.kind==='slash'){line(c,e.tx-10,e.ty-11,e.tx+11,e.ty+8,'#fff3bc',3);}else if(e.kind==='spawn'){c.strokeStyle='#e5f9ed';c.lineWidth=2;c.beginPath();c.ellipse(e.x,e.y,12+progress*20,6+progress*10,0,0,TAU);c.stroke();}else if(e.kind==='elixir'){text(c,'+1',e.x,e.y-progress*20,20,'#efb6ff');}else if(e.kind==='blast'){ellipse(c,e.x,e.y,(e.radius||20)*progress,(e.radius||20)*progress*.7,'#ffe7aa88');}c.restore();}
  root.RoyaleCustomArena?.drawForeground?.(c,b,lib,visualTime);
+ // Labels are a HUD layer, above bodies and spell impacts, including a
+ // large flying unit crossing a ground troop or a tower defender.
+ for(const o of objs){if(o.king!==undefined){if(!o.localKing)root.RoyalePresentation?.health(c,o,visualTime);continue;}c.save();c.globalAlpha=o.cloned?.58:o.invisible?.48:o.hidden?.25:1;root.RoyalePresentation?.health(c,o,visualTime,!levels||levels.individual.has(o.id));root.RoyalePresentation?.deployment(c,o,visualTime);c.restore();}
+ for(const group of levels?.groups||[])root.RoyalePresentation?.groupLevel(c,group,alpha);
  // Owner health is a HUD overlay: keep it readable over the King's destruction dust.
  for(const t of b.towers)if(t.localKing)root.RoyalePresentation?.health(c,t,visualTime);
  c.restore();root.RoyaleUltra?.present(c);}finally{modern?.endFrame();}}

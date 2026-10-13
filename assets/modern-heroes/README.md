@@ -23,16 +23,27 @@ bundled into the browser product.
 
 The original blue-channel team-mask formula is retained. The exact native client
 team color constants were unavailable; the local game supplies its blue/red
-uniforms. Source sun rotation, intensity, color and ambient color are used with
-Three.js PBR lighting. The proprietary `uber_pbr` shader, unconverted prefab
-material overrides, normal maps and some prefab particles/VFX are not reproduced.
+uniforms. From v0.55 the original `uber_pbr` LOD1 fragment equations replace
+generic Three.js PBR for materials with verified packed MRA textures. Metalness,
+roughness, occlusion, specular/emissive/team-mask channels, native output transfer
+and prefab ambient-specular strength are retained. The original LOD1 variant
+intentionally skips normal maps; the higher-detail normal/reflection path is
+not used for these LOD1 meshes. Scene shadowmaps, native uniform packing,
+unconverted prefab material overrides and some prefab particles/VFX remain
+outside this adapter. Selected shader, base-material defaults and 23 lossless
+packed textures have source hashes in the manifest; import is reproducible with
+`tools/import-modern-model-materials.py`.
 This is source model rendering, not a claim of pixel-identical native engine output.
 
 The source ASM clips and markers are preserved. Generic battle states select
 matching source clips, including shield selectors and simulation-synchronized
-release poses. Source transition graphs and particle event controllers are
-retained as metadata; the local battle controller supplies active states rather
-than running the complete native ASM interpreter.
+release poses. Skeletal time samples between original glTF LINEAR keyframes;
+integer event/visibility frames are unchanged. Authored `TransInTime`/`TransOutTime`
+blend from the previous presented pose in a bounded per-unit history, ending
+before attack release. Shadow and body sample the same cached pose without
+duplicating effects. Source transition graphs and particle event controllers
+are retained as metadata; the local battle controller supplies active states
+rather than running the complete native ASM interpreter.
 
 Actors load on demand. From v0.52.1, the current frame's actor cohort stays
 resident, including preview actors and loads that complete after the frame.
@@ -50,7 +61,8 @@ atlas remains a lazy fallback; other generated hero atlas pages are not bound
 into the production build.
 
 The live payload contains 37 glTF models (52,261,680 bytes), 24 mask PNGs
-(706,848 bytes), a 315,757-byte manifest and 2,157,944 bytes of MIT runtime modules.
+(706,848 bytes), 23 packed material PNGs (1,482,324 bytes), a 439,665-byte
+manifest and 2,157,944 bytes of MIT runtime modules.
 
 The modern arena import uses all 32 original Trophy Road location mappings and
 their SC5 floor/deco exports. Five blank initial decoration coordinates remain
@@ -87,5 +99,7 @@ slashes, transformation domes, aura meshes and Tombstone countdown materials
 remain unavailable. ASM billboard births are retained in a bounded presentation history so particles
 finish after animation state changes. Histories clear on battle exit; they do not
 write to simulation state, RNG or replay digests.
-The source 3D lighting and transforms remain the previous documented Three.js
-interpretation; an all-actor raster diagnostic is not proof of native pixel parity.
+The source LOD1 material equations run through the browser adapter described
+above. Camera, light uniforms, shadow projection and animation state selection
+still include documented interpretations; an all-actor raster diagnostic is
+not proof of native pixel parity.

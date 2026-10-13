@@ -1,0 +1,3230 @@
+{
+  "mode": "source-renderer-with-built-native-scenes",
+  "url": "http://127.0.0.1:54101/harness",
+  "rows": [
+    {
+      "id": "KnightHero",
+      "is3D": true,
+      "sourceScale": 100,
+      "sourceScene": "modern_hero_KnightHero",
+      "unsupported": null,
+      "samples": [
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 1067,
+          "sourcePoses": [
+            {
+              "name": "Idle_shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.0666665955555603
+            }
+          ],
+          "bounds": {
+            "x": 102,
+            "y": 154,
+            "width": 39,
+            "height": 41
+          },
+          "meanRGB": 146.08309903155265,
+          "hash": "d8360a59"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1068,
+          "sourcePoses": [
+            {
+              "name": "Idle_shield",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.0666665955555603
+            }
+          ],
+          "bounds": {
+            "x": 102,
+            "y": 154,
+            "width": 39,
+            "height": 41
+          },
+          "meanRGB": 145.01342072409489,
+          "hash": "8ca83a17"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1079,
+          "sourcePoses": [
+            {
+              "name": "Idle_shield",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.0666665955555603
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 154,
+            "width": 40,
+            "height": 41
+          },
+          "meanRGB": 145.45628668520234,
+          "hash": "7430a573"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 1000,
+          "sourcePoses": [
+            {
+              "name": "Walk_shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 155,
+            "width": 43,
+            "height": 41
+          },
+          "meanRGB": 146.75966666666667,
+          "hash": "448e4438"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1016,
+          "sourcePoses": [
+            {
+              "name": "Walk_shield",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 156,
+            "width": 42,
+            "height": 38
+          },
+          "meanRGB": 147.41076115485563,
+          "hash": "c47d0d2d"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1023,
+          "sourcePoses": [
+            {
+              "name": "Walk_shield",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 154,
+            "width": 42,
+            "height": 40
+          },
+          "meanRGB": 146.68295861844248,
+          "hash": "40fb1f6e"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 1093,
+          "sourcePoses": [
+            {
+              "name": "Attack1_shield",
+              "frame": 12,
+              "time": 0.39999997333333515,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 94,
+            "y": 137,
+            "width": 53,
+            "height": 54
+          },
+          "meanRGB": 154.0518450747179,
+          "hash": "2dd45420"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 941,
+          "sourcePoses": [
+            {
+              "name": "Attack1_shield",
+              "frame": 15,
+              "time": 0.5199999733333351,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 142,
+            "width": 39,
+            "height": 49
+          },
+          "meanRGB": 141.95678356358482,
+          "hash": "497bee7d"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 914,
+          "sourcePoses": [
+            {
+              "name": "Attack1_shield",
+              "frame": 20,
+              "time": 0.6799999733333352,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 148,
+            "width": 39,
+            "height": 44
+          },
+          "meanRGB": 138.35083880379287,
+          "hash": "99d03d4b"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 1232,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 108,
+            "width": 44,
+            "height": 87
+          },
+          "meanRGB": 137.23890692640694,
+          "hash": "98f60383"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1186,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 108,
+            "width": 46,
+            "height": 86
+          },
+          "meanRGB": 139.04918493535695,
+          "hash": "852f456c"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1054,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 113,
+            "width": 52,
+            "height": 81
+          },
+          "meanRGB": 139.94339025932953,
+          "hash": "aeb31512"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 904,
+          "sourcePoses": [
+            {
+              "name": "Idle_shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.0666665955555603
+            }
+          ],
+          "bounds": {
+            "x": 99,
+            "y": 155,
+            "width": 39,
+            "height": 47
+          },
+          "meanRGB": 147.87610619469027,
+          "hash": "f28be654"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 911,
+          "sourcePoses": [
+            {
+              "name": "Idle_shield",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.0666665955555603
+            }
+          ],
+          "bounds": {
+            "x": 99,
+            "y": 155,
+            "width": 39,
+            "height": 47
+          },
+          "meanRGB": 146.7541163556531,
+          "hash": "9c41c099"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 909,
+          "sourcePoses": [
+            {
+              "name": "Idle_shield",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.0666665955555603
+            }
+          ],
+          "bounds": {
+            "x": 99,
+            "y": 156,
+            "width": 40,
+            "height": 46
+          },
+          "meanRGB": 145.52658599193254,
+          "hash": "5d131226"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 897,
+          "sourcePoses": [
+            {
+              "name": "Walk_shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 152,
+            "width": 43,
+            "height": 47
+          },
+          "meanRGB": 140.0211817168339,
+          "hash": "3170a03"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 885,
+          "sourcePoses": [
+            {
+              "name": "Walk_shield",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 156,
+            "width": 42,
+            "height": 45
+          },
+          "meanRGB": 140.28625235404897,
+          "hash": "980c2b5a"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 885,
+          "sourcePoses": [
+            {
+              "name": "Walk_shield",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 157,
+            "width": 42,
+            "height": 44
+          },
+          "meanRGB": 141.3201506591337,
+          "hash": "d0e63edc"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 975,
+          "sourcePoses": [
+            {
+              "name": "Attack1_shield",
+              "frame": 12,
+              "time": 0.39999997333333515,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 93,
+            "y": 171,
+            "width": 53,
+            "height": 31
+          },
+          "meanRGB": 138.89982905982905,
+          "hash": "fccc39c5"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 885,
+          "sourcePoses": [
+            {
+              "name": "Attack1_shield",
+              "frame": 15,
+              "time": 0.5199999733333351,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 173,
+            "width": 39,
+            "height": 52
+          },
+          "meanRGB": 159.77062146892655,
+          "hash": "31956814"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 852,
+          "sourcePoses": [
+            {
+              "name": "Attack1_shield",
+              "frame": 20,
+              "time": 0.6799999733333352,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 172,
+            "width": 39,
+            "height": 49
+          },
+          "meanRGB": 158.48748043818466,
+          "hash": "64d38c33"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 1103,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 99,
+            "y": 110,
+            "width": 44,
+            "height": 86
+          },
+          "meanRGB": 142.01118162586883,
+          "hash": "bc120482"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1145,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 110,
+            "width": 46,
+            "height": 86
+          },
+          "meanRGB": 141.35720524017466,
+          "hash": "8f95d940"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1273,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9333332711111153
+            }
+          ],
+          "bounds": {
+            "x": 88,
+            "y": 113,
+            "width": 52,
+            "height": 83
+          },
+          "meanRGB": 132.9973815134852,
+          "hash": "afe820ed"
+        }
+      ],
+      "summary": {
+        "actors": 1,
+        "actorIds": [
+          "KnightHero"
+        ],
+        "modelBytes": 3600242,
+        "modelBudget": 134217728,
+        "activeActors": 1,
+        "activeRequested": 1,
+        "inactiveActors": 0,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 24,
+        "poseBytes": 1959928,
+        "poseBudget": 50331648,
+        "renders": 24,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxHistoryEntries": 0,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      }
+    },
+    {
+      "id": "MusketeerHero",
+      "is3D": true,
+      "sourceScale": 100,
+      "sourceScene": null,
+      "unsupported": null,
+      "samples": [
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 598,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.6000001066666738
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 157,
+            "width": 38,
+            "height": 41
+          },
+          "meanRGB": 156.4726867335563,
+          "hash": "c5087479"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 599,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.6000001066666738
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 157,
+            "width": 38,
+            "height": 41
+          },
+          "meanRGB": 155.91096271563717,
+          "hash": "c0304007"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 594,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.6000001066666738
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 157,
+            "width": 38,
+            "height": 41
+          },
+          "meanRGB": 155.7317620650954,
+          "hash": "f0235c4c"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 588,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.8148147604938308
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 160,
+            "width": 28,
+            "height": 35
+          },
+          "meanRGB": 170.84297052154196,
+          "hash": "9b3311e0"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 621,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 3,
+              "time": 0.108,
+              "done": false,
+              "duration": 0.8148147604938308
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 159,
+            "width": 27,
+            "height": 33
+          },
+          "meanRGB": 171.0456253354804,
+          "hash": "c35e72b2"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 558,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 7,
+              "time": 0.25200000000000006,
+              "done": false,
+              "duration": 0.8148147604938308
+            }
+          ],
+          "bounds": {
+            "x": 104,
+            "y": 156,
+            "width": 25,
+            "height": 36
+          },
+          "meanRGB": 168.40919952210274,
+          "hash": "c670cd21"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 933,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 14,
+              "time": 0.4666666977777798,
+              "done": false,
+              "duration": 1.4000000933333394
+            }
+          ],
+          "bounds": {
+            "x": 92,
+            "y": 150,
+            "width": 53,
+            "height": 48
+          },
+          "meanRGB": 150.12468738835298,
+          "hash": "a1f835ef"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 545,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 17,
+              "time": 0.5866666977777798,
+              "done": false,
+              "duration": 1.4000000933333394
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 165,
+            "width": 33,
+            "height": 33
+          },
+          "meanRGB": 149.78042813455656,
+          "hash": "fca1328d"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 501,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 22,
+              "time": 0.7466666977777798,
+              "done": false,
+              "duration": 1.4000000933333394
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 163,
+            "width": 32,
+            "height": 35
+          },
+          "meanRGB": 148.74584165003327,
+          "hash": "95468438"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 599,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 157,
+            "width": 38,
+            "height": 41
+          },
+          "meanRGB": 156.63884251530328,
+          "hash": "78b9d851"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 651,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 93,
+            "y": 152,
+            "width": 38,
+            "height": 37
+          },
+          "meanRGB": 158.96722990271377,
+          "hash": "64104d31"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 669,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 150,
+            "width": 39,
+            "height": 47
+          },
+          "meanRGB": 151.4638764324863,
+          "hash": "b8581915"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 577,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.6000001066666738
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 154,
+            "width": 38,
+            "height": 42
+          },
+          "meanRGB": 147.75678798382438,
+          "hash": "4ecb2c25"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 574,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.6000001066666738
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 154,
+            "width": 38,
+            "height": 42
+          },
+          "meanRGB": 148.7102206736353,
+          "hash": "d918e356"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 575,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.6000001066666738
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 154,
+            "width": 38,
+            "height": 42
+          },
+          "meanRGB": 148.58202898550726,
+          "hash": "79d4c9c"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 588,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.8148147604938308
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 152,
+            "width": 28,
+            "height": 45
+          },
+          "meanRGB": 153.97845804988663,
+          "hash": "b03ee43"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 586,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 3,
+              "time": 0.108,
+              "done": false,
+              "duration": 0.8148147604938308
+            }
+          ],
+          "bounds": {
+            "x": 112,
+            "y": 151,
+            "width": 27,
+            "height": 41
+          },
+          "meanRGB": 156.0796359499431,
+          "hash": "23261384"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 576,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 7,
+              "time": 0.25200000000000006,
+              "done": false,
+              "duration": 0.8148147604938308
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 147,
+            "width": 25,
+            "height": 47
+          },
+          "meanRGB": 153.86284722222223,
+          "hash": "4831844c"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 771,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 14,
+              "time": 0.4666666977777798,
+              "done": false,
+              "duration": 1.4000000933333394
+            }
+          ],
+          "bounds": {
+            "x": 95,
+            "y": 157,
+            "width": 54,
+            "height": 40
+          },
+          "meanRGB": 137.53393860786858,
+          "hash": "45bc0fe3"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 697,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 17,
+              "time": 0.5866666977777798,
+              "done": false,
+              "duration": 1.4000000933333394
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 150,
+            "width": 33,
+            "height": 43
+          },
+          "meanRGB": 147.83309421329508,
+          "hash": "265c7711"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 679,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 22,
+              "time": 0.7466666977777798,
+              "done": false,
+              "duration": 1.4000000933333394
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 149,
+            "width": 32,
+            "height": 44
+          },
+          "meanRGB": 148.56210112911143,
+          "hash": "5767e6e"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 576,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 154,
+            "width": 38,
+            "height": 42
+          },
+          "meanRGB": 147.64872685185185,
+          "hash": "810d9ccd"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 575,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 109,
+            "y": 161,
+            "width": 38,
+            "height": 37
+          },
+          "meanRGB": 146.92,
+          "hash": "bc2d2e05"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 556,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 163,
+            "width": 39,
+            "height": 38
+          },
+          "meanRGB": 148.28776978417267,
+          "hash": "cb23aacc"
+        }
+      ],
+      "summary": {
+        "actors": 2,
+        "actorIds": [
+          "KnightHero",
+          "MusketeerHero"
+        ],
+        "modelBytes": 6197208,
+        "modelBudget": 134217728,
+        "activeActors": 1,
+        "activeRequested": 1,
+        "inactiveActors": 1,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 48,
+        "poseBytes": 3176392,
+        "poseBudget": 50331648,
+        "renders": 48,
+        "hits": 0,
+        "fxSprites": 8,
+        "fxHistoryEntries": 0,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      }
+    },
+    {
+      "id": "DarkPrinceHero",
+      "is3D": true,
+      "sourceScale": 92,
+      "sourceScene": null,
+      "unsupported": null,
+      "samples": [
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 1095,
+          "sourcePoses": [
+            {
+              "name": "Idle_Shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.333333177777788
+            },
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.333333177777788
+            }
+          ],
+          "bounds": {
+            "x": 103,
+            "y": 155,
+            "width": 49,
+            "height": 49
+          },
+          "meanRGB": 137.41765601217656,
+          "hash": "8b0c0c67"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1087,
+          "sourcePoses": [
+            {
+              "name": "Idle_Shield",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 2.333333177777788
+            },
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 2.333333177777788
+            }
+          ],
+          "bounds": {
+            "x": 103,
+            "y": 155,
+            "width": 49,
+            "height": 49
+          },
+          "meanRGB": 137.4001839926403,
+          "hash": "b3e9c736"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1087,
+          "sourcePoses": [
+            {
+              "name": "Idle_Shield",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 2.333333177777788
+            },
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 2.333333177777788
+            }
+          ],
+          "bounds": {
+            "x": 104,
+            "y": 155,
+            "width": 48,
+            "height": 49
+          },
+          "meanRGB": 137.01563937442504,
+          "hash": "3cdeb335"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 499,
+          "sourcePoses": [
+            {
+              "name": "Walk_Shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.6250000416666693
+            },
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.6250000416666693
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 166,
+            "width": 27,
+            "height": 34
+          },
+          "meanRGB": 127.38276553106213,
+          "hash": "6e15e9ce"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 480,
+          "sourcePoses": [
+            {
+              "name": "Walk_Shield",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 0.6250000416666693
+            },
+            {
+              "name": "Walk",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 0.6250000416666693
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 166,
+            "width": 25,
+            "height": 34
+          },
+          "meanRGB": 124.01875,
+          "hash": "892a9c91"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 480,
+          "sourcePoses": [
+            {
+              "name": "Walk_Shield",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 0.6250000416666693
+            },
+            {
+              "name": "Walk",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 0.6250000416666693
+            }
+          ],
+          "bounds": {
+            "x": 111,
+            "y": 167,
+            "width": 25,
+            "height": 34
+          },
+          "meanRGB": 130.40069444444444,
+          "hash": "c715aa63"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 1442,
+          "sourcePoses": [
+            {
+              "name": "Attack_Shield",
+              "frame": 16,
+              "time": 0.5333332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            },
+            {
+              "name": "Attack",
+              "frame": 16,
+              "time": 0.5333332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 139,
+            "width": 48,
+            "height": 65
+          },
+          "meanRGB": 133.7554322699954,
+          "hash": "c09ad188"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1257,
+          "sourcePoses": [
+            {
+              "name": "Attack_Shield",
+              "frame": 19,
+              "time": 0.6533332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            },
+            {
+              "name": "Attack",
+              "frame": 19,
+              "time": 0.6533332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 143,
+            "width": 41,
+            "height": 61
+          },
+          "meanRGB": 131.71652081675947,
+          "hash": "16c5dc82"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1456,
+          "sourcePoses": [
+            {
+              "name": "Attack_Shield",
+              "frame": 24,
+              "time": 0.8133332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            },
+            {
+              "name": "Attack",
+              "frame": 24,
+              "time": 0.8133332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 140,
+            "width": 47,
+            "height": 64
+          },
+          "meanRGB": 126.05265567765566,
+          "hash": "690aaac4"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 1382,
+          "sourcePoses": [
+            {
+              "name": "Skill_Shield",
+              "frame": 10,
+              "time": 0.3333333111111126,
+              "done": false,
+              "duration": 0.6666666222222252
+            },
+            {
+              "name": "Custom1",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.1666668111111207
+            }
+          ],
+          "bounds": {
+            "x": 104,
+            "y": 134,
+            "width": 38,
+            "height": 70
+          },
+          "meanRGB": 133.73733719247468,
+          "hash": "e889b96e"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1151,
+          "sourcePoses": [
+            {
+              "name": "Skill_Shield",
+              "frame": 13,
+              "time": 0.4533333111111126,
+              "done": false,
+              "duration": 0.6666666222222252
+            },
+            {
+              "name": "Custom1",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 2.1666668111111207
+            }
+          ],
+          "bounds": {
+            "x": 102,
+            "y": 152,
+            "width": 39,
+            "height": 51
+          },
+          "meanRGB": 138.06747755574864,
+          "hash": "61910cdb"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1107,
+          "sourcePoses": [
+            {
+              "name": "Skill_Shield",
+              "frame": 18,
+              "time": 0.6133333111111126,
+              "done": false,
+              "duration": 0.6666666222222252
+            },
+            {
+              "name": "Custom1",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 2.1666668111111207
+            }
+          ],
+          "bounds": {
+            "x": 103,
+            "y": 154,
+            "width": 46,
+            "height": 45
+          },
+          "meanRGB": 133.1352002408913,
+          "hash": "a33a5d8"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 1360,
+          "sourcePoses": [
+            {
+              "name": "Idle_Shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.333333177777788
+            },
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.333333177777788
+            }
+          ],
+          "bounds": {
+            "x": 88,
+            "y": 137,
+            "width": 49,
+            "height": 64
+          },
+          "meanRGB": 120.47622549019609,
+          "hash": "522f1c67"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1359,
+          "sourcePoses": [
+            {
+              "name": "Idle_Shield",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 2.333333177777788
+            },
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 2.333333177777788
+            }
+          ],
+          "bounds": {
+            "x": 88,
+            "y": 136,
+            "width": 49,
+            "height": 65
+          },
+          "meanRGB": 120.92788815305373,
+          "hash": "7ead5eb9"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1338,
+          "sourcePoses": [
+            {
+              "name": "Idle_Shield",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 2.333333177777788
+            },
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 2.333333177777788
+            }
+          ],
+          "bounds": {
+            "x": 88,
+            "y": 136,
+            "width": 48,
+            "height": 65
+          },
+          "meanRGB": 121.66492277030393,
+          "hash": "fe84592e"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 783,
+          "sourcePoses": [
+            {
+              "name": "Walk_Shield",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.6250000416666693
+            },
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.6250000416666693
+            }
+          ],
+          "bounds": {
+            "x": 103,
+            "y": 147,
+            "width": 27,
+            "height": 53
+          },
+          "meanRGB": 119.44614729672202,
+          "hash": "b241500a"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 777,
+          "sourcePoses": [
+            {
+              "name": "Walk_Shield",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 0.6250000416666693
+            },
+            {
+              "name": "Walk",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 0.6250000416666693
+            }
+          ],
+          "bounds": {
+            "x": 105,
+            "y": 146,
+            "width": 25,
+            "height": 54
+          },
+          "meanRGB": 120.83397683397682,
+          "hash": "1ada6d6b"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 811,
+          "sourcePoses": [
+            {
+              "name": "Walk_Shield",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 0.6250000416666693
+            },
+            {
+              "name": "Walk",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 0.6250000416666693
+            }
+          ],
+          "bounds": {
+            "x": 104,
+            "y": 143,
+            "width": 25,
+            "height": 57
+          },
+          "meanRGB": 120.34977394163583,
+          "hash": "6a2bfbd0"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 1119,
+          "sourcePoses": [
+            {
+              "name": "Attack_Shield",
+              "frame": 16,
+              "time": 0.5333332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            },
+            {
+              "name": "Attack",
+              "frame": 16,
+              "time": 0.5333332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 93,
+            "y": 151,
+            "width": 49,
+            "height": 50
+          },
+          "meanRGB": 125.57879058683348,
+          "hash": "d18d1b41"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1232,
+          "sourcePoses": [
+            {
+              "name": "Attack_Shield",
+              "frame": 19,
+              "time": 0.6533332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            },
+            {
+              "name": "Attack",
+              "frame": 19,
+              "time": 0.6533332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 148,
+            "width": 41,
+            "height": 62
+          },
+          "meanRGB": 132.3008658008658,
+          "hash": "6c6dc3ba"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1371,
+          "sourcePoses": [
+            {
+              "name": "Attack_Shield",
+              "frame": 24,
+              "time": 0.8133332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            },
+            {
+              "name": "Attack",
+              "frame": 24,
+              "time": 0.8133332977777802,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 97,
+            "y": 150,
+            "width": 46,
+            "height": 55
+          },
+          "meanRGB": 128.945295404814,
+          "hash": "12496c18"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 1399,
+          "sourcePoses": [
+            {
+              "name": "Skill_Shield",
+              "frame": 10,
+              "time": 0.3333333111111126,
+              "done": false,
+              "duration": 0.6666666222222252
+            },
+            {
+              "name": "Custom1",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.1666668111111207
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 119,
+            "width": 38,
+            "height": 82
+          },
+          "meanRGB": 125.3514415058375,
+          "hash": "c2370ad6"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 943,
+          "sourcePoses": [
+            {
+              "name": "Skill_Shield",
+              "frame": 13,
+              "time": 0.4533333111111126,
+              "done": false,
+              "duration": 0.6666666222222252
+            },
+            {
+              "name": "Custom1",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 2.1666668111111207
+            }
+          ],
+          "bounds": {
+            "x": 99,
+            "y": 152,
+            "width": 39,
+            "height": 46
+          },
+          "meanRGB": 120.05125486037468,
+          "hash": "c2b295dc"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1083,
+          "sourcePoses": [
+            {
+              "name": "Skill_Shield",
+              "frame": 18,
+              "time": 0.6133333111111126,
+              "done": false,
+              "duration": 0.6666666222222252
+            },
+            {
+              "name": "Custom1",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 2.1666668111111207
+            }
+          ],
+          "bounds": {
+            "x": 91,
+            "y": 155,
+            "width": 46,
+            "height": 45
+          },
+          "meanRGB": 119.0929516774392,
+          "hash": "84b3878a"
+        }
+      ],
+      "summary": {
+        "actors": 3,
+        "actorIds": [
+          "KnightHero",
+          "MusketeerHero",
+          "DarkPrinceHero"
+        ],
+        "modelBytes": 8993424,
+        "modelBudget": 134217728,
+        "activeActors": 1,
+        "activeRequested": 1,
+        "inactiveActors": 2,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 72,
+        "poseBytes": 5464168,
+        "poseBudget": 50331648,
+        "renders": 72,
+        "hits": 0,
+        "fxSprites": 8,
+        "fxHistoryEntries": 0,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      }
+    },
+    {
+      "id": "BowlerHero",
+      "is3D": true,
+      "sourceScale": 118,
+      "sourceScene": "chr_bowler",
+      "unsupported": null,
+      "samples": [
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 1325,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 92,
+            "y": 155,
+            "width": 62,
+            "height": 44
+          },
+          "meanRGB": 150.78566037735848,
+          "hash": "2fcad24d"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1304,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 92,
+            "y": 155,
+            "width": 62,
+            "height": 44
+          },
+          "meanRGB": 151.0010224948875,
+          "hash": "971d1103"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1296,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 92,
+            "y": 156,
+            "width": 62,
+            "height": 43
+          },
+          "meanRGB": 150.74639917695472,
+          "hash": "3af00402"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 1265,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.5833334388888958
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 156,
+            "width": 47,
+            "height": 46
+          },
+          "meanRGB": 149.2558629776021,
+          "hash": "ff9b95bf"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1294,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 1.5833334388888958
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 156,
+            "width": 45,
+            "height": 48
+          },
+          "meanRGB": 149.05255023183926,
+          "hash": "6b9242b9"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1293,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 1.5833334388888958
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 156,
+            "width": 46,
+            "height": 46
+          },
+          "meanRGB": 146.49574632637277,
+          "hash": "f39e32dc"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 1005,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 19,
+              "time": 0.6333333755555584,
+              "done": false,
+              "duration": 1.3666667577777838
+            }
+          ],
+          "bounds": {
+            "x": 94,
+            "y": 152,
+            "width": 44,
+            "height": 43
+          },
+          "meanRGB": 146.82089552238804,
+          "hash": "d01ebdf6"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 836,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 22,
+              "time": 0.7533333755555583,
+              "done": false,
+              "duration": 1.3666667577777838
+            }
+          ],
+          "bounds": {
+            "x": 103,
+            "y": 153,
+            "width": 27,
+            "height": 49
+          },
+          "meanRGB": 150.42025518341308,
+          "hash": "5a04a958"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 876,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 27,
+              "time": 0.9133333755555584,
+              "done": false,
+              "duration": 1.3666667577777838
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 154,
+            "width": 29,
+            "height": 50
+          },
+          "meanRGB": 150.5380517503805,
+          "hash": "fef98f6c"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 1269,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.4705880705882466
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 156,
+            "width": 53,
+            "height": 43
+          },
+          "meanRGB": 149.16942474389285,
+          "hash": "4defacfb"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1352,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 3,
+              "time": 0.102,
+              "done": false,
+              "duration": 2.4705880705882466
+            }
+          ],
+          "bounds": {
+            "x": 100,
+            "y": 154,
+            "width": 54,
+            "height": 45
+          },
+          "meanRGB": 152.2559171597633,
+          "hash": "62e55f1d"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1448,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 7,
+              "time": 0.23800000000000002,
+              "done": false,
+              "duration": 2.4705880705882466
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 152,
+            "width": 55,
+            "height": 47
+          },
+          "meanRGB": 147.29558011049724,
+          "hash": "caa5d916"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 1418,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 86,
+            "y": 153,
+            "width": 62,
+            "height": 42
+          },
+          "meanRGB": 146.440291490362,
+          "hash": "d2ead94c"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1423,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 86,
+            "y": 153,
+            "width": 62,
+            "height": 42
+          },
+          "meanRGB": 146.79198875614898,
+          "hash": "1f9936d1"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1428,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.3333332444444503
+            }
+          ],
+          "bounds": {
+            "x": 86,
+            "y": 153,
+            "width": 62,
+            "height": 42
+          },
+          "meanRGB": 146.81045751633988,
+          "hash": "52042f"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 1178,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.5833334388888958
+            }
+          ],
+          "bounds": {
+            "x": 93,
+            "y": 155,
+            "width": 47,
+            "height": 40
+          },
+          "meanRGB": 142.13978494623657,
+          "hash": "56180f93"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1138,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 2,
+              "time": 0.096,
+              "done": false,
+              "duration": 1.5833334388888958
+            }
+          ],
+          "bounds": {
+            "x": 94,
+            "y": 157,
+            "width": 45,
+            "height": 40
+          },
+          "meanRGB": 141.76391329818395,
+          "hash": "350da317"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1149,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 6,
+              "time": 0.22400000000000003,
+              "done": false,
+              "duration": 1.5833334388888958
+            }
+          ],
+          "bounds": {
+            "x": 94,
+            "y": 157,
+            "width": 46,
+            "height": 37
+          },
+          "meanRGB": 141.82390484479257,
+          "hash": "556840d"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 809,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 19,
+              "time": 0.6333333755555584,
+              "done": false,
+              "duration": 1.3666667577777838
+            }
+          ],
+          "bounds": {
+            "x": 102,
+            "y": 162,
+            "width": 44,
+            "height": 36
+          },
+          "meanRGB": 143.92459826946848,
+          "hash": "3a1a5b00"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 667,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 22,
+              "time": 0.7533333755555583,
+              "done": false,
+              "duration": 1.3666667577777838
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 160,
+            "width": 27,
+            "height": 44
+          },
+          "meanRGB": 148.5497251374313,
+          "hash": "4829db5"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 709,
+          "sourcePoses": [
+            {
+              "name": "Attack",
+              "frame": 27,
+              "time": 0.9133333755555584,
+              "done": false,
+              "duration": 1.3666667577777838
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 156,
+            "width": 29,
+            "height": 49
+          },
+          "meanRGB": 155.11048425011754,
+          "hash": "8e0db997"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 1416,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 2.4705880705882466
+            }
+          ],
+          "bounds": {
+            "x": 89,
+            "y": 153,
+            "width": 53,
+            "height": 42
+          },
+          "meanRGB": 144.47316384180792,
+          "hash": "a670a6b9"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 1365,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 3,
+              "time": 0.102,
+              "done": false,
+              "duration": 2.4705880705882466
+            }
+          ],
+          "bounds": {
+            "x": 86,
+            "y": 155,
+            "width": 54,
+            "height": 40
+          },
+          "meanRGB": 141.80537240537242,
+          "hash": "d6e2c22c"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 1359,
+          "sourcePoses": [
+            {
+              "name": "Skill",
+              "frame": 7,
+              "time": 0.23800000000000002,
+              "done": false,
+              "duration": 2.4705880705882466
+            }
+          ],
+          "bounds": {
+            "x": 87,
+            "y": 155,
+            "width": 55,
+            "height": 40
+          },
+          "meanRGB": 139.9953397105715,
+          "hash": "2ad2090a"
+        }
+      ],
+      "summary": {
+        "actors": 4,
+        "actorIds": [
+          "KnightHero",
+          "MusketeerHero",
+          "DarkPrinceHero",
+          "BowlerHero"
+        ],
+        "modelBytes": 10880642,
+        "modelBudget": 134217728,
+        "activeActors": 1,
+        "activeRequested": 1,
+        "inactiveActors": 3,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 96,
+        "poseBytes": 6757936,
+        "poseBudget": 50331648,
+        "renders": 96,
+        "hits": 0,
+        "fxSprites": 8,
+        "fxHistoryEntries": 0,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      }
+    },
+    {
+      "id": "Ronin",
+      "is3D": true,
+      "sourceScale": 100,
+      "sourceScene": null,
+      "unsupported": null,
+      "samples": [
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 604,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.2666667511111167
+            }
+          ],
+          "bounds": {
+            "x": 96,
+            "y": 161,
+            "width": 38,
+            "height": 32
+          },
+          "meanRGB": 123.34381898454745,
+          "hash": "d6a5c556"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 604,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.2666667511111167
+            }
+          ],
+          "bounds": {
+            "x": 96,
+            "y": 161,
+            "width": 38,
+            "height": 32
+          },
+          "meanRGB": 123.38189845474614,
+          "hash": "38dc2887"
+        },
+        {
+          "team": 0,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 600,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.2666667511111167
+            }
+          ],
+          "bounds": {
+            "x": 96,
+            "y": 161,
+            "width": 38,
+            "height": 32
+          },
+          "meanRGB": 123.54722222222222,
+          "hash": "28e58813"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 679,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 104,
+            "y": 157,
+            "width": 31,
+            "height": 37
+          },
+          "meanRGB": 124.11340206185567,
+          "hash": "9223f89a"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 658,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 105,
+            "y": 156,
+            "width": 30,
+            "height": 38
+          },
+          "meanRGB": 124.43262411347519,
+          "hash": "fe358a2b"
+        },
+        {
+          "team": 0,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 625,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 106,
+            "y": 159,
+            "width": 31,
+            "height": 33
+          },
+          "meanRGB": 128.5536,
+          "hash": "2091309"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 632,
+          "sourcePoses": [
+            {
+              "name": "Attack_01",
+              "frame": 11,
+              "time": 0.3666666911111127,
+              "done": false,
+              "duration": 0.8717949299145337
+            }
+          ],
+          "bounds": {
+            "x": 106,
+            "y": 160,
+            "width": 36,
+            "height": 45
+          },
+          "meanRGB": 137.60864978902953,
+          "hash": "d41ee3dd"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 708,
+          "sourcePoses": [
+            {
+              "name": "Attack_01",
+              "frame": 15,
+              "time": 0.5226666911111127,
+              "done": false,
+              "duration": 0.8717949299145337
+            }
+          ],
+          "bounds": {
+            "x": 95,
+            "y": 162,
+            "width": 44,
+            "height": 45
+          },
+          "meanRGB": 124.56497175141243,
+          "hash": "855a9c0a"
+        },
+        {
+          "team": 0,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 608,
+          "sourcePoses": [
+            {
+              "name": "Attack_01",
+              "frame": 21,
+              "time": 0.7306666911111128,
+              "done": false,
+              "duration": 0.8717949299145337
+            }
+          ],
+          "bounds": {
+            "x": 105,
+            "y": 163,
+            "width": 30,
+            "height": 50
+          },
+          "meanRGB": 129.56743421052633,
+          "hash": "c999761d"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 662,
+          "sourcePoses": [
+            {
+              "name": "Deflect_03",
+              "frame": 5,
+              "time": 0.16666667777777852,
+              "done": false,
+              "duration": 0.6666667111111141
+            }
+          ],
+          "bounds": {
+            "x": 107,
+            "y": 157,
+            "width": 25,
+            "height": 42
+          },
+          "meanRGB": 124.0231621349446,
+          "hash": "e8eaa5d7"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 670,
+          "sourcePoses": [
+            {
+              "name": "Deflect_03",
+              "frame": 9,
+              "time": 0.3106666777777785,
+              "done": false,
+              "duration": 0.6666667111111141
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 157,
+            "width": 22,
+            "height": 46
+          },
+          "meanRGB": 106.82636815920398,
+          "hash": "28b2be8d"
+        },
+        {
+          "team": 0,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 661,
+          "sourcePoses": [
+            {
+              "name": "Deflect_03",
+              "frame": 15,
+              "time": 0.5026666777777785,
+              "done": false,
+              "duration": 0.6666667111111141
+            }
+          ],
+          "bounds": {
+            "x": 110,
+            "y": 156,
+            "width": 22,
+            "height": 47
+          },
+          "meanRGB": 115.14372163388805,
+          "hash": "81194bfb"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0,
+          "painted": true,
+          "pixels": 605,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 1.2666667511111167
+            }
+          ],
+          "bounds": {
+            "x": 106,
+            "y": 165,
+            "width": 38,
+            "height": 39
+          },
+          "meanRGB": 114.69862258953168,
+          "hash": "15bcc579"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 611,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 1.2666667511111167
+            }
+          ],
+          "bounds": {
+            "x": 106,
+            "y": 164,
+            "width": 38,
+            "height": 40
+          },
+          "meanRGB": 114.34369885433715,
+          "hash": "22c5ed6"
+        },
+        {
+          "team": 1,
+          "state": "idle",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 608,
+          "sourcePoses": [
+            {
+              "name": "Idle",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 1.2666667511111167
+            }
+          ],
+          "bounds": {
+            "x": 106,
+            "y": 164,
+            "width": 38,
+            "height": 40
+          },
+          "meanRGB": 114.21600877192982,
+          "hash": "7c32f2f1"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0,
+          "painted": true,
+          "pixels": 565,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 0,
+              "time": 0,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 105,
+            "y": 168,
+            "width": 31,
+            "height": 33
+          },
+          "meanRGB": 110.25427728613569,
+          "hash": "6cd43e"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 575,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 3,
+              "time": 0.12,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 105,
+            "y": 170,
+            "width": 30,
+            "height": 34
+          },
+          "meanRGB": 108.04811594202899,
+          "hash": "d199dd65"
+        },
+        {
+          "team": 1,
+          "state": "run",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 554,
+          "sourcePoses": [
+            {
+              "name": "Walk",
+              "frame": 8,
+              "time": 0.28,
+              "done": false,
+              "duration": 0.9999999333333378
+            }
+          ],
+          "bounds": {
+            "x": 103,
+            "y": 170,
+            "width": 31,
+            "height": 32
+          },
+          "meanRGB": 113.97232250300841,
+          "hash": "6ccc79c6"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0,
+          "painted": true,
+          "pixels": 532,
+          "sourcePoses": [
+            {
+              "name": "Attack_01",
+              "frame": 11,
+              "time": 0.3666666911111127,
+              "done": false,
+              "duration": 0.8717949299145337
+            }
+          ],
+          "bounds": {
+            "x": 98,
+            "y": 153,
+            "width": 36,
+            "height": 43
+          },
+          "meanRGB": 98.16917293233082,
+          "hash": "a70d9cde"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 603,
+          "sourcePoses": [
+            {
+              "name": "Attack_01",
+              "frame": 15,
+              "time": 0.5226666911111127,
+              "done": false,
+              "duration": 0.8717949299145337
+            }
+          ],
+          "bounds": {
+            "x": 101,
+            "y": 163,
+            "width": 44,
+            "height": 44
+          },
+          "meanRGB": 113.75621890547264,
+          "hash": "72122ce9"
+        },
+        {
+          "team": 1,
+          "state": "attack",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 559,
+          "sourcePoses": [
+            {
+              "name": "Attack_01",
+              "frame": 21,
+              "time": 0.7306666911111128,
+              "done": false,
+              "duration": 0.8717949299145337
+            }
+          ],
+          "bounds": {
+            "x": 105,
+            "y": 161,
+            "width": 30,
+            "height": 39
+          },
+          "meanRGB": 113.74001192605844,
+          "hash": "90b3ef86"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0,
+          "painted": true,
+          "pixels": 485,
+          "sourcePoses": [
+            {
+              "name": "Deflect_03",
+              "frame": 5,
+              "time": 0.16666667777777852,
+              "done": false,
+              "duration": 0.6666667111111141
+            }
+          ],
+          "bounds": {
+            "x": 108,
+            "y": 168,
+            "width": 25,
+            "height": 24
+          },
+          "meanRGB": 129.0508591065292,
+          "hash": "92a7bef6"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.12,
+          "painted": true,
+          "pixels": 473,
+          "sourcePoses": [
+            {
+              "name": "Deflect_03",
+              "frame": 9,
+              "time": 0.3106666777777785,
+              "done": false,
+              "duration": 0.6666667111111141
+            }
+          ],
+          "bounds": {
+            "x": 108,
+            "y": 162,
+            "width": 22,
+            "height": 29
+          },
+          "meanRGB": 151.15926708949965,
+          "hash": "2b79a299"
+        },
+        {
+          "team": 1,
+          "state": "ability",
+          "time": 0.28,
+          "painted": true,
+          "pixels": 468,
+          "sourcePoses": [
+            {
+              "name": "Deflect_03",
+              "frame": 15,
+              "time": 0.5026666777777785,
+              "done": false,
+              "duration": 0.6666667111111141
+            }
+          ],
+          "bounds": {
+            "x": 108,
+            "y": 162,
+            "width": 22,
+            "height": 29
+          },
+          "meanRGB": 145.39672364672364,
+          "hash": "7587ddf9"
+        }
+      ],
+      "summary": {
+        "actors": 5,
+        "actorIds": [
+          "KnightHero",
+          "MusketeerHero",
+          "DarkPrinceHero",
+          "BowlerHero",
+          "Ronin"
+        ],
+        "modelBytes": 11972781,
+        "modelBudget": 134217728,
+        "activeActors": 1,
+        "activeRequested": 1,
+        "inactiveActors": 4,
+        "actorTarget": 16,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 120,
+        "poseBytes": 7910528,
+        "poseBudget": 50331648,
+        "renders": 120,
+        "hits": 0,
+        "fxSprites": 14,
+        "fxHistoryEntries": 1,
+        "pending": 0,
+        "error": null,
+        "failed": {}
+      }
+    }
+  ],
+  "errors": []
+}
