@@ -1,0 +1,410 @@
+[
+  {
+    "scene": "modernfx_effects_evolution",
+    "crops": 67,
+    "originalBytes": 776178,
+    "packedBytes": 331028
+  },
+  {
+    "scene": "modernfx_effects",
+    "crops": 297,
+    "originalBytes": 5372152,
+    "packedBytes": 1686982
+  },
+  {
+    "scene": "modernfx_chr_royal_ghost_evolution",
+    "crops": 68,
+    "originalBytes": 12466442,
+    "packedBytes": 328916
+  },
+  {
+    "scene": "modernfx_chr_pekka_evolution",
+    "crops": 8,
+    "originalBytes": 9396826,
+    "packedBytes": 28138
+  },
+  {
+    "scene": "modernfx_vfx_autochess",
+    "crops": 157,
+    "originalBytes": 5232094,
+    "packedBytes": 680530
+  },
+  {
+    "scene": "modernfx_chr_witch_evolution",
+    "crops": 22,
+    "originalBytes": 6609536,
+    "packedBytes": 106010
+  },
+  {
+    "scene": "modernfx_chr_goblin_blowdart_evolution",
+    "crops": 31,
+    "originalBytes": 4997312,
+    "packedBytes": 334468
+  },
+  {
+    "scene": "modernfx_chr_valkyrie_evolution",
+    "crops": 5,
+    "originalBytes": 3726934,
+    "packedBytes": 39020
+  },
+  {
+    "scene": "modernfx_chr_musketeer_evolution",
+    "crops": 6,
+    "originalBytes": 3577808,
+    "packedBytes": 30012
+  },
+  {
+    "scene": "modernfx_chr_baby_dragon_evolution",
+    "crops": 69,
+    "originalBytes": 13266040,
+    "packedBytes": 878244
+  },
+  {
+    "scene": "modernfx_chr_minionhorde_evolution",
+    "crops": 50,
+    "originalBytes": 2057796,
+    "packedBytes": 106416
+  },
+  {
+    "scene": "modernfx_chr_skeleton_army_evolution",
+    "crops": 31,
+    "originalBytes": 4903284,
+    "packedBytes": 103078
+  },
+  {
+    "scene": "modernfx_chr_princess_evolution",
+    "crops": 78,
+    "originalBytes": 2656428,
+    "packedBytes": 402496
+  },
+  {
+    "scene": "modernfx_chr_ice_golem_hero",
+    "crops": 85,
+    "originalBytes": 330910,
+    "packedBytes": 320354
+  },
+  {
+    "scene": "modernfx_chr_three_musketeers",
+    "crops": 10,
+    "originalBytes": 6827412,
+    "packedBytes": 38544
+  },
+  {
+    "scene": "modernfx_chr_furnace_rework",
+    "crops": 47,
+    "originalBytes": 4536976,
+    "packedBytes": 179588
+  },
+  {
+    "scene": "modernfx_chr_fire_firespirit",
+    "crops": 18,
+    "originalBytes": 211284,
+    "packedBytes": 88884
+  },
+  {
+    "scene": "modernfx_chr_zap_machine",
+    "crops": 32,
+    "originalBytes": 900114,
+    "packedBytes": 76320
+  },
+  {
+    "scene": "modernfx_chr_lumberjack_evolution",
+    "crops": 20,
+    "originalBytes": 12984612,
+    "packedBytes": 196970
+  },
+  {
+    "scene": "modernfx_chr_battle_ram_evolution",
+    "crops": 9,
+    "originalBytes": 16180868,
+    "packedBytes": 281448
+  },
+  {
+    "scene": "modernfx_chr_inferno_dragon_evolution",
+    "crops": 72,
+    "originalBytes": 3914390,
+    "packedBytes": 642828
+  },
+  {
+    "scene": "modernfx_chr_hunter_evolution",
+    "crops": 5,
+    "originalBytes": 4577236,
+    "packedBytes": 49768
+  },
+  {
+    "scene": "modernfx_chr_executioner_evolution",
+    "crops": 13,
+    "originalBytes": 7482260,
+    "packedBytes": 140960
+  },
+  {
+    "scene": "modernfx_chr_mega_knight_evolution",
+    "crops": 2,
+    "originalBytes": 18310514,
+    "packedBytes": 14638
+  },
+  {
+    "scene": "modernfx_chr_royal_hog_evolution",
+    "crops": 18,
+    "originalBytes": 6417656,
+    "packedBytes": 122538
+  },
+  {
+    "scene": "modernfx_chr_boss_bandit",
+    "crops": 38,
+    "originalBytes": 4281114,
+    "packedBytes": 279528
+  },
+  {
+    "scene": "modernfx_chr_giant_buffing",
+    "crops": 63,
+    "originalBytes": 9989728,
+    "packedBytes": 215888
+  },
+  {
+    "scene": "modernfx_chr_skeleton_balloon_evolution",
+    "crops": 69,
+    "originalBytes": 459004,
+    "packedBytes": 449728
+  },
+  {
+    "scene": "modernfx_chr_goblin_giant_evolution",
+    "crops": 1,
+    "originalBytes": 4666584,
+    "packedBytes": 9876
+  },
+  {
+    "scene": "modernfx_chr_skeleton_dragon_dl",
+    "crops": 1,
+    "originalBytes": 3493318,
+    "packedBytes": 2060
+  },
+  {
+    "scene": "modernfx_chr_skeleton",
+    "crops": 31,
+    "originalBytes": 409282,
+    "packedBytes": 121070
+  },
+  {
+    "scene": "modernfx_chr_electrogiant_evolution",
+    "crops": 28,
+    "originalBytes": 141166,
+    "packedBytes": 112502
+  },
+  {
+    "scene": "modernfx_chr_magic_archer_hero",
+    "crops": 49,
+    "originalBytes": 236052,
+    "packedBytes": 211630
+  },
+  {
+    "scene": "modernfx_chr_phoenix_dl",
+    "crops": 26,
+    "originalBytes": 4655488,
+    "packedBytes": 99880
+  },
+  {
+    "scene": "modernfx_chr_goblin_machine",
+    "crops": 1,
+    "originalBytes": 6597446,
+    "packedBytes": 8304
+  },
+  {
+    "scene": "modernfx_chr_goblin_bush",
+    "crops": 46,
+    "originalBytes": 2729444,
+    "packedBytes": 199332
+  },
+  {
+    "scene": "modernfx_chr_goblinstein_doctor",
+    "crops": 4,
+    "originalBytes": 2926196,
+    "packedBytes": 8400
+  },
+  {
+    "scene": "modernfx_building_tesla_evolution",
+    "crops": 1,
+    "originalBytes": 173358,
+    "packedBytes": 52112
+  },
+  {
+    "scene": "modernfx_ui",
+    "crops": 0,
+    "originalBytes": 32664916,
+    "packedBytes": 0
+  },
+  {
+    "scene": "modernfx_chr_barbarian_barrel_hero",
+    "crops": 40,
+    "originalBytes": 135846,
+    "packedBytes": 119636
+  },
+  {
+    "scene": "modernfx_chr_berserker_hero",
+    "crops": 2,
+    "originalBytes": 12798,
+    "packedBytes": 1448
+  },
+  {
+    "scene": "modernfx_vfx_hero_generic",
+    "crops": 81,
+    "originalBytes": 170874,
+    "packedBytes": 179282
+  },
+  {
+    "scene": "modernfx_chr_ronin",
+    "crops": 103,
+    "originalBytes": 519668,
+    "packedBytes": 570714
+  },
+  {
+    "scene": "modernfx_chr_miniongiant",
+    "crops": 23,
+    "originalBytes": 106162,
+    "packedBytes": 65252
+  },
+  {
+    "scene": "modernfx_building_goblin_hut",
+    "crops": 2,
+    "originalBytes": 114488,
+    "packedBytes": 10058
+  },
+  {
+    "scene": "modernfx_spell_zap",
+    "crops": 31,
+    "originalBytes": 82774,
+    "packedBytes": 83378
+  },
+  {
+    "scene": "modernfx_chr_barbarian_barrel_dl",
+    "crops": 6,
+    "originalBytes": 142336,
+    "packedBytes": 33970
+  },
+  {
+    "scene": "modernfx_chr_merge_maiden",
+    "crops": 119,
+    "originalBytes": 4834254,
+    "packedBytes": 621442
+  },
+  {
+    "scene": "modernfx_chr_merge_maiden_dragon",
+    "crops": 1,
+    "originalBytes": 6581632,
+    "packedBytes": 8100
+  },
+  {
+    "scene": "modernfx_spell_vine",
+    "crops": 187,
+    "originalBytes": 1778176,
+    "packedBytes": 1906168
+  },
+  {
+    "scene": "modernfx_chr_elite_barbarians_evolution",
+    "crops": 33,
+    "originalBytes": 154626,
+    "packedBytes": 142576
+  },
+  {
+    "scene": "modernfx_chr_furnace_evolution",
+    "crops": 68,
+    "originalBytes": 11237676,
+    "packedBytes": 471590
+  },
+  {
+    "scene": "modernfx_chr_goblin_cage_evolution",
+    "crops": 6,
+    "originalBytes": 5318470,
+    "packedBytes": 16462
+  },
+  {
+    "scene": "modernfx_chr_knight_hero",
+    "crops": 131,
+    "originalBytes": 667858,
+    "packedBytes": 725974
+  },
+  {
+    "scene": "modernfx_chr_goblins_hero",
+    "crops": 47,
+    "originalBytes": 147188,
+    "packedBytes": 122780
+  },
+  {
+    "scene": "modernfx_chr_giant_hero",
+    "crops": 23,
+    "originalBytes": 170770,
+    "packedBytes": 125334
+  },
+  {
+    "scene": "modernfx_chr_balloon_hero",
+    "crops": 122,
+    "originalBytes": 672160,
+    "packedBytes": 709354
+  },
+  {
+    "scene": "modernfx_chr_valkyrie_hero",
+    "crops": 55,
+    "originalBytes": 155602,
+    "packedBytes": 139046
+  },
+  {
+    "scene": "modernfx_chr_musketeer_hero",
+    "crops": 24,
+    "originalBytes": 85740,
+    "packedBytes": 43590
+  },
+  {
+    "scene": "modernfx_chr_minipekka_hero",
+    "crops": 55,
+    "originalBytes": 231696,
+    "packedBytes": 246622
+  },
+  {
+    "scene": "modernfx_chr_wizard_hero",
+    "crops": 75,
+    "originalBytes": 317812,
+    "packedBytes": 283352
+  },
+  {
+    "scene": "modernfx_chr_icewizard_hero",
+    "crops": 91,
+    "originalBytes": 317188,
+    "packedBytes": 322636
+  },
+  {
+    "scene": "modernfx_chr_dark_prince_hero",
+    "crops": 64,
+    "originalBytes": 252332,
+    "packedBytes": 262656
+  },
+  {
+    "scene": "modernfx_chr_bowler_hero",
+    "crops": 57,
+    "originalBytes": 218708,
+    "packedBytes": 227812
+  },
+  {
+    "scene": "modernfx_chr_mega_minion_hero",
+    "crops": 60,
+    "originalBytes": 268812,
+    "packedBytes": 227936
+  },
+  {
+    "scene": "modernfx_chr_electrowizard_hero",
+    "crops": 100,
+    "originalBytes": 329836,
+    "packedBytes": 331094
+  },
+  {
+    "scene": "modernfx_chr_tombstone_hero",
+    "crops": 62,
+    "originalBytes": 301446,
+    "packedBytes": 292656
+  },
+  {
+    "scene": "modernfx_chr_skeleton_evolution",
+    "crops": 315,
+    "originalBytes": 2349976,
+    "packedBytes": 2627398
+  }
+]

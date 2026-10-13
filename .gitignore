@@ -14,6 +14,8 @@ assets/ui/*.webp
 assets/**/*.png
 assets/**/*.webp
 assets/**/*.wav
+# Restored byte-for-byte from the verified release by restore-source.cjs.
+assets/modern-heroes/*.glb
 *.xapk
 *.aab
 *.obb

@@ -1,0 +1,12 @@
+{
+  "version": "0.54.0",
+  "app": "app.ea8875cb063d.js",
+  "appSha256": "ea8875cb063d03200858ac086983072e094f94ab0788232dab133f7cbe0ccbe9",
+  "sourceFxSha256": "fb26d2149fbe2b2494c974c4db213a1a1dc27a8686604cdb9f515e23445d2abf",
+  "exactSourceFxIncluded": true,
+  "allScenesCompressed": true,
+  "deliverySceneFiles": {
+    "compressed": 282,
+    "raw": 0
+  }
+}

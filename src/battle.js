@@ -78,7 +78,7 @@ class Battle {
  placementPreview(seat,slot,x,y){return Placement.forecastPlacement(this,seat,slot,x,y);}
  spellAffectedEntities(card,shape,team){
   const r=card.source||{},p=DATA.projectiles[card.projectileName]||DATA.projectiles[r.CustomFirstProjectile]||DATA.projectiles[r.Projectile]||{},a=DATA.areas[r.AreaEffectObject]||{};
-  const own=r.OnlyOwnTroops===true,ground=p.AoeToGround!==false&&a.HitsGround!==false,air=p.AoeToAir===true||a.HitsAir===true;
+  const own=r.OnlyOwnTroops===true,ground=p.AoeToGround!==false&&a.HitsGround!==false,air=p.AoeToAir===true||a.HitsAir===true||card.id==='void';
   return this.active.filter(u=>{if(u.effectCarrier||u.attachedTo||!this.isPresent(u)||u.hidden)return false;if(own?u.team!==team:u.team===team)return false;if(u.air&&!air||!u.air&&!ground)return false;if(a.IgnoreBuildings&&u.building)return false;return Placement.affectedByShape(u,shape);});
  }
  deploy(seat,slot,x,y){
@@ -166,8 +166,12 @@ class Battle {
  buffs(u){const slow={speed:1,attack:1,spawn:1},boost={speed:1,attack:1,spawn:1};for(const [n,b]of Object.entries(u.buffs)){if(b.until<=this.time){delete u.buffs[n];continue;}const r=DATA.buffs[b.name||n]||{};for(const [key,tag]of [['SpeedMultiplier','speed'],['HitSpeedMultiplier','attack'],['SpawnSpeedMultiplier','spawn']])if(r[key]!==undefined){const v=r[key]<0?Math.max(0,1+r[key]/100):r[key]/100;if(v<1)slow[tag]=Math.min(slow[tag],v);else boost[tag]=Math.max(boost[tag],v);}}return {speed:slow.speed*boost.speed,attack:slow.attack*boost.attack,spawn:slow.spawn*boost.spawn};}
  addBuff(u,name,duration,sourceTeam,level=9,origin=null,sourceTime=null){const r=DATA.buffs[name];if(!u?.buffs||!r||u.hp<=0||(Array.isArray(u.def.source.IgnoreBuff)?u.def.source.IgnoreBuff.includes(name):u.def.source.IgnoreBuff===name)||(r.IgnoreBuildings&&u.building)||(r.NoEffectToCrownTowers&&isTower(u)))return;
   const key=r.EnableStacking&&origin!==null?name+'@'+origin:name,prev=u.buffs[key];u.buffs[key]={name,until:Math.max(prev?.until||0,this.time+duration),sourceTeam,sourceOwner:this._owner??sourceTeam,sourceId:origin,level,nextTick:prev?.nextTick??(sourceTime??this.time)+sec(r.HitFrequency||500)};
+  if(!this.headless&&(r.PreContinuousEffect||r.ContinuousEffect||r.RemoveEffect)){this.buffVisuals||(this.buffVisuals=new Map());const id=u.id+':'+key,old=this.buffVisuals.get(id),visual=old&&prev?.until>this.time?old:{target:u,key,name,born:this.time,seed:'buff:'+id+':'+this.time};visual.until=u.buffs[key].until;visual.team=sourceTeam??u.team;visual.scale=(Number(r.EffectScale)||100)/100;this.buffVisuals.set(id,visual);}
   this.modernActions?.onBuffAdded?.(this,u,name,u.buffs[key]);if(r.HitFrequency===-1){this.applyBuffTick(u,u.buffs[key],r,1);u.buffs[key].nextTick=Infinity;}if(r.HitSpeedMultiplier<=-100){this.cancelAttackVisual(u);u.charged=false;u.chargeDistance=0;u.lockTime=0;u.precharge=0;u.windup=null;u.hook=null;u.nextAttackAt=this.time+duration;u.dash=null;}
  }
+ // Buff animation clocks stay outside raw buff state, which is part of saved
+ // replay digests. Removal is observed after all actions and deaths in a step.
+ syncBuffVisuals(){if(!this.buffVisuals)return;for(const [id,v]of this.buffVisuals){const u=v.target,buff=u.buffs?.[v.key],r=DATA.buffs[v.name]||{};if(u.hp>0&&!u.dead&&buff&&buff.until>this.time){v.until=buff.until;continue;}this.buffVisuals.delete(id);if(r.RemoveEffect)this.effect({kind:'source',sourceEffect:r.RemoveEffect,x:u.x,y:u.y,follow:u.id,team:v.team,scale:v.scale,ttl:6});}}
  damage(u,value,attacker=null,opt={}){
   if(!u||u.effectCarrier||u.hp<=0||u.dead||!Number.isFinite(value)||value<=0)return;
   if(u.dash?.moving&&u.def.source.DashImmuneToDamageTime&&!opt.ignoreImmunity)return;
@@ -325,7 +329,7 @@ class Battle {
   else this.move(u,t,dt,rates.speed,intent);
   u.cooldown=Math.max(0,u.nextAttackAt-this.time);
  }
- applyBuffTick(u,b,r,interval){if(r.DamagePerSecond){let n=isTower(u)&&r.CrownTowerDamagePerHit!==undefined?this.scaleStat(r.CrownTowerDamagePerHit,r.Rarity,b.level):this.scaleStat(r.DamagePerSecond,r.Rarity,b.level)*interval;if(u.building&&!isTower(u)&&r.BuildingDamagePercent)n*=r.BuildingDamagePercent/100;this.damage(u,n,null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:b.name==='Earthquake',team:b.sourceTeam});}if(r.HealPerSecond)this.heal(u,this.scaleStat(r.HealPerSecond,r.Rarity,b.level)*interval);}
+ applyBuffTick(u,b,r,interval){if(r.DamagePerSecond){let n=isTower(u)&&r.CrownTowerDamagePerHit!==undefined?this.scaleStat(r.CrownTowerDamagePerHit,r.Rarity,b.level):this.scaleStat(r.DamagePerSecond,r.Rarity,b.level)*interval;if(u.building&&!isTower(u)&&r.BuildingDamagePercent)n*=r.BuildingDamagePercent/100;this.damage(u,n,null,{crownPercent:r.CrownTowerDamagePercent,affectsHidden:b.name==='Earthquake',team:b.sourceTeam});}if(r.HealPerSecond)this.heal(u,this.scaleStat(r.HealPerSecond,r.Rarity,b.level)*interval);if(r.HitEffect&&(r.DamagePerSecond||r.HealPerSecond))this.effect({kind:'source',sourceEffect:r.HitEffect,x:u.x,y:u.y,follow:u.id,team:b.sourceTeam??u.team,scale:(Number(r.EffectScale)||100)/100,ttl:6});}
  tickBuffs(u){for(const [name,b]of Object.entries(u.buffs)){if(b.until+EPS<this.time)continue;const r=DATA.buffs[b.name||name]||{};if((r.DamagePerSecond||r.HealPerSecond)&&this.time+EPS>=b.nextTick){const oneShot=r.HitFrequency===-1,interval=oneShot?1:sec(r.HitFrequency||500);this.applyBuffTick(u,b,r,interval);b.nextTick=oneShot?Infinity:b.nextTick+interval;}}}
  // Both barrels use their own position, range, target lock and first-hit delay.
  tickKingCannons(u,dt,rate){
@@ -548,7 +552,7 @@ class Battle {
  }
 
  step(dt){if(!Number.isFinite(dt)||dt<=0||this.paused||this.result)return;dt=Math.min(dt,.1);if(this.tiebreaker){this.tickTiebreaker(dt);return;}this.time+=dt;const bar=this.timeline.ElixirFullBarMS?.[this.phase]||28000;for(const t of this.seats){const gained=this.passiveElixirEnabled(t)?dt*10000/bar:0;if(Number.isFinite(this.maxElixir))this.metrics.leaked[t]+=Math.max(0,this.elixir[t]+gained-this.maxElixir);this.elixir[t]=(t===0&&this.cheats.elixir)?(Number.isFinite(this.maxElixir)?this.maxElixir:Math.max(10,this.elixir[t])):Math.min(this.maxElixir,this.elixir[t]+gained);}
-  for(const u of this.units){u.previousX=u.x;u.previousY=u.y;}this.tickPending();this.modernActions?.refreshAreas?.(this);this.tickAreas(dt);for(const u of [...this.towers,...this.units])this.tickEntity(u,dt);this.modernActions?.tickBattle?.(this,dt);this.tickProjectiles(dt);this.deaths();this.checkTouchdowns();this.separate(dt);this.effects=this.effects.filter(e=>this.time-e.born<e.ttl);if(this.ai&&this.time>=this.aiClock){for(const seat of this.seats)if(seat!==0)this.aiPlay(seat);this.aiClock=this.time+.25;}this.checkResult();this.recorder?.tick();
+  for(const u of this.units){u.previousX=u.x;u.previousY=u.y;}this.tickPending();this.modernActions?.refreshAreas?.(this);this.tickAreas(dt);for(const u of [...this.towers,...this.units])this.tickEntity(u,dt);this.modernActions?.tickBattle?.(this,dt);this.tickProjectiles(dt);this.deaths();this.checkTouchdowns();this.separate(dt);this.syncBuffVisuals();this.effects=this.effects.filter(e=>this.time-e.born<e.ttl);if(this.ai&&this.time>=this.aiClock){for(const seat of this.seats)if(seat!==0)this.aiPlay(seat);this.aiClock=this.time+.25;}this.checkResult();this.recorder?.tick();
  }
 }
 Battle.SX=SX;Battle.SY=SY;return {Battle,rng,dist,edge};});

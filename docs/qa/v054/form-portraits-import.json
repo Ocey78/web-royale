@@ -1,0 +1,1076 @@
+{
+  "portraits": [
+    {
+      "id": "Knight_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Knight_EV1.png",
+      "source": "sc/ui_spells.sc#knight_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "daf651c24ece6c6a6aea35cdfb39b92fa6a86f4d506bf9cf82f7e0b68aa7a44f",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Archer_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Archer_EV1.png",
+      "source": "sc/ui_spells.sc#archer_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "c7ddd2e0782021f5fbe54eca1ae56830e65ea55a0e137bbbc798bb437ab516b9",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Pekka_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Pekka_EV1.png",
+      "source": "sc/ui_spells.sc#Pekka_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "e5525cb8bdca21d520ea1a186502a8aeb355fd7c29cbfb63ec674c0b52a65d78",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Witch_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Witch_EV1.png",
+      "source": "sc/ui_card_witch_evolution.sc#witch_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "644c77280b833ddcef377228dbfcae787368fbef3b864d1456142b80c7e1ce63",
+      "sourceSha256": "f77ac3928a71036b65476723fa487a7ac3772040f1b2f7ebfbf4da91125f3386",
+      "sourceTextureSha256": {
+        "ui_card_witch_evolution_0.sctx": "26993a9e4694bb31f85ad75b8088d8cf149d7ce8386ba9e3e14ec71a58dfa63c"
+      }
+    },
+    {
+      "id": "Barbarians_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Barbarians_EV1.png",
+      "source": "sc/ui_spells.sc#barbarian_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "87cd8022830fac6a7e3a9588eec2576ca448275213d9d6b3bfd79abbbfffde13",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Skeletons_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Skeletons_EV1.png",
+      "source": "sc/ui_spells.sc#skeletons_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "1430a6084cc75f098c1c03d32f39a513a080bd7fb189afcc631b3aed2c31a7d7",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Valkyrie_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Valkyrie_EV1.png",
+      "source": "sc/ui_spells.sc#valkyrie_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "8b9055636c39d6d8cb1ef6609f6a284acf201d77e3b6d519cea5d6a0f480bf0c",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "SkeletonArmy_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-SkeletonArmy_EV1.png",
+      "source": "sc/ui_card_skeleton_army_evolution.sc#skeleton_army_evolution_card_image",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "ee09677b18f9ee5ebb44895d4c81b283c48023643d8a2dee110584ba4141438f",
+      "sourceSha256": "7adf324568b0a300b3df41f5bdc8a971493d090e352ed148672ed485d6197a40",
+      "sourceTextureSha256": {
+        "ui_card_skeleton_army_evolution_0.sctx": "0ae48b19e492e09192d097694dd0f518f0100ce8e5c13d2273df0fcaa91e4cbf"
+      }
+    },
+    {
+      "id": "Bomber_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Bomber_EV1.png",
+      "source": "sc/ui_spells.sc#bomber_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "5898218257e2579603430dee58d8cbfb42b979daf2d97f105cedb71edae3f108",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Musketeer_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Musketeer_EV1.png",
+      "source": "sc/ui_spells.sc#musketeer_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "be495a21dd153dde0bf196cb013aa99060c5e987e74f242f4f24e9eae613de2f",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "BabyDragon_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-BabyDragon_EV1.png",
+      "source": "sc/ui_card_baby_dragon_evolution.sc#baby_dragon_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "38fd46d3a07a19367173b084f074a28e863ca79dda03141edc863d75b79f6ba8",
+      "sourceSha256": "1ca023ed0c8ee4747746c8d5d778f9b53a2a78128aafd9b6de8222cb1de117ec",
+      "sourceTextureSha256": {
+        "ui_card_baby_dragon_evolution_0.sctx": "61c72527472a813d936c8a324d83e6b27007a2791cba019f4fef44d5fd043ce1"
+      }
+    },
+    {
+      "id": "Wizard_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Wizard_EV1.png",
+      "source": "sc/ui_spells.sc#wizard_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "e656ef18503e21e117ef4d10996df8b6da3d51bcd18e22da5eeed8fb4d2a1b6f",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "MinionHorde_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-MinionHorde_EV1.png",
+      "source": "sc/ui_card_minionhorde_evolution.sc#minionhorde_evolution_card_image",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "49f80588f6c86267a1cb669fee23e6a8395beb67c1dae74beefe353c9a7a27fb",
+      "sourceSha256": "6aa771d56181c34c37ce940d5b71bb633368b3dd42df13489d63697e51d32a35",
+      "sourceTextureSha256": {
+        "ui_card_minionhorde_evolution_0.sctx": "f6c2b8761235ab6f589c631905abb8bdab37feebb366a524b84253d1c00f9cb4"
+      }
+    },
+    {
+      "id": "RoyalGiant_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-RoyalGiant_EV1.png",
+      "source": "sc/ui_spells.sc#royalgiant_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "dadabd334431369d7f3a5f30876e3f0c60fc204c48294f7bba0e6d443791830f",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Princess_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Princess_EV1.png",
+      "source": "sc/ui_card_princess_evolution.sc#princess_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "5e077e1d8463e6057dae101326f82183ceefd9315e7c20a0d5f5d0d004d67bbd",
+      "sourceSha256": "7671897b19ec5ba76b4d8df950b736fda6933fd6ff51a0e084e3a081851fff41",
+      "sourceTextureSha256": {
+        "ui_card_princess_evolution_0.sctx": "7a9eb71bf360f4ab3ec61d94b649ea4489e8626ad1177b1bf64c333323aa08d4"
+      }
+    },
+    {
+      "id": "IceSpirits_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-IceSpirits_EV1.png",
+      "source": "sc/ui_spells.sc#icespirit_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "1a4e4c7d34a5f47b222718e2885117a27aaa36f08dfa2128ff2bde586e8c670f",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "RageBarbarian_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-RageBarbarian_EV1.png",
+      "source": "sc/ui_spells.sc#lumberjack_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "c905ee6f209ed5cd8b1b65bbc616ccddb41d1048413343e060414c04aae87ec8",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "BattleRam_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-BattleRam_EV1.png",
+      "source": "sc/ui_spells.sc#battle_ram_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "8c06bb976e392711adbb799ec2996595cbed3401284afbec9163878002a794d6",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "InfernoDragon_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-InfernoDragon_EV1.png",
+      "source": "sc/ui_card_inferno_dragon_evolution.sc#inferno_dragon_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "4028422f3731c12b825327dc0102a48fc1d069bed90b1edbcaa93ed3a1d98822",
+      "sourceSha256": "aa17f9862392506c93459b76323111123a03809a425129deb54df5df603b982d",
+      "sourceTextureSha256": {
+        "ui_card_inferno_dragon_evolution_0.sctx": "b40acf823c82e22377087547c9eca009437f4361c1b1d86fd9df0e020939d9e6"
+      }
+    },
+    {
+      "id": "BlowdartGoblin_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-BlowdartGoblin_EV1.png",
+      "source": "sc/ui_spells.sc#dartgoblin_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "d1d1b6c5e679aec2775204403320500d64b2964dcfc2a10a90da4923b5ea0381",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "AngryBarbarians_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-AngryBarbarians_EV1.png",
+      "source": "sc/ui_card_elite_barbarians_evolution.sc#elite_barbarians_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "058b8fbf09d2f366e8c67dc24ee0d5d9e91f5fdfacd5718d06f74a8cabb4f6b1",
+      "sourceSha256": "661608d7c573597d3a2e2a1037d4409ba5f7ab6793c3c14b4e701994e547c5da",
+      "sourceTextureSha256": {
+        "ui_card_elite_barbarians_evolution_0.sctx": "e42f16954c68ff39ace016630b052097888cb0012308fa50470177bb2d4fd1fd"
+      }
+    },
+    {
+      "id": "Hunter_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Hunter_EV1.png",
+      "source": "sc/ui_card_hunter_evolution.sc#hunter_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "e03c9630b21c2666d07e6abf08b35c9b6daaf1fab4bdbbf7b695b90a686b34bb",
+      "sourceSha256": "003e7587cb4ad61d31e977446558221c813ad122f7db60215449be003bed1fb7",
+      "sourceTextureSha256": {
+        "ui_card_hunter_evolution_0.sctx": "7f714139d8b72f61f75e92c31ace0dc260e072fed356b9ee8cddb58aa59f3c18"
+      }
+    },
+    {
+      "id": "AxeMan_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-AxeMan_EV1.png",
+      "source": "sc/ui_card_executioner_evolution.sc#executioner_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "fbfeda70a7227459e327b5ea8b0feb1a6c4a27b88fe647e5e105b1b8ccd9c6ef",
+      "sourceSha256": "625356e40060ba257087f0fcf02fbd88a82410d417ee92f7a34f8b2719a76ebb",
+      "sourceTextureSha256": {
+        "ui_card_executioner_evolution_0.sctx": "f208d16415d4527e2c5d9c12641cdb74d711b8f000ac767e7e7c5b18dc2cd9ed"
+      }
+    },
+    {
+      "id": "RoyalRecruits_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-RoyalRecruits_EV1.png",
+      "source": "sc/ui_spells.sc#royal_recruit_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "7261386c76f1d3d528988c20a7cfc86aedce00861ded38991f34397d99f54ee0",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Bats_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Bats_EV1.png",
+      "source": "sc/ui_spells.sc#bats_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "04b504a679981f1f4c0b3d5f96d5ab92e29b8c9e29b1bab1cf0db8e47adb7c31",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Ghost_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Ghost_EV1.png",
+      "source": "sc/ui_card_royal_ghost_evolution.sc#royal_ghost_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "feb0899b0a527136b5317706b637f962242de013c2461d3590845a8149e3f22e",
+      "sourceSha256": "fca8692eebd3d5e003f896985e3a6456cb71d07c57e31ac9a90d6e9f507033de",
+      "sourceTextureSha256": {
+        "ui_card_royal_ghost_evolution_0.sctx": "88fd975fd2f84d3083f18e63570d60c3bb559821e8648fca4753f35e5d67da4b"
+      }
+    },
+    {
+      "id": "MegaKnight_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-MegaKnight_EV1.png",
+      "source": "sc/ui_spells.sc#Megaknight_Evo_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 343,
+      "sha256": "42e8bdf6f046f1b748d01f3f44a75fc74395ee668857da30546648e25bfbce3c",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "SkeletonBalloon_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-SkeletonBalloon_EV1.png",
+      "source": "sc/ui_card_skeleton_balloon_evolution.sc#skeleton_balloon_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "602f7d361330bef1a88a2de46873425e85e2c8a0037521fe3395162608409e7c",
+      "sourceSha256": "a5cdb27c454d36af5d406c0fe2fa899480d19b65286809a5abab53c9ca0351dd",
+      "sourceTextureSha256": {
+        "ui_card_skeleton_balloon_evolution_0.sctx": "f322ea1379f80d2c466addc0c142af19c9ff2bac965c4a0188edd09898b44af3"
+      }
+    },
+    {
+      "id": "Wallbreakers_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Wallbreakers_EV1.png",
+      "source": "sc/ui_spells.sc#wall_breaker_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "def8cd327266746ebe2b51e23e3fe3b52c6ddf79c54bd1fa5045b1cd8af7bcf4",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "RoyalHogs_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-RoyalHogs_EV1.png",
+      "source": "sc/ui_card_royal_hogs_evolution.sc#royal_hog_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "4d82d88911bcdd0f2dabbca82da950c0fc069281a08e8497cda33d9d78e4752c",
+      "sourceSha256": "9cd0b9d66a19ad3846b9fbdb8f2fd597d1c6abebd03f804079f6a0f6cbd10082",
+      "sourceTextureSha256": {
+        "ui_card_royal_hogs_evolution_0.sctx": "a222f201fd631ef3463b0bfc61da9cda475d5b4d61824a81f6614e11a2e6e049"
+      }
+    },
+    {
+      "id": "GoblinGiant_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-GoblinGiant_EV1.png",
+      "source": "sc/ui_spells.sc#goblin_giant_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "893aff8fc74cf98ec6566f82894ab6647f7c7c8494cc60e073403902296322b9",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "ElectroDragon_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-ElectroDragon_EV1.png",
+      "source": "sc/ui_spells.sc#Electro_Dragon_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "b1fae330f823c8209c45039eed1da9f8b48ac548e8751ab142205ca5fce7388d",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Firecracker_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Firecracker_EV1.png",
+      "source": "sc/ui_spells.sc#firecracker_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "ddeffdcae4c8f515e93d931f501a9163ab27080f1d78e434a184c0c59ea13489",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "ElectroGiant_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-ElectroGiant_EV1.png",
+      "source": "sc/ui_card_electro_giant_evolution.sc#electro_giant_evolution_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "5ee37b590d7400b64ba11b6b08792a192ec5ac43a2fd6c00327f690b4c90173f",
+      "sourceSha256": "59d7a5ab5dc3f9715cb785b08b4962ce435749405bb4e2faf5f054ba97d53fce",
+      "sourceTextureSha256": {
+        "ui_card_electro_giant_evolution_0.sctx": "af16cc5ea93075a55f2b3c80f7e4e5aecf8f886e6289b574d2a796fc7f77e1b9"
+      }
+    },
+    {
+      "id": "GoblinBarrel_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-GoblinBarrel_EV1.png",
+      "source": "sc/ui_spells.sc#goblin_barrel_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "1d8af45b16c9517d6711073666b58042e40e828b4afc7afbbe803b2ed68d476a",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Zap_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Zap_EV1.png",
+      "source": "sc/ui_spells.sc#zap_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "88e03dee0465fbc75eb81a20c48d104b5f9a32be167581e50297cb86d33be2ca",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Snowball_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Snowball_EV1.png",
+      "source": "sc/ui_spells.sc#snowball_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "c17830bcd67ad80ef1776bbc8b67afe13d11e4c22dac5dd7e68df8bdf63b6b36",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Cannon_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Cannon_EV1.png",
+      "source": "sc/ui_spells.sc#cannon_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "81de337fc4ce53b790d2fce5b660eda928d5b016435f2d0ab591ef0440f71504",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Mortar_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Mortar_EV1.png",
+      "source": "sc/ui_spells.sc#mortar_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "312811958bb4c4e2d2a3c365f33c8e9820fc00e62149468883630efa43bfd463",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Tesla_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-Tesla_EV1.png",
+      "source": "sc/ui_spells.sc#tesla_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "3cbdb8a76dccb9f08875c07ea796a7b3328f466b46a1fbedf1789457ba67005b",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "FirespiritHut_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-FirespiritHut_EV1.png",
+      "source": "sc/ui_card_furnace_evolution.sc#furnace_evolution_card_image",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "81fef2b95de9ae2c926c2db290e4b03c8dd3e2ed3f37caab2c7dbfd0035fb276",
+      "sourceSha256": "afef3a08e1834b97877bfd1fe5ccbbd2f52ac2924cc79ae3d8be2f23700e03f7",
+      "sourceTextureSha256": {
+        "ui_card_furnace_evolution_0.sctx": "a41d2f9b0bd983a6dbb1f442dae1cccfa87554e01aae8296f1ca8c211c507e95"
+      }
+    },
+    {
+      "id": "GoblinCage_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-GoblinCage_EV1.png",
+      "source": "sc/ui_spells.sc#goblin_cage_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "09c1c5c586e7d0d9be5d16cdee8d9a09a395ac37ed850fcc1bd07a013d1dd9c1",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "GoblinDrill_EV1",
+      "kind": "evolution",
+      "file": "assets/ui/modern-form-GoblinDrill_EV1.png",
+      "source": "sc/ui_spells.sc#goblin_drill_evolution_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "5fbe5cfb2e118e1818ea78b6e9c4c3d7309a6a5b4af697afebe0ea21e7c55c4a",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Knight_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Knight_hero.png",
+      "source": "sc/ui_card_knight_hero.sc#knight_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "4821e006af3c2f3ab0c5cec10376ccbe584d9c0c00d470a190c6e2f01ba4a9ca",
+      "sourceSha256": "f751c8e39a32287d35f3ad241c559f02bb2426ecddfd2b37a0b211ff3278b4d5",
+      "sourceTextureSha256": {
+        "ui_card_knight_hero_0.sctx": "24d792ed81f3d31af12ce62ae3c708f584ec15a47cbe1a80dda31d621191a57e"
+      }
+    },
+    {
+      "id": "Goblins_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Goblins_hero.png",
+      "source": "sc/ui_card_goblins_hero.sc#goblins_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "2c95f617def67269e951bddeb6742cb519f684ea9a1c75618676499bdc4c4bd9",
+      "sourceSha256": "bf71f93b4f92e3c4d1edff97484525ab020a58242e9a7e0ab5d51637e2853f6d",
+      "sourceTextureSha256": {
+        "ui_card_goblins_hero_0.sctx": "55628b0833cf9c67f2079622d697222e86cf2fe06d1aa86a026dac736db45e5b"
+      }
+    },
+    {
+      "id": "Giant_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Giant_hero.png",
+      "source": "sc/ui_card_giant_hero.sc#giant_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "a9a54e16bf3820b36dd06d157363c54bc979764f360085801acf327d6581be06",
+      "sourceSha256": "9e952a5faf44fd8a78308438926404ff57322a5c4b1307bf99d9d9aaf88895e6",
+      "sourceTextureSha256": {
+        "ui_card_giant_hero_0.sctx": "a83da5766d18bad11135651c36a5eaa277a2239aa0b7e6a6be3ea817ada6375f"
+      }
+    },
+    {
+      "id": "Balloon_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Balloon_hero.png",
+      "source": "sc/ui_card_balloon_hero.sc#balloon_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "6b4eeb02e51bf60951237bff7d7a8ccab50f72214b868e9eb8523cfd0f5a84a6",
+      "sourceSha256": "9c590a5e20ec9dc827f2ac3a7bc70c823392c30a44dd192a12a60ec33d06648a",
+      "sourceTextureSha256": {
+        "ui_card_balloon_hero_0.sctx": "414618b40ab273e343a5b39e24a4acb75be3f3304fc162b24f0d5bc198d7e2c9"
+      }
+    },
+    {
+      "id": "Valkyrie_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Valkyrie_hero.png",
+      "source": "sc/ui_card_valkyrie_hero.sc#valkyrie_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "9534748e1e4416722e4c5b20775a27e7b11784f58efe9c6c75b669dcd3ef195e",
+      "sourceSha256": "a9d07ddf5fecba8b138dbfa68e2d152ca27f63b74543608441a6b4bac23b2a15",
+      "sourceTextureSha256": {
+        "ui_card_valkyrie_hero_0.sctx": "1f4bae153341053755165d62a1e0af06206f5de29ea23027e975fc8c091b7673"
+      }
+    },
+    {
+      "id": "Musketeer_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Musketeer_hero.png",
+      "source": "sc/ui_card_musketeer_hero.sc#musketeer_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "8a5959c13aa3ab963fcf4577a04789c609bea0fa4de142d0d4fec121f4c13816",
+      "sourceSha256": "df7d26696e5228739ae2c7f481fd2d83b5b5eebdf36d9c86e0bfaf95c9fe7dfe",
+      "sourceTextureSha256": {
+        "ui_card_musketeer_hero_0.sctx": "7ef2fe43e28e366c3984b1032081ac6837d09a058480603f4667868f33b9fc17"
+      }
+    },
+    {
+      "id": "Wizard_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Wizard_hero.png",
+      "source": "sc/ui_card_wizard_hero.sc#wizard_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "0ae1cd0fb25802f72c52e1cc920659a4c1e5cd0685dd9ee18ada6d77d0e7c9b1",
+      "sourceSha256": "a06752be5b557f642cc8b1d8353073d76b2d6d56cc62e2a478994ea29910b25e",
+      "sourceTextureSha256": {
+        "ui_card_wizard_hero_0.sctx": "6a66155c5de2e1c59564353d19abb463d692b37147fe642fef546cc9bcce540e"
+      }
+    },
+    {
+      "id": "MiniPekka_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-MiniPekka_hero.png",
+      "source": "sc/ui_card_minipekka_hero.sc#miniPekka_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "d74ccc448e57d6b6bc8a2091e2245996ab55bef7f71c124a5b4206ed28e1c49c",
+      "sourceSha256": "dab24002e792acbbb71028328ca7ac41391802ac8e722253f4ad6ae33381b508",
+      "sourceTextureSha256": {
+        "ui_card_minipekka_hero_0.sctx": "bce12975de4ed34a2ab8c7a4a309eca824766e6b75bf42f7bd8d31038ee80f3c"
+      }
+    },
+    {
+      "id": "IceWizard_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-IceWizard_hero.png",
+      "source": "sc/ui_card_ice_wizard_hero.sc#ice_wizard_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "5e12a1d19bbea4373dfd3b8275c7514f43a8e5ba56d8f59f73d762647085cd49",
+      "sourceSha256": "5543a982d5756ff1fc9a39f4792f8844ebf4f325da543a59dc871d31874eda4e",
+      "sourceTextureSha256": {
+        "ui_card_ice_wizard_hero_0.sctx": "cac13a0d15f7e4ab1915ccb441974380ef311a5b0e222b6dd334375cd10470ab"
+      }
+    },
+    {
+      "id": "DarkPrince_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-DarkPrince_hero.png",
+      "source": "sc/ui_card_darkprince_hero.sc#darkprince_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "6cd71a2482384c6759d48b4a8d1d003a5ed579d9c030976c4b935320d9eec644",
+      "sourceSha256": "94e743ec3e812196fc178597af5280d03ce6753cc3d33d4ae8c092c896280eec",
+      "sourceTextureSha256": {
+        "ui_card_darkprince_hero_0.sctx": "49fd612409dde03c8db574bac441f31b6a0876ec01f15929eef6650379fca2d9"
+      }
+    },
+    {
+      "id": "Bowler_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Bowler_hero.png",
+      "source": "sc/ui_card_bowler_hero.sc#bowler_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "f82075a43f7b433c563381de546bed6faa867cf83f7c88d3396b9c289475424d",
+      "sourceSha256": "35cafbe076cafd8a1f8a7285561cfa4bc0a52bd64d892ed23afc57f477fbc835",
+      "sourceTextureSha256": {
+        "ui_card_bowler_hero_0.sctx": "e12e95f06ec950357a6cf07b9f328cd4f28520e4a5a34e083b5e9c2b4fcfbbf4"
+      }
+    },
+    {
+      "id": "IceGolemite_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-IceGolemite_hero.png",
+      "source": "sc/ui_card_icegolem_hero.sc#icegolem_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "30358184dd75811929a7283aa38e552111398ec90cd3828ae986576d3611acc1",
+      "sourceSha256": "edf4dfa570d1cc659a9d53b53eac0cc2cc4a4cfe9667f69d3e490a67c4531ac8",
+      "sourceTextureSha256": {
+        "ui_card_icegolem_hero_0.sctx": "f861fb1ede1803b0807997104a75e522853bb36f838dd6bf1ebec5174b2eca5c"
+      }
+    },
+    {
+      "id": "MegaMinion_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-MegaMinion_hero.png",
+      "source": "sc/ui_card_megaminion_hero.sc#megaminion_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "2bf23e1ed262917f6e7e57a1c112140dfafeb1ae61bfab16025463c2f1a7a9f7",
+      "sourceSha256": "5197f1b51c50244dd332dd34221a19a1a5501bf1406e3808ab504670a29051d1",
+      "sourceTextureSha256": {
+        "ui_card_megaminion_hero_0.sctx": "cb07115f15e3907aba58779f119a6cd1efca5f9c26cfd180ad988f97a9855aea"
+      }
+    },
+    {
+      "id": "ElectroWizard_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-ElectroWizard_hero.png",
+      "source": "sc/ui_card_electro_wizard_hero.sc#electro_wizard_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "23fbdb15d35f5d80d8dea04c8b00dabcf3495eabd0e33b5ec687381215e541d3",
+      "sourceSha256": "df43f55f0d7f55365022bcd382e9e1205eb26bf14ea5773ae4da36b0cdb8aaa0",
+      "sourceTextureSha256": {
+        "ui_card_electro_wizard_hero_0.sctx": "d6dcb3cb616a993c0582c60be78394cf28c8839bd049c7dcb748bf3fa54b4bc0"
+      }
+    },
+    {
+      "id": "EliteArcher_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-EliteArcher_hero.png",
+      "source": "sc/ui_card_magic_archer_hero.sc#magic_archer_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "48ea36aaa3c086695cfaefcf26e36d3f3f86f09c39be846d815649ed726b44ce",
+      "sourceSha256": "9b436a2928a5b41024af49fe353c9d799f6362b9bfdffb3dbe4461602bdc0eb9",
+      "sourceTextureSha256": {
+        "ui_card_magic_archer_hero_0.sctx": "bcd57b23f3ae43049d67193ae3879371546c3bb4c8ade44fc41dc9afb65c239e"
+      }
+    },
+    {
+      "id": "Berserker_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Berserker_hero.png",
+      "source": "sc/ui_card_berserker_hero.sc#berserker_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "4a9f0524bff693738460e878228b9128e2191de55596fdeb10a951c90d2d5223",
+      "sourceSha256": "ea042b0329efcef3c55e11996f218f9a1c9729aeb6efec96d63245479b24332d",
+      "sourceTextureSha256": {
+        "ui_card_berserker_hero_0.sctx": "f508148269795ab53f06583e7b78cee6fb4f7d46652c2ada9887ecd818cda195"
+      }
+    },
+    {
+      "id": "Tombstone_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-Tombstone_hero.png",
+      "source": "sc/ui_card_tombstone_hero.sc#tombstone_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "920fef880eb7c567ad77194b0d7fc583f8e9bb38076a180cdfecdaed98362cab",
+      "sourceSha256": "45f7dd83ce7484d20e8ddd12fe45895f8e26b6bb261c78b0983fbf98a04b4a39",
+      "sourceTextureSha256": {
+        "ui_card_tombstone_hero_0.sctx": "896e5de920f150cd6ea8dc6878f430608ef4b2d157b10bb1eca04b902cf6d2b7"
+      }
+    },
+    {
+      "id": "BarbLog_hero",
+      "kind": "hero",
+      "file": "assets/ui/modern-form-BarbLog_hero.png",
+      "source": "sc/ui_card_barbarian_barrel_hero.sc#barbarian_barrel_hero_card",
+      "sourceVersion": "16.402.17",
+      "sourcePackage": "160402017",
+      "width": 237,
+      "height": 301,
+      "sha256": "e9f47941ed5b382f9dfa11c321d5417ba38d6fc8ce3071d8254f79bb91d9c0d6",
+      "sourceSha256": "0d3f40321f5ab22be972feb2db2869fd70a8e000e2c9debaaf19c813d31ec2ae",
+      "sourceTextureSha256": {
+        "ui_card_barbarian_barrel_hero_0.sctx": "82a335c6969d5fed6d9e01400169614c09139fb8a0412ead458ba911ac6a19a2"
+      }
+    },
+    {
+      "id": "MightyMiner_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-MightyMiner_champion.png",
+      "source": "sc/ui_spells.sc#mightyminer",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "9856504eed97fc2b8eb77286d0065dcba1f92d997ca0ab7ef71bb8e37cdb2e95",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "SkeletonKing_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-SkeletonKing_champion.png",
+      "source": "sc/ui_spells.sc#skeletonking",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "c478dea1dd7a6838ba0650058ae5d976add3c726b52f451faf083231ff62c713",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "ArcherQueen_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-ArcherQueen_champion.png",
+      "source": "sc/ui_spells.sc#archerqueen",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "b3b37f6330c4e28358b3f674401859087f4b2c30f3f2f11e919a7cb65234947e",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "GoldenKnight_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-GoldenKnight_champion.png",
+      "source": "sc/ui_spells.sc#goldenknight",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "9c208cb2be0c4b03f160054adf755fe9d481b6eb31ff4393a3cdd0ed16d5b6ac",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Monk_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-Monk_champion.png",
+      "source": "sc/ui_spells.sc#monk",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "74f4c6b88a1668e5fa5f28031104648c546d83426092715ba8865ec3706aa2b6",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "LittlePrince_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-LittlePrince_champion.png",
+      "source": "sc/ui_spells.sc#LittlePrince",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "0aedb65010687442e6cfc0e1f22f029890be3860ca3f94aa090b66bb7a51af16",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "Goblinstein_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-Goblinstein_champion.png",
+      "source": "sc/ui_spells.sc#goblinstein_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "1be4d01eabbcbdc8c4f0fe65ac4b0a6c49af732aedc49755e03560fb7cdd9ebf",
+      "sourceSha256": "d85977c6ece58c10ecba8372c9ed3543c06e75b4aeb4cf448e440d0384d4210f",
+      "sourceTextureSha256": {
+        "ui_spells_0.sctx": "775f8f71c8c55126965ba616bf699092ecb2d17258984d47d758932d9717b09a",
+        "ui_spells_1.sctx": "1de3267f178866a5ea131818c2fc926eef2c1f90f12246ce42c0ab8c6cf5c422"
+      }
+    },
+    {
+      "id": "BossBandit_champion",
+      "kind": "champion",
+      "file": "assets/ui/modern-form-BossBandit_champion.png",
+      "source": "sc/ui_card_boss_bandit.sc#bossbandit_card",
+      "sourceVersion": "16.402.2",
+      "sourcePackage": "160402014",
+      "width": 237,
+      "height": 301,
+      "sha256": "7ac93e7fe25081311b31486f29a04813dd2f0fb366c0e0b81c77769054689e04",
+      "sourceSha256": "c32dc1fc94dba5a85a8a0a5f8c0a15a0d10d66f91b840817a81ff267d6b31348",
+      "sourceTextureSha256": {
+        "ui_card_boss_bandit_0.sctx": "077e6d6059ad9a3c5042fb6553edc1068246e0b47a3090c040dc4b696b251c84"
+      }
+    }
+  ],
+  "missing": []
+}

@@ -78,10 +78,9 @@ function sizeCanvas(canvas,w,h,density){
  if(canvas.dataset.density!==String(density))canvas.dataset.density=String(density);const c=canvas.getContext('2d');c.setTransform(density,0,0,density,0,0);return c;
 }
 function prepareCanvas(canvas,w,h,cap=4){return sizeCanvas(canvas,w,h,Math.min(cap,root.RoyaleText.backingScale(root.devicePixelRatio||1,scale)));}
-// Full-scene animation follows display density; tiny glyph canvases keep their
-// separate supersampling policy. A modest floor keeps small artwork crisp when
-// the portrait arena is scaled down on a DPR1 desktop; Retina keeps device density.
-function prepareBattleCanvas(canvas,w,h,cap=3){return sizeCanvas(canvas,w,h,Math.min(cap,Math.max(1.25,(root.devicePixelRatio||1)*scale)));}
+// Render the 540-wide logical frame at least 1080 pixels wide. Backing density
+// is independent of CSS framing, so controls and arena coordinates do not move.
+function prepareBattleCanvas(canvas,w,h,cap=3){return sizeCanvas(canvas,w,h,Math.min(Math.max(2,cap),root.RoyaleText.backingScale(root.devicePixelRatio||1,scale)));}
 function resize(value){scale=Math.max(.1,Number(value)||1);root.RoyaleText?.setViewportScale(scale);if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;hydrate();root.RoyaleText?.hydrate(document.getElementById('viewport'));document.dispatchEvent(new Event('royale-ui-resize'));});}
 root.RoyaleUI={hydrate,resize,paint,prepareCanvas,prepareBattleCanvas,get scale(){return scale;}};
 })(globalThis);

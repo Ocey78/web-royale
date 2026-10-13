@@ -1,0 +1,42 @@
+{
+  "source": {
+    "creator": "FinalClash",
+    "url": "https://www.youtube.com/watch?v=m-fPmsTVm7E",
+    "title": "The NEW Void Spell is Actually Broken (Clash Royale)",
+    "published": "2026-08-27",
+    "date_evidence": "finalclash-publication-date.jpg",
+    "viewed": "Actual YouTube player frames in the Codex in-app browser, captured while paused; not a transcript-only inspection."
+  },
+  "frames": [
+    {
+      "file": "finalclash-2026-08-27-23s.jpg",
+      "player_seconds": 23.32132,
+      "match_clock": "2:25",
+      "observations": [
+        "A compact circular burgundy/dark-red field with a thin bright red/pink rim surrounds an enemy Elixir Collector beside the right enemy Princess Tower.",
+        "A narrow pink/red vertical strike lands at the Collector's visible position, and the Collector has a pink hit glow.",
+        "The nearby Princess Tower is outside the main visible field and is not receiving that strike."
+      ]
+    },
+    {
+      "file": "finalclash-2026-08-27-24s.jpg",
+      "player_seconds": 23.969847,
+      "match_clock": "2:24",
+      "observations": [
+        "The Collector is absent, leaving a purple elixir drop animation inside the remaining field.",
+        "The dark burgundy field and narrow pink/red rim remain visible after the target disappears."
+      ]
+    }
+  ],
+  "timing_limit": "The game clock moves from approximately 2:28 at player21s to 2:25 at player23s and 2:20 at player26s. The footage is accelerated or edited even though the YouTube player reports playbackRate1. These frames cannot independently establish exact native one-second hit cadence.",
+  "target_limit": "This cast has one stationary target near the cast center. It supports a target-position strike and persistent field after target death, but cannot independently prove multi-target beams or movement following. The separate BaleGG Aug9 footage supplies those observations and belongs to the older1.2-second cadence balance.",
+  "balance_context": {
+    "official_url": "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "current_change": "Supercell's Aug26 update changes Void hit frequency from1.2 to1 second, following the Aug4 five-elixir rework. This video was published the next day.",
+    "claim_limit": "Publication date and narration support the post-buff context; the video cannot establish its exact executable client version or a calibrated spell radius."
+  },
+  "capture": {
+    "method": "Normal visible YouTube playback, paused frames, and browser screenshots saved without pixel editing.",
+    "transcript": "The auto-generated transcript describes the newly buffed Void and increased damage per second near0:22; narration is supplemental context, not a measurement."
+  }
+}

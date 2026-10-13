@@ -1,0 +1,452 @@
+{
+  "Skeleton_EV1": {
+    "scene": "modernfx_chr_skeleton_evolution",
+    "prefix": [
+      "evoskeleton1",
+      "evoskeleton1"
+    ],
+    "scale": 0.4,
+    "building": false,
+    "top": [
+      "",
+      ""
+    ],
+    "animations": {
+      "0:idle": [
+        "evoskeleton1_idle1_1",
+        "evoskeleton1_idle1_2",
+        "evoskeleton1_idle1_3",
+        "evoskeleton1_idle1_4",
+        "evoskeleton1_idle1_5",
+        "evoskeleton1_idle1_6",
+        "evoskeleton1_idle1_7",
+        "evoskeleton1_idle1_8",
+        "evoskeleton1_idle1_9"
+      ],
+      "0:run": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "0:attack": [
+        "evoskeleton1_attack1_1",
+        "evoskeleton1_attack1_2",
+        "evoskeleton1_attack1_3",
+        "evoskeleton1_attack1_4",
+        "evoskeleton1_attack1_5",
+        "evoskeleton1_attack1_6",
+        "evoskeleton1_attack1_7",
+        "evoskeleton1_attack1_8",
+        "evoskeleton1_attack1_9"
+      ],
+      "0:charge": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "0:dash": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "0:deploy": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "1:idle": [
+        "evoskeleton1_idle1_1",
+        "evoskeleton1_idle1_2",
+        "evoskeleton1_idle1_3",
+        "evoskeleton1_idle1_4",
+        "evoskeleton1_idle1_5",
+        "evoskeleton1_idle1_6",
+        "evoskeleton1_idle1_7",
+        "evoskeleton1_idle1_8",
+        "evoskeleton1_idle1_9"
+      ],
+      "1:run": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "1:attack": [
+        "evoskeleton1_attack1_1",
+        "evoskeleton1_attack1_2",
+        "evoskeleton1_attack1_3",
+        "evoskeleton1_attack1_4",
+        "evoskeleton1_attack1_5",
+        "evoskeleton1_attack1_6",
+        "evoskeleton1_attack1_7",
+        "evoskeleton1_attack1_8",
+        "evoskeleton1_attack1_9"
+      ],
+      "1:charge": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "1:dash": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ],
+      "1:deploy": [
+        "evoskeleton1_run1_1",
+        "evoskeleton1_run1_2",
+        "evoskeleton1_run1_3",
+        "evoskeleton1_run1_4",
+        "evoskeleton1_run1_5",
+        "evoskeleton1_run1_6",
+        "evoskeleton1_run1_7",
+        "evoskeleton1_run1_8",
+        "evoskeleton1_run1_9"
+      ]
+    },
+    "flightHeight": 0,
+    "walkTweak": 0,
+    "rotationTimeline": false
+  },
+  "ElectroGiant_EV1": {
+    "scene": "chr_electro_giant_dl",
+    "prefix": [
+      "electrogiant",
+      "electrogiant_enemy"
+    ],
+    "scale": 0.9,
+    "building": false,
+    "top": [
+      "",
+      ""
+    ],
+    "animations": {
+      "0:idle": [
+        "electrogiant_idle1_1",
+        "electrogiant_idle1_2",
+        "electrogiant_idle1_3",
+        "electrogiant_idle1_4",
+        "electrogiant_idle1_5",
+        "electrogiant_idle1_6",
+        "electrogiant_idle1_7",
+        "electrogiant_idle1_8",
+        "electrogiant_idle1_9"
+      ],
+      "0:run": [
+        "electrogiant_run1_1",
+        "electrogiant_run1_2",
+        "electrogiant_run1_3",
+        "electrogiant_run1_4",
+        "electrogiant_run1_5",
+        "electrogiant_run1_6",
+        "electrogiant_run1_7",
+        "electrogiant_run1_8",
+        "electrogiant_run1_9"
+      ],
+      "0:attack": [
+        "electrogiant_attack1_1",
+        "electrogiant_attack1_2",
+        "electrogiant_attack1_3",
+        "electrogiant_attack1_4",
+        "electrogiant_attack1_5",
+        "electrogiant_attack1_6",
+        "electrogiant_attack1_7",
+        "electrogiant_attack1_8",
+        "electrogiant_attack1_9"
+      ],
+      "0:charge": [
+        "electrogiant_run1_1",
+        "electrogiant_run1_2",
+        "electrogiant_run1_3",
+        "electrogiant_run1_4",
+        "electrogiant_run1_5",
+        "electrogiant_run1_6",
+        "electrogiant_run1_7",
+        "electrogiant_run1_8",
+        "electrogiant_run1_9"
+      ],
+      "0:dash": [
+        "electrogiant_run1_1",
+        "electrogiant_run1_2",
+        "electrogiant_run1_3",
+        "electrogiant_run1_4",
+        "electrogiant_run1_5",
+        "electrogiant_run1_6",
+        "electrogiant_run1_7",
+        "electrogiant_run1_8",
+        "electrogiant_run1_9"
+      ],
+      "0:deploy": [
+        "electrogiant_run1_1",
+        "electrogiant_run1_2",
+        "electrogiant_run1_3",
+        "electrogiant_run1_4",
+        "electrogiant_run1_5",
+        "electrogiant_run1_6",
+        "electrogiant_run1_7",
+        "electrogiant_run1_8",
+        "electrogiant_run1_9"
+      ],
+      "1:idle": [
+        "electrogiant_enemy_idle1_1",
+        "electrogiant_enemy_idle1_2",
+        "electrogiant_enemy_idle1_3",
+        "electrogiant_enemy_idle1_4",
+        "electrogiant_enemy_idle1_5",
+        "electrogiant_enemy_idle1_6",
+        "electrogiant_enemy_idle1_7",
+        "electrogiant_enemy_idle1_8",
+        "electrogiant_enemy_idle1_9"
+      ],
+      "1:run": [
+        "electrogiant_enemy_run1_1",
+        "electrogiant_enemy_run1_2",
+        "electrogiant_enemy_run1_3",
+        "electrogiant_enemy_run1_4",
+        "electrogiant_enemy_run1_5",
+        "electrogiant_enemy_run1_6",
+        "electrogiant_enemy_run1_7",
+        "electrogiant_enemy_run1_8",
+        "electrogiant_enemy_run1_9"
+      ],
+      "1:attack": [
+        "electrogiant_enemy_attack1_1",
+        "electrogiant_enemy_attack1_2",
+        "electrogiant_enemy_attack1_3",
+        "electrogiant_enemy_attack1_4",
+        "electrogiant_enemy_attack1_5",
+        "electrogiant_enemy_attack1_6",
+        "electrogiant_enemy_attack1_7",
+        "electrogiant_enemy_attack1_8",
+        "electrogiant_enemy_attack1_9"
+      ],
+      "1:charge": [
+        "electrogiant_enemy_run1_1",
+        "electrogiant_enemy_run1_2",
+        "electrogiant_enemy_run1_3",
+        "electrogiant_enemy_run1_4",
+        "electrogiant_enemy_run1_5",
+        "electrogiant_enemy_run1_6",
+        "electrogiant_enemy_run1_7",
+        "electrogiant_enemy_run1_8",
+        "electrogiant_enemy_run1_9"
+      ],
+      "1:dash": [
+        "electrogiant_enemy_run1_1",
+        "electrogiant_enemy_run1_2",
+        "electrogiant_enemy_run1_3",
+        "electrogiant_enemy_run1_4",
+        "electrogiant_enemy_run1_5",
+        "electrogiant_enemy_run1_6",
+        "electrogiant_enemy_run1_7",
+        "electrogiant_enemy_run1_8",
+        "electrogiant_enemy_run1_9"
+      ],
+      "1:deploy": [
+        "electrogiant_enemy_run1_1",
+        "electrogiant_enemy_run1_2",
+        "electrogiant_enemy_run1_3",
+        "electrogiant_enemy_run1_4",
+        "electrogiant_enemy_run1_5",
+        "electrogiant_enemy_run1_6",
+        "electrogiant_enemy_run1_7",
+        "electrogiant_enemy_run1_8",
+        "electrogiant_enemy_run1_9"
+      ]
+    },
+    "flightHeight": 0,
+    "walkTweak": 0,
+    "rotationTimeline": false
+  },
+  "ElectroWizardHero": {
+    "scene": "chr_electro_wizard",
+    "prefix": [
+      "electro_wizard",
+      "electro_wizard_red"
+    ],
+    "scale": 1,
+    "building": false,
+    "top": [
+      "",
+      ""
+    ],
+    "animations": {
+      "0:idle": [
+        "electro_wizard_idle1_1",
+        "electro_wizard_idle1_2",
+        "electro_wizard_idle1_3",
+        "electro_wizard_idle1_4",
+        "electro_wizard_idle1_5",
+        "electro_wizard_idle1_6",
+        "electro_wizard_idle1_7",
+        "electro_wizard_idle1_8",
+        "electro_wizard_idle1_9"
+      ],
+      "0:run": [
+        "electro_wizard_run1_1",
+        "electro_wizard_run1_2",
+        "electro_wizard_run1_3",
+        "electro_wizard_run1_4",
+        "electro_wizard_run1_5",
+        "electro_wizard_run1_6",
+        "electro_wizard_run1_7",
+        "electro_wizard_run1_8",
+        "electro_wizard_run1_9"
+      ],
+      "0:attack": [
+        "electro_wizard_attack1_1",
+        "electro_wizard_attack1_2",
+        "electro_wizard_attack1_3",
+        "electro_wizard_attack1_4",
+        "electro_wizard_attack1_5",
+        "electro_wizard_attack1_6",
+        "electro_wizard_attack1_7",
+        "electro_wizard_attack1_8",
+        "electro_wizard_attack1_9"
+      ],
+      "0:charge": [
+        "electro_wizard_run1_1",
+        "electro_wizard_run1_2",
+        "electro_wizard_run1_3",
+        "electro_wizard_run1_4",
+        "electro_wizard_run1_5",
+        "electro_wizard_run1_6",
+        "electro_wizard_run1_7",
+        "electro_wizard_run1_8",
+        "electro_wizard_run1_9"
+      ],
+      "0:dash": [
+        "electro_wizard_run1_1",
+        "electro_wizard_run1_2",
+        "electro_wizard_run1_3",
+        "electro_wizard_run1_4",
+        "electro_wizard_run1_5",
+        "electro_wizard_run1_6",
+        "electro_wizard_run1_7",
+        "electro_wizard_run1_8",
+        "electro_wizard_run1_9"
+      ],
+      "0:deploy": [
+        "electro_wizard_run1_1",
+        "electro_wizard_run1_2",
+        "electro_wizard_run1_3",
+        "electro_wizard_run1_4",
+        "electro_wizard_run1_5",
+        "electro_wizard_run1_6",
+        "electro_wizard_run1_7",
+        "electro_wizard_run1_8",
+        "electro_wizard_run1_9"
+      ],
+      "1:idle": [
+        "electro_wizard_red_idle1_1",
+        "electro_wizard_red_idle1_2",
+        "electro_wizard_red_idle1_3",
+        "electro_wizard_red_idle1_4",
+        "electro_wizard_red_idle1_5",
+        "electro_wizard_red_idle1_6",
+        "electro_wizard_red_idle1_7",
+        "electro_wizard_red_idle1_8",
+        "electro_wizard_red_idle1_9"
+      ],
+      "1:run": [
+        "electro_wizard_red_run1_1",
+        "electro_wizard_red_run1_2",
+        "electro_wizard_red_run1_3",
+        "electro_wizard_red_run1_4",
+        "electro_wizard_red_run1_5",
+        "electro_wizard_red_run1_6",
+        "electro_wizard_red_run1_7",
+        "electro_wizard_red_run1_8",
+        "electro_wizard_red_run1_9"
+      ],
+      "1:attack": [
+        "electro_wizard_red_attack1_1",
+        "electro_wizard_red_attack1_2",
+        "electro_wizard_red_attack1_3",
+        "electro_wizard_red_attack1_4",
+        "electro_wizard_red_attack1_5",
+        "electro_wizard_red_attack1_6",
+        "electro_wizard_red_attack1_7",
+        "electro_wizard_red_attack1_8",
+        "electro_wizard_red_attack1_9"
+      ],
+      "1:charge": [
+        "electro_wizard_red_run1_1",
+        "electro_wizard_red_run1_2",
+        "electro_wizard_red_run1_3",
+        "electro_wizard_red_run1_4",
+        "electro_wizard_red_run1_5",
+        "electro_wizard_red_run1_6",
+        "electro_wizard_red_run1_7",
+        "electro_wizard_red_run1_8",
+        "electro_wizard_red_run1_9"
+      ],
+      "1:dash": [
+        "electro_wizard_red_run1_1",
+        "electro_wizard_red_run1_2",
+        "electro_wizard_red_run1_3",
+        "electro_wizard_red_run1_4",
+        "electro_wizard_red_run1_5",
+        "electro_wizard_red_run1_6",
+        "electro_wizard_red_run1_7",
+        "electro_wizard_red_run1_8",
+        "electro_wizard_red_run1_9"
+      ],
+      "1:deploy": [
+        "electro_wizard_red_run1_1",
+        "electro_wizard_red_run1_2",
+        "electro_wizard_red_run1_3",
+        "electro_wizard_red_run1_4",
+        "electro_wizard_red_run1_5",
+        "electro_wizard_red_run1_6",
+        "electro_wizard_red_run1_7",
+        "electro_wizard_red_run1_8",
+        "electro_wizard_red_run1_9"
+      ]
+    },
+    "flightHeight": 0,
+    "walkTweak": -26,
+    "rotationTimeline": false
+  }
+}

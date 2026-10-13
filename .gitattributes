@@ -3,3 +3,8 @@
 
 # Preserve generated release bytes.
 dist/** -text
+
+# Replay provenance hashes describe the released source bytes, including newlines.
+/src/legacy-core-*.js -text
+/src/historical-game-data.js -text
+/tests/fixtures/** -text

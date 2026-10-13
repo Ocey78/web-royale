@@ -1,0 +1,56 @@
+{
+  "vfx_autochess": [
+    "vmc_bomber_def_atk_hit_spark_long",
+    "vmc_gen_smoke_01",
+    "vmc_gen_smoke_02",
+    "vmc_musketeer_def_muzzle_impact",
+    "vmc_ra_t2_001_loong_seahorse_hit_spark_yello_03"
+  ],
+  "chr_icewizard_hero": [
+    "vmc_icewizard_hero_deploy_smoke",
+    "vmc_icewizard_hero_deploy_smoke_enemy"
+  ],
+  "chr_musketeer_hero": [
+    "vmc_musketeer_hero_muzzle_ring"
+  ],
+  "chr_ronin": [
+    "vmc_ronin_hit_reflect_ground_01",
+    "vmc_ronin_hit_reflect_ground_01_red",
+    "vmc_ronin_hit_reflect_ground_02",
+    "vmc_ronin_hit_reflect_ground_02_red",
+    "vmc_ronin_hit_reflect_ground_03",
+    "vmc_ronin_hit_reflect_ground_03_red"
+  ],
+  "chr_inferno_dragon_evolution": [
+    "infernodragon_evo_hit_glow_01"
+  ],
+  "chr_skeleton_evolution": [
+    "evoskeleton1_idle1_1",
+    "evoskeleton1_idle1_2",
+    "evoskeleton1_idle1_3",
+    "evoskeleton1_idle1_4",
+    "evoskeleton1_idle1_5",
+    "evoskeleton1_idle1_6",
+    "evoskeleton1_idle1_7",
+    "evoskeleton1_idle1_8",
+    "evoskeleton1_idle1_9",
+    "evoskeleton1_run1_1",
+    "evoskeleton1_run1_2",
+    "evoskeleton1_run1_3",
+    "evoskeleton1_run1_4",
+    "evoskeleton1_run1_5",
+    "evoskeleton1_run1_6",
+    "evoskeleton1_run1_7",
+    "evoskeleton1_run1_8",
+    "evoskeleton1_run1_9",
+    "evoskeleton1_attack1_1",
+    "evoskeleton1_attack1_2",
+    "evoskeleton1_attack1_3",
+    "evoskeleton1_attack1_4",
+    "evoskeleton1_attack1_5",
+    "evoskeleton1_attack1_6",
+    "evoskeleton1_attack1_7",
+    "evoskeleton1_attack1_8",
+    "evoskeleton1_attack1_9"
+  ]
+}

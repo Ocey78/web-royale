@@ -1,0 +1,636 @@
+{
+  "url": "http://127.0.0.1:8087",
+  "actualBundleOnly": true,
+  "cases": [
+    {
+      "spell": "vines",
+      "team": 0,
+      "absent": [],
+      "residentScenes": [
+        "chr_archer",
+        "building_tower",
+        "chr_archer_evolution",
+        "chr_giant",
+        "chr_king",
+        "chr_goblin",
+        "chr_knight",
+        "chr_knight_evolution",
+        "chr_musketeer",
+        "chr_musketeer_evolution",
+        "chr_princess",
+        "chr_skeleton",
+        "level_bootcamp_arena_dl",
+        "level_royal_arena",
+        "effects",
+        "modernfx_chr_musketeer_evolution",
+        "modernfx_effects_evolution",
+        "modernfx_effects",
+        "modernfx_spell_vine",
+        "ui_battle_end"
+      ],
+      "missing": [],
+      "highestSprites": 160,
+      "frameBudget": 850,
+      "frames": [
+        {
+          "arenaPng": null,
+          "time": 1.5999999999999992,
+          "painted": 7219,
+          "buffs": [
+            "Vines_Trap_Snare_Small"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 2.2999999999999967,
+          "painted": 1509,
+          "buffs": [
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 3.099999999999994,
+          "painted": 1666,
+          "buffs": [
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 3.9999999999999907,
+          "painted": 1065,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_S_trap_end",
+            "vine_spell_hit_01",
+            "vine_spell_S_trap_end",
+            "vine_spell_hit_01",
+            "vine_spell_S_trap_end"
+          ]
+        }
+      ]
+    },
+    {
+      "spell": "vines",
+      "team": 1,
+      "absent": [],
+      "residentScenes": [
+        "building_tower",
+        "chr_archer",
+        "chr_archer_evolution",
+        "chr_giant",
+        "chr_goblin",
+        "chr_king",
+        "chr_knight",
+        "chr_knight_evolution",
+        "chr_musketeer",
+        "chr_musketeer_evolution",
+        "chr_princess",
+        "chr_skeleton",
+        "effects",
+        "level_bootcamp_arena_dl",
+        "level_royal_arena",
+        "modernfx_chr_musketeer_evolution",
+        "modernfx_effects",
+        "modernfx_effects_evolution",
+        "modernfx_spell_vine",
+        "ui_battle_end"
+      ],
+      "missing": [],
+      "highestSprites": 160,
+      "frameBudget": 850,
+      "frames": [
+        {
+          "arenaPng": null,
+          "time": 1.5999999999999992,
+          "painted": 7215,
+          "buffs": [
+            "Vines_Trap_Snare_Small"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 2.2999999999999967,
+          "painted": 1495,
+          "buffs": [
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 3.099999999999994,
+          "painted": 1665,
+          "buffs": [
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small",
+            "Vines_Trap_Snare_Small"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 3.9999999999999907,
+          "painted": 1058,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_hit_01",
+            "vine_spell_S_trap_end",
+            "vine_spell_hit_01",
+            "vine_spell_S_trap_end",
+            "vine_spell_hit_01",
+            "vine_spell_S_trap_end"
+          ]
+        }
+      ]
+    },
+    {
+      "spell": "void",
+      "team": 0,
+      "absent": [],
+      "residentScenes": [
+        "building_tower",
+        "chr_archer",
+        "chr_archer_evolution",
+        "chr_giant",
+        "chr_goblin",
+        "chr_king",
+        "chr_knight",
+        "chr_knight_evolution",
+        "chr_musketeer",
+        "chr_musketeer_evolution",
+        "chr_princess",
+        "chr_skeleton",
+        "effects",
+        "level_bootcamp_arena_dl",
+        "level_royal_arena",
+        "modernfx_chr_musketeer_evolution",
+        "modernfx_effects",
+        "modernfx_effects_evolution",
+        "modernfx_spell_vine",
+        "ui_battle_end"
+      ],
+      "missing": [],
+      "highestSprites": 116,
+      "frameBudget": 850,
+      "frames": [
+        {
+          "arenaPng": null,
+          "time": 0.6500000000000004,
+          "painted": 42671,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.0000000000000013,
+          "painted": 7704,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.4999999999999996,
+          "painted": 8885,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver"
+          ]
+        },
+        {
+          "time": 2.199999999999997,
+          "painted": 46312,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium"
+          ]
+        },
+        {
+          "time": 3.1999999999999935,
+          "painted": 81307,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium",
+            "Paolo_zap_effect3",
+            "PaoloFirstEffectEverStrong"
+          ]
+        }
+      ]
+    },
+    {
+      "spell": "void",
+      "team": 1,
+      "absent": [],
+      "residentScenes": [
+        "building_tower",
+        "chr_archer",
+        "chr_archer_evolution",
+        "chr_giant",
+        "chr_goblin",
+        "chr_king",
+        "chr_knight",
+        "chr_knight_evolution",
+        "chr_musketeer",
+        "chr_musketeer_evolution",
+        "chr_princess",
+        "chr_skeleton",
+        "effects",
+        "level_bootcamp_arena_dl",
+        "level_royal_arena",
+        "modernfx_chr_musketeer_evolution",
+        "modernfx_effects",
+        "modernfx_effects_evolution",
+        "modernfx_spell_vine",
+        "ui_battle_end"
+      ],
+      "missing": [],
+      "highestSprites": 119,
+      "frameBudget": 850,
+      "frames": [
+        {
+          "arenaPng": null,
+          "time": 0.6500000000000004,
+          "painted": 65391,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.0000000000000013,
+          "painted": 7705,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.4999999999999996,
+          "painted": 8906,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver"
+          ]
+        },
+        {
+          "time": 2.199999999999997,
+          "painted": 57239,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium"
+          ]
+        },
+        {
+          "time": 3.1999999999999935,
+          "painted": 133204,
+          "buffs": [],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "PaoloFirstEffectEverIntro",
+            "PaoloFirstEffectEver",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "Paolo_zap_effect2",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium",
+            "PaoloFirstEffectEverMedium",
+            "Paolo_zap_effect3",
+            "PaoloFirstEffectEverStrong"
+          ]
+        }
+      ]
+    },
+    {
+      "spell": "goblin-curse",
+      "team": 0,
+      "absent": [],
+      "residentScenes": [
+        "building_tower",
+        "chr_archer",
+        "chr_archer_evolution",
+        "chr_giant",
+        "chr_goblin",
+        "chr_king",
+        "chr_knight",
+        "chr_knight_evolution",
+        "chr_musketeer",
+        "chr_musketeer_evolution",
+        "chr_princess",
+        "chr_skeleton",
+        "effects",
+        "level_bootcamp_arena_dl",
+        "level_royal_arena",
+        "modernfx_chr_musketeer_evolution",
+        "modernfx_effects",
+        "modernfx_effects_evolution",
+        "modernfx_spell_vine",
+        "ui_battle_end"
+      ],
+      "missing": [],
+      "highestSprites": 121,
+      "frameBudget": 850,
+      "frames": [
+        {
+          "arenaPng": null,
+          "time": 0.7000000000000005,
+          "painted": 6948,
+          "buffs": [
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.2000000000000006,
+          "painted": 11758,
+          "buffs": [
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.9999999999999978,
+          "painted": 10916,
+          "buffs": [
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 4.19999999999999,
+          "painted": 10858,
+          "buffs": [],
+          "sourceEvents": [
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 6.299999999999983,
+          "painted": 10563,
+          "buffs": [],
+          "sourceEvents": []
+        }
+      ]
+    },
+    {
+      "spell": "goblin-curse",
+      "team": 1,
+      "absent": [],
+      "residentScenes": [
+        "building_tower",
+        "chr_archer",
+        "chr_archer_evolution",
+        "chr_giant",
+        "chr_goblin",
+        "chr_king",
+        "chr_knight",
+        "chr_knight_evolution",
+        "chr_musketeer",
+        "chr_musketeer_evolution",
+        "chr_princess",
+        "chr_skeleton",
+        "effects",
+        "level_bootcamp_arena_dl",
+        "level_royal_arena",
+        "modernfx_chr_musketeer_evolution",
+        "modernfx_effects",
+        "modernfx_effects_evolution",
+        "modernfx_spell_vine",
+        "ui_battle_end"
+      ],
+      "missing": [],
+      "highestSprites": 121,
+      "frameBudget": 850,
+      "frames": [
+        {
+          "arenaPng": null,
+          "time": 0.7000000000000005,
+          "painted": 6943,
+          "buffs": [
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.2000000000000006,
+          "painted": 11953,
+          "buffs": [
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 1.9999999999999978,
+          "painted": 10915,
+          "buffs": [
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage",
+            "GoblinCurse",
+            "GoblinCurseDamage"
+          ],
+          "sourceEvents": [
+            "knight_deploy",
+            "knight_deploy",
+            "knight_deploy",
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 4.19999999999999,
+          "painted": 10858,
+          "buffs": [],
+          "sourceEvents": [
+            "spell_goblin_curse_intro_shorter"
+          ]
+        },
+        {
+          "arenaPng": null,
+          "time": 6.299999999999983,
+          "painted": 10563,
+          "buffs": [],
+          "sourceEvents": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "version": "0.54.0",
+  "release": {
+    "version": "0.54.0",
+    "app": "app.e42a24133e00.js",
+    "appSha256": "e42a24133e00b2f893e0093823cb05c623d3b5b8f04247c46eaaac2a9d8b088b",
+    "runtime": "runtime.2ced295cf572.json"
+  }
+}

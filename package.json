@@ -1,9 +1,9 @@
 {
   "name": "web-royale",
-  "version": "0.53.0",
+  "version": "0.54.0",
   "private": true,
   "scripts": {
-    "build": "node tools/build-web.js",
+    "build": "node tools/build-web.js --compact-scenes",
     "test": "node tools/restore-source.cjs && node --test --test-concurrency=2 tests/*.test.cjs",
     "serve": "node tools/serve.cjs",
     "test:browser": "python -m unittest discover -s tests -p browser_v250.py",

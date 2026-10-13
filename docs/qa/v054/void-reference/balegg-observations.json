@@ -1,0 +1,65 @@
+{
+  "source": {
+    "creator": "BaleGG",
+    "url": "https://www.youtube.com/watch?v=AMr1cJDkvaw",
+    "title": "🤯 EL VACÍO AHORA CUESTA 5 DE ELIXIR",
+    "published": "2026-08-09",
+    "source_kind": "Creator recording of actual Clash Royale in-game card preview; current five-elixir Void card menu visible",
+    "viewed": "Extracted actual video frames from public 1080p media section approximately 60–105s. Not a transcript-only inspection. Did not watch entire video."
+  },
+  "timing_note": "Video times are approximate because the downloaded section begins near the 60s keyframe. Frame interval comparisons within the same section are reliable; no claim of exact cast time to the millisecond.",
+  "single_target": {
+    "target": "Bowler",
+    "video_range_seconds": [
+      67.5,
+      72.3
+    ],
+    "observations": [
+      "Warm orange/red cast flash near 67.7s, then a brief pink-white center intro column around 67.9s.",
+      "Compact dark burgundy/near-black ground pool expands around 68.1–68.5s, with thin orange/red hot rim and subtle interior red markings.",
+      "Three narrow magenta/pink-white damage strikes are visible around 69.3, 70.5, and 71.7s, approximately 1.2s apart.",
+      "Damage-beam endpoints attach to the current Bowler position as it advances. The ground pool stays at the cast center.",
+      "Bowler receives pink hit glow. Pool collapses/disappears around 71.9–72.1s, with residual small pink sparkle/glow near72.3s.",
+      "No field-wide long diagonal ray effect is visible in these frames."
+    ],
+    "evidence": [
+      "balegg-bowler-sequence.jpg",
+      "balegg-preview-64-76s.jpg"
+    ]
+  },
+  "five_targets": {
+    "targets": "Five Barbarians",
+    "video_range_seconds": [
+      86.0,
+      90.8
+    ],
+    "observations": [
+      "Warm cast flash around86.2s, small pink center intro around86.4s, dark pool starts86.6s and reaches its full footprint by87.0s.",
+      "Frame87.75s clearly shows separate thin warm-orange vertical beam cores terminating at the five troop positions; the rear pair is above the pool center.",
+      "Three sampled hit windows occur around87.75,88.95,90.15s, approximately1.2s apart.",
+      "The beams move with the troops between hits while the pool remains at the original bridge cast point.",
+      "Multi-target hit flashes are bright yellow/cream with warm glow, visibly different from the single-target pink/white Bowler strikes.",
+      "Pool disappears around90.4s while surviving Barbarians retain brief purple hit/death-like particles."
+    ],
+    "evidence": [
+      "balegg-barbarians-sequence.jpg",
+      "balegg-barbarians-hit-87p75.png",
+      "balegg-barbarians-three-hits.jpg"
+    ]
+  },
+  "comparison_to_pre_fix_webroyale": {
+    "screenshots": [
+      "../spells/void-team0-2.20-arena.png",
+      "../spells/void-team0-3.20-arena.png"
+    ],
+    "findings": [
+      "Both arena samples show one long vertical beam over the empty pool center while the three Knights are offset around it. The reference damage beams land at troop positions. A brief center intro column is present in the reference, but does not replace the subsequent target-attached damage strikes.",
+      "The captured Web Royale pool appears more brown/orange with a broad warm halo than the reference near-black burgundy pool with a narrow bright rim. This is visual comparison, not a calibrated color measurement."
+    ],
+    "limits": "Two still Web Royale frames do not establish full beam duration. No exact world-space radius claim was made from differently framed captures."
+  },
+  "extraction": {
+    "method": "Normal unauthenticated public video media access through yt-dlp and ffmpeg; frame crops and contact sheets made without modifying source imagery beyond crop/scale and timestamp labels.",
+    "limits": "A later independent section download returned403 and was not bypassed. Existing60–105s footage supplies all observations above."
+  }
+}

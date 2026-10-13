@@ -68,3 +68,24 @@ These source assets replace the earlier supplied stadium screenshot in the
 current renderer. Native dynamic shadows, ambient cloud/blimp effects and
 separate source light emitters are not certified by the scene import. See
 [patch notes](../../BUILD-NOTES-v0.52.1.md) for coordinates and source-pack hashes.
+
+From v0.54, the renderer routes battle `ability` states and forced `CustomN`
+animation requests into their authored ASM clips. Source `BaseSpeed`,
+`StartFrame`/`EndFrame`, explicit loop flags and mesh visibility events are
+sampled. Attack action markers stay aligned with simulation release; source
+speed applies to recovery. These changes do not alter simulation stats.
+
+The manifest also contains 53 verbatim source billboard-effect graph records
+with per-record and database checksums. Original SC movieclips can render at
+prefab/bone anchors and ASM event frames, including the Balloon fuse/glow,
+Musketeer muzzle and Ronin reflect billboards. Source burst/rate/planar emitters,
+scalar/linear/Bezier curves, delays and team-prefab selection have a bounded,
+deterministic browser presentation. The original native particle engine is not
+reproduced. Packed curves, cone/deceleration emitters and shader-driven mesh,
+material and timeline effects are omitted. In particular the mesh-based hero
+slashes, transformation domes, aura meshes and Tombstone countdown materials
+remain unavailable. ASM billboard births are retained in a bounded presentation history so particles
+finish after animation state changes. Histories clear on battle exit; they do not
+write to simulation state, RNG or replay digests.
+The source 3D lighting and transforms remain the previous documented Three.js
+interpretation; an all-actor raster diagnostic is not proof of native pixel parity.

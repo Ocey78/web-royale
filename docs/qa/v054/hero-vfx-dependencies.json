@@ -1,0 +1,32 @@
+{
+  "BalloonHero": [
+    "modernfx_chr_inferno_dragon_evolution",
+    "modernfx_vfx_autochess"
+  ],
+  "BalloonHero_Bomb": [
+    "modernfx_chr_inferno_dragon_evolution",
+    "modernfx_vfx_autochess"
+  ],
+  "BerserkerHero_BearForm": [
+    "modernfx_vfx_autochess"
+  ],
+  "DarkPrinceHero": [
+    "modernfx_vfx_autochess"
+  ],
+  "DarkPrinceHero_Mount": [
+    "modernfx_vfx_autochess"
+  ],
+  "IceWizardHeroFloatingCube": [
+    "modernfx_chr_icewizard_hero"
+  ],
+  "MusketeerHero": [
+    "modernfx_chr_musketeer_hero",
+    "modernfx_vfx_autochess"
+  ],
+  "MusketeerTurret": [
+    "modernfx_vfx_autochess"
+  ],
+  "Ronin": [
+    "modernfx_chr_ronin"
+  ]
+}

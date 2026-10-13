@@ -1,0 +1,452 @@
+{
+  "package": "160402017",
+  "definitions": {
+    "effects.json": "141c749a03beeb35ce90263c43103bd55ed8ea425d8d517bb6fd9ff0508cea3a",
+    "emitters.json": "e2d37f014cb6f2d2362f0a18d166b15d0342244a2ac4692c186330d0aec652ee"
+  },
+  "effects": 858,
+  "emitters": 1326,
+  "scenes": 68,
+  "missingExports": [],
+  "textures": [
+    {
+      "source": "effects_evolution_0.sctx",
+      "sha256": "ad8b569ee724afea8ea1dcd69e88f58d04693f19c77fa5b0b5e17c606b18e665",
+      "file": "modernfx-effects_evolution-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "effects_0.sctx",
+      "sha256": "e4bccaa155a123ebb58ab8109b695498ca8b2a969cfc997daf21382e53f7e110",
+      "file": "modernfx-effects-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_royal_ghost_evolution_0.sctx",
+      "sha256": "7095b422a46f2d527899bea0e93b69072701d5411efcbc71549daed502f56032",
+      "file": "modernfx-chr_royal_ghost_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_pekka_evolution_0.sctx",
+      "sha256": "8276444119d57e4a41b1a30ca3661e445e32c18fb7d2df739de57b6eba6bf153",
+      "file": "modernfx-chr_pekka_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "vfx_autochess_0.sctx",
+      "sha256": "e30fbd646694695b9460c20a9944f5ebab583204830e10d07a175a59233f985a",
+      "file": "modernfx-vfx_autochess-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_witch_evolution_0.sctx",
+      "sha256": "c82d2fd4f9f499fd81c229ed05278ca5d8ade80903e6dd6af8ff59721fe8ebb5",
+      "file": "modernfx-chr_witch_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_goblin_blowdart_evolution_0.sctx",
+      "sha256": "b933b51df3b4e492c47fef5807e353393379a666418d95de9795aee0ad47a9cc",
+      "file": "modernfx-chr_goblin_blowdart_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_valkyrie_evolution_0.sctx",
+      "sha256": "2acd7a6ad8f17e557594d2e5352db911fa08c9091d8fd5f6d114cc12ee33f239",
+      "file": "modernfx-chr_valkyrie_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_musketeer_evolution_0.sctx",
+      "sha256": "357428055dab170611fe41003096e2f2f55247143cad2b74033b33eab08fb414",
+      "file": "modernfx-chr_musketeer_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_baby_dragon_evolution_0.sctx",
+      "sha256": "521865fd79e2b06a12f09240e9be57927b311079851b7d4974dbfeaed750283b",
+      "file": "modernfx-chr_baby_dragon_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_minionhorde_evolution_0.sctx",
+      "sha256": "c5ce8b9b2c35fd54e662fbe3b1ae01d452b6f91b1174d04a146b15f476c4350f",
+      "file": "modernfx-chr_minionhorde_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_skeleton_army_evolution_0.sctx",
+      "sha256": "804ee0b5b3b8157f6cac1e290d797bbb0593ff08755b17c58fced948b2c1b4e4",
+      "file": "modernfx-chr_skeleton_army_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_princess_evolution_0.sctx",
+      "sha256": "554e0ce052ed21163e376d69d4c3ed3d64a15f163b720c1b1def7dcd86bd0b9b",
+      "file": "modernfx-chr_princess_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_ice_golem_hero_0.sctx",
+      "sha256": "85a0fe0c001dfefdc58fedb5c4af4033689b2ff131e16af6b40831dfcfe98b10",
+      "file": "modernfx-chr_ice_golem_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_three_musketeers_0.sctx",
+      "sha256": "e0e2492cab05908eb4766e786d98f0c6240c392cfe496857279ad5907ad928f0",
+      "file": "modernfx-chr_three_musketeers-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_furnace_rework_0.sctx",
+      "sha256": "243fa4acef25e7c35de0dc79cc06f71839ac51a63ce9d8c4796aa4b39dc88aa3",
+      "file": "modernfx-chr_furnace_rework-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_fire_firespirit_0.sctx",
+      "sha256": "3386672c6ab541bb3702a3cb6d8228e4c17e0122bd9ba8f90d6f9da0a1132490",
+      "file": "modernfx-chr_fire_firespirit-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_zap_machine_0.sctx",
+      "sha256": "8ab01e23c4fb61544d7e79bd4c33cfe84eec02c96c55d94ecc1e20f722888379",
+      "file": "modernfx-chr_zap_machine-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_lumberjack_evolution_0.sctx",
+      "sha256": "f175b60e7e481fdaf843fbdc7d94e3730ec5d56bab5635e0ae9505ee672446e8",
+      "file": "modernfx-chr_lumberjack_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_battle_ram_evolution_0.sctx",
+      "sha256": "893884a2ced084f7577f13a7268494a9eb3d17a2cfda074c755c62b5d326b5f3",
+      "file": "modernfx-chr_battle_ram_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_inferno_dragon_evolution_0.sctx",
+      "sha256": "73a4b8d62bd2f535c2867d0d76fcf670cdf9067aa47b44247d98feb5eed0bb61",
+      "file": "modernfx-chr_inferno_dragon_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_hunter_evolution_0.sctx",
+      "sha256": "5122b35f02248c6f4f1d73abe06f5faa4ab1893e5e90a9a917988c8cae1c98d0",
+      "file": "modernfx-chr_hunter_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_executioner_evolution_0.sctx",
+      "sha256": "6e1c801bd5b1ceb58ca4f079402bf5c11c785a97104d9158c8b8e4bd6be2c8ae",
+      "file": "modernfx-chr_executioner_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_mega_knight_evolution_0.sctx",
+      "sha256": "bd6687ef6396ac8ce99547d0441d192bbc2d19beb789088e2562ad19b40b237a",
+      "file": "modernfx-chr_mega_knight_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_royal_hog_evolution_0.sctx",
+      "sha256": "470a45ccd3e3b03a400060e507b03389d66e8be1f7169ece626a791e4a99af4f",
+      "file": "modernfx-chr_royal_hog_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_boss_bandit_0.sctx",
+      "sha256": "848ce9a59ffe5c84cf2870f3221c890997248ade13620732f0b3300aba31cb72",
+      "file": "modernfx-chr_boss_bandit-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_giant_buffing_0.sctx",
+      "sha256": "f165abc3c7a6b615784d356097008179452f353ec49a2c75dd44f8765490d532",
+      "file": "modernfx-chr_giant_buffing-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_skeleton_balloon_evolution_0.sctx",
+      "sha256": "85081083b8ef12b994787e7062d5907010cf4a126604d1aad1673034b985aa81",
+      "file": "modernfx-chr_skeleton_balloon_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_goblin_giant_evolution_0.sctx",
+      "sha256": "264ecc8aac45fe21aebc89891499c2896d65ecedcf977751319bfcc2b9734c7c",
+      "file": "modernfx-chr_goblin_giant_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_skeleton_dragon_dl_0.sctx",
+      "sha256": "92c1b9524234fdfd5850e1579f8b3c946ed6aa0e39fde60a2e1e94391ca34d27",
+      "file": "modernfx-chr_skeleton_dragon_dl-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_skeleton_0.sctx",
+      "sha256": "81c183ab4d7ca73a9ccef22903bcee38831ec9933a9c9676bc2a4f94853ad4ea",
+      "file": "modernfx-chr_skeleton-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_electrogiant_evolution.sc",
+      "sha256": "827e334e1adea872747317c4576ac768be7ddfaa710a42f794490ff662b70085",
+      "file": "modernfx-chr_electrogiant_evolution-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_magic_archer_hero_0.sctx",
+      "sha256": "fbf0beb54bae9aaeb476157572b6ad669c638d3206b320bab13cee90c69cb7d5",
+      "file": "modernfx-chr_magic_archer_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_phoenix_dl_0.sctx",
+      "sha256": "997af80ca9febeefe59f904d9b544f60427901cccf58ac6fe08a24c51668dfd1",
+      "file": "modernfx-chr_phoenix_dl-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_goblin_machine_0.sctx",
+      "sha256": "e16efba0b374132b90d2f86e752ce817ade43ef73641e034c630ba07671365a1",
+      "file": "modernfx-chr_goblin_machine-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_goblin_bush_0.sctx",
+      "sha256": "de3d3ed9172979dd54fce8271bfd00bcb2b2d67f0d261f8ccbfef6be4382b25d",
+      "file": "modernfx-chr_goblin_bush-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_goblinstein_doctor_0.sctx",
+      "sha256": "7679603ff8fa849dc028af6c6a10a7f9097b8b21bb671bec6a2361608e747a4a",
+      "file": "modernfx-chr_goblinstein_doctor-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "building_tesla_evolution_0.sctx",
+      "sha256": "59bbd4930eddc71d242c33586520c657bbafdd7d4ebee133999b57c3cd68d12e",
+      "file": "modernfx-building_tesla_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "ui_0.sctx",
+      "sha256": "9dd121eda814d96cf7640c15e3867f45816d9d2e75ac536019473143bedf2fb5",
+      "file": "modernfx-ui-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "ui_1.sctx",
+      "sha256": "671a97d9b83dc15c30801294c81067d2099c01076760bd87ae89d5d86e09996d",
+      "file": "modernfx-ui-1.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "ui_2.sctx",
+      "sha256": "2758f7116343016f1f0fcbab22add991d5f02388e36a7fd60488cc2acaec7af5",
+      "file": "modernfx-ui-2.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "ui_3.sctx",
+      "sha256": "6c21ae0ae7c0c63dbbca3d921bb4b577c5fb083b782d77437b9cf69b14049c77",
+      "file": "modernfx-ui-3.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "ui_4.sctx",
+      "sha256": "26576efaab00913458fd79feb269e51cf1e74a944395c75dd83e0e3599e08a07",
+      "file": "modernfx-ui-4.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "ui_5.sctx",
+      "sha256": "1eb02faa62f5868bc1b51eb06b9dcaa674b8144a8e33a7daeef84677ee721eed",
+      "file": "modernfx-ui-5.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_barbarian_barrel_hero_0.sctx",
+      "sha256": "32a654a8c3c800ec22ba03bb200d8bb7f9c061abebb1db7e83f1b30a954f64bf",
+      "file": "modernfx-chr_barbarian_barrel_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_berserker_hero_0.sctx",
+      "sha256": "5094266120e99ab49f288e089721320dfb260472372bc28b3b0e7dff8a28b847",
+      "file": "modernfx-chr_berserker_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "vfx_hero_generic_0.sctx",
+      "sha256": "04cad1a2329cfbc665ecefda52fb88a152286f6e5d837bfd9149be1533fe7717",
+      "file": "modernfx-vfx_hero_generic-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_ronin_0.sctx",
+      "sha256": "f21ec587f5b24016360963639e17d715d2515f87654d3ab0187181a220167763",
+      "file": "modernfx-chr_ronin-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_miniongiant.sc",
+      "sha256": "2342a0f260c897cee0d9ef981e54395815c1df3fdaf0b0cf3279a8ac92d14781",
+      "file": "modernfx-chr_miniongiant-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "building_goblin_hut_0.sctx",
+      "sha256": "1100f560c4402343fa8f7bb32aa3d87e08f2cc9166efd083e780a06975436db5",
+      "file": "modernfx-building_goblin_hut-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "spell_zap_0.sctx",
+      "sha256": "86bb56d74c8b86588528aa7df0b9c62139fb3fb51419a61b13731ebca1741f1c",
+      "file": "modernfx-spell_zap-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_barbarian_barrel_dl_0.sctx",
+      "sha256": "fbba33888727e7b9b7148de165badb061fc065aa791a2766eb411f2350c3910c",
+      "file": "modernfx-chr_barbarian_barrel_dl-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_merge_maiden_0.sctx",
+      "sha256": "fb5f22c7701b03fea5f2ea19ff2bcf3b7cc6a60807ca2a6b375fca67cbfcc67d",
+      "file": "modernfx-chr_merge_maiden-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_merge_maiden_dragon_0.sctx",
+      "sha256": "517c65cd882d1903ae0babd9fd7c0ee003050afaec2d17f16db7ab29bcd8880d",
+      "file": "modernfx-chr_merge_maiden_dragon-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "spell_vine_0.sctx",
+      "sha256": "19f4d6c677a53df978a2cbd1763d9a4ecaa226aea68f6367f71a54bd784ad5cc",
+      "file": "modernfx-spell_vine-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_elite_barbarians_evolution_0.sctx",
+      "sha256": "23d068779b1dfc1ee4c32512acaeb0064dc618817f0cf7d6ca71854b537d8f05",
+      "file": "modernfx-chr_elite_barbarians_evolution-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_furnace_evolution_0.sctx",
+      "sha256": "2a0a89b344a85100aeb2a0341d834b778baf97e3329a032b257a0e9c2465b63f",
+      "file": "modernfx-chr_furnace_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_goblin_cage_evolution_0.sctx",
+      "sha256": "0af1833347c791a0fb7dc69b6102c3cd74af882aa758871dfa3f515fb145a52c",
+      "file": "modernfx-chr_goblin_cage_evolution-0.webp",
+      "sourceVersion": "160402014"
+    },
+    {
+      "source": "chr_knight_hero_0.sctx",
+      "sha256": "0bedf151201208c2f2be63212d5e2ce7f2e6455a03585e2be5e8daf0d4b8c3d9",
+      "file": "modernfx-chr_knight_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_goblins_hero_0.sctx",
+      "sha256": "8036a3e5ba86e6a59b18185d36f785c16a4c462a784ab1970b05dbd8cda1d31b",
+      "file": "modernfx-chr_goblins_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_giant_hero_0.sctx",
+      "sha256": "f201d4f2a18c7b8e2343026f067254342510f7d4c516a885d9fb6cbc440d32a0",
+      "file": "modernfx-chr_giant_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_balloon_hero_0.sctx",
+      "sha256": "3d34e22926132e1c35a9c73e9016a0ee4177c97b51907962e88319b12e07d9ad",
+      "file": "modernfx-chr_balloon_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_valkyrie_hero_0.sctx",
+      "sha256": "e79b6c663d28bd24ee0a5cf8d25dd07b39532541803b02e0824a3470216c735a",
+      "file": "modernfx-chr_valkyrie_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_musketeer_hero_0.sctx",
+      "sha256": "f46448f0340d122e3f693e75cffa16daba21d3c121c8344663d4b8ada10682fb",
+      "file": "modernfx-chr_musketeer_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_minipekka_hero_0.sctx",
+      "sha256": "c0e77270a8bc5f840a5363c9fe30ce924352bda02b2e43dd5b092cbc93bee421",
+      "file": "modernfx-chr_minipekka_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_wizard_hero_0.sctx",
+      "sha256": "5ea6631758414b80ff25a617673ab1c225acf5887ccbb3671e74dfe36ae5db7e",
+      "file": "modernfx-chr_wizard_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_icewizard_hero_0.sctx",
+      "sha256": "4cd428951954856c6a69f8066e5824f859b72a9f2038be4c46f84fc81d8b322a",
+      "file": "modernfx-chr_icewizard_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_dark_prince_hero_0.sctx",
+      "sha256": "2e7a9633b90cdbff50f09a515bb490b8582a2c5dcfed8de0ff2e02e1a661701a",
+      "file": "modernfx-chr_dark_prince_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_bowler_hero_0.sctx",
+      "sha256": "57ac3b7684a59b1fe27d7d79c7a0a8bd71ae5398046765dcbeff9d5f9dfe3a39",
+      "file": "modernfx-chr_bowler_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_mega_minion_hero_0.sctx",
+      "sha256": "ab4b770d25cca8c4c3dd427497cbb57ed5b80ac9c9e290b9cd0e92cf5092dd6d",
+      "file": "modernfx-chr_mega_minion_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_electrowizard_hero_0.sctx",
+      "sha256": "ca13eee4203b29f6ed16a104171ac6fab8303e7a7c320517c22f46332d77ca53",
+      "file": "modernfx-chr_electrowizard_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_tombstone_hero_0.sctx",
+      "sha256": "b8631cceeecf87f36320dc40c2b02690580fcf2641844c452b6dc4fa54e3a4df",
+      "file": "modernfx-chr_tombstone_hero-0.webp",
+      "sourceVersion": "160402017"
+    },
+    {
+      "source": "chr_skeleton_evolution_0.sctx",
+      "sha256": "3be7b9fc1c234f19a164d34fe769a55ad7db10a48cc568604e9d8de3153ec47b",
+      "file": "modernfx-chr_skeleton_evolution-0.webp",
+      "sourceVersion": "160402017"
+    }
+  ],
+  "textureSourcePolicy": "Reuse original cached source sprites when their requested exports exist; retrieve missing scenes from the current source client. File hashes identify each input."
+}

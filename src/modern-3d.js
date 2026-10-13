@@ -2,7 +2,7 @@
    locally into the battle canvas. Only presentation clocks are sampled here. */
 (function(root,factory){const api=factory(root);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleModern3D=api;})(globalThis,function(root){'use strict';
 const UNITS=32,TAU=Math.PI*2,POSE_BYTES=48*1024*1024,MODEL_BYTES=128*1024*1024,MAX_ACTORS=16;
-const STATE_NAMES={idle:['Idle'],run:['Walk','Run'],attack:['Attack'],deploy:['Deploy'],skill:['Skill','Custom1'],charge:['Charge','Walk'],dash:['Dash','Charge','Walk'],loading:['Loading','Attack']};
+const STATE_NAMES={idle:['Idle'],run:['Walk','Run'],attack:['Attack'],deploy:['Deploy'],ability:['Skill','Custom1'],skill:['Skill','Custom1'],charge:['Charge','Walk'],dash:['Dash','Charge','Walk'],loading:['Loading','Attack']};
 function resolveState(asm,name,entity={},seen=new Set()){
  name=name||asm?.DefaultState;if(!name||seen.has(name))return null;seen.add(name);const s=asm?.States?.find(s=>s.Name===name);if(!s)return null;
  if(s.Type==='AnimClip')return s.Name;const children=s.SubStates||[];if(!children.length)return null;
@@ -13,16 +13,92 @@ function resolveState(asm,name,entity={},seen=new Set()){
 // Battle prefabs author their face along -Y; +Y projects up the field. Rotate
 // that actual face vector into the requested screen heading without mirroring.
 function sourceYaw(heading){return Math.PI/2-(Number.isFinite(heading)?heading:-Math.PI/2);}
-function clipPose(clip,elapsed,state,attack=null,attackDuration=0){
- const fps=Number(clip?.fps)||30,count=Math.max(1,Number(clip?.frames)||1),duration=count/fps,last=(count-1)/fps;
- let t=Math.max(0,Number(elapsed)||0),done=false;const oneShot=!['idle','run','charge'].includes(state);
+function clipPose(clip,elapsed,state,attack=null,attackDuration=0,descriptor={}){
+ const fps=Number(clip?.fps)||30,count=Math.max(1,Number(clip?.frames)||1),start=Math.max(0,Math.min(count-1,Number(descriptor.StartFrame)||0)),end=Math.max(start,Math.min(count-1,descriptor.EndFrame==null?count-1:Number(descriptor.EndFrame))),speed=Math.max(.01,Number(descriptor.BaseSpeed)||1),duration=(end-start+1)/fps/speed,last=(end-start)/fps;
+ let t=Math.max(0,Number(elapsed)||0),done=false;const oneShot=descriptor.Loop===true?false:descriptor.Loop===false?true:!['idle','run','charge'].includes(state);
  if(state==='attack'){
   const marker=clip.markers?.find(m=>m.Name==='action_frame');
-  if(marker&&attack){const action=(marker.Frame||0)/fps,released=Number.isFinite(attack.releasedAt);t=released?action+Math.max(0,t-attack.releasedAt):Math.max(0,Math.min(action-1e-6,action*(attack.windup>0?t/attack.windup:1)));done=released&&t>=duration;}
-  else if(attackDuration>0){done=t>=attackDuration;t*=duration/attackDuration;}else done=t>=duration;
+  if(marker&&attack){const action=Math.max(0,(marker.Frame||0)-start)/fps,released=Number.isFinite(attack.releasedAt);t=released?action+Math.max(0,t-attack.releasedAt)*speed:Math.max(0,Math.min(action-1e-6,action*(attack.windup>0?t/attack.windup:1)));done=released&&t>=(end-start+1)/fps;}
+  else if(attackDuration>0){done=t>=attackDuration;t*=(end-start+1)/fps/attackDuration;}else {done=t>=duration;t*=speed;}
+ }else {done=oneShot&&t>=duration;t*=speed;}
+ if(oneShot)t=Math.min(last,t);else t%=((end-start+1)/fps);
+ const frame=Math.max(start,Math.min(end,start+Math.floor(t*fps+1e-7)));return {frame,time:frame/fps,done,duration};
+}
+function meshVisibility(metadata,name,frame){
+ const result={};for(const event of metadata.asm?.States?.find(s=>s.Name===name)?.Events||[]){
+  if(event.Event!=='HideMesh'||frame<(Number(event.Frame)||0)||event.HasEndFrame&&frame>Number(event.EndFrame))continue;
+  for(const geometry of event.GeometryNames||[])result[geometry]=!event.HideMesh;
+ }return result;
+}
+// Presentation history never writes to units, simulation RNG or replay data.
+// Frame sampling can change render order; an activation fires each source event
+// once, and its billboards finish their own lifetime after the clip changes.
+class FXHistory{
+ constructor({maxEffects=128,maxUnits=64}={}){this.maxEffects=maxEffects;this.maxUnits=maxUnits;this.entries=new Map();this.units=new Map();}
+ get size(){return this.entries.size;}
+ update(unit,activation,time,effects,lifetime){
+  let state=this.units.get(unit);if(state&&time<state.time)for(const[key,e]of this.entries)if(e.unit===unit)this.entries.delete(key);if(!state||state.activation!==activation||time<state.time){state={activation,time,seen:new Set()};this.units.set(unit,state);}state.time=time;
+  while(this.units.size>this.maxUnits){const oldest=this.units.keys().next().value;this.units.delete(oldest);for(const[key,e]of this.entries)if(e.unit===oldest)this.entries.delete(key);}
+  for(const[key,e]of this.entries)if(e.unit===unit&&(time>=e.until||time<e.born-1))this.entries.delete(key);
+  for(const effect of effects){if(!effect.eventKey)continue;const leaf=effect.eventKey+':'+(effect.particle||effect.movieclip)+':'+JSON.stringify(effect.chain),key=String(unit)+':'+activation+':'+leaf;if(state.seen.has(leaf))continue;state.seen.add(leaf);const life=Math.max(0,Math.min(8,lifetime(effect))),born=time-effect.age;if(time<born+life)this.entries.set(key,{unit,born,until:born+life,effect:{...effect,historyKey:key}});}
+  while(this.size>this.maxEffects)this.entries.delete(this.entries.keys().next().value);
+  return [...effects.filter(e=>!e.eventKey),...[...this.entries.values()].filter(e=>e.unit===unit).map(e=>({...e.effect,age:time-e.born}))];
  }
- if(oneShot)t=Math.min(last,t);else t%=duration;
- const frame=Math.max(0,Math.min(count-1,Math.floor(t*fps+1e-7)));return {frame,time:frame/fps,done,duration};
+ clear(){this.entries.clear();this.units.clear();}
+}
+const fxHistory=new FXHistory();let fxSprites=0;
+function sourceFXLifetime(effect,assets,library){
+ if(effect.movieclip){const ref=sourceReference(effect.movieclip),slash=ref.lastIndexOf('/'),stem=ref.slice(0,slash).split('/').pop(),sc=library?.scenes['modernfx_'+stem]||library?.scenes[stem];return sc?.duration(ref.slice(slash+1))||1;}
+ const e=assets[effect.particle]?.emitter;if(!e)return 0;let last=0;for(const c of e.components||[])if(c.__class==='SpawnBurst')last=Math.max(last,...(c.bursts||[]).map(b=>Number(b.t)||0));else if(c.__class==='SpawnRate')last=Math.max(last,Number(c.duration)||0);
+ return last+Math.max(Number(sourceCurve(e.lifetime,0))||0,Number(sourceCurve(e.lifetime,1))||0)+(Number(e.lifetimeJitter)||0);
+}
+function sourceCurve(value,t){
+ if(typeof value==='number')return value;if(!Array.isArray(value))return null;
+ const mix=(a,b,f)=>Array.isArray(a)?a.map((v,i)=>v+(b[i]-v)*f):a+(b-a)*f;t=Math.max(0,Math.min(1,t));
+ if(value.length===2)return mix(value[0],value[1],t);if(value.length===3)return value;
+ if(value.length!==6)return null;const cubic=(u,a,b)=>3*(1-u)*(1-u)*u*a+3*(1-u)*u*u*b+u*u*u;
+ let lo=0,hi=1;for(let i=0;i<24;i++){const u=(lo+hi)/2;if(cubic(u,value[0],value[2])<t)lo=u;else hi=u;}
+ return mix(value[4],value[5],cubic((lo+hi)/2,value[1],value[3]));
+}
+function sourceRandom(seed,slot){let n=2166136261;for(const c of String(seed)+':'+slot)n=Math.imul(n^c.charCodeAt(0),16777619);n=Math.imul(n^(n>>>16),2246822507);return ((n^(n>>>13))>>>0)/4294967296;}
+function sourceParticleSamples(record,time,seed,budget=24){
+ const e=record?.emitter,r=record?.render;if(!e||!r||time<0||!budget)return[];const components=e.components||[];
+ if(components.some(c=>!['SpawnBurst','SpawnRate','SpawnPlanar'].includes(c.__class))||sourceCurve(r.alpha??1,.5)===null)return[];
+ const max=Math.min(48,Math.max(0,Math.floor(budget)),e.maxParticleCount||48),lifeMax=Math.max(.001,Number(sourceCurve(e.lifetime,1))||0)+(Number(e.lifetimeJitter)||0),births=[];
+ for(const c of components){if(c.__class==='SpawnBurst'){const period=Math.max(.001,lifeMax),cycle=e.emitterLoop?Math.floor(time/period):0;for(let loop=Math.max(0,cycle-1);loop<=cycle;loop++)for(const [bi,b]of(c.bursts||[]).entries())for(let j=0;j<(b.c||1);j++)births.push({at:loop*period+(b.t||0),key:'b'+bi+':'+loop+':'+j});}
+  if(c.__class==='SpawnRate'){const rate=Math.max(.001,Number(c.spawnRate)||0),last=Math.floor(Math.min(time,c.infinite?time:Number(c.duration)||0)*rate),first=Math.max(0,Math.floor((time-lifeMax)*rate));for(let i=last;i>=first&&births.length<max*2;i--)births.push({at:i/rate,key:'r'+i});}}
+ const out=[],planar=components.find(c=>c.__class==='SpawnPlanar')||{},offset=e.spawnPointOffset||{},gravity=e.gravity||[0,0,0],range=(a,b,rand)=>(Number(a)||0)+((Number(b??a)||0)-(Number(a)||0))*rand;
+ for(const birth of births){if(out.length>=max)break;const random=k=>sourceRandom(seed+':'+birth.key,k),age=time-birth.at,life=Math.max(.001,Number(sourceCurve(e.lifetime,birth.at))+range(-e.lifetimeJitter,e.lifetimeJitter,random(0)));if(age<0||age>=life)continue;const t=age/life,angle=range(planar.minAngle,planar.maxAngle,random(1))*Math.PI/180,speed=range(planar.minSpeedXY,planar.maxSpeedXY,random(2)),zSpeed=range(planar.minSpeedZ,planar.maxSpeedZ,random(3)),radius=range(planar.spawnMinSize,planar.spawnMaxSize,random(4)),fade=Number(r.alphaFadeout)||0;
+  const scale=(Number(sourceCurve(r.scale??1,t))+range(-r.scaleJitter,r.scaleJitter,random(5)))*(Number(r.globalScale)||1),alpha=Number(sourceCurve(r.alpha??1,t))*Math.min(1,fade?(life-age)/fade:1);if(!Number.isFinite(scale)||!Number.isFinite(alpha))continue;
+  out.push({age,x:(offset.x||0)+Math.cos(angle)*(radius+speed*age)+gravity[0]*age*age/2,y:(offset.y||0)+Math.sin(angle)*(radius+speed*age)+gravity[1]*age*age/2,z:(offset.z||0)+zSpeed*age+gravity[2]*age*age/2,scale:Math.max(0,scale),alpha:Math.max(0,Math.min(1,alpha)),color:sourceCurve(r.color||[1,1,1],t),rotation:((Number(r.angle)||0)+range(-r.angleJitter,r.angleJitter,random(6))+((Number(r.rotationSpeed)||0)+range(-r.rotationSpeedJitter,r.rotationSpeedJitter,random(7)))*age)*Math.PI/180,movieclip:record.movieclip?.[Math.floor(random(8)*(record.movieclip?.length||1))]});
+ }return out;
+}
+function sourceReference(value){return String(value||'').split(' | ')[0];}
+function sourceFXPlan(contract,partPoses,assets,time,team){
+ const out=[],visit=(node,chain,part,age,seen,bone=null,eventKey=null)=>{if(!node||seen.size>24)return;const components=node.components||[],model=components.find(c=>c.Model),mount=components.find(c=>c.objectType===5012);
+  if(model){const index=contract.parts.findIndex(p=>p.sourceModel===sourceReference(model.Model));if(index>=0)part=index;}
+  if(mount){bone=mount;chain=[];}chain=[...chain,{pos:node.pos,rot:node.rot,scl:node.scl}];
+  for(const component of components){if(component.objectType===5004||component.objectType===5008)out.push({component,particle:sourceReference(component.Particle),movieclip:component.MovieClip,chain,part,bone,eventKey,age:age-(Number(component.Delay)||0)});
+   for(const ref of [component.Prefab,component.Effect,component.objectType===5025?(team===1?component.RedVfx:component.BlueVfx):null]){const path=sourceReference(ref);if(path&&!seen.has(path)&&assets[path]?.data)visit(assets[path].data,chain,part,age,new Set([...seen,path]),bone,eventKey);}}
+  for(const child of node.children||[])visit(child,chain,part,age,seen,bone,eventKey);
+ };
+ visit(contract.sourcePrefab?.data,[],0,time,new Set());
+ for(const [part,pose]of partPoses.entries()){if(!pose)continue;const metadata=contract.parts[part],descriptor=metadata.asm?.States?.find(s=>s.Name===pose.name),fps=Number(metadata.animations[pose.name]?.fps)||30,speed=Number(descriptor?.BaseSpeed)||1;
+  for(const [eventIndex,event]of (descriptor?.Events||[]).entries()){const frame=Number(event.Frame)||0,path=sourceReference(event.Effect);if(event.Event==='Effect'&&frame<=pose.frame&&assets[path]?.data)visit(assets[path].data,metadata.transforms||[],part,(pose.frame-frame)/fps/speed,new Set([path]),null,part+':'+pose.name+':'+eventIndex);}
+ }return out;
+}
+function drawSourceFX(c,actor,partPoses,team,time,seed,effects){
+ const library=root.RoyaleNative?.library,fx=library?.fx;if(!library)return;const policy=root.RoyaleGraphics?.current;let budget=root.RoyaleGraphics?root.RoyaleGraphics.particleBudget(policy?.particles||'good',false):24;if(!budget)return;
+ for(const effect of effects||sourceFXPlan(actor.contract,partPoses,manifest.vfxAssets||{},time,team)){if(effect.age<0||budget<=0)continue;const part=actor.parts[effect.part],bone=effect.bone&&part?.gltf.scene.getObjectByName(effect.bone.BoneName);if(effect.bone&&!bone)continue;
+  if(effect.bone&&meshVisibility(part.metadata,partPoses[effect.part]?.name,partPoses[effect.part]?.frame??0)[effect.bone.BoneName]===false)continue;
+  let matrix=(bone?.matrixWorld||actor.group.matrixWorld).clone();if(bone&&effect.bone.IgnoreBoneScale){const p=new T.Vector3(),q=new T.Quaternion(),s=new T.Vector3();matrix.decompose(p,q,s);matrix.compose(p,q,new T.Vector3(1,1,1));}
+  for(const tr of effect.chain){const local=new T.Matrix4().compose(new T.Vector3().fromArray(tr.pos||[0,0,0]),new T.Quaternion().setFromEuler(new T.Euler(...(tr.rot||[0,0,0]).map(v=>v*Math.PI/180))),new T.Vector3().fromArray(tr.scl||[1,1,1]));matrix.multiply(local);}
+  const samples=effect.movieclip?[{movieclip:effect.movieclip,age:effect.age,alpha:1,scale:1,x:0,y:0,z:0,rotation:0,color:[1,1,1]}]:sourceParticleSamples(manifest.vfxAssets?.[effect.particle],effect.age,seed+':'+(effect.historyKey||effect.particle),budget);
+  for(const sample of samples){if(budget--<=0)break;const ref=sourceReference(sample.movieclip),slash=ref.lastIndexOf('/'),stem=ref.slice(0,slash).split('/').pop(),name=ref.slice(slash+1),sc=library.scenes['modernfx_'+stem]||library.scenes[stem];if(!sc||sc.id(name)===undefined||effect.component.Loop!==true&&sample.age>sc.duration(name))continue;if(fx&&policy&&fx.particlesUsed>=policy.frameParticles)break;
+   const offset=effect.component.Offset||[0,0,0],point=new T.Vector3(sample.x+offset[0],sample.y+offset[1],sample.z+offset[2]).applyMatrix4(matrix),worldScale=new T.Vector3().setFromMatrixScale(matrix),scale=sample.scale*(effect.component.FollowScale?Math.max(worldScale.x,worldScale.y):1),color=sample.color||[1,1,1];
+   c.save();try{c.translate(point.x*UNITS,-(.75*point.y+Math.sqrt(7)/4*point.z)*UNITS);c.rotate(sample.rotation);c.scale(scale,scale);c.globalAlpha*=sample.alpha;if(effect.component.BlendMode===1)c.globalCompositeOperation='lighter';sc.draw(c,name,sample.age,{loop:effect.component.Loop===true,initialColor:[0,0,0,255,...color.map(v=>v*255)]});}finally{c.restore();}if(fx)fx.particlesUsed++;fxSprites++;
+  }
+ }
 }
 function rasterDensity(policy={}){const value=Math.max(Number(policy.battleDensity)||1,(Number(policy.textureScale)||1)*1.5);return Math.max(1,Math.min(4,value));}
 class PoseCache{
@@ -53,7 +129,7 @@ function report(e,id){const message=`Original 3D art${id?' for '+id:''}: ${e?.me
 function localURL(file,base=assetBase){return new URL(file,new URL(base,root.document?.baseURI||root.location?.href||'http://localhost/')).href;}
 function configure(value,base='assets/modern-heroes/',options={}){
  generation++;assetBase=base;vendorBase=options.vendorBase||'assets/vendor/three/';onError=options.onError||null;error=null;failed.clear();poses.clear();
- actors.clear();pending.clear();metrics.clear();
+ actors.clear();pending.clear();metrics.clear();fxHistory.clear();fxSprites=0;
  if(typeof value==='string')configured=fetch(localURL(value,'')).then(r=>{if(!r.ok)throw Error('manifest '+r.status);return r.json();}).then(v=>{manifest=v;return manifest;}).catch(e=>{report(e);throw e;});
  else{manifest=value||{heroes:{},errors:{}};configured=Promise.resolve(manifest);}return configured;
 }
@@ -95,13 +171,13 @@ async function loadActor(id){
 }
 async function prepareActors(ids=[]){await configured;if(!actors.frameOpen){actors.beginFrame([]);actors.endFrame();}const result=[];for(const id of new Set(ids)){if(!has(id))continue;try{const actor=await loadActor(id);result.push({id,ready:!!actor,error:unsupported(id)});}catch(e){report(e,id);result.push({id,ready:false,error:unsupported(id)});}}return result;}
 function choosePartPose(part,state,elapsed,options,actor){
- const entity=options.entity||{},candidates=STATE_NAMES[state]||[state],contains=name=>part.actions?part.actions.has(name):Object.prototype.hasOwnProperty.call(part.metadata.animations||{},name),choose=names=>names.map(name=>resolveState(part.metadata.asm,name,entity)).find(name=>name&&contains(name));
- let name=choose(candidates)||choose([part.metadata.asm.DefaultState])||choose(['Idle'])||part.gltf?.animations[0]?.name||Object.keys(part.metadata.animations||{})[0];if(!name)return null;
+ const entity=options.entity||{},custom=Number(entity.modernCustomStateNumber),candidates=state==='ability'&&Number.isInteger(custom)&&custom>0?['Custom'+custom,...STATE_NAMES.ability]:STATE_NAMES[state]||[state],contains=name=>part.actions?part.actions.has(name):Object.prototype.hasOwnProperty.call(part.metadata.animations||{},name),choose=names=>names.map(name=>resolveState(part.metadata.asm,name,entity)).find(name=>name&&contains(name));
+ let name=choose(candidates)||choose([part.metadata.asm?.DefaultState])||choose(['Idle'])||part.gltf?.animations[0]?.name||Object.keys(part.metadata.animations||{})[0];if(!name)return null;
  let t=elapsed;if(['run','charge'].includes(state)){if(entity&&!entity.air&&Number.isFinite(entity.walk))t=entity.walk;t*=Math.max(.1,1+(Number(actor.contract.sourceEntity?.WalkTweakPercentage)||0)/100);}
- let pose=clipPose(part.metadata.animations[name],t,state,entity.visualAttack,options.attackDuration||0);
- if(state==='attack'&&pose.done){name=choose(['Idle'])||name;pose=clipPose(part.metadata.animations[name],options.idleTime??0,'idle');}return {name,...pose};
+ let pose=clipPose(part.metadata.animations[name],t,state,entity.visualAttack,options.attackDuration||0,part.metadata.asm?.States?.find(s=>s.Name===name));
+ if(state==='attack'&&pose.done){name=choose(['Idle'])||name;pose=clipPose(part.metadata.animations[name],options.idleTime??0,'idle',null,0,part.metadata.asm?.States?.find(s=>s.Name===name));}return {name,...pose};
 }
-function applyPose(actor,partPoses,team,yaw){actor.group.rotation.z=yaw;for(let index=0;index<actor.parts.length;index++){const part=actor.parts[index],pose=partPoses[index];part.actions.forEach(a=>a.stop());if(pose){const action=part.actions.get(pose.name);action.reset();action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();part.mixer.setTime(pose.time);}part.uniform.value.set(...(team===1?[1,.12,.16]:[.12,.4,1]));}actor.group.updateMatrixWorld(true);}
+function applyPose(actor,partPoses,team,yaw){actor.group.rotation.z=yaw;for(let index=0;index<actor.parts.length;index++){const part=actor.parts[index],pose=partPoses[index];part.actions.forEach(a=>a.stop());if(pose){const action=part.actions.get(pose.name);action.reset();action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();part.mixer.setTime(pose.time);}const visibility=meshVisibility(part.metadata,pose?.name,pose?.frame??0);part.gltf.scene.traverse(o=>{if(o.isMesh)o.visible=visibility[o.name]??true;});part.uniform.value.set(...(team===1?[1,.12,.16]:[.12,.4,1]));}actor.group.updateMatrixWorld(true);}
 function actorBounds(actor){actor.group.traverse(o=>{if(o.isSkinnedMesh){o.skeleton.update();o.computeBoundingBox();}});return new T.Box3().setFromObject(actor.group);}
 function projectedBounds(box){let left=Infinity,right=-Infinity,top=-Infinity,bottom=Infinity;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const py=.75*y+Math.sqrt(7)/4*z;left=Math.min(left,x);right=Math.max(right,x);top=Math.max(top,py);bottom=Math.min(bottom,py);}return {left,right,top,bottom};}
 function measureHead(actor){if(metrics.has(actor.id))return;const p=actor.parts.map(part=>choosePartPose(part,'idle',0,{},actor));applyPose(actor,p,0,0);const box=projectedBounds(actorBounds(actor)),factor=(5/6)*(Number(actor.contract.sourceEntity?.Scale)||100)/100;metrics.set(actor.id,Math.max(18,Math.min(140,box.top*UNITS*factor))+5);}
@@ -125,14 +201,14 @@ function draw(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale
   const key=[id,team===1?1:0,density,steps,index,...partPoses.map(p=>p?`${p.name}:${p.frame}`:'static')].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density);poses.set(key,raster,raster.image.width*raster.image.height*4);}
   const source=contract.sourceEntity||{},factor=scale*(5/6)*(Number(source.Scale)||100)/100,height=options.height??Math.max(0,Number(source.FlyingHeight)||0)/1000*20;
   c.save();try{c.translate(x,y-height);c.scale(factor,factor);c.filter=root.RoyaleNative?.teamFilter?.(team)||'none';const paint=color=>{const image=tintRaster(raster,color,key);c.drawImage(image.image,image.x,image.y,image.width,image.height);};
-  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);}finally{c.restore();}return true;
+  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&options.entity&&!options.ghost){const fxTime=options.entity.visualTime??time,current=sourceFXPlan(actor.contract,partPoses,manifest.vfxAssets||{},fxTime,team),activation=[id,state,options.entity.visualStarted??started,options.entity.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),effects=fxHistory.update(options.entity.id??id,activation,fxTime,current,e=>sourceFXLifetime(e,manifest.vfxAssets||{},root.RoyaleNative?.library));if(effects.length){applyPose(actor,partPoses,team,yaw);drawSourceFX(c,actor,partPoses,team,fxTime,options.entity.id??id,effects);}}}finally{c.restore();}return true;
  }catch(e){report(e,id);return false;}
 }
 function headHeight(id){return metrics.get(id)||null;}
-function beginFrame(ids=[]){actors.beginFrame([...new Set(ids)].filter(has));}
+function beginFrame(ids=[]){if(!ids.length)fxHistory.clear();actors.beginFrame([...new Set(ids)].filter(has));}
 function endFrame(){actors.endFrame();}
 // modelBytes estimates geometry and decoded textures, not total browser/GPU
 // memory. modelBudget is a soft inactive target; active overflow is explicit.
-function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,pending:pending.size,error,failed:Object.fromEntries(failed)};}
-return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,headHeight,summary,resolveState,sourceYaw,clipPose,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
+function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,fxSprites,fxHistoryEntries:fxHistory.size,pending:pending.size,error,failed:Object.fromEntries(failed)};}
+return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,FXHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
 });

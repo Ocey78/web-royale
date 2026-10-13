@@ -47,20 +47,25 @@ function level(c,u,time=0,position=null){if(!ready||u.king===true||u.hp<=0||u.ef
  c.save();c.translate(x,y);if(tower)c.scale(5/6,5/6);hud.drawStill(c,'hp_'+(u.shield>0?'shield_':'')+(enemy?'enemy':'player')+'_number',{frame:0,still:true,instances:{prestige:hidden,buff:hidden,ammo:hidden},texts:{level:String(u.level)}});c.restore();stats.healthDraws++;return true;
 }
 function groupLevel(c,group,alpha=1){if(!group.members.length)return false;let x=0,y=0;for(const u of group.members){const p=RoyaleNative.renderPosition(u,alpha);x+=p.x;y+=p.y-RoyaleNative.entityElevation(u)-RoyaleNative.library.headHeight(u.entity)-2;}return level(c,group.members[0],0,{x:x/group.members.length,y:y/group.members.length});}
-const filterNodes=new WeakMap();
+const filterNodes=new WeakMap(),inheritedFilters=new WeakMap();
 function deployment(c,u,time){if(!ready||u.wait<=0||u.effectCarrier||u.attachedTo)return false;const name='troopDeployTimer_'+(u.team?'enemy':'player');const duration=Math.max(.01,u.readyAt-u.born),progress=Math.max(0,Math.min(1,(time-u.born)/duration));
  c.save();c.translate(u.x,u.y-RoyaleNative.entityElevation(u)-20);c.scale(.62,.62);hud.draw(c,name,0,{frame:Math.floor(progress*298)});c.restore();stats.deployDraws++;return true;}
 function shadow(c,u){if(!ready||u.building||u.attachedTo||u.hidden)return false;const name='lores_blob_shadow';if(!filters.clip(name))return false;const r=u.def.source;c.save();c.translate(u.x,u.y+2);c.scale((r.ShadowScaleX||75)/100*.48,(r.ShadowScaleY||60)/100*.28);c.globalAlpha*=.7;filters.draw(c,name,0);c.restore();stats.shadowDraws++;return true;}
-function filtered(c,u,time,paint){if(!ready){paint(null);return;}
- const r=u.def.source,dx=Math.cos(u.heading||0),dy=Math.sin(u.heading||0);const direction=Math.abs(dx)>.7?(dx<0?'left':'right'):(dy<0?'up':'down');
- let name=null,t=0,loop=false;
- if(u.buffs?.Freeze||u.buffs?.ZapFreeze||u.buffs?.IceWizardSlow){name='filter_cold';t=.45;}
- else if(u.wait>0){name=r.DeployBaseAnimExportName||'filter_deploy_unit_default';t=Math.max(0,time-u.born);}
- else if(u.lastDamagedAt!==undefined&&time-u.lastDamagedAt<.22){const prefix=r.DamageExportName||'filter_damage';name=filters.clip(prefix+'_'+direction)?prefix+'_'+direction:prefix;t=time-u.lastDamagedAt;}
- else if(u.buffs?.Rage||u.buffs?.RageLumberjack){name='filter_rage';t=u.visualTime||time;loop=true;}
- if(!name||!filters.clip(name)){paint(null);return;}
- const clip=filters.clip(name);let ids=filterNodes.get(clip);if(!ids){ids=[...new Set(clip.frames.flat().map(x=>x[0]))];filterNodes.set(clip,ids);}const replaceNodes={};for(const id of ids)replaceNodes[id]=(ctx,color)=>paint(color);
- filters.draw(c,name,t,{replaceNodes,loop});stats.filterDraws++;
+function filtered(c,u,time,paint,options={}){if(!ready||u.preview){paint(null);return;}
+ // A Crown Tower paints its attached defender inside this same source filter.
+ // Inherit its color without applying the timeline and its transforms twice.
+ if(inheritedFilters.has(u)){paint(inheritedFilters.get(u));return;}
+ const r=u.def?.source||{},dx=Math.cos(u.heading||0),dy=Math.sin(u.heading||0);const direction=Math.abs(dx)>.7?(dx<0?'left':'right'):(dy<0?'up':'down');
+ const source=root.RoyaleNative?.library?.fx?.unitFilter?.(u,time),sourceClip=source?.scene?.clip(source.name),sourceActive=sourceClip&&Number.isFinite(source.time)&&source.time>=0&&(source.loop===true||source.time<source.scene.duration(source.name));
+ let name=null,t=0,loop=false,filterScene=filters;
+ if(!options.sourceOnly&&(u.buffs?.Freeze||u.buffs?.ZapFreeze||u.buffs?.IceWizardSlow)){name='filter_cold';t=.45;}
+ else if(!options.sourceOnly&&u.wait>0){name=r.DeployBaseAnimExportName||'filter_deploy_unit_default';t=Math.max(0,time-u.born);}
+ else if(sourceActive){name=source.name;t=source.time;loop=source.loop===true;filterScene=source.scene;}
+ else if(!options.sourceOnly&&u.lastDamagedAt!==undefined&&time-u.lastDamagedAt<.22){const prefix=r.DamageExportName||'filter_damage';name=filters.clip(prefix+'_'+direction)?prefix+'_'+direction:prefix;t=time-u.lastDamagedAt;}
+ else if(!options.sourceOnly&&(u.buffs?.Rage||u.buffs?.RageLumberjack)){name='filter_rage';t=u.visualTime||time;loop=true;}
+ if(!name||!filterScene.clip(name)){paint(null);return;}
+ const clip=filterScene.clip(name);let ids=filterNodes.get(clip);if(!ids){ids=[...new Set(clip.frames.flat().map(x=>x[0]))];filterNodes.set(clip,ids);}const replaceNodes={};for(const id of ids)replaceNodes[id]=(ctx,color)=>{inheritedFilters.set(u,color);try{paint(color);}finally{inheritedFilters.delete(u);}};
+ filterScene.draw(c,name,t,{replaceNodes,loop});stats.filterDraws++;
 }
 const api={load,home,health,level,groupLevel,healthInstances,timer,timerBindings,deployment,shadow,filtered,get ready(){return ready;},get hud(){return hud;},get filters(){return filters;},summary:()=>({ready,...stats,text:root.RoyaleText.summary()})};root.RoyalePresentation=api;
 })(globalThis);

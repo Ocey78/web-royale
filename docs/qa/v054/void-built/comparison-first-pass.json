@@ -1,0 +1,23 @@
+{
+  "reviewed_app_sha256": "1ca3f214fb60ce88375b4a800acf3c81dfddd29dc901919d00dd937f0e824015",
+  "status": "First pass; final visual signoff withheld pending pool compositing correction.",
+  "automated_case_checks": {
+    "passed": 798,
+    "failed": 0,
+    "cases": 10
+  },
+  "run_exit_note": "Original harness exited on optional static-server AI capabilities404. The harness now reports that endpoint separately; no rerun or final pass is claimed in this note.",
+  "references": [
+    "../void-reference/balegg-bowler-sequence.jpg",
+    "../void-reference/balegg-barbarians-three-hits.jpg",
+    "https://www.youtube.com/watch?v=AMr1cJDkvaw"
+  ],
+  "observed": [
+    "Bowler and five-Barbarian built contact sheets were visually inspected.",
+    "Single pink beam attaches to Bowler; five separate yellow beams attach to the Barbarians. No continuous central beam appears in pre-strike frames.",
+    "Target glow changes with the tier and clears after outro; the persistent pool also clears.",
+    "The built pre-hit pool still appears brown/orange, while the actual recorded reference is near-black burgundy. This remains an open visual mismatch; parent is diagnosing native compositing."
+  ],
+  "timing_note": "Actual current built pulses are one second apart; earlier Aug9 footage1.2s is used for visual geometry and color, not current balance timing.",
+  "superseded_by": "comparison-final.json"
+}

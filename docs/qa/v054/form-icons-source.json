@@ -1,0 +1,380 @@
+[
+  {
+    "id": "Knight_EV1",
+    "kind": "evolution",
+    "icon": "knight_evolution_card"
+  },
+  {
+    "id": "Archer_EV1",
+    "kind": "evolution",
+    "icon": "archer_evolution_card"
+  },
+  {
+    "id": "Pekka_EV1",
+    "kind": "evolution",
+    "icon": "Pekka_evolution_card"
+  },
+  {
+    "id": "Witch_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_witch_evolution.sc",
+    "icon": "witch_evolution_card"
+  },
+  {
+    "id": "Barbarians_EV1",
+    "kind": "evolution",
+    "icon": "barbarian_evolution_card"
+  },
+  {
+    "id": "Skeletons_EV1",
+    "kind": "evolution",
+    "icon": "skeletons_evolution_card"
+  },
+  {
+    "id": "Valkyrie_EV1",
+    "kind": "evolution",
+    "icon": "valkyrie_evolution_card"
+  },
+  {
+    "id": "SkeletonArmy_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_skeleton_army_evolution.sc",
+    "icon": "skeleton_army_evolution_card_image"
+  },
+  {
+    "id": "Bomber_EV1",
+    "kind": "evolution",
+    "icon": "bomber_evolution_card"
+  },
+  {
+    "id": "Musketeer_EV1",
+    "kind": "evolution",
+    "icon": "musketeer_evolution_card"
+  },
+  {
+    "id": "BabyDragon_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_baby_dragon_evolution.sc",
+    "icon": "baby_dragon_evolution_card"
+  },
+  {
+    "id": "Wizard_EV1",
+    "kind": "evolution",
+    "icon": "wizard_evolution_card"
+  },
+  {
+    "id": "MinionHorde_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_minionhorde_evolution.sc",
+    "icon": "minionhorde_evolution_card_image"
+  },
+  {
+    "id": "RoyalGiant_EV1",
+    "kind": "evolution",
+    "icon": "royalgiant_evolution_card"
+  },
+  {
+    "id": "Princess_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_princess_evolution.sc",
+    "icon": "princess_evolution_card"
+  },
+  {
+    "id": "IceSpirits_EV1",
+    "kind": "evolution",
+    "icon": "icespirit_evolution_card"
+  },
+  {
+    "id": "RageBarbarian_EV1",
+    "kind": "evolution",
+    "icon": "lumberjack_evolution_card"
+  },
+  {
+    "id": "BattleRam_EV1",
+    "kind": "evolution",
+    "icon": "battle_ram_evolution_card"
+  },
+  {
+    "id": "InfernoDragon_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_inferno_dragon_evolution.sc",
+    "icon": "inferno_dragon_evolution_card"
+  },
+  {
+    "id": "BlowdartGoblin_EV1",
+    "kind": "evolution",
+    "icon": "dartgoblin_evolution_card"
+  },
+  {
+    "id": "AngryBarbarians_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_elite_barbarians_evolution.sc",
+    "icon": "elite_barbarians_evolution_card"
+  },
+  {
+    "id": "Hunter_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_hunter_evolution.sc",
+    "icon": "hunter_evolution_card"
+  },
+  {
+    "id": "AxeMan_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_executioner_evolution.sc",
+    "icon": "executioner_evolution_card"
+  },
+  {
+    "id": "RoyalRecruits_EV1",
+    "kind": "evolution",
+    "icon": "royal_recruit_evolution_card"
+  },
+  {
+    "id": "Bats_EV1",
+    "kind": "evolution",
+    "icon": "bats_evolution_card"
+  },
+  {
+    "id": "Ghost_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_royal_ghost_evolution.sc",
+    "icon": "royal_ghost_evolution_card"
+  },
+  {
+    "id": "MegaKnight_EV1",
+    "kind": "evolution",
+    "icon": "Megaknight_Evo_card"
+  },
+  {
+    "id": "SkeletonBalloon_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_skeleton_balloon_evolution.sc",
+    "icon": "skeleton_balloon_evolution_card"
+  },
+  {
+    "id": "Wallbreakers_EV1",
+    "kind": "evolution",
+    "icon": "wall_breaker_evolution_card"
+  },
+  {
+    "id": "RoyalHogs_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_royal_hogs_evolution.sc",
+    "icon": "royal_hog_evolution_card"
+  },
+  {
+    "id": "GoblinGiant_EV1",
+    "kind": "evolution",
+    "icon": "goblin_giant_evolution_card"
+  },
+  {
+    "id": "ElectroDragon_EV1",
+    "kind": "evolution",
+    "icon": "Electro_Dragon_evolution_card"
+  },
+  {
+    "id": "Firecracker_EV1",
+    "kind": "evolution",
+    "icon": "firecracker_evolution_card"
+  },
+  {
+    "id": "ElectroGiant_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_electro_giant_evolution.sc",
+    "icon": "electro_giant_evolution_card"
+  },
+  {
+    "id": "GoblinBarrel_EV1",
+    "kind": "evolution",
+    "icon": "goblin_barrel_evolution_card"
+  },
+  {
+    "id": "Zap_EV1",
+    "kind": "evolution",
+    "icon": "zap_evolution_card"
+  },
+  {
+    "id": "Snowball_EV1",
+    "kind": "evolution",
+    "icon": "snowball_evolution_card"
+  },
+  {
+    "id": "Cannon_EV1",
+    "kind": "evolution",
+    "icon": "cannon_evolution_card"
+  },
+  {
+    "id": "Mortar_EV1",
+    "kind": "evolution",
+    "icon": "mortar_evolution_card"
+  },
+  {
+    "id": "Tesla_EV1",
+    "kind": "evolution",
+    "icon": "tesla_evolution_card"
+  },
+  {
+    "id": "FirespiritHut_EV1",
+    "kind": "evolution",
+    "source": "sc/ui_card_furnace_evolution.sc",
+    "icon": "furnace_evolution_card_image"
+  },
+  {
+    "id": "GoblinCage_EV1",
+    "kind": "evolution",
+    "icon": "goblin_cage_evolution_card"
+  },
+  {
+    "id": "GoblinDrill_EV1",
+    "kind": "evolution",
+    "icon": "goblin_drill_evolution_card"
+  },
+  {
+    "id": "Knight_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_knight_hero.sc",
+    "icon": "knight_hero_card"
+  },
+  {
+    "id": "Goblins_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_goblins_hero.sc",
+    "icon": "goblins_hero_card"
+  },
+  {
+    "id": "Giant_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_giant_hero.sc",
+    "icon": "giant_hero_card"
+  },
+  {
+    "id": "Balloon_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_balloon_hero.sc",
+    "icon": "balloon_hero_card"
+  },
+  {
+    "id": "Valkyrie_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_valkyrie_hero.sc",
+    "icon": "valkyrie_hero_card"
+  },
+  {
+    "id": "Musketeer_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_musketeer_hero.sc",
+    "icon": "musketeer_hero_card"
+  },
+  {
+    "id": "Wizard_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_wizard_hero.sc",
+    "icon": "wizard_hero_card"
+  },
+  {
+    "id": "MiniPekka_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_minipekka_hero.sc",
+    "icon": "miniPekka_hero_card"
+  },
+  {
+    "id": "IceWizard_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_ice_wizard_hero.sc",
+    "icon": "ice_wizard_hero_card"
+  },
+  {
+    "id": "DarkPrince_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_darkprince_hero.sc",
+    "icon": "darkprince_hero_card"
+  },
+  {
+    "id": "Bowler_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_bowler_hero.sc",
+    "icon": "bowler_hero_card"
+  },
+  {
+    "id": "IceGolemite_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_icegolem_hero.sc",
+    "icon": "icegolem_hero_card"
+  },
+  {
+    "id": "MegaMinion_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_megaminion_hero.sc",
+    "icon": "megaminion_hero_card"
+  },
+  {
+    "id": "ElectroWizard_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_electro_wizard_hero.sc",
+    "icon": "electro_wizard_hero_card"
+  },
+  {
+    "id": "EliteArcher_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_magic_archer_hero.sc",
+    "icon": "magic_archer_hero_card"
+  },
+  {
+    "id": "Berserker_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_berserker_hero.sc",
+    "icon": "berserker_hero_card"
+  },
+  {
+    "id": "Tombstone_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_tombstone_hero.sc",
+    "icon": "tombstone_hero_card"
+  },
+  {
+    "id": "BarbLog_hero",
+    "kind": "hero",
+    "source": "sc/ui_card_barbarian_barrel_hero.sc",
+    "icon": "barbarian_barrel_hero_card"
+  },
+  {
+    "id": "MightyMiner_champion",
+    "kind": "champion",
+    "icon": "mightyminer"
+  },
+  {
+    "id": "SkeletonKing_champion",
+    "kind": "champion",
+    "icon": "skeletonking"
+  },
+  {
+    "id": "ArcherQueen_champion",
+    "kind": "champion",
+    "icon": "archerqueen"
+  },
+  {
+    "id": "GoldenKnight_champion",
+    "kind": "champion",
+    "icon": "goldenknight"
+  },
+  {
+    "id": "Monk_champion",
+    "kind": "champion",
+    "icon": "monk"
+  },
+  {
+    "id": "LittlePrince_champion",
+    "kind": "champion",
+    "icon": "LittlePrince"
+  },
+  {
+    "id": "Goblinstein_champion",
+    "kind": "champion",
+    "icon": "goblinstein_card"
+  },
+  {
+    "id": "BossBandit_champion",
+    "kind": "champion",
+    "source": "sc/ui_card_boss_bandit.sc",
+    "icon": "bossbandit_card"
+  }
+]

@@ -1,0 +1,1007 @@
+{
+  "url": "http://127.0.0.1:8087/",
+  "mode": "actual-built-user-interface",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "errors": [],
+  "canvases": [
+    {
+      "id": "",
+      "width": 32,
+      "height": 73,
+      "cssWidth": 15.7188,
+      "cssHeight": 35.8438,
+      "visible": true,
+      "backingRatioX": 2.0357788126320076,
+      "backingRatioY": 2.03661442146201
+    },
+    {
+      "id": "",
+      "width": 80,
+      "height": 42,
+      "cssWidth": 39.8438,
+      "cssHeight": 20.9062,
+      "visible": true,
+      "backingRatioX": 2.007840617611774,
+      "backingRatioY": 2.008973414585147
+    },
+    {
+      "id": "",
+      "width": 125,
+      "height": 56,
+      "cssWidth": 62.0156,
+      "cssHeight": 27.7812,
+      "visible": true,
+      "backingRatioX": 2.0156218757860924,
+      "backingRatioY": 2.0157516593955624
+    },
+    {
+      "id": "",
+      "width": 83,
+      "height": 56,
+      "cssWidth": 41.1719,
+      "cssHeight": 27.7656,
+      "visible": true,
+      "backingRatioX": 2.0159380548383727,
+      "backingRatioY": 2.0168842020341717
+    },
+    {
+      "id": "",
+      "width": 139,
+      "height": 57,
+      "cssWidth": 69.4844,
+      "cssHeight": 28.4062,
+      "visible": true,
+      "backingRatioX": 2.000449021650903,
+      "backingRatioY": 2.0066041920425826
+    },
+    {
+      "id": "",
+      "width": 115,
+      "height": 42,
+      "cssWidth": 57.3594,
+      "cssHeight": 20.6406,
+      "visible": true,
+      "backingRatioX": 2.004902422270805,
+      "backingRatioY": 2.0348245690532254
+    },
+    {
+      "id": "",
+      "width": 107,
+      "height": 42,
+      "cssWidth": 53.1562,
+      "cssHeight": 20.6406,
+      "visible": true,
+      "backingRatioX": 2.012935461902845,
+      "backingRatioY": 2.0348245690532254
+    },
+    {
+      "id": "",
+      "width": 45,
+      "height": 64,
+      "cssWidth": 22.4375,
+      "cssHeight": 31.9062,
+      "visible": true,
+      "backingRatioX": 2.0055710306406684,
+      "backingRatioY": 2.0058797349731403
+    },
+    {
+      "id": "",
+      "width": 107,
+      "height": 48,
+      "cssWidth": 53.4062,
+      "cssHeight": 23.9688,
+      "visible": true,
+      "backingRatioX": 2.0035127007725695,
+      "backingRatioY": 2.0026033843997193
+    },
+    {
+      "id": "",
+      "width": 128,
+      "height": 48,
+      "cssWidth": 63.6406,
+      "cssHeight": 23.9688,
+      "visible": true,
+      "backingRatioX": 2.0112946766686677,
+      "backingRatioY": 2.0026033843997193
+    },
+    {
+      "id": "",
+      "width": 86,
+      "height": 37,
+      "cssWidth": 42.7969,
+      "cssHeight": 18.4219,
+      "visible": true,
+      "backingRatioX": 2.009491341662597,
+      "backingRatioY": 2.008479038535656
+    },
+    {
+      "id": "",
+      "width": 80,
+      "height": 37,
+      "cssWidth": 39.9219,
+      "cssHeight": 18.4219,
+      "visible": true,
+      "backingRatioX": 2.003912639428484,
+      "backingRatioY": 2.008479038535656
+    },
+    {
+      "id": "",
+      "width": 144,
+      "height": 48,
+      "cssWidth": 71.8125,
+      "cssHeight": 23.9688,
+      "visible": true,
+      "backingRatioX": 2.0052219321148823,
+      "backingRatioY": 2.0026033843997193
+    },
+    {
+      "id": "",
+      "width": 128,
+      "height": 48,
+      "cssWidth": 63.6406,
+      "cssHeight": 23.9688,
+      "visible": true,
+      "backingRatioX": 2.0112946766686677,
+      "backingRatioY": 2.0026033843997193
+    },
+    {
+      "id": "",
+      "width": 29,
+      "height": 37,
+      "cssWidth": 14.1719,
+      "cssHeight": 18.4219,
+      "visible": true,
+      "backingRatioX": 2.046302895165786,
+      "backingRatioY": 2.008479038535656
+    },
+    {
+      "id": "",
+      "width": 25,
+      "height": 37,
+      "cssWidth": 12.4062,
+      "cssHeight": 18.4219,
+      "visible": true,
+      "backingRatioX": 2.015121471522303,
+      "backingRatioY": 2.008479038535656
+    },
+    {
+      "id": "",
+      "width": 39,
+      "height": 37,
+      "cssWidth": 19.2344,
+      "cssHeight": 18.4219,
+      "visible": true,
+      "backingRatioX": 2.0276171858753065,
+      "backingRatioY": 2.008479038535656
+    },
+    {
+      "id": "homeArenaCanvas",
+      "width": 652,
+      "height": 644,
+      "cssWidth": 326,
+      "cssHeight": 322,
+      "visible": true,
+      "backingRatioX": 2,
+      "backingRatioY": 2
+    },
+    {
+      "id": "",
+      "width": 206,
+      "height": 68,
+      "cssWidth": 102.641,
+      "cssHeight": 33.9688,
+      "visible": true,
+      "backingRatioX": 2.0069952553073334,
+      "backingRatioY": 2.001836979816773
+    },
+    {
+      "id": "",
+      "width": 30,
+      "height": 68,
+      "cssWidth": 14.5,
+      "cssHeight": 33.9688,
+      "visible": true,
+      "backingRatioX": 2.0689655172413794,
+      "backingRatioY": 2.001836979816773
+    },
+    {
+      "id": "",
+      "width": 260,
+      "height": 91,
+      "cssWidth": 129.922,
+      "cssHeight": 45.4688,
+      "visible": true,
+      "backingRatioX": 2.0012007204322595,
+      "backingRatioY": 2.0013723696248857
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 120,
+      "height": 47,
+      "cssWidth": 60,
+      "cssHeight": 23.5,
+      "visible": true,
+      "backingRatioX": 2,
+      "backingRatioY": 2
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "battleCanvas",
+      "width": 1080,
+      "height": 1920,
+      "cssWidth": 540,
+      "cssHeight": 960,
+      "visible": false,
+      "backingRatioX": 2,
+      "backingRatioY": 2
+    },
+    {
+      "id": "nativeBattleTimer",
+      "width": 240,
+      "height": 304,
+      "cssWidth": 120,
+      "cssHeight": 152,
+      "visible": false,
+      "backingRatioX": 2,
+      "backingRatioY": 2
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "matchResultCanvas",
+      "width": 1080,
+      "height": 1920,
+      "cssWidth": 540,
+      "cssHeight": 960,
+      "visible": false,
+      "backingRatioX": 2,
+      "backingRatioY": 2
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    },
+    {
+      "id": "",
+      "width": 300,
+      "height": 150,
+      "cssWidth": null,
+      "cssHeight": null,
+      "visible": false,
+      "backingRatioX": null,
+      "backingRatioY": null
+    }
+  ],
+  "platforms": [
+    {
+      "number": 15,
+      "id": "modern-arena-15",
+      "key": "modern-road-platform-15",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-15.png?v=f27241a8077c",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 324312,
+      "sha256": "f27241a8077cc5af2a6aaf865637db59b81b17ce7bfa9aac8879f2621a477b79"
+    },
+    {
+      "number": 16,
+      "id": "modern-arena-16",
+      "key": "modern-road-platform-16",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-16.png?v=67cb6eaf20fd",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 259211,
+      "sha256": "67cb6eaf20fd75915d3bad4fb6c0c9169d870ee3d829c1cba979bf3f2c61bf0e"
+    },
+    {
+      "number": 17,
+      "id": "modern-arena-17",
+      "key": "modern-road-platform-17",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-17.png?v=43b60f408925",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 305839,
+      "sha256": "43b60f408925e4581a4cf5908fea573e5d0c1d7001138e4896a5a554c91b9793"
+    },
+    {
+      "number": 18,
+      "id": "modern-arena-18",
+      "key": "modern-road-platform-18",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-18.png?v=1c468bb3be7d",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 296808,
+      "sha256": "1c468bb3be7de02ff7d537f970ff54c10d64783b7628761c630fedc5f839f3ef"
+    },
+    {
+      "number": 19,
+      "id": "modern-arena-19",
+      "key": "modern-road-platform-19",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-19.png?v=5b7e2856d672",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 342254,
+      "sha256": "5b7e2856d6720110595706179b8226787ff584219c3070e423050f93eadddf06"
+    },
+    {
+      "number": 20,
+      "id": "modern-arena-20",
+      "key": "modern-road-platform-20",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-20.png?v=97b124647d11",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 264733,
+      "sha256": "97b124647d1116c022dadad6fee5439c362ba0126eca94eaded112d1d1d9a8a2"
+    },
+    {
+      "number": 21,
+      "id": "modern-arena-21",
+      "key": "modern-road-platform-21",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-21.png?v=5ca26baf0189",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 250228,
+      "sha256": "5ca26baf0189b7a7a2f118878d1d68f1f0a767a8c3e4a824306c9ebbdc13db01"
+    },
+    {
+      "number": 22,
+      "id": "modern-arena-22",
+      "key": "modern-road-platform-22",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-22.png?v=a875b9007d42",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 248090,
+      "sha256": "a875b9007d4294afc90aad44509b7eb2586218c34ed2b6184b298180d7eecac8"
+    },
+    {
+      "number": 23,
+      "id": "modern-arena-23",
+      "key": "modern-road-platform-23",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-23.png?v=10eaaf55010c",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 246483,
+      "sha256": "10eaaf55010c0790d47e7f133d7558551a423737c3a4d0db35ffd1bc0fd4847f"
+    },
+    {
+      "number": 24,
+      "id": "modern-arena-24",
+      "key": "modern-road-platform-24",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-24.png?v=fb95a8ef21ba",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 301205,
+      "sha256": "fb95a8ef21ba7ff9bd9532ddfe00f9e18c1b9f5404b997494a604c331b3896fa"
+    },
+    {
+      "number": 25,
+      "id": "modern-arena-25",
+      "key": "modern-road-platform-25",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-25.png?v=2447d519b8fa",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 277211,
+      "sha256": "2447d519b8fa012c5cd04044a0a437885652aa4f587f4d72667401bb07cd1d15"
+    },
+    {
+      "number": 26,
+      "id": "modern-arena-26",
+      "key": "modern-road-platform-26",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-26.png?v=7ed04b8ac323",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 259333,
+      "sha256": "7ed04b8ac3230b92f94a9d67a9d12cd65ae50d724aa6b32c2f8a7725d42689bc"
+    },
+    {
+      "number": 27,
+      "id": "modern-arena-27",
+      "key": "modern-road-platform-27",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-27.png?v=3a62ec63e926",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 249304,
+      "sha256": "3a62ec63e926b1351ba4678abd90ee3c27cf72d69b4ad414a0ccc1a5ad01fe94"
+    },
+    {
+      "number": 28,
+      "id": "modern-arena-28",
+      "key": "modern-road-platform-28",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-28.png?v=2e85a430cedf",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 294820,
+      "sha256": "2e85a430cedfd7fe7bf6dc6e2f734f66da334aa45affbe62df71d214bf66213f"
+    },
+    {
+      "number": 29,
+      "id": "modern-arena-29",
+      "key": "modern-road-platform-29",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-29.png?v=054494ad2c04",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 233068,
+      "sha256": "054494ad2c044f7ea106db1ac20e7503b149d16a99f0494f46d686826ce72048"
+    },
+    {
+      "number": 30,
+      "id": "modern-arena-30",
+      "key": "modern-road-platform-30",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-30.png?v=72cabed831bc",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 239573,
+      "sha256": "72cabed831bcbf0105b0539358e4360e66b935164e296bcf797110e06557a96d"
+    },
+    {
+      "number": 31,
+      "id": "modern-arena-31",
+      "key": "modern-road-platform-31",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-31.png?v=4e410300cb7b",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 234347,
+      "sha256": "4e410300cb7be264957e5f543c1ee8ee9bdf2c0664c5cd3d3fd3167244a56b6b"
+    },
+    {
+      "number": 32,
+      "id": "modern-arena-32",
+      "key": "modern-road-platform-32",
+      "url": "http://127.0.0.1:8087/assets/ui/modern-road-platform-32.png?v=8a48ba0a144d",
+      "httpStatus": 200,
+      "naturalWidth": 820,
+      "naturalHeight": 329,
+      "bytes": 245717,
+      "sha256": "8a48ba0a144de704efe1c4d9cbdd71252f1e24a46b848d5cfce45a54ccfb2a58"
+    }
+  ],
+  "screenshots": [
+    "arena-15.png",
+    "arena-23.png",
+    "arena-32.png"
+  ],
+  "passed": true
+}

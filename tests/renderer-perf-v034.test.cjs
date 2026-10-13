@@ -3,12 +3,12 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const N=require('../src/native');
 function ui(dpr,scale){const root={devicePixelRatio:dpr,RoyaleText:{backingScale:(d,s)=>Math.max(2,Math.min(4,d*s)),setViewportScale(){}},requestAnimationFrame(){},document:{}};vm.createContext(root);vm.runInContext(fs.readFileSync(require.resolve('../src/ui-polish.js'),'utf8'),root);root.RoyaleUI.resize(scale);return root.RoyaleUI;}
 function canvas(){const transforms=[],c={setTransform(...args){transforms.push(args);}};return{width:0,height:0,dataset:{},getContext:()=>c,transforms};}
-test('battle canvas retains a modest1.25x quality floor without using the2x glyph floor',()=>{
- const api=ui(1,.85),cv=canvas();api.prepareBattleCanvas(cv,540,1172);assert.equal(cv.width,675);assert.equal(cv.height,1465);assert.equal(cv.dataset.density,'1.25');
+test('battle canvas retains a1080-wide quality floor at the existing logical size',()=>{
+ const api=ui(1,.85),cv=canvas();api.prepareBattleCanvas(cv,540,1172);assert.equal(cv.width,1080);assert.equal(cv.height,2344);assert.equal(cv.dataset.density,'2');
  const text=canvas();api.prepareCanvas(text,120,152);assert.equal(text.width,240,'UI/text policy is unchanged');
 });
 test('battle canvas preserves actual Retina and phone device density, including compact battle height',()=>{
- for(const[dpr,scale,height]of[[2,.85,1172],[3,.72,1172],[3,.85,960]]){const api=ui(dpr,scale),cv=canvas(),density=dpr*scale;api.prepareBattleCanvas(cv,540,height);assert.equal(cv.width,Math.ceil(540*density));assert.equal(cv.height,Math.ceil(height*density));assert.equal(Number(cv.dataset.density),density);}
+ for(const[dpr,scale,height]of[[2,.85,1172],[3,.72,1172],[3,.85,960]]){const api=ui(dpr,scale),cv=canvas(),density=Math.max(2,dpr*scale);api.prepareBattleCanvas(cv,540,height);assert.equal(cv.width,Math.ceil(540*density));assert.equal(cv.height,Math.ceil(height*density));assert.equal(Number(cv.dataset.density),density);}
 });
 test('battle canvas keeps the previous high-DPR cap and restores its logical transform every draw',()=>{
  const api=ui(4,1),cv=canvas();api.prepareBattleCanvas(cv,540,1172);api.prepareBattleCanvas(cv,540,1172);assert.equal(cv.width,1620);assert.equal(cv.height,3516);assert.deepEqual(cv.transforms,[[3,0,0,3,0,0],[3,0,0,3,0,0]]);

@@ -1,0 +1,21 @@
+{
+  "version": "0.54.0",
+  "releaseSha256": "42818848de4fd1e929926732750fb68b1ec1479d2c8b052de7230b0b46049bc5",
+  "app": "app.e42a24133e00.js",
+  "styles": "styles.d0ca8c2d9108.css",
+  "normalizedModuleSha256": {
+    "fx": "a4589a9625ded55c07dd3312610d7159bff6d77bda2c56f712f8641f9ce694d5",
+    "battle": "684551981e2b3636decd8faf1c24d4b9c73b06083e67933ddbc70f4b8f13f1c2",
+    "modern-spells": "2da6976ae0892b13c6d08ab8cb4d50e3185cc51f478e41e53f2d3fb518f612ca",
+    "modern-3d": "7ab067a5c061d539ce6bd23d27f54ada2043bb097605fe73550e61f256b6c9cd",
+    "native": "a96e9a3ba597d477c69ed494a1279b8e54ae171e0d45d47609ab80e3f8628944",
+    "presentation": "370393e33ef3c919a462b4dfb030ae1de60795369e473e67f148e6608ba5a292",
+    "draw": "1f5a421a46bfdc5a8293605ae9ff17370a945ee0be2f4db7559d1c7f053836ea",
+    "app": "d4a8e456c32cc5c4d8842d2dd006321a3fee96221e61f9c10763953b071916f9",
+    "ui-polish": "c39df01c31afd1bb0530b03b55675f7f313ff583202a35f869d73eb6ae1ef40b",
+    "progression": "0dfee73fc1d64ea01e3a0a6b0fd5f466ce1d41852d5bdec6e0de8a3e6d5ef4e4",
+    "level-model": "43fb4bd0051becffed7bf9aacd56fe9d4c0a095b3713ce16b5323e0515acdab2"
+  },
+  "verifiedAssetCount": 2119,
+  "totalBytes": 965241729
+}

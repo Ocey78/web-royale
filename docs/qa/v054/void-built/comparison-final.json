@@ -1,0 +1,80 @@
+{
+  "reviewed_app_sha256": "e42a24133e00b2f893e0093823cb05c623d3b5b8f04247c46eaaac2a9d8b088b",
+  "status": "Final built-browser verification passed; no remaining confirmed blocker in this review scope.",
+  "checks": {
+    "passed": 802,
+    "failed": 0,
+    "cases": 10,
+    "javascript_errors": [],
+    "failed_requests": [],
+    "asset_http_errors": []
+  },
+  "visually_inspected": [
+    "bowler-team0-pre-strike-1-1.983.png",
+    "barbarians-team0-contact.jpg",
+    "air-tier-change-team1-contact.jpg",
+    "empty-team1-pre-strike-1-1.983.png"
+  ],
+  "findings": [
+    "The ground pool is now dark burgundy rather than brown/orange on grass, matching the qualitative appearance of the actual recorded reference.",
+    "The compositing fix retains the original source clip and placement/scale. No new pool artwork or geometry is substituted.",
+    "Single-target pink, medium-tier orange, and five-target yellow beams attach to targets; an air target receives the medium strike while inside the field.",
+    "Target glow uses the correct active tier; no persistent empty-center damage beam is visible between strikes.",
+    "One field persists before and during strikes, and pool plus filters clear after outro.",
+    "Current one-second pulse intervals are verified by actual beam births and damage events."
+  ],
+  "pixel_regression": {
+    "method": "Four3x3 pixel patches in the actual empty arena field at world offsets x\u00b132,y\u00b18 avoid center glow, blue team ring, and outer rim; average R>2G withR<140,G<40.",
+    "samples": [
+      {
+        "team": 0,
+        "frames": [
+          {
+            "label": "intro-plus-0.9",
+            "meanRGB": [
+              93.03,
+              0.0,
+              0.86
+            ]
+          },
+          {
+            "label": "pre-strike-1",
+            "meanRGB": [
+              96.61,
+              0.0,
+              3.42
+            ]
+          }
+        ]
+      },
+      {
+        "team": 1,
+        "frames": [
+          {
+            "label": "intro-plus-0.9",
+            "meanRGB": [
+              93.11,
+              0.0,
+              0.94
+            ]
+          },
+          {
+            "label": "pre-strike-1",
+            "meanRGB": [
+              96.69,
+              0.0,
+              3.42
+            ]
+          }
+        ]
+      }
+    ],
+    "negative_control": "Previous pre-fix empty-field interior patches measured substantialgreen\u224867 and lookedbrown; the corrected field core hasgreen\u22480."
+  },
+  "references": [
+    "../void-reference/balegg-bowler-sequence.jpg",
+    "../void-reference/balegg-barbarians-three-hits.jpg",
+    "https://www.youtube.com/watch?v=AMr1cJDkvaw"
+  ],
+  "limits": "Visual geometry/color comparison is qualitative, not a claim of pixel-perfect equivalence across differently scaled videos. Earlier Aug9 footage1.2s cadence is not used as current balance. Contact sheets are cropped/rescaled QA composites of actual bundle screenshots."
+}

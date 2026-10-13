@@ -1,0 +1,23 @@
+'use strict';
+// Test the delivered browser bundle and real source scenes. No request routing,
+// injected runtime modules, substituted effects, or mocked texture loading.
+const fs=require('node:fs'),path=require('node:path'),a=require('node:assert/strict'),{chromium}=require('playwright');
+const url=process.env.WEB_ROYALE_URL||'http://127.0.0.1:8081',out=path.resolve(process.env.SPELL_QA_OUT||path.join(__dirname,'../docs/qa/v054/spells'));
+async function main(){fs.mkdirSync(out,{recursive:true});const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1280,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));const report={url,actualBundleOnly:true,cases:[],errors};try{
+ await page.goto(url);await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:120000});
+ const version=await page.evaluate(()=>RoyaleBundle.project.version);report.version=version;const release=await(await page.request.get(new URL('release.json',url).href)).json();report.release={version:release.version,app:release.app,appSha256:release.files[release.app],runtime:release.runtime};if(process.env.EXPECTED_VERSION)a.equal(version,process.env.EXPECTED_VERSION,'actual delivered build version');
+ for(const spell of ['vines','void','goblin-curse'])for(const team of [0,1]){const result=await page.evaluate(async({spell,team})=>{
+  const C=RoyaleCore,lib=RoyaleDemo.native,fx=lib.fx,deck=['vines','void','goblin-curse','knight','archers','giant','musketeer','skeletons'];
+  const b=new C.Battle({ai:false,seed:21,deck,enemyDeck:deck,arenaId:'royal',recording:'compact'});lib.retainScenes([]);fx.componentCache.clear();fx.missing.clear();lib.setArena('royal');await lib.prepareBattle(b,C.DATA);
+  const deps=RoyaleNative.sceneDependencies(lib.data,C.DATA,[deck],'royal'),absent=deps.filter(name=>!lib.scenes[name]),cv=document.createElement('canvas');cv.width=540;cv.height=700;const c=cv.getContext('2d');
+  for(const x of [195,220,245])b.spawn('Knight',1-team,x,team?400:240,{wait:0,level:11});const castY=team?400:240;b.cast(C.cardAt(spell,11),team,220,castY);
+  const targets=spell==='vines'?[1.6,2.3,3.1,4.0]:spell==='void'?[.65,1.0,1.5,2.2,3.2]:[.7,1.2,2.0,4.2,6.3],frames=[];let highestSprites=0;
+  for(const time of targets){while(b.time+1e-8<time&&!b.result)b.step(1/60);const state=JSON.stringify(RoyaleReplay.digest(b));c.clearRect(0,0,540,700);fx.begin();for(const phase of ['ground','above']){fx.areas(c,b,phase);fx.events(c,b,phase);fx.unitStates(c,b,phase);}const pixels=c.getImageData(0,0,540,700).data;let painted=0;for(let i=3;i<pixels.length;i+=4)if(pixels[i]>12)painted++;highestSprites=Math.max(highestSprites,fx.used);let arenaPng=null;if(spell==='void'&&time>=2.2){const arena=document.createElement('canvas');arena.width=1080;arena.height=RoyaleBattleView.layout.height*2;const ac=arena.getContext('2d');ac.scale(2,2);RoyaleDraw.battle(ac,b,b.time);arenaPng=arena.toDataURL('image/png').split(',')[1];}frames.push({arenaPng,time:b.time,painted,buffs:b.units.flatMap(u=>Object.values(u.buffs).map(v=>v.name)),sourceEvents:b.effects.filter(e=>e.sourceEffect).map(e=>e.sourceEffect),png:cv.toDataURL('image/png').split(',')[1]});if(JSON.stringify(RoyaleReplay.digest(b))!==state)throw Error('Rendering changed replay digest');}
+  return{spell,team,absent,residentScenes:Object.keys(lib.scenes),missing:[...fx.missing],highestSprites,frameBudget:RoyaleFX.MAX_FRAME_PARTICLES,frames};
+ },{spell,team});
+  a.deepEqual(result.absent,[],spell+' cold-load scene closure');a.ok(result.frames.some(frame=>frame.painted>10),spell+' team '+team+' must paint original effects');a.ok(result.highestSprites<=result.frameBudget);a.deepEqual(result.missing,[],spell+' missing native source art');if(spell==='vines'){a.ok(result.frames[0].buffs.some(name=>name.startsWith('Vines_Trap_Snare_')));a.ok(result.frames.at(-1).sourceEvents.some(name=>/trap_end$/.test(name)));}
+  for(const frame of result.frames){fs.writeFileSync(path.join(out,spell+'-team'+team+'-'+frame.time.toFixed(2)+'.png'),Buffer.from(frame.png,'base64'));delete frame.png;if(frame.arenaPng){fs.writeFileSync(path.join(out,spell+'-team'+team+'-'+frame.time.toFixed(2)+'-arena.png'),Buffer.from(frame.arenaPng,'base64'));delete frame.arenaPng;}}report.cases.push(result);
+ }
+ a.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report.cases.map(r=>({spell:r.spell,team:r.team,painted:r.frames.map(f=>f.painted),missing:r.missing}))));
+ }finally{fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));await browser.close();}}
+main().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,0 +1,10 @@
+{
+  "version": "0.54.0",
+  "releaseSha256": "334efe82d41e83b46b536b68d7fa410db8fab214100c4e253580f059c1d1e36a",
+  "app": "app.ea8875cb063d.js",
+  "appSha256": "ea8875cb063d03200858ac086983072e094f94ab0788232dab133f7cbe0ccbe9",
+  "sourceModern3DSha256": "6167b3b708e38ee6ee283af075fb77189ddc5492ea71615cabc1d6796f413db5",
+  "sourceNativeSha256": "75f3502d0b4345ce1447723a394808db02bb1154b313ef48d792d4e2f6d30b61",
+  "manifestSha256": "a3217fe0974c31d8a18fd18b74bf5e22018307e3cb761e5a3d936d1e7794643f",
+  "servedAppContainsFinalModelSource": true
+}
