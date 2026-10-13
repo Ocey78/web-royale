@@ -1,0 +1,202 @@
+{
+  "rows": {
+    "vfx_knight_hero_taunt_ground": [
+      {
+        "Loop": false,
+        "FollowParent": false,
+        "EnemyVersion": "vfx_knight_hero_taunt_ground",
+        "Filterable": false,
+        "Layer": "Base",
+        "ParticleEmitterName": "modernfx-ps_knight_hero_taunt_ground_area",
+        "RenderableScale": 87,
+        "Sound": "soundbanks/card_hero_knight/card_hero_knight_skill_hit",
+        "Type": "ParticleEmitter",
+        "emitter": {
+          "EndScale": 180,
+          "MaxLife": 100,
+          "MinLife": 100,
+          "NoBounce": true,
+          "ParticleAngleRelativeToParent": true,
+          "ParticleCount": 1,
+          "ParticleExportName": "vmc_knight_hero_taunt_ground_area",
+          "ParticleMaxLife": 1350,
+          "ParticleMinLife": 1350,
+          "ParticleResource": "sc/modernfx_chr_knight_hero.sc",
+          "StartScale": 180
+        },
+        "duration": 1,
+        "bounds": {
+          "x": -181.25,
+          "y": -162.75,
+          "width": 362.5,
+          "height": 325.5
+        }
+      },
+      {
+        "Loop": false,
+        "FollowParent": false,
+        "EnemyVersion": "vfx_knight_hero_taunt_ground",
+        "Filterable": false,
+        "Layer": "Object",
+        "ParticleEmitterName": "modernfx-ps_knight_hero_taunt_cylinder_behind",
+        "RenderableScale": 87,
+        "Time": 50,
+        "Type": "ParticleEmitter",
+        "emitter": {
+          "EndScale": 180,
+          "ParticleAngleRelativeToParent": true,
+          "ParticleCount": 1,
+          "ParticleExportName": "vmc_knight_hero_taunt_cylinder_glow_behind",
+          "ParticleMaxLife": 510,
+          "ParticleMinLife": 510,
+          "ParticleResource": "sc/modernfx_chr_knight_hero.sc",
+          "StartScale": 180
+        },
+        "duration": 0.5333333333333333,
+        "bounds": {
+          "x": -152.3812499642372,
+          "y": -252.140625,
+          "width": 306.5625,
+          "height": 364.48671865463257
+        }
+      },
+      {
+        "Loop": false,
+        "FollowParent": false,
+        "EnemyVersion": "vfx_knight_hero_taunt_ground",
+        "Filterable": false,
+        "Layer": "Object",
+        "ParticleEmitterName": "modernfx-ps_knight_hero_taunt_particles_behind",
+        "RenderableScale": 87,
+        "Time": 30,
+        "Type": "ParticleEmitter",
+        "emitter": {
+          "EndScale": 180,
+          "ParticleAngleRelativeToParent": true,
+          "ParticleCount": 1,
+          "ParticleExportName": "vmc_knight_hero_taunt_particles_behind",
+          "ParticleMaxLife": 1000,
+          "ParticleMinLife": 1000,
+          "ParticleResource": "sc/modernfx_chr_knight_hero.sc",
+          "ParticleStartZ": 22,
+          "StartScale": 180
+        },
+        "duration": 0.9833333333333333,
+        "bounds": {
+          "x": -109.30937957763672,
+          "y": -137.5968780517578,
+          "width": 195.20000457763672,
+          "height": 148.4562530517578
+        }
+      },
+      {
+        "Loop": false,
+        "FollowParent": false,
+        "EnemyVersion": "vfx_knight_hero_taunt_ground",
+        "Filterable": false,
+        "Layer": "Object",
+        "ParticleEmitterName": "modernfx-ps_knight_hero_taunt_particles_front",
+        "RenderableScale": 87,
+        "Time": 30,
+        "Type": "ParticleEmitter",
+        "emitter": {
+          "EndScale": 180,
+          "ParticleAngleRelativeToParent": true,
+          "ParticleCount": 1,
+          "ParticleExportName": "vmc_knight_hero_taunt_particles_front",
+          "ParticleMaxLife": 1000,
+          "ParticleMinLife": 1000,
+          "ParticleResource": "sc/modernfx_chr_knight_hero.sc",
+          "StartScale": 180
+        },
+        "duration": 0.9833333333333333,
+        "bounds": {
+          "x": -89.4156265258789,
+          "y": -27.503124237060547,
+          "width": 189.046875,
+          "height": 141.61249923706055
+        }
+      },
+      {
+        "Loop": false,
+        "FollowParent": false,
+        "EnemyVersion": "vfx_knight_hero_taunt_ground",
+        "Filterable": false,
+        "Layer": "Above",
+        "ParticleEmitterName": "modernfx-ps_knight_hero_taunt_cylinder_front",
+        "RenderableScale": 87,
+        "Time": 50,
+        "Type": "ParticleEmitter",
+        "emitter": {
+          "EndScale": 180,
+          "ParticleAngleRelativeToParent": true,
+          "ParticleCount": 1,
+          "ParticleExportName": "vmc_knight_hero_taunt_cylinder_glow_front",
+          "ParticleMaxLife": 510,
+          "ParticleMinLife": 510,
+          "ParticleResource": "sc/modernfx_chr_knight_hero.sc",
+          "StartScale": 180
+        },
+        "duration": 0.5,
+        "bounds": {
+          "x": -147.94921875,
+          "y": -95.6185531616211,
+          "width": 295.8984375,
+          "height": 292.3849563598633
+        }
+      }
+    ],
+    "vfx_knight_evo_shield": [
+      {
+        "Loop": false,
+        "FollowParent": false,
+        "Filterable": false,
+        "EmitterReplaceType": "Base",
+        "Layer": "Base",
+        "ParticleEmitterName": "modernfx-ps_knight_evo_shield",
+        "Sound": "soundbanks/card_evolution_knight/card_evolution_knight_shield",
+        "Type": "ParticleEmitter",
+        "emitter": {
+          "EndScale": 60,
+          "FadeOutDuration": 200,
+          "FrameFromAngle": true,
+          "LoopParticleClip": true,
+          "MaxLife": 60,
+          "MinLife": 60,
+          "Modifiers": "BounceAway",
+          "NoBounce": true,
+          "ParticleAngleRelativeToParent": true,
+          "ParticleCount": 1,
+          "ParticleExportName": "vmc_knight_evo_shield",
+          "ParticleMaxLife": 400,
+          "ParticleMinLife": 400,
+          "ParticleRandomAngle": true,
+          "ParticleResource": "sc/modernfx_effects.sc",
+          "ResourceFromAngle": true,
+          "RotateToDirection": true,
+          "ShadowMulA": 95,
+          "ShadowYShift": -68,
+          "StartScale": 60
+        },
+        "duration": 0.03333333333333333,
+        "bounds": {
+          "x": -69.8088012524222,
+          "y": -106.03263612370938,
+          "width": 135.11760907948883,
+          "height": 137.66196702700108
+        }
+      }
+    ]
+  },
+  "summary": {
+    "sprites": 22,
+    "effects": 12,
+    "missing": [],
+    "maxFrameParticles": 850,
+    "particlesThisFrame": 1,
+    "particleBudget": 120,
+    "randomCacheEntries": 5
+  },
+  "gameVersion": "0.55.0",
+  "errors": []
+}

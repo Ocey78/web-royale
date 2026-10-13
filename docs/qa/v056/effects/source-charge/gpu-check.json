@@ -1,0 +1,821 @@
+{
+  "mode": "source",
+  "baselineRef": null,
+  "actualBundleOnly": false,
+  "diagnosticParticleScale": 1,
+  "diagnosticFollowEmitter": false,
+  "movingAnchor": false,
+  "ids": [
+    "DarkPrinceHero"
+  ],
+  "times": [
+    0,
+    0.15,
+    0.3,
+    0.45,
+    0.6,
+    0.9,
+    1.2
+  ],
+  "states": [
+    "charge"
+  ],
+  "rows": [
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 0,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 16943,
+      "bounds": {
+        "minX": 67,
+        "minY": 155,
+        "maxX": 207,
+        "maxY": 344
+      },
+      "canvasEdge": false,
+      "hash": "d4b16a19",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 120000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 7,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 1,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 0.15,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 15568,
+      "bounds": {
+        "minX": 20,
+        "minY": 152,
+        "maxX": 207,
+        "maxY": 353
+      },
+      "canvasEdge": false,
+      "hash": "1e92bb13",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 131544,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 11,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 0.3,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 18330,
+      "bounds": {
+        "minX": 60,
+        "minY": 154,
+        "maxX": 208,
+        "maxY": 356
+      },
+      "canvasEdge": false,
+      "hash": "a97665e0",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 119536,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 11,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 0.45,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 14116,
+      "bounds": {
+        "minX": 25,
+        "minY": 152,
+        "maxX": 206,
+        "maxY": 352
+      },
+      "canvasEdge": false,
+      "hash": "d7f827b8",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 124440,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 11,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 0.6,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 18788,
+      "bounds": {
+        "minX": 51,
+        "minY": 153,
+        "maxX": 206,
+        "maxY": 351
+      },
+      "canvasEdge": false,
+      "hash": "a8af511d",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 128000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 10,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 0.9,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 20356,
+      "bounds": {
+        "minX": 43,
+        "minY": 152,
+        "maxX": 206,
+        "maxY": 365
+      },
+      "canvasEdge": false,
+      "hash": "e62479c0",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 131000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 13,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 1.2,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 21298,
+      "bounds": {
+        "minX": 36,
+        "minY": 151,
+        "maxX": 207,
+        "maxY": 366
+      },
+      "canvasEdge": false,
+      "hash": "24da728c",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 120000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 14,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 0,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 18077,
+      "bounds": {
+        "minX": 112,
+        "minY": 114,
+        "maxX": 251,
+        "maxY": 329
+      },
+      "canvasEdge": false,
+      "hash": "b8bad9c2",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 120000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 7,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 1,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 0.15,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 16295,
+      "bounds": {
+        "minX": 111,
+        "minY": 114,
+        "maxX": 300,
+        "maxY": 329
+      },
+      "canvasEdge": false,
+      "hash": "f0213484",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 131544,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 8,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 0.3,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 18868,
+      "bounds": {
+        "minX": 112,
+        "minY": 122,
+        "maxX": 258,
+        "maxY": 330
+      },
+      "canvasEdge": false,
+      "hash": "b9508749",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 119536,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 11,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 0.45,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 16137,
+      "bounds": {
+        "minX": 113,
+        "minY": 111,
+        "maxX": 296,
+        "maxY": 327
+      },
+      "canvasEdge": false,
+      "hash": "81c19a54",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 124440,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 10,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 0.6,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 19396,
+      "bounds": {
+        "minX": 113,
+        "minY": 120,
+        "maxX": 265,
+        "maxY": 331
+      },
+      "canvasEdge": false,
+      "hash": "d29940fd",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 128000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 11,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 0.9,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 20793,
+      "bounds": {
+        "minX": 113,
+        "minY": 112,
+        "maxX": 274,
+        "maxY": 333
+      },
+      "canvasEdge": false,
+      "hash": "61934cf9",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 131000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 9,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 1.2,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 20977,
+      "bounds": {
+        "minX": 109,
+        "minY": 114,
+        "maxX": 282,
+        "maxY": 334
+      },
+      "canvasEdge": false,
+      "hash": "5b011f9c",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 120000,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 10,
+        "fxMeshes": 4,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    }
+  ],
+  "late": [
+    {
+      "id": "DarkPrinceHero",
+      "team": 0,
+      "state": "charge",
+      "elapsed": 8.5,
+      "fxSprites": 0,
+      "fxMeshes": 4,
+      "fxHistoryEntries": 0
+    },
+    {
+      "id": "DarkPrinceHero",
+      "team": 1,
+      "state": "charge",
+      "elapsed": 8.5,
+      "fxSprites": 0,
+      "fxMeshes": 4,
+      "fxHistoryEntries": 0
+    }
+  ],
+  "errors": [],
+  "console": [],
+  "httpErrors": [],
+  "contacts": [
+    "DarkPrinceHero-contact.png"
+  ],
+  "url": "http://127.0.0.1:59166/harness",
+  "prepared": {
+    "actors": [
+      {
+        "id": "DarkPrinceHero",
+        "ready": true,
+        "error": null
+      }
+    ],
+    "scenes": [
+      {
+        "ref": "sc/vfx_autochess/vmc_bomber_def_atk_hit_spark_long",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_bomber_def_atk_hit_spark_long"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_ra_t2_001_loong_seahorse_hit_spark_yello_03",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_ra_t2_001_loong_seahorse_hit_spark_yello_03"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_gen_smoke_01",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_gen_smoke_01"
+      },
+      {
+        "ref": "sc/chr_icewizard_hero/vmc_icewizard_hero_deploy_smoke",
+        "scene": "modernfx_chr_icewizard_hero",
+        "name": "vmc_icewizard_hero_deploy_smoke"
+      },
+      {
+        "ref": "sc/chr_icewizard_hero/vmc_icewizard_hero_deploy_smoke_enemy",
+        "scene": "modernfx_chr_icewizard_hero",
+        "name": "vmc_icewizard_hero_deploy_smoke_enemy"
+      },
+      {
+        "ref": "sc/chr_musketeer_hero/vmc_musketeer_hero_muzzle_ring",
+        "scene": "modernfx_chr_musketeer_hero",
+        "name": "vmc_musketeer_hero_muzzle_ring"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_musketeer_def_muzzle_impact",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_musketeer_def_muzzle_impact"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_gen_smoke_02",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_gen_smoke_02"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_01",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_01"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_02",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_02"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_03",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_03"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_01_red",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_01_red"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_02_red",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_02_red"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_03_red",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_03_red"
+      }
+    ],
+    "policy": {
+      "textures": "high",
+      "animations": "high",
+      "particles": "high",
+      "arenaBackgrounds": "high",
+      "renderMode": "native",
+      "textureScale": 1.5,
+      "animationFps": 90,
+      "arenaScale": 2.25,
+      "superResolutionScale": 1.5,
+      "battleDensity": 2.25,
+      "postProcessing": false,
+      "arenaAnimated": true,
+      "arenaFps": 60,
+      "frameParticles": 360,
+      "emitterParticles": 48
+    },
+    "initialSummary": {
+      "actors": 1,
+      "actorIds": [
+        "DarkPrinceHero"
+      ],
+      "modelBytes": 10107360,
+      "modelBudget": 134217728,
+      "activeActors": 1,
+      "activeRequested": 1,
+      "inactiveActors": 0,
+      "actorTarget": 16,
+      "overActorLimit": 0,
+      "overBudgetBytes": 0,
+      "poseEntries": 0,
+      "poseBytes": 0,
+      "poseBudget": 50331648,
+      "renders": 0,
+      "hits": 0,
+      "fxSprites": 0,
+      "fxMeshes": 0,
+      "fxMaterialDraws": 0,
+      "fxDraws": 0,
+      "fxHistoryEntries": 0,
+      "pending": 0,
+      "error": null,
+      "failed": {}
+    }
+  },
+  "final": {
+    "modern": {
+      "actors": 1,
+      "actorIds": [
+        "DarkPrinceHero"
+      ],
+      "modelBytes": 10107360,
+      "modelBudget": 134217728,
+      "activeActors": 1,
+      "activeRequested": 1,
+      "inactiveActors": 0,
+      "actorTarget": 16,
+      "overActorLimit": 0,
+      "overBudgetBytes": 0,
+      "poseEntries": 16,
+      "poseBytes": 2011040,
+      "poseBudget": 50331648,
+      "renders": 16,
+      "hits": 0,
+      "fxSprites": 143,
+      "fxMeshes": 64,
+      "fxMaterialDraws": 0,
+      "fxDraws": 16,
+      "fxHistoryEntries": 0,
+      "pending": 0,
+      "error": null,
+      "failed": {}
+    },
+    "native": {
+      "ready": true,
+      "error": null,
+      "arenas": 1,
+      "units": 0,
+      "textures": 4,
+      "residentTextures": 4,
+      "residentScenes": 4,
+      "shapeCache": 1,
+      "frameSamples": 1
+    }
+  },
+  "optionalRequestExclusions": [],
+  "passed": true
+}

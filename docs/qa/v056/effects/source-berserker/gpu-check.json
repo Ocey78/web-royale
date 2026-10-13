@@ -1,0 +1,821 @@
+{
+  "mode": "source",
+  "baselineRef": null,
+  "actualBundleOnly": false,
+  "diagnosticParticleScale": 1,
+  "diagnosticFollowEmitter": false,
+  "movingAnchor": false,
+  "ids": [
+    "BerserkerHero_BearForm"
+  ],
+  "times": [
+    0,
+    0.15,
+    0.3,
+    0.45,
+    0.6,
+    0.9,
+    1.2
+  ],
+  "states": [
+    "ability"
+  ],
+  "rows": [
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 0,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 9218,
+      "bounds": {
+        "minX": 106,
+        "minY": 184,
+        "maxX": 213,
+        "maxY": 299
+      },
+      "canvasEdge": false,
+      "hash": "7044e5b6",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 59400,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 3,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 7,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 0.15,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 35198,
+      "bounds": {
+        "minX": 55,
+        "minY": 129,
+        "maxX": 264,
+        "maxY": 341
+      },
+      "canvasEdge": false,
+      "hash": "2dc0268a",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 33672,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 5,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 0.3,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 46057,
+      "bounds": {
+        "minX": 40,
+        "minY": 112,
+        "maxX": 279,
+        "maxY": 356
+      },
+      "canvasEdge": false,
+      "hash": "ab0b8fd",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 77592,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 3,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 0.45,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 39788,
+      "bounds": {
+        "minX": 49,
+        "minY": 122,
+        "maxX": 271,
+        "maxY": 348
+      },
+      "canvasEdge": false,
+      "hash": "befa685f",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 87612,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 0.6,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 5291,
+      "bounds": {
+        "minX": 97,
+        "minY": 186,
+        "maxX": 216,
+        "maxY": 265
+      },
+      "canvasEdge": false,
+      "hash": "afd9ecd7",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 87016,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 0.9,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 4799,
+      "bounds": {
+        "minX": 110,
+        "minY": 194,
+        "maxX": 215,
+        "maxY": 267
+      },
+      "canvasEdge": false,
+      "hash": "9bdeb668",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 80080,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 0,
+        "fxMaterialDraws": 0,
+        "fxDraws": 0,
+        "fxHistoryEntries": -7,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 1.2,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 4876,
+      "bounds": {
+        "minX": 106,
+        "minY": 189,
+        "maxX": 213,
+        "maxY": 269
+      },
+      "canvasEdge": false,
+      "hash": "710ea5f1",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 82896,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 0,
+        "fxMaterialDraws": 0,
+        "fxDraws": 0,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 0,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 9042,
+      "bounds": {
+        "minX": 108,
+        "minY": 184,
+        "maxX": 215,
+        "maxY": 298
+      },
+      "canvasEdge": false,
+      "hash": "f13cb020",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 59400,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 3,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 7,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 0.15,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 35193,
+      "bounds": {
+        "minX": 55,
+        "minY": 130,
+        "maxX": 264,
+        "maxY": 342
+      },
+      "canvasEdge": false,
+      "hash": "1c7f7513",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 33672,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 5,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 0.3,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 46045,
+      "bounds": {
+        "minX": 40,
+        "minY": 114,
+        "maxX": 279,
+        "maxY": 358
+      },
+      "canvasEdge": false,
+      "hash": "f28db178",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 77592,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 4,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 0.45,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 39795,
+      "bounds": {
+        "minX": 48,
+        "minY": 122,
+        "maxX": 270,
+        "maxY": 349
+      },
+      "canvasEdge": false,
+      "hash": "1d888bbe",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 87612,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 0.6,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 7241,
+      "bounds": {
+        "minX": 104,
+        "minY": 173,
+        "maxX": 223,
+        "maxY": 278
+      },
+      "canvasEdge": false,
+      "hash": "520a47ba",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 87016,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 6,
+        "fxMaterialDraws": 0,
+        "fxDraws": 1,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 0.9,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 6814,
+      "bounds": {
+        "minX": 104,
+        "minY": 170,
+        "maxX": 209,
+        "maxY": 271
+      },
+      "canvasEdge": false,
+      "hash": "3feb1011",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 80080,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 0,
+        "fxMaterialDraws": 0,
+        "fxDraws": 0,
+        "fxHistoryEntries": -7,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 1.2,
+      "anchor": [
+        160,
+        260
+      ],
+      "ok": true,
+      "pixels": 6911,
+      "bounds": {
+        "minX": 105,
+        "minY": 172,
+        "maxX": 213,
+        "maxY": 277
+      },
+      "canvasEdge": false,
+      "hash": "acb8361f",
+      "delta": {
+        "actors": 0,
+        "modelBytes": 0,
+        "modelBudget": 0,
+        "activeActors": 0,
+        "activeRequested": 0,
+        "inactiveActors": 0,
+        "actorTarget": 0,
+        "overActorLimit": 0,
+        "overBudgetBytes": 0,
+        "poseEntries": 1,
+        "poseBytes": 82896,
+        "poseBudget": 0,
+        "renders": 1,
+        "hits": 0,
+        "fxSprites": 0,
+        "fxMeshes": 0,
+        "fxMaterialDraws": 0,
+        "fxDraws": 0,
+        "fxHistoryEntries": 0,
+        "pending": 0
+      },
+      "entityUnchanged": true
+    }
+  ],
+  "late": [
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 0,
+      "state": "ability",
+      "elapsed": 8.5,
+      "fxSprites": 0,
+      "fxMeshes": 0,
+      "fxHistoryEntries": 0
+    },
+    {
+      "id": "BerserkerHero_BearForm",
+      "team": 1,
+      "state": "ability",
+      "elapsed": 8.5,
+      "fxSprites": 0,
+      "fxMeshes": 0,
+      "fxHistoryEntries": 0
+    }
+  ],
+  "errors": [],
+  "console": [],
+  "httpErrors": [],
+  "contacts": [
+    "BerserkerHero_BearForm-contact.png"
+  ],
+  "url": "http://127.0.0.1:59765/harness",
+  "prepared": {
+    "actors": [
+      {
+        "id": "BerserkerHero_BearForm",
+        "ready": true,
+        "error": null
+      }
+    ],
+    "scenes": [
+      {
+        "ref": "sc/vfx_autochess/vmc_bomber_def_atk_hit_spark_long",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_bomber_def_atk_hit_spark_long"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_ra_t2_001_loong_seahorse_hit_spark_yello_03",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_ra_t2_001_loong_seahorse_hit_spark_yello_03"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_gen_smoke_01",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_gen_smoke_01"
+      },
+      {
+        "ref": "sc/chr_icewizard_hero/vmc_icewizard_hero_deploy_smoke",
+        "scene": "modernfx_chr_icewizard_hero",
+        "name": "vmc_icewizard_hero_deploy_smoke"
+      },
+      {
+        "ref": "sc/chr_icewizard_hero/vmc_icewizard_hero_deploy_smoke_enemy",
+        "scene": "modernfx_chr_icewizard_hero",
+        "name": "vmc_icewizard_hero_deploy_smoke_enemy"
+      },
+      {
+        "ref": "sc/chr_musketeer_hero/vmc_musketeer_hero_muzzle_ring",
+        "scene": "modernfx_chr_musketeer_hero",
+        "name": "vmc_musketeer_hero_muzzle_ring"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_musketeer_def_muzzle_impact",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_musketeer_def_muzzle_impact"
+      },
+      {
+        "ref": "sc/vfx_autochess/vmc_gen_smoke_02",
+        "scene": "modernfx_vfx_autochess",
+        "name": "vmc_gen_smoke_02"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_01",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_01"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_02",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_02"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_03",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_03"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_01_red",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_01_red"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_02_red",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_02_red"
+      },
+      {
+        "ref": "sc/chr_ronin/vmc_ronin_hit_reflect_ground_03_red",
+        "scene": "modernfx_chr_ronin",
+        "name": "vmc_ronin_hit_reflect_ground_03_red"
+      }
+    ],
+    "policy": {
+      "textures": "high",
+      "animations": "high",
+      "particles": "high",
+      "arenaBackgrounds": "high",
+      "renderMode": "native",
+      "textureScale": 1.5,
+      "animationFps": 90,
+      "arenaScale": 2.25,
+      "superResolutionScale": 1.5,
+      "battleDensity": 2.25,
+      "postProcessing": false,
+      "arenaAnimated": true,
+      "arenaFps": 60,
+      "frameParticles": 360,
+      "emitterParticles": 48
+    },
+    "initialSummary": {
+      "actors": 1,
+      "actorIds": [
+        "BerserkerHero_BearForm"
+      ],
+      "modelBytes": 29886693.333333332,
+      "modelBudget": 134217728,
+      "activeActors": 1,
+      "activeRequested": 1,
+      "inactiveActors": 0,
+      "actorTarget": 16,
+      "overActorLimit": 0,
+      "overBudgetBytes": 0,
+      "poseEntries": 0,
+      "poseBytes": 0,
+      "poseBudget": 50331648,
+      "renders": 0,
+      "hits": 0,
+      "fxSprites": 0,
+      "fxMeshes": 0,
+      "fxMaterialDraws": 0,
+      "fxDraws": 0,
+      "fxHistoryEntries": 0,
+      "pending": 0,
+      "error": null,
+      "failed": {}
+    }
+  },
+  "final": {
+    "modern": {
+      "actors": 1,
+      "actorIds": [
+        "BerserkerHero_BearForm"
+      ],
+      "modelBytes": 29886693.333333332,
+      "modelBudget": 134217728,
+      "activeActors": 1,
+      "activeRequested": 1,
+      "inactiveActors": 0,
+      "actorTarget": 16,
+      "overActorLimit": 0,
+      "overBudgetBytes": 0,
+      "poseEntries": 16,
+      "poseBytes": 1182328,
+      "poseBudget": 50331648,
+      "renders": 16,
+      "hits": 0,
+      "fxSprites": 23,
+      "fxMeshes": 60,
+      "fxMaterialDraws": 0,
+      "fxDraws": 10,
+      "fxHistoryEntries": 0,
+      "pending": 0,
+      "error": null,
+      "failed": {}
+    },
+    "native": {
+      "ready": true,
+      "error": null,
+      "arenas": 1,
+      "units": 0,
+      "textures": 4,
+      "residentTextures": 4,
+      "residentScenes": 4,
+      "shapeCache": 2,
+      "frameSamples": 6
+    }
+  },
+  "optionalRequestExclusions": [],
+  "passed": true
+}

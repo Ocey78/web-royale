@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-13",
+  "sourceVersion": "16.402.2",
+  "manifestSha256": "1b26908196e48427ce45b42d4ce284d6cd69d975084e3901b5fc42e4af6169d6",
+  "coverage": {
+    "rootRecordCount": 53,
+    "recordCount": 90,
+    "actionRootCount": 4,
+    "timelineCount": 33,
+    "meshCount": 13,
+    "materialCount": 61,
+    "textureCount": 85,
+    "shaderCount": 3,
+    "triangles": 2610,
+    "objectTypes": {
+      "5000": 47,
+      "5001": 129,
+      "5015": 73,
+      "5014": 36,
+      "5016": 36,
+      "5005": 38,
+      "5025": 10,
+      "5004": 11,
+      "5002": 2,
+      "5018": 6,
+      "5012": 25,
+      "5008": 1,
+      "5007": 1
+    },
+    "particleComponents": {
+      "SpawnBurst": 7,
+      "SpawnRate": 3,
+      "SpawnCone": 2,
+      "SpawnLocation": 2,
+      "Deceleration": 2,
+      "SpawnPlanar": 2
+    },
+    "timelineProperties": {
+      "Model.mat0.mainTex_UV.z": 7,
+      "Model.mat0.mainColor.w": 101,
+      "scl_x": 27,
+      "scl_y": 30,
+      "y": 4,
+      "yaw": 6,
+      "Model.mat0.maskTex_UV.x": 10,
+      "Model.mat0.mainColor.x": 57,
+      "Model.mat0.mainColor.y": 45,
+      "Model.mat0.mainColor.z": 45,
+      "Model.mat0.mainTex_UV.x": 4,
+      "visible": 11,
+      "Model.mat0.disv_amount": 24,
+      "scl_z": 8,
+      "Model.mat0.disv_edge_hardness": 2,
+      "Model.mat0.maskTex_UV.w": 10,
+      "MaterialEffect.mat.fr_IOR": 6,
+      "MaterialEffect.mat.fr_weight": 5,
+      "Model.mat0.maskTex_UV.z": 7,
+      "z": 7,
+      "pitch": 1,
+      "roll": 1,
+      "x": 1,
+      "Model.mat0.maskTex_UV.y": 4,
+      "Model.mat0.distortionTex_UV.x": 2,
+      "Model.mat0.dist_speedxy_wmain_wmask.w": 4,
+      "Model.mat0.dist_speedxy_wmain_wmask.y": 2,
+      "Model.mat0.dist_speedxy_wmain_wmask.x": 2,
+      "Model.mat0.dissolveTex_UV.z": 6,
+      "MaterialEffect.mat.fr_colorMul": 1,
+      "MaterialEffect.mat.fresnelColor.x": 2,
+      "MaterialEffect.mat.fresnelColor.y": 2,
+      "MaterialEffect.mat.fresnelColor.z": 2
+    }
+  },
+  "binarySourceFiles": 165,
+  "bodyNormalReflectionPaths": 28,
+  "manifestBytes": 648136,
+  "assetBytes": 13356686,
+  "originalSourceChecks": {
+    "passed": 10,
+    "failed": 0
+  },
+  "actionChecks": {
+    "focused": 11,
+    "totalWithExistingActionSuites": 60,
+    "failed": 0
+  },
+  "offlineRebuild": {
+    "byteIdenticalOutputs": 99,
+    "totalOutputs": 99,
+    "transferred": 0
+  },
+  "missingActionRoots": {
+    "ElectroGiant_EV1_Play_Pulse_Effect": "sc3d/characters/evolution/evo_electrogiant/effect/prefabs/ingame/vfx_electrogiant_evo_skill",
+    "ElectroWizardHero_Continuous_Aura": "sc3d/characters/hero/hero_electrowizard/effect/prefabs/ingame/vfx_electrowizard_hero_aura_buff"
+  },
+  "nonFiniteTimelineRecords": [
+    "sc3d/characters/hero/hero_giant/effect/timeline/tml_giant_hero_ingame_custom_swipe",
+    "sc3d/characters/hero/hero_tombstone/effect/timelines/tml_tombstone_hero_ingame_deploy_blue",
+    "sc3d/characters/hero/hero_bowler/effect/timeline/tml_hero_bowler_mat_pulse",
+    "sc3d/characters/hero/hero_bowler/effect/timeline/tml_hero_bowler_boulder_inrange_mat_pulse"
+  ],
+  "colorSpace": {
+    "linear": 83,
+    "srgb": [
+      "sc3d/shared/eyes/basic/texture/chr_hero_glowy_eye_diff.ktx",
+      "sc3d/shared/eyes/basic/texture/chr_hero_glowy_eye_pupil_diff.ktx"
+    ],
+    "evidence": "KTX2 vkFormat and DFD transfer function agree for every texture"
+  },
+  "evoActors": {
+    "actors": [
+      "AngryBarbarian_EV1",
+      "AngryBarbarian_EV1_2"
+    ],
+    "actorCount": 38,
+    "preservedOriginalActors": 36,
+    "triangles": 4998,
+    "animations": 7,
+    "modelBytes": 969332,
+    "sourceBinaryDependencies": 13,
+    "sourceFidelityChecks": 7,
+    "selectorChecks": 2,
+    "offlineRebuild": {
+      "byteIdenticalOutputs": 4,
+      "totalOutputs": 4,
+      "transferred": 0
+    },
+    "newFiles": [
+      {
+        "file": "evo-actor-3a0e709e3d5970ad.glb",
+        "bytes": 969332,
+        "sha256": "f0967f43ba68cc3fa8dc2f4f77e09a9a2d342fdaaca44c82bc1ab8e231be3b65"
+      },
+      {
+        "file": "evo-texture-0e7537fe9eb9bb00.png",
+        "bytes": 11159,
+        "sha256": "f7f30fbc331da5a5bb4d62d100a510045ed07140cf1df1ed48b4b77a29b3b66c"
+      },
+      {
+        "file": "evo-texture-d140e0f13532cd84.png",
+        "bytes": 19001,
+        "sha256": "247562aca39cc25ce7c68ca38a1c1c89ef94571cdfa5048eb342d6eeef3bc846"
+      }
+    ],
+    "omittedLodBones": {
+      "Attack2": [
+        "L_ribbon_01_s",
+        "L_ribbon_02_s"
+      ]
+    }
+  },
+  "replayCompatibility": {
+    "engine": "0.53",
+    "baselineCommit": "62801c84d3b12ec43c57d82848a345f63abc776f",
+    "baselineActionSha256": "444aeafc89a6e8a4650e13487ab8d2a2befdfcc2bcef663632b8f9d1f1a560af",
+    "savedReplays": 3,
+    "matchingEndDigests": 3,
+    "matchingAfterSeek": 3,
+    "allExerciseSourcePrefab": true
+  }
+}

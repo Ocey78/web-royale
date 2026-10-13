@@ -51,7 +51,7 @@ class Renderer{
  begin(){this.used=0;this.particlesUsed=0;}
  // Target filters are presentation records. Rebuild from the current visual
  // events each frame so seeking/replays never retain a future hit's colour.
- prepareUnitFilters(b){this.unitFilters=new Map();const now=b.visualTime??b.time;for(const e of b.effects||[]){if(!e.sourceEffect||e.follow===undefined)continue;const age=now-e.born-(e.delay||0);if(age<0||age>=e.ttl-(e.delay||0))continue;for(const r of this.components(e.sourceEffect,e.team)){if(r.Type!=='Filter'||!r.ExportName||!r.FileName)continue;const scene=this.library.scenes[nameOf(r.FileName)],time=age-seconds(r.Time),duration=scene?.duration(r.ExportName);if(!scene||scene.id(r.ExportName)===undefined||time<0||!(duration>time))continue;this.unitFilters.set(e.follow,{scene,name:r.ExportName,time,loop:false});}}}
+ prepareUnitFilters(b){this.unitFilters=new Map();const now=b.visualTime??b.time;globalThis.RoyaleModern3D?.setActionEffects?.(b.effects||[],now);for(const e of b.effects||[]){if(!e.sourceEffect||e.follow===undefined)continue;const age=now-e.born-(e.delay||0);if(age<0||age>=e.ttl-(e.delay||0))continue;for(const r of this.components(e.sourceEffect,e.team)){if(r.Type!=='Filter'||!r.ExportName||!r.FileName)continue;const scene=this.library.scenes[nameOf(r.FileName)],time=age-seconds(r.Time),duration=scene?.duration(r.ExportName);if(!scene||scene.id(r.ExportName)===undefined||time<0||!(duration>time))continue;this.unitFilters.set(e.follow,{scene,name:r.ExportName,time,loop:false});}}}
  unitFilter(u){return u?.preview?null:this.unitFilters?.get(u?.id)||null;}
  async prewarmSpells(cardIds,game){if(typeof document==='undefined')return;const roots=[];for(const id of new Set(cardIds)){const card=game.cards?.find(c=>c.id===id)||globalThis.RoyaleCore?.CARD_BY_ID[id],form=globalThis.RoyaleCardForms?.defaultRegistry?.get(id);if(card?.spell||card?.kind==='Spell')roots.push(card.source);if(form)roots.push(form.source);}const names=sourceEffects(this.data,game,roots);
   const cv=document.createElement('canvas');cv.width=cv.height=256;const ctx=cv.getContext('2d'),sprites=this.spriteCount,effects=this.effectCount;let start=performance.now();
@@ -93,7 +93,9 @@ class Renderer{
     // Small numeric area-emitter radii use a local coordinate space distinct
     // from the authored SWF floor. Map that space to the actual spell footprint.
     const placed=options.area&&Ground.placement(options.area,r.ParticleEmitterName,p,options.seed,ri,scale);
-    let px=x+(placed?.x??p.x*scale),py=y+(placed?.y??p.y*scale*.75)-(placed?.z??p.z*scale)-num(options.height)+num(d.ShadowYShift)*scale;
+    // Shadow placement is independent of the visible clip's authored anchor.
+    // Applying ShadowYShift here also lifted Knight Evo's protection off its body.
+    let px=x+(placed?.x??p.x*scale),py=y+(placed?.y??p.y*scale*.75)-(placed?.z??p.z*scale)-num(options.height);
     if(options.velocity){px-=options.velocity.x*p.age;py-=options.velocity.y*p.age;}
     const aspect=Math.max(.1,num(d.ParticleRadiusAspect,100)/100);let sx=placed?.scale??scale*p.scale,sy=sx*aspect;const placedAlpha=placed?placed.alpha/Math.max(.0001,p.alpha):1;
     if(options.fitArea&&d.ParticleExportName==='earthquake_cracks_timed'){const scene=this.library.scenes[nameOf(d.ParticleResource)],bounds=scene&&this.areaExtent(scene,d.ParticleExportName);if(bounds){sx=options.radius*2*(480/18)/bounds.width;sy=options.radius*40/bounds.height;}}
@@ -101,8 +103,10 @@ class Renderer{
     const trailLife=seconds(d.TrailDuration||0),tail=particleTail(d,p,scale,options.velocity);
     if(d.TrailSWF&&d.TrailExportName&&trailLife>0){const n=Math.min(mode==='minimal'?1:2,Math.max(1,Math.ceil(trailLife/.12)));for(let q=1;q<=n;q++){const tx=px-tail.x*q/n,ty=py-tail.y*q/n;count+=Number(this.sprite(c,d.TrailSWF,d.TrailExportName,Math.max(0,p.age-q*.04),tx,ty,sx*.8,sy*.8,p.rotation,alpha*(1-q/(n+1))*.6,true));}}
     else if(tail.length>0&&alpha>.05){c.save();c.globalAlpha*=alpha*.5;c.strokeStyle='rgba(255,255,255,.7)';c.lineWidth=Math.max(.6,num(d.TrailWidth,90)/100*sx);c.beginPath();c.moveTo(px,py);c.lineTo(px-tail.x,py-tail.y);c.stroke();c.restore();}
-    const frameTime=d.FrameFromAngle?((p.theta%TAU+TAU)%TAU)/TAU*.999:p.age;
-    count+=Number(this.sprite(c,d.ParticleResource,d.ParticleExportName,frameTime,px,py,sx,sy,p.rotation,alpha*placedAlpha*(r.ParticleEmitterName==='Zap_hit_area'?.22:1),d.LoopParticleClip===true&&!d.PlayParticleClipOnce));
+    // Directional clips already encode their rotation in the chosen frame.
+    // Use their real duration; rotating the bitmap again also moves off-centre anchors.
+    const frameScene=d.FrameFromAngle&&this.library.scenes[nameOf(d.ParticleResource)],frameTime=d.FrameFromAngle?((p.rotation%TAU+TAU)%TAU)/TAU*(frameScene?.duration(d.ParticleExportName)||1):p.age;
+    count+=Number(this.sprite(c,d.ParticleResource,d.ParticleExportName,frameTime,px,py,sx,sy,d.FrameFromAngle?0:p.rotation,alpha*placedAlpha*(r.ParticleEmitterName==='Zap_hit_area'?.22:1),d.LoopParticleClip===true&&!d.PlayParticleClipOnce));
    }
   }
  }

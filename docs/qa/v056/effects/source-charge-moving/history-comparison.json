@@ -1,0 +1,70 @@
+{
+  "purpose": "Source-only forced-follow control validates visible birth-pose history, not native dynamics",
+  "productionOverrides": {
+    "diagnosticParticleScale": 1,
+    "diagnosticFollowEmitter": false
+  },
+  "control": "C:\\Users\\Oceyi\\.codex\\.chatgpt-projects\\g-p-6ab30a4cba6481918c10cd093df5b570\\work\\effects-v056\\moving-forced-follow\\gpu-check.json",
+  "samplesChanged": 12,
+  "samplesCompared": 14,
+  "firstSamplesMatch": true,
+  "mask": "Blue team only; x45..279, y280..369, alpha>16, blue>red*1.05, blue>green*.95; centroid weighted by alpha",
+  "rows": [
+    {
+      "time": 0.15,
+      "birthPose": {
+        "pixels": 4814,
+        "x": 159.07174748422014,
+        "y": 309.79017748601996
+      },
+      "forcedFollow": {
+        "pixels": 4839,
+        "x": 163.08442792948497,
+        "y": 309.6234563051881
+      },
+      "smokeLagPixels": 4.012680445264834
+    },
+    {
+      "time": 0.45,
+      "birthPose": {
+        "pixels": 3835,
+        "x": 158.26270794656622,
+        "y": 313.4174083316592
+      },
+      "forcedFollow": {
+        "pixels": 3955,
+        "x": 168.04236802877222,
+        "y": 313.4039254193976
+      },
+      "smokeLagPixels": 9.779660082205993
+    },
+    {
+      "time": 0.9,
+      "birthPose": {
+        "pixels": 5873,
+        "x": 164.46374392212272,
+        "y": 313.09894683648685
+      },
+      "forcedFollow": {
+        "pixels": 6039,
+        "x": 174.85425791114267,
+        "y": 312.890075067077
+      },
+      "smokeLagPixels": 10.39051398901995
+    },
+    {
+      "time": 1.2,
+      "birthPose": {
+        "pixels": 5903,
+        "x": 176.97468572740172,
+        "y": 313.56195605446334
+      },
+      "forcedFollow": {
+        "pixels": 5858,
+        "x": 187.19325409191785,
+        "y": 313.1441346759206
+      },
+      "smokeLagPixels": 10.21856836451613
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "engine": "0.53",
+  "baselineCommit": "62801c84d3b12ec43c57d82848a345f63abc776f",
+  "baselineActionSource": "src/modern-actions.js",
+  "baselineActionSha256": "444aeafc89a6e8a4650e13487ab8d2a2befdfcc2bcef663632b8f9d1f1a560af",
+  "method": "Recorded source Hero/Evo card deployments and abilities using the pre-v0.56 HEAD action interpreter injected into the unchanged 0.53 battle engine; replayed with the current interpreter and compared full serialized digests.",
+  "records": [
+    {
+      "file": "Bowler_hero.json",
+      "entity": "BowlerHero",
+      "commands": 2,
+      "duration": 9.000000000000027,
+      "sha256": "52a6806fc5e1a98c40a81d0b02c1ab082ef82e692f46f78e0a26f8dc3fbbebfd",
+      "equal": true,
+      "error": null
+    },
+    {
+      "file": "ElectroWizard_hero.json",
+      "entity": "ElectroWizardHero",
+      "commands": 2,
+      "duration": 7.999999999999977,
+      "sha256": "0b0180dbe8962c24e732dfb451ad50a9f22a4bfd1a28ef3998a2d3721a8efa54",
+      "equal": true,
+      "error": null
+    },
+    {
+      "file": "AngryBarbarians_EV1.json",
+      "entity": "AngryBarbarian_EV1",
+      "commands": 2,
+      "duration": 21.50000000000006,
+      "sha256": "5b0d454dc0e8069090df27899b7610e6627ed1ca4b0f733836e35bdeb87e9e81",
+      "equal": true,
+      "error": null
+    }
+  ]
+}

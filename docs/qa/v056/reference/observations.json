@@ -1,0 +1,83 @@
+{
+  "captured_at": "2026-10-13T18:19:53.638812+00:00",
+  "access": {
+    "adb": "E:/Games/GooglePlayGamesDeveloper/current/emulator/adb.exe",
+    "serial": "localhost:6520",
+    "package": "com.supercell.clashroyale",
+    "activity": "com.supercell.titan.GameApp",
+    "installed_versionName": "160402020",
+    "installed_versionCode": "160402020",
+    "native_dimensions": [
+      419,
+      633
+    ],
+    "preview_crop": [
+      60,
+      322,
+      359,
+      507
+    ],
+    "raw_capture_path": "C:\\Users\\Oceyi\\.codex\\.chatgpt-projects\\g-p-6ab30a4cba6481918c10cd093df5b570\\work\\clash-live-v056",
+    "capture": "Python subprocess binary adb exec-out screencap -p; monotonic per-frame start/end timestamps"
+  },
+  "scope": "Read-only collection navigation and locked-card built-in previews. No matches, purchases, claims, upgrades, deck changes, account/settings changes or social actions. Finished on home (28-home-finished.png).",
+  "navigation": "Home bottom Collection tab \u2192 Collection top tab \u2192 Card Forms icon \u2192 Heroes collected count \u2192 hero card \u2192 Info \u2192 bottom gold diamond for Hero or purple diamond for Evolution. Preview loops automatically. Swiping its panel left advances to description/stat pages, not another gameplay ability.",
+  "references": [
+    "knight-hero-dome-detail.jpg",
+    "knight-evo-detail.jpg",
+    "darkprince-hero-detail.jpg",
+    "balloon-hero-detail.jpg",
+    "wizard-hero-detail.jpg"
+  ],
+  "observations": [
+    {
+      "card": "Knight Hero",
+      "evidence": "knight-hero-dome-detail.jpg",
+      "frames": "knight-hero-012..021.png",
+      "finding": "Ability casts a large luminous gold/yellow dome with a stylized face/mustache outline. At +3.07 s the glare is strong; +3.28..3.68 s resolves into a translucent shell with thin contour lines; it is faint at +3.88 s and absent at +4.07 s. Relative width is several Knight bodies and exceeds the preview crop in the first scenario. Existing browser source exports render this composition; no new dome geometry or scale adjustment was justified by these unmatched-camera captures."
+    },
+    {
+      "card": "Knight Evolution",
+      "evidence": "knight-evo-detail.jpg",
+      "frames": "knight-evo-015..042.png",
+      "finding": "Tight violet circular shield/rim surrounds the moving Knight during incoming ranged attacks, clear center with a bright curved edge. It is absent during later melee frames. The source action Knight_EV1_ProtectionVFX plays vfx_knight_evo_shield on damage reduction, so the repeated visible protection should not be misidentified as proof of an uninterrupted looping aura."
+    },
+    {
+      "card": "Dark Prince Hero",
+      "evidence": "darkprince-hero-detail.jpg",
+      "frames": "darkprince-hero-052..074.png",
+      "finding": "Charging introduces a bright cyan-white front/upper-body glow and warm gold trailing strokes/sparks. Contact adds a compact blue-gray puff around the rider. Gold/blue glow, gray smoke, and violet combat state tint are visually distinct components. At this crop size individual short slashes cannot be resolved confidently."
+    },
+    {
+      "card": "Balloon Hero",
+      "evidence": "balloon-hero-detail.jpg",
+      "frames": "balloon-hero-021..069.png",
+      "finding": "Deployment uses a narrow cyan-white core, gold vertical light and small gold sparks. A skeletrooper-related ground event has dark smoke with orange light beneath the balloon. The death bomb produces a warm yellow/gold burst followed by a brief residual glint. The balloon also receives violet translucent combat tint; the recording alone does not establish that tint as an ability activation."
+    },
+    {
+      "card": "Wizard Hero",
+      "evidence": "wizard-hero-detail.jpg",
+      "frames": "wizard-hero-004..080.png",
+      "finding": "Ability lifts Wizard visibly above its displaced ground shadow, with orange/gold shoulder/hand glow and small appendage-like features. Impact grows into a large orange luminous circular burst around the target. Native crop resolution does not establish the exact wing material or UV behavior."
+    }
+  ],
+  "browser_verification": {
+    "source_baseline": "62801c8 / v0.55",
+    "source_file": "src/fx.js",
+    "confirmed_defects": [
+      "Visible particle Y included ShadowYShift; shadow drawing included it a second time. Knight Evolution uses -68 with coordinateScale .6, shifting the visible shield upward by 40.8 scene pixels. Removed shadow offset from visible particle placement; retained a single offset for optional shadow rendering.",
+      "FrameFromAngle normalized an angle directly into seconds, ignoring the clip duration, then also rotated the full bitmap. Original directional assets have 15 frames at 60 fps (axe), 16 at 24 fps (Battle Ram), and 16 at 30 fps (Evo Ram). Map sampled rotation into each clip duration and do not rotate the resulting authored frame again. Knight Evo uses one frame with an offset body anchor, so this also removes arbitrary spatial orbit of its shield. This follows the source flag/data contract; exact native-engine implementation remains unavailable."
+    ],
+    "action_integration": "prepareUnitFilters forwards the live battle effect array and visual time to RoyaleModern3D.setActionEffects before models draw, retaining the legacy sourceEffect path.",
+    "fixtures": "2dfx-before.png and 2dfx-after.png use the original imported effects on a fixed anchor marker, not a gameplay/camera match. Hero samples .08/.20/.40/.70 s, Evo single-hit samples .05/.10/.20/.35 s.",
+    "tests": "fx-shadow-placement-v056, fx-v100, fx-v130, modern-fx-assets-v054: 27 passed, 0 failed. New placement, directional-frame and action-plumbing assertions were observed failing before their corresponding correction. Browser fixtures report zero page errors and no missing source effects.",
+    "layer_review": "Rear/front Hero exports are imported and render. Object-layer rear pieces currently share the above pass; no isolated native occlusion mismatch was established, so no speculative layer remapping was made."
+  },
+  "limitations": [
+    "419\u00d7633 device resolution was left unchanged; gameplay preview crop is 299\u00d7185. These are not scale-matched battle captures and establish no pixel-perfect claim.",
+    "Screencap cadence is approximately 0.19\u20130.27 seconds; timing JSON records acquisition windows rather than exact game-frame times. Sub-frame slashes and material transitions can be missed.",
+    "Musketeer, Ronin, Tombstone, Ice Wizard and Berserker were not captured in this pass. No claim that their previews are inaccessible.",
+    "The unused balloon-ability capture is a stats page after horizontal navigation; it is excluded from effect evidence.",
+    "Purple hit/death/state tint is not conclusively classified by the screenshots alone."
+  ]
+}

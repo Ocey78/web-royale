@@ -1,0 +1,381 @@
+{
+  "mode": "built",
+  "actualBundleOnly": true,
+  "release": {
+    "version": "0.56.0",
+    "app": "app.13d922b94aac.js",
+    "appSha256": "13d922b94aac5cfc1b74286883c3af498de7fd61b0603fbe3a3253ef3087fa7b",
+    "runtime": "runtime.36ea84117f3a.json",
+    "runtimeSha256": "36ea84117f3a7632b1c13429b87979a6cd323b0dedb87e9d67c43125ff47dbba"
+  },
+  "loadedApp": "http://127.0.0.1:8087/app.13d922b94aac.js",
+  "passed": true,
+  "actors": [
+    "BalloonHero",
+    "BalloonHero_Bomb",
+    "BarbLogBarbarianHero",
+    "BarbLogBarbarianHeroNaked",
+    "BerserkerHero",
+    "BerserkerHero_BearForm",
+    "BowlerHero",
+    "DarkPrinceHero",
+    "DarkPrinceHero_Mount",
+    "DarkPrinceHero_Walking",
+    "EliteArcherHero",
+    "EliteArcherHero_Dummy",
+    "GiantHero",
+    "GoblinHero",
+    "GoblinHero_Base",
+    "GoblinHero_Flag_Building",
+    "Goblin_dummy",
+    "IceGolemiteHero",
+    "IceWizardHero",
+    "IceWizardHeroFloatingCube",
+    "IceWizardHero_IceCube",
+    "KnightHero",
+    "MegaMinionHero",
+    "MiniPekkaHero",
+    "MusketeerHero",
+    "MusketeerTurret",
+    "SkeletonTrooper",
+    "TombstoneHeroSkeleton",
+    "TombstoneHero_Monster_Active",
+    "TombstoneHero_visual_dummy",
+    "ValkyrieHero",
+    "WizardHero",
+    "WizardHero_air",
+    "MinionGiant",
+    "Ronin",
+    "TombstoneHero_broken_visual_dummy",
+    "AngryBarbarian_EV1",
+    "AngryBarbarian_EV1_2"
+  ],
+  "actorSamples": 532,
+  "actions": [
+    {
+      "actor": "BowlerHero",
+      "name": "BowlerHero_3DFlashEffect",
+      "sourcePrefab": "sc3d/characters/hero/hero_bowler/effect/vfx_glow_mat_bowler_ability_active",
+      "born": 60,
+      "entityVisualTime": 0.5,
+      "age": [
+        0.5
+      ],
+      "geometry": [
+        [
+          "Bowler_LOD1"
+        ]
+      ],
+      "appliedGeometry": [
+        "Bowler_LOD1"
+      ],
+      "visibleChange": true,
+      "restored": true,
+      "shadowUnchanged": true
+    },
+    {
+      "actor": "BowlerHero",
+      "name": "Bowler_hero_play_rock_glow",
+      "sourcePrefab": "sc3d/characters/hero/hero_bowler/effect/vfx_glow_mat_bowler_boulder_in_range",
+      "born": 60,
+      "entityVisualTime": 0.5,
+      "age": [
+        0.5
+      ],
+      "geometry": [
+        [
+          "Weapon_LOD1"
+        ]
+      ],
+      "appliedGeometry": [
+        "Weapon_LOD1"
+      ],
+      "visibleChange": true,
+      "restored": true,
+      "shadowUnchanged": true
+    },
+    {
+      "actor": "EliteArcherHero",
+      "name": "EliteArcherHero_Play_Triple_Shot_Effect",
+      "sourcePrefab": "sc3d/characters/hero/hero_magic_archer/effect/prefabs/ingame/glow_mat_vfx/vfx_glow_mat",
+      "born": 60,
+      "entityVisualTime": 0.5,
+      "age": [
+        0.5
+      ],
+      "geometry": [
+        [
+          "Weapon1_LOD1",
+          "WeaponArrow1_LOD1"
+        ]
+      ],
+      "appliedGeometry": [
+        "WeaponArrow1_LOD1",
+        "Weapon1_LOD1"
+      ],
+      "visibleChange": true,
+      "restored": true,
+      "shadowUnchanged": true
+    },
+    {
+      "actor": "AngryBarbarian_EV1",
+      "name": "AngryBarbarian_EV1_ReadyIndicator",
+      "sourcePrefab": "sc3d/characters/evolution/evo_elite_barbarians/effect/prefabs/vfx_elite_barbarians_evo_projectile_appear",
+      "born": 60.2,
+      "entityVisualTime": 0.5,
+      "age": [
+        0.5
+      ],
+      "geometry": [
+        [
+          "weapon2_lod1"
+        ]
+      ],
+      "appliedGeometry": [
+        "weapon2_lod1"
+      ],
+      "visibleChange": true,
+      "restored": true,
+      "shadowUnchanged": true
+    },
+    {
+      "actor": "AngryBarbarian_EV1_2",
+      "name": "AngryBarbarian_EV1_ReadyIndicator",
+      "sourcePrefab": "sc3d/characters/evolution/evo_elite_barbarians/effect/prefabs/vfx_elite_barbarians_evo_projectile_appear",
+      "born": 60.2,
+      "entityVisualTime": 0.5,
+      "age": [
+        0.5
+      ],
+      "geometry": [
+        [
+          "weapon2_lod1"
+        ]
+      ],
+      "appliedGeometry": [
+        "weapon2_lod1"
+      ],
+      "visibleChange": true,
+      "restored": true,
+      "shadowUnchanged": true
+    }
+  ],
+  "evo": [
+    {
+      "id": "AngryBarbarian_EV1",
+      "samples": 18,
+      "poses": [
+        "Idle_Origin",
+        "Walk_Origin",
+        "Attack_Origin",
+        "Idle_Prop",
+        "Walk_Prop",
+        "Attack_Prop",
+        "Attack2"
+      ],
+      "throw": [
+        {
+          "team": 0,
+          "elapsed": 0.4,
+          "frame": 12,
+          "weaponVisible": true
+        },
+        {
+          "team": 0,
+          "elapsed": 0.5,
+          "frame": 15,
+          "weaponVisible": false
+        },
+        {
+          "team": 0,
+          "elapsed": 0.8,
+          "frame": 24,
+          "weaponVisible": false
+        },
+        {
+          "team": 1,
+          "elapsed": 0.4,
+          "frame": 12,
+          "weaponVisible": true
+        },
+        {
+          "team": 1,
+          "elapsed": 0.5,
+          "frame": 15,
+          "weaponVisible": false
+        },
+        {
+          "team": 1,
+          "elapsed": 0.8,
+          "frame": 24,
+          "weaponVisible": false
+        }
+      ]
+    },
+    {
+      "id": "AngryBarbarian_EV1_2",
+      "samples": 18,
+      "poses": [
+        "Idle_Origin",
+        "Walk_Origin",
+        "Attack_Origin",
+        "Idle_Prop",
+        "Walk_Prop",
+        "Attack_Prop",
+        "Attack2"
+      ],
+      "throw": [
+        {
+          "team": 0,
+          "elapsed": 0.4,
+          "frame": 12,
+          "weaponVisible": true
+        },
+        {
+          "team": 0,
+          "elapsed": 0.5,
+          "frame": 15,
+          "weaponVisible": false
+        },
+        {
+          "team": 0,
+          "elapsed": 0.8,
+          "frame": 24,
+          "weaponVisible": false
+        },
+        {
+          "team": 1,
+          "elapsed": 0.4,
+          "frame": 12,
+          "weaponVisible": true
+        },
+        {
+          "team": 1,
+          "elapsed": 0.5,
+          "frame": 15,
+          "weaponVisible": false
+        },
+        {
+          "team": 1,
+          "elapsed": 0.8,
+          "frame": 24,
+          "weaponVisible": false
+        }
+      ]
+    }
+  ],
+  "uniformIsolation": {
+    "sourceModel": "sc3d/effects/mesh/slash/sm_slash_100",
+    "independentMaterialStruct": true,
+    "independentSceneStruct": true,
+    "texturesShared": true,
+    "values": [
+      {
+        "age": 0.02,
+        "alpha": 0.6919294360305336,
+        "uv": 0.9712120367844735,
+        "expected": {
+          "Model.mat0.mainTex_UV.z": 0.9712120367844735,
+          "Model.mat0.mainColor.w": 0.6919294360305336,
+          "pitch": 66.68160727272728,
+          "roll": -144.61246127272727,
+          "yaw": 132.61125454545453
+        }
+      },
+      {
+        "age": 0.1,
+        "alpha": 0.6001716256422867,
+        "uv": 0.5048722493544855,
+        "expected": {
+          "Model.mat0.mainTex_UV.z": 0.5048722493544855,
+          "Model.mat0.mainColor.w": 0.6001716256422867,
+          "pitch": 62.41443636363636,
+          "roll": -137.41482636363637,
+          "yaw": 140.78027272727272
+        }
+      }
+    ]
+  },
+  "charge": [
+    {
+      "team": 0,
+      "elapsed": 0.2,
+      "fxSprites": 10
+    },
+    {
+      "team": 0,
+      "elapsed": 0.4,
+      "fxSprites": 10
+    },
+    {
+      "team": 0,
+      "elapsed": 0.6,
+      "fxSprites": 10
+    },
+    {
+      "team": 0,
+      "elapsed": 0.9,
+      "fxSprites": 11
+    },
+    {
+      "team": 0,
+      "elapsed": 1.2,
+      "fxSprites": 9
+    },
+    {
+      "team": 1,
+      "elapsed": 0.2,
+      "fxSprites": 11
+    },
+    {
+      "team": 1,
+      "elapsed": 0.4,
+      "fxSprites": 13
+    },
+    {
+      "team": 1,
+      "elapsed": 0.6,
+      "fxSprites": 10
+    },
+    {
+      "team": 1,
+      "elapsed": 0.9,
+      "fxSprites": 12
+    },
+    {
+      "team": 1,
+      "elapsed": 1.2,
+      "fxSprites": 7
+    }
+  ],
+  "errors": [],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:8087/favicon.ico",
+      "stage": "prepare"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:8087/__webroyale_ai__/capabilities",
+      "stage": "prepare"
+    }
+  ],
+  "httpErrors": [
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:8087/__webroyale_ai__/capabilities"
+    }
+  ],
+  "optionalRequestExclusions": [
+    "http://127.0.0.1:8087/__webroyale_ai__/capabilities",
+    "http://127.0.0.1:8087/favicon.ico"
+  ],
+  "notes": [
+    "Source action events execute at battle time 60 while actor visual time is 0.5; overlay age must be 0.5.",
+    "GPU rendering, source geometry attachment and finite action lifetime are checked independently of physics.",
+    "Raw frames are outside the repository. Native and diagnostic captures use different scales; no pixel equality is claimed."
+  ]
+}

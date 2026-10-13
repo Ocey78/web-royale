@@ -1610,10 +1610,10 @@ function contextInfo(data){if(contextCache.has(data))return contextCache.get(dat
 const contextKeys=data=>contextInfo(data).keys;
 function validateAst(ast,data){if(ast.kind==='name'){if(!['true','false'].includes(ast.name)&&!SUBJECTS.has(ast.name)&&!(ast.name.startsWith('#')&&contextKeys(data).has(ast.name.slice(1)))&&!Object.hasOwn(data.variables||{},ast.name)&&!knownTags(data).has(ast.name))throw Error('Unknown source variable '+ast.name);}else if(ast.kind==='call'){if(ast.name==='has_data'){if(ast.args.length!==1||ast.args[0].kind!=='name'||![data.entities,data.areas,data.projectiles].some(t=>t?.[ast.args[0].name]))throw Error('Unknown has_data source');return;}if(!MATH_FUNCTIONS[ast.name]&&!['target_in_range','team_y_direction','has_buff','get_radius','is_clone','HAS_SHIELD','is_valid_position','is_moving','has_crown_tower_in_range','should_hide'].includes(ast.name)&&!knownTags(data).has(ast.name))throw Error('Unsupported source function '+ast.name);if(ast.name==='has_buff'){if(ast.args.length!==1||ast.args[0].kind!=='name'||!data.buffs?.[ast.args[0].name])throw Error('Unknown has_buff source');return;}for(const x of ast.args)validateAst(x,data);}else for(const value of Object.values(ast))if(value&&typeof value==='object'&&!Array.isArray(value))validateAst(value,data);}
 function tags(u,time){const s=u?.modernActions,out=new Set();if(u?.abilityState?.pending)out.add('ABILITY_PENDING');if(u?.abilityState?.pending||(u?.abilityState?.castingUntil||0)>time+EPS)out.add('CASTING_ABILITY');if(u?.windup)out.add('ATTACKING');if(u?.dash||u?.modernDash||u?.modernGuardDash)out.add('DASHING');for(const entry of s?.tags||[])if(entry.until>time+EPS)for(const tag of entry.tags)out.add(tag);return out;}
-function values(b,c){const u=c.unit||b.getEntity?.(c.sourceId),source=c.instigator||b.getEntity?.(c.instigatorId)||u,target=c.target||b.getEntity?.(c.targetId??u?.targetId),d=dataFor(c),s=u?state(u):{variables:{}};const tagSet=tags(u,b.time);if(u?.windup)tagSet.add('ATTACKING');if(u?.dash)tagSet.add('DASHING');if(u?.drag)tagSet.add('MOVING');if(u?.modernWarpUntil>b.time)tagSet.add('WARP');if(u?.hidden)tagSet.add('CAPTURED');for(const {record}of activeBuffs(b,u,d))for(const tag of flags(record.GameTagsToSet))tagSet.add(tag);return{u,source,target,data:d,state:s,tags:tagSet,context:c.context||{},
+function values(b,c,readOnly=false){const u=c.unit||b.getEntity?.(c.sourceId),source=c.instigator||b.getEntity?.(c.instigatorId)||u,target=c.target||b.getEntity?.(c.targetId??u?.targetId),d=dataFor(c),s=u?(readOnly?(u.modernActions||{variables:{}}):state(u)):{variables:{}};const tagSet=tags(u,b.time);if(u?.windup)tagSet.add('ATTACKING');if(u?.dash)tagSet.add('DASHING');if(u?.drag)tagSet.add('MOVING');if(u?.modernWarpUntil>b.time)tagSet.add('WARP');if(u?.hidden)tagSet.add('CAPTURED');for(const {record}of activeBuffs(b,u,d))for(const tag of flags(record.GameTagsToSet))tagSet.add(tag);return{u,source,target,data:d,state:s,tags:tagSet,context:c.context||{},
   map_width:18000,x:(u?.x||0)/SX*1000,y:(u?.y||0)/SY*1000,hp:u?.hp||0,max_hp:u?.maxHp||0,shield_hp:u?.shield||0,max_shield_hp:u?.maxShield||0,team_index:u?.team??c.team??0,owner_index:u?.owner??c.owner??0,source_team_index:source?.team??c.team??0,level:u?.level??c.level??9,character_level:Math.max(0,(u?.level??c.level??1)-1),is_crown_tower:u?.king!==undefined,self:u?.id??c.sourceId??-1,is_clone:!!u?.cloned,is_combat_enabled:!tagSet.has('COMBAT_DISABLED')&&!tagSet.has('CAPTURED'),is_dodging_damage:tagSet.has('NO_DAMAGE')||tagSet.has('DASHING'),is_active_or_secondary_champion:!!u?.abilityState||!!u?.def?.source?.Ability,ability_charges_left:u?.abilityState?.remainingCharges??u?.abilityState?.charges??b.getEntity?.(u?.attachedTo)?.abilityState?.charges??1,target_distance:target&&u?distance(u,target)*1000:Infinity,target_hp:target?.hp||0,target_max_hp:target?.maxHp||0,is_deploying:(u?.readyAt||0)>b.time,is_kamikazing:!!u?.def?.source?.Kamikaze,is_moving:u?.visualState==='run'||!!u?.modernDash,target_is_ground:!!target&&!target.air,'#damage':c.damage??c.context?.damage??0,'#hp':c.context?.hp??target?.hp??0};}
 function evalAst(ast,v){switch(ast.kind){case'literal':return ast.value;case'name':{if(ast.name==='true')return true;if(ast.name==='false')return false;if(Object.hasOwn(v,ast.name))return v[ast.name];if(ast.name.startsWith('#')&&contextKeys(v.data).has(ast.name.slice(1)))return Number(v.context[ast.name.slice(1)]??contextInfo(v.data).defaults[ast.name.slice(1)]??0)||0;if(Object.hasOwn(v.state.variables,ast.name))return v.state.variables[ast.name];if(Object.hasOwn(v.data.variables||{},ast.name))return Number(v.data.variables[ast.name].DefaultValue)||0;if(knownTags(v.data).has(ast.name))return v.tags.has(ast.name);throw Error('Unknown source variable '+ast.name);}case'unary':{const n=evalAst(ast.value,v);return ast.op==='!'?!n:ast.op==='-'?-n:+n;}case'conditional':return evalAst(ast.condition,v)?evalAst(ast.yes,v):evalAst(ast.no,v);case'call':{if(ast.name==='as_int'){const arg=ast.args[0],key=arg?.kind==='name'&&arg.name.startsWith('#')?arg.name.slice(1):null;if(key&&!Object.hasOwn(v,arg.name)&&!Object.hasOwn(v.context,key)&&!Object.hasOwn(contextInfo(v.data).defaults,key))return ast.args[1]?Math.trunc(evalAst(ast.args[1],v)):-1;}if(ast.name==='has_data')return (v.u?.entity||v.u?.name)===ast.args[0].name;if(ast.name==='has_buff')return (v.u?.buffs?.[ast.args[0].name]?.until||0)>v.time;if(ast.name==='is_clone')return !!v.u?.cloned;if(ast.name==='is_moving')return v.is_moving;if(ast.name==='should_hide')return !alive(v.target)||v.target_distance>(Number(v.u?.def?.source?.Range)||0);if(ast.name==='HAS_SHIELD')return (v.u?.shield||0)>0;if(ast.name==='get_radius')return (v.u?.def?.radiusTiles??v.u?.radius??0)*1000;const a=ast.args.map(x=>evalAst(x,v));if(MATH_FUNCTIONS[ast.name])return MATH_FUNCTIONS[ast.name](...a);if(ast.name==='is_valid_position'){const obstacles=(v.battle.active||[]).filter(u=>u.id!==v.u.id&&u.building&&!u.air).map(u=>({x:u.x/SX,y:u.y/SY,radius:u.def?.radiusTiles||.5}));return Nav.pointClear({x:Number(a[0])/1000,y:Number(a[1])/1000},v.u.def?.radiusTiles||0,obstacles,{air:v.u.air,water:v.u.air,layout:v.battle.arenaLayout?.id})?1:0;}if(ast.name==='has_crown_tower_in_range')return(v.battle.towers||[]).some(t=>alive(t)&&t.team!==v.u.team&&distance(v.u,t)<=(Number(a[0])||Number(v.u.def?.source?.Range)||0)/1000+(t.def?.radiusTiles||0));if(ast.name==='target_in_range')return v.target_distance<=Number(a[0])+EPS;if(ast.name==='team_y_direction')return direction(Number(a[0]));if(knownTags(v.data).has(ast.name)&&a.length===0)return v.tags.has(ast.name);throw Error('Unsupported source function '+ast.name);}case'binary':{const a=evalAst(ast.left,v);if(ast.op==='&&')return !!a&&!!evalAst(ast.right,v);if(ast.op==='||')return !!a||!!evalAst(ast.right,v);const z=evalAst(ast.right,v);switch(ast.op){case'+':return a+z;case'-':return a-z;case'*':return a*z;case'/':if(z===0)throw Error('Invalid source division by zero');return a/z;case'%':if(z===0)throw Error('Invalid source modulo by zero');return a%z;case'==':return a===z;case'!=':return a!==z;case'<':return a<z;case'>':return a>z;case'<=':return a<=z;case'>=':return a>=z;}}}throw Error('Unsupported source expression');}
-function evaluate(expression,b,c={}){const ast=parseExpression(expression),d=dataFor(c);validateAst(ast,d);const v=values(b,c);v.time=b.time;v.battle=b;const n=evalAst(ast,v);if(typeof n==='number'&&!Number.isFinite(n))throw Error('Invalid non-finite source expression result');return n;}
+function evaluate(expression,b,c={},readOnly=false){const ast=parseExpression(expression),d=dataFor(c);validateAst(ast,d);const v=values(b,c,readOnly);v.time=b.time;v.battle=b;const n=evalAst(ast,v);if(typeof n==='number'&&!Number.isFinite(n))throw Error('Invalid non-finite source expression result');return n;}
 const CLASSES=new Set(['ActionGroup','ActionSpawn','ActionSpawnToLocation','ActionTakeDamage','ActionHeal','ActionSetShield','ActionChangeGameObjectData','ActionSetVariable','ActionFilter','ActionSelect','ActionInterval','ActionWaitToActivate','ActionRunActionAtHealth','ActionWithDuration','ActionPlayEffect','ActionResetTarget','ActionResetPath','ActionSetAttackSequenceIndex','ActionSetAnimationModifier','ActionRunForcedAnimationOnce','ActionStopForcedAnimation','ActionKill','ActionHide','ActionSetInstantHit','ActionSetCharge','ActionBossBanditAbility','ActionWarpCharacter','ActionRunActionOnTroopDestroyed','ActionSoulDrain','ActionRunOnInstigator','ActionRunActionOnShooter','ActionTaunt','ActionSetCharacterLevel','ActionGroundToAir','ActionActivateOnCardDeploy','ActionOverrideAbilityButtonState','ActionMiniPekkaHeroQuest']);
 for(const type of ['ActionRunActionListOnObjectsInShapeWithPrio','ActionDashingAttackChain','ActionGoblinsteinAbility','ActionEnabbleHPBarConditionForDuration','ActionRunIfGameObjectExists','ActionRunIfInstigatorMatches','ActionPlayAnimationIfHasTarget','ActionAirToGround','ActionClone','ActionBurstAttack','ActionChefTower','ActionTimerQuest','ActionRunActionIfUnitGroupContains','ActionRunOnMatchingUnitsInGroup','ActionWriteInstigatorInfoToContext','ActionSpawnGuard','ActionBlackboardSetInt','ActionContextToVariable','ActionCounter','ActionGoblinHutLifeState','ActionTargetIndicatorAttack','ActionWriteResolverResultToContext','ActionRunActionOnResolvedGameObjects','ActionRunOnAttached','ActionDoPushbackFromInstigator','ActionKnockback','ActionRunActionOnCallbackWithThreshold','ActionFlipFlop','ActionHunterNetAttack','ActionSpawnResetableAeO','ActionFilterByEnemy','ActionAeoRunActionAtAliveTimer','ActionCreateParallelProjectiles','ActionSetIndicatorOnTarget','ActionMegaMinionHeroAbility','ActionReadyChampionAbility','ActionSkeletonBarrelPopBalloon','ActionAttackChain'])CLASSES.add(type);
 const CHILD_FIELDS=['SubActions','Actions','NextAction','OnTrueAction','OnFalseAction','ActionToExecute','OnActivateAction','WarpAction','OnWarpEndAction','ActionToRun','ActionToRunIfNoMatch','ActionOnTargetReached','ActionToRunOnSpawned','ActionOnFlyHeightReached','ActionOnStartDescending','OnIntervalReachedAction','OnMaxResetsReachedAction','ActionOnSelfWhenTriggered','ActionOnSelfWhenTriggeredLeft','ActionOnSelfWhenTriggeredRight','OnFinishedAction','OnClonedAction','ActionOnGround','OnTetherActivationAction','OnTetherActivationActionOnConnectedUnit','TetherHitAction','Action','ActionIfNoMatch','SelfAction','InstigatorAction','OnStartWaitingAction','OnStartSpawningAction','OnSpawnAction','TargetStartIndicationAction','OnProjectileShootAction','ActionToRunOnSelfIfNoObjectsFound','SuccessAction','SuccessActionOnInstigator','FailureActionOnInstigator','ActionOnLanding','OnActivatedAction','OnDeactivatedAction','ActionOnCooldownReady','ActionOnShot','IsEnemyAction','IsSameTeamAction','OnPickNewTargetAction','OnTargetDiedAction','HasTargetOnDeployAction','NoTargetOnDeployAction','ReturnWarpAction','OnChainBegan'];
@@ -1690,6 +1690,27 @@ function later(b,action,c,delay,extra={}){b.schedule({type:'modern-action',actio
 function predicate(r,key,b,c){return r[key]===undefined||!!evaluate(r[key],b,c);}
 function setTags(u,value,until,token){if(!u)return;const s=state(u);s.tags.push({tags:flags(value),until,token});}
 function effect(b,name,c,options={}){if(name)b.effect?.({kind:'source',sourceEffect:name,x:c.unit?.x??0,y:c.unit?.y??0,team:c.team??c.unit?.team,ttl:options.ttl??4,...options});}
+// Effect lifetimes are presentation data: never enter replay-serialized action
+// timers, tag ownership tokens or simulation serial counters. Weak owner keys
+// release their records when a battle/actor is discarded (including replay seek).
+const prefabEffects=new WeakMap();
+function stopPrefabEffect(b,entry){entry.done=true;for(const event of b.effects||[])if(event.sourceActionToken===entry.effectToken)event.ttl=Math.min(event.ttl,Math.max(0,b.time-(event.born??entry.started)));}
+function updatePrefabEffects(b,u,data=K.DATA,dead=false){
+ const store=prefabEffects.get(b),entries=store?.units.get(u);if(!entries)return;
+ for(const entry of entries){const r=entry.record,c={...context(b,entry.context,data),unit:u};if(b.time+EPS>=entry.until||entry.linked&&(dead||!alive(u))||r.ForceStopIfTrue!==undefined&&evaluate(r.ForceStopIfTrue,b,c,true))stopPrefabEffect(b,entry);}
+ const live=entries.filter(entry=>!entry.done);if(live.length)store.units.set(u,live);else store.units.delete(u);
+}
+function playPrefabEffect(b,r,c){
+ const u=c.unit,options=flags(r.EffectFlags),linked=options.includes('LinkLifeToActionLife'),loop=options.includes('Looping'),duration=ms(r.OverrideDuration),ttl=duration||(linked&&loop?Infinity:4),key=c.actionId||JSON.stringify(r);
+ if(r.ForceStopIfTrue!==undefined&&evaluate(r.ForceStopIfTrue,b,c,true))return;
+ if(u)updatePrefabEffects(b,u,dataFor(c));
+ let store=prefabEffects.get(b);if(!store){store={serial:0,units:new WeakMap()};prefabEffects.set(b,store);}
+ const entries=u?(store.units.get(u)||[]):[];
+ if(r.Singleton&&entries.some(entry=>entry.key===key))return;
+ const effectToken='prefab:'+String(u?.id??'world')+':'+(++store.serial)+':'+String(b.time),event={kind:'source',sourceEffect:r.Effect||undefined,sourcePrefab:r.PrefabAsset,sourceActor:u?.id,sourceAction:c.actionId,sourceActionToken:effectToken,x:u?.x??0,y:u?.y??0,team:c.team??u?.team,ttl,follow:options.includes('FollowParent')?u?.id:undefined,particlesFollowParent:options.includes('ParticlesFollowParent'),scale:r.OverrideScale===undefined?undefined:r.OverrideScale/100,loop};
+ b.effect?.(event);
+ if(u){entries.push({key,record:r,context:serialized(c),effectToken,started:b.time,until:b.time+ttl,linked});store.units.set(u,entries);}
+}
 function addBuff(b,u,name,duration,c){const data=dataFor(c),r=data.buffs[name];if(!r||r.NotCloned&&u.cloned)return;b.addBuff(u,name,duration,c.team??c.unit?.team,c.level??c.unit?.level??9,c.instigator?.id??c.unit?.id);for(const [key,v]of Object.entries(u.buffs||{}))if((v.name||key)===name&&v.until>b.time)onBuffAdded(b,u,name,v,data,c);}
 function createArea(b,name,c,x=c.unit?.x,y=c.unit?.y){const a=b.createArea(name,c.team??c.unit?.team,x,y,c.level??c.unit?.level??9);if(a){a.owner=c.owner??c.unit?.owner??a.owner;a.modernSourceId=c.instigator?.id??c.unit?.id;a.formId=c.formId??c.unit?.formId;}return a;}
 function clearTarget(u){u.targetId=null;u.windup=null;u.hook=null;u.dash=null;u.precharge=0;u.nextAttackAt=0;u.navPath=null;}
@@ -1727,11 +1748,11 @@ function run(b,ref,c,depth=0){if(depth>MAX_DEPTH)throw Error('Unsupported action
   case'ActionSelect':for(const [i,child]of list(r.SubActions).entries())if(!r.PerActionConditions?.[i]||evaluate(r.PerActionConditions[i],b,c)){run(b,child,c,depth+1);break;}break;
   case'ActionInterval':case'ActionWaitToActivate':case'ActionRunActionAtHealth':timer(u,r,c,b,t);break;
   case'ActionWithDuration':{const s=state(u),token=++s.serial,until=b.time+ms(r.ActionDuration);setTags(u,r.GameTagsToSet,until,token);s.timers.push({type:t,record:r,context:serialized(c),until,token});nextDelay=ms(r.ActionDuration);break;}
-  case'ActionPlayEffect':effect(b,r.Effect,c,{ttl:ms(r.OverrideDuration)||4,follow:flags(r.EffectFlags).includes('FollowParent')?u?.id:undefined,scale:r.OverrideScale===undefined?undefined:r.OverrideScale/100,loop:flags(r.EffectFlags).includes('Looping')});if(r.GameTagsToSet)setTags(u,r.GameTagsToSet,b.time+(ms(r.OverrideDuration)||4),'effect');break;
+  case'ActionPlayEffect':if(r.PrefabAsset)playPrefabEffect(b,r,c);else effect(b,r.Effect,c,{ttl:ms(r.OverrideDuration)||4,follow:flags(r.EffectFlags).includes('FollowParent')?u?.id:undefined,scale:r.OverrideScale===undefined?undefined:r.OverrideScale/100,loop:flags(r.EffectFlags).includes('Looping')});if(r.GameTagsToSet)setTags(u,r.GameTagsToSet,b.time+(ms(r.OverrideDuration)||4),'effect');break;
   case'ActionResetTarget':clearTarget(u);break;
   case'ActionResetPath':u.navPath=null;if(b.navigator)b.navigator.sampleTime=-1;break;
   case'ActionSetAttackSequenceIndex':u.attackSequenceIndex=Math.max(0,Math.floor(Number(r.AttackIndex)||0));if(r.ResetRealHitStarted)u.windup=null;break;
-  case'ActionSetAnimationModifier':u.modernAnimationModifier=r.Modifier??r.AnimationModifier??null;break;
+  case'ActionSetAnimationModifier':if(r.Parameter){u.animationModifiers??={};u.animationModifiers[r.Parameter]=r.Value??0;}else u.modernAnimationModifier=r.Modifier??r.AnimationModifier??null;break;
   case'ActionRunForcedAnimationOnce':u.modernForcedAnimationUntil=b.time+ms(r.ForcedDuration);u.modernAnimationPlaybackUntil=b.time+ms(r.PlaybackDuration);u.modernCustomStateNumber=r.CustomStateNumber;u.visualState='ability';u.animationTime=0;break;
   case'ActionStopForcedAnimation':u.modernForcedAnimationUntil=0;break;
   case'ActionKill':u.hp=0;break;
@@ -1789,7 +1810,7 @@ function beginAbility(b,config,c={}){const u=c.unit||b.getEntity?.(c.sourceId);i
 function endPendingAbility(b,config,c={}){const u=c.unit||b.getEntity?.(c.sourceId),pending=u?.modernPendingBuff;if(!pending)return;if(pending.previous?.until>b.time)u.buffs[pending.name]=pending.previous;else delete u.buffs[pending.name];delete u.modernPendingBuff;}
 function onSpawn(b,u,data=K.DATA){const r=u.def?.source||{},c={unit:u,data};if(u.modernStarted)return;u.modernStarted=true;setTags(u,r.GameTagsToSet,Infinity,'source-data');if(r.OnStartingAction){const result=executeAction(b,r.OnStartingAction,c);if(!result.ok)u.modernUnsupported=result.reason;}}
 function activeBuffs(b,u,data){return Object.entries(u?.buffs||{}).filter(([,v])=>v.until>b.time+EPS).map(([name,v])=>({name,record:data.buffs?.[v.name||name]||{},state:v}));}
-function tickEntity(b,u,dt=0,data=K.DATA){if(!u)return;u.modernTime=b.time;for(const [key,v]of Object.entries(u.buffs||{}))if(data.buffs?.[v.name||key.split('@')[0]]?.ControlledByParent&&v.sourceId!=null){const parent=b.getEntity?.(v.sourceId)||b.areas?.find(a=>a.id===v.sourceId)||b.projectiles?.find(p=>p.id===v.sourceId);if(!parent||!alive(parent)||(parent.ends!==undefined&&parent.ends<=b.time+EPS))delete u.buffs[key];}const s=u.modernActions;if(s){for(const [key,entry]of Object.entries(s.buffLifecycles||{})){const current=u.buffs?.[key];if(current&&current.until>b.time+EPS){entry.until=current.until;continue;}delete s.buffLifecycles[key];const r=data.buffs?.[entry.name];if(r?.OnRemoveAction)run(b,r.OnRemoveAction,{...context(b,entry.context,data),unit:u});}let steps=0;for(const timer of [...s.timers]){if(++steps>MAX_STEPS)break;const r=timer.record,c={...context(b,timer.context,data),unit:u},stopped=r.ForceStopIfTrue!==undefined&&evaluate(r.ForceStopIfTrue,b,c);if(stopped){timer.done=true;if(timer.type==='ActionHide')u.hidden=false;for(const tag of s.tags)if(tag.token===timer.token)tag.until=b.time;}
+function tickEntity(b,u,dt=0,data=K.DATA){if(!u)return;updatePrefabEffects(b,u,data);u.modernTime=b.time;for(const [key,v]of Object.entries(u.buffs||{}))if(data.buffs?.[v.name||key.split('@')[0]]?.ControlledByParent&&v.sourceId!=null){const parent=b.getEntity?.(v.sourceId)||b.areas?.find(a=>a.id===v.sourceId)||b.projectiles?.find(p=>p.id===v.sourceId);if(!parent||!alive(parent)||(parent.ends!==undefined&&parent.ends<=b.time+EPS))delete u.buffs[key];}const s=u.modernActions;if(s){for(const [key,entry]of Object.entries(s.buffLifecycles||{})){const current=u.buffs?.[key];if(current&&current.until>b.time+EPS){entry.until=current.until;continue;}delete s.buffLifecycles[key];const r=data.buffs?.[entry.name];if(r?.OnRemoveAction)run(b,r.OnRemoveAction,{...context(b,entry.context,data),unit:u});}let steps=0;for(const timer of [...s.timers]){if(++steps>MAX_STEPS)break;const r=timer.record,c={...context(b,timer.context,data),unit:u},stopped=r.ForceStopIfTrue!==undefined&&evaluate(r.ForceStopIfTrue,b,c);if(stopped){timer.done=true;if(timer.type==='ActionHide')u.hidden=false;for(const tag of s.tags)if(tag.token===timer.token)tag.until=b.time;}
   if(timer.done)continue;if(timer.type==='ActionInterval'){if(flags(r.PauseTag).some(tag=>tags(u,b.time).has(tag))){timer.nextAt+=dt;continue;}if(r.AffectedByHitSpeed||r.AffectedBySpawnSpeed){const rates=b.buffs?.(u)||{attack:1,spawn:1};timer.nextAt+=dt*(1-(r.AffectedByHitSpeed?rates.attack:rates.spawn));}let bursts=0;while(timer.nextAt<=b.time+EPS&&bursts++<MAX_STEPS){if(flags(r.PauseTag).some(tag=>tags(u,b.time).has(tag))){timer.nextAt=b.time+ms(r.Interval);break;}run(b,r.ActionToExecute,c);timer.count++;timer.nextAt+=Math.max(.001,ms(r.Interval));if(r.MaxRepetitions&&timer.count>=r.MaxRepetitions){timer.done=true;break;}}}
   else if(timer.type==='ActionSkeletonBarrelPopBalloon'){const percentage=u.hp/Math.max(1,u.maxHp)*100;while(timer.stage<list(r.DropBalloonAtHpList).length&&percentage<=r.DropBalloonAtHpList[timer.stage]+EPS){const i=timer.stage++;effect(b,r.OnPopBalloonEffectList?.[i],c);u.modernFrameRange={start:r.BalloonFlyStartFrameList?.[timer.stage],end:r.BalloonFlyEndFrameList?.[timer.stage],born:b.time,transition:{start:r.BalloonPopStartFrameList?.[i],end:r.BalloonPopEndFrameList?.[i],born:b.time,until:b.time+ms(r.TransitionTime)}};}}
   else if(timer.type==='ActionFlipFlop'){const condition=!!evaluate(r.Condition,b,c);if(!condition){if(timer.activated&&r.OnDeactivatedAction)run(b,r.OnDeactivatedAction,c);timer.trueSince=null;timer.activated=false;}else{if(timer.trueSince===null)timer.trueSince=b.time;if(!timer.activated&&b.time+EPS>=timer.trueSince+ms(r.ActivationTime)){timer.activated=true;if(r.OnActivatedAction)run(b,r.OnActivatedAction,c);}}}
@@ -1839,7 +1860,7 @@ function onAreaStart(b,a,data=K.DATA){if(a.modernStarted)return;a.modernStarted=
 function onAreaHit(b,a,u,data=K.DATA){const r=data.areas?.[a.name];if(!r?.OnHitAction)return;const source=b.getEntity?.(a.modernSourceId)||b.modernCorpses?.find(v=>v.id===a.modernSourceId);executeAction(b,r.OnHitAction,{unit:u,instigator:source,parentAreaId:a.id,team:a.team,owner:a.owner,level:a.level,data});}
 function onAreaEnd(b,a,data=K.DATA){if(a.modernEnded)return;a.modernEnded=true;const r=data.areas?.[a.name];if(r?.OnLifeTimeEndAction)executeAction(b,r.OnLifeTimeEndAction,{unit:a,instigator:b.getEntity?.(a.modernSourceId),owner:a.owner,team:a.team,level:a.level,parentAreaId:a.id,data});}
 function matchesFilter(data,name,parent,u,time=parent?.modernTime??u?.modernTime??0){if(Resolvers&&data.gameObjectFilters?.[name])return Resolvers.matchesFilter(data,name,parent,u,time,{tags});const r=data.gameObjectFilters?.[name]||data.filters?.[name];if(!r)return false;if(r.MatchTeamEnemy&&!r.MatchTeamOwn&&u.team===parent.team||r.MatchTeamOwn&&!r.MatchTeamEnemy&&u.team!==parent.team)return false;if(r.MatchSelf&&u.id!==parent.id)return false;if(r.MatchTypeBuildings&&!r.MatchTypeCharacters&&!u.building)return false;if(r.IncludeCharactersWithData&&!list(r.IncludeCharactersWithData).includes(u.entity))return false;if(r.ExcludeCharactersWithData&&list(r.ExcludeCharactersWithData).includes(u.entity))return false;const tagSet=tags(u,time);if(flags(r.FilterTags).some(tag=>tagSet.has(tag)))return false;for(const f of flags(r.Filters)){if(f==='Buildings'&&u.building||f==='Summoner'&&u.king||f==='PrincessTowers'&&u.king===false||f==='Clones'&&u.cloned||f==='Flying'&&u.air||f==='Hidden'&&u.hidden||f==='Invisible'&&u.invisible||f==='IgnoreResurrect'&&u.def?.source?.IgnoreResurrect||f==='NoHitpointComponent'&&!u.maxHp||f==='Jumping'&&u.riverJump||f==='Dragging'&&u.drag||f==='DashImmune'&&(u.dash||u.modernDash)||f==='Underground'&&u.hidden||f==='Towers'&&u.king!==undefined)return false;}return true;}
-function onDeath(b,victim,data=K.DATA){if(victim.modernDeathHandled)return;victim.modernDeathHandled=true;for(const timer of victim.modernActions?.timers||[])if(timer.type==='ActionSpawnResetableAeO'){const a=(b.areas||[]).find(v=>v.id===timer.areaId);if(a)a.ends=b.time+ms(timer.record.StayAliveAfterParentDiesDuration);}const killer=b.getEntity?.(victim.modernLastAttacker);for(const field of ['OnKilledAction','OnDeathAction'])if(victim.def?.source?.[field])executeAction(b,victim.def.source[field],{unit:victim,instigator:killer,data});if(killer?.def?.source?.OnKilledDoneAction)executeAction(b,killer.def.source.OnKilledDoneAction,{unit:killer,instigator:victim,context:{hp:victim.maxHp},data});b.modernCorpses||(b.modernCorpses=[]);b.modernCorpses.push({id:victim.id,entity:victim.entity,owner:victim.owner,team:victim.team,card:victim.card,levelGroupId:victim.levelGroupId,x:victim.x,y:victim.y,born:b.time});if(b.modernCorpses.length>500)b.modernCorpses.splice(0,b.modernCorpses.length-500);for(const u of b.units||[]){if(!alive(u))continue;for(const listener of state(u).listeners){if(listener.type!=='troop-death')continue;const r=listener.record;if(r.MatchOnlyOwnSpawnedTroops&&victim.owner!==u.owner||r.MatchOnlyFromSameOwnerIndex&&victim.owner!==u.owner)continue;if(r.TroopFilter&&!matchesFilter(data,r.TroopFilter,u,victim,b.time))continue;executeAction(b,r.ActionToRun,{...context(b,listener.context,data),unit:u,instigator:victim,targetId:victim.id,context:{hp:victim.maxHp},data});}}}
+function onDeath(b,victim,data=K.DATA){if(victim.modernDeathHandled)return;victim.modernDeathHandled=true;updatePrefabEffects(b,victim,data,true);for(const timer of victim.modernActions?.timers||[])if(timer.type==='ActionSpawnResetableAeO'){const a=(b.areas||[]).find(v=>v.id===timer.areaId);if(a)a.ends=b.time+ms(timer.record.StayAliveAfterParentDiesDuration);}const killer=b.getEntity?.(victim.modernLastAttacker);for(const field of ['OnKilledAction','OnDeathAction'])if(victim.def?.source?.[field])executeAction(b,victim.def.source[field],{unit:victim,instigator:killer,data});if(killer?.def?.source?.OnKilledDoneAction)executeAction(b,killer.def.source.OnKilledDoneAction,{unit:killer,instigator:victim,context:{hp:victim.maxHp},data});b.modernCorpses||(b.modernCorpses=[]);b.modernCorpses.push({id:victim.id,entity:victim.entity,owner:victim.owner,team:victim.team,card:victim.card,levelGroupId:victim.levelGroupId,x:victim.x,y:victim.y,born:b.time});if(b.modernCorpses.length>500)b.modernCorpses.splice(0,b.modernCorpses.length-500);for(const u of b.units||[]){if(!alive(u))continue;for(const listener of state(u).listeners){if(listener.type!=='troop-death')continue;const r=listener.record;if(r.MatchOnlyOwnSpawnedTroops&&victim.owner!==u.owner||r.MatchOnlyFromSameOwnerIndex&&victim.owner!==u.owner)continue;if(r.TroopFilter&&!matchesFilter(data,r.TroopFilter,u,victim,b.time))continue;executeAction(b,r.ActionToRun,{...context(b,listener.context,data),unit:u,instigator:victim,targetId:victim.id,context:{hp:victim.maxHp},data});}}}
 function onCardDeploy(b,card,seat,data=K.DATA){for(const u of b.units||[]){if(!alive(u)||u.owner!==seat)continue;for(const listener of state(u).listeners){if(listener.type!=='card-deploy')continue;const r=listener.record,group=data.cardGroups?.[r.CardGroup],names=[...list(group?.PlayableCards),...list(group?.SupportCards)];if(r.CardGroup&&!names.includes(card.source?.Name)&&!names.includes(card.id))continue;executeAction(b,r.OnActivateAction,{...context(b,listener.context,data),unit:u,data});}}}
 function onProjectileSpawn(b,p,data=K.DATA){p.formId=p.formId??p.attacker?.formId;const r=data.projectiles?.[p.name];if(r?.OnStartingAction)executeAction(b,r.OnStartingAction,{unit:p,instigator:p.attacker,owner:p.owner,team:p.team,level:p.level,data});}
 function onProjectileHit(b,p,target,data=K.DATA){const r=data.projectiles?.[p.name];if(r?.OnHitTargetAction&&target)executeAction(b,r.OnHitTargetAction,{unit:target,instigator:p.attacker,targetId:target.id,owner:p.owner,team:p.team,level:p.level,data});}
@@ -1849,7 +1870,7 @@ function ignoresPushback(b,u,data=K.DATA){return tags(u,b.time).has('NO_PUSHBACK
 function healingLimit(b,u,data=K.DATA){let percent=Math.max(100,u.modernOverhealPercent||100);for(const {record}of activeBuffs(b,u,data))percent=Math.max(percent,Number(record.AllowedOverHealPerc)||100);return(u.maxHp||0)*percent/100;}
 function refreshAreas(b,data=K.DATA){for(const a of b.areas||[]){const r=data.areas?.[a.name],source=b.getEntity?.(a.modernSourceId);if(r?.MaxRadius!==undefined){const elapsed=Math.max(0,b.time-(a.born??b.time)),duration=Math.max(EPS,(a.ends??b.time)-(a.born??b.time)),fraction=Math.min(1,elapsed/duration);a.radius=((Number(r.Radius)||0)+(Number(r.MaxRadius)-Number(r.Radius||0))*fraction)/1000;}if(r?.LinkToInstigatorLife&&a.modernSourceId!=null&&!alive(source))a.ends=Math.min(a.ends,b.time);if(r?.FollowBehaviour==='FollowParent'&&alive(source)){a.x=source.x+(a.modernFollowOffset?.x||0);a.y=source.y+(a.modernFollowOffset?.y||0);}}}
 function handlePending(b,p,data=K.DATA){if(p.type==='modern-action')return resolvePending(b,p,data);if(p.type!=='impact'||p.modernDeflected)return false;const pr=data.projectiles?.[p.name];if(!flags(pr?.DeflectBehaviour).includes('CheckOnlyTargetPosition'))return false;const a=(b.areas||[]).find(a=>a.team!==p.team&&a.ends>b.time&&data.areas?.[a.name]?.DeflectProjectilesEnabled&&distance(a,p)<=(data.areas[a.name].Radius+(pr.DeflectRadius||0))/1000);if(!a)return false;const target=(b.active||[]).filter(u=>u.king&&u.team===p.team).sort((x,y)=>Math.abs(x.x-p.x)-Math.abs(y.x-p.x)||x.id-y.id)[0];if(!target)return false;b.resolvePending({...p,team:a.team,owner:a.owner,x:target.x,y:target.y,modernDeflected:true});return true;}
-function tickBattle(b,dt=0,data=K.DATA){refreshAreas(b,data);for(const p of b.projectiles||[])if(p.modernActions)tickEntity(b,p,dt,data);for(const a of b.areas||[]){const r=data.areas?.[a.name],source=b.getEntity?.(a.modernSourceId);if(a.modernSpawnLimit!==undefined&&a.spawned>=a.modernSpawnLimit)a.modernSpawningComplete=true;if(a.modernActions)tickEntity(b,a,dt,data);if(!r?.DeflectProjectilesEnabled||a.ends<=b.time||!alive(source))continue;
+function tickBattle(b,dt=0,data=K.DATA){refreshAreas(b,data);for(const p of b.projectiles||[])if(p.modernActions)tickEntity(b,p,dt,data);else updatePrefabEffects(b,p,data);for(const a of b.areas||[]){const r=data.areas?.[a.name],source=b.getEntity?.(a.modernSourceId);if(a.modernSpawnLimit!==undefined&&a.spawned>=a.modernSpawnLimit)a.modernSpawningComplete=true;if(a.modernActions)tickEntity(b,a,dt,data);else updatePrefabEffects(b,a,data);if(!r?.DeflectProjectilesEnabled||a.ends<=b.time||!alive(source))continue;
  for(const p of b.projectiles||[]){if(p.done||p.team===a.team||p.modernDeflected)continue;const pr=data.projectiles?.[p.name]||{},behaviour=flags(pr.DeflectBehaviour);if(behaviour.includes('NoDeflect')||pr.CustomDeflectAction&&!canExecuteAction(b,pr.CustomDeflectAction,{data}).ok)continue;const point=behaviour.includes('CheckOnlyTargetPosition')?{x:p.tx,y:p.ty}:p,radius=(Number(r.Radius)||0)/1000+(Number(pr.DeflectRadius)||0)/1000;if(distance(point,a)>radius+EPS)continue;const original=p.attacker,target=alive(original)?original:(b.active||[]).filter(u=>u.king!==undefined&&u.team===p.team).sort((x,y)=>distance(x,original||p)-distance(y,original||p)||x.id-y.id)[0];p.modernDeflected=true;p.team=a.team;p.owner=source.owner;p.source=source.id;p.attacker=source;p.hit?.clear();if(behaviour.includes('InvertDirection')){p.vx=-p.vx;p.vy=-p.vy;const remaining=Math.max(.5,(p.range||10)-(p.travel||0));p.tx=p.x+p.vx*remaining*SX;p.ty=p.y+p.vy*remaining*SY;p.travel=0;p.target=null;}else if(target){p.target=target.id;p.tx=target.x;p.ty=target.y;}else{p.tx=p.startX??p.x;p.ty=p.startY??p.y;}effect(b,r.DeflectedProjectileEffect,{unit:source,team:a.team});if(pr.ActionOnDeflector)executeAction(b,pr.ActionOnDeflector,{unit:source,instigator:original,team:p.team,level:p.level,data});if(pr.CustomDeflectAction)executeAction(b,pr.CustomDeflectAction,{unit:p,instigator:source,team:p.team,level:p.level,data});if(pr.DeflectedCharacterSpawn)p.modernSpawnCharacter=pr.DeflectedCharacterSpawn;
  }}}
 function audit(data=K.DATA){const supported=[],unsupported=[],reasons={};for(const id of Object.keys(data.actions||{})){const r=canExecuteAction(null,id,{data});(r.ok?supported:unsupported).push(id);if(!r.ok)reasons[id]=r.reason;}const abilities={};for(const [id,config]of Object.entries(data.abilities||{}))abilities[id]=canExecuteAbility(null,config,{data});return{snapshot:data.snapshot,actions:{total:supported.length+unsupported.length,supported:supported.length,unsupported:unsupported.length,supportedIds:supported,unsupportedIds:unsupported,reasons},abilities};}
@@ -2803,6 +2824,343 @@ return{checkImageSource,createStore,cacheKey,containRect,fetchImage,decodeImage}
 });
 
 ;
+/* Source SCDB MovieClipEmitterData v6, sampled without a mutable simulation.
+ * The native client is stripped: component integration is a deterministic,
+ * bounded browser interpretation of the original authoring data. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleSourceParticles=api;})(globalThis,function(){'use strict';
+const TAU=Math.PI*2,DEG=Math.PI/180,MAX_PARTICLES=48,MAX_BIRTHS=384,MAX_COMPONENTS=64,MAX_KEYS=256;
+const number=(v,fallback=0)=>Number.isFinite(v)?v:fallback;
+const clamp=(v,lo=0,hi=1)=>Math.max(lo,Math.min(hi,v));
+const mix=(a,b,t)=>Array.isArray(a)?a.map((x,i)=>mix(x,b[i],t)):a+(b-a)*t;
+const cubic=(a,b,c,d,u)=>{const v=1-u;return v*v*v*a+3*v*v*u*b+3*v*u*u*c+u*u*u*d;};
+function parameter(x,a,b,c,d){let lo=0,hi=1;for(let i=0;i<28;i++){const u=(lo+hi)/2;if(cubic(a,b,c,d,u)<x)lo=u;else hi=u;}return(lo+hi)/2;}
+function packedKeys(values,width){
+ if(!Array.isArray(values)||values.length%width||values.length<width||values.length>MAX_KEYS*width||!values.every(Number.isFinite))return null;
+ const keys=[];for(let i=0;i<values.length;i+=width){if(i&&values[i]<values[i-width])return null;keys.push(values.slice(i,i+width));}return keys;
+}
+function packedBezier(values,t){
+ const keys=packedKeys(values,7);if(!keys)return null;if(t<keys[0][0])return keys[0][1];
+ let i=1;while(i<keys.length&&keys[i][0]<=t)i++;if(i===keys.length)return keys[i-1][1];
+ const a=keys[i-1],b=keys[i],dt=b[0]-a[0];
+ // Each key stores time, value, incoming dx/dy, outgoing dx/dy, tangent mode.
+ // Horizontal handles are fractions of the segment; vertical handles are
+ // per unit time. Tangent mode is editing metadata, not interpolation mode.
+ const u=parameter(t,a[0],a[0]+clamp(a[4])*dt,b[0]-clamp(b[2])*dt,b[0]);
+ return cubic(a[1],a[1]+a[5]*dt,b[1]-b[3]*dt,b[1],u);
+}
+function packedLinear(values,t,dimensions){
+ const width=dimensions+1,keys=packedKeys(values,width);if(!keys)return null;
+ const value=k=>dimensions===1?k[1]:k.slice(1);if(t<=keys[0][0])return value(keys[0]);
+ for(let i=1;i<keys.length;i++)if(t<keys[i][0])return mix(value(keys[i-1]),value(keys[i]),(t-keys[i-1][0])/(keys[i][0]-keys[i-1][0]));
+ return value(keys[keys.length-1]);
+}
+function sourceCurve(value,t,dimensions){
+ t=clamp(number(t));if(Number.isFinite(value))return value;
+ if(value&&typeof value==='object'&&!Array.isArray(value)){
+  if(value._b0){const p=value._b0;if(Array.isArray(p))return packedBezier(p,t);const names=['x','y','z'].filter(k=>p[k]);if(names.length)return names.map(k=>packedBezier(p[k],t));return null;}
+  if(value._l0)return packedLinear(value._l0,t,dimensions||(value._l0.length%4===0?3:1));
+  return null;
+ }
+ if(!Array.isArray(value))return null;
+ if(value.length===2)return mix(value[0],value[1],t);
+ if(value.length===3)return value.slice();
+ if(value.length!==6)return null;
+ const u=parameter(t,0,clamp(value[0]),clamp(value[2]),1),fraction=cubic(0,value[1],value[3],1,u);
+ return mix(value[4],value[5],fraction);
+}
+function cubicMaximum(a,b,c,d){
+ let max=Math.max(a,d),A=-a+3*b-3*c+d,B=2*(a-2*b+c),C=b-a;
+ const roots=Math.abs(A)<1e-12?(Math.abs(B)>1e-12?[-C/B]:[]):B*B-4*A*C>=0?[(-B+Math.sqrt(B*B-4*A*C))/(2*A),(-B-Math.sqrt(B*B-4*A*C))/(2*A)]:[];
+ for(const u of roots)if(u>0&&u<1)max=Math.max(max,cubic(a,b,c,d,u));return max;
+}
+function curveMaximum(value){
+ if(Number.isFinite(value))return value;
+ if(Array.isArray(value)){if(value.length===2&&value.every(Number.isFinite))return Math.max(...value);if(value.length===6&&Number.isFinite(value[4])&&Number.isFinite(value[5])){const a=value[4],d=value[5];return cubicMaximum(a,mix(a,d,value[1]),mix(a,d,value[3]),d);}return 0;}
+ const keys=packedKeys(value?._b0,7);if(keys){let max=keys[0][1];for(let i=1;i<keys.length;i++){const a=keys[i-1],b=keys[i],dt=b[0]-a[0];max=Math.max(max,cubicMaximum(a[1],a[1]+a[5]*dt,b[1]-b[3]*dt,b[1]));}return max;}
+ const linear=packedKeys(value?._l0,2);return linear?Math.max(...linear.map(k=>k[1])):0;
+}
+function sourceRandom(seed,slot){let n=2166136261;for(const c of String(seed)+':'+slot)n=Math.imul(n^c.charCodeAt(0),16777619);n=Math.imul(n^(n>>>16),2246822507);return((n^(n>>>13))>>>0)/4294967296;}
+const scalar=(v,t,fallback=0)=>number(sourceCurve(v,t,1),fallback);
+const vector=(v,t,fallback=[0,0,0])=>{const out=sourceCurve(v,t,3);return Array.isArray(out)?out.map((x,i)=>number(x,fallback[i]||0)):fallback.slice();};
+const range=(a,b,r)=>a+(b-a)*r;
+const jitter=(value,amount,r)=>value+(r*2-1)*number(amount);
+function emitterTiming(record){
+ const e=record?.emitter;if(!e)return{delay:0,last:0,life:0,period:0,infinite:false};
+ let last=0,infinite=false;for(const c of (e.components||[]).slice(0,MAX_COMPONENTS)){
+  if(c.__class==='SpawnBurst')for(const b of (c.bursts||[]).slice(0,MAX_KEYS))if(number(b.c,1)>0)last=Math.max(last,number(b.t));
+  if(c.__class==='SpawnRate'){last=Math.max(last,number(c.duration));infinite=infinite||c.infinite===true;}
+ }
+ const delay=Math.max(0,number(e.emitterDelay)),life=Math.max(.001,curveMaximum(e.lifetime)+Math.abs(number(e.lifetimeJitter)));
+ return{delay,last,life,period:Math.max(.001,delay+last+life),infinite};
+}
+function particleLifetime(record){const timing=emitterTiming(record);return record?.emitter?timing.delay+timing.last+timing.life:0;}
+function sourceFXLifetime(effect,assets,library){
+ if(effect.movieclip){const ref=String(effect.movieclip).split(' | ')[0],slash=ref.lastIndexOf('/'),stem=ref.slice(0,slash).split('/').pop(),sc=library?.scenes?.['modernfx_'+stem]||library?.scenes?.[stem];return sc?.duration(ref.slice(slash+1))||1;}
+ return particleLifetime(assets?.[effect.particle]);
+}
+function birthsFor(record,time,seed,timing){
+ const e=record.emitter,births=[],components=(e.components||[]).slice(0,MAX_COMPONENTS);
+ // A repeating finite emitter restarts only once its final particle can expire.
+ // Infinite rate emitters already have their own absolute birth clock.
+ const looping=e.emitterLoop&&!timing.infinite,cycle=looping?Math.floor(time/timing.period):0;
+ for(let loop=Math.max(0,cycle-1);loop<=cycle;loop++){
+  const origin=(looping?loop*timing.period:0)+timing.delay,local=time-origin;if(local<0)continue;
+  for(let ci=0;ci<components.length;ci++){const c=components[ci];
+   if(c.__class==='SpawnBurst')for(const[bi,b]of(c.bursts||[]).slice(0,MAX_KEYS).entries()){
+    const at=number(b.t);if(at>local||at<local-timing.life)continue;const count=Math.min(MAX_BIRTHS,Math.max(0,Math.floor(number(b.c,1))));
+    for(let j=0;j<count&&births.length<MAX_BIRTHS;j++)births.push({at:origin+at,phase:at,key:`${ci}:b${bi}:${loop}:${j}`,order:ci,index:bi*MAX_BIRTHS+j});
+   }
+   if(c.__class==='SpawnRate'){
+    // Fixed seeded rate jitter gives repeatable births on rewind, independent
+    // of display frame rate. No native or gameplay RNG stream is consumed.
+    const rate=Math.max(0,jitter(scalar(c.spawnRate,0),c.spawnRateJitter,sourceRandom(seed,`rate:${ci}:${loop}`)));if(!rate)continue;
+    const end=c.infinite?local:Math.min(local,Math.max(0,number(c.duration))),last=Math.floor(end*rate+1e-9),first=Math.max(0,Math.ceil((local-timing.life)*rate-1e-9),last-MAX_BIRTHS+1);
+    for(let j=first;j<=last&&births.length<MAX_BIRTHS;j++){const at=j/rate;births.push({at:origin+at,phase:at,key:`${ci}:r${j}:${loop}`,order:ci,index:j});}
+   }
+  }
+ }
+ return births.sort((a,b)=>a.at-b.at||a.order-b.order||a.index-b.index);
+}
+function spawnState(components,phase,random){
+ const position=[0,0,0],velocity=[0,0,0];
+ for(let ci=0;ci<components.length;ci++){
+  const c=components[ci],r=k=>random(`component:${ci}:${k}`),s=(v,f=0)=>scalar(v,phase,f);
+  if(c.__class==='SpawnPlanar'){
+   const angle=range(s(c.minAngle),s(c.maxAngle,s(c.minAngle)),r(0))*DEG,spawnAngle=c.randomAngle?r(1)*TAU:angle,radius=range(s(c.spawnMinSize),s(c.spawnMaxSize,s(c.spawnMinSize)),r(2)),speed=range(s(c.minSpeedXY),s(c.maxSpeedXY,s(c.minSpeedXY)),r(3));
+   position[0]+=Math.cos(spawnAngle)*radius;position[1]+=Math.sin(spawnAngle)*radius;velocity[0]+=Math.cos(angle)*speed;velocity[1]+=Math.sin(angle)*speed;velocity[2]+=range(s(c.minSpeedZ),s(c.maxSpeedZ,s(c.minSpeedZ)),r(4));
+  }else if(c.__class==='SpawnCone'){
+   const direction=vector(c.direction,phase,[0,0,1]),length=Math.hypot(...direction);if(!length)continue;const n=direction.map(v=>v/length),azimuth=r(0)*TAU,cos=range(1,Math.cos(clamp(s(c.directionJitterAngle),0,180)*DEG),r(1)),sin=Math.sqrt(Math.max(0,1-cos*cos));
+   const tangent=Math.abs(n[2])<.999?[-n[1],n[0],0]:[1,0,0],tl=Math.hypot(...tangent),u=tangent.map(v=>v/tl),v=[n[1]*u[2]-n[2]*u[1],n[2]*u[0]-n[0]*u[2],n[0]*u[1]-n[1]*u[0]],speed=jitter(s(c.velocity),s(c.velocityJitter),r(2));
+   for(let axis=0;axis<3;axis++)velocity[axis]+=(n[axis]*cos+sin*(u[axis]*Math.cos(azimuth)+v[axis]*Math.sin(azimuth)))*speed;
+  }else if(c.__class==='SpawnLocation'){
+   const radius=range(s(c.spawnMinSize),s(c.spawnMaxSize,s(c.spawnMinSize)),r(0)),angle=r(1)*TAU;
+   if(c.spawnShape===1){position[0]+=Math.cos(angle)*radius;position[1]+=Math.sin(angle)*radius;}
+   else if(c.spawnShape===2){const z=r(2)*2-1,xy=Math.sqrt(1-z*z);position[0]+=Math.cos(angle)*xy*radius;position[1]+=Math.sin(angle)*xy*radius;position[2]+=z*radius;}
+  }else if(c.__class==='SpawnVelocityComponent'){
+   const v=vector(c.velocity,phase),j=vector(c.velocityJitter,phase);for(let axis=0;axis<3;axis++)velocity[axis]+=jitter(v[axis],j[axis],r(axis));
+  }
+ }
+ return{position,velocity};
+}
+function motion(state,components,gravity,age,life){
+ const p=state.position.slice(),v=state.velocity.slice(),decelerations=components.filter(c=>c.__class==='Deceleration');
+ if(!decelerations.length){for(let axis=0;axis<3;axis++){p[axis]+=v[axis]*age+gravity[axis]*age*age/2;v[axis]+=gravity[axis]*age;}return{position:p,velocity:v};}
+ // Fixed substeps are a function of particle age, never of render history.
+ // Constant deceleration uses exact within-step stopping distance, so particles
+ // do not reverse direction when their authored slowing force reaches zero.
+ const steps=Math.min(64,Math.max(1,Math.ceil(age*120))),dt=age/steps;
+ for(let step=0;step<steps;step++){
+  const dec=[0,0,0];for(const c of decelerations){const value=vector(c.deceleration,(step+.5)*dt/life);for(let axis=0;axis<3;axis++)dec[axis]+=value[axis];}
+  for(let axis=0;axis<3;axis++){
+   const sign=Math.sign(v[axis]),acceleration=gravity[axis]-sign*dec[axis],next=v[axis]+acceleration*dt;
+   if(sign&&sign*next<0&&dec[axis]>Math.abs(gravity[axis])){const stop=-v[axis]/acceleration;p[axis]+=v[axis]*stop+acceleration*stop*stop/2;v[axis]=0;}
+   else{p[axis]+=v[axis]*dt+acceleration*dt*dt/2;v[axis]=next;}
+  }
+ }
+ return{position:p,velocity:v};
+}
+function stretchAt(value,t){if(Array.isArray(value)&&value.length===2&&value.every(Number.isFinite))return value;const out=sourceCurve(value,t,2);return Array.isArray(out)?out:[1,1];}
+function sourceParticleSamples(record,time,seed,budget=24){
+ const e=record?.emitter,r=record?.render;if(!e||!r||!Number.isFinite(time)||time<0)return[];
+ const max=Math.min(MAX_PARTICLES,Math.max(0,Math.floor(number(budget))),Math.max(0,Math.floor(number(e.maxParticleCount,MAX_PARTICLES))));if(!max)return[];
+ const timing=emitterTiming(record),components=(e.components||[]).slice(0,MAX_COMPONENTS),out=[];
+ for(const birth of birthsFor(record,time,seed,timing)){
+  if(out.length>=max)break;const random=k=>sourceRandom(seed+':'+birth.key,k),age=time-birth.at,life=Math.max(.001,jitter(scalar(e.lifetime,birth.phase),e.lifetimeJitter,random('life')));if(age<0||age>=life)continue;
+  const t=age/life,scale=Math.max(0,(scalar(r.scale,t,1)+jitter(0,r.scaleJitter,random('scale')))*number(r.globalScale,1)),alpha=clamp(scalar(r.alpha,t,1)*Math.min(1,r.alphaFadeout>0?(life-age)/r.alphaFadeout:1)),color=vector(r.color,t,[1,1,1]);
+  if(sourceCurve(r.alpha??1,t,1)===null||sourceCurve(r.scale??1,t,1)===null)continue;
+  const offset=Array.isArray(e.spawnPointOffset)?e.spawnPointOffset:[e.spawnPointOffset?.x,e.spawnPointOffset?.y,e.spawnPointOffset?.z],state=motion(spawnState(components,birth.phase,random),components,vector(e.gravity,t),age,life),stretch=stretchAt(r.stretch,t);
+  let rotation=(jitter(scalar(r.angle,0),r.angleJitter,random('angle'))+jitter(scalar(r.rotationSpeed,t),r.rotationSpeedJitter,random('rotation'))*age)*DEG;
+  const directionRotation=r.orientToDirection&&Math.hypot(...state.velocity)>1e-10?Math.atan2(-(.75*state.velocity[1]+Math.sqrt(7)/4*state.velocity[2]),state.velocity[0]):0;rotation+=directionRotation;
+  out.push({age,x:state.position[0]+number(offset[0]),y:state.position[1]+number(offset[1]),z:state.position[2]+number(offset[2]),scale,scaleX:scale*number(stretch[0],1),scaleY:scale*number(stretch[1],1),alpha,color,rotation,directionRotation,velocity:state.velocity,orientToDirection:r.orientToDirection===true,movieclip:record.movieclip?.[Math.floor(random('movieclip')*(record.movieclip?.length||1))],loopMovieClip:r.loopMovieClip===true,blendMode:r.blendMode,followEmitter:e.followEmitter===true});
+ }
+ return out;
+}
+function copyPose(value){
+ if(!value)return null;const out={};for(const[name,size]of[['position',3],['quaternion',4],['scale',3],['origin',2]]){const data=value[name]||(name==='origin'?[0,0]:null);if(!Array.isArray(data)||data.length!==size||!data.every(Number.isFinite))return null;out[name]=data.slice();}
+ out.factor=value.factor??1;if(!Number.isFinite(out.factor)||out.factor<=0)return null;
+ const length=Math.hypot(...out.quaternion);if(length<1e-12)return null;out.quaternion=out.quaternion.map(v=>v/length);return out;
+}
+function interpolatePose(a,b,t){
+ const out={position:mix(a.position,b.position,t),scale:mix(a.scale,b.scale,t),origin:mix(a.origin,b.origin,t),factor:mix(a.factor,b.factor,t)};
+ let end=b.quaternion,dot=a.quaternion.reduce((sum,v,i)=>sum+v*end[i],0);if(dot<0){dot=-dot;end=end.map(v=>-v);}
+ if(dot>.9995){const q=mix(a.quaternion,end,t),length=Math.hypot(...q);out.quaternion=q.map(v=>v/length);}
+ else{const angle=Math.acos(clamp(dot,-1,1)),sin=Math.sin(angle),from=Math.sin((1-t)*angle)/sin,to=Math.sin(t*angle)/sin;out.quaternion=a.quaternion.map((v,i)=>from*v+to*end[i]);}
+ return out;
+}
+// Presentation-only birth poses. The renderer supplies decomposed attachment
+// TRS, canvas origin and outer actor factor; no THREE or gameplay state is read.
+// Before the first observed pose, clamp to that pose rather than inventing a
+// movement trajectory. A new activation key or clock rewind starts fresh.
+class ParticleTransformHistory{
+ constructor({maxEmitters=128,maxSamples=64,maxAge=4}={}){this.maxEmitters=clamp(Math.floor(number(maxEmitters,128)),1,512);this.maxSamples=clamp(Math.floor(number(maxSamples,64)),2,128);this.maxAge=clamp(number(maxAge,4),.01,8);this.entries=new Map();}
+ observe(key,activation,time,value){
+  const pose=copyPose(value);if(!Number.isFinite(time)||!pose)return false;
+  let entry=this.entries.get(key);if(!entry||entry.activation!==activation||time<entry.time)entry={activation,time,samples:[]};
+  const samples=entry.samples;if(samples.length&&samples[samples.length-1].time===time)samples.pop();samples.push({time,pose});entry.time=time;
+  while(samples.length>2&&samples[1].time<time-this.maxAge)samples.shift();while(samples.length>this.maxSamples)samples.shift();
+  this.entries.delete(key);this.entries.set(key,entry);while(this.entries.size>this.maxEmitters)this.entries.delete(this.entries.keys().next().value);return true;
+ }
+ sample(key,time){
+  const samples=this.entries.get(key)?.samples;if(!samples?.length||!Number.isFinite(time))return null;
+  if(time<=samples[0].time)return copyPose(samples[0].pose);const last=samples[samples.length-1];if(time>=last.time)return copyPose(last.pose);
+  for(let i=1;i<samples.length;i++)if(time<=samples[i].time){const a=samples[i-1],b=samples[i];return interpolatePose(a.pose,b.pose,(time-a.time)/(b.time-a.time));}return null;
+ }
+ resolve(key,time,particleAge,followEmitter=false){return this.sample(key,followEmitter?time:time-Math.max(0,number(particleAge)));}
+ prune(time){if(Number.isFinite(time))for(const[key,entry]of this.entries)if(time-entry.time>this.maxAge)this.entries.delete(key);}
+ clear(){this.entries.clear();}
+ summary(){let snapshots=0;for(const entry of this.entries.values())snapshots+=entry.samples.length;return{emitters:this.entries.size,snapshots};}
+}
+return{sourceCurve,sourceParticleSamples,sourceFXLifetime,particleLifetime,ParticleTransformHistory};
+});
+
+;
+/* Source effect timelines and mesh/material rendering. Presentation only. */
+(function(root,factory){const api=factory(root);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleModernFX3D=api;})(globalThis,function(root){'use strict';
+const reference=v=>String(v||'').split(' | ')[0],clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+function bezier(values,t){
+ if(!Array.isArray(values)||values.length!==6||!values.every(Number.isFinite))return null;
+ t=clamp(t,0,1);if(t===0)return values[4];if(t===1)return values[5];
+ const cubic=(u,a,b)=>3*(1-u)*(1-u)*u*a+3*(1-u)*u*u*b+u*u*u;let lo=0,hi=1;
+ for(let i=0;i<30;i++){const u=(lo+hi)/2;if(cubic(u,values[0],values[2])<t)lo=u;else hi=u;}
+ return values[4]+(values[5]-values[4])*cubic((lo+hi)/2,values[1],values[3]);
+}
+function timelineValue(value,time){
+ const keys=value?._v?.timelineValue?.keys||value?.timelineValue?.keys||value?.keys;if(!keys?.length)return null;
+ let key=keys[0];for(const next of keys){if((Number(next.s)||0)>time)break;key=next;if(time<(Number(next.e)||0))break;}
+ const start=Number(key.s)||0,end=Number(key.e)||0,t=end>start?clamp((time-start)/(end-start),0,1):1;
+ if(key.t===2){const v=bezier(key.b,t);if(v!==null)return v;return Number.isFinite(key.b?.[4])&&key.b[4]===key.b[5]?key.b[4]:null;}
+ if(key.t===1)return(Number(key.lf)||0)+((Number(key.lt)||0)-(Number(key.lf)||0))*t;
+ return Number(key.c)||0;
+}
+function timelineState(timeline,time,loop=false){
+ const duration=Number(timeline?.total_time)||0,t=loop&&duration>0?Math.max(0,time)%duration:Math.max(0,time),result={};
+ for(const [i,path]of (timeline?.anims?.nodes||[]).entries())for(const track of timeline.anims.data[i]?.anims||[]){const value=timelineValue(track.value,t);if(value!==null)(result[path]??={})[track.id]=value;}
+ return result;
+}
+function timelineBindings(node,records){
+ const list=(node.components||[]).find(c=>c.objectType===5014),play=(node.components||[]).find(c=>c.objectType===5016),name=play?.TimelineName||list?.defaultTimeline;
+ const entries=list?.timelines||[],selected=entries.some(t=>t.name===name)?name:list?.defaultTimeline;
+ return entries.filter(t=>t.name===selected).map(t=>({record:records[reference(t.asset)],loop:play?.Loop??list.loop??false})).filter(t=>t.record);
+}
+const lifeCaches=new WeakMap();
+function prefabLifetime(node,records,team){
+ let cache=lifeCaches.get(records);if(!cache)lifeCaches.set(records,cache=new WeakMap());let pair=cache.get(node);if(pair?.[team])return pair[team];
+ let duration=0,looped=false;const visit=(n,seen)=>{if(!n||seen.size>24)return;for(const t of timelineBindings(n,records)){duration=Math.max(duration,Number(t.record.total_time)||0);looped||=t.loop;}for(const c of n.components||[]){if(c.objectType===5018)duration=Math.max(duration,Number(c.Lifetime)||0);for(const ref of[c.Prefab,c.Effect,c.objectType===5025?(team===1?c.RedVfx:c.BlueVfx):null]){const key=reference(ref);if(key&&!seen.has(key))visit(records[key]?.data,new Set([...seen,key]));}}for(const child of n.children||[])visit(child,seen);};visit(node,new Set());
+ const result={duration:duration||1,looped};pair??={};pair[team]=result;cache.set(node,pair);return result;
+}
+function sourceMeshPlan(contract,partPoses,records,time,team){
+ const out=[];
+ const visit=(node,chain,part,age,seen,bone=null,eventKey=null,path='',scopes=[],life=null)=>{
+  if(!node||seen.size>24||out.length>=96)return;
+  life??=prefabLifetime(node,records,team);
+  const components=node.components||[],model=components.find(c=>c.Model),mount=components.find(c=>c.objectType===5012);
+  if(model){const index=contract.parts.findIndex(p=>p.sourceModel===reference(model.Model));if(index>=0)part=index;}
+  if(mount){bone=mount;chain=[];}
+  const localScopes=[...scopes,...timelineBindings(node,records).map(t=>({...t,path,values:timelineState(t.record,age,t.loop)}))],values={};
+  for(const scope of localScopes){const relative=path===scope.path?'':path.startsWith(scope.path+'/')?path.slice(scope.path.length+1):scope.path===''?path:null;if(relative!==null)Object.assign(values,scope.values[relative]);}
+  const tracks=localScopes.map(scope=>{const relative=path===scope.path?'':path.startsWith(scope.path+'/')?path.slice(scope.path.length+1):scope.path===''?path:null;return relative===null?null:{...scope,relative};}).filter(Boolean);
+  const tr={pos:[...(node.pos||[0,0,0])],rot:[...(node.rot||[0,0,0])],scl:[...(node.scl||[1,1,1])]};
+  tr.source={pos:[...tr.pos],rot:[...tr.rot],scl:[...tr.scl]};tr.tracks=tracks;
+  for(const [i,axis]of['x','y','z'].entries()){if(values[axis]!==undefined)tr.pos[i]=values[axis];if(values['rot_'+axis]!==undefined)tr.rot[i]=values['rot_'+axis];if(values['scl_'+axis]!==undefined)tr.scl[i]=values['scl_'+axis];}
+  chain=[...chain,tr];
+  for(const component of components){
+   const model=reference(component.Model);if(component.objectType===5001&&model&&!contract.parts.some(p=>p.sourceModel===model))out.push({model,component,chain,part,bone,eventKey,age,path,materialValues:values,tracks,...life});
+   if(component.objectType===5018&&component.MaterialAsset)out.push({bodyMaterial:reference(component.MaterialAsset),component,chain,part,bone,eventKey,age,path,materialValues:values,tracks,...life,duration:Number(component.Lifetime)||life.duration,looped:!component.Lifetime&&life.looped});
+   for(const ref of[component.Prefab,component.Effect,component.objectType===5025?(team===1?component.RedVfx:component.BlueVfx):null]){const key=reference(ref);if(key&&!seen.has(key)&&records[key]?.data)visit(records[key].data,chain,part,age-(Number(component.Delay)||0),new Set([...seen,key]),bone,eventKey,'',[],prefabLifetime(records[key].data,records,team));}
+  }
+  for(const child of node.children||[])visit(child,chain,part,age,seen,bone,eventKey,path?path+'/'+child.name:child.name,localScopes,life);
+ };
+ visit(contract.sourcePrefab?.data,[],0,time,new Set());
+ for(const [part,pose]of partPoses.entries()){if(!pose)continue;const metadata=contract.parts[part],descriptor=metadata.asm?.States?.find(s=>s.Name===pose.name),fps=Number(metadata.animations[pose.name]?.fps)||30,speed=Number(descriptor?.BaseSpeed)||1;
+  for(const [i,event]of (descriptor?.Events||[]).entries()){const frame=Number(event.Frame)||0,key=reference(event.Effect);if(event.Event==='Effect'&&frame<=pose.frame&&records[key]?.data)visit(records[key].data,metadata.transforms||[],part,Math.max(0,((pose.time??pose.frame/fps)-frame/fps)/speed),new Set([key]),null,part+':'+pose.name+':'+i);}
+ }
+ return out;
+}
+function scopedValues(tracks,age){const result={};for(const t of tracks||[])Object.assign(result,timelineState(t.record,age,t.loop)[t.relative]);return result;}
+function sampledTransform(tr,age){const result={pos:[...(tr.source?.pos||tr.pos||[0,0,0])],rot:[...(tr.source?.rot||tr.rot||[0,0,0])],scl:[...(tr.source?.scl||tr.scl||[1,1,1])]},v=scopedValues(tr.tracks,age);for(const[i,a]of['x','y','z'].entries())for(const[key,prefix]of[['pos',''],['rot','rot_'],['scl','scl_']])if(v[prefix+a]!==undefined)result[key][i]=v[prefix+a];for(const[i,key]of['pitch','roll','yaw'].entries())if(v[key]!==undefined)result.rot[i]=v[key];return result;}
+function shaderSource(source){return source.replace(/\0/g,'').replace(/^#version[^\n]+\n/,'').replace(/layout\(std140\) uniform (\w+)\s*\{([\s\S]*?)\}\s*(\w+);/g,(_,name,fields,variable)=>`struct ${name}{${fields}};uniform ${name} ${variable};`);}
+function vertexSource(source){
+ let s=shaderSource(source).replace(/layout\(location\s*=\s*\d+\) in \w+ a_\w+;/g,'').replace(/transpose\(mat4\(a_model, a_model2, a_model3, vec4\(0\.0, 0\.0, 0\.0, 1\.0\)\)\)/g,'modelMatrix');
+ s=s.replace(/\ba_pos\b/g,'transformed').replace(/\ba_normal\b/g,'objectNormal').replace(/\ba_uv0\b/g,'uv').replace(/\ba_tangent\b/g,'sourceTangent');
+ return '#include <common>\n#include <skinning_pars_vertex>\n'+s.replace(/void main\(\)\s*\{/,`void main(){
+ #include <beginnormal_vertex>
+ #include <skinbase_vertex>
+ #include <skinnormal_vertex>
+ #include <begin_vertex>
+ #include <skinning_vertex>
+ vec4 sourceTangent=vec4(1.0,0.0,0.0,1.0);
+ #ifdef USE_TANGENT
+ sourceTangent=vec4(objectTangent,tangent.w);
+ #endif
+ `);
+}
+function bodyOverrides(contract){const result=[];const walk=n=>{for(const c of n?.components||[])if(c.Model){const part=contract.parts.findIndex(p=>p.sourceModel===reference(c.Model));if(part>=0)for(const g of c.Geometries||[])if(g.MaterialOverride)result.push({part,name:g.Name,index:g.GeomIndex||0,material:reference(g.MaterialOverride)});}for(const child of n?.children||[])walk(child);};walk(contract.sourcePrefab?.data);return result;}
+function cloneUniforms(uniforms){const copy=v=>v?.isTexture?v:v?.clone?v.clone():Array.isArray(v)?v.map(copy):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,copy(x)])):v;return copy(uniforms);}
+// The imported fragment equations are unchanged. The adapter only replaces
+// native instancing/UBO bindings with Three's skinned vertices and uniforms.
+class Renderer{
+ constructor(T,definition,loader,textureLoader,url){Object.assign(this,{T,definition,loader,textureLoader,url});this.textures=new Map();this.materials=new Set();this.templates=new Map();this.instances=new Map();this.group=new T.Group();this.body=[];this.overlays=new Map();this.draws=0;this.materialDraws=0;}
+ async texture(ref){const key=reference(ref).split('#')[0],entry=this.definition.textures[key];if(!entry)return null;if(!this.textures.has(key))this.textures.set(key,this.textureLoader.loadAsync(this.url(entry.file)).then(t=>{t.flipY=false;t.colorSpace=entry.colorSpace==='srgb'?this.T.SRGBColorSpace:this.T.NoColorSpace;t.wrapS=t.wrapT=this.T.RepeatWrapping;return t;}));return this.textures.get(key);}
+ async material(path,base=null){
+  const d=this.definition.materials[path];if(!d)return null;const T=this.T,family=d.resolvedShader,shaders=this.definition.shaders[family];if(!shaders)return null;
+  const variables={...base?.userData.sourceVariables?.floats,...base?.userData.sourceVariables?.floatVectors,...base?.userData.sourceVariables?.textures,...d.resolvedVariables};
+  // Empty inherited texture slots mean keep the model's own texture.
+  for(const[k,v]of Object.entries(base?.userData.sourceVariables?.textures||{}))if(!variables[k])variables[k]=v;
+  const frag=shaders.frag.variants[d.selectedVariants.frag]?.source,vert=shaders.vert.variants[family==='uber_pbr'?0:d.selectedVariants.vert&1]?.source;if(!frag||!vert)return null;
+  const uniforms={},initial={};for(const source of [vert,frag])for(const match of source.matchAll(/layout\(std140\) uniform \w+\s*\{([\s\S]*?)\}\s*(\w+);/g)){const value={};for(const field of match[1].matchAll(/(?:\w+\s+)?(mat[34]|vec[234]|float)\s+(\w+);/g)){const type=field[1],name=field[2],v=variables[name];value[name]=type==='mat4'?new T.Matrix4():type==='mat3'?new T.Matrix3():type.startsWith('vec')?new T['Vector'+type.slice(3)]().fromArray(Array.isArray(v)?v:new Array(Number(type.slice(3))).fill(0)):Number(v)||0;}uniforms[match[2]]={value};}
+  for(const match of frag.matchAll(/uniform\s+(?:\w+\s+)?sampler2D\s+(\w+);/g)){const name=match[1],inherited=base?.uniforms?.[name]?.value||(name==='diffuseTex'?base?.map:null);let texture=!d.resolvedVariables[name]&&inherited?inherited:await this.texture(variables[name]);if(!texture)texture=inherited;uniforms[name]={value:texture};}
+  if(uniforms.fragmentObjectUniforms){const v=uniforms.fragmentObjectUniforms.value;v.u_color.set(1,1,1,1);v.color_mul.set(1,1,1,1);}
+  for(const[k,v]of Object.entries(uniforms.fragmentMaterialUniforms?.value||{}))initial[k]=v?.clone?v.clone():v;
+  const material=new T.ShaderMaterial({name:path.split('/').pop(),glslVersion:T.GLSL3,vertexShader:vertexSource(vert),fragmentShader:shaderSource(frag),uniforms,toneMapped:false,side:family==='uber_pbr'?(base?.side??T.FrontSide):T.DoubleSide,transparent:family!=='uber_pbr'||!!base?.transparent,depthWrite:family==='uber_pbr'&&!base?.transparent,blending:d.resolvedRenderStateFields?.[6]===6?T.AdditiveBlending:T.NormalBlending});
+  if(family==='uber_pbr')material.defines.USE_TANGENT='';
+  material.userData={...base?.userData,sourceLodMaterial:false,sourceFXMaterial:true,sourceFXFamily:family,sourceFXPath:path,initial};material.defaultAttributeValues={...material.defaultAttributeValues,tangent:[1,0,0,1]};this.materials.add(material);return material;
+ }
+ async prepare(actor){
+  const records=this.definition.records,refs=new Set(),models=new Set(),overlays=new Set();const visit=n=>{for(const c of n?.components||[]){if(c.Model&&this.definition.meshes[reference(c.Model)])models.add(reference(c.Model));if(c.MaterialAsset)overlays.add(reference(c.MaterialAsset));for(const v of[c.Prefab,c.Effect,c.BlueVfx,c.RedVfx])walk(reference(v));}for(const child of n?.children||[])visit(child);},walk=key=>{if(!key||refs.has(key))return;refs.add(key);visit(records[key]?.data);};visit(actor.contract.sourcePrefab?.data);for(const p of actor.contract.parts)for(const state of p.asm?.States||[])for(const e of state.Events||[])walk(reference(e.Effect));
+  for(const path of Object.values(this.definition.actionRoots||{}))walk(path);
+  for(const key of models)this.templates.set(key,(await this.loader.loadAsync(this.url(this.definition.meshes[key].file))).scene);
+  for(const binding of bodyOverrides(actor.contract)){const part=actor.parts[binding.part];let mesh=part.gltf.scene.getObjectByName(binding.name);if(!mesh)part.gltf.scene.traverse(o=>{if(o.isMesh&&o.userData.sourceName===binding.name)mesh=o;});if(!mesh?.material)continue;const original=mesh.material,materials=Array.isArray(original)?original:[original],changed=[];for(const base of materials)changed.push(await this.material(binding.material,base)||base);mesh.material=Array.isArray(original)?changed:changed[0];this.body.push({mesh,original,current:mesh.material});}
+  const bodies=[];actor.group.traverse(mesh=>{if(mesh.isMesh&&mesh.material)bodies.push(mesh);});
+  for(const path of overlays)for(const mesh of bodies){if(Array.isArray(mesh.material))continue;const mat=await this.material(path,mesh.material);if(mat)this.overlays.set(path+':'+mesh.uuid,{mesh,material:mat,base:mesh.material});}
+  // Resolve material/texture loading before the first frame, never mid-draw.
+  for(const key of refs){const scan=n=>{for(const c of n?.components||[])if(c.Model&&this.templates.has(reference(c.Model)))for(const g of c.Geometries||[])if(g.MaterialOverride){const path=reference(g.MaterialOverride);if(!this.instances.has('warm:'+path))this.instances.set('warm:'+path,{material:awaitable(path)});}for(const ch of n?.children||[])scan(ch);};const awaitable=path=>this.material(path);scan(records[key]?.data);}
+  await Promise.all([...this.instances.values()].map(v=>v.material));for(const[k,v]of this.instances)if(k.startsWith('warm:'))v.material=await v.material;
+  this.actor=actor;return this;
+ }
+ uniformState(material,time,team,camera,light,values={},index=0){
+  const T=this.T,u=material.uniforms,s=u.sceneUniforms?.value;if(s){s.u_invView.copy(camera.matrixWorld);s.u_projectionView.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);s.u_lightDirectionTime.set(...light.direction,time);s.u_cameraPosition.set(camera.position.x,camera.position.y,camera.position.z,1);s.u_dirLightColor.set(...light.direct,1);s.u_sceneAmbientColor.set(...light.ambient,light.ambientSpec);}
+  if(u.fragmentObjectUniforms)u.fragmentObjectUniforms.value.u_color.set(...(team===1?[1,.12,.16]:[.12,.4,1]),1);
+  const target=u.fragmentMaterialUniforms?.value;if(target){for(const[k,v]of Object.entries(material.userData.initial))if(target[k]?.copy)target[k].copy(v);else target[k]=v;for(const[k,v]of Object.entries(values)){const m=/^(?:Model\.mat(\d+)\.|Material\.|MaterialEffect\.mat\.)(\w+)(?:\.([xyzwrgba]))?$/.exec(k);if(!m||m[1]!==undefined&&Number(m[1])!==index||!(m[2]in target))continue;const component=m[3]&&({r:'x',g:'y',b:'z',a:'w'}[m[3]]||m[3]);if(component&&target[m[2]]?.isVector4||component&&target[m[2]]?.isVector3||component&&target[m[2]]?.isVector2)target[m[2]][component]=v;else if(!component&&typeof target[m[2]]==='number')target[m[2]]=v;}}
+ }
+ updateBody(effects,time,team,camera,light){
+  for(const v of this.overlays.values())v.mesh.material=v.base;
+  this.actor.group.traverse(o=>{for(const mat of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])if(mat.userData.sourceFXMaterial){this.uniformState(mat,time,team,camera,light);this.materialDraws++;}});
+  for(const effect of effects)if(effect.bodyMaterial&&effect.age>=0&&(effect.looped||effect.age<effect.duration)){for(const v of this.overlays.values())if(v.material.userData.sourceFXPath===effect.bodyMaterial&&(!effect.component.GeometryNames?.length||effect.component.GeometryNames.includes(v.mesh.name))){v.mesh.material=v.material;this.uniformState(v.material,time,team,camera,light,scopedValues(effect.tracks,effect.age));this.materialDraws++;}}
+ }
+ updateMeshes(effects,time,team,camera,light,budget=96){
+  const T=this.T;this.group.clear();let count=0;
+  for(const effect of effects){if(!effect.model||effect.age<0||!effect.looped&&effect.age>=effect.duration||effect.chain.some(tr=>scopedValues(tr.tracks,effect.age).visible===0))continue;const template=this.templates.get(effect.model);if(!template)continue;const key=(effect.historyKey||effect.eventKey||'ambient')+':'+effect.model+':'+effect.path;let instance=this.instances.get(key);
+   if(!instance){const object=template.clone(true),materials=[];object.traverse(mesh=>{if(!mesh.isMesh)return;const bindings=effect.component.Geometries||[],binding=bindings.find(g=>g.Name===mesh.name)||bindings[0],warm=this.instances.get('warm:'+reference(binding?.MaterialOverride))?.material;if(!warm){mesh.visible=false;return;}const material=warm.clone();material.uniforms=cloneUniforms(warm.uniforms);material.userData={...warm.userData};mesh.material=material;materials.push(material);this.materials.add(material);mesh.frustumCulled=false;});instance={object,materials};this.instances.set(key,instance);}
+   let matrix=(effect.bone?this.actor.parts[effect.part]?.gltf.scene.getObjectByName(effect.bone.BoneName)?.matrixWorld:this.actor.group.matrixWorld)?.clone();if(!matrix)continue;
+   if(effect.bone?.IgnoreBoneScale||effect.bone?.IgnoreBoneRotation){const p=new T.Vector3(),q=new T.Quaternion(),s=new T.Vector3();matrix.decompose(p,q,s);if(effect.bone.IgnoreBoneScale)s.set(1,1,1);if(effect.bone.IgnoreBoneRotation)q.identity();matrix.compose(p,q,s);}
+   if(effect.bone?.Offset)matrix.multiply(new T.Matrix4().makeTranslation(...effect.bone.Offset));
+   for(const tr of effect.chain){const v=sampledTransform(tr,effect.age);matrix.multiply(new T.Matrix4().compose(new T.Vector3().fromArray(v.pos),new T.Quaternion().setFromEuler(new T.Euler(...v.rot.map(v=>v*Math.PI/180))),new T.Vector3().fromArray(v.scl)));}
+   instance.object.matrixAutoUpdate=false;instance.object.matrix.copy(matrix);instance.object.updateMatrixWorld(true);this.group.add(instance.object);
+   for(const[index,mat]of instance.materials.entries()){this.uniformState(mat,time,team,camera,light,scopedValues(effect.tracks,effect.age),index);if(mat.uniforms.objectUniforms){const rot=new T.Matrix4().extractRotation(matrix);mat.uniforms.objectUniforms.value.u_model.setFromMatrix4(rot);}}
+   count++;if(count>=Math.min(96,budget))break;
+  }
+  // Instances carry no gameplay state; recycle old event slots to bound memory.
+  for(const[key,v]of this.instances)if(!key.startsWith('warm:')&&this.instances.size>160&&v.object.parent!==this.group){for(const m of v.materials){m.dispose();this.materials.delete(m);}this.instances.delete(key);}
+  this.draws+=count;return count;
+ }
+ get dynamic(){return this.body.length>0||this.overlays.size>0;}
+ async bytes(){const textures=await Promise.all(this.textures.values());return textures.reduce((n,t)=>n+(t.image?.width||0)*(t.image?.height||0)*4*4/3,0)+[...this.templates.values()].reduce((n,g)=>{g.traverse(o=>{if(o.geometry){for(const a of Object.values(o.geometry.attributes))n+=a.array.byteLength;n+=o.geometry.index?.array.byteLength||0;}});return n;},0);}
+ dispose(){for(const v of this.overlays.values())v.mesh.material=v.base;for(const v of this.body)v.mesh.material=v.original;for(const m of this.materials)m.dispose();for(const p of this.textures.values())p.then(t=>t.dispose());for(const g of this.templates.values())g.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});this.instances.clear();this.group.clear();}
+}
+return {reference,bezier,timelineValue,timelineState,timelineBindings,prefabLifetime,sourceMeshPlan,scopedValues,sampledTransform,shaderSource,vertexSource,bodyOverrides,cloneUniforms,Renderer};
+});
+
+;
 /* Original modern client meshes, textures, skeletons and ASM motion, rendered
    locally into the battle canvas. Only presentation clocks are sampled here. */
 (function(root,factory){const api=factory(root);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleModern3D=api;})(globalThis,function(root){'use strict';
@@ -2811,7 +3169,7 @@ const STATE_NAMES={idle:['Idle'],run:['Walk','Run'],attack:['Attack'],deploy:['D
 function resolveState(asm,name,entity={},seen=new Set()){
  name=name||asm?.DefaultState;if(!name||seen.has(name))return null;seen.add(name);const s=asm?.States?.find(s=>s.Name===name);if(!s)return null;
  if(s.Type==='AnimClip')return s.Name;const children=s.SubStates||[];if(!children.length)return null;
- let index=0;if(s.Type==='Selector'){const value=entity.shield>0?1:0;index=Math.max(0,(s.SwitchValues||[]).indexOf(value));}
+ let index=0;if(s.Type==='Selector'){const value=s.Parameter===2?Number(entity.animationModifiers?.PropState)||0:entity.shield>0?1:0;index=Math.max(0,(s.SwitchValues||[]).indexOf(value));}
  else if(s.Type==='Random')index=Math.abs(Math.floor(entity.visualAttack?.sequence??entity.visualSequence??0))%children.length;
  return resolveState(asm,children[Math.min(index,children.length-1)],entity,seen);
 }
@@ -2867,39 +3225,18 @@ class FXHistory{
   let state=this.units.get(unit);if(state&&time<state.time)for(const[key,e]of this.entries)if(e.unit===unit)this.entries.delete(key);if(!state||state.activation!==activation||time<state.time){state={activation,time,seen:new Set()};this.units.set(unit,state);}state.time=time;
   while(this.units.size>this.maxUnits){const oldest=this.units.keys().next().value;this.units.delete(oldest);for(const[key,e]of this.entries)if(e.unit===oldest)this.entries.delete(key);}
   for(const[key,e]of this.entries)if(e.unit===unit&&(time>=e.until||time<e.born-1))this.entries.delete(key);
-  for(const effect of effects){if(!effect.eventKey)continue;const leaf=effect.eventKey+':'+(effect.particle||effect.movieclip)+':'+JSON.stringify(effect.chain),key=String(unit)+':'+activation+':'+leaf;if(state.seen.has(leaf))continue;state.seen.add(leaf);const life=Math.max(0,Math.min(8,lifetime(effect))),born=time-effect.age;if(time<born+life)this.entries.set(key,{unit,born,until:born+life,effect:{...effect,historyKey:key}});}
+  for(const effect of effects){if(!effect.eventKey||effect.looped)continue;const leaf=effect.eventKey+':'+(effect.model||effect.bodyMaterial||effect.particle||effect.movieclip)+':'+(effect.model||effect.bodyMaterial?effect.path:JSON.stringify(effect.chain)),key=String(unit)+':'+activation+':'+leaf;if(state.seen.has(leaf))continue;state.seen.add(leaf);const life=Math.max(0,Math.min(8,lifetime(effect))),born=time-effect.age;if(time<born+life)this.entries.set(key,{unit,born,until:born+life,effect:{...effect,historyKey:key}});}
   while(this.size>this.maxEffects)this.entries.delete(this.entries.keys().next().value);
-  return [...effects.filter(e=>!e.eventKey),...[...this.entries.values()].filter(e=>e.unit===unit).map(e=>({...e.effect,age:time-e.born}))];
+  return [...effects.filter(e=>!e.eventKey||e.looped),...[...this.entries.values()].filter(e=>e.unit===unit).map(e=>({...e.effect,age:time-e.born}))];
  }
  clear(){this.entries.clear();this.units.clear();}
 }
 const fxHistory=new FXHistory();let fxSprites=0;
-function sourceFXLifetime(effect,assets,library){
- if(effect.movieclip){const ref=sourceReference(effect.movieclip),slash=ref.lastIndexOf('/'),stem=ref.slice(0,slash).split('/').pop(),sc=library?.scenes['modernfx_'+stem]||library?.scenes[stem];return sc?.duration(ref.slice(slash+1))||1;}
- const e=assets[effect.particle]?.emitter;if(!e)return 0;let last=0;for(const c of e.components||[])if(c.__class==='SpawnBurst')last=Math.max(last,...(c.bursts||[]).map(b=>Number(b.t)||0));else if(c.__class==='SpawnRate')last=Math.max(last,Number(c.duration)||0);
- return last+Math.max(Number(sourceCurve(e.lifetime,0))||0,Number(sourceCurve(e.lifetime,1))||0)+(Number(e.lifetimeJitter)||0);
-}
-function sourceCurve(value,t){
- if(typeof value==='number')return value;if(!Array.isArray(value))return null;
- const mix=(a,b,f)=>Array.isArray(a)?a.map((v,i)=>v+(b[i]-v)*f):a+(b-a)*f;t=Math.max(0,Math.min(1,t));
- if(value.length===2)return mix(value[0],value[1],t);if(value.length===3)return value;
- if(value.length!==6)return null;const cubic=(u,a,b)=>3*(1-u)*(1-u)*u*a+3*(1-u)*u*u*b+u*u*u;
- let lo=0,hi=1;for(let i=0;i<24;i++){const u=(lo+hi)/2;if(cubic(u,value[0],value[2])<t)lo=u;else hi=u;}
- return mix(value[4],value[5],cubic((lo+hi)/2,value[1],value[3]));
-}
-function sourceRandom(seed,slot){let n=2166136261;for(const c of String(seed)+':'+slot)n=Math.imul(n^c.charCodeAt(0),16777619);n=Math.imul(n^(n>>>16),2246822507);return ((n^(n>>>13))>>>0)/4294967296;}
-function sourceParticleSamples(record,time,seed,budget=24){
- const e=record?.emitter,r=record?.render;if(!e||!r||time<0||!budget)return[];const components=e.components||[];
- if(components.some(c=>!['SpawnBurst','SpawnRate','SpawnPlanar'].includes(c.__class))||sourceCurve(r.alpha??1,.5)===null)return[];
- const max=Math.min(48,Math.max(0,Math.floor(budget)),e.maxParticleCount||48),lifeMax=Math.max(.001,Number(sourceCurve(e.lifetime,1))||0)+(Number(e.lifetimeJitter)||0),births=[];
- for(const c of components){if(c.__class==='SpawnBurst'){const period=Math.max(.001,lifeMax),cycle=e.emitterLoop?Math.floor(time/period):0;for(let loop=Math.max(0,cycle-1);loop<=cycle;loop++)for(const [bi,b]of(c.bursts||[]).entries())for(let j=0;j<(b.c||1);j++)births.push({at:loop*period+(b.t||0),key:'b'+bi+':'+loop+':'+j});}
-  if(c.__class==='SpawnRate'){const rate=Math.max(.001,Number(c.spawnRate)||0),last=Math.floor(Math.min(time,c.infinite?time:Number(c.duration)||0)*rate),first=Math.max(0,Math.floor((time-lifeMax)*rate));for(let i=last;i>=first&&births.length<max*2;i--)births.push({at:i/rate,key:'r'+i});}}
- const out=[],planar=components.find(c=>c.__class==='SpawnPlanar')||{},offset=e.spawnPointOffset||{},gravity=e.gravity||[0,0,0],range=(a,b,rand)=>(Number(a)||0)+((Number(b??a)||0)-(Number(a)||0))*rand;
- for(const birth of births){if(out.length>=max)break;const random=k=>sourceRandom(seed+':'+birth.key,k),age=time-birth.at,life=Math.max(.001,Number(sourceCurve(e.lifetime,birth.at))+range(-e.lifetimeJitter,e.lifetimeJitter,random(0)));if(age<0||age>=life)continue;const t=age/life,angle=range(planar.minAngle,planar.maxAngle,random(1))*Math.PI/180,speed=range(planar.minSpeedXY,planar.maxSpeedXY,random(2)),zSpeed=range(planar.minSpeedZ,planar.maxSpeedZ,random(3)),radius=range(planar.spawnMinSize,planar.spawnMaxSize,random(4)),fade=Number(r.alphaFadeout)||0;
-  const scale=(Number(sourceCurve(r.scale??1,t))+range(-r.scaleJitter,r.scaleJitter,random(5)))*(Number(r.globalScale)||1),alpha=Number(sourceCurve(r.alpha??1,t))*Math.min(1,fade?(life-age)/fade:1);if(!Number.isFinite(scale)||!Number.isFinite(alpha))continue;
-  out.push({age,x:(offset.x||0)+Math.cos(angle)*(radius+speed*age)+gravity[0]*age*age/2,y:(offset.y||0)+Math.sin(angle)*(radius+speed*age)+gravity[1]*age*age/2,z:(offset.z||0)+zSpeed*age+gravity[2]*age*age/2,scale:Math.max(0,scale),alpha:Math.max(0,Math.min(1,alpha)),color:sourceCurve(r.color||[1,1,1],t),rotation:((Number(r.angle)||0)+range(-r.angleJitter,r.angleJitter,random(6))+((Number(r.rotationSpeed)||0)+range(-r.rotationSpeedJitter,r.rotationSpeedJitter,random(7)))*age)*Math.PI/180,movieclip:record.movieclip?.[Math.floor(random(8)*(record.movieclip?.length||1))]});
- }return out;
-}
+const particleSampler=root.RoyaleSourceParticles||(typeof module==='object'&&module.exports?require('./source-particles'):null);
+const particleTransforms=particleSampler?new particleSampler.ParticleTransformHistory():null;
+function sourceFXLifetime(effect,assets,library){return particleSampler.sourceFXLifetime(effect,assets,library);}
+function sourceCurve(value,t){return particleSampler.sourceCurve(value,t);}
+function sourceParticleSamples(record,time,seed,budget=24){return particleSampler.sourceParticleSamples(record,time,seed,budget);}
 function sourceReference(value){return String(value||'').split(' | ')[0];}
 function sourceFXPlan(contract,partPoses,assets,time,team){
  const out=[],visit=(node,chain,part,age,seen,bone=null,eventKey=null)=>{if(!node||seen.size>24)return;const components=node.components||[],model=components.find(c=>c.Model),mount=components.find(c=>c.objectType===5012);
@@ -2911,19 +3248,24 @@ function sourceFXPlan(contract,partPoses,assets,time,team){
  };
  visit(contract.sourcePrefab?.data,[],0,time,new Set());
  for(const [part,pose]of partPoses.entries()){if(!pose)continue;const metadata=contract.parts[part],descriptor=metadata.asm?.States?.find(s=>s.Name===pose.name),fps=Number(metadata.animations[pose.name]?.fps)||30,speed=Number(descriptor?.BaseSpeed)||1;
-  for(const [eventIndex,event]of (descriptor?.Events||[]).entries()){const frame=Number(event.Frame)||0,path=sourceReference(event.Effect);if(event.Event==='Effect'&&frame<=pose.frame&&assets[path]?.data)visit(assets[path].data,metadata.transforms||[],part,(pose.frame-frame)/fps/speed,new Set([path]),null,part+':'+pose.name+':'+eventIndex);}
+  for(const [eventIndex,event]of (descriptor?.Events||[]).entries()){const frame=Number(event.Frame)||0,path=sourceReference(event.Effect);if(event.Event==='Effect'&&frame<=pose.frame&&assets[path]?.data)visit(assets[path].data,metadata.transforms||[],part,((pose.time??pose.frame/fps)-frame/fps)/speed,new Set([path]),null,part+':'+pose.name+':'+eventIndex);}
  }return out;
 }
-function drawSourceFX(c,actor,partPoses,team,time,seed,effects){
+function drawSourceFX(c,actor,partPoses,team,time,seed,effects,presentation={clock:time,origin:[0,0],factor:1}){
  const library=root.RoyaleNative?.library,fx=library?.fx;if(!library)return;const policy=root.RoyaleGraphics?.current;let budget=root.RoyaleGraphics?root.RoyaleGraphics.particleBudget(policy?.particles||'good',false):24;if(!budget)return;
  for(const effect of effects||sourceFXPlan(actor.contract,partPoses,manifest.vfxAssets||{},time,team)){if(effect.age<0||budget<=0)continue;const part=actor.parts[effect.part],bone=effect.bone&&part?.gltf.scene.getObjectByName(effect.bone.BoneName);if(effect.bone&&!bone)continue;
   if(effect.bone&&meshVisibility(part.metadata,partPoses[effect.part]?.name,partPoses[effect.part]?.frame??0)[effect.bone.BoneName]===false)continue;
-  let matrix=(bone?.matrixWorld||actor.group.matrixWorld).clone();if(bone&&effect.bone.IgnoreBoneScale){const p=new T.Vector3(),q=new T.Quaternion(),s=new T.Vector3();matrix.decompose(p,q,s);matrix.compose(p,q,new T.Vector3(1,1,1));}
+  let matrix=(bone?.matrixWorld||actor.group.matrixWorld).clone();if(bone&&(effect.bone.IgnoreBoneScale||effect.bone.IgnoreBoneRotation)){const p=new T.Vector3(),q=new T.Quaternion(),s=new T.Vector3();matrix.decompose(p,q,s);if(effect.bone.IgnoreBoneScale)s.set(1,1,1);if(effect.bone.IgnoreBoneRotation)q.identity();matrix.compose(p,q,s);}if(effect.bone?.Offset)matrix.multiply(new T.Matrix4().makeTranslation(...effect.bone.Offset));
   for(const tr of effect.chain){const local=new T.Matrix4().compose(new T.Vector3().fromArray(tr.pos||[0,0,0]),new T.Quaternion().setFromEuler(new T.Euler(...(tr.rot||[0,0,0]).map(v=>v*Math.PI/180))),new T.Vector3().fromArray(tr.scl||[1,1,1]));matrix.multiply(local);}
-  const samples=effect.movieclip?[{movieclip:effect.movieclip,age:effect.age,alpha:1,scale:1,x:0,y:0,z:0,rotation:0,color:[1,1,1]}]:sourceParticleSamples(manifest.vfxAssets?.[effect.particle],effect.age,seed+':'+(effect.historyKey||effect.particle),budget);
-  for(const sample of samples){if(budget--<=0)break;const ref=sourceReference(sample.movieclip),slash=ref.lastIndexOf('/'),stem=ref.slice(0,slash).split('/').pop(),name=ref.slice(slash+1),sc=library.scenes['modernfx_'+stem]||library.scenes[stem];if(!sc||sc.id(name)===undefined||effect.component.Loop!==true&&sample.age>sc.duration(name))continue;if(fx&&policy&&fx.particlesUsed>=policy.frameParticles)break;
-   const offset=effect.component.Offset||[0,0,0],point=new T.Vector3(sample.x+offset[0],sample.y+offset[1],sample.z+offset[2]).applyMatrix4(matrix),worldScale=new T.Vector3().setFromMatrixScale(matrix),scale=sample.scale*(effect.component.FollowScale?Math.max(worldScale.x,worldScale.y):1),color=sample.color||[1,1,1];
-   c.save();try{c.translate(point.x*UNITS,-(.75*point.y+Math.sqrt(7)/4*point.z)*UNITS);c.rotate(sample.rotation);c.scale(scale,scale);c.globalAlpha*=sample.alpha;if(effect.component.BlendMode===1)c.globalCompositeOperation='lighter';sc.draw(c,name,sample.age,{loop:effect.component.Loop===true,initialColor:[0,0,0,255,...color.map(v=>v*255)]});}finally{c.restore();}if(fx)fx.particlesUsed++;fxSprites++;
+  const transformKey=seed+':'+actor.id+':'+(effect.historyKey||effect.particle)+':'+(effect.bone?.BoneName||'')+':'+JSON.stringify(effect.chain);
+  if(effect.particle&&particleTransforms){const p=new T.Vector3(),q=new T.Quaternion(),s=new T.Vector3();matrix.decompose(p,q,s);particleTransforms.observe(transformKey,effect.historyKey||effect.effectKey||actor.id,presentation.clock,{position:p.toArray(),quaternion:q.toArray(),scale:s.toArray(),origin:presentation.origin,factor:presentation.factor});}
+  const samples=effect.movieclip?[{movieclip:effect.movieclip,age:effect.age,alpha:1,scale:1,x:0,y:0,z:0,rotation:0,color:[1,1,1]}]:sourceParticleSamples((fxManifest?.records||manifest.vfxAssets)?.[effect.particle],effect.age,seed+':'+(effect.historyKey||effect.particle),budget);
+  for(const sample of samples){if(budget--<=0)break;const ref=sourceReference(sample.movieclip),slash=ref.lastIndexOf('/'),stem=ref.slice(0,slash).split('/').pop(),name=ref.slice(slash+1),sc=library.scenes['modernfx_'+stem]||library.scenes[stem],loop=sample.loopMovieClip===true||effect.component.Loop===true;if(!sc||sc.id(name)===undefined||effect.movieclip&&!loop&&sample.age>sc.duration(name))continue;if(fx&&policy&&fx.particlesUsed>=policy.frameParticles)break;
+   const born=effect.particle&&particleTransforms?.resolve(transformKey,presentation.clock,sample.age,sample.followEmitter),sampleMatrix=born?new T.Matrix4().compose(new T.Vector3().fromArray(born.position),new T.Quaternion().fromArray(born.quaternion),new T.Vector3().fromArray(born.scale)):matrix,ratio=born?born.factor/presentation.factor:1,dx=born?(born.origin[0]-presentation.origin[0])/presentation.factor:0,dy=born?(born.origin[1]-presentation.origin[1])/presentation.factor:0;
+   const offset=effect.component.Offset||[0,0,0],point=new T.Vector3(sample.x+offset[0],sample.y+offset[1],sample.z+offset[2]).applyMatrix4(sampleMatrix),worldScale=new T.Vector3().setFromMatrixScale(sampleMatrix),scale=effect.component.FollowScale?Math.max(worldScale.x,worldScale.y):1,color=sample.color||[1,1,1];
+   let rotation=sample.rotation;if(sample.orientToDirection&&sample.velocity&&Math.hypot(...sample.velocity)>1e-10){const direction=new T.Vector3().fromArray(sample.velocity).transformDirection(sampleMatrix);rotation=rotation-(sample.directionRotation||0)+Math.atan2(-(.75*direction.y+Math.sqrt(7)/4*direction.z),direction.x);}
+   const units=effect.particle?UNITS:1;
+   c.save();try{c.translate(point.x*UNITS*ratio+dx,-(.75*point.y+Math.sqrt(7)/4*point.z)*UNITS*ratio+dy);c.rotate(rotation);c.scale((sample.scaleX??sample.scale)*scale*units*ratio,(sample.scaleY??sample.scale)*scale*units*ratio);c.globalAlpha*=sample.alpha;if(effect.component.BlendMode===1)c.globalCompositeOperation='lighter';sc.draw(c,name,sample.age,{loop,initialColor:[0,0,0,255,...color.map(v=>v*255)]});}finally{c.restore();}if(fx)fx.particlesUsed++;fxSprites++;
   }
  }
 }
@@ -2950,15 +3292,17 @@ class ActorCache{
  clear(){for(const actor of this.entries.values())this.release(actor);this.entries.clear();this.bytes=0;this.active.clear();this.frameOpen=false;}
  stats(){return {activeActors:[...this.active].filter(id=>this.entries.has(id)).length,activeRequested:this.active.size,inactiveActors:[...this.entries.keys()].filter(id=>!this.active.has(id)).length,actorTarget:this.maxActors,overActorLimit:Math.max(0,this.size-this.maxActors),overBudgetBytes:Math.max(0,this.bytes-this.budget)};}
 }
-let manifest={heroes:{},errors:{}},assetBase='assets/modern-heroes/',vendorBase='assets/vendor/three/',configured=Promise.resolve(),onError=null,error=null,contextLost=false,enginePromise=null,T,loader,textureLoader,renderer,scene,camera,ambient,sun;
+let manifest={heroes:{},errors:{}},fxManifest=null,actionEffects=[],actionEffectsTime=0,fxMeshes=0,fxMaterialDraws=0,fxDraws=0,assetBase='assets/modern-heroes/',vendorBase='assets/vendor/three/',configured=Promise.resolve(),onError=null,error=null,contextLost=false,enginePromise=null,T,loader,textureLoader,renderer,scene,camera,ambient,sun;
 const actors=new ActorCache(),pending=new Map(),failed=new Map(),metrics=new Map(),poses=new PoseCache(),poseHistory=new PoseHistory();let renders=0,hits=0,generation=0;
 function report(e,id){const message=`Original 3D art${id?' for '+id:''}: ${e?.message||e}`;error=message;if(id)failed.set(id,message);if(onError)onError(message,id);return message;}
 function localURL(file,base=assetBase){return new URL(file,new URL(base,root.document?.baseURI||root.location?.href||'http://localhost/')).href;}
 function configure(value,base='assets/modern-heroes/',options={}){
  generation++;assetBase=base;vendorBase=options.vendorBase||'assets/vendor/three/';onError=options.onError||null;error=null;failed.clear();poses.clear();
- actors.clear();pending.clear();metrics.clear();fxHistory.clear();poseHistory.clear();fxSprites=0;
+ actors.clear();pending.clear();metrics.clear();fxHistory.clear();poseHistory.clear();particleTransforms?.clear();fxSprites=0;
  if(typeof value==='string')configured=fetch(localURL(value,'')).then(r=>{if(!r.ok)throw Error('manifest '+r.status);return r.json();}).then(v=>{manifest=v;return manifest;}).catch(e=>{report(e);throw e;});
- else{manifest=value||{heroes:{},errors:{}};configured=Promise.resolve(manifest);}return configured;
+ else{manifest=value||{heroes:{},errors:{}};configured=Promise.resolve(manifest);}
+ fxManifest=null;actionEffects=[];fxMeshes=fxMaterialDraws=fxDraws=0;
+ if(root.RoyaleModernFX3D&&root.document)configured=configured.then(async m=>{const response=await fetch(localURL('fx-manifest.json'));if(!response.ok)throw Error('source effects manifest '+response.status);fxManifest=await response.json();fxManifest.records={...m.vfxAssets,...fxManifest.records};return m;}).catch(e=>{report(e);throw e;});return configured;
 }
 function has(id){return Object.prototype.hasOwnProperty.call(manifest.heroes||{},id);}
 function unsupported(id){return failed.get(id)||manifest.errors?.[id]||null;}
@@ -2994,7 +3338,7 @@ async function sourceMaterial(material,part){const plan=sourceMaterialPlan(mater
  const mra=await textureLoader.loadAsync(localURL(plan.mraFile));mra.flipY=false;mra.colorSpace=T.NoColorSpace;mra.wrapS=mra.wrapT=T.RepeatWrapping;part.masks.push(mra);
  const mask=part.masksByFile.get(material.userData.teamMask);if(!mask)return material;
  // Source diffuse KTX2 is ASTC sRGB; MRA/team masks are linear data textures.
- material.map.colorSpace=T.SRGBColorSpace;material.map.wrapS=material.map.wrapT=T.RepeatWrapping;
+ const diffusePath=material.userData.sourceVariables?.textures?.diffuseTex?.split('#')[0];material.map.colorSpace=material.userData.sourceTextureMetadata?.[diffusePath]?.colorSpace==='linear'?T.NoColorSpace:T.SRGBColorSpace;material.map.wrapS=material.map.wrapT=T.RepeatWrapping;
  const uniforms={diffuseTex:{value:material.map},mraTex:{value:mra},teamColorTex:{value:mask},fragmentMaterialUniforms:{value:{fresnelColor:new T.Vector4(),rimLightColor:new T.Vector4(),rimLightDir:new T.Vector3(),metalness:plan.metalness,roughness:plan.roughness,emissiveStrength:plan.emissiveStrength,specularStrength:0,sssStrength:0,fr_IOR:0,fr_colorMul:0,fr_weight:0,rl_colorMul:0,rl_lowTolerance:0,rl_pow:0,rl_weight:0}},fragmentObjectUniforms:{value:{u_color:new T.Vector4(1,1,1,1),u_clipPlane:new T.Vector4(),color_mul:new T.Vector4(1,1,1,1),color_add:new T.Vector4()}},sceneUniforms:{value:{u_invView:new T.Matrix4(),u_projectionView:new T.Matrix4(),u_shadowProjectionView:new T.Matrix4(),u_lightDirectionTime:new T.Vector4(),u_cameraPosition:new T.Vector4(),u_dirLightColor:new T.Vector4(),u_sceneAmbientColor:new T.Vector4(),u_skyboxParams:new T.Vector4()}}};
  const replacement=new T.ShaderMaterial({name:material.name,glslVersion:T.GLSL3,vertexShader:sourceVertex,fragmentShader:sourceFragment(manifest.sourceLodShader.fragment),uniforms,side:material.side,transparent:material.transparent,depthWrite:material.depthWrite,toneMapped:false});
  replacement.userData=material.userData;replacement.userData.sourceLodMaterial=true;material.dispose();return replacement;
@@ -3006,7 +3350,7 @@ function configureLighting(actor){const light=lightFromPrefab(actor.contract.sou
 }
 function materialTextures(material){return [...Object.values(material),...Object.values(material.uniforms||{}).map(u=>u.value)].filter(value=>value?.isTexture);}
 function actorMemory(actor){const geometry=new Set(),textures=new Set();let bytes=0;actor.group.traverse(o=>{if(o.geometry&&!geometry.has(o.geometry)){geometry.add(o.geometry);for(const attribute of Object.values(o.geometry.attributes))bytes+=attribute.array.byteLength;bytes+=o.geometry.index?.array?.byteLength||0;}for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])for(const texture of materialTextures(m))textures.add(texture);});for(const part of actor.parts)for(const texture of part.masks)textures.add(texture);for(const texture of textures){const im=texture.source?.data||texture.image;bytes+=(im?.width||0)*(im?.height||0)*4*(texture.generateMipmaps?4/3:1);}return Math.ceil(bytes);}
-function disposeActor(actor){if(!actor)return;scene?.remove(actor.group);const geometries=new Set(),materials=new Set(),textures=new Set();actor.group.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const texture of materialTextures(m))textures.add(texture);}});for(const part of actor.parts){part.mixer.stopAllAction();part.mixer.uncacheRoot(part.gltf.scene);for(const t of part.masks)textures.add(t);}for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures){t.source?.data?.close?.();t.dispose();}}
+function disposeActor(actor){if(!actor)return;scene?.remove(actor.group);actor.fx?.dispose();const geometries=new Set(),materials=new Set(),textures=new Set();actor.group.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const texture of materialTextures(m))textures.add(texture);}});for(const part of actor.parts){part.mixer.stopAllAction();part.mixer.uncacheRoot(part.gltf.scene);for(const t of part.masks)textures.add(t);}for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures){t.source?.data?.close?.();t.dispose();}}
 async function loadActor(id){
  const resident=actors.get(id);if(resident)return resident;if(pending.has(id))return pending.get(id);if(!has(id)||failed.has(id))return null;
  const epoch=generation,promise=(async()=>{
@@ -3021,14 +3365,16 @@ async function loadActor(id){
    const replacements=new Map();for(const m of new Set(materials))replacements.set(m,await sourceMaterial(m,part));gltf.scene.traverse(o=>{if(o.material)o.material=Array.isArray(o.material)?o.material.map(m=>replacements.get(m)||m):(replacements.get(o.material)||o.material);});
    const mixer=new T.AnimationMixer(gltf.scene);Object.assign(part,{mixer,actions:new Map(gltf.animations.map(clip=>[clip.name,mixer.clipAction(clip)]))});parts.push(part);
   }
-  if(!parts.length)throw Error('source actor contains no converted geometry');group.updateMatrixWorld(true);actor.bytes=actorMemory(actor);
+  if(!parts.length)throw Error('source actor contains no converted geometry');group.updateMatrixWorld(true);
+  if(fxManifest&&root.RoyaleModernFX3D){actor.fx=new root.RoyaleModernFX3D.Renderer(T,fxManifest,loader,textureLoader,localURL);await actor.fx.prepare(actor);}
+  actor.bytes=actorMemory(actor)+(actor.fx?await actor.fx.bytes():0);
   if(epoch!==generation){disposeActor(actor);return null;}measureHead(actor);actors.set(id,actor);return actor;
   }catch(e){disposeActor(actor);if(epoch===generation)report(e,id);return null;}
  })();pending.set(id,promise);promise.finally(()=>{if(pending.get(id)===promise)pending.delete(id);}).catch(()=>{});return promise;
 }
 async function prepareActors(ids=[]){await configured;if(!actors.frameOpen){actors.beginFrame([]);actors.endFrame();}const result=[];for(const id of new Set(ids)){if(!has(id))continue;try{const actor=await loadActor(id);result.push({id,ready:!!actor,error:unsupported(id)});}catch(e){report(e,id);result.push({id,ready:false,error:unsupported(id)});}}return result;}
 function choosePartPose(part,state,elapsed,options,actor){
- const entity=options.entity||{},custom=Number(entity.modernCustomStateNumber),candidates=state==='ability'&&Number.isInteger(custom)&&custom>0?['Custom'+custom,...STATE_NAMES.ability]:STATE_NAMES[state]||[state],contains=name=>part.actions?part.actions.has(name):Object.prototype.hasOwnProperty.call(part.metadata.animations||{},name),choose=names=>names.map(name=>resolveState(part.metadata.asm,name,entity)).find(name=>name&&contains(name));
+ const entity=options.entity||{},custom=Number(entity.modernCustomStateNumber),sequence=Number(entity.attackSequenceIndex)||0,candidates=state==='ability'&&Number.isInteger(custom)&&custom>0?['Custom'+custom,...STATE_NAMES.ability]:state==='attack'&&sequence>0&&actor.contract.sourceEntity?.AttackSequenceList?.length>sequence?['Attack'+(sequence+1),...STATE_NAMES.attack]:STATE_NAMES[state]||[state],contains=name=>part.actions?part.actions.has(name):Object.prototype.hasOwnProperty.call(part.metadata.animations||{},name),choose=names=>names.map(name=>resolveState(part.metadata.asm,name,entity)).find(name=>name&&contains(name));
  let name=choose(candidates)||choose([part.metadata.asm?.DefaultState])||choose(['Idle'])||part.gltf?.animations[0]?.name||Object.keys(part.metadata.animations||{})[0];if(!name)return null;
  let t=elapsed;if(['run','charge'].includes(state)){if(entity&&!entity.air&&Number.isFinite(entity.walk))t=entity.walk;t*=Math.max(.1,1+(Number(actor.contract.sourceEntity?.WalkTweakPercentage)||0)/100);}
  let pose=clipPose(part.metadata.animations[name],t,state,entity.visualAttack,options.attackDuration||0,part.metadata.asm?.States?.find(s=>s.Name===name));
@@ -3038,14 +3384,31 @@ function applyPose(actor,partPoses,team,yaw,blends=[]){actor.group.rotation.z=ya
 function actorBounds(actor){actor.group.traverse(o=>{if(o.isSkinnedMesh){o.skeleton.update();o.computeBoundingBox();}});return new T.Box3().setFromObject(actor.group);}
 function projectedBounds(box){let left=Infinity,right=-Infinity,top=-Infinity,bottom=Infinity;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const py=.75*y+Math.sqrt(7)/4*z;left=Math.min(left,x);right=Math.max(right,x);top=Math.max(top,py);bottom=Math.min(bottom,py);}return {left,right,top,bottom};}
 function measureHead(actor){if(metrics.has(actor.id))return;const p=actor.parts.map(part=>choosePartPose(part,'idle',0,{},actor));applyPose(actor,p,0,0);const box=projectedBounds(actorBounds(actor)),factor=(5/6)*(Number(actor.contract.sourceEntity?.Scale)||100)/100;metrics.set(actor.id,Math.max(18,Math.min(140,box.top*UNITS*factor))+5);}
-function rasterPose(actor,partPoses,team,yaw,density,blends=[]){
+function fxLight(actor){return {...sourceLighting(actor.contract),direction:sun.position.clone().normalize().toArray()};}
+function rasterPose(actor,partPoses,team,yaw,density,blends=[],effects=[],time=0,shadowOnly=false){
  applyPose(actor,partPoses,team,yaw,blends);const bounds=projectedBounds(actorBounds(actor)),margin=.08;
  const left=bounds.left-margin,right=bounds.right+margin,top=bounds.top+margin,bottom=bounds.bottom-margin,width=right-left,height=top-bottom;
  if(![width,height].every(v=>Number.isFinite(v)&&v>0))throw Error('invalid source model bounds');
  const effective=Math.min(density,1536/(width*UNITS),1536/(height*UNITS)),w=Math.max(2,Math.ceil(width*UNITS*effective)),h=Math.max(2,Math.ceil(height*UNITS*effective));
- camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();renderer.setSize(w,h,false);actor.team=team;configureLighting(actor);scene.add(actor.group);try{renderer.render(scene,camera);}finally{scene.remove(actor.group);}
+ camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();camera.updateMatrixWorld();renderer.setSize(w,h,false);actor.team=team;configureLighting(actor);
+ const hidden=[];if(actor.fx){const before=actor.fx.materialDraws;actor.fx.updateBody(shadowOnly?[]:effects,time,team,camera,fxLight(actor));fxMaterialDraws+=actor.fx.materialDraws-before;if(shadowOnly)actor.group.traverse(o=>{if(o.visible&&o.material?.userData.sourceFXFamily?.startsWith('vfx_')){o.visible=false;hidden.push(o);}});}
+ scene.add(actor.group);try{renderer.render(scene,camera);}finally{scene.remove(actor.group);for(const o of hidden)o.visible=true;}
  const image=root.document.createElement('canvas');image.width=w;image.height=h;image.getContext('2d').drawImage(renderer.domElement,0,0);renders++;return {image,x:left*UNITS,y:-top*UNITS,width:width*UNITS,height:height*UNITS};
 }
+function drawMeshFX(c,actor,effects,time,team,density){
+ const policy=root.RoyaleGraphics?.current,nativeFX=root.RoyaleNative?.library?.fx,budget=policy?Math.max(0,Math.min(root.RoyaleGraphics.particleBudget(policy.particles,false)*2,policy.frameParticles-(nativeFX?.particlesUsed||0))):96;
+ if(!actor.fx||!budget)return;configureLighting(actor);const light=fxLight(actor),count=actor.fx.updateMeshes(effects,time,team,camera,light,budget);if(!count)return;
+ const bounds=projectedBounds(new T.Box3().setFromObject(actor.fx.group)),pad=.12,left=bounds.left-pad,right=bounds.right+pad,top=bounds.top+pad,bottom=bounds.bottom-pad,width=right-left,height=top-bottom;
+ if(![width,height].every(v=>Number.isFinite(v)&&v>0&&v<128))return;
+ const effective=Math.min(density,1536/(width*UNITS),1536/(height*UNITS));camera.left=left;camera.right=right;camera.top=top;camera.bottom=bottom;camera.updateProjectionMatrix();camera.updateMatrixWorld();
+ actor.fx.updateMeshes(effects,time,team,camera,light,budget);actor.fx.updateBody(effects,time,team,camera,light);renderer.setSize(Math.max(2,Math.ceil(width*UNITS*effective)),Math.max(2,Math.ceil(height*UNITS*effective)),false);
+ // The body writes depth without repainting color, so rear slashes stay behind
+ // the actual moving mesh while front sparks remain visible.
+ const changed=new Map();actor.group.traverse(o=>{for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])if(!changed.has(m)){changed.set(m,m.colorWrite);m.colorWrite=false;}});
+ scene.add(actor.group,actor.fx.group);try{renderer.render(scene,camera);c.drawImage(renderer.domElement,left*UNITS,-top*UNITS,width*UNITS,height*UNITS);fxMeshes+=count;fxDraws++;if(nativeFX)nativeFX.particlesUsed+=count;}finally{scene.remove(actor.group,actor.fx.group);for(const[m,value]of changed)m.colorWrite=value;}
+}
+function setActionEffects(effects=[],time=0){actionEffectsTime=time;actionEffects=effects.filter(e=>e.sourcePrefab&&time<(e.born??time)+(e.ttl??4));}
+function actionMeshPlan(actor,id,time,team){if(!fxManifest)return[];const F=root.RoyaleModernFX3D,out=[];for(const e of actionEffects){if(e.sourceActor!==id)continue;const record=fxManifest.records[F.reference(e.sourcePrefab)];if(!record?.data)continue;const age=Math.max(0,actionEffectsTime-(e.born??actionEffectsTime));for(const row of [...F.sourceMeshPlan({...actor.contract,sourcePrefab:record},[],fxManifest.records,age,team),...sourceFXPlan({...actor.contract,sourcePrefab:record},[],fxManifest.records,age,team)])out.push({...row,eventKey:null,effectKey:e.sourceActionToken||e.sourcePrefab+String(e.born),age,looped:e.loop||row.looped,duration:e.ttl??row.duration});}return out;}
 function tintRaster(raster,color,key){if(!color)return raster;const cacheKey=key+':'+color.join(','),existing=poses.get(cacheKey);if(existing)return existing;const image=root.document.createElement('canvas');image.width=raster.image.width;image.height=raster.image.height;const c=image.getContext('2d',{willReadFrequently:true});c.drawImage(raster.image,0,0);const pixels=c.getImageData(0,0,image.width,image.height);for(let i=0;i<pixels.data.length;i+=4){for(let j=0;j<3;j++)pixels.data[i+j]=Math.min(255,pixels.data[i+j]*color[4+j]/255+color[j]);pixels.data[i+3]*=color[3]/255;}c.putImageData(pixels,0,0);const result={...raster,image};poses.set(cacheKey,result,image.width*image.height*4);return result;}
 function draw(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
  if(!has(id)||failed.has(id)||contextLost)return false;actors.markActive(id);const actor=actors.get(id),contract=manifest.heroes[id];
@@ -3058,21 +3421,22 @@ function draw(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale
   for(const [i,p]of partPoses.entries())if(p){const descriptor=contract.parts[i].asm?.States?.find(s=>s.Name===p.name),first=(Number(descriptor?.StartFrame)||0)/(Number(contract.parts[i].animations[p.name]?.fps)||30);p.time=Math.max(first,Math.floor(p.time*fps+1e-7)/fps);}
   const entity=options.entity,clock=entity?.visualTime??time,activation=[id,state,entity?.visualStarted??started,entity?.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),attack=state==='attack'&&entity?.visualAttack,blends=poseHistory.sample(entity?.id,activation,clock,partPoses,contract.parts,attack?{...attack,windup:Number.isFinite(attack.releasedAt)?0:Math.max(0,(Number(attack.windup)||0)-elapsed)}:null);
   for(const blend of blends)blend.weight=Math.floor(blend.weight*fps+1e-7)/fps;
-  const key=[id,team===1?1:0,density,steps,index,...partPoses.map(p=>p?`${p.name}:${p.frame}:${p.time.toFixed(6)}`:'static'),...blends.map(b=>`${b.index}:${b.from.name}:${b.from.time.toFixed(6)}:${b.weight}`)].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density,blends);poses.set(key,raster,raster.image.width*raster.image.height*4);}
+  let effects=[];if(actor&&entity&&!options.ghost&&!options.shadowOnly){const records=fxManifest?.records||manifest.vfxAssets||{},current=[...sourceFXPlan(contract,partPoses,records,clock,team),...(actor.fx?root.RoyaleModernFX3D.sourceMeshPlan(contract,partPoses,records,clock,team):[])];effects=fxHistory.update(entity.id??id,activation,clock,current,e=>e.model||e.bodyMaterial?e.duration:sourceFXLifetime(e,records,root.RoyaleNative?.library));effects.push(...actionMeshPlan(actor,entity.id,clock,team));}
+  const key=[id,team===1?1:0,density,steps,index,options.shadowOnly?'shadow':'body',fxManifest&&!options.shadowOnly?Math.floor(clock*fps):'',...effects.filter(e=>e.bodyMaterial).map(e=>[e.bodyMaterial,e.effectKey||e.historyKey||e.eventKey||e.path,e.component.GeometryNames?.join(','),e.age.toFixed(4)].join(':')),...partPoses.map(p=>p?`${p.name}:${p.frame}:${p.time.toFixed(6)}`:'static'),...blends.map(b=>`${b.index}:${b.from.name}:${b.from.time.toFixed(6)}:${b.weight}`)].join('|');let raster=poses.get(key);if(raster)hits++;else{if(!actor){loadActor(id).catch(e=>report(e,id));return false;}raster=rasterPose(actor,partPoses,team,yaw,density,blends,effects,clock,options.shadowOnly);poses.set(key,raster,raster.image.width*raster.image.height*4);}
   const source=contract.sourceEntity||{},factor=scale*(5/6)*(Number(source.Scale)||100)/100,height=options.height??Math.max(0,Number(source.FlyingHeight)||0)/1000*20;
   if(options.shadowOnly){if(!options.paint)return false;options.paint(c,raster,factor);return true;}
   c.save();try{c.translate(x,y-height);c.scale(factor,factor);c.filter=root.RoyaleNative?.teamFilter?.(team)||'none';const paint=color=>{const image=tintRaster(raster,color,key);c.drawImage(image.image,image.x,image.y,image.width,image.height);};
-  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&options.entity&&!options.ghost){const fxTime=options.entity.visualTime??time,current=sourceFXPlan(actor.contract,partPoses,manifest.vfxAssets||{},fxTime,team),activation=[id,state,options.entity.visualStarted??started,options.entity.visualAttack?.sequence??0,...partPoses.map(p=>p?.name||'static')].join('|'),effects=fxHistory.update(options.entity.id??id,activation,fxTime,current,e=>sourceFXLifetime(e,manifest.vfxAssets||{},root.RoyaleNative?.library));if(effects.length){applyPose(actor,partPoses,team,yaw,blends);drawSourceFX(c,actor,partPoses,team,fxTime,options.entity.id??id,effects);}}}finally{c.restore();}return true;
+  if(options.entity&&root.RoyalePresentation?.ready)root.RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);if(actor&&entity&&!options.ghost&&effects.length){applyPose(actor,partPoses,team,yaw,blends);drawMeshFX(c,actor,effects,clock,team,density);drawSourceFX(c,actor,partPoses,team,clock,entity.id??id,effects.filter(e=>e.particle||e.movieclip),{clock:time,origin:[x,y-height],factor});particleTransforms?.prune(time);}}finally{c.restore();}return true;
  }catch(e){report(e,id);return false;}
 }
 function headHeight(id){return metrics.get(id)||null;}
 function shadow(c,id,x,y,team,time,state,heading,started,scale,options={}){return draw(c,id,x,y,team,time,state,heading,started,scale,{...options,shadowOnly:true});}
-function beginFrame(ids=[]){if(!ids.length){fxHistory.clear();poseHistory.clear();}actors.beginFrame([...new Set(ids)].filter(has));}
+function beginFrame(ids=[]){if(!ids.length){fxHistory.clear();poseHistory.clear();particleTransforms?.clear();}actors.beginFrame([...new Set(ids)].filter(has));}
 function endFrame(){actors.endFrame();}
 // modelBytes estimates geometry and decoded textures, not total browser/GPU
 // memory. modelBudget is a soft inactive target; active overflow is explicit.
-function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,fxSprites,fxHistoryEntries:fxHistory.size,pending:pending.size,error,failed:Object.fromEntries(failed)};}
-return {configure,prepareActors,beginFrame,endFrame,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
+function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,fxSprites,fxMeshes,fxMaterialDraws,fxDraws,fxHistoryEntries:fxHistory.size,pending:pending.size,error,failed:Object.fromEntries(failed)};}
+return {configure,prepareActors,beginFrame,endFrame,setActionEffects,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,PoseCache,ActorCache,get error(){return error;}};
 });
 
 ;
@@ -4159,7 +4523,7 @@ class Renderer{
  begin(){this.used=0;this.particlesUsed=0;}
  // Target filters are presentation records. Rebuild from the current visual
  // events each frame so seeking/replays never retain a future hit's colour.
- prepareUnitFilters(b){this.unitFilters=new Map();const now=b.visualTime??b.time;for(const e of b.effects||[]){if(!e.sourceEffect||e.follow===undefined)continue;const age=now-e.born-(e.delay||0);if(age<0||age>=e.ttl-(e.delay||0))continue;for(const r of this.components(e.sourceEffect,e.team)){if(r.Type!=='Filter'||!r.ExportName||!r.FileName)continue;const scene=this.library.scenes[nameOf(r.FileName)],time=age-seconds(r.Time),duration=scene?.duration(r.ExportName);if(!scene||scene.id(r.ExportName)===undefined||time<0||!(duration>time))continue;this.unitFilters.set(e.follow,{scene,name:r.ExportName,time,loop:false});}}}
+ prepareUnitFilters(b){this.unitFilters=new Map();const now=b.visualTime??b.time;globalThis.RoyaleModern3D?.setActionEffects?.(b.effects||[],now);for(const e of b.effects||[]){if(!e.sourceEffect||e.follow===undefined)continue;const age=now-e.born-(e.delay||0);if(age<0||age>=e.ttl-(e.delay||0))continue;for(const r of this.components(e.sourceEffect,e.team)){if(r.Type!=='Filter'||!r.ExportName||!r.FileName)continue;const scene=this.library.scenes[nameOf(r.FileName)],time=age-seconds(r.Time),duration=scene?.duration(r.ExportName);if(!scene||scene.id(r.ExportName)===undefined||time<0||!(duration>time))continue;this.unitFilters.set(e.follow,{scene,name:r.ExportName,time,loop:false});}}}
  unitFilter(u){return u?.preview?null:this.unitFilters?.get(u?.id)||null;}
  async prewarmSpells(cardIds,game){if(typeof document==='undefined')return;const roots=[];for(const id of new Set(cardIds)){const card=game.cards?.find(c=>c.id===id)||globalThis.RoyaleCore?.CARD_BY_ID[id],form=globalThis.RoyaleCardForms?.defaultRegistry?.get(id);if(card?.spell||card?.kind==='Spell')roots.push(card.source);if(form)roots.push(form.source);}const names=sourceEffects(this.data,game,roots);
   const cv=document.createElement('canvas');cv.width=cv.height=256;const ctx=cv.getContext('2d'),sprites=this.spriteCount,effects=this.effectCount;let start=performance.now();
@@ -4201,7 +4565,9 @@ class Renderer{
     // Small numeric area-emitter radii use a local coordinate space distinct
     // from the authored SWF floor. Map that space to the actual spell footprint.
     const placed=options.area&&Ground.placement(options.area,r.ParticleEmitterName,p,options.seed,ri,scale);
-    let px=x+(placed?.x??p.x*scale),py=y+(placed?.y??p.y*scale*.75)-(placed?.z??p.z*scale)-num(options.height)+num(d.ShadowYShift)*scale;
+    // Shadow placement is independent of the visible clip's authored anchor.
+    // Applying ShadowYShift here also lifted Knight Evo's protection off its body.
+    let px=x+(placed?.x??p.x*scale),py=y+(placed?.y??p.y*scale*.75)-(placed?.z??p.z*scale)-num(options.height);
     if(options.velocity){px-=options.velocity.x*p.age;py-=options.velocity.y*p.age;}
     const aspect=Math.max(.1,num(d.ParticleRadiusAspect,100)/100);let sx=placed?.scale??scale*p.scale,sy=sx*aspect;const placedAlpha=placed?placed.alpha/Math.max(.0001,p.alpha):1;
     if(options.fitArea&&d.ParticleExportName==='earthquake_cracks_timed'){const scene=this.library.scenes[nameOf(d.ParticleResource)],bounds=scene&&this.areaExtent(scene,d.ParticleExportName);if(bounds){sx=options.radius*2*(480/18)/bounds.width;sy=options.radius*40/bounds.height;}}
@@ -4209,8 +4575,10 @@ class Renderer{
     const trailLife=seconds(d.TrailDuration||0),tail=particleTail(d,p,scale,options.velocity);
     if(d.TrailSWF&&d.TrailExportName&&trailLife>0){const n=Math.min(mode==='minimal'?1:2,Math.max(1,Math.ceil(trailLife/.12)));for(let q=1;q<=n;q++){const tx=px-tail.x*q/n,ty=py-tail.y*q/n;count+=Number(this.sprite(c,d.TrailSWF,d.TrailExportName,Math.max(0,p.age-q*.04),tx,ty,sx*.8,sy*.8,p.rotation,alpha*(1-q/(n+1))*.6,true));}}
     else if(tail.length>0&&alpha>.05){c.save();c.globalAlpha*=alpha*.5;c.strokeStyle='rgba(255,255,255,.7)';c.lineWidth=Math.max(.6,num(d.TrailWidth,90)/100*sx);c.beginPath();c.moveTo(px,py);c.lineTo(px-tail.x,py-tail.y);c.stroke();c.restore();}
-    const frameTime=d.FrameFromAngle?((p.theta%TAU+TAU)%TAU)/TAU*.999:p.age;
-    count+=Number(this.sprite(c,d.ParticleResource,d.ParticleExportName,frameTime,px,py,sx,sy,p.rotation,alpha*placedAlpha*(r.ParticleEmitterName==='Zap_hit_area'?.22:1),d.LoopParticleClip===true&&!d.PlayParticleClipOnce));
+    // Directional clips already encode their rotation in the chosen frame.
+    // Use their real duration; rotating the bitmap again also moves off-centre anchors.
+    const frameScene=d.FrameFromAngle&&this.library.scenes[nameOf(d.ParticleResource)],frameTime=d.FrameFromAngle?((p.rotation%TAU+TAU)%TAU)/TAU*(frameScene?.duration(d.ParticleExportName)||1):p.age;
+    count+=Number(this.sprite(c,d.ParticleResource,d.ParticleExportName,frameTime,px,py,sx,sy,d.FrameFromAngle?0:p.rotation,alpha*placedAlpha*(r.ParticleEmitterName==='Zap_hit_area'?.22:1),d.LoopParticleClip===true&&!d.PlayParticleClipOnce));
    }
   }
  }

@@ -1,0 +1,700 @@
+{
+  "sc3d/characters/hero/hero_berserker/effect/particles/ps_berserker_hero_ingame_transform_sparks": {
+    "sha256": "91958f156b3a67972fa4471b0d995e11e3d6ff9cfd30bc4b4dcd5f4003c3c327",
+    "record": {
+      "emitterDataVersion": 6,
+      "emitter": {
+        "maxParticleCount": 60,
+        "lifetime": [
+          0.44270834,
+          0.0052083433,
+          0.5963542,
+          0.9791667,
+          0.3,
+          0.5
+        ],
+        "lifetimeJitter": 0.08,
+        "mass": 1,
+        "spawnPointOffset": {},
+        "gravity": [
+          0,
+          0,
+          0
+        ],
+        "followEmitter": true,
+        "components": [
+          {
+            "__class": "SpawnBurst",
+            "bursts": [
+              {
+                "c": 3
+              },
+              {
+                "t": 0.075,
+                "c": 2
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "globalScale": 0.1,
+        "scale": 0.18,
+        "scaleJitter": 0.09,
+        "color": [
+          0.5286459,
+          0.020833343,
+          0.2994792,
+          0.9791667,
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0.7058824,
+            0.23529412
+          ]
+        ],
+        "alpha": {
+          "_b0": [
+            0,
+            1,
+            0.7473959,
+            0.002604127,
+            0.7473959,
+            0.002604127,
+            0,
+            1,
+            0,
+            0.23822856,
+            -0.17004508,
+            0,
+            -0.59114575,
+            0
+          ]
+        },
+        "gradient": [
+          {
+            "a": 1
+          },
+          {
+            "offset": 1,
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        ],
+        "angleJitter": 360,
+        "stretch": [
+          1,
+          1
+        ],
+        "alphaFadeout": 0.05,
+        "trailDuration": 1,
+        "trailWidth": 1,
+        "blendMode": 2
+      },
+      "movieclip": [
+        "sc/vfx_autochess/vmc_ra_t2_001_loong_seahorse_hit_spark_yello_03 | 49e9c85e-93de-4b98-967a-8934139d1993"
+      ]
+    }
+  },
+  "sc3d/characters/hero/hero_darkprince/effect/particles/ingame/ps_darkprince_hero_ingame_smoke": {
+    "sha256": "56000144286dd1c2f25b21a8d7d33ff3f4714a47e47632c21fadd334fa82078c",
+    "record": {
+      "emitterDataVersion": 6,
+      "emitter": {
+        "maxParticleCount": 35,
+        "lifetime": 0.5,
+        "lifetimeJitter": 0.25,
+        "mass": 1,
+        "spawnPointOffset": {},
+        "gravity": [
+          0,
+          0,
+          0
+        ],
+        "components": [
+          {
+            "__class": "SpawnRate",
+            "infinite": true,
+            "duration": 1.25,
+            "spawnRate": 22,
+            "spawnRateJitter": 1
+          },
+          {
+            "__class": "SpawnCone",
+            "direction": [
+              0,
+              50,
+              1
+            ],
+            "directionJitterAngle": 2,
+            "velocity": 2,
+            "velocityJitter": 0.35
+          },
+          {
+            "__class": "SpawnLocation",
+            "spawnShape": 2,
+            "spawnMaxSize": 0.35
+          },
+          {
+            "__class": "Deceleration",
+            "deceleration": [
+              0.44270834,
+              -0.0026041567,
+              0.3932292,
+              0.9869792,
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                10,
+                10,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      "render": {
+        "globalScale": 0.1,
+        "scale": [
+          0.33333337,
+          0.0052083433,
+          0.4479167,
+          1.0026042,
+          0.18,
+          0.25
+        ],
+        "scaleJitter": 0.05,
+        "color": [
+          0.8645834,
+          0.0052083433,
+          0.5494792,
+          0.9947917,
+          [
+            0.60784316,
+            0.64705884,
+            0.8039216
+          ],
+          [
+            0.4,
+            0.44705883,
+            0.6
+          ]
+        ],
+        "alpha": [
+          0.4375,
+          0.0052083433,
+          0.16666669,
+          1.0026042,
+          0,
+          1
+        ],
+        "gradient": [
+          {
+            "a": 1
+          },
+          {
+            "offset": 1,
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        ],
+        "angleJitter": 360,
+        "rotationSpeed": 50,
+        "rotationSpeedJitter": 20,
+        "stretch": [
+          1,
+          1
+        ],
+        "alphaFadeout": 0.5,
+        "trailDuration": 1,
+        "trailWidth": 1
+      },
+      "movieclip": [
+        "sc/vfx_autochess/vmc_gen_smoke_01 | 49e9c85e-7e63-4897-83ee-378ad35ebe4d"
+      ]
+    }
+  },
+  "sc3d/characters/hero/hero_musketeer/effect/particles/ps_musketeer_hero_muzzle_impact": {
+    "sha256": "c0d4735442a59868552c777b785f39a9ed5ef670bb1cd9652d33d712fa75fe51",
+    "record": {
+      "emitterDataVersion": 6,
+      "emitter": {
+        "maxParticleCount": 1,
+        "lifetime": 0.15,
+        "mass": 1,
+        "spawnPointOffset": {
+          "z": 0.75
+        },
+        "gravity": [
+          0,
+          0,
+          0
+        ],
+        "components": [
+          {
+            "__class": "SpawnBurst",
+            "bursts": [
+              {
+                "c": 1
+              }
+            ]
+          },
+          {
+            "__class": "SpawnPlanar",
+            "minAngle": -90,
+            "maxAngle": -90,
+            "minSpeedXY": 0.01,
+            "maxSpeedXY": 0.01
+          }
+        ]
+      },
+      "render": {
+        "globalScale": 0.1,
+        "scale": 0.225,
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "gradient": [
+          {
+            "a": 1
+          },
+          {
+            "offset": 1,
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        ],
+        "angle": -90,
+        "stretch": [
+          1,
+          1
+        ],
+        "orientToDirection": true,
+        "trailDuration": 1,
+        "trailWidth": 1
+      },
+      "movieclip": [
+        "sc/vfx_autochess/vmc_musketeer_def_muzzle_impact | 49e9c85e-2f1a-40d4-ab77-1e8b096d7121"
+      ]
+    }
+  },
+  "sc3d/characters/hero/hero_musketeer/effect/particles/ps_musketeer_hero_muzzle_dust": {
+    "sha256": "e7205a83e332280adce79d840d1ca819f657c8f85440edaf8b0257bb65fe6033",
+    "record": {
+      "emitterDataVersion": 6,
+      "emitter": {
+        "maxParticleCount": 12,
+        "lifetime": 0.3,
+        "lifetimeJitter": 0.1,
+        "mass": 1,
+        "spawnPointOffset": {
+          "z": 0.3
+        },
+        "gravity": [
+          0,
+          0,
+          0
+        ],
+        "components": [
+          {
+            "__class": "SpawnRate",
+            "duration": 0.3,
+            "spawnRate": 30
+          },
+          {
+            "__class": "SpawnPlanar",
+            "spawnMinSize": -0.5,
+            "spawnMaxSize": -0.5,
+            "minAngle": 90,
+            "maxAngle": 90,
+            "minSpeedXY": -1,
+            "maxSpeedXY": -2,
+            "minSpeedZ": 0.5,
+            "maxSpeedZ": 1.5
+          }
+        ]
+      },
+      "render": {
+        "globalScale": 0.1,
+        "scale": [
+          0.075,
+          0.175
+        ],
+        "color": [
+          0.36458334,
+          0.028645843,
+          0.4322917,
+          0.9947917,
+          [
+            0.78431374,
+            0.78431374,
+            0.78431374
+          ],
+          [
+            0.49019608,
+            0.49019608,
+            0.49019608
+          ]
+        ],
+        "alpha": 0.2,
+        "gradient": [
+          {
+            "a": 1
+          },
+          {
+            "offset": 1,
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        ],
+        "angleJitter": 360,
+        "rotationSpeedJitter": 40,
+        "stretch": [
+          1,
+          1
+        ],
+        "alphaFadeout": 0.2,
+        "trailDuration": 1,
+        "trailWidth": 1
+      },
+      "movieclip": [
+        "sc/vfx_autochess/vmc_gen_smoke_01 | 49e9c85e-7e63-4897-83ee-378ad35ebe4d",
+        "sc/vfx_autochess/vmc_gen_smoke_02 | 49e9c85e-3839-41e5-afc8-95d405e4a128"
+      ]
+    }
+  },
+  "sc3d/characters/babydragon/effect/particles/ps_babydragon_def_buff_leaf": {
+    "sha256": "1ecd3bf19605f42301c882287da5ca78fe7285b0ded6407c7776fc665c465622",
+    "record": {
+      "emitterDataVersion": 6,
+      "emitter": {
+        "maxParticleCount": 7,
+        "lifetime": 0.8,
+        "lifetimeJitter": 0.2,
+        "mass": 1,
+        "spawnPointOffset": {},
+        "gravity": [
+          0,
+          0,
+          0
+        ],
+        "components": [
+          {
+            "__class": "SpawnRate",
+            "duration": 0.75,
+            "spawnRate": 7
+          },
+          {
+            "__class": "SpawnPlanar",
+            "spawnMaxSize": 3.5,
+            "minSpeedXY": 0.3,
+            "maxSpeedXY": 0.5,
+            "randomAngle": true
+          },
+          {
+            "__class": "SpawnVelocityComponent",
+            "velocity": [
+              0,
+              -60,
+              0
+            ],
+            "velocityJitter": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "__class": "Drag",
+            "dragCoeffecient": 4000
+          }
+        ]
+      },
+      "render": {
+        "globalScale": 0.1,
+        "scale": {
+          "_b0": [
+            0,
+            0.05,
+            0.33333334,
+            0.2820031,
+            0.1513715,
+            0.12806168,
+            0,
+            0.30099744,
+            0.2,
+            0.33333334,
+            0,
+            0.33333334,
+            0,
+            0,
+            1,
+            0.06,
+            0.33333334,
+            0,
+            0.33333334,
+            0,
+            0
+          ]
+        },
+        "scaleJitter": 0.03,
+        "color": [
+          0.58493626,
+          0.8186275,
+          0.3772107
+        ],
+        "alpha": {
+          "_b0": [
+            0,
+            0,
+            0.33333334,
+            0,
+            0.33333334,
+            0,
+            0,
+            0.2,
+            0.7,
+            0.33333334,
+            0.01207891,
+            0.42549863,
+            0.0154186785,
+            0,
+            0.6,
+            0.7,
+            0.36243826,
+            -0.0048503834,
+            0.33333334,
+            -0.0044608824,
+            0,
+            1,
+            0,
+            0.33333334,
+            0,
+            0.33333334,
+            0,
+            0
+          ]
+        },
+        "gradient": [
+          {
+            "a": 1
+          },
+          {
+            "offset": 1,
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        ],
+        "angleJitter": 180,
+        "rotationSpeedJitter": 180,
+        "stretch": [
+          1,
+          1
+        ],
+        "trailDuration": 1,
+        "trailWidth": 1
+      },
+      "movieclip": [
+        "sc/vfx_autochess/vmc_gen_leaf_01 | 49e9c85e-1c55-4b9f-bfbe-8e22d1b124a5",
+        "sc/vfx_autochess/vmc_gen_leaf_02 | 49e9c85e-4236-43c6-ae57-76d0041636e7"
+      ]
+    }
+  },
+  "sc3d/characters/dartgoblin/effect/particles/ps_dartgoblin_def_atk_debuff_skeleton": {
+    "sha256": "b08310dabcd517c0d072c3e562e1a59f0ffa47c57e48c8b83f83c53dfd8a0ef3",
+    "record": {
+      "emitterDataVersion": 6,
+      "emitter": {
+        "maxParticleCount": 8,
+        "lifetime": 1.65,
+        "lifetimeJitter": 0.25,
+        "mass": 1,
+        "spawnPointOffset": {
+          "z": 0.2
+        },
+        "gravity": [
+          0,
+          0,
+          0
+        ],
+        "components": [
+          {
+            "__class": "SpawnRate",
+            "infinite": true,
+            "duration": 1.3,
+            "spawnRate": 4
+          },
+          {
+            "__class": "SpawnPlanar",
+            "spawnMinSize": 0.3,
+            "spawnMaxSize": 0.63,
+            "maxAngle": 360,
+            "minSpeedXY": [
+              0.33333334,
+              0.33333334,
+              0.6666667,
+              0.6666667,
+              0.1,
+              0
+            ],
+            "maxSpeedXY": [
+              0.33333334,
+              0.33333334,
+              0.6666667,
+              0.6666667,
+              0.2,
+              0
+            ],
+            "minSpeedZ": {
+              "_b0": [
+                0,
+                0.6519824,
+                0.33333334,
+                -0.06666666,
+                0.33333334,
+                -0.06666666,
+                0,
+                1,
+                0.23568276,
+                0.3333333,
+                -0.06666666,
+                0.3333333,
+                -0.06666666,
+                0
+              ]
+            },
+            "maxSpeedZ": {
+              "_b0": [
+                0,
+                1.1718063,
+                0.33333334,
+                0,
+                0.33333334,
+                0,
+                0,
+                1,
+                0.32995588,
+                0.33333334,
+                0,
+                0.33333334,
+                0,
+                0
+              ]
+            },
+            "randomAngle": true
+          },
+          {
+            "__class": "Deceleration",
+            "deceleration": [
+              0,
+              0,
+              -0.5
+            ]
+          }
+        ]
+      },
+      "render": {
+        "globalScale": 0.1,
+        "scale": [
+          0.37239584,
+          -0.0026041567,
+          0.4479167,
+          0.99479175,
+          0.025,
+          0.035
+        ],
+        "scaleJitter": 0.01,
+        "color": {
+          "_l0": [
+            0.08595124,
+            1,
+            0.9462429,
+            0.8586956,
+            0.24055766,
+            1,
+            0.87181,
+            0.6630435,
+            0.42269674,
+            0.59885234,
+            0.7362818,
+            0.3284265,
+            0.803918,
+            0.20888467,
+            0.3695652,
+            0
+          ]
+        },
+        "alpha": {
+          "_b0": [
+            0,
+            -0.008810654,
+            0,
+            0.21145831,
+            0,
+            0.21145831,
+            0,
+            0.3046906,
+            0.9739821,
+            0.4633819,
+            0.03243679,
+            0.13957542,
+            0.009770297,
+            0,
+            1,
+            0.004405558,
+            0.4556558,
+            -0.12429242,
+            0.9270833,
+            -0.252887,
+            0
+          ]
+        },
+        "gradient": [
+          {
+            "a": 1
+          },
+          {
+            "offset": 1,
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        ],
+        "angle": 10,
+        "angleJitter": -30,
+        "rotationSpeed": 10,
+        "rotationSpeedJitter": -10,
+        "stretch": [
+          1,
+          1
+        ],
+        "trailDuration": 1,
+        "trailWidth": 1
+      },
+      "movieclip": [
+        " | 49e9c85e-1e87-4d9a-8456-acd8ccde002a"
+      ]
+    }
+  }
+}
