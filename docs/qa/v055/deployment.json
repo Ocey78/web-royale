@@ -1,0 +1,125 @@
+{
+  "verifiedAt": "2026-10-13T17:51:19.252Z",
+  "url": "https://ocey78.github.io/web-royale/",
+  "releaseCommit": "68aa4a9f97e6f8d5f463ce8cc1e75d73d3728086",
+  "workflow": "https://github.com/Ocey78/web-royale/actions/runs/38441505138",
+  "version": "0.55.0",
+  "releaseSha256": "4c1781be775d2439c046b940c42cb54bdcd1c10eeaa128ab33e2e2de9f0337e3",
+  "assets": [
+    {
+      "file": "app.c99cbaf49401.js",
+      "sha256": "c99cbaf494015095650aaaef925ed62314eaadc6ad5943ff366ea320cbea2bd8"
+    },
+    {
+      "file": "styles.cdacf7dcad18.css",
+      "sha256": "cdacf7dcad1898f25237dc3e36cf53f67f8a407ef51e934a9977877b653bf517"
+    },
+    {
+      "file": "runtime.2e51e6620766.json",
+      "sha256": "2e51e6620766183ae1ce437b9477dc0df577bded47515099bc4c25adc25f8046"
+    },
+    {
+      "file": "assets/modern-heroes/manifest.json",
+      "sha256": "a276893afaabf3dee10f9b7639d8f02ca82d3d4ae830b4725988a3fd768b28d3"
+    },
+    {
+      "file": "assets/modern-heroes/material-01342375c53f054c.png",
+      "sha256": "7cae592ac0a5a64102b50cf31ba777ff455926170bafe287f35e890e3d76e304"
+    },
+    {
+      "file": "assets/modern-heroes/material-12483989dea6fcb1.png",
+      "sha256": "a97fad2d5581f678a8f399b585a22e807309ecaa6f36ba2f4ca286558153fa3b"
+    },
+    {
+      "file": "assets/modern-heroes/material-1e90b6e034a090be.png",
+      "sha256": "985962de146fae0c3972be47d18fae4fd57b1158435e5d6f37b879d62a35d6b9"
+    },
+    {
+      "file": "assets/modern-heroes/material-2e484b3714f3bc17.png",
+      "sha256": "5886df7d4fdb570997ea0c3bc07776ef57f6724acf933dff25604af84fcd1821"
+    },
+    {
+      "file": "assets/modern-heroes/material-52328044b4b5e21f.png",
+      "sha256": "e02a3319b1386cab91b3d2b3030c50b9477d248961d796aa0d9202dbf6687635"
+    },
+    {
+      "file": "assets/modern-heroes/material-6994fe285c512911.png",
+      "sha256": "fd587defb02450f61da8a49030fd5ad42f62b9beb4cd6e2f4f5da653f9b4d95e"
+    },
+    {
+      "file": "assets/modern-heroes/material-7284ec3a57d43e37.png",
+      "sha256": "3d471a58ff56b7728ae3f61fece7dfa9d48d9dbaeccfe3f5c64876e0bc39c2c0"
+    },
+    {
+      "file": "assets/modern-heroes/material-792add49806a2206.png",
+      "sha256": "9ad02028e453bc226fbe703ff91454fac3cc7ef6c351fb8c4122a62f889bc435"
+    },
+    {
+      "file": "assets/modern-heroes/material-8ee6888724619e2e.png",
+      "sha256": "38a07f75e7f518687e0c66329ff58455e8bac5f39faf757abd027bd8e0512143"
+    },
+    {
+      "file": "assets/modern-heroes/material-9146e85baa380f76.png",
+      "sha256": "d76220ad41608d9aa5525bc5a23551b3468b56453fbcec3e7771bdf622044478"
+    },
+    {
+      "file": "assets/modern-heroes/material-94d065ac96275b78.png",
+      "sha256": "8e2cb1d10e52ebf1376229fb62752b7909258ec1616e50bc5c7ae5d614e86422"
+    },
+    {
+      "file": "assets/modern-heroes/material-a1097b2771ee13bc.png",
+      "sha256": "fd0aa8e041edb10bd9299cb26182688c1d05ab19deae65604f11c2e0ae42ad85"
+    },
+    {
+      "file": "assets/modern-heroes/material-aea78410fdd3abca.png",
+      "sha256": "c7605095138d64e4e9f8a6ea7519f82ea39f62be3fd2055b374185712f9b04d9"
+    },
+    {
+      "file": "assets/modern-heroes/material-bb4a137747011c8c.png",
+      "sha256": "e28192e50fec8c54c479a03d604c6b48e43f369def9428e37ff73f3adabe266b"
+    },
+    {
+      "file": "assets/modern-heroes/material-d6c34e4c5e1f74f3.png",
+      "sha256": "87a6917f88517ed28ca5075c76dd832f09a7b0af93d22268547e3121c6c52b68"
+    },
+    {
+      "file": "assets/modern-heroes/material-dea4215018eed848.png",
+      "sha256": "e3a8e78971a76b29b99130d1c89747b2d05da4f5337b3db28b8bc036c0382f3b"
+    },
+    {
+      "file": "assets/modern-heroes/material-df589128004317be.png",
+      "sha256": "14bfba33ec02d05c322fdd719429bd6d4d6aaf94252c37e353e6234c5a0433b9"
+    },
+    {
+      "file": "assets/modern-heroes/material-e1b21801d2b55d9f.png",
+      "sha256": "b663d44013976ae35fd77f73dc60e2eedf8882862c93c9eea1248d9b9d786875"
+    },
+    {
+      "file": "assets/modern-heroes/material-e8ee2ee9e0097b54.png",
+      "sha256": "f98f82d44c8a0702cd9a32796fc18b7abbdb4cdb10f71b707e99e140a4e58116"
+    },
+    {
+      "file": "assets/modern-heroes/material-eb032d2a372d0937.png",
+      "sha256": "8732220f78a6c71a62ec187d9da37d5022e3a6e5aa01bf9eb8b9b9a18be766f8"
+    },
+    {
+      "file": "assets/modern-heroes/material-f01e2a134f77ca04.png",
+      "sha256": "3c3350996fdd624701243c8e265a81bc424789c4dff5d8e71f67ec152446fc12"
+    },
+    {
+      "file": "assets/modern-heroes/material-f30591e96cdbeb74.png",
+      "sha256": "b017ff02472d07b47f5a568bb0186b6829771259712c1f60e914679732343614"
+    },
+    {
+      "file": "assets/modern-heroes/material-fe51d2a1bd3e942e.png",
+      "sha256": "b559f612f76513c5432487d984d10f09f72ac3f8f82699b29eaa04080e6b0fc0"
+    }
+  ],
+  "state": {
+    "version": "0.55.0",
+    "ready": true,
+    "title": "Web Royale",
+    "app": "https://ocey78.github.io/web-royale/app.c99cbaf49401.js"
+  },
+  "errors": []
+}
