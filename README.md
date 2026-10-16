@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.10
+# Ultimate Clash update 0.58.11
+
+The [0.58.11 update](docs/RELEASE-v0.58.11.md) gives **Hero Mega Minion Horde one shared ability**: all surviving minions activate together for 2 elixir, choose different targets, and cycle back through the targets when there are fewer enemies than minions.
 
 The [0.58.10 update](docs/RELEASE-v0.58.10.md) adds **Evo and Hero checkboxes to Sandbox**, with direct form placement for normal and Ultimate cards and ability controls for either side.
 
