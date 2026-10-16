@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.5
+# Ultimate Clash update 0.58.6
+
+The [0.58.6 update](docs/RELEASE-v0.58.6.md) corrects Bowler Giant's collision size so he fits the two-tile bridges used in Ultimate 1v1 and 2v2. His enlarged model and boulders remain the same size.
 
 The [0.58.5 update](docs/RELEASE-v0.58.5.md) adds Evolutions for **Meteor Shower**, **CODE RED** and **Lightning Storm** in all three Ultimate Clash modes. Their deck-builder descriptions and cycle markers show the three-, two- and three-cycle requirements.
 

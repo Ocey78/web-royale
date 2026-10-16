@@ -141,7 +141,8 @@ function install(data){
  entity('UltimateChef','Knight',{...chefVisual,NativeActor:'Chef',Hitpoints:380,Damage:65,HitSpeed:1000,LoadTime:600,Projectile:'',ProjectileEffect:'',AttackStartEffect:'',DamageEffect:''});
  entity('UltimateDragonKing','BabyDragon',{Hitpoints:1800,Speed:45,Scale:165,UltimateVisualScale:1.65,CollisionRadius:850,HitSpeed:3000,LoadTime:1000,LoadFirstHit:false,AttackStartDelay:2000,Damage:240,Projectile:'',Range:5000,SightRange:6500,UltimateTint:'#cc9d3d'});
  data.projectiles.UltimateBowlerGiantProjectile={...clone(data.projectiles.BowlerProjectile),Name:'UltimateBowlerGiantProjectile',NativeProjectile:'BowlerProjectile',Radius:(data.projectiles.BowlerProjectile.Radius||1800)*1.4,ProjectileRadius:(data.projectiles.BowlerProjectile.ProjectileRadius||1000)*1.4,UltimateVisualScale:1.4};
- entity('UltimateBowlerGiant','Bowler',{Hitpoints:1500,Scale:data.entities.Bowler.Scale*1.4,CollisionRadius:1050,TargetOnlyBuildings:true,Projectile:'UltimateBowlerGiantProjectile',UltimateVisualScale:1.4});
+ // Classic bridges are two tiles wide; keep the body within their one-tile half-width while retaining the enlarged art.
+ entity('UltimateBowlerGiant','Bowler',{Hitpoints:1500,Scale:data.entities.Bowler.Scale*1.4,CollisionRadius:1000,TargetOnlyBuildings:true,Projectile:'UltimateBowlerGiantProjectile',UltimateVisualScale:1.4});
  entity('UltimateElixirPump','ElixirCollector',{ManaGenerateTimeMs:data.entities.ElixirCollector.ManaGenerateTimeMs/2.5});
  const area=(name,base,radius,duration)=>data.areas[name]={...clone(data.areas[base]||{}),Name:name,Radius:radius,LifeDuration:duration};
  area('UltimateLightningStorm','Graveyard_rework',3400,10000);
