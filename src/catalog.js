@@ -40,7 +40,7 @@ function allowedInMode(id,mode){const c=CARD_BY_ID[id];return !!c&&(isUltimateMo
 // the catalog, so profile migration, builders, battles and workers share one rule.
 const MAX_DECKS=100,DECK_PAGE_SIZE=5;
 const MODE_DECKS=Object.freeze(Object.fromEntries([
- ['UltimateClash','ultimateClashDeck','Ultimate Clash'],['UltimateClash2v2','ultimateClash2v2Deck','Ultimate Clash 2v2'],['UltimateClash3v3','ultimateClash3v3Deck','Ultimate Clash 3v3'],['Default','challengeDeck','Classic Challenge'],['TeamVsTeam','duoDeck','2v2'],
+ ['UltimateClash','ultimateClashDeck','Ultimate Clash'],['UltimateClash2v2','ultimateClash2v2Deck','Ultimate Clash 2v2'],['UltimateClash3v3','ultimateClash3v3Deck','Ultimate Clash 3v3'],['UltimateTeamRumble','ultimateTeamRumbleDeck','Ultimate Team Rumble'],['Default','challengeDeck','Classic Challenge'],['TeamVsTeam','duoDeck','2v2'],
  ['Team3v3','tripleDeck','3v3'],['TeamRumble','rumbleDeck','Team Rumble'],
  ['BridgeBattle','bridgeDeck','Bridge'],['FourCardDeck','fourCardDeck','4 Card Deck'],
  ['SixCardDeck','sixCardDeck','6 Card Deck'],['TwelveCardDeck','twelveCardDeck','12 Card Deck'],['TwentyElixir','twentyElixirDeck','20 Elixir'],['UncappedElixir','uncappedElixirDeck','Uncapped Elixir'],

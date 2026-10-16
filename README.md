@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.6
+# Ultimate Clash update 0.58.7
+
+The [0.58.7 update](docs/RELEASE-v0.58.7.md) adds **Ultimate Team Rumble**, a 5v5 Ultimate battle with seven minutes of regulation and six minutes of overtime. Sandbox now includes all 33 Ultimate cards and separate Blue AI / Red AI checkboxes.
 
 The [0.58.6 update](docs/RELEASE-v0.58.6.md) corrects Bowler Giant's collision size so he fits the two-tile bridges used in Ultimate 1v1 and 2v2. His enlarged model and boulders remain the same size.
 

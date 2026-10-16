@@ -1,7 +1,8 @@
-/* Isolated manual practice. Normal Battle rules and persistent profile data are
-   untouched; the sandbox has no AI controller, match outcome or recorder. */
+/* Isolated practice with optional AI on either side. Normal Battle rules and
+   persistent profile data are untouched; there is no match outcome or recorder. */
 (function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./core.js'):root.RoyaleCore,n?require('./platform.js'):root.RoyalePlatform,n?require('./arena-selection.js'):root.RoyaleArenaSelection);if(n)module.exports=api;else root.RoyaleSandbox=api;})(globalThis,function(C,Platform,Maps){'use strict';
 function towerConfig(value={}){return Object.fromEntries(['blue','red'].map(team=>[team,Object.fromEntries(['left','right','king'].map(key=>[key,value[team]?.[key]!==false]))]));}
+function aiConfig(value=[]){return [value?.[0]===true,value?.[1]===true];}
 function validLevel(value,fallback=9){return Number.isFinite(Number(value))?C.clamp(Math.floor(Number(value)),0,99):fallback;}
 // Source levels retain their recorded multipliers. Debug levels below a
 // rarity's base extrapolate backward with the same 10% growth convention.
@@ -21,9 +22,9 @@ function cardDefinition(id,level=9){
 }
 class SandboxBattle extends C.Battle{
  constructor(options={}){
-  const mapId=Maps.valid(options.mapId)?options.mapId:'training',mode=['Team3v3','TeamRumble','BridgeBattle'].includes(mapId)?mapId:'Default',level=validLevel(options.level??9),levels=Object.fromEntries(C.CARDS.map(c=>[c.id,level]));
+  const mapId=Maps.valid(options.mapId)?options.mapId:'training',mode=['Team3v3','TeamRumble','BridgeBattle'].includes(mapId)?mapId:'Default',level=validLevel(options.level??9),levels=Object.fromEntries((C.ALL_CARDS||C.CARDS).map(c=>[c.id,level]));
   super({mode,arenaId:mapId,seed:options.seed||1,ai:false,practice:true,headless:options.headless===true,levels,seatLevels:[levels,levels],kingLevels:[level,level],kingLevel:level});
-  this.isSandbox=true;this.queueType='sandbox';this.learningEnabled=false;this.recorder=null;this.replayInitial=null;this.sandboxLevel=level;
+  this.isSandbox=true;this.queueType='sandbox';this.learningEnabled=false;this.recorder=null;this.replayInitial=null;this.sandboxLevel=level;this.aiTeams=aiConfig(options.aiTeams);this.seatLevels=this.seats.map(()=>({...levels}));
   for(const bot of this.bots)bot.learner=null;
   this.sandboxTowers=towerConfig(options.towers);
   this.towers=this.towers.filter(t=>this.sandboxTowers[t.team?'red':'blue'][t.king?'king':t.x<240?'left':'right']);
@@ -37,27 +38,43 @@ class SandboxBattle extends C.Battle{
  record(){}
  completeRecording(){}
  abortRecording(){}
+ aiPlay(seat){if(this.units.length>=450)return;return super.aiPlay(seat);}
+ step(dt){
+  const before=this.time;super.step(dt);if(this.time===before||this.time<this.aiClock)return;
+  // Base Battle excludes the human seat. Sandbox explicitly drives every
+  // enabled side, including seat zero and allied seats on the larger maps.
+  for(const seat of this.seats)if(this.aiTeams[this.teamOf(seat)])this.aiPlay(seat);
+  this.aiClock=this.time+.25;
+ }
  scaleStat(raw,rarity,level){return scaleStat(raw,rarity,level);}
  entityDefinition(name,level){return entityDefinition(name,level);}
  get multiplier(){return 1;}
  get secondsLeft(){return 0;}
 }
 class Session extends Platform.LocalMatchSession{
- constructor(options={}){super(new SandboxBattle(options));this.options={...options,mapId:Maps.valid(options.mapId)?options.mapId:'training',level:validLevel(options.level??9),towers:towerConfig(options.towers)};}
+ constructor(options={}){super(new SandboxBattle(options));this.options={...options,mapId:Maps.valid(options.mapId)?options.mapId:'training',level:validLevel(options.level??9),towers:towerConfig(options.towers),aiTeams:aiConfig(options.aiTeams)};}
  spawn(cmd){
   if(!cmd||!C.CARD_BY_ID[cmd.card]||![0,1].includes(cmd.team)||!Number.isFinite(cmd.x)||!Number.isFinite(cmd.y)||cmd.x<this.battle.arenaLayout.left*C.SX||cmd.x>this.battle.arenaLayout.right*C.SX||cmd.y<this.battle.arenaLayout.top*C.SY||cmd.y>this.battle.arenaLayout.bottom*C.SY)return{ok:false,reason:'Choose a card, team and position inside the arena'};
   const b=this.battle,team=cmd.team,level=validLevel(cmd.level??b.sandboxLevel,b.sandboxLevel);
   if(b.units.length>=450)return{ok:false,reason:'Clear the arena before adding more troops'};
   let card=cardDefinition(cmd.card,level);
-  if(cmd.card==='mirror'){
+  const mirror=card.source.Mirror===true;
+  if(mirror){
    const last=b.lastCard[team];if(!last)return{ok:false,reason:'Place another card for this team before using Mirror'};
-   card=cardDefinition(last.id,Math.min(99,level+(C.DATA.globals.MIRROR_LEVEL_OFFSET?.NumberValue??1)));
+   const copiedLevel=cmd.card==='ultimate-mirror'?last.level+3:level+(C.DATA.globals.MIRROR_LEVEL_OFFSET?.NumberValue??1);
+   card=cardDefinition(last.id,Math.min(99,copiedLevel));
   }
   b.cast(card,team,cmd.x,cmd.y,team);
-  if(cmd.card!=='mirror')b.lastCard[team]={id:card.id,level:card.level,cost:card.cost};
+  if(!mirror)b.lastCard[team]={id:card.id,level:card.level,cost:card.cost};
   b.played[team]++;return{ok:true,card:card.id,team};
  }
- clear(){const b=this.battle;for(const key of ['units','pending','projectiles','areas','effects'])b[key]=[];b.lastCard=[null,null];for(const t of b.towers){t.targetId=null;t.windup=null;t.buffs={};t.visualAttack=null;t.visualHook=null;t.visualAttackCancelled=false;t.visualState='idle';t.animationTime=0;}this.accumulator=0;}
+ clear(){const b=this.battle;for(const key of ['units','pending','projectiles','areas','effects'])b[key]=[];b.lastCard=b.seats.map(()=>null);for(const bot of b.bots)bot.intent=null;for(const t of b.towers){t.targetId=null;t.windup=null;t.buffs={};t.visualAttack=null;t.visualHook=null;t.visualAttackCancelled=false;t.visualState='idle';t.animationTime=0;}this.accumulator=0;}
+ setAI(team,enabled){
+  if(![0,1].includes(team))throw RangeError('Unknown sandbox side');
+  this.options.aiTeams[team]=enabled===true;this.battle.aiTeams=aiConfig(this.options.aiTeams);
+  for(const seat of this.battle.seats)if(this.battle.teamOf(seat)===team)this.battle.bots[seat].intent=null;
+  this.battle.aiClock=Math.min(this.battle.aiClock,this.battle.time+.25);return [...this.options.aiTeams];
+ }
  setMap(mapId){if(!Maps.valid(mapId))throw RangeError('Unknown sandbox map');this.options.mapId=mapId;return this.reset();}
  reset(towers=this.options.towers,level=this.options.level){
   this.options.towers=towerConfig(towers);this.options.level=validLevel(level);const paused=this.battle.paused;
@@ -65,4 +82,4 @@ class Session extends Platform.LocalMatchSession{
   Object.assign(this.battle,new SandboxBattle(this.options));this.battle.paused=paused;this.accumulator=0;this.sequence=0;this.replies.clear();return this.battle;
  }
 }
-return{Session,SandboxBattle,towerConfig,validLevel,scaleStat,entityDefinition,cardDefinition};});
+return{Session,SandboxBattle,towerConfig,aiConfig,validLevel,scaleStat,entityDefinition,cardDefinition};});

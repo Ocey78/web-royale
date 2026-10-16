@@ -1,9 +1,9 @@
 {
-  "version": "0.58.6",
+  "version": "0.58.7",
   "project": {
     "id": "web-royale",
     "name": "Web Royale",
-    "version": "0.58.6",
+    "version": "0.58.7",
     "baseline": "0.50.0",
     "private": true,
     "purpose": "Modern features, arenas and future online development base",
@@ -19,10 +19,10 @@
   "cards": 123,
   "ultimateCards": 33,
   "scenes": 282,
-  "runtime": "runtime.fe46345cc856.json",
-  "app": "app.06ad5ea1a934.js",
-  "bootstrap": "bootstrap.96265557547e.js",
-  "styles": "styles.4958c637f56c.css",
+  "runtime": "runtime.65e05dccf994.json",
+  "app": "app.5f72b556da5b.js",
+  "bootstrap": "bootstrap.94fbef54e927.js",
+  "styles": "styles.f425cfcc6073.css",
   "files": {
     "assets/modern-heroes/0c29f6a413b8f355.png": "738569e72d43946482499b6c76e9c3d247225ef7ce31e3ceb3506ceb4df2743e",
     "assets/modern-heroes/11996ffb17860763.glb": "b2bf9aed4f56aeee1d5c5862833e7d4ad269a15f11db4ebb1baa9b1b94a30741",
@@ -2288,7 +2288,7 @@
     "assets/presentation/ink-body.png": "7ab4304cdabc141c7b7ec7574d88436e239e60a909982775e37204766aa6cb56",
     "assets/presentation/ink-body-outline.png": "e7db1afc8bd63c75cc8ee067a7e7f2cee4100e4634e19555f2bd90f8d7232b67",
     "training-data.1474e0edcb5b.json": "1474e0edcb5b0b1546715d16e606283e9ff90a7595a5919e7a0f071a93ef6b94",
-    "training-engine.7af1a881fa46.js": "7af1a881fa466334bbc877074a0582b6b77de37f3f3f91fd6f1c821c2df4aa5c",
+    "training-engine.276850627dcc.js": "276850627dcca8e1f074342c1bbe453dca5ee3a4d5364146ef2fb58a6706caad",
     "training-worker.2f7e7650ba6e.js": "2f7e7650ba6efc0896e5771f68492e66a52a916aecbe68bf9c5f5514a9aac071",
     "assets/webapp/icon-180.png": "95d25ecc83f4ae6bbd6b39309963e7afae3d143e32a258dc434cfa99b2689ded",
     "assets/webapp/icon-192.png": "08fa53a097998183ede6d12af2f507f94e5235dc04fcad38448620a553c1dbb5",
@@ -2302,13 +2302,13 @@
     "assets/ultimate-clash/executioner-cage-portrait.png": "b97bc15a4209bb585b9666a4d3cb9e206819dd3d3ed2ce6cb3c07fd5f2219a9c",
     "assets/ultimate-clash/overcharged-tesla-portrait.png": "e1d16d73b82c6de75d66ff39a158e82f132406504524b042062e80585c250dd7",
     "assets/ultimate-clash/unstable-egg-portrait.png": "8b87b820ef57da58bf3a69daa44b1de63721e8fd2f913995633b841b9b991526",
-    "asset-index.02c66370b048.json": "02c66370b0488d7272f95ab326411c75cda83aa590f1dff7f3a437b35b87fd3f",
+    "asset-index.88b9d812d277.json": "88b9d812d27765c1b6ab4ee2e89dbf53e6d0ce6b14033d89179d39e85bf88538",
     "asset-worker.js": "621ef7e59d2fb7416590455fbecabdd37eb0604a7b41e81bc0b6f13b4c0b77de",
-    "runtime.fe46345cc856.json": "fe46345cc8566bafefa83cfe32a3a47470504cab58d372aa710f4c68046d250e",
-    "app.06ad5ea1a934.js": "06ad5ea1a93472b58fe5c75f9f846692aa5e2ff71762956e7bcde8b35819dda2",
+    "runtime.65e05dccf994.json": "65e05dccf994f762ac0087a94d8c57f4704e145d998a55edff708d693fd7d02c",
+    "app.5f72b556da5b.js": "5f72b556da5b675f2df4d0c951cee77b4dec328c67d49596c43c68eee0ae8a86",
     "manifest.json": "44874443c977476debf4e3cf4ae3e05b27c86f913534f40dfafdb2d76b1a3fae",
-    "styles.4958c637f56c.css": "4958c637f56c8ad1a2d755a3309d095371a13d54c7e2ba669b7796c34a8a4609",
-    "bootstrap.96265557547e.js": "96265557547e7a0d4529025d87d1a4ac8cf069213e745b62160ebb3a88d1df4d",
-    "index.html": "da849f4c2ef790550a0dde758e2a06c0bdc64f1b3d2f84074763213585a94337"
+    "styles.f425cfcc6073.css": "f425cfcc6073e6e61063579ecb49e0c95a90c0d6119dc0151ab750733a41e27f",
+    "bootstrap.94fbef54e927.js": "94fbef54e9274387980f2e701a77d2d5293a10d9c24567e6a30ab610f9b39eb8",
+    "index.html": "c45f5aa03a7564ff75a222e57d93d3389e8afb3291a236c0a39d75b66ecf0e12"
   }
 }
