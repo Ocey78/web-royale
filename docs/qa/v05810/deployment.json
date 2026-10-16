@@ -1,0 +1,15 @@
+{
+  "version": "0.58.10",
+  "releaseSha": "348d9beee8866c0cf71b8deb7086e4193af62bda",
+  "dispatchStatus": 204,
+  "dispatchedAt": "2026-10-16T20:03:31.102Z",
+  "site": "https://ocey78.github.io/web-royale/",
+  "workflowRun": 38959449927,
+  "workflowUrl": "https://github.com/Ocey78/web-royale/actions/runs/38959449927",
+  "workflowConclusion": "success",
+  "publishedVersion": "0.58.10",
+  "publicationConfirmedAt": "2026-10-16T20:05:27.590Z",
+  "testsRun": false,
+  "gameplayBrowserChecksRun": false,
+  "testingSkippedAtUserRequest": true
+}
