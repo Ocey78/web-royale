@@ -1,0 +1,1298 @@
+{
+  "schema": 1,
+  "engine": "0.53",
+  "id": "1792169612830-1",
+  "createdAt": 1792169612906,
+  "initial": {
+    "dataFingerprint": "forms-54499093",
+    "seed": 580001,
+    "mode": "Default",
+    "arenaId": "training",
+    "seatSlots": [
+      0,
+      0
+    ],
+    "tiebreaker": true,
+    "queueType": null,
+    "hand": [
+      [
+        "knight",
+        "archers",
+        "giant",
+        "mini-pekka"
+      ],
+      [
+        "mini-pekka",
+        "skeleton-dragons",
+        "musketeer",
+        "fireball"
+      ]
+    ],
+    "queue": [
+      [
+        "musketeer",
+        "bomber",
+        "fireball",
+        "arrows"
+      ],
+      [
+        "giant",
+        "valkyrie",
+        "bomber",
+        "arrows"
+      ]
+    ],
+    "decks": [
+      [
+        "knight",
+        "archers",
+        "giant",
+        "mini-pekka",
+        "musketeer",
+        "bomber",
+        "fireball",
+        "arrows"
+      ],
+      [
+        "mini-pekka",
+        "skeleton-dragons",
+        "musketeer",
+        "fireball",
+        "giant",
+        "valkyrie",
+        "bomber",
+        "arrows"
+      ]
+    ],
+    "seatForms": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Valkyrie_EV1",
+        null,
+        null
+      ]
+    ],
+    "handSlots": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "queueSlots": [
+      [
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        4,
+        5,
+        6,
+        7
+      ]
+    ],
+    "formContext": {
+      "arena": 4,
+      "casual": false
+    },
+    "formRegistryFingerprint": "forms-3ea7b968",
+    "seatTowerTroops": [
+      "King_PrincessTowers",
+      "King_PrincessTowers"
+    ],
+    "seatTowerTroopLevels": [
+      9,
+      9
+    ],
+    "seatLevels": [
+      {
+        "knight": 9,
+        "archers": 9,
+        "goblins": 9,
+        "giant": 9,
+        "pekka": 9,
+        "minions": 9,
+        "balloon": 9,
+        "witch": 9,
+        "barbarians": 9,
+        "golem": 9,
+        "skeletons": 9,
+        "valkyrie": 9,
+        "skeleton-army": 9,
+        "bomber": 9,
+        "musketeer": 9,
+        "baby-dragon": 9,
+        "prince": 9,
+        "wizard": 9,
+        "mini-pekka": 9,
+        "spear-goblins": 9,
+        "giant-skeleton": 9,
+        "hog-rider": 9,
+        "minion-horde": 9,
+        "ice-wizard": 9,
+        "royal-giant": 9,
+        "guards": 9,
+        "princess": 9,
+        "dark-prince": 9,
+        "three-musketeers": 9,
+        "lava-hound": 9,
+        "ice-spirit": 9,
+        "fire-spirits": 9,
+        "miner": 9,
+        "sparky": 9,
+        "bowler": 9,
+        "lumberjack": 9,
+        "battle-ram": 9,
+        "inferno-dragon": 9,
+        "ice-golem": 9,
+        "mega-minion": 9,
+        "dart-goblin": 9,
+        "goblin-gang": 9,
+        "electro-wizard": 9,
+        "elite-barbarians": 9,
+        "hunter": 9,
+        "executioner": 9,
+        "bandit": 9,
+        "royal-recruits": 9,
+        "night-witch": 9,
+        "bats": 9,
+        "royal-ghost": 9,
+        "ram-rider": 9,
+        "zappies": 9,
+        "rascals": 9,
+        "cannon-cart": 9,
+        "mega-knight": 9,
+        "skeleton-barrel": 9,
+        "flying-machine": 9,
+        "wall-breakers": 9,
+        "royal-hogs": 9,
+        "goblin-giant": 9,
+        "fisherman": 9,
+        "magic-archer": 9,
+        "electro-dragon": 9,
+        "firecracker": 9,
+        "mighty-miner": 11,
+        "elixir-golem": 9,
+        "battle-healer": 9,
+        "skeleton-king": 11,
+        "archer-queen": 11,
+        "golden-knight": 11,
+        "monk": 11,
+        "skeleton-dragons": 9,
+        "mother-witch": 9,
+        "electro-spirit": 9,
+        "electro-giant": 9,
+        "phoenix": 9,
+        "little-prince": 11,
+        "goblin-demolisher": 9,
+        "goblin-machine": 9,
+        "suspicious-bush": 9,
+        "goblinstein": 11,
+        "rune-giant": 9,
+        "berserker": 9,
+        "boss-bandit": 11,
+        "ronin": 9,
+        "minion-giant": 9,
+        "cannon": 9,
+        "goblin-hut": 9,
+        "mortar": 9,
+        "inferno-tower": 9,
+        "bomb-tower": 9,
+        "barbarian-hut": 9,
+        "tesla": 9,
+        "elixir-collector": 9,
+        "x-bow": 9,
+        "tombstone": 9,
+        "furnace": 9,
+        "goblin-cage": 9,
+        "goblin-drill": 9,
+        "fireball": 9,
+        "arrows": 9,
+        "rage": 9,
+        "rocket": 9,
+        "goblin-barrel": 9,
+        "freeze": 9,
+        "mirror": 9,
+        "lightning": 9,
+        "zap": 9,
+        "poison": 9,
+        "graveyard": 9,
+        "the-log": 9,
+        "tornado": 9,
+        "clone": 9,
+        "earthquake": 9,
+        "barbarian-barrel": 9,
+        "heal-spirit": 9,
+        "giant-snowball": 9,
+        "royal-delivery": 9,
+        "void": 9,
+        "goblin-curse": 9,
+        "spirit-empress": 9,
+        "vines": 9
+      },
+      {
+        "knight": 9,
+        "archers": 9,
+        "goblins": 9,
+        "giant": 9,
+        "pekka": 9,
+        "minions": 9,
+        "balloon": 9,
+        "witch": 9,
+        "barbarians": 9,
+        "golem": 9,
+        "skeletons": 9,
+        "valkyrie": 9,
+        "skeleton-army": 9,
+        "bomber": 9,
+        "musketeer": 9,
+        "baby-dragon": 9,
+        "prince": 9,
+        "wizard": 9,
+        "mini-pekka": 9,
+        "spear-goblins": 9,
+        "giant-skeleton": 9,
+        "hog-rider": 9,
+        "minion-horde": 9,
+        "ice-wizard": 9,
+        "royal-giant": 9,
+        "guards": 9,
+        "princess": 9,
+        "dark-prince": 9,
+        "three-musketeers": 9,
+        "lava-hound": 9,
+        "ice-spirit": 9,
+        "fire-spirits": 9,
+        "miner": 9,
+        "sparky": 9,
+        "bowler": 9,
+        "lumberjack": 9,
+        "battle-ram": 9,
+        "inferno-dragon": 9,
+        "ice-golem": 9,
+        "mega-minion": 9,
+        "dart-goblin": 9,
+        "goblin-gang": 9,
+        "electro-wizard": 9,
+        "elite-barbarians": 9,
+        "hunter": 9,
+        "executioner": 9,
+        "bandit": 9,
+        "royal-recruits": 9,
+        "night-witch": 9,
+        "bats": 9,
+        "royal-ghost": 9,
+        "ram-rider": 9,
+        "zappies": 9,
+        "rascals": 9,
+        "cannon-cart": 9,
+        "mega-knight": 9,
+        "skeleton-barrel": 9,
+        "flying-machine": 9,
+        "wall-breakers": 9,
+        "royal-hogs": 9,
+        "goblin-giant": 9,
+        "fisherman": 9,
+        "magic-archer": 9,
+        "electro-dragon": 9,
+        "firecracker": 9,
+        "mighty-miner": 9,
+        "elixir-golem": 9,
+        "battle-healer": 9,
+        "skeleton-king": 9,
+        "archer-queen": 9,
+        "golden-knight": 9,
+        "monk": 9,
+        "skeleton-dragons": 9,
+        "mother-witch": 9,
+        "electro-spirit": 9,
+        "electro-giant": 9,
+        "phoenix": 9,
+        "little-prince": 9,
+        "goblin-demolisher": 9,
+        "goblin-machine": 9,
+        "suspicious-bush": 9,
+        "goblinstein": 9,
+        "rune-giant": 9,
+        "berserker": 9,
+        "boss-bandit": 9,
+        "ronin": 9,
+        "minion-giant": 9,
+        "cannon": 9,
+        "goblin-hut": 9,
+        "mortar": 9,
+        "inferno-tower": 9,
+        "bomb-tower": 9,
+        "barbarian-hut": 9,
+        "tesla": 9,
+        "elixir-collector": 9,
+        "x-bow": 9,
+        "tombstone": 9,
+        "furnace": 9,
+        "goblin-cage": 9,
+        "goblin-drill": 9,
+        "fireball": 9,
+        "arrows": 9,
+        "rage": 9,
+        "rocket": 9,
+        "goblin-barrel": 9,
+        "freeze": 9,
+        "mirror": 9,
+        "lightning": 9,
+        "zap": 9,
+        "poison": 9,
+        "graveyard": 9,
+        "the-log": 9,
+        "tornado": 9,
+        "clone": 9,
+        "earthquake": 9,
+        "barbarian-barrel": 9,
+        "heal-spirit": 9,
+        "giant-snowball": 9,
+        "royal-delivery": 9,
+        "void": 9,
+        "goblin-curse": 9,
+        "spirit-empress": 9,
+        "vines": 9
+      }
+    ],
+    "kingLevels": [
+      9,
+      9
+    ],
+    "randomState": 1776868563,
+    "profile": {
+      "version": 9,
+      "trophies": 1000,
+      "highestTrophies": 1000,
+      "cardLevels": {
+        "knight": 9,
+        "archers": 9,
+        "goblins": 9,
+        "giant": 9,
+        "pekka": 9,
+        "minions": 9,
+        "balloon": 9,
+        "witch": 9,
+        "barbarians": 9,
+        "golem": 9,
+        "skeletons": 9,
+        "valkyrie": 9,
+        "skeleton-army": 9,
+        "bomber": 9,
+        "musketeer": 9,
+        "baby-dragon": 9,
+        "prince": 9,
+        "wizard": 9,
+        "mini-pekka": 9,
+        "spear-goblins": 9,
+        "giant-skeleton": 9,
+        "hog-rider": 9,
+        "minion-horde": 9,
+        "ice-wizard": 9,
+        "royal-giant": 9,
+        "guards": 9,
+        "princess": 9,
+        "dark-prince": 9,
+        "three-musketeers": 9,
+        "lava-hound": 9,
+        "ice-spirit": 9,
+        "fire-spirits": 9,
+        "miner": 9,
+        "sparky": 9,
+        "bowler": 9,
+        "lumberjack": 9,
+        "battle-ram": 9,
+        "inferno-dragon": 9,
+        "ice-golem": 9,
+        "mega-minion": 9,
+        "dart-goblin": 9,
+        "goblin-gang": 9,
+        "electro-wizard": 9,
+        "elite-barbarians": 9,
+        "hunter": 9,
+        "executioner": 9,
+        "bandit": 9,
+        "royal-recruits": 9,
+        "night-witch": 9,
+        "bats": 9,
+        "royal-ghost": 9,
+        "ram-rider": 9,
+        "zappies": 9,
+        "rascals": 9,
+        "cannon-cart": 9,
+        "mega-knight": 9,
+        "skeleton-barrel": 9,
+        "flying-machine": 9,
+        "wall-breakers": 9,
+        "royal-hogs": 9,
+        "goblin-giant": 9,
+        "fisherman": 9,
+        "magic-archer": 9,
+        "electro-dragon": 9,
+        "firecracker": 9,
+        "mighty-miner": 11,
+        "elixir-golem": 9,
+        "battle-healer": 9,
+        "skeleton-king": 11,
+        "archer-queen": 11,
+        "golden-knight": 11,
+        "monk": 11,
+        "skeleton-dragons": 9,
+        "mother-witch": 9,
+        "electro-spirit": 9,
+        "electro-giant": 9,
+        "phoenix": 9,
+        "little-prince": 11,
+        "goblin-demolisher": 9,
+        "goblin-machine": 9,
+        "suspicious-bush": 9,
+        "goblinstein": 11,
+        "rune-giant": 9,
+        "berserker": 9,
+        "boss-bandit": 11,
+        "ronin": 9,
+        "minion-giant": 9,
+        "cannon": 9,
+        "goblin-hut": 9,
+        "mortar": 9,
+        "inferno-tower": 9,
+        "bomb-tower": 9,
+        "barbarian-hut": 9,
+        "tesla": 9,
+        "elixir-collector": 9,
+        "x-bow": 9,
+        "tombstone": 9,
+        "furnace": 9,
+        "goblin-cage": 9,
+        "goblin-drill": 9,
+        "fireball": 9,
+        "arrows": 9,
+        "rage": 9,
+        "rocket": 9,
+        "goblin-barrel": 9,
+        "freeze": 9,
+        "mirror": 9,
+        "lightning": 9,
+        "zap": 9,
+        "poison": 9,
+        "graveyard": 9,
+        "the-log": 9,
+        "tornado": 9,
+        "clone": 9,
+        "earthquake": 9,
+        "barbarian-barrel": 9,
+        "heal-spirit": 9,
+        "giant-snowball": 9,
+        "royal-delivery": 9,
+        "void": 9,
+        "goblin-curse": 9,
+        "spirit-empress": 9,
+        "vines": 9
+      },
+      "unlockedCards": [
+        "knight",
+        "archers",
+        "goblins",
+        "giant",
+        "pekka",
+        "minions",
+        "balloon",
+        "witch",
+        "barbarians",
+        "golem",
+        "skeletons",
+        "valkyrie",
+        "skeleton-army",
+        "bomber",
+        "musketeer",
+        "baby-dragon",
+        "prince",
+        "wizard",
+        "mini-pekka",
+        "spear-goblins",
+        "giant-skeleton",
+        "hog-rider",
+        "minion-horde",
+        "ice-wizard",
+        "royal-giant",
+        "guards",
+        "princess",
+        "dark-prince",
+        "three-musketeers",
+        "lava-hound",
+        "ice-spirit",
+        "fire-spirits",
+        "miner",
+        "sparky",
+        "bowler",
+        "lumberjack",
+        "battle-ram",
+        "inferno-dragon",
+        "ice-golem",
+        "mega-minion",
+        "dart-goblin",
+        "goblin-gang",
+        "electro-wizard",
+        "elite-barbarians",
+        "hunter",
+        "executioner",
+        "bandit",
+        "royal-recruits",
+        "night-witch",
+        "bats",
+        "royal-ghost",
+        "ram-rider",
+        "zappies",
+        "rascals",
+        "cannon-cart",
+        "mega-knight",
+        "skeleton-barrel",
+        "flying-machine",
+        "wall-breakers",
+        "royal-hogs",
+        "goblin-giant",
+        "fisherman",
+        "magic-archer",
+        "electro-dragon",
+        "firecracker",
+        "mighty-miner",
+        "elixir-golem",
+        "battle-healer",
+        "skeleton-king",
+        "archer-queen",
+        "golden-knight",
+        "monk",
+        "skeleton-dragons",
+        "mother-witch",
+        "electro-spirit",
+        "electro-giant",
+        "phoenix",
+        "little-prince",
+        "goblin-demolisher",
+        "goblin-machine",
+        "suspicious-bush",
+        "goblinstein",
+        "rune-giant",
+        "berserker",
+        "boss-bandit",
+        "ronin",
+        "minion-giant",
+        "cannon",
+        "goblin-hut",
+        "mortar",
+        "inferno-tower",
+        "bomb-tower",
+        "barbarian-hut",
+        "tesla",
+        "elixir-collector",
+        "x-bow",
+        "tombstone",
+        "furnace",
+        "goblin-cage",
+        "goblin-drill",
+        "fireball",
+        "arrows",
+        "rage",
+        "rocket",
+        "goblin-barrel",
+        "freeze",
+        "mirror",
+        "lightning",
+        "zap",
+        "poison",
+        "graveyard",
+        "the-log",
+        "tornado",
+        "clone",
+        "earthquake",
+        "barbarian-barrel",
+        "heal-spirit",
+        "giant-snowball",
+        "royal-delivery",
+        "void",
+        "goblin-curse",
+        "spirit-empress",
+        "vines"
+      ],
+      "selectedTowerSkin": "classic",
+      "selectedTowerTroop": "King_PrincessTowers",
+      "unlockedTowerTroops": [
+        "King_PrincessTowers"
+      ],
+      "towerTroopLevels": {
+        "King_PrincessTowers": 1,
+        "King_CannonTowers": 6,
+        "King_KnifeTowers": 9,
+        "King_ChefTowers": 9
+      },
+      "unlockedForms": [
+        "ultimate-mega-minion-horde-hero",
+        "ultimate-frostbite-hero",
+        "ultimate-royale-escort-evolution"
+      ],
+      "deckForms": {
+        "ranked": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "modes": {
+          "UltimateClash": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "Default": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "TeamVsTeam": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "Team3v3": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "TeamRumble": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "BridgeBattle": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "FourCardDeck": [
+            [
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "SixCardDeck": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "TwelveCardDeck": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "TwentyElixir": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "UncappedElixir": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "OneShot": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "DoubleElixir": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "TripleElixir": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "RampUp": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "SuddenDeath": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "7xElixir": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "ClanWar_BoatBattle": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "Touchdown": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "Touchdown2v2": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "Touchdown3v3": [
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ]
+        }
+      },
+      "cheats": {
+        "duplicates": false,
+        "placement": false,
+        "overlevels": false
+      }
+    },
+    "opponent": null,
+    "boat": null
+  },
+  "duration": 0,
+  "commands": [],
+  "result": null,
+  "status": "abandoned",
+  "expected": {
+    "time": 0,
+    "crowns": [
+      0,
+      0
+    ],
+    "elixir": [
+      6,
+      6
+    ],
+    "hand": [
+      [
+        "knight",
+        "archers",
+        "giant",
+        "mini-pekka"
+      ],
+      [
+        "mini-pekka",
+        "skeleton-dragons",
+        "musketeer",
+        "fireball"
+      ]
+    ],
+    "queue": [
+      [
+        "musketeer",
+        "bomber",
+        "fireball",
+        "arrows"
+      ],
+      [
+        "giant",
+        "valkyrie",
+        "bomber",
+        "arrows"
+      ]
+    ],
+    "units": [
+      [
+        20,
+        "KingTower",
+        1,
+        240,
+        60,
+        4008,
+        0,
+        0
+      ],
+      [
+        21,
+        "PrincessTower",
+        1,
+        93.33333,
+        130,
+        2338,
+        0,
+        0
+      ],
+      [
+        22,
+        "PrincessTower",
+        1,
+        386.66667,
+        130,
+        2338,
+        0,
+        0
+      ],
+      [
+        23,
+        "KingTower",
+        0,
+        240,
+        580,
+        4008,
+        0,
+        0
+      ],
+      [
+        24,
+        "PrincessTower",
+        0,
+        93.33333,
+        510,
+        2338,
+        0,
+        0
+      ],
+      [
+        25,
+        "PrincessTower",
+        0,
+        386.66667,
+        510,
+        2338,
+        0,
+        0
+      ]
+    ],
+    "result": null,
+    "towerTroops": {
+      "ids": [
+        "King_PrincessTowers",
+        "King_PrincessTowers"
+      ],
+      "levels": [
+        9,
+        9
+      ]
+    },
+    "forms": {
+      "cycles": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "handSlots": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "queueSlots": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "abilities": [],
+      "buffs": [],
+      "pending": [],
+      "areas": [],
+      "modern": [
+        [
+          20,
+          {
+            "variables": {},
+            "timers": [],
+            "tags": [
+              {
+                "tags": [],
+                "until": null,
+                "token": "source-data"
+              }
+            ],
+            "listeners": [],
+            "serial": 0
+          },
+          null,
+          null
+        ],
+        [
+          21,
+          {
+            "variables": {},
+            "timers": [],
+            "tags": [
+              {
+                "tags": [],
+                "until": null,
+                "token": "source-data"
+              }
+            ],
+            "listeners": [],
+            "serial": 0
+          },
+          null,
+          null
+        ],
+        [
+          22,
+          {
+            "variables": {},
+            "timers": [],
+            "tags": [
+              {
+                "tags": [],
+                "until": null,
+                "token": "source-data"
+              }
+            ],
+            "listeners": [],
+            "serial": 0
+          },
+          null,
+          null
+        ],
+        [
+          23,
+          {
+            "variables": {},
+            "timers": [],
+            "tags": [
+              {
+                "tags": [],
+                "until": null,
+                "token": "source-data"
+              }
+            ],
+            "listeners": [],
+            "serial": 0
+          },
+          null,
+          null
+        ],
+        [
+          24,
+          {
+            "variables": {},
+            "timers": [],
+            "tags": [
+              {
+                "tags": [],
+                "until": null,
+                "token": "source-data"
+              }
+            ],
+            "listeners": [],
+            "serial": 0
+          },
+          null,
+          null
+        ],
+        [
+          25,
+          {
+            "variables": {},
+            "timers": [],
+            "tags": [
+              {
+                "tags": [],
+                "until": null,
+                "token": "source-data"
+              }
+            ],
+            "listeners": [],
+            "serial": 0
+          },
+          null,
+          null
+        ]
+      ],
+      "controllers": [
+        [
+          20,
+          {
+            "controllerOnly": false,
+            "attachedTo": null
+          }
+        ],
+        [
+          21,
+          {
+            "controllerOnly": false,
+            "attachedTo": null
+          }
+        ],
+        [
+          22,
+          {
+            "controllerOnly": false,
+            "attachedTo": null
+          }
+        ],
+        [
+          23,
+          {
+            "controllerOnly": false,
+            "attachedTo": null
+          }
+        ],
+        [
+          24,
+          {
+            "controllerOnly": false,
+            "attachedTo": null
+          }
+        ],
+        [
+          25,
+          {
+            "controllerOnly": false,
+            "attachedTo": null
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+✔ team 0 Bomb Squad uses the active Queen cloak, then becomes fully visible and targetable after guard death (50.2146ms)
+✔ team 1 Bomb Squad uses the active Queen cloak, then becomes fully visible and targetable after guard death (11.8192ms)
+✔ all Ultimate cards use the reviewed 20-elixir balance schedule in every level and form (2.1552ms)
+✔ real deployment and placement forecasts agree at the affordability boundary for all cards and variants (128.41ms)
+✔ the Ultimate family helper is exact and installing its balance never alters normal cards or forms (119.9771ms)
+✔ UltimateClash2v2 uses real team structure with twenty elixir per seat and complete tournament levels (36.514ms)
+✔ UltimateClash2v2 preserves all normal/overtime rate boundaries and begins tiebreaker at its deadline (8.6142ms)
+✔ UltimateClash2v2 reinforces team towers and retains evolved Princess health presentation (390.5026ms)
+✔ UltimateClash2v2 every seat deploys the exclusive mechanics and credits its own Harvest (15.4649ms)
+✔ UltimateClash2v2 uses its existing team victory and sudden-death rules (7.3493ms)
+✔ UltimateClash3v3 uses real team structure with twenty elixir per seat and complete tournament levels (3.3757ms)
+✔ UltimateClash3v3 preserves all normal/overtime rate boundaries and begins tiebreaker at its deadline (3.518ms)
+✔ UltimateClash3v3 reinforces team towers and retains evolved Princess health presentation (11.7339ms)
+✔ UltimateClash3v3 every seat deploys the exclusive mechanics and credits its own Harvest (11.4214ms)
+✔ UltimateClash3v3 uses its existing team victory and sudden-death rules (4.7778ms)
+✔ Ultimate 3v3 arena choices reuse all three native team maps (8.6316ms)
+✔ Ultimate 1v1 keeps its existing timings and classic geometry (1.9963ms)
+✔ Ultimate 3v3 golemites pay the opposing seats while normal 3v3 preserves its owner refund (11.5929ms)
+✔ Ultimate 3v3 random spell placement covers the extended enemy half rather than classic bounds (10.6211ms)
+✔ all Ultimate builders accept the same exclusive cards and reject normal cards (45.9248ms)
+✔ Ultimate team deck libraries and selected forms persist independently (43.8056ms)
+✔ Ultimate team opponents use reproducible exclusive decks at every arena (1.7195ms)
+✔ Ultimate team self-play uses tournament decks and free forms for all seats (19.887ms)
+✔ profile history keeps the full Ultimate team duration and six-crown result (3.1435ms)
+✔ Crown Road recovers all six crowns from Ultimate 3v3 history (3.0147ms)
+✔ Learning Center preserves an eleven-minute Ultimate 3v3 result after reloading (1.1339ms)
+✔ Ultimate 3v3 history and learning retain the completed four-second tiebreaker (16.2503ms)
+✔ Events offers all Ultimate builders and describes the longer team timers (3.0358ms)
+✔ team builder Play starts the matching casual team queue (11.31ms)
+✔ Ultimate card information adds a card to the open team builder only (16.4356ms)
+✔ all Ultimate modes prepare the same cached native Builder scene (40.5076ms)
+✔ the released 0.58.0 normal replay still plays after Ultimate price changes (12.9617ms)
+✔ UltimateClash2v2 records and seeks every seat with custom state intact (221.4324ms)
+✔ UltimateClash3v3 records and seeks every seat with custom state intact (222.128ms)
+✔ 3v3 Ultimate replays accept the full 11-minute match and reject malformed ownership (5.2123ms)
+✔ evolved Princess defenders retain the Princess Tower health display metadata (37.6327ms)
+✔ Ultimate Princess Towers draw the normal tower HP frame, number and level on both teams (374.4324ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1299.6441
+
+✔ modern self-play samples the full source arena range and legal special forms for every seat (496.7165ms)
+✔ the exact built learner catalog matches the current source deck and form choices (712.9151ms)
+✔ web build has a small external-script entry point instead of a 149 MB payload (1.1858ms)
+✔ web release is complete and cannot contain desktop executables, installers or fonts (1696.5044ms)
+✔ split scene metadata and images resolve to packaged files with cache-busting revisions (234.1693ms)
+✔ web build bundles no remote script, remote image host, or account impersonation endpoint (96.4701ms)
+✔ the web build-info dialog does not advertise the old native bundle version (13.6205ms)
+✔ Learning Center advertises Ultimate Clash by its mode name (0.7ms)
+✔ headless Ultimate training uses exclusive tournament decks and supports its forms (18.9902ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2146.6153

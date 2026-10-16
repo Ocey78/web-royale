@@ -49,6 +49,7 @@ test('Ultimate match replay reproduces spell waves and remains deterministic aft
  const cards=C.cardsForMode?.('UltimateClash')||[];
  const deck=['ultimate-meteor-shower',...cards.map(c=>c.id).filter(id=>id!=='ultimate-meteor-shower').slice(0,7)];
  const b=ultimate({deck,enemyDeck:deck});R.captureInitial(b);
+ while(b.elixir[0]<b.card(0,0).cost)b.step(1/60);
  assert.equal(b.deploy(0,0,240,160).ok,true);
  for(let i=0;i<480;i++)b.step(1/60);
  const record=R.pack(b),s=new R.Session(record);s.seek(record.duration);

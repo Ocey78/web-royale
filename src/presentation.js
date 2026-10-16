@@ -43,7 +43,7 @@ function health(c,u,time=0,showLevel=true){if(u.localKing){const a=RoyaleNative.
  const anchor=tower?RoyaleNative.towerArtPosition(u):u;let x=anchor.x,y;
  if(tower){y=u.customCrown&&u.king?anchor.y+(enemy?-76:-64):anchor.y+(u.king?(enemy?-4:10):(enemy?-62:-48));}
  else{y=u.y-RoyaleNative.entityElevation(u)-RoyaleNative.library.headHeight(u.entity)-2;}
- c.save();c.translate(x,y);if(tower)c.scale(5/6,5/6);hud.drawStill(c,name,opts);if(tower&&!u.king&&u.ultimate?.kind!=='evo-princess-tower')root.RoyaleText.draw(c,String(u.level),-33.5,enemy?-7:57,14,'#ffe35e','center','#34230b');c.restore();stats.healthDraws++;return true;
+ c.save();c.translate(x,y);if(tower)c.scale(5/6,5/6);hud.drawStill(c,name,opts);if(tower&&!u.king)root.RoyaleText.draw(c,String(u.level),-33.5,enemy?-7:57,14,'#ffe35e','center','#34230b');c.restore();stats.healthDraws++;return true;
 }
 // Level-only native badges remain visible before the first hit, independently of HP bars.
 function level(c,u,time=0,position=null){if(!ready||u.king===true||u.hp<=0||u.effectCarrier||u.attachedTo||u.hidden||u.burrowing)return false;

@@ -12,7 +12,7 @@ async function main(){
  page.on('pageerror',e=>report.errors.push(e.message));
  await page.goto(url);
  await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:240000});
- report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,'0.58.0');
+ report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,process.env.EXPECTED_VERSION||require('../project.json').version);
  const capture=async name=>{await page.locator('#viewport').screenshot({path:path.join(out,name+'.png')});report.screenshots.push(name+'.png');};
  await page.locator('button[data-action="nav-events"]:visible').first().click();
  await page.locator('[data-action="special-deck-builder"][data-mode="UltimateClash"]').click();

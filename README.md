@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.0
+# Ultimate Clash update 0.58.1
+
+The [0.58.1 update](docs/RELEASE-v0.58.1.md) adds longer 2v2 and 3v3 Ultimate battles, rebalances the exclusive card prices, restores normal Princess Tower health bars, and makes protected Bombers translucent.
 
 Ultimate Clash adds a separate 20-card deck library, 20 maximum elixir, evolved Princess Towers, extended battles, original animated Clash of Clans Builders, and faster rendering. See the [0.58.0 release notes](docs/RELEASE-v0.58.0.md).
 
