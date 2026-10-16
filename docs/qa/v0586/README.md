@@ -7,3 +7,5 @@ Changed only the custom actor's collision radius to 1000. Its independent visual
 **No tests, battle simulations or browser gameplay checks were run**, following the user's instruction. The source and geometry were reviewed; the required static-site build was run. This release does not claim tested gameplay behavior.
 
 `build.txt` records the website build. `deployment.json` records GitHub Pages publication status and the published version.
+
+Release `80556492bd4c415e71501599160a5c2326eb627a` was published by [GitHub Pages workflow 38956413452](https://github.com/Ocey78/web-royale/actions/runs/38956413452). The workflow completed successfully and the public release manifest reports 0.58.6. No gameplay or browser tests were performed.
