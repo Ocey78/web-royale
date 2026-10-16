@@ -443,6 +443,19 @@
         "assets/cards/bandit.png",
         "assets/cards/boss-bandit.png"
       ]
+    },
+    {
+      "id": "ultimate-elixir-pump",
+      "name": "Elixir Pump",
+      "file": "assets/ultimate-clash/cards/ultimate-elixir-pump.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "061cfd3c109bb5ead163784a63cacbf4baeb4908837ffc6445679d909840955b",
+      "description": "A reinforced Elixir Collector overflowing with luminous purple elixir, with bright droplets and rapid pumping energy around its glass tank.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/elixir-collector.png"
+      ]
     }
   ]
 }

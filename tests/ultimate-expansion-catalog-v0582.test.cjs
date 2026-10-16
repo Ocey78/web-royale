@@ -5,10 +5,10 @@ const additions=[['mortar-battery','Mortar Battery',12],['royale-recall','Royale
 // A missing/newly mispriced definition must fail through each actual deck builder.
 test('the ten expansion cards are selectable at their reviewed prices in all three Ultimate builders',()=>{
  for(const mode of ['UltimateClash','UltimateClash2v2','UltimateClash3v3']){
-  assert.equal(D.modeState({},mode).eligibleCount,32);
+  assert.equal(D.modeState({},mode).eligibleCount,33);
   for(const [slug,name,cost] of additions){const id='ultimate-'+slug,card=K.cardAt(id,11);assert.equal(card.name,name);assert.equal(card.cost,cost);assert.equal(card.source.ManaCost,cost);assert.equal(D.setModeCard(P.normalizeProfile({}),mode,7,id).ok,true,id+' '+mode);assert.equal(D.setModeCard({},'Default',0,id).ok,false);}
  }
- assert.equal(U.CARDS.length,32);assert.equal(K.CARDS.some(c=>additions.some(([slug])=>c.id==='ultimate-'+slug)),false);
+ assert.equal(U.CARDS.length,33);assert.equal(K.CARDS.some(c=>additions.some(([slug])=>c.id==='ultimate-'+slug)),false);
 });
 test('the expansion installs isolated native actors with the required targeting and lifetimes',()=>{
  const original=require('../src/game-data'),data=structuredClone(original),before=JSON.stringify({cards:data.cards,entities:data.entities,projectiles:data.projectiles});U.install(data);
@@ -19,6 +19,6 @@ test('the expansion installs isolated native actors with the required targeting 
  assert.equal(data.ultimateForms.length,3,'existing forms only');
 });
 test('all expansion portraits are unique artwork with complete manifest provenance',()=>{
- const manifest=require('../assets/ultimate-clash/cards.json'),hashes=new Set();assert.equal(manifest.cards.length,32);
+ const manifest=require('../assets/ultimate-clash/cards.json'),hashes=new Set();assert.equal(manifest.cards.length,33);
  for(const [slug]of additions){const card=K.CARD_BY_ID['ultimate-'+slug],entry=manifest.cards.find(e=>e.id===card.id);assert.ok(entry,slug+' portrait manifest');assert.ok(card.description.length>60);assert.ok(card.artDescription.length>40);assert.equal(entry.description,card.artDescription);assert.ok(entry.sourceFiles.length>0,slug+' native portrait sources');for(const file of entry.sourceFiles)assert.ok(fs.existsSync(path.join(__dirname,'..',file)),file);const bytes=fs.readFileSync(path.join(__dirname,'..',entry.file));assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.equal(bytes.readUInt32BE(16),474);assert.equal(bytes.readUInt32BE(20),602);const hash=crypto.createHash('sha256').update(bytes).digest('hex');assert.equal(hash,entry.sha256);assert.ok(!hashes.has(hash),slug+' distinct artwork');hashes.add(hash);}
 });

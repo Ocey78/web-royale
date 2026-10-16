@@ -36,5 +36,5 @@ test('Mirror and Bandit Squad have distinct portraits made from their actual nat
  assert.deepEqual(mirror.sourceFiles,['assets/cards/mirror.png']);
  assert.deepEqual(squad.sourceFiles,['assets/cards/bandit.png','assets/cards/boss-bandit.png']);
  for(const entry of [mirror,squad])for(const file of entry.sourceFiles)assert.ok(fs.existsSync(path.join(root,file)));
- assert.equal(manifest.cards.length,32);assert.equal(new Set(manifest.cards.map(c=>c.id)).size,32);
+ assert.equal(manifest.cards.length,33);assert.equal(new Set(manifest.cards.map(c=>c.id)).size,33);
 });

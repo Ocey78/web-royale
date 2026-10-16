@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),K=require('../src/catalog'),U=require('../src/ultimate-clash'),D=require('../src/deck-manager');
 test('Mirror and eighteen-elixir Bandit Squad join every Ultimate builder without entering ordinary pools',()=>{
- assert.equal(U.CARDS.length,32);
+ assert.equal(U.CARDS.length,33);
  for(const mode of U.MODES)for(const id of ['ultimate-mirror','ultimate-bandit-squad']){assert.ok(D.modeState({},mode).eligible.includes(id));assert.equal(D.setModeCard({},mode,7,id).ok,true);assert.equal(K.allowedInMode(id,'Default'),false);}
  assert.equal(K.CARD_BY_ID['ultimate-bandit-squad'].cost,18);assert.deepEqual(K.CARD_BY_ID['ultimate-bandit-squad'].source.SummonCharactersList,['Assassin','Assassin','BossBandit','Assassin','Assassin']);assert.equal(K.CARD_BY_ID['ultimate-mirror'].source.Mirror,true);
  assert.equal(K.CARDS.length,123);

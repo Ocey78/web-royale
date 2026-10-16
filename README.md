@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.3
+# Ultimate Clash update 0.58.4
+
+The [0.58.4 update](docs/RELEASE-v0.58.4.md) adds the **15-elixir Elixir Pump** to all three Ultimate Clash modes. It produces one elixir every six seconds, 2.5 times as fast as the normal Collector, bringing the exclusive pool to 33 cards.
 
 The [0.58.3 update](docs/RELEASE-v0.58.3.md) adds Mirror and the 18-elixir Bandit Squad, bringing all three Ultimate deck builders to 32 exclusive cards. Mirror copies the last played card at +3 levels and costs one extra elixir, capped at 20. Buildings now support three Builders, with stronger healing. The Kitchen uses the original Royal Chef, Bowler Giant has cleaner hand and stone animation, and five spell portraits have new illustrations.
 

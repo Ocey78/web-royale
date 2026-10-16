@@ -118,7 +118,8 @@ const CARDS=Object.freeze([
  row('dragon-king','Dragon King',18,'baby-dragon','Troop','A huge, slow flying dragon with enough health to lead an air assault. Its long-windup cone breath scorches grouped air and ground enemies, but attack resets interrupt its charge.','An enormous native green Baby Dragon wearing a golden crown, breathing a broad orange flame beneath a royal purple sky.'),
  row('bowler-giant','Bowler Giant',11,'bowler','Troop','A Bowler and both of his boulders are 40% larger. He carries one ball in each hand and targets only buildings, while both rolling boulders strike enemy ground troops along their paths.','An enlarged native purple Bowler holding two oversized stone boulders, one in each hand, against a deep blue quarry sky.'),
  row('mirror','Mirror',1,'mirror','Spell','Replays your last non-Mirror card at 3 levels above its played level. Costs one more elixir than that card, capped at 20 elixir. A 20-elixir card still costs 20 to mirror. Copies use the base card form; repeated Mirrors do not add further levels.','An ornate gold-and-steel Mirror glows with violet light and three reflected magical echoes.'),
- row('bandit-squad','Bandit Squad',18,'bandit','Troop','Four Bandits surround a Boss Bandit in one five-troop deployment. Each keeps her native charge and dash attack, rushing enemies together. The squad costs 18 elixir and is available only in Ultimate Clash.','Four masked white-haired Bandits surround a larger red-haired Boss Bandit beneath a violet-and-gold sky.')
+ row('bandit-squad','Bandit Squad',18,'bandit','Troop','Four Bandits surround a Boss Bandit in one five-troop deployment. Each keeps her native charge and dash attack, rushing enemies together. The squad costs 18 elixir and is available only in Ultimate Clash.','Four masked white-haired Bandits surround a larger red-haired Boss Bandit beneath a violet-and-gold sky.'),
+ row('elixir-pump','Elixir Pump',15,'elixir-collector','Building','An accelerated Elixir Collector that costs 15 elixir and produces 1 elixir every 6 seconds, 2.5 times as fast as the normal Collector. It keeps the normal Collector’s health and lifetime, supports Builders, and is available only in Ultimate Clash.','A reinforced Elixir Collector overflowing with luminous purple elixir, with bright droplets and rapid pumping energy around its glass tank.')
 ]);
 const CARD_IDS=Object.freeze(CARDS.map(c=>c.id)),DEFAULT_DECK=Object.freeze(['ultimate-royale-escort','ultimate-mega-minion-horde','ultimate-frostbite','ultimate-bomb-squad','ultimate-heal-spell','ultimate-fisherman','ultimate-executioner-cage','ultimate-meteor-shower']);
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -141,6 +142,7 @@ function install(data){
  entity('UltimateDragonKing','BabyDragon',{Hitpoints:1800,Speed:45,Scale:165,UltimateVisualScale:1.65,CollisionRadius:850,HitSpeed:3000,LoadTime:1000,LoadFirstHit:false,AttackStartDelay:2000,Damage:240,Projectile:'',Range:5000,SightRange:6500,UltimateTint:'#cc9d3d'});
  data.projectiles.UltimateBowlerGiantProjectile={...clone(data.projectiles.BowlerProjectile),Name:'UltimateBowlerGiantProjectile',NativeProjectile:'BowlerProjectile',Radius:(data.projectiles.BowlerProjectile.Radius||1800)*1.4,ProjectileRadius:(data.projectiles.BowlerProjectile.ProjectileRadius||1000)*1.4,UltimateVisualScale:1.4};
  entity('UltimateBowlerGiant','Bowler',{Hitpoints:1500,Scale:data.entities.Bowler.Scale*1.4,CollisionRadius:1050,TargetOnlyBuildings:true,Projectile:'UltimateBowlerGiantProjectile',UltimateVisualScale:1.4});
+ entity('UltimateElixirPump','ElixirCollector',{ManaGenerateTimeMs:data.entities.ElixirCollector.ManaGenerateTimeMs/2.5});
  const area=(name,base,radius,duration)=>data.areas[name]={...clone(data.areas[base]||{}),Name:name,Radius:radius,LifeDuration:duration};
  area('UltimateLightningStorm','Graveyard_rework',3400,10000);
  area('UltimateHealSpell','HealSpirit',5000,2000);
@@ -181,7 +183,8 @@ function install(data){
   'dragon-king':{SummonCharacter:'UltimateDragonKing'},
   'bowler-giant':{SummonCharacter:'UltimateBowlerGiant'},
   mirror:{Mirror:true},
-  'bandit-squad':{SummonCharacter:'',SummonCharactersList:['Assassin','Assassin','BossBandit','Assassin','Assassin'],SummonNumber:5,SummonRadius:1200}
+  'bandit-squad':{SummonCharacter:'',SummonCharactersList:['Assassin','Assassin','BossBandit','Assassin','Assassin'],SummonNumber:5,SummonRadius:1200},
+  'elixir-pump':{SummonCharacter:'UltimateElixirPump'}
  };
  data.ultimateCards=CARDS.map(config=>{const base=native(config.base);if(!base)throw Error('Ultimate Clash source card missing: '+config.base);const source={...clone(base.source),...overrides[config.slug],Name:'Ultimate_'+config.slug.replace(/-/g,'_'),ManaCost:config.cost,UltimateMechanic:config.slug};delete source.EvolvedSpells;return{...clone(base),id:config.id,name:config.name,cost:config.cost,kind:config.kind,description:config.description,artDescription:config.artDescription,exclusiveMode:MODE,ultimate:{kind:config.slug,baseCardId:config.base},source};});
  const card=id=>data.ultimateCards.find(c=>c.id===id),source=(id,patch)=>({...clone(card(id).source),...patch}),hero=data.forms?.find(f=>f.baseCardId==='mega-minion'&&f.kind==='hero');
