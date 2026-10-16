@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.12
+# Ultimate Clash update 0.58.13
+
+The [0.58.13 update](docs/RELEASE-v0.58.13.md) lowers **Mega Minion Horde to 8 elixir**, including its Hero form.
 
 The [0.58.12 update](docs/RELEASE-v0.58.12.md) adds **25 Giant Snowballs** to Frostbite’s Hero ability, scattered across the field over four seconds. It keeps its 3-elixir cost, four-second field extension, and five extra Ice Spirits.
 
