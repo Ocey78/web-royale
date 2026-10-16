@@ -36,4 +36,4 @@
 - [x] UI and persistence: expose both modes in Events and Learning Center, independent deck builders, correct pool and saved history; test normalization and training.
 - [x] Replay/assets: extend custom replay guards and digest to team modes; prepare Builder assets for the whole family; verify record/playback and prior normal replay compatibility.
 - [x] Integration: review changes, run appropriate suite, rebuild and inspect actual browser screenshots of all modes, tower bars and Bombers.
-- [ ] Release: commit and push, dispatch Pages for the exact release commit, verify live hashes and browser behavior, save deployment evidence.
+- [x] Release: commit and push, dispatch Pages for the exact release commit, verify live hashes and browser behavior, save deployment evidence.

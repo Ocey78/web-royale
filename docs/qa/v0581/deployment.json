@@ -1,0 +1,86 @@
+{
+  "version": "0.58.1",
+  "releaseSha": "45785797ae8ffb21a733d148aa44c53273503d6b",
+  "dispatchStatus": 204,
+  "dispatchedAt": "2026-10-16T17:06:38.624Z",
+  "workflowRun": 38937151608,
+  "workflowUrl": "https://github.com/Ocey78/web-royale/actions/runs/38937151608",
+  "site": "https://ocey78.github.io/web-royale/",
+  "verifiedAt": "2026-10-16T17:08:41.703Z",
+  "liveVersion": "0.58.1",
+  "verified": [
+    {
+      "name": "index.html",
+      "bytes": 16467,
+      "sha256": "102dec55ff84426dc66c19d526bb8032bf984778b8bd39f2db2bb0d5d6f7a1fe"
+    },
+    {
+      "name": "release.json",
+      "bytes": 265955,
+      "sha256": "010c2cb98a97ab25bed9c25beafa827c6e9e92d95981998dcdbc5f2952150418"
+    },
+    {
+      "name": "app.26d61a3e2d8a.js",
+      "bytes": 12416612,
+      "sha256": "26d61a3e2d8ae0c736cbc44bfffdf0424008dc5f227a8fdfe8681a6e08bf677c"
+    },
+    {
+      "name": "bootstrap.12d81589ec1a.js",
+      "bytes": 1387,
+      "sha256": "12d81589ec1a02d34429bfe45e770a543c622a931d4ce06200d45fe371d245cb"
+    },
+    {
+      "name": "runtime.f4ad2556a9bd.json",
+      "bytes": 15382340,
+      "sha256": "f4ad2556a9bd80f92ed3eb266cd44e624ab5d1faa08234b0cbe9a0af4b5ddbd0"
+    },
+    {
+      "name": "training-engine.55edfcf2180b.js",
+      "bytes": 538780,
+      "sha256": "55edfcf2180b8d607d05885dad85dae492d6d2664af937a61e74cf867fb62057"
+    }
+  ],
+  "workflowConclusion": "success",
+  "bareEntryMatches": true,
+  "browserVerifiedAt": "2026-10-16T17:11:02.870Z",
+  "browser": {
+    "modes": [
+      {
+        "mode": "UltimateClash",
+        "seats": 2,
+        "sections": [
+          240,
+          180
+        ]
+      },
+      {
+        "mode": "UltimateClash2v2",
+        "seats": 4,
+        "sections": [
+          300,
+          240
+        ]
+      },
+      {
+        "mode": "UltimateClash3v3",
+        "seats": 6,
+        "sections": [
+          360,
+          300
+        ]
+      }
+    ],
+    "towerHealthCases": 8,
+    "cloakedOpacity": [
+      0.48
+    ],
+    "revealedOpacity": [
+      1
+    ],
+    "errors": [],
+    "reports": [
+      "live/teams-report.json",
+      "live/report.json"
+    ]
+  }
+}
