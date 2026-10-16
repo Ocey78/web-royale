@@ -1,0 +1,92 @@
+{
+  "url": "https://ocey78.github.io/web-royale/?release=0.58.2",
+  "errors": [],
+  "version": "0.58.2",
+  "towers": [
+    {
+      "team": 1,
+      "fraction": 1,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "21840",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_enemy_tower_withNumber"
+    },
+    {
+      "team": 1,
+      "fraction": 0.63,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "13760",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_enemy_tower_withNumber"
+    },
+    {
+      "team": 1,
+      "fraction": 1,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "21840",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_enemy_tower_withNumber"
+    },
+    {
+      "team": 1,
+      "fraction": 0.63,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "13760",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_enemy_tower_withNumber"
+    },
+    {
+      "team": 0,
+      "fraction": 1,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "21840",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_player_tower_withNumber"
+    },
+    {
+      "team": 0,
+      "fraction": 0.63,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "13760",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_player_tower_withNumber"
+    },
+    {
+      "team": 0,
+      "fraction": 1,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "21840",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_player_tower_withNumber"
+    },
+    {
+      "team": 0,
+      "fraction": 0.63,
+      "healthBar": "Tower",
+      "shooter": "Princess_EV1",
+      "hp": "13760",
+      "maxHp": 21840,
+      "expectedMax": 21840,
+      "name": "hp_player_tower_withNumber"
+    }
+  ],
+  "serviceWorker": {
+    "supported": true,
+    "controlled": true
+  },
+  "passed": true
+}

@@ -1,0 +1,318 @@
+{
+  "url": "https://ocey78.github.io/web-royale/?release=0.58.2",
+  "errors": [],
+  "modes": [
+    {
+      "mode": "UltimateClash",
+      "seats": 2,
+      "cap": 20,
+      "sections": [
+        240,
+        180
+      ],
+      "decks": [
+        [
+          "ultimate-royale-escort",
+          "ultimate-mega-minion-horde",
+          "ultimate-frostbite",
+          "ultimate-bomb-squad",
+          "ultimate-heal-spell",
+          "ultimate-fisherman",
+          "ultimate-executioner-cage",
+          "ultimate-meteor-shower"
+        ],
+        [
+          "ultimate-harvest",
+          "ultimate-code-red",
+          "ultimate-heal-spell",
+          "ultimate-bomb-squad",
+          "ultimate-magic-trio",
+          "ultimate-three-pekkas",
+          "ultimate-royale-recall",
+          "ultimate-executioner-cage"
+        ]
+      ],
+      "kingCount": 2,
+      "princess": [
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        }
+      ],
+      "builderReady": true
+    },
+    {
+      "mode": "UltimateClash2v2",
+      "seats": 4,
+      "cap": 20,
+      "sections": [
+        300,
+        240
+      ],
+      "decks": [
+        [
+          "ultimate-royale-escort",
+          "ultimate-mega-minion-horde",
+          "ultimate-frostbite",
+          "ultimate-bomb-squad",
+          "ultimate-heal-spell",
+          "ultimate-fisherman",
+          "ultimate-executioner-cage",
+          "ultimate-meteor-shower"
+        ],
+        [
+          "ultimate-elite-barbarians",
+          "ultimate-executioner-cage",
+          "ultimate-overcharged-tesla",
+          "ultimate-bowler-giant",
+          "ultimate-dragon-king",
+          "ultimate-heal-spell",
+          "ultimate-mortar-battery",
+          "ultimate-unstable-egg"
+        ],
+        [
+          "ultimate-dragon-king",
+          "ultimate-frostbite",
+          "ultimate-battle-kitchen",
+          "ultimate-overcharged-tesla",
+          "ultimate-heal-spell",
+          "ultimate-royale-reinforcements",
+          "ultimate-three-pekkas",
+          "ultimate-fisherman"
+        ],
+        [
+          "ultimate-magic-trio",
+          "ultimate-spirit-festival",
+          "ultimate-lightning-storm",
+          "ultimate-unstable-egg",
+          "ultimate-bomb-squad",
+          "ultimate-fisherman",
+          "ultimate-mortar-battery",
+          "ultimate-bowler-giant"
+        ]
+      ],
+      "kingCount": 2,
+      "princess": [
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        }
+      ],
+      "builderReady": true
+    },
+    {
+      "mode": "UltimateClash3v3",
+      "seats": 6,
+      "cap": 20,
+      "sections": [
+        360,
+        300
+      ],
+      "decks": [
+        [
+          "ultimate-royale-escort",
+          "ultimate-mega-minion-horde",
+          "ultimate-frostbite",
+          "ultimate-bomb-squad",
+          "ultimate-heal-spell",
+          "ultimate-fisherman",
+          "ultimate-executioner-cage",
+          "ultimate-meteor-shower"
+        ],
+        [
+          "ultimate-battle-kitchen",
+          "ultimate-mega-minion-horde",
+          "ultimate-frostbite",
+          "ultimate-elite-barbarians",
+          "ultimate-royale-recall",
+          "ultimate-overcharged-tesla",
+          "ultimate-balloon-parade",
+          "ultimate-three-pekkas"
+        ],
+        [
+          "ultimate-lightning-storm",
+          "ultimate-overcharged-tesla",
+          "ultimate-elixir-witch",
+          "ultimate-kings-dropoff",
+          "ultimate-magic-trio",
+          "ultimate-three-pekkas",
+          "ultimate-royale-recall",
+          "ultimate-bomb-squad"
+        ],
+        [
+          "ultimate-goblin-magnet",
+          "ultimate-royale-reinforcements",
+          "ultimate-executioner-cage",
+          "ultimate-unstable-egg",
+          "ultimate-magic-trio",
+          "ultimate-spirit-festival",
+          "ultimate-kings-dropoff",
+          "ultimate-bomb-squad"
+        ],
+        [
+          "ultimate-royale-escort",
+          "ultimate-battle-kitchen",
+          "ultimate-executioner-cage",
+          "ultimate-heal-spell",
+          "ultimate-harvest",
+          "ultimate-royale-reinforcements",
+          "ultimate-unstable-egg",
+          "ultimate-spirit-festival"
+        ],
+        [
+          "ultimate-unstable-egg",
+          "ultimate-battle-kitchen",
+          "ultimate-spirit-festival",
+          "ultimate-executioner-cage",
+          "ultimate-royale-recall",
+          "ultimate-elite-barbarians",
+          "ultimate-dragon-king",
+          "ultimate-meteor-shower"
+        ]
+      ],
+      "kingCount": 6,
+      "princess": [
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 1,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        },
+        {
+          "team": 0,
+          "bar": "Tower",
+          "shooter": "Princess_EV1",
+          "hp": 21840,
+          "expected": 21840
+        }
+      ],
+      "builderReady": true
+    }
+  ],
+  "screenshots": [
+    "ultimate-events.png",
+    "UltimateClash-battle.png",
+    "bombers-cloaked.png",
+    "bombers-revealed.png",
+    "UltimateClash2v2-battle.png",
+    "ultimate-3v3-phone-deck.png",
+    "UltimateClash3v3-battle.png"
+  ],
+  "version": "0.58.2",
+  "bomberCloak": {
+    "alpha": [
+      0.48
+    ],
+    "units": [
+      {
+        "team": 0,
+        "invisible": true,
+        "guard": 28
+      },
+      {
+        "team": 0,
+        "invisible": true,
+        "guard": 28
+      },
+      {
+        "team": 1,
+        "invisible": true,
+        "guard": 31
+      },
+      {
+        "team": 1,
+        "invisible": true,
+        "guard": 31
+      }
+    ]
+  },
+  "bomberRevealed": {
+    "alpha": [
+      1
+    ],
+    "invisible": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "passed": true
+}
