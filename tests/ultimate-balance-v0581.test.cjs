@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
 const U=require('../src/ultimate-clash'),K=require('../src/catalog'),F=require('../src/card-forms'),{Battle}=require('../src/battle');
-const prices={'mega-minion-horde':14,'lightning-storm':10,'heal-spell':3,'balloon-parade':20,'executioner-cage':16,builder:5,'magic-trio':10,frostbite:11,harvest:3,'overcharged-tesla':6,'three-pekkas':17,'meteor-shower':6,'code-red':14,'royale-escort':20,'kings-dropoff':13,'elite-barbarians':12,'elixir-witch':5,'unstable-egg':3,fisherman:4,'bomb-squad':6,'mortar-battery':12,'royale-recall':4,'goblin-magnet':5,'spirit-festival':7,'dark-pact':4,'battle-kitchen':8,'royale-reinforcements':12,'elixir-spell':2,'dragon-king':18,'bowler-giant':11,mirror:1,'bandit-squad':18,'elixir-pump':15};
+const prices={'mega-minion-horde':14,'lightning-storm':10,'heal-spell':3,'balloon-parade':20,'executioner-cage':16,builder:5,'magic-trio':10,frostbite:10,harvest:3,'overcharged-tesla':6,'three-pekkas':17,'meteor-shower':6,'code-red':14,'royale-escort':20,'kings-dropoff':13,'elite-barbarians':12,'elixir-witch':5,'unstable-egg':3,fisherman:4,'bomb-squad':6,'mortar-battery':12,'royale-recall':4,'goblin-magnet':5,'spirit-festival':7,'dark-pact':4,'battle-kitchen':8,'royale-reinforcements':12,'elixir-spell':2,'dragon-king':18,'bowler-giant':11,mirror:1,'bandit-squad':18,'elixir-pump':15};
 
 test('all Ultimate cards use the reviewed 20-elixir balance schedule in every level and form',()=>{
  assert.equal(U.CARDS.length,Object.keys(prices).length);

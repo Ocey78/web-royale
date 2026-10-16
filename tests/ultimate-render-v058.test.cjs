@@ -12,8 +12,8 @@ test('custom actor aliases resolve to original source scenes and overcharged Tes
 test('the unstable egg reaches its source idle animation and never restarts its tiny birth frames',()=>{
  const clip=data.scenes.chr_phoenix_dl.clips[data.scenes.chr_phoenix_dl.exports.Egg_Phoenix_V2_Blue],u={born:0,ultimate:{kind:'unstable-egg'}};assert.equal(N.ultimateClipPose(clip,u,0).frame,0);for(const time of [1,2,3,4,5,6,100]){const frame=N.ultimateClipPose(clip,u,time).frame;assert.ok(frame>=22&&frame<=39);}
 });
-test('runtime Hero Frostbite dependency closure includes native falling snowballs',()=>{
- require('../src/battle');const form=C.DATA.ultimateForms.find(f=>f.id==='ultimate-frostbite-hero'),names=N.sceneDependencies(data,C.DATA,['ultimate-frostbite'],'training',[form.source]);assert.ok(names.includes(data.projectiles.SnowballSpell.scene));
+test('runtime Hero Frostbite dependency closure includes native Ice Spirits',()=>{
+ require('../src/battle');const form=C.DATA.ultimateForms.find(f=>f.id==='ultimate-frostbite-hero'),names=N.sceneDependencies(data,C.DATA,['ultimate-frostbite'],'training',[form.source]);assert.ok(names.includes(data.units.IceSpirits.scene));
 });
 test('custom area style uses correct original floor art and separates Frostbite from Graveyard particles',()=>{
  assert.equal(D.ultimateAreaStyle({name:'UltimateHarvest'}).floor,'sauron_eye_ground');assert.match(D.ultimateAreaStyle({name:'UltimateMeteorShower'}).filter,/64deg/);assert.match(D.ultimateAreaStyle({name:'UltimateLightningStorm'}).filter,/grayscale/);assert.equal(D.ultimateAreaStyle({name:'UltimateFrostbite'}).source,'Freeze');assert.equal(D.ultimateAreaStyle({name:'UltimateHealSpell'}).scale,2);assert.equal(D.ultimateAreaStyle({name:'Freeze'}),null);

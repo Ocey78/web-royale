@@ -1,0 +1,12 @@
+
+> web-royale@0.58.9 build
+> node tools/build-web.js --compact-scenes
+
+{
+  "version": "0.58.9",
+  "target": "web",
+  "files": 2286,
+  "entryBytes": 16467,
+  "totalBytes": 1001486815,
+  "snapshot": "16.402.17+balance-2026-10-06"
+}

@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.8
+# Ultimate Clash update 0.58.9
+
+The [0.58.9 update](docs/RELEASE-v0.58.9.md) lowers Frostbite to **10 elixir**. Its **3-elixir Hero ability** extends the field by four seconds and summons five extra Ice Spirits. Evolved Lightning Storm now strikes every **0.3–0.6 seconds**.
 
 The [0.58.8 update](docs/RELEASE-v0.58.8.md) lowers Lightning Storm to **10 elixir** and CODE RED to **14 elixir**, including their Evolutions.
 
