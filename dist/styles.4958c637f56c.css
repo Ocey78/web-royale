@@ -1526,3 +1526,5 @@
 #ultimateCardInfo p{font-size:11px;line-height:1.4;margin:4px 0 0}
 #ultimateCardInfo .native-button{flex:0 0 auto;min-width:78px;font-size:12px;padding:8px}
 .ultimate-clash-deck .mode-card-tile .cost{font-variant-numeric:tabular-nums}
+#viewport .hand-card .card-visual.mirrored>.card-level{position:absolute;top:6px;bottom:auto;left:5px;right:5px;z-index:4;min-height:20px;height:20px;font-size:13px;line-height:20px;background:#281c58e8;border-radius:3px;color:#eadcff;pointer-events:none}
+#viewport .hand-card .card-visual.mirrored>.card-level>.royale-label{font-size:13px}

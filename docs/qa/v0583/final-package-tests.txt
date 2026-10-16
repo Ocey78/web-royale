@@ -1,0 +1,22 @@
+✔ web build has a small external-script entry point instead of a 149 MB payload (2.2506ms)
+✔ web release is complete and cannot contain desktop executables, installers or fonts (2798.8647ms)
+✔ split scene metadata and images resolve to packaged files with cache-busting revisions (253.5744ms)
+✔ web build bundles no remote script, remote image host, or account impersonation endpoint (109.1533ms)
+✔ the web build-info dialog does not advertise the old native bundle version (16.3487ms)
+✔ Kitchen death Chef composes original matching upper and lower layers for both teams and every facing (4.0625ms)
+✔ ground Chef walking has travel-linked movement without replacing native attack playback (1.3654ms)
+✔ Chef waits for both native layers before painting a partially loaded model (0.4644ms)
+✔ two and three Builders draw distinct original worker animations and disappear with the building (5.2174ms)
+✔ giant Bowler uses a stable carrying pose and source-frame hand anchors through windup and recovery (1.1481ms)
+✔ giant held stones scale with the actor and both hands clear at release (0.4241ms)
+✔ Kitchen death Chef and all Bandit Squad members are included in native asset closure (3829.4624ms)
+✔ potato rendering shows the third Builder without source assets (2.7136ms)
+✔ Ultimate deck slots and collection display Mirror as variable cost while Bandit Squad displays18 (2.5932ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6041.3906

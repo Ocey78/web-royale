@@ -1,7 +1,7 @@
 {
   "version": 1,
   "mode": "UltimateClash",
-  "method": "Deterministic composition of bundled game portraits and original native Builder render; normal card frames are applied by the UI.",
+  "method": "Deterministic composition of bundled game portraits and retained original spell illustrations; normal card frames are applied by the UI.",
   "cards": [
     {
       "id": "ultimate-mega-minion-horde",
@@ -22,10 +22,14 @@
       "file": "assets/ultimate-clash/cards/ultimate-lightning-storm.png",
       "width": 474,
       "height": 602,
-      "sha256": "7a20202b34a25107baf778df2086332be6f7397ad33cf35e221ab45e5b264a4b",
-      "description": "A dense grey storm cloud crackling with three branching white and violet lightning bolts.",
-      "source": "Web Royale custom Canvas composition",
-      "sourceFiles": []
+      "sha256": "3a26ee2945458a56ce59e3e2539e60894210fd10d9bc9218a491c1a3a6073e32",
+      "description": "Three branching blue-white lightning strikes erupt from a sculptural violet thundercloud above distant stone battlements.",
+      "source": "Original illustration generated with the built-in imagegen tool",
+      "sourceFiles": [
+        "assets/ultimate-clash/illustrations/lightning-storm.png"
+      ],
+      "sourceSha256": "9263370748b8693d55a1392dc4b934ef60ce50f69c3992b28946b27ae46e9208",
+      "generationPrompt": "Use case: stylized-concept. Asset type: full-bleed spell portrait for a colorful 3D fantasy strategy game's card collection. Primary request: LIGHTNING STORM — paint a polished, vivid original illustration of a huge sculptural thundercloud unleashing three forked electric bolts onto distant stone battlements. Dark smoky blue and violet cloud masses curl across upper two thirds; a blazing white-blue core illuminates their rounded, chunky forms from within. Three thick wildly branching bolts lead downward to small golden impact sparks on an arena far below. Strong dimensional lighting, saturated cool colors, cinematic depth, crisp readable silhouette, soft painterly 3D mobile-game render finish. Composition: tall portrait approximately 474:602, one cohesive dramatic scene; main cloud and bright bolt central, all essential content within middle 80 percent to survive card crop. Full bleed opaque background. No characters, no words, no letters, no numbers, no logos, no watermark, no card border or UI, no flat diagram, no icon/arrow, no potion bottle. Rich artwork visible at both full resolution and a 70px tall thumbnail."
     },
     {
       "id": "ultimate-heal-spell",
@@ -115,10 +119,14 @@
       "file": "assets/ultimate-clash/cards/ultimate-harvest.png",
       "width": 474,
       "height": 602,
-      "sha256": "176025ede6be63c8c9b7c4bd8bb4add9b45948a1796c81192c8d43040d1f4d28",
-      "description": "A luminous pink elixir vortex with rose-coloured beams rising from a dark magical circle.",
-      "source": "Web Royale custom Canvas composition",
-      "sourceFiles": []
+      "sha256": "161f6f6800321de81a69a662476a9399ef31f0beb1ae4f3396eae950c2d5ff00",
+      "description": "A luminous pink elixir droplet gathers sparkling streams from fading Skeletons above a rose-coloured harvesting circle.",
+      "source": "Original illustration generated with the built-in imagegen tool",
+      "sourceFiles": [
+        "assets/ultimate-clash/illustrations/harvest.png"
+      ],
+      "sourceSha256": "34c9d44d767bb898f0b54aba82c8a68c07dbfdc677fdaf0a31ed3ab445ffdf23",
+      "generationPrompt": "Use case: stylized-concept. Asset type: full-bleed spell portrait for a colorful chunky 3D fantasy strategy game card. Primary request: HARVEST — polished vivid original magical illustration, a radiant rose-pink harvesting vortex pulls glowing pink elixir droplets upward from fading little magical skeleton silhouettes into a floating luminous faceted pink droplet at the center. The central oversized translucent elixir droplet is a distinctive focal object, three narrow spiraling beams curl toward it from a circular pink spell field on stone arena tiles below. A couple tiny cartoon skull silhouettes dissolve into sparkling magical motes, no gore. Saturated fuchsia, warm pink and deep indigo; glowing glossy surfaces, strong depth and volumetric rays, generous bold forms, stylized 3D mobile fantasy game finish. Portrait ratio 474:602 with full opaque background, central content within middle 80 percent, designed to read at 70px tall. No text, letters, numbers, logos, watermark, border, frame, UI, potion bottle, arrows or flat diagram. This represents harvesting elixir from defeated enemies, not farming crops."
     },
     {
       "id": "ultimate-overcharged-tesla",
@@ -289,12 +297,14 @@
       "file": "assets/ultimate-clash/cards/ultimate-royale-recall.png",
       "width": 474,
       "height": 602,
-      "sha256": "548446c506ba19db4e03b9f6b9c8e94e861249ee1de1edf4da51892bfb85a1d5",
-      "description": "A native Knight stepping through a bright turquoise recall portal, with curved blue trails circling a second distant Knight.",
-      "source": "Web Royale custom Canvas composition",
+      "sha256": "50c681122873c2ccc5d0ed99433aafd3c6470de0b2af7ef281e736b8a056b612",
+      "description": "A blue-clad armored Knight charges through a swirling turquoise portal while two allies return toward a welcoming blue castle.",
+      "source": "Original illustration generated with the built-in imagegen tool",
       "sourceFiles": [
-        "assets/cards/knight.png"
-      ]
+        "assets/ultimate-clash/illustrations/royale-recall.png"
+      ],
+      "sourceSha256": "f106fc3ffe1a52140d53f92d77e5f0925d0d8c77271004831d7a2c59ad6c20c1",
+      "generationPrompt": "Use case: stylized-concept. Asset type: full-bleed spell portrait for a colorful chunky 3D fantasy strategy game card. Primary request: ROYALE RECALL — a brave friendly mustached medieval knight in rounded silver armor and a blue tunic rushes out of a luminous turquoise oval portal toward the viewer. Show his expressive determined face, blond mustache, steel helmet and raised simple sword in foreground. Through the deep-blue swirling portal behind him, two much smaller friendly armored soldiers are drawn safely back toward a welcoming distant blue castle. Strong curved ribbons of cyan magic wrap behind the knight and disappear into the portal, storytelling travel and return. Portrait crop, knight fills center two thirds, dramatic low angle, sculptural clean shapes and glossy cartoon 3D mobile-game finish, jewel-like saturated cyan light against royal blue, warm friendly face with strong readable silhouette. Full opaque full-bleed illustration, aspect approximately 474:602, central essential content within 80 percent for card crop. No words, letters, numbers, UI, border, watermark, logos, graphic arrows, potion bottle, duplicated stamped character portrait. Do not include any card frame."
     },
     {
       "id": "ultimate-goblin-magnet",
@@ -331,13 +341,14 @@
       "file": "assets/ultimate-clash/cards/ultimate-dark-pact.png",
       "width": 474,
       "height": 602,
-      "sha256": "78c8681a41da120df51596e50e63dff4606bacf28edd29e3ae9dcd0dd7ee2ecf",
-      "description": "A native Rage bottle hovering above dark violet runic rings, with crimson energy rising around a shadowed Knight.",
-      "source": "Web Royale custom Canvas composition",
+      "sha256": "0793955386af062959ff2a2cfc9028d28d4421c70e7e16ab326b67c522fe21d3",
+      "description": "A shadowed armored warrior wields a crimson enchanted sword while violet magic draws glowing vitality from his breastplate.",
+      "source": "Original illustration generated with the built-in imagegen tool",
       "sourceFiles": [
-        "assets/cards/knight.png",
-        "assets/cards/rage.png"
-      ]
+        "assets/ultimate-clash/illustrations/dark-pact.png"
+      ],
+      "sourceSha256": "823ba514a80a805231cf4131b1aef473052018637b4dc79d5064cb937496826a",
+      "generationPrompt": "Use case: stylized-concept. Asset type: full-bleed spell portrait for a colorful chunky 3D fantasy strategy game card. Primary request: DARK PACT — a fierce cartoon medieval warrior grips a huge sword newly blazing with crimson-violet magic while dark glowing ribbons drain a few bright red sparks from his breastplate into a hovering purple rune sigil. One cohesive original illustration, central armored warrior waist-up, fierce eyes visible beneath rounded steel helmet, purple cloth and shiny metal armor. Weapon edge radiates powerful pink-red fire on one side, and a dim red heart-shaped magical ember at the chest links to the shadowy sigil on the other side, conveying increased power at a cost to vitality. No injury, no blood, no gore; the vitality loss is magical sparkling energy only. Dramatic purple-black atmosphere, fuchsia rim light, sculptural chunky forms, polished stylized 3D mobile fantasy game look, crisp focal hierarchy and rich dimensional lighting. Portrait aspect approximately 474:602, full opaque background, all major content within middle 80 percent, readable at 70px tall. No text, readable runic lettering, numbers, logos, border, UI, frame, watermark, potion bottle, arrows or flat diagram."
     },
     {
       "id": "ultimate-battle-kitchen",
@@ -371,12 +382,14 @@
       "file": "assets/ultimate-clash/cards/ultimate-elixir-spell.png",
       "width": 474,
       "height": 602,
-      "sha256": "f06d5151a101bc7f2a67a903959cbae47cade2e625097b2843d789f25c65b68e",
-      "description": "A tipped native purple Rage bottle pouring a luminous pool of elixir across the Arena floor, surrounded by slow rippling rings.",
-      "source": "Web Royale custom Canvas composition",
+      "sha256": "a28de95980ab100c2f088070c993e0ce3312aa043688003d73c4c875b6bcafac",
+      "description": "Glossy purple elixir stretches in sticky strands around blue-team and red-team armored boots on the Arena tiles.",
+      "source": "Original illustration generated with the built-in imagegen tool",
       "sourceFiles": [
-        "assets/cards/rage.png"
-      ]
+        "assets/ultimate-clash/illustrations/elixir-spell.png"
+      ],
+      "sourceSha256": "5b8227048487615f547fbfe4a34f149e8852084ab64f77c0d5d64b991dd01410",
+      "generationPrompt": "Use case: stylized-concept. Asset type: full-bleed spell portrait for a colorful chunky 3D fantasy strategy game card. Primary request: ELIXIR SPELL — glossy thick purple elixir has spilled into a broad luminous puddle on stone arena tiles, and two cartoon armored boots are comically stuck deep in its sticky surface. Main focal subject is a beautiful thick splash of viscous purple slime curling upward, with stretched sticky strands clinging to the raised boot and bulbous bright droplets frozen in the air. Show lower legs only at top, one silver boot with a blue trouser leg and one bronze boot with a red trouser leg, illustrating that the sticky field slows both teams. No whole characters, no potion bottle. Low close-up angle, enormous translucent purple splash fills frame, glassy pink highlights, reflections, strong volumetric material, playful chunky stylized 3D mobile fantasy game finish. Amethyst, magenta and cool teal stone; sharp energetic foreground, simple softly blurred arena background. Portrait aspect approximately 474:602, full opaque full-bleed artwork, primary subject within center 80 percent, readable at 70px. No text, letters, numbers, logos, border, UI, frame, watermark, arrows or flat shapes."
     },
     {
       "id": "ultimate-dragon-king",
@@ -402,6 +415,33 @@
       "source": "Web Royale custom Canvas composition",
       "sourceFiles": [
         "assets/cards/bowler.png"
+      ]
+    },
+    {
+      "id": "ultimate-mirror",
+      "name": "Mirror",
+      "file": "assets/ultimate-clash/cards/ultimate-mirror.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "98d1def470c72bfd68159455fbb39745e1de534ed3b2d5e094d341757d085b07",
+      "description": "An ornate gold-and-steel Mirror glows with violet light and three reflected magical echoes.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/mirror.png"
+      ]
+    },
+    {
+      "id": "ultimate-bandit-squad",
+      "name": "Bandit Squad",
+      "file": "assets/ultimate-clash/cards/ultimate-bandit-squad.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "4114540ec5a0d63a2cb2b4d73c9b1126a1edcec2d99bf3dd40b00c838c10f23f",
+      "description": "Four masked white-haired Bandits surround a larger red-haired Boss Bandit beneath a violet-and-gold sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/bandit.png",
+        "assets/cards/boss-bandit.png"
       ]
     }
   ]

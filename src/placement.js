@@ -1,6 +1,6 @@
 /* Shared Clash-style placement/forecast rules used by both engine and renderer. */
 (function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./catalog.js'):root.RoyaleCatalog,n?require('./arena-grid.js'):root.RoyaleArenaGrid,n?require('./formations.js'):root.RoyaleFormations,n?require('./ultimate-combat.js'):root.RoyaleUltimateCombat);if(n)module.exports=api;else root.RoyalePlacement=api;})(globalThis,function(K,G,F,Ultimate){'use strict';
-const {SX,SY,clamp,entityDef,cardAt,DATA}=K;
+const {SX,SY,clamp,entityDef,DATA}=K;
 const edgeDistance=(a,b)=>Math.max(0,Math.hypot((a.x-b.x)/SX,(a.y-b.y)/SY)-(a.def?.radiusTiles||0)-(b.def?.radiusTiles||0));
 const segmentDistance=(u,s)=>{const ax=s.x/SX,ay=s.y/SY,bx=s.x2/SX,by=s.y2/SY,px=u.x/SX,py=u.y/SY,dx=bx-ax,dy=by-ay,l2=dx*dx+dy*dy||1,t=clamp(((px-ax)*dx+(py-ay)*dy)/l2,0,1),qx=ax+t*dx,qy=ay+t*dy;return Math.hypot(px-qx,py-qy);};
 function spellShape(card,x,y,team){
@@ -42,8 +42,8 @@ function snapCard(battle,team,card,x,y,seat=team){
 }
 function affectedByShape(u,shape){if(shape.kind==='radial')return Math.hypot((u.x-shape.x)/SX,(u.y-shape.y)/SY)<=shape.radius+(u.def?.radiusTiles||0);return segmentDistance(u,shape)<=shape.width+(u.def?.radiusTiles||0);}
 function forecastPlacement(battle,seat,slot,x,y){
- const original=battle.card(seat,slot),card=original?.mirrorCard?{...cardAt(original.mirrorCard,Math.min(30,original.level+1)),cost:original.cost}:original,team=battle.teamOf(seat);
- if(!card)return{ok:false,reason:'Select a card',affected:[],retargeting:[],locked:[],targets:[],attackers:[]};
+ const original=battle.card(seat,slot),card=battle.resolvePlayedCard(seat,original),team=battle.teamOf(seat);
+ if(!card)return{ok:false,reason:battle.isMirrorCard(original)?'Play another card before Mirror':'Select a card',affected:[],retargeting:[],locked:[],targets:[],attackers:[]};
  const snapped=snapCard(battle,team,card,x,y,seat),affordable=battle.elixir[seat]+1e-7>=card.cost,cycling=battle.slotReady[seat][slot]>battle.time+1e-7,shape=spellShape(card,snapped.x,snapped.y,team);
  const info={...snapped,members:snapped.formation||[],affordable,cycling,card:card.id,name:card.name,level:card.level,spell:card.spell,building:card.building,air:false,range:0,minRange:0,radius:card.radiusTiles||0,shape,affected:[],retargeting:[],locked:[],targets:[],attackers:[],deployTime:0,cardEntity:card.entity||null};
  if(card.spell){info.affected=snapped.ok?battle.spellAffectedEntities(card,shape,team).map(v=>({id:v.id,x:v.x,y:v.y})):[];return info;}

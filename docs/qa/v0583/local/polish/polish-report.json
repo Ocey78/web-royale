@@ -1,0 +1,202 @@
+{
+  "url": "http://127.0.0.1:8098",
+  "artwork": [
+    {
+      "slug": "lightning-storm",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-lightning-storm.png?v=3a26ee294545"
+    },
+    {
+      "slug": "harvest",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-harvest.png?v=161f6f680032"
+    },
+    {
+      "slug": "royale-recall",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-royale-recall.png?v=50c681122873"
+    },
+    {
+      "slug": "dark-pact",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-dark-pact.png?v=0793955386af"
+    },
+    {
+      "slug": "elixir-spell",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-elixir-spell.png?v=a28de95980ab"
+    },
+    {
+      "slug": "mirror",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-mirror.png?v=98d1def470c7"
+    },
+    {
+      "slug": "bandit-squad",
+      "width": 474,
+      "height": 602,
+      "src": "http://127.0.0.1:8098/assets/ultimate-clash/cards/ultimate-bandit-squad.png?v=4114540ec5a0"
+    }
+  ],
+  "screenshots": [
+    "mirror-bandit-collection.png",
+    "mirror-level-14-cost-20.png",
+    "native-chefs-bowler-bandits-three-builders.png",
+    "bowler-two-stone-release.png"
+  ],
+  "errors": [],
+  "version": "0.58.3",
+  "collectionCount": 32,
+  "mirror": {
+    "original": {
+      "ok": true,
+      "card": "ultimate-balloon-parade"
+    },
+    "card": {
+      "id": "ultimate-mirror",
+      "cost": 20,
+      "level": 14,
+      "copy": "ultimate-balloon-parade"
+    },
+    "preview": {
+      "ok": true,
+      "level": 14
+    },
+    "label": {
+      "position": "absolute",
+      "zIndex": 4,
+      "inside": true,
+      "width": 78.55801391601562,
+      "height": 18.4300537109375
+    },
+    "deployed": {
+      "ok": true,
+      "card": "ultimate-balloon-parade",
+      "elixir": 0,
+      "units": [
+        {
+          "entity": "Balloon",
+          "level": 14,
+          "owner": 0
+        },
+        {
+          "entity": "Balloon",
+          "level": 14,
+          "owner": 0
+        },
+        {
+          "entity": "Balloon",
+          "level": 14,
+          "owner": 0
+        },
+        {
+          "entity": "Balloon",
+          "level": 14,
+          "owner": 0
+        },
+        {
+          "entity": "Balloon",
+          "level": 14,
+          "owner": 0
+        },
+        {
+          "entity": "Balloon",
+          "level": 14,
+          "owner": 0
+        }
+      ]
+    }
+  },
+  "visuals": {
+    "bandits": [
+      {
+        "entity": "Assassin",
+        "owner": 0,
+        "level": 11
+      },
+      {
+        "entity": "Assassin",
+        "owner": 0,
+        "level": 11
+      },
+      {
+        "entity": "BossBandit",
+        "owner": 0,
+        "level": 11
+      },
+      {
+        "entity": "Assassin",
+        "owner": 0,
+        "level": 11
+      },
+      {
+        "entity": "Assassin",
+        "owner": 0,
+        "level": 11
+      }
+    ],
+    "builders": 3,
+    "healing": 0.02999999999999977,
+    "fourth": {
+      "ok": false,
+      "reason": "This building already has three Builders",
+      "x": 253.33333333333334,
+      "y": 510,
+      "tiles": [],
+      "formation": []
+    },
+    "chefs": [
+      {
+        "team": 0,
+        "scene": "chr_royal_chef",
+        "bottom": "Royal_Chef_bot_idle1_5",
+        "top": "Royal_Chef_top_idle1_5"
+      },
+      {
+        "team": 1,
+        "scene": "chr_royal_chef",
+        "bottom": "Royal_Chef_bot_red_idle1_5",
+        "top": "Royal_Chef_top_red_idle1_5"
+      }
+    ]
+  },
+  "bowler": [
+    {
+      "name": "UltimateBowlerGiantProjectile",
+      "hand": -1
+    },
+    {
+      "name": "UltimateBowlerGiantProjectile",
+      "hand": 1
+    }
+  ],
+  "paint": [
+    {
+      "name": "UltimateChef",
+      "ok": true
+    },
+    {
+      "name": "Assassin",
+      "ok": true
+    },
+    {
+      "name": "BossBandit",
+      "ok": true
+    },
+    {
+      "name": "UltimateBowlerGiant",
+      "ok": true
+    },
+    {
+      "name": "UltimateBattleKitchen",
+      "ok": true
+    }
+  ],
+  "passed": true
+}

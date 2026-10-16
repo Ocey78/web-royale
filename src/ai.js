@@ -6,7 +6,7 @@
  const K=typeof module==='object'&&module.exports?require('./catalog.js'):root.RoyaleCatalog;
  const api=factory(K);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleAI=api;
 })(globalThis,function(K){'use strict';
-const {SX,SY,clamp,cardAt,entityDef,DATA}=K;
+const {SX,SY,clamp,entityDef,DATA}=K;
 const distance=(a,b)=>Math.hypot((a.x-b.x)/SX,(a.y-b.y)/SY);
 const unitCard=Object.fromEntries(K.CARDS.filter(c=>c.entity).map(c=>[c.entity,c.id]));
 const SETTINGS={normal:{reaction:.85,reserve:2.5},hard:{reaction:.6,reserve:2.5},expert:{reaction:.42,reserve:2.5}};
@@ -18,9 +18,9 @@ function observe(b,seat){
  const team=b.teamOf?b.teamOf(seat):seat;
  const own=b.units.filter(u=>u.team===team&&u.hp>0&&!u.dead&&(!b.isPresent||b.isPresent(u))&&!u.attachedTo);
  const enemies=b.units.filter(u=>u.team!==team&&u.hp>0&&!u.dead&&(!b.isPresent||b.isPresent(u))&&!u.attachedTo&&!u.hidden&&!u.invisible);
- const hand=b.hand[seat].map((id,slot)=>{const c=b.card(seat,slot);let real=c?.mirrorCard?{...cardAt(c.mirrorCard,Math.min(14,c.level+1)),cost:c.cost,mirror:true}:c;return {slot,card:real,ready:b.slotReady[seat][slot]<=b.time,available:!!c&&!(id==='mirror'&&!c.mirrorCard)};});
+ const hand=b.hand[seat].map((id,slot)=>{const card=b.playableCard(seat,slot);return {slot,card,ready:b.slotReady[seat][slot]<=b.time,available:!!card};});
  const allyPlans=(b.seats||[0,1]).filter(s=>s!==seat&&(s%2)===team).map(s=>{const i=b.bots?.[s]?.intent;return i&&i.at>=b.time?{...i.action,seat:s,at:i.at}:null;}).filter(Boolean);
- return {team,seat,allyPlans,enemyRegen:Object.fromEntries((b.seats||[0,1]).filter(s=>s%2!==team).map(s=>[s,b.passiveElixirEnabled?.(s)===false?0:10/(b.timeline.ElixirFullBarMS?.[b.phase]/1000||28)])),maxElixir:b.maxElixir||10,mode:b.mode,layout:b.arenaLayout?.id,...(b.is5v5?{bounds:{left:b.arenaLayout.left,right:b.arenaLayout.right,top:b.arenaLayout.top,bottom:b.arenaLayout.bottom}}:{}),seatCount:b.seatCount||2,time:b.time,secondsLeft:b.secondsLeft,multiplier:b.multiplier,elixir:b.elixir[seat],startingElixir:b.timeline.StartingElixir??6,regen:b.passiveElixirEnabled?.(seat)===false?0:10/(b.timeline.ElixirFullBarMS?.[b.phase]/1000||28),crowns:[...b.crowns],hand,own:own.map(publicUnit),enemies:enemies.map(publicUnit),towers:b.towers.map(publicUnit),events:b.events.filter(e=>e.type==='deploy').map(e=>({...e})),areas:b.areas.map(a=>({...a})),legal:(slot,x,y)=>b.placement(team,b.card(seat,slot),x,y,seat).ok};
+ return {team,seat,allyPlans,enemyRegen:Object.fromEntries((b.seats||[0,1]).filter(s=>s%2!==team).map(s=>[s,b.passiveElixirEnabled?.(s)===false?0:10/(b.timeline.ElixirFullBarMS?.[b.phase]/1000||28)])),maxElixir:b.maxElixir||10,mode:b.mode,layout:b.arenaLayout?.id,...(b.is5v5?{bounds:{left:b.arenaLayout.left,right:b.arenaLayout.right,top:b.arenaLayout.top,bottom:b.arenaLayout.bottom}}:{}),seatCount:b.seatCount||2,time:b.time,secondsLeft:b.secondsLeft,multiplier:b.multiplier,elixir:b.elixir[seat],startingElixir:b.timeline.StartingElixir??6,regen:b.passiveElixirEnabled?.(seat)===false?0:10/(b.timeline.ElixirFullBarMS?.[b.phase]/1000||28),crowns:[...b.crowns],hand,own:own.map(publicUnit),enemies:enemies.map(publicUnit),towers:b.towers.map(publicUnit),events:b.events.filter(e=>e.type==='deploy').map(e=>({...e})),areas:b.areas.map(a=>({...a})),legal:(slot,x,y)=>b.placement(team,b.playableCard(seat,slot),x,y,seat).ok};
 }
 class TacticalBot{
  constructor({team=1,seat=team,difficulty='expert',seed=1}={}){

@@ -1,6 +1,8 @@
-# Ultimate Clash update 0.58.2
+# Ultimate Clash update 0.58.3
 
-The [0.58.2 update](docs/RELEASE-v0.58.2.md) expands all three Ultimate deck builders to 30 exclusive cards. Ten additions include Dragon King, Battle Kitchen, Royale Recall and Bowler Giant, whose two oversized rolling boulders hit ground troops on the way to buildings.
+The [0.58.3 update](docs/RELEASE-v0.58.3.md) adds Mirror and the 18-elixir Bandit Squad, bringing all three Ultimate deck builders to 32 exclusive cards. Mirror copies the last played card at +3 levels and costs one extra elixir, capped at 20. Buildings now support three Builders, with stronger healing. The Kitchen uses the original Royal Chef, Bowler Giant has cleaner hand and stone animation, and five spell portraits have new illustrations.
+
+The [0.58.2 update](docs/RELEASE-v0.58.2.md) introduced ten cards including Dragon King, Battle Kitchen, Royale Recall and Bowler Giant, whose two oversized rolling boulders hit ground troops on the way to buildings.
 
 Ultimate Clash has a separate card library, 20 maximum elixir, evolved Princess Towers, extended battles, original animated Clash of Clans Builders, and faster rendering. The [0.58.1 update](docs/RELEASE-v0.58.1.md) added longer 2v2 and 3v3 battles, rebalanced prices, normal Princess Tower health bars and translucent protected Bombers. See also the [0.58.0 release notes](docs/RELEASE-v0.58.0.md).
 

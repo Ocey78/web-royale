@@ -10,7 +10,7 @@ test('web release is complete and cannot contain desktop executables, installers
 test('split scene metadata and images resolve to packaged files with cache-busting revisions',()=>{
  const m=JSON.parse(read('release.json')),runtime=JSON.parse(read(m.runtime));A.equal(runtime.native.streamed,true);
  for(const url of [...Object.values(runtime.art),...Object.values(runtime.images),...Object.values(runtime.uiImages),...Object.values(runtime.native.scenes).map(s=>s.file)]){A.match(url,/\?v=[a-f0-9]+$/);A.ok(fs.existsSync(path.join(dist,url.split('?')[0])),url);}
- const catalog=require('../src/catalog.js');A.deepEqual(Object.keys(runtime.art).sort(),catalog.ALL_CARDS.map(c=>c.id).sort());A.equal(catalog.CARDS.length,123);A.equal(catalog.ULTIMATE_CARDS.length,30);A.ok(Object.values(runtime.native.scenes).every(s=>!s.clips));
+ const catalog=require('../src/catalog.js');A.deepEqual(Object.keys(runtime.art).sort(),catalog.ALL_CARDS.map(c=>c.id).sort());A.equal(catalog.CARDS.length,123);A.equal(catalog.ULTIMATE_CARDS.length,32);A.ok(Object.values(runtime.native.scenes).every(s=>!s.clips));
 });
 test('web build bundles no remote script, remote image host, or account impersonation endpoint',()=>{
  const m=JSON.parse(read('release.json')),runtime=JSON.parse(read(m.runtime));for(const map of [runtime.art,runtime.images,runtime.uiImages])for(const url of Object.values(map))A.ok(!url.includes('://'));

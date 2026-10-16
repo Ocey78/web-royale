@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-10-16T18:33:00.812Z",
+  "selected": [
+    {
+      "id": "ultimate-lightning-storm",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    },
+    {
+      "id": "ultimate-harvest",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    },
+    {
+      "id": "ultimate-royale-recall",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    },
+    {
+      "id": "ultimate-dark-pact",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    },
+    {
+      "id": "ultimate-elixir-spell",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    },
+    {
+      "id": "ultimate-mirror",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    },
+    {
+      "id": "ultimate-bandit-squad",
+      "width": 474,
+      "height": 602,
+      "transparentPixels": 0
+    }
+  ],
+  "untouchedPortraits": 25,
+  "unchanged": true,
+  "assets": 32
+}

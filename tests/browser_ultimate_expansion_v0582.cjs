@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{spawn}=require('node:child_process'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),url=process.env.WEB_ROYALE_URL||'http://127.0.0.1:8095',out=path.resolve(process.env.ULTIMATE_QA_OUT||path.join(root,'docs/qa/v0582/local/expansion'));
-const cards=require('../src/ultimate-clash').CARDS.slice(20),report={url,cards:[],errors:[],screenshots:[]};let server,browser;
+const cards=require('../src/ultimate-clash').CARDS.slice(20,30),report={url,cards:[],errors:[],screenshots:[]};let server,browser;
 async function main(){
  fs.mkdirSync(out,{recursive:true});
  if(!process.env.WEB_ROYALE_URL){server=spawn(process.execPath,['tools/serve.cjs','8095'],{cwd:root,stdio:['ignore','pipe','pipe'],windowsHide:true});await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);});}
@@ -10,7 +10,7 @@ async function main(){
  report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,require('../project.json').version);
  const capture=async name=>{await page.locator('#viewport').screenshot({path:path.join(out,name+'.png')});report.screenshots.push(name+'.png');};
  await page.locator('button[data-action="nav-events"]:visible').first().click();await page.locator('[data-action="special-deck-builder"][data-mode="UltimateClash"]').click();
- assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),30);
+ assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),require('../src/ultimate-clash').CARDS.length);
  for(const c of cards){const node=page.locator('#modeDeckCollection [data-id="'+c.id+'"]');assert.equal(await node.locator('.cost').textContent(),String(c.cost));await node.scrollIntoViewIfNeeded();await node.locator('img.card-portrait').evaluate(async i=>{await i.decode();if(!i.naturalWidth)throw Error('Missing art');});}
  await capture('new-card-collection');
  await page.locator('#modeDeckBattle').click();await page.waitForFunction(()=>RoyaleDemo.battle?.mode==='UltimateClash'&&document.querySelector('#battle.active'),null,{timeout:240000});

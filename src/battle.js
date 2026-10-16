@@ -69,7 +69,12 @@ class Battle {
  isPresent(u){return !!u&&u.hp>0&&!u.dead&&(this.tiebreaker?.startedAt??this.time)+EPS>=(u.appearsAt??u.born??0);}
  get active(){return [...this.towers,...this.units].filter(u=>this.isPresent(u));}
  getEntity(id){return this.towers.find(u=>u.id===id)||this.units.find(u=>u.id===id);}
- card(team,slot){const id=this.hand[team]?.[slot];if(!id)return null;let c=cardAt(id,this.seatLevels[team]?.[id]??9);c=Forms.resolveCard(this,team,slot,c);if(id==='mirror'&&this.lastCard[team])c={...c,cost:Math.min(10,this.lastCard[team].cost+1),mirrorCard:this.lastCard[team].id};return c;}
+ isMirrorCard(card){return card?.source?.Mirror===true;}
+ card(team,slot){const id=this.hand[team]?.[slot];if(!id)return null;let c=cardAt(id,this.seatLevels[team]?.[id]??9);c=Forms.resolveCard(this,team,slot,c);const last=this.lastCard[team];if(this.isMirrorCard(c)&&last){const ultimate=id==='ultimate-mirror',mirrorLevel=ultimate?last.level+3:Math.min(DATA.globals.MIRROR_CAP_TO_MAX_LEVEL?.BooleanValue?(K.MAX_CARD_LEVEL||13):(K.MAX_CARD_LEVEL||13)+1,c.level+(DATA.globals.MIRROR_LEVEL_OFFSET?.NumberValue??1));c={...c,cost:Math.min(ultimate?20:10,last.cost+1),mirrorCard:last.id,mirrorLevel};}return c;}
+ // Mirror keeps its own hand identity, but every gameplay consumer uses this
+ // same base-card copy. A copy never inherits form charges or paid abilities.
+ resolvePlayedCard(seat,card){if(!this.isMirrorCard(card))return card;if(!this.lastCard[seat]||!card.mirrorCard)return null;const copied=cardAt(card.mirrorCard,card.mirrorLevel);return copied?{...copied,cost:card.cost,mirror:true}:null;}
+ playableCard(seat,slot){return this.resolvePlayedCard(seat,this.card(seat,slot));}
  activateAbility(seat,entityId){return Forms.activate(this,seat,entityId);}
  abilityStatus(entityId){return Forms.status(this,this.getEntity(entityId));}
  effect(e){if(this.headless)return;this.effects.push({...e,fxId:this.visualSerial=(this.visualSerial||0)+1,born:this.time});if(this.effects.length>220)this.effects.splice(0,this.effects.length-220);}
@@ -79,7 +84,7 @@ class Battle {
  spellAffectedEntities(card,shape,team){
   const r=card.source||{},p=DATA.projectiles[card.projectileName]||DATA.projectiles[r.CustomFirstProjectile]||DATA.projectiles[r.Projectile]||{},a=DATA.areas[r.AreaEffectObject]||{};
   const ultimate=r.UltimateMechanic,own=r.OnlyOwnTroops===true||ultimate==='heal-spell'||ultimate==='builder'||ultimate==='royale-recall'||ultimate==='dark-pact',ground=p.AoeToGround!==false&&a.HitsGround!==false,air=p.AoeToAir===true||a.HitsAir===true||card.id==='void'||!!ultimate;
-  return this.active.filter(u=>{if(u.effectCarrier||u.attachedTo||!this.isPresent(u)||u.hidden)return false;if(ultimate!=='elixir-spell'&&(own?u.team!==team:u.team===team))return false;if(u.air&&(!air||ultimate==='elixir-spell')||!u.air&&!ground)return false;if((a.IgnoreBuildings||['heal-spell','royale-recall','dark-pact','elixir-spell'].includes(ultimate))&&u.building)return false;if(ultimate==='builder'&&(!u.building||isTower(u)||(u.ultimate?.builders||0)>=2))return false;return Placement.affectedByShape(u,shape);});
+  return this.active.filter(u=>{if(u.effectCarrier||u.attachedTo||!this.isPresent(u)||u.hidden)return false;if(ultimate!=='elixir-spell'&&(own?u.team!==team:u.team===team))return false;if(u.air&&(!air||ultimate==='elixir-spell')||!u.air&&!ground)return false;if((a.IgnoreBuildings||['heal-spell','royale-recall','dark-pact','elixir-spell'].includes(ultimate))&&u.building)return false;if(ultimate==='builder'&&(!u.building||isTower(u)||(u.ultimate?.builders||0)>=3))return false;return Placement.affectedByShape(u,shape);});
  }
  deploy(seat,slot,x,y){
   const team=this.teamOf(seat);
@@ -88,14 +93,13 @@ class Battle {
   if(!teamOK(team)||!Number.isInteger(slot)||slot<0||slot>3)return {ok:false,reason:'Select a card'};
   const c=this.card(seat,slot);if(!c)return {ok:false,reason:'Unknown card'};if(!K.allowedInMode(c.id,this.mode))return{ok:false,reason:'This card is prohibited in '+this.mode};
   if(this.slotReady[seat][slot]>this.time+EPS)return {ok:false,reason:'Card is cycling'};
-  if(c.id==='mirror'&&!this.lastCard[seat])return {ok:false,reason:'Play another card before Mirror'};
-  const real=c.id==='mirror'?cardAt(this.lastCard[seat].id,Math.min(DATA.globals.MIRROR_CAP_TO_MAX_LEVEL?.BooleanValue?(K.MAX_CARD_LEVEL||13):(K.MAX_CARD_LEVEL||13)+1,c.level+(DATA.globals.MIRROR_LEVEL_OFFSET?.NumberValue??1))):c;
+  const real=this.resolvePlayedCard(seat,c);if(!real)return {ok:false,reason:'Play another card before Mirror'};
   const capability=this.modernActions?.canDeployCard?.(this,real,{owner:seat,team,cardId:real.id,formId:real.formId,level:real.level});if(capability?.ok===false)return capability;
   const valid=this.placement(team,real,x,y,seat);if(!valid.ok)return valid;x=valid.x??x;y=valid.y??y;
   if(this.elixir[seat]+EPS<c.cost)return {ok:false,reason:'Not enough elixir'};
   if(this.units.length>450)return {ok:false,reason:'Arena entity limit reached'};
   if(!(seat===0&&this.cheats.elixir)){this.elixir[seat]=Math.max(0,this.elixir[seat]-c.cost);this.metrics.spent[seat]+=c.cost;}else this.elixir[0]=Number.isFinite(this.maxElixir)?this.maxElixir:Math.max(10,this.elixir[0]);const played=this.hand[seat][slot];if(this.deckSize!==4){this.hand[seat][slot]=this.queue[seat].shift();this.queue[seat].push(played);const playedSlot=this.handSlots[seat][slot];this.handSlots[seat][slot]=this.queueSlots[seat].shift();this.queueSlots[seat].push(playedSlot);}this.slotReady[seat][slot]=this.time+sec(this.timeline.NextSpellCooldownMS?.[this.phase]??1000);this.played[seat]++;
-  Forms.commitDeploy(this,seat,real);this.cast(real,team,x,y,seat,valid.formation);if(c.id!=='mirror')this.lastCard[seat]={id:c.id,level:c.level,cost:c.cost};if(team===0&&!real.spell)this.laneCounts[x<9*SX?0:1]++;
+  Forms.commitDeploy(this,seat,real);this.cast(real,team,x,y,seat,valid.formation);if(!this.isMirrorCard(c))this.lastCard[seat]={id:c.id,level:c.level,cost:c.cost};if(team===0&&!real.spell)this.laneCounts[x<9*SX?0:1]++;
   this.record({type:'deploy',team,seat,slot,playedCard:played,card:real.id,cost:c.cost,x,y,serial:this.played[seat]});this.modernActions?.onCardDeploy?.(this,real,seat);return {ok:true,card:real.id};
  }
  cast(c,team,x,y,owner=team,formation=null){return this.withOwner(owner,()=>this.castOwned(c,team,x,y,formation));}

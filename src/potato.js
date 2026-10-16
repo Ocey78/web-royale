@@ -26,7 +26,7 @@ function draw(c,b,time,pointer,selected,alpha=1,compactSwarmLevels=true){
   else if(kind==='goblin-magnet'){stroke(c,x-8,y-4,x-8,y+5,'#f17894',5);stroke(c,x-8,y+5,x+8,y+5,'#f17894',5);stroke(c,x+8,y+5,x+8,y-4,'#c9f1ff',5);}
   else if(kind==='battle-kitchen')ellipse(c,x,y+2,13,6,'#df934b','#fff0c1');
   else if(kind==='dragon-king'){for(const side of [-1,1])stroke(c,x+side*radius,y,x+side*(radius+18),y-14,'#e6b64e',5);stroke(c,x-7,y-radius,x,y-radius-8,'#ffdb70',3);stroke(c,x,y-radius-8,x+7,y-radius,'#ffdb70',3);}
-  label(c,code(u),x,y,9);health(c,u,x,y-radius-8,levels?.individual.has(u.id));if(u.visualState==='attack'){const t=b.getEntity(u.targetId);if(t)stroke(c,x,y,t.x,t.y-(t.air?18:0),'#f4de85',1);}c.globalAlpha=1;
+  label(c,code(u),x,y,9);const builders=Math.min(3,Math.max(0,u.ultimate?.builders||0));if(builders&&u.hp>0)label(c,'B'+builders,x,y+radius+9,9,'#ffdc88');health(c,u,x,y-radius-8,levels?.individual.has(u.id));if(u.visualState==='attack'){const t=b.getEntity(u.targetId);if(t)stroke(c,x,y,t.x,t.y-(t.air?18:0),'#f4de85',1);}c.globalAlpha=1;
  }
  for(const group of levels?.groups||[])label(c,'Lv '+group.level,group.x,group.y-32,11,colors[group.team]);
  for(const p of b.projectiles){if(!Number.isFinite(p.x)||!Number.isFinite(p.y))continue;const giant=p.ultimate?.kind==='bowler-giant'||p.name==='UltimateBowlerGiantProjectile',food=p.ultimate?.kind==='kitchen-food'||p.name==='UltimateKitchenFood',radius=giant?9.1:food?5:3;stroke(c,p.x-(p.vx||0)*6,p.y-8-(p.vy||0)*6,p.x,p.y-8,colors[p.team]||'#f0d278',2);ellipse(c,p.x,p.y-8,radius,radius,giant?'#a5acb8':food?'#e9a34f':'#ffe89a',food?'#bfe68e':'#e0e7f0',1);}

@@ -31,11 +31,23 @@ function sourceDirectionCount(cfg,scene,team){
 function teamFilter(team){return team===2?'hue-rotate(105deg) saturate(1.35) brightness(.95)':team===3?'sepia(.82) saturate(2.2) hue-rotate(355deg) brightness(1.08)':'none';}
 function ultimateKind(id,u){return u?.ultimate?.kind||({UltimateBowlerGiant:'bowler-giant',UltimateDragonKing:'dragon-king',UltimateChef:'chef',UltimateBattleKitchen:'battle-kitchen',UltimateGoblinMagnet:'goblin-magnet'}[id]);}
 function ultimateVisualScale(id,u,source){return Number(source?.UltimateVisualScale)||({ 'bowler-giant':1.4,'dragon-king':1.65 }[ultimateKind(id,u)]||1);}
-// The source attack tail contains the Bowler's empty hands. Reuse these
-// authored, animated frames so the two separate boulders never become three.
-function dualBowlerPose(clip,u,time,state){const frames=clip?.frames?.length||1,release=Math.max(0,(clip?.labels||[]).findIndex(s=>s==='action_frame'))+2,start=Math.min(frames-1,release),span=Math.max(0,Math.min(9,frames-1-start));
- const attack=u?.visualAttack,windup=state==='attack'&&attack?.releasedAt===null,q=windup?Math.min(1,(u.animationTime||0)/Math.max(.01,attack.windup)):null;
- return{frame:Math.round(start+span*(q===null?.45+.35*Math.sin((state==='run'?(u?.walk??time)*7:time*3)):1-q))};}
+// Bowler's source frames are flattened body sprites, including the ordinary
+// central boulder. Frames 17..32 are empty handed. These palm anchors were
+// measured on the original nine views; each row follows the actual sprite
+// changes at frames 17, 22, 25 and 28, never an independent floating clock.
+const BOWLER_HANDS={
+ 17:[[[-16,-51],[14,-51]],[[-8,-56],[22,-43]],[[-1,-55],[26,-33]],[[8,-56],[27,-26]],[[16,-55],[22,-21]],[[24,-50],[17,-17]],[[29,-42],[3,-16]],[[28,-33],[-12,-22]],[[25,-21],[-25,-21]]],
+ 22:[[[-14,-46],[14,-37]],[[-7,-48],[20,-30]],[[0,-49],[22,-22]],[[6,-50],[19,-16]],[[12,-50],[14,-11]],[[19,-43],[6,-8]],[[24,-35],[-3,-8]],[[25,-27],[-15,-13]],[[22,-18],[-23,-18]]],
+ 25:[[[-29,-32],[26,-25]],[[-18,-38],[31,-16]],[[-5,-42],[31,-7]],[[6,-44],[25,-2]],[[15,-43],[16,1]],[[24,-34],[3,3]],[[29,-23],[-10,2]],[[30,-13],[-21,0]],[[28,-3],[-29,-3]]],
+ 28:[[[-29,-13],[27,-13]],[[-19,-27],[28,-9]],[[-6,-36],[24,-6]],[[5,-39],[19,-3]],[[13,-37],[10,0]],[[22,-28],[1,4]],[[27,-18],[-7,5]],[[28,-8],[-20,3]],[[26,-1],[-27,-1]]]
+};
+function dualBowlerPose(clip,u,time,state,index,elapsed){
+ const start=Math.min((clip?.frames?.length||1)-1,Math.max(0,(clip?.labels||[]).indexOf('action_frame'))+2),hold=Math.min((clip?.frames?.length||1)-1,start+5),attack=u?.visualAttack;let frame=hold;
+ if(state==='attack'&&attack){if(Number.isFinite(attack.releasedAt)){const age=Math.max(0,elapsed-attack.releasedAt);frame=age<.27?start+Math.round(age/.27*11):age<.38?start+11-Math.round((age-.27)/.11*6):hold;}
+  else{const q=Math.min(1,Math.max(0,elapsed/Math.max(.01,attack.windup)));frame=q<.3?hold+Math.round(q/.3*3):hold+3-Math.round((q-.3)/.7*8);}}
+ frame=Math.max(start,Math.min(start+15,(clip?.frames?.length||1)-1,frame));const row=frame>=28?28:frame>=25?25:frame>=22?22:17;
+ return{frame,hands:BOWLER_HANDS[row][Math.max(0,Math.min(8,index-1))]};
+}
 function exportName(cfg,team,state,index){const key=`${team===1?1:0}:${state}`;return cfg.animations?.[key]?.[Math.max(0,Math.min(8,index-1))]||`${cfg.prefix[team===1?1:0]}_${state}1_${index}`}
 // Source exports sometimes have only one viewing direction (e.g. Balloon).
 // Prefer the requested state's single-direction clip before an idle fallback.
@@ -403,7 +415,7 @@ class Library{
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';
   if(!options.entity?.visualAttackCancelled&&(options.entity?.hook||options.entity?.visualHook&&state!=='run'&&state!=='dash'))state='loading';
   const kind=ultimateKind(id,options.entity),atlasHeading=heading+(Number(cfg.headingOffset)||0),d=direction(Math.cos(atlasHeading),Math.sin(atlasHeading),sourceDirectionCount(cfg,sc,team));let name=resolveAnimation(cfg,sc,team,kind==='bowler-giant'?'attack':state,d.index);if(!name)return false;
-  let elapsed=options.elapsed??Math.max(0,time-started);const nativeDuration=sc.duration(name),attackDuration=options.attackDuration||nativeDuration;
+  let elapsed=options.elapsed??Math.max(0,time-started);const attackElapsed=elapsed,nativeDuration=sc.duration(name),attackDuration=options.attackDuration||nativeDuration;
   if(state==='loading'){
    const synced=hookClipTime(sc.clip(name),elapsed,options.entity||{});elapsed=synced.time;
    if(synced.done){state='idle';name=resolveAnimation(cfg,sc,team,state,d.index);elapsed=options.idleTime??time;}
@@ -422,16 +434,22 @@ class Library{
   const factor=scale*(5/6)*cfg.scale*ultimateVisualScale(id,options.entity,source);
   const views=cfg.animations?.[`${team===1?1:0}:${state}`]||[],directional=new Set(views.filter(v=>v&&sc.id(v)!==undefined)).size>1;
   const rotation=!directional&&(options.entity?.def?.source?.HasRotationOnTimeline===true||cfg.rotationTimeline===true);
-  const clip=sc.clip(name),pose=(kind==='bowler-giant'?dualBowlerPose(clip,options.entity,time,state):null)||ultimateClipPose(clip,options.entity,time)||frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);
+  const clip=sc.clip(name),pose=(kind==='bowler-giant'?dualBowlerPose(clip,options.entity,time,state,d.index,attackElapsed):null)||ultimateClipPose(clip,options.entity,time)||frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);
   const flip=(d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*(pose?.flip?-1:1);
-  return{cfg,sc,name,factor,flip,pose,seconds:pose?pose.frame/(clip.fps||30):elapsed,drawOptions:{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{})},top:cfg.top?.[team]};
+  // Chef's original SC model is split into matching lower/upper timelines.
+  // It has no run export: keep the authored idle motion and add a small step
+  // tied to distance travelled, only for the Ultimate ground-troop adaptation.
+  const chefTop=kind==='chef'?name.replace('_bot','_top'):null,top=chefTop&&sc.id(chefTop)!==undefined?chefTop:cfg.top?.[team],stride=(options.entity?.walk??elapsed)*Math.PI*4,motion=(kind==='chef'||kind==='bowler-giant')&&state==='run'?{x:Math.sin(stride)*1.1,y:-Math.abs(Math.sin(stride))*1.8,rotation:Math.sin(stride)*.025}:null;
+  return{cfg,sc,name,factor,flip,pose,motion,seconds:pose?pose.frame/(clip.fps||30):elapsed,drawOptions:{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{})},top};
  }
  unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
   const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
-  const p=this.nativeUnitPose(id,team,time,state,heading,started,scale,options);if(!p)return false;
-  c.save();c.translate(x,y-(options.height??p.cfg.flightHeight??0));c.scale(p.flip*p.factor,p.factor);const kind=ultimateKind(id,options.entity),customFilter=kind==='executioner-cage'?'grayscale(1) brightness(1.12)':kind==='elixir-witch'?'hue-rotate(320deg) saturate(1.15)':kind==='dragon-king'?'sepia(.5) saturate(1.35)':'';c.filter=[teamFilter(team),customFilter].filter(v=>v&&v!=='none').join(' ')||'none';
+  const p=this.nativeUnitPose(id,team,time,state,heading,started,scale,options);if(!p)return false;const kind=ultimateKind(id,options.entity);
+  if(kind==='chef'&&p.top){const lowerReady=p.sc.frameReady(p.name,p.seconds,p.drawOptions),upperReady=p.sc.frameReady(p.top,p.seconds,p.drawOptions);if(!lowerReady||!upperReady)return false;}
+  c.save();c.translate(x,y-(options.height??p.cfg.flightHeight??0));c.scale(p.flip*p.factor,p.factor);const customFilter=kind==='executioner-cage'?'grayscale(1) brightness(1.12)':kind==='elixir-witch'?'hue-rotate(320deg) saturate(1.15)':kind==='dragon-king'?'sepia(.5) saturate(1.35)':'';c.filter=[teamFilter(team),customFilter].filter(v=>v&&v!=='none').join(' ')||'none';
+  if(p.motion){c.translate(p.motion.x,p.motion.y);c.rotate(p.motion.rotation);}
   let painted=false;const paint=color=>{painted=(p.sc.draw(c,p.name,p.seconds,{...p.drawOptions,initialColor:color})!==false)||painted;
-   if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(c,p.top,p.seconds,{loop:!p.pose,initialColor:color});};
+   if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(c,p.top,p.seconds,{...(kind==='chef'?p.drawOptions:{loop:!p.pose}),initialColor:color});};
   if(options.entity&&globalThis.RoyalePresentation?.ready)RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);
   if(painted)this.drawUltimateAccessories(c,id,options.entity,p,time,state,heading,team);c.restore();return painted;
  }
@@ -439,12 +457,7 @@ class Library{
   if(kind==='bowler-giant'){
    const thrown=Number.isFinite(u?.ultimate?.throwAt)&&time-u.ultimate.throwAt>=0&&time-u.ultimate.throwAt<.38;
    const cfg=this.data.projectiles?.BowlerProjectile,sc=cfg&&this.scenes[cfg.scene]||this.scenes.effects,name=cfg?(team===1?cfg.redExport:cfg.export):'bowler_projectile';
-   if(!thrown&&sc&&sc.id(name)!==undefined){for(const side of [-1,1]){const bob=Math.sin(time*3)*2,across=Math.abs(Math.cos(heading)),x=side*(28-across*15)+across*8,y=-43+Math.sin(heading)*7+side*across*16+bob;
-    oval(x,y+7,5,4,'#a771dc','#693b98');c.save();c.translate(x,y);const s=.65*1.4/p.factor;c.scale(s,s);sc.draw(c,name,time,{loop:true});c.restore();}}
-  }else if(kind==='chef'){
-   const top=p.sc.bounds?p.sc.bounds(p.name,p.seconds).y:-65;oval(0,top+5,15,8,'#fff9df','#b9b6ac');oval(-9,top,8,8,'#fffdf0');oval(1,top-4,9,9,'#fffdf0');oval(10,top,8,8,'#fffdf0');c.fillStyle='#f9f4dc';c.fillRect(-11,top+3,23,10);
-   c.fillStyle='#f8f1d9';c.beginPath();c.moveTo(-10,-30);c.lineTo(10,-30);c.lineTo(16,2);c.lineTo(-16,2);c.closePath();c.fill();stroke(-12,-17,12,-17,'#a95e34',2);
-   const swing=state==='attack'?Math.sin((u?.animationTime||time)*9)*12:0,px=22,py=-5-swing;stroke(9,-8,px,py,'#67472c',5);oval(px+7,py-5,13,10,'#373d43','#c6c9c9');oval(px+7,py-5,8,6,'#24292e');
+   if(!thrown&&sc&&sc.id(name)!==undefined){for(const [x,y]of p.pose.hands){c.save();c.translate(x,y);const s=projectileArtScale('BowlerProjectile',cfg)/(5/6*p.cfg.scale);c.scale(s,s);sc.draw(c,name,0,{still:true});c.restore();}}
   }else if(kind==='goblin-magnet'){
    const top=p.sc.bounds?p.sc.bounds(p.name,p.seconds).y:-65;c.lineCap='butt';c.strokeStyle='#bd3451';c.lineWidth=11;c.beginPath();c.moveTo(-17,top+13);c.lineTo(-17,top+28);c.bezierCurveTo(-17,top+48,17,top+48,17,top+28);c.lineTo(17,top+13);c.stroke();c.fillStyle='#ccecff';c.fillRect(-23,top+7,12,10);c.fillRect(11,top+7,12,10);
   }else if(kind==='battle-kitchen'){
@@ -483,8 +496,8 @@ class Library{
  // the current attack frame. This keeps health bars from bouncing with swings.
  headHeight(id){const modern=globalThis.RoyaleModern3D;if(modern?.has(id)){const height=modern.headHeight(id);if(Number.isFinite(height)&&height>0)return height;}this.metricCache||=new Map();if(this.metricCache.has(id))return this.metricCache.get(id);
   const source=globalThis.RoyaleCore?.DATA.entities[id],cfg=this.data.units[source?.NativeActor||id],sc=cfg&&this.scenes[cfg.scene];if(!sc)return 48;
-  let top=0;for(const team of [0,1])for(const dir of [1,3,5,7,9]){const name=resolveAnimation(cfg,sc,team,'idle',dir);if(name)top=Math.max(top,-sc.bounds(name).y);}
-  const h=Math.max(18,Math.min(140,top*(5/6)*cfg.scale*ultimateVisualScale(id,null,source)))+5+(id==='UltimateChef'?14:0);this.metricCache.set(id,h);return h;
+  let top=0;for(const team of [0,1])for(const dir of [1,3,5,7,9]){const name=resolveAnimation(cfg,sc,team,'idle',dir);if(name){top=Math.max(top,-sc.bounds(name).y);const upper=ultimateKind(id)==='chef'?name.replace('_bot','_top'):null;if(upper&&sc.id(upper)!==undefined)top=Math.max(top,-sc.bounds(upper).y);}}
+  const h=Math.max(18,Math.min(140,top*(5/6)*cfg.scale*ultimateVisualScale(id,null,source)))+5;this.metricCache.set(id,h);return h;
  }
  drawProjectile(c,p,time,battle=null){const r=battle?.catalog?.DATA.projectiles[p.name]||globalThis.RoyaleCore?.DATA.projectiles[p.name]||{},cfg=this.data.projectiles?.[r.NativeProjectile||p.name];if(!this.ready||!cfg)return false;const sc=this.scenes[cfg.scene],sourceTeam=p.team===1?1:0,name=sourceTeam?cfg.redExport:cfg.export;if(!sc||sc.id(name)===undefined)return false;
   const pos=projectilePose(p,battle?.getEntity(p.target)),angle=pos.angle,scale=projectileArtScale(r.NativeProjectile||p.name,cfg)*(Number(r.UltimateVisualScale)||1);
