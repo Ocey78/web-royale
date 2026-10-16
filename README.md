@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.11
+# Ultimate Clash update 0.58.12
+
+The [0.58.12 update](docs/RELEASE-v0.58.12.md) adds **25 Giant Snowballs** to Frostbite’s Hero ability, scattered across the field over four seconds. It keeps its 3-elixir cost, four-second field extension, and five extra Ice Spirits.
 
 The [0.58.11 update](docs/RELEASE-v0.58.11.md) gives **Hero Mega Minion Horde one shared ability**: all surviving minions activate together for 2 elixir, choose different targets, and cycle back through the targets when there are fewer enemies than minions.
 
