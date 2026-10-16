@@ -49,7 +49,7 @@
 - [x] Combat: implement all ten mechanics and AI placement, scoped engine hooks and deterministic state; verify ownership, ranges, damage and timers.
 - [x] Presentation: show all new spells/buildings/actors; implement giant Bowler dual-hand boulders, large Dragon and Chef; keep effects bounded and use native art.
 - [x] Integration/review: update fixed catalog-size copy/tests and replay compatibility, build, run regressions and browser checks for all ten cards and all modes.
-- [ ] Release: commit/push, publish exact verified commit, compare live assets, verify public browser behavior and save evidence.
+- [x] Release: commit/push, publish exact verified commit, compare live assets, verify public browser behavior and save evidence.
 
 ## Progress and rulings
 

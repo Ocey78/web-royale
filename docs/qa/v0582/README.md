@@ -22,3 +22,5 @@ The source received only trailing-blank-line cleanup after the first successful 
 ## Publication
 
 `deployment.json` records the exact release commit, manual GitHub Pages workflow, deployed asset hashes and bare-entry verification. Public browser results are recorded under `live/` after successful publication.
+
+Published release `b6ffdcb983fcb85146b8eb9f94fdaa40218673b3` through [successful Pages workflow](https://github.com/Ocey78/web-royale/actions/runs/38942855177). All sixteen checked public files match the release byte-for-byte, including ten new portraits; the bare site entry and manifest serve 0.58.2. Live expansion (10 cards), teams (3 modes) and health (8 cases) browser checks all passed with zero page errors.

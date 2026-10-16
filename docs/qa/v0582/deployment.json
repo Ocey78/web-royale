@@ -91,5 +91,52 @@
       "sha256": "49321ca620c3ecdcf893bbfe1f35f8a0722fe557aa0c1c152a85c00d1e14e211"
     }
   ],
-  "bareEntryMatches": true
+  "bareEntryMatches": true,
+  "browserVerifiedAt": "2026-10-16T17:57:28.282Z",
+  "browser": {
+    "newCards": [
+      "ultimate-mortar-battery",
+      "ultimate-royale-recall",
+      "ultimate-goblin-magnet",
+      "ultimate-spirit-festival",
+      "ultimate-dark-pact",
+      "ultimate-battle-kitchen",
+      "ultimate-royale-reinforcements",
+      "ultimate-elixir-spell",
+      "ultimate-dragon-king",
+      "ultimate-bowler-giant"
+    ],
+    "modes": [
+      {
+        "mode": "UltimateClash",
+        "seats": 2,
+        "sections": [
+          240,
+          180
+        ]
+      },
+      {
+        "mode": "UltimateClash2v2",
+        "seats": 4,
+        "sections": [
+          300,
+          240
+        ]
+      },
+      {
+        "mode": "UltimateClash3v3",
+        "seats": 6,
+        "sections": [
+          360,
+          300
+        ]
+      }
+    ],
+    "towerHealthCases": 8,
+    "cloakedOpacity": [
+      0.48
+    ],
+    "serviceWorkerControlled": true,
+    "errors": []
+  }
 }
