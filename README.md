@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.7
+# Ultimate Clash update 0.58.8
+
+The [0.58.8 update](docs/RELEASE-v0.58.8.md) lowers Lightning Storm to **10 elixir** and CODE RED to **14 elixir**, including their Evolutions.
 
 The [0.58.7 update](docs/RELEASE-v0.58.7.md) adds **Ultimate Team Rumble**, a 5v5 Ultimate battle with seven minutes of regulation and six minutes of overtime. Sandbox now includes all 33 Ultimate cards and separate Blue AI / Red AI checkboxes.
 

@@ -6,7 +6,7 @@ test('Ultimate Clash cards are selectable only in their own deck builder',()=>{
  const state=D.modeState({},'UltimateClash');
  assert.ok(state,'Ultimate Clash has its own saved deck library');
  assert.equal(state.eligibleCount,K.ULTIMATE_CARDS.length);assert.equal(state.valid,true);
- assert.equal(K.CARD_BY_ID['ultimate-code-red'].cost,18);
+ assert.equal(K.CARD_BY_ID['ultimate-code-red'].cost,14);
  assert.equal(K.CARD_BY_ID['ultimate-builder'].kind,'Spell');
  assert.ok(state.eligible.every(id=>id.startsWith('ultimate-')));
  assert.equal(D.setModeCard({},'UltimateClash',0,'knight').ok,false);
