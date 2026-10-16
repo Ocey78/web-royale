@@ -23,3 +23,7 @@ All three local browser scenarios passed with zero page errors. The final polish
 ## Publication
 
 `deployment.json` records the exact release commit, manual GitHub Pages workflow, public file hashes and bare-entry verification. Live browser evidence is saved under `live/` after publication.
+
+Published release `2ab5f5c9f24124bcbefc9c7aaf310cdfbc34a4cc` through the [successful Pages workflow](https://github.com/Ocey78/web-royale/actions/runs/38950105807). All **41 checked public files match** the final artifact byte-for-byte, including all 32 card portraits, the gameplay bundle and final CSS. The bare entry and release manifest serve 0.58.3.
+
+Live polish, teams and tower-health browser checks all passed with **zero page errors**. These verify 32 cards, seven refreshed/new portraits, visible level-14 Mirror copies costing twenty elixir, exact three-Builder healing, original Chef layers, native Bandit Squad, two Bowler projectiles, all three modes, protected Bomber translucency/reveal and eight Princess Tower health-bar cases.

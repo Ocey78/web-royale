@@ -1,0 +1,250 @@
+{
+  "version": "0.58.3",
+  "releaseSha": "2ab5f5c9f24124bcbefc9c7aaf310cdfbc34a4cc",
+  "dispatchStatus": 204,
+  "dispatchedAt": "2026-10-16T18:48:02.974Z",
+  "site": "https://ocey78.github.io/web-royale/",
+  "workflowRun": 38950105807,
+  "workflowUrl": "https://github.com/Ocey78/web-royale/actions/runs/38950105807",
+  "workflowConclusion": "success",
+  "verifiedAt": "2026-10-16T18:50:47.063Z",
+  "liveVersion": "0.58.3",
+  "verified": [
+    {
+      "name": "index.html",
+      "bytes": 16467,
+      "sha256": "b8a0ac42d4fc77a289e14eb2b56d7e568643e75f95f891f5564be594a32428d8"
+    },
+    {
+      "name": "release.json",
+      "bytes": 267511,
+      "sha256": "5d87b3639ee34bb3df730402a9be4e9854c3202ebb8729dabb87cc4e81dec45e"
+    },
+    {
+      "name": "assets/ultimate-clash/cards.json",
+      "bytes": 24679,
+      "sha256": "6f35ba962931b4ea015e8a2ded36b25a92b5a85092570b6aa66e2834f97b1b65"
+    },
+    {
+      "name": "app.4470bc00d69e.js",
+      "bytes": 12444481,
+      "sha256": "4470bc00d69eae8a331913bba99d49c90070f6c181b1267c64fc9b8c9f6932a3"
+    },
+    {
+      "name": "asset-index.524fac491665.json",
+      "bytes": 326237,
+      "sha256": "524fac4916655a5e4b2e4524c8dc4e7c24ddd0adea1b5e7f8a989cc5127d504d"
+    },
+    {
+      "name": "bootstrap.a54df37214ad.js",
+      "bytes": 1387,
+      "sha256": "a54df37214adae1488fa6bf6340a66e3b3aa8392bd7e0f6e8f4a50e63ed83e40"
+    },
+    {
+      "name": "runtime.570695e4db96.json",
+      "bytes": 15395755,
+      "sha256": "570695e4db961132471f1734843e0551e00386eb4f097fb02e3cc4a9a01c9ecf"
+    },
+    {
+      "name": "styles.4958c637f56c.css",
+      "bytes": 280180,
+      "sha256": "4958c637f56c8ad1a2d755a3309d095371a13d54c7e2ba669b7796c34a8a4609"
+    },
+    {
+      "name": "training-engine.f9866c97b91a.js",
+      "bytes": 554982,
+      "sha256": "f9866c97b91aadac01a4ae93caaf914376fe346850315b3291418982b01fd34c"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-mega-minion-horde.png",
+      "bytes": 584078,
+      "sha256": "3c41b60a94751633af477cfe32cb6e954285cf65e4b847740a34722221612b68"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-lightning-storm.png",
+      "bytes": 648438,
+      "sha256": "3a26ee2945458a56ce59e3e2539e60894210fd10d9bc9218a491c1a3a6073e32"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-heal-spell.png",
+      "bytes": 342438,
+      "sha256": "83423af395df47363a94cfcfd607b0129358a984cb10f268a76061aa26c9ddd3"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-balloon-parade.png",
+      "bytes": 568475,
+      "sha256": "e63efc50005bb1831c975db8c8f73e839a5c83d27cf2a64686c5a4a3e224af39"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-executioner-cage.png",
+      "bytes": 415976,
+      "sha256": "ac2b44ab9901696b204e414ce172b12888bd2b4e9efeccf31f45dac6a0aa41cb"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-builder.png",
+      "bytes": 356611,
+      "sha256": "d33a8bd262f28901e4c4b93941e5a9e081cf71857f645f5f3d5101e25fb1b0d9"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-magic-trio.png",
+      "bytes": 495487,
+      "sha256": "828e9375c185af631a73726341d64e21e2ffd64771639f9288909107723103f6"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-frostbite.png",
+      "bytes": 455555,
+      "sha256": "ec5f86d33cfd33d94f31f08d3db3b6a1cc2f082aa8fc9ec978a41c793f8fc705"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-harvest.png",
+      "bytes": 637767,
+      "sha256": "161f6f6800321de81a69a662476a9399ef31f0beb1ae4f3396eae950c2d5ff00"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-overcharged-tesla.png",
+      "bytes": 459534,
+      "sha256": "081f1a513a4a3e2f1a6eedc62303940068c4e918b0e0220f8c47797c940b9ad0"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-three-pekkas.png",
+      "bytes": 444070,
+      "sha256": "b726af3dfb17c026f76c47145276e2bd810e8b90fab862ac561122931cae0943"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-meteor-shower.png",
+      "bytes": 518751,
+      "sha256": "a82c082894cd03885dd14f9626beae9a1960bd4e1e524b53f1085e50efb50b2f"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-code-red.png",
+      "bytes": 514166,
+      "sha256": "2dea94d0db590ac6017d7fbe311beb2f4158260ddb8d7f627ac4dff7fbe5ba30"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-royale-escort.png",
+      "bytes": 535804,
+      "sha256": "fe2e3655a4d3ad375af0ca5938063abcedfebc601b598c906f47ad98127313ab"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-kings-dropoff.png",
+      "bytes": 493675,
+      "sha256": "6e6ea40bc32fe5809685ef32cb922ff0097f2667c7495c90e7c05e0f86f271cd"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-elite-barbarians.png",
+      "bytes": 503266,
+      "sha256": "ea6fac0af3686d14e5ac4b5dfd699fe1c82f66268b4405ad519bdbc7f8d5d653"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-elixir-witch.png",
+      "bytes": 427023,
+      "sha256": "c7283b43ef4cc89af8ac3dc7c78f63f710eed1b7e62dd18ffee38791d472a9c5"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-unstable-egg.png",
+      "bytes": 338340,
+      "sha256": "edae35596642c394acb3e3c24405bf2f6bf6984945d4ef1a4b012b1f0abe2d5b"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-fisherman.png",
+      "bytes": 412870,
+      "sha256": "4154b3a3dabc43860588fe6f22cf3177ce25509b050655f9b6fc60303158c761"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-bomb-squad.png",
+      "bytes": 405544,
+      "sha256": "7ea1471bc906106924cb11470acbd22b0a049e7f561f2a94539b5f24ddfdab95"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-mortar-battery.png",
+      "bytes": 450469,
+      "sha256": "a500e60acdccf35f10c634f8506fce126a14e40e5a8b098e2cdd9d155ffdaf97"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-royale-recall.png",
+      "bytes": 673962,
+      "sha256": "50c681122873c2ccc5d0ed99433aafd3c6470de0b2af7ef281e736b8a056b612"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-goblin-magnet.png",
+      "bytes": 327997,
+      "sha256": "f6d269801932f76a09cc369fba1b530bc8af0127ca8cd45d777cb09f5f9ae632"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-spirit-festival.png",
+      "bytes": 534179,
+      "sha256": "710d163d097d086c18c7f159e0b4322442e6075b80c54837302a996e65545d40"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-dark-pact.png",
+      "bytes": 677276,
+      "sha256": "0793955386af062959ff2a2cfc9028d28d4421c70e7e16ab326b67c522fe21d3"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-battle-kitchen.png",
+      "bytes": 464021,
+      "sha256": "48f7656d3f2c5bc99fa5ebb2fc1510303f6761bca09ea8985af72b91377e2583"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-royale-reinforcements.png",
+      "bytes": 526356,
+      "sha256": "e84b55fcf33963d6edfceda3ab1c789faee074737407346ad30a332db9cfedbb"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-elixir-spell.png",
+      "bytes": 708945,
+      "sha256": "a28de95980ab100c2f088070c993e0ce3312aa043688003d73c4c875b6bcafac"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-dragon-king.png",
+      "bytes": 352149,
+      "sha256": "ee1a624c9e9f968f8e103a4a1597a91ff36d007f749a03bde57410186e7b9fe5"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-bowler-giant.png",
+      "bytes": 351414,
+      "sha256": "49321ca620c3ecdcf893bbfe1f35f8a0722fe557aa0c1c152a85c00d1e14e211"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-mirror.png",
+      "bytes": 343098,
+      "sha256": "98d1def470c72bfd68159455fbb39745e1de534ed3b2d5e094d341757d085b07"
+    },
+    {
+      "name": "assets/ultimate-clash/cards/ultimate-bandit-squad.png",
+      "bytes": 556464,
+      "sha256": "4114540ec5a0d63a2cb2b4d73c9b1126a1edcec2d99bf3dd40b00c838c10f23f"
+    }
+  ],
+  "bareEntryMatches": true,
+  "liveBrowserVerifiedAt": "2026-10-16T18:53:23.808Z",
+  "liveBrowser": {
+    "polish": {
+      "passed": true,
+      "cards": 32,
+      "artwork": 7,
+      "mirrorLevel": 14,
+      "mirrorCost": 20,
+      "builders": 3,
+      "healing": 0.02999999999999977,
+      "errors": []
+    },
+    "teams": {
+      "passed": true,
+      "modes": [
+        "UltimateClash",
+        "UltimateClash2v2",
+        "UltimateClash3v3"
+      ],
+      "bomberCloakAlpha": [
+        0.48
+      ],
+      "errors": []
+    },
+    "health": {
+      "passed": true,
+      "checks": 8,
+      "errors": []
+    }
+  }
+}

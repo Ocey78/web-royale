@@ -25,4 +25,4 @@
 - [x] Visual agent: native.js/draw.js/potato.js/native-policy, correct Chef scene/death dependencies and cleaner Bowler plus three visible Builders; render tests/previews.
 - [x] Art agent: render-ultimate-cards.cjs, assets/ultimate-clash/cards.json and card art assets; refreshed spell icons plus Mirror and Bandit Squad. Coordinate manifests after root catalog ready.
 - [x] Review/build: independent source review, final build before full tests (never rebuild concurrently), source/package/regression/browser evidence.
-- [ ] Release: commit/push main, manual exact-SHA Pages dispatch, deployed file hashes and live browser checks; save proof and push docs.
+- [x] Release: commit/push main, manual exact-SHA Pages dispatch, deployed file hashes and live browser checks; save proof and push docs.
