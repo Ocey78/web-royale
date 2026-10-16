@@ -4,7 +4,7 @@ const K=require('../src/catalog'),P=require('../src/profile'),D=require('../src/
 const modes=['UltimateClash','UltimateClash2v2','UltimateClash3v3'];
 
 test('all Ultimate builders accept the same exclusive cards and reject normal cards',()=>{
- for(const mode of modes){const state=D.modeState({},mode);assert.ok(state,mode+' builder exists');assert.equal(state.eligibleCount,20);assert.equal(state.size,8);assert.ok(state.valid);
+ for(const mode of modes){const state=D.modeState({},mode);assert.ok(state,mode+' builder exists');assert.equal(state.eligibleCount,K.ULTIMATE_CARDS.length);assert.equal(state.size,8);assert.ok(state.valid);
   assert.equal(K.isUltimateMode(mode),true);assert.ok(state.eligible.every(id=>id.startsWith('ultimate-')));
   assert.equal(D.setModeCard({},mode,0,'knight').ok,false);assert.equal(D.setModeCard({},mode,7,'ultimate-code-red').ok,true);
  }

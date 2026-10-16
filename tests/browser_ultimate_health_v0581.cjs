@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..'),url=process.env.WEB_ROYALE_URL||'http://
  fs.mkdirSync(out,{recursive:true});
  if(!process.env.WEB_ROYALE_URL){server=spawn(process.execPath,['tools/serve.cjs','8097'],{cwd:root,stdio:['ignore','pipe','pipe'],windowsHide:true});await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);});}
  browser=await chromium.launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});const page=await browser.newPage({viewport:{width:1000,height:1080},serviceWorkers:process.env.WEB_ROYALE_URL?'allow':'block'});page.on('pageerror',e=>report.errors.push(e.message));
- await page.goto(url);await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:240000});report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,'0.58.1');
+ await page.goto(url);await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:240000});report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,process.env.EXPECTED_VERSION||require('../project.json').version);
  await page.locator('button[data-action="nav-events"]:visible').first().click();await page.locator('[data-action="special-deck-builder"][data-mode="UltimateClash"]').click();await page.locator('#modeDeckBattle').click();
  await page.waitForFunction(()=>RoyaleDemo.battle?.mode==='UltimateClash'&&document.querySelector('#battle.active'),null,{timeout:240000});
  report.towers=await page.evaluate(()=>{

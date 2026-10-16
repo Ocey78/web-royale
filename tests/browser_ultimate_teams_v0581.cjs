@@ -5,14 +5,14 @@ async function main(){
  fs.mkdirSync(out,{recursive:true});
  if(!process.env.WEB_ROYALE_URL){server=spawn(process.execPath,['tools/serve.cjs','8096'],{cwd:root,stdio:['ignore','pipe','pipe'],windowsHide:true});await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);});}
  browser=await chromium.launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});const page=await browser.newPage({viewport:{width:1000,height:1080},serviceWorkers:process.env.WEB_ROYALE_URL?'allow':'block'});page.on('pageerror',e=>report.errors.push(e.message));
- await page.goto(url);await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:240000});report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,'0.58.1');
+ await page.goto(url);await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:240000});report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,process.env.EXPECTED_VERSION||require('../project.json').version);
  const capture=async name=>{await page.locator('#viewport').screenshot({path:path.join(out,name+'.png')});report.screenshots.push(name+'.png');};
  await page.locator('button[data-action="nav-events"]:visible').first().click();
  for(const mode of expected.MODES)assert.equal(await page.locator('[data-action="special-deck-builder"][data-mode="'+mode+'"]').count(),1);
  await capture('ultimate-events');
  for(const [mode,seats,normal,overtime]of [['UltimateClash',2,240,180],['UltimateClash2v2',4,300,240],['UltimateClash3v3',6,360,300]]){
   await page.evaluate(()=>RoyaleDemo.show('events'));await page.locator('[data-action="special-deck-builder"][data-mode="'+mode+'"]').click();
-  assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),20);
+  assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),expected.CARDS.length);
   for(const card of expected.CARDS)assert.equal(await page.locator('#modeDeckCollection [data-id="'+card.id+'"] .cost').textContent(),String(card.cost));
   if(seats===6){await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);await capture('ultimate-3v3-phone-deck');await page.setViewportSize({width:1000,height:1080});}
   await page.locator('#modeDeckBattle').click();await page.waitForFunction(mode=>RoyaleDemo.battle?.mode===mode&&document.querySelector('#battle.active'),mode,{timeout:240000});

@@ -250,7 +250,7 @@ function renderOnline(){
 }
 function renderEvents(){
  const groups=[
-  ['Ultimate Clash', [['UltimateClash','Ultimate Clash','20 exclusive cards · 20 elixir · Reinforced Crown Towers','event-triple'],['UltimateClash2v2','Ultimate Clash 2v2','Two-player teams · 5 minutes + 4 minutes overtime','team-icon'],['UltimateClash3v3','Ultimate Clash 3v3','Three-player teams · 6 minutes + 5 minutes overtime','team-icon']]],
+  ['Ultimate Clash', [['UltimateClash','Ultimate Clash',`${C.ULTIMATE_CARDS.length} exclusive cards · 20 elixir · Reinforced Crown Towers`,'event-triple'],['UltimateClash2v2','Ultimate Clash 2v2','Two-player teams · 5 minutes + 4 minutes overtime','team-icon'],['UltimateClash3v3','Ultimate Clash 3v3','Three-player teams · 6 minutes + 5 minutes overtime','team-icon']]],
   ['Team Battles', [['TeamVsTeam','2v2','You + an AI teammate vs two rivals','team-icon'],['Team3v3','3v3','Three-player teams · Three detailed arena themes','team-icon'],['TeamRumble','Team Rumble','5v5 King elimination · Three detailed arena themes','team-icon']]],
   ['Touchdown', [['Touchdown','Touchdown','Official-style Touchdown stadium · First to 3','challenge'],['Touchdown2v2','2v2 Touchdown','Two-player teams in the Touchdown stadium','team-icon'],['Touchdown3v3','3v3 Touchdown','Three-player teams on the wider stadium field','team-icon']]],
   ['Deck Modes', [['FourCardDeck','4 Card Deck','Four-card cycle','cards'],['SixCardDeck','6 Card Deck','Four in hand · Two in cycle','cards'],['TwelveCardDeck','12 Card Deck','Four in hand · Eight in cycle','cards'],['RandomDeck','Random Deck','Fresh random deck every battle','cards']]],

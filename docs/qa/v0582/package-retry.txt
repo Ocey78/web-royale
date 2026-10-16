@@ -1,0 +1,15 @@
+✔ web build has a small external-script entry point instead of a 149 MB payload (1.0371ms)
+✔ web release is complete and cannot contain desktop executables, installers or fonts (1371.4427ms)
+✔ split scene metadata and images resolve to packaged files with cache-busting revisions (205.4965ms)
+✔ web build bundles no remote script, remote image host, or account impersonation endpoint (90.5662ms)
+✔ the web build-info dialog does not advertise the old native bundle version (12.1404ms)
+✔ v160 release declares placement engine modules in visible and training bundles (1.3451ms)
+✔ package version agrees with the generated release (2.6358ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1756.3575

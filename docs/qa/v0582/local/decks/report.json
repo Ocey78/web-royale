@@ -1,0 +1,173 @@
+{
+  "url": "http://127.0.0.1:8098",
+  "errors": [],
+  "checks": [
+    "All custom portraits loaded in independent eight-card deck builder",
+    "custom deck edit and name survive reload without modifying ranked decks",
+    "ordinary builders and collection exclude Ultimate cards",
+    "actual battle starts with 4-minute clock, custom deck and 20-elixir HUD"
+  ],
+  "screenshots": [
+    "ultimate-deck.png",
+    "ultimate-phone-deck.png",
+    "ultimate-battle.png"
+  ],
+  "version": "0.58.2",
+  "art": {
+    "ultimate-mega-minion-horde": {
+      "cost": 14,
+      "description": "Six armored Mega Minions take to the skies. The Hero form deploys six Hero Mega Minions; they choose different targets whenever enough enemies are available.",
+      "art": true
+    },
+    "ultimate-lightning-storm": {
+      "cost": 14,
+      "description": "Six strike waves hit 1–3 randomly chosen enemies or towers in a storm cloud. Each wave arrives 0.9–2 seconds after the last. Its radius is 15% smaller than Graveyard.",
+      "art": true
+    },
+    "ultimate-heal-spell": {
+      "cost": 3,
+      "description": "Place a healing field anywhere in the Arena. It has twice a Heal Spirit’s healing radius and lasts twice as long, restoring nearby friendly troops.",
+      "art": true
+    },
+    "ultimate-balloon-parade": {
+      "cost": 20,
+      "description": "Six Balloons deploy in a broad Royal Recruits formation across your side of the Arena. Each carries its usual bomb and death damage.",
+      "art": true
+    },
+    "ultimate-executioner-cage": {
+      "cost": 16,
+      "description": "A reinforced grey cage throws Executioner axes at up to three different enemies at once, with Inferno Tower range. When destroyed, it releases three Executioners.",
+      "art": true
+    },
+    "ultimate-builder": {
+      "cost": 5,
+      "description": "Assign a Builder to one friendly building, excluding Princess and King Towers. One prevents lifetime decay; a second adds gradual healing. Maximum two Builders per building. Enemy attacks still damage it.",
+      "art": true
+    },
+    "ultimate-magic-trio": {
+      "cost": 10,
+      "description": "Deploys an Ice Wizard, Electro Wizard and Wizard in a tight three-troop formation. Fire, frost and lightning arrive together.",
+      "art": true
+    },
+    "ultimate-frostbite": {
+      "cost": 11,
+      "description": "Freezes a field 15% larger than Freeze and summons Ice Spirits throughout it using Graveyard-style spawning. Hero ability: spend 3 elixir to launch 10 Giant Snowballs at nearby positions.",
+      "art": true
+    },
+    "ultimate-harvest": {
+      "cost": 3,
+      "description": "A pink field lasts 1.25× as long as Void with a 1.5× radius. Enemy troop deaths inside grant 0.1 elixir per Skeleton, 0.2 per Minion, Bat, Spirit or Goblin, 0.35 per Barbarian, and 1 for other troops. Pink beams mark each harvest.",
+      "art": true
+    },
+    "ultimate-overcharged-tesla": {
+      "cost": 6,
+      "description": "An evolved Tesla that stays above ground. It charges and fires a Sparky-style blast instead of lightning bolts, with a harmless sky zap one second before each shot. No opening pulse.",
+      "art": true
+    },
+    "ultimate-three-pekkas": {
+      "cost": 17,
+      "description": "Three heavily armored P.E.K.K.As deploy together. Three swords, three sets of glowing eyes, and a very expensive problem for the enemy.",
+      "art": true
+    },
+    "ultimate-meteor-shower": {
+      "cost": 6,
+      "description": "An orange field 50% larger than Void rains eight Fireballs at random positions over 4.5 seconds. Each Fireball deals one third of normal Fireball damage.",
+      "art": true
+    },
+    "ultimate-code-red": {
+      "cost": 18,
+      "description": "Launches 25 Rockets in rapid waves over 3 seconds, striking random locations across the enemy’s half of the Arena.",
+      "art": true
+    },
+    "ultimate-royale-escort": {
+      "cost": 20,
+      "description": "Two Knights and a Prince lead a Royal Giant, with two Cannon Carts behind. One-cycle Evolution upgrades the Knights and Royal Giant and replaces the Prince with a Dark Prince.",
+      "art": true
+    },
+    "ultimate-kings-dropoff": {
+      "cost": 13,
+      "description": "Four Royal Deliveries drop around a boxed Cannon Cart in a plus shape. The Cannon Cart lands in the centre while the recruits secure all four sides.",
+      "art": true
+    },
+    "ultimate-elite-barbarians": {
+      "cost": 12,
+      "description": "Five Elite Barbarians deploy in the familiar Barbarians formation. Their fast movement and heavy swords make this a powerful group attack.",
+      "art": true
+    },
+    "ultimate-elixir-witch": {
+      "cost": 5,
+      "description": "A Mother Witch who moves 5% slower and periodically summons middle-stage Elixir Golemites. Her kills turn enemy troops into tiny friendly Elixir Golemites instead of Hogs.",
+      "art": true
+    },
+    "ultimate-unstable-egg": {
+      "cost": 3,
+      "description": "Place a Phoenix Egg on your side. On hatching: 30% Baby Dragon, 20% evolved Baby Dragon, 5% three Baby Dragons, or 45% a Goblin Demolisher-style explosion that damages both teams.",
+      "art": true
+    },
+    "ultimate-fisherman": {
+      "cost": 4,
+      "description": "Hooks an enemy immediately on deployment when one is in hook range. Later hooks charge in half the normal time. Fish Slapping remains complimentary.",
+      "art": true
+    },
+    "ultimate-bomb-squad": {
+      "cost": 6,
+      "description": "Two Bombers hide behind a Guard. They remain faintly visible like the Archer Queen during her cloak ability, but cannot be targeted until their Guard falls; then they become fully visible.",
+      "art": true
+    },
+    "ultimate-mortar-battery": {
+      "cost": 12,
+      "description": "Three Mortars deploy in a triangle and stagger their opening shots. Each keeps the usual Mortar minimum range, leaving nearby attackers inside its blind spot.",
+      "art": true
+    },
+    "ultimate-royale-recall": {
+      "cost": 4,
+      "description": "Recall up to three friendly troops nearest the target point to safe positions on your side. Their health and harmful statuses stay intact; recalled troops briefly pause. Buildings and attached actors cannot be recalled.",
+      "art": true
+    },
+    "ultimate-goblin-magnet": {
+      "cost": 5,
+      "description": "A destructible Goblin Magnet periodically tugs nearby enemy ground troops toward it. The pulls deal no damage, cannot move Crown Towers and stop when this temporary building falls.",
+      "art": true
+    },
+    "ultimate-spirit-festival": {
+      "cost": 7,
+      "description": "A festival of sixteen Spirits: pairs of Fire, Ice, Electro and Heal Spirits arrive in that order, twice over eight seconds. Each pair keeps its native Spirit attack.",
+      "art": true
+    },
+    "ultimate-dark-pact": {
+      "cost": 4,
+      "description": "A temporary dark field increases friendly troop damage while slowly draining a small fraction of their health. The drain cannot kill them. Buildings gain no damage bonus, and overlapping pacts do not stack.",
+      "art": true
+    },
+    "ultimate-battle-kitchen": {
+      "cost": 8,
+      "description": "This battlefield kitchen throws healing food to damaged friendly troops within range. When the building falls, its Chef emerges and fights enemy ground troops with a frying pan.",
+      "art": true
+    },
+    "ultimate-royale-reinforcements": {
+      "cost": 12,
+      "description": "Six Royal Recruits arrive on your side as three pairs: immediately, then after three and six seconds. Each pair brings the usual shields and spears to reinforce the battle.",
+      "art": true
+    },
+    "ultimate-elixir-spell": {
+      "cost": 2,
+      "description": "Spill a purple elixir field that slows the ground movement of troops from both teams. Flying troops are unaffected. The field deals no damage and generates no elixir.",
+      "art": true
+    },
+    "ultimate-dragon-king": {
+      "cost": 18,
+      "description": "A huge, slow flying dragon with enough health to lead an air assault. Its long-windup cone breath scorches grouped air and ground enemies, but attack resets interrupt its charge.",
+      "art": true
+    },
+    "ultimate-bowler-giant": {
+      "cost": 11,
+      "description": "A Bowler and both of his boulders are 40% larger. He carries one ball in each hand and targets only buildings, while both rolling boulders strike enemy ground troops along their paths.",
+      "art": true
+    }
+  },
+  "serviceWorker": {
+    "supported": true,
+    "controlled": false
+  },
+  "passed": true
+}

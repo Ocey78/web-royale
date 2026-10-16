@@ -17,10 +17,10 @@ async function main(){
  await page.locator('button[data-action="nav-events"]:visible').first().click();
  await page.locator('[data-action="special-deck-builder"][data-mode="UltimateClash"]').click();
  assert.equal(await page.locator('#modeDeckTitle').textContent(),'Ultimate Clash');
- assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),20);
+ assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),require('../src/ultimate-clash').CARDS.length);
  assert.equal(await page.locator('#modeDeckGrid .card-tile').count(),8);
  await page.waitForFunction(()=>[...document.querySelectorAll('#modeDeckCollection img')].every(i=>i.complete&&i.naturalWidth>0));
- report.checks.push('20 custom portraits loaded in independent eight-card deck builder');
+ report.checks.push('All custom portraits loaded in independent eight-card deck builder');
  await capture('ultimate-deck');
  const normal=await page.evaluate(()=>JSON.stringify(RoyaleDemo.profile.decks));
  await page.locator('[data-action="special-deck-add"]').click();
@@ -47,7 +47,7 @@ async function main(){
  await page.waitForTimeout(1200);await capture('ultimate-battle');
  report.checks.push('actual battle starts with 4-minute clock, custom deck and 20-elixir HUD');
  report.art=await page.evaluate(()=>Object.fromEntries(RoyaleCore.cardsForMode('UltimateClash').map(c=>[c.id,{cost:c.cost,description:c.description,art:!!RoyaleBundle.art[c.id]}])));
- assert.equal(Object.keys(report.art).length,20);assert.ok(Object.values(report.art).every(c=>c.art&&c.description.length>25));
+ assert.equal(Object.keys(report.art).length,require('../src/ultimate-clash').CARDS.length);assert.ok(Object.values(report.art).every(c=>c.art&&c.description.length>25));
  report.serviceWorker=await page.evaluate(()=>({supported:'serviceWorker' in navigator,controlled:!!navigator.serviceWorker?.controller}));assert.deepEqual(report.errors,[]);report.passed=true;
 }
 main().catch(error=>{report.failure=error.stack;console.error(error);process.exitCode=1;}).finally(async()=>{fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));await browser?.close();server?.kill();console.log(JSON.stringify({passed:report.passed,checks:report.checks,errors:report.errors}));});

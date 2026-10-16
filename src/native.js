@@ -29,6 +29,13 @@ function sourceDirectionCount(cfg,scene,team){
  let count=1;for(const name of Object.keys(data.exports)){if(!name.startsWith(pref+'_'))continue;const match=name.slice(pref.length+1).match(/^(?:idle|run|attack|charge|dash|deploy|loading)1?_(\d+)$/);if(match)count=Math.max(count,Number(match[1]));}counts.set(pref,count);return count;
 }
 function teamFilter(team){return team===2?'hue-rotate(105deg) saturate(1.35) brightness(.95)':team===3?'sepia(.82) saturate(2.2) hue-rotate(355deg) brightness(1.08)':'none';}
+function ultimateKind(id,u){return u?.ultimate?.kind||({UltimateBowlerGiant:'bowler-giant',UltimateDragonKing:'dragon-king',UltimateChef:'chef',UltimateBattleKitchen:'battle-kitchen',UltimateGoblinMagnet:'goblin-magnet'}[id]);}
+function ultimateVisualScale(id,u,source){return Number(source?.UltimateVisualScale)||({ 'bowler-giant':1.4,'dragon-king':1.65 }[ultimateKind(id,u)]||1);}
+// The source attack tail contains the Bowler's empty hands. Reuse these
+// authored, animated frames so the two separate boulders never become three.
+function dualBowlerPose(clip,u,time,state){const frames=clip?.frames?.length||1,release=Math.max(0,(clip?.labels||[]).findIndex(s=>s==='action_frame'))+2,start=Math.min(frames-1,release),span=Math.max(0,Math.min(9,frames-1-start));
+ const attack=u?.visualAttack,windup=state==='attack'&&attack?.releasedAt===null,q=windup?Math.min(1,(u.animationTime||0)/Math.max(.01,attack.windup)):null;
+ return{frame:Math.round(start+span*(q===null?.45+.35*Math.sin((state==='run'?(u?.walk??time)*7:time*3)):1-q))};}
 function exportName(cfg,team,state,index){const key=`${team===1?1:0}:${state}`;return cfg.animations?.[key]?.[Math.max(0,Math.min(8,index-1))]||`${cfg.prefix[team===1?1:0]}_${state}1_${index}`}
 // Source exports sometimes have only one viewing direction (e.g. Balloon).
 // Prefer the requested state's single-direction clip before an idle fallback.
@@ -395,7 +402,7 @@ class Library{
   const source=options.entity?.def?.source||globalThis.RoyaleCore?.DATA.entities[id],base=this.data.units[source?.NativeActor||id];if(!base)return false;const cfg=options.entity?.shield>0&&base.variants?.shield?{...base,...base.variants.shield}:base;const sc=this.scenes[cfg.scene];if(!sc)return false;
   if(state==='attack'&&options.entity?.visualAttackCancelled)state='idle';
   if(!options.entity?.visualAttackCancelled&&(options.entity?.hook||options.entity?.visualHook&&state!=='run'&&state!=='dash'))state='loading';
-  const atlasHeading=heading+(Number(cfg.headingOffset)||0),d=direction(Math.cos(atlasHeading),Math.sin(atlasHeading),sourceDirectionCount(cfg,sc,team));let name=resolveAnimation(cfg,sc,team,state,d.index);if(!name)return false;
+  const kind=ultimateKind(id,options.entity),atlasHeading=heading+(Number(cfg.headingOffset)||0),d=direction(Math.cos(atlasHeading),Math.sin(atlasHeading),sourceDirectionCount(cfg,sc,team));let name=resolveAnimation(cfg,sc,team,kind==='bowler-giant'?'attack':state,d.index);if(!name)return false;
   let elapsed=options.elapsed??Math.max(0,time-started);const nativeDuration=sc.duration(name),attackDuration=options.attackDuration||nativeDuration;
   if(state==='loading'){
    const synced=hookClipTime(sc.clip(name),elapsed,options.entity||{});elapsed=synced.time;
@@ -411,20 +418,41 @@ class Library{
    elapsed*=Math.max(.1,1+(cfg.walkTweak||0)/100);
   }
   if(globalThis.RoyaleGraphics)elapsed=globalThis.RoyaleGraphics.animationTime(elapsed);
-  const factor=scale*(5/6)*cfg.scale;
+  if(kind==='bowler-giant')name=resolveAnimation(cfg,sc,team,'attack',d.index)||name;
+  const factor=scale*(5/6)*cfg.scale*ultimateVisualScale(id,options.entity,source);
   const views=cfg.animations?.[`${team===1?1:0}:${state}`]||[],directional=new Set(views.filter(v=>v&&sc.id(v)!==undefined)).size>1;
   const rotation=!directional&&(options.entity?.def?.source?.HasRotationOnTimeline===true||cfg.rotationTimeline===true);
-  const clip=sc.clip(name),pose=ultimateClipPose(clip,options.entity,time)||frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);
+  const clip=sc.clip(name),pose=(kind==='bowler-giant'?dualBowlerPose(clip,options.entity,time,state):null)||ultimateClipPose(clip,options.entity,time)||frameRangePose(clip,options.entity,time)||hidingClipPose(clip,options.entity)||(rotation?rotationPose(heading,clip?.frames?.length||1):null);
   const flip=(d.flip&&(directional||!cfg.building)&&!rotation?-1:1)*(pose?.flip?-1:1);
   return{cfg,sc,name,factor,flip,pose,seconds:pose?pose.frame/(clip.fps||30):elapsed,drawOptions:{loop:pose?false:state!=='attack'&&state!=='loading',...(pose?{frame:pose.frame}:{})},top:cfg.top?.[team]};
  }
  unit(c,id,x,y,team,time,state='idle',heading=-Math.PI/2,started=0,scale=1,options={}){
   const modern=globalThis.RoyaleModern3D;if(modern?.has(id)&&modern.draw(c,id,x,y,team,time,state,heading,started,scale,options))return true;
   const p=this.nativeUnitPose(id,team,time,state,heading,started,scale,options);if(!p)return false;
-  c.save();c.translate(x,y-(options.height??p.cfg.flightHeight??0));c.scale(p.flip*p.factor,p.factor);const kind=options.entity?.ultimate?.kind,customFilter=kind==='executioner-cage'?'grayscale(1) brightness(1.12)':kind==='elixir-witch'?'hue-rotate(320deg) saturate(1.15)':'';c.filter=[teamFilter(team),customFilter].filter(v=>v&&v!=='none').join(' ')||'none';
+  c.save();c.translate(x,y-(options.height??p.cfg.flightHeight??0));c.scale(p.flip*p.factor,p.factor);const kind=ultimateKind(id,options.entity),customFilter=kind==='executioner-cage'?'grayscale(1) brightness(1.12)':kind==='elixir-witch'?'hue-rotate(320deg) saturate(1.15)':kind==='dragon-king'?'sepia(.5) saturate(1.35)':'';c.filter=[teamFilter(team),customFilter].filter(v=>v&&v!=='none').join(' ')||'none';
   let painted=false;const paint=color=>{painted=(p.sc.draw(c,p.name,p.seconds,{...p.drawOptions,initialColor:color})!==false)||painted;
    if(p.top&&p.sc.id(p.top)!==undefined)p.sc.draw(c,p.top,p.seconds,{loop:!p.pose,initialColor:color});};
-  if(options.entity&&globalThis.RoyalePresentation?.ready)RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);c.restore();return painted;
+  if(options.entity&&globalThis.RoyalePresentation?.ready)RoyalePresentation.filtered(c,options.entity,time,paint);else paint(null);
+  if(painted)this.drawUltimateAccessories(c,id,options.entity,p,time,state,heading,team);c.restore();return painted;
+ }
+ drawUltimateAccessories(c,id,u,p,time,state,heading,team){const kind=ultimateKind(id,u);if(!kind)return;c.save();c.filter=teamFilter(team);const oval=(x,y,rx,ry,color,edge)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=color;c.fill();if(edge){c.strokeStyle=edge;c.lineWidth=2;c.stroke();}},stroke=(x,y,tx,ty,color,width)=>{c.beginPath();c.moveTo(x,y);c.lineTo(tx,ty);c.strokeStyle=color;c.lineWidth=width;c.lineCap='round';c.stroke();};
+  if(kind==='bowler-giant'){
+   const thrown=Number.isFinite(u?.ultimate?.throwAt)&&time-u.ultimate.throwAt>=0&&time-u.ultimate.throwAt<.38;
+   const cfg=this.data.projectiles?.BowlerProjectile,sc=cfg&&this.scenes[cfg.scene]||this.scenes.effects,name=cfg?(team===1?cfg.redExport:cfg.export):'bowler_projectile';
+   if(!thrown&&sc&&sc.id(name)!==undefined){for(const side of [-1,1]){const bob=Math.sin(time*3)*2,across=Math.abs(Math.cos(heading)),x=side*(28-across*15)+across*8,y=-43+Math.sin(heading)*7+side*across*16+bob;
+    oval(x,y+7,5,4,'#a771dc','#693b98');c.save();c.translate(x,y);const s=.65*1.4/p.factor;c.scale(s,s);sc.draw(c,name,time,{loop:true});c.restore();}}
+  }else if(kind==='chef'){
+   const top=p.sc.bounds?p.sc.bounds(p.name,p.seconds).y:-65;oval(0,top+5,15,8,'#fff9df','#b9b6ac');oval(-9,top,8,8,'#fffdf0');oval(1,top-4,9,9,'#fffdf0');oval(10,top,8,8,'#fffdf0');c.fillStyle='#f9f4dc';c.fillRect(-11,top+3,23,10);
+   c.fillStyle='#f8f1d9';c.beginPath();c.moveTo(-10,-30);c.lineTo(10,-30);c.lineTo(16,2);c.lineTo(-16,2);c.closePath();c.fill();stroke(-12,-17,12,-17,'#a95e34',2);
+   const swing=state==='attack'?Math.sin((u?.animationTime||time)*9)*12:0,px=22,py=-5-swing;stroke(9,-8,px,py,'#67472c',5);oval(px+7,py-5,13,10,'#373d43','#c6c9c9');oval(px+7,py-5,8,6,'#24292e');
+  }else if(kind==='goblin-magnet'){
+   const top=p.sc.bounds?p.sc.bounds(p.name,p.seconds).y:-65;c.lineCap='butt';c.strokeStyle='#bd3451';c.lineWidth=11;c.beginPath();c.moveTo(-17,top+13);c.lineTo(-17,top+28);c.bezierCurveTo(-17,top+48,17,top+48,17,top+28);c.lineTo(17,top+13);c.stroke();c.fillStyle='#ccecff';c.fillRect(-23,top+7,12,10);c.fillRect(11,top+7,12,10);
+  }else if(kind==='battle-kitchen'){
+   oval(0,-30,24,11,'#3d4149','#e6c088');c.fillStyle='#dfba73';c.fillRect(-21,-29,42,8);oval(0,-32,21,7,'#ec8d3d','#fff2ba');for(let i=0;i<3;i++){const yy=-43-i*9-(time*12%9);stroke(-9+i*9,yy,-5+i*9,yy-8,'#fff5d4aa',2);}
+  }else if(kind==='dragon-king'){
+   const top=p.sc.bounds?p.sc.bounds(p.name,p.seconds).y:-65;c.fillStyle='#f7c34a';c.strokeStyle='#735222';c.lineWidth=1.5;c.beginPath();c.moveTo(-13,top+9);c.lineTo(-16,top-4);c.lineTo(-5,top+2);c.lineTo(0,top-10);c.lineTo(6,top+2);c.lineTo(16,top-4);c.lineTo(13,top+9);c.closePath();c.fill();c.stroke();
+   if(u?.windup){const q=1-Math.min(1,u.windup.remaining/2),mx=Math.cos(heading)*20,my=-30+Math.sin(heading)*18;oval(mx,my,4+q*8,3+q*6,'#ff832755','#ffd472');}
+  }c.restore();
  }
  releaseUnitShadows(){for(const mask of this.unitShadowCache.values())mask.image.width=mask.image.height=1;this.unitShadowCache.clear();this.unitShadowPixels=0;}
  unitShadowRaster(key,bounds,paint){
@@ -454,14 +482,14 @@ class Library{
  // A stable head anchor measured from the original idle views, independent of
  // the current attack frame. This keeps health bars from bouncing with swings.
  headHeight(id){const modern=globalThis.RoyaleModern3D;if(modern?.has(id)){const height=modern.headHeight(id);if(Number.isFinite(height)&&height>0)return height;}this.metricCache||=new Map();if(this.metricCache.has(id))return this.metricCache.get(id);
-  const cfg=this.data.units[id],sc=cfg&&this.scenes[cfg.scene];if(!sc)return 48;
+  const source=globalThis.RoyaleCore?.DATA.entities[id],cfg=this.data.units[source?.NativeActor||id],sc=cfg&&this.scenes[cfg.scene];if(!sc)return 48;
   let top=0;for(const team of [0,1])for(const dir of [1,3,5,7,9]){const name=resolveAnimation(cfg,sc,team,'idle',dir);if(name)top=Math.max(top,-sc.bounds(name).y);}
-  const h=Math.max(18,Math.min(140,top*(5/6)*cfg.scale))+5;this.metricCache.set(id,h);return h;
+  const h=Math.max(18,Math.min(140,top*(5/6)*cfg.scale*ultimateVisualScale(id,null,source)))+5+(id==='UltimateChef'?14:0);this.metricCache.set(id,h);return h;
  }
- drawProjectile(c,p,time,battle=null){const cfg=this.data.projectiles?.[p.name];if(!this.ready||!cfg)return false;const sc=this.scenes[cfg.scene],sourceTeam=p.team===1?1:0,name=sourceTeam?cfg.redExport:cfg.export;if(!sc||sc.id(name)===undefined)return false;const r=battle?.constructor?globalThis.RoyaleCore?.DATA.projectiles[p.name]||{}:{};
-  const pos=projectilePose(p,battle?.getEntity(p.target)),angle=pos.angle,scale=projectileArtScale(p.name,cfg);
+ drawProjectile(c,p,time,battle=null){const r=battle?.catalog?.DATA.projectiles[p.name]||globalThis.RoyaleCore?.DATA.projectiles[p.name]||{},cfg=this.data.projectiles?.[r.NativeProjectile||p.name];if(!this.ready||!cfg)return false;const sc=this.scenes[cfg.scene],sourceTeam=p.team===1?1:0,name=sourceTeam?cfg.redExport:cfg.export;if(!sc||sc.id(name)===undefined)return false;
+  const pos=projectilePose(p,battle?.getEntity(p.target)),angle=pos.angle,scale=projectileArtScale(r.NativeProjectile||p.name,cfg)*(Number(r.UltimateVisualScale)||1);
   if(r.ShadowExportName){const shadow=sc.id(r.ShadowExportName)!==undefined?sc:this.scenes.effects;if(shadow?.id(r.ShadowExportName)!==undefined){c.save();c.globalAlpha*=.3;c.translate(p.x,p.y);c.rotate(angle);c.scale(scale,scale*.7);shadow.draw(c,r.ShadowExportName,0);c.restore();}}
-  c.save();c.translate(pos.x,pos.y);c.filter=teamFilter(p.team);const clip=sc.clip(name),count=clip?.frames?.length||1;let options={};if(r.use360Frames&&count>1){if(p.name==='RocketSpell'){const art=rocketAtlasPose(pos,count);options={frame:art.frame};c.rotate(art.rotation);}else{options={frame:Math.floor(((pos.pitch/(Math.PI*2))%1+1)%1*count)};c.rotate(pos.groundAngle+Math.PI/2);}}else c.rotate(p.line?pos.groundAngle:angle);c.scale(scale,scale);sc.draw(c,name,Math.max(0,time-p.born),options);c.restore();return true;}
+  c.save();c.translate(pos.x,pos.y);c.filter=teamFilter(p.team);const clip=sc.clip(name),count=clip?.frames?.length||1;let options={};if(r.use360Frames&&count>1){if(p.name==='RocketSpell'){const art=rocketAtlasPose(pos,count);options={frame:art.frame};c.rotate(art.rotation);}else{options={frame:Math.floor(((pos.pitch/(Math.PI*2))%1+1)%1*count)};c.rotate(pos.groundAngle+Math.PI/2);}}else c.rotate(p.line?pos.groundAngle:angle);c.scale(scale,scale);sc.draw(c,name,Math.max(0,time-p.born),options);if(p.ultimate?.kind==='kitchen-food'||p.name==='UltimateKitchenFood'){c.beginPath();c.ellipse(0,0,12,8,0,0,Math.PI*2);c.fillStyle='#e9a34f';c.fill();c.strokeStyle='#fff4c8';c.lineWidth=2;c.stroke();c.fillStyle='#79b74c';c.fillRect(-8,-1,16,3);}c.restore();return true;}
 
  releaseArenaCache(){
   for(const runs of this.arenaCache.values())for(const run of runs)if(run.image){run.image.width=1;run.image.height=1;}

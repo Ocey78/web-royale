@@ -269,6 +269,140 @@
         "assets/cards/bomber.png",
         "assets/cards/guards.png"
       ]
+    },
+    {
+      "id": "ultimate-mortar-battery",
+      "name": "Mortar Battery",
+      "file": "assets/ultimate-clash/cards/ultimate-mortar-battery.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "a500e60acdccf35f10c634f8506fce126a14e40e5a8b098e2cdd9d155ffdaf97",
+      "description": "Three native steel Mortars arranged in a triangular battery, with glowing shells crossing a smoky amber sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/mortar.png"
+      ]
+    },
+    {
+      "id": "ultimate-royale-recall",
+      "name": "Royale Recall",
+      "file": "assets/ultimate-clash/cards/ultimate-royale-recall.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "548446c506ba19db4e03b9f6b9c8e94e861249ee1de1edf4da51892bfb85a1d5",
+      "description": "A native Knight stepping through a bright turquoise recall portal, with curved blue trails circling a second distant Knight.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/knight.png"
+      ]
+    },
+    {
+      "id": "ultimate-goblin-magnet",
+      "name": "Goblin Magnet",
+      "file": "assets/ultimate-clash/cards/ultimate-goblin-magnet.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "f6d269801932f76a09cc369fba1b530bc8af0127ca8cd45d777cb09f5f9ae632",
+      "description": "A native Goblin Cage fitted with a glowing red-and-blue horseshoe magnet, drawing metallic sparks inward.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/ultimate-clash/executioner-cage-portrait.png"
+      ]
+    },
+    {
+      "id": "ultimate-spirit-festival",
+      "name": "Spirit Festival",
+      "file": "assets/ultimate-clash/cards/ultimate-spirit-festival.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "710d163d097d086c18c7f159e0b4322442e6075b80c54837302a996e65545d40",
+      "description": "Pairs of native Fire, Ice, Electro and Heal Spirits spiralling together through a vivid four-colour festival sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/fire-spirits.png",
+        "assets/cards/ice-spirit.png",
+        "assets/cards/electro-spirit.png",
+        "assets/cards/heal-spirit.png"
+      ]
+    },
+    {
+      "id": "ultimate-dark-pact",
+      "name": "Dark Pact",
+      "file": "assets/ultimate-clash/cards/ultimate-dark-pact.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "78c8681a41da120df51596e50e63dff4606bacf28edd29e3ae9dcd0dd7ee2ecf",
+      "description": "A native Rage bottle hovering above dark violet runic rings, with crimson energy rising around a shadowed Knight.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/knight.png",
+        "assets/cards/rage.png"
+      ]
+    },
+    {
+      "id": "ultimate-battle-kitchen",
+      "name": "Battle Kitchen",
+      "file": "assets/ultimate-clash/cards/ultimate-battle-kitchen.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "48f7656d3f2c5bc99fa5ebb2fc1510303f6761bca09ea8985af72b91377e2583",
+      "description": "A native wooden Goblin Hut converted into a warm field kitchen, with a steaming pot, fresh bread and a crossed frying pan.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/goblin-hut.png"
+      ]
+    },
+    {
+      "id": "ultimate-royale-reinforcements",
+      "name": "Royale Reinforcements",
+      "file": "assets/ultimate-clash/cards/ultimate-royale-reinforcements.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "e84b55fcf33963d6edfceda3ab1c789faee074737407346ad30a332db9cfedbb",
+      "description": "Six native Royal Recruits arranged as three advancing pairs beneath three gold arrival beacons.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/royal-recruits.png"
+      ]
+    },
+    {
+      "id": "ultimate-elixir-spell",
+      "name": "Elixir Spell",
+      "file": "assets/ultimate-clash/cards/ultimate-elixir-spell.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "f06d5151a101bc7f2a67a903959cbae47cade2e625097b2843d789f25c65b68e",
+      "description": "A tipped native purple Rage bottle pouring a luminous pool of elixir across the Arena floor, surrounded by slow rippling rings.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/rage.png"
+      ]
+    },
+    {
+      "id": "ultimate-dragon-king",
+      "name": "Dragon King",
+      "file": "assets/ultimate-clash/cards/ultimate-dragon-king.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "ee1a624c9e9f968f8e103a4a1597a91ff36d007f749a03bde57410186e7b9fe5",
+      "description": "An enormous native green Baby Dragon wearing a golden crown, breathing a broad orange flame beneath a royal purple sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/baby-dragon.png"
+      ]
+    },
+    {
+      "id": "ultimate-bowler-giant",
+      "name": "Bowler Giant",
+      "file": "assets/ultimate-clash/cards/ultimate-bowler-giant.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "49321ca620c3ecdcf893bbfe1f35f8a0722fe557aa0c1c152a85c00d1e14e211",
+      "description": "An enlarged native purple Bowler holding two oversized stone boulders, one in each hand, against a deep blue quarry sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/bowler.png"
+      ]
     }
   ]
 }

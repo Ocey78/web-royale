@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
 const U=require('../src/ultimate-clash'),K=require('../src/catalog'),F=require('../src/card-forms'),{Battle}=require('../src/battle');
-const prices={'mega-minion-horde':14,'lightning-storm':14,'heal-spell':3,'balloon-parade':20,'executioner-cage':16,builder:5,'magic-trio':10,frostbite:11,harvest:3,'overcharged-tesla':6,'three-pekkas':17,'meteor-shower':6,'code-red':18,'royale-escort':20,'kings-dropoff':13,'elite-barbarians':12,'elixir-witch':5,'unstable-egg':3,fisherman:4,'bomb-squad':6};
+const prices={'mega-minion-horde':14,'lightning-storm':14,'heal-spell':3,'balloon-parade':20,'executioner-cage':16,builder:5,'magic-trio':10,frostbite:11,harvest:3,'overcharged-tesla':6,'three-pekkas':17,'meteor-shower':6,'code-red':18,'royale-escort':20,'kings-dropoff':13,'elite-barbarians':12,'elixir-witch':5,'unstable-egg':3,fisherman:4,'bomb-squad':6,'mortar-battery':12,'royale-recall':4,'goblin-magnet':5,'spirit-festival':7,'dark-pact':4,'battle-kitchen':8,'royale-reinforcements':12,'elixir-spell':2,'dragon-king':18,'bowler-giant':11};
 
 test('all Ultimate cards use the reviewed 20-elixir balance schedule in every level and form',()=>{
  assert.equal(U.CARDS.length,Object.keys(prices).length);
@@ -19,7 +19,7 @@ test('real deployment and placement forecasts agree at the affordability boundar
   const id=variant.baseCardId,deck=[id,...U.CARD_IDS.filter(c=>c!==id)].slice(0,8),b=new Battle({mode:U.MODE,queue:'challenge',ai:false,headless:true,seed:581,deck,enemyDeck:deck,forms:variant.kind?[variant.id]:[],formContext:{casual:true,arena:28}});
   if(variant.kind==='evolution')b.formState.cycles[0][0]=variant.cycles;
   const card=b.card(0,0),expected=prices[id.slice('ultimate-'.length)];assert.equal(card.id,id);assert.equal(card.cost,expected);if(variant.kind)assert.equal(card.formId,variant.id);
-  const x=9*K.SX,y=22*K.SY;if(id==='ultimate-builder')b.spawn('GoblinCage',0,x,y,{wait:0});
+  const x=9*K.SX,y=22*K.SY;if(id==='ultimate-builder')b.spawn('GoblinCage',0,x,y,{wait:0});if(id==='ultimate-royale-recall')b.spawn('Knight',0,x,y,{wait:0});
   b.elixir[0]=expected-.01;const beforeHand=[...b.hand[0]],beforeUnits=b.units.length,preview=b.placementPreview(0,0,x,y);assert.equal(preview.ok,true,id+' valid placement');assert.equal(preview.affordable,false,id+' forecast');
   assert.deepEqual(b.deploy(0,0,x,y),{ok:false,reason:'Not enough elixir'},id+' cannot deploy below cost');assert.deepEqual(b.hand[0],beforeHand);assert.equal(b.units.length,beforeUnits);assert.equal(b.metrics.spent[0],0);
   b.elixir[0]=expected;assert.equal(b.placementPreview(0,0,x,y).affordable,true);assert.equal(b.deploy(0,0,x,y).ok,true,id+' can deploy at exact cost');assert.equal(b.elixir[0],0);assert.equal(b.metrics.spent[0],expected);assert.equal(b.events.find(e=>e.type==='deploy').cost,expected);

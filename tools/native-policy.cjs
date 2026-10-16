@@ -1,5 +1,15 @@
 'use strict';
 function apply(game,native){
+ for(const [alias,record]of Object.entries(game.entities||{}))if(record.NativeActor){
+  const source=native.units?.[record.NativeActor];
+  if(!source)throw Error('Missing native actor source for '+alias);
+  native.units[alias]={...source};
+ }
+ for(const [alias,record]of Object.entries(game.projectiles||{}))if(record.NativeProjectile){
+  const source=native.projectiles?.[record.NativeProjectile];
+  if(!source)throw Error('Missing native projectile source for '+alias);
+  native.projectiles[alias]={...source};
+ }
  // Manual gameplay aliases reuse original source artwork. This modifies only
  // the generated in-memory policy, preserving authored native asset bytes.
  for(const [alias,record]of Object.entries(game.manualEntityAliases||{})){

@@ -1,0 +1,304 @@
+{
+  "url": "http://127.0.0.1:8095",
+  "cards": [
+    {
+      "id": "ultimate-mortar-battery",
+      "cost": 12,
+      "paint": [],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "Mortar",
+          "hp": 1369
+        },
+        {
+          "entity": "Mortar",
+          "hp": 1369
+        },
+        {
+          "entity": "Mortar",
+          "hp": 1369
+        }
+      ],
+      "areas": [],
+      "pending": 0,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-royale-recall",
+      "cost": 4,
+      "paint": [],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        }
+      ],
+      "areas": [],
+      "pending": 0,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-goblin-magnet",
+      "cost": 5,
+      "paint": [
+        {
+          "name": "UltimateGoblinMagnet",
+          "ok": true
+        }
+      ],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "UltimateGoblinMagnet",
+          "hp": 1208.463636363635
+        }
+      ],
+      "areas": [],
+      "pending": 0,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-spirit-festival",
+      "cost": 7,
+      "paint": [],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "FireSpirits",
+          "hp": 215
+        },
+        {
+          "entity": "FireSpirits",
+          "hp": 215
+        }
+      ],
+      "areas": [
+        "UltimateSpiritFestival"
+      ],
+      "pending": 7,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-dark-pact",
+      "cost": 4,
+      "paint": [],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 682.2666666666701
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        }
+      ],
+      "areas": [
+        "UltimateDarkPact"
+      ],
+      "pending": 0,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-battle-kitchen",
+      "cost": 8,
+      "paint": [
+        {
+          "name": "UltimateBattleKitchen",
+          "ok": true
+        }
+      ],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 1089
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "UltimateBattleKitchen",
+          "hp": 1647.3600000000015
+        }
+      ],
+      "areas": [],
+      "pending": 0,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-royale-reinforcements",
+      "cost": 12,
+      "paint": [],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "Recruit",
+          "hp": 547
+        },
+        {
+          "entity": "Recruit",
+          "hp": 547
+        }
+      ],
+      "areas": [],
+      "pending": 2,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-elixir-spell",
+      "cost": 2,
+      "paint": [],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        }
+      ],
+      "areas": [
+        "UltimateElixirSpell"
+      ],
+      "pending": 0,
+      "projectiles": []
+    },
+    {
+      "id": "ultimate-dragon-king",
+      "cost": 18,
+      "paint": [
+        {
+          "name": "UltimateDragonKing",
+          "ok": true
+        }
+      ],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "UltimateDragonKing",
+          "hp": 4608,
+          "scale": 1.65
+        }
+      ],
+      "areas": [],
+      "pending": 0,
+      "projectiles": [],
+      "strike": {
+        "projectiles": [],
+        "effects": [
+          "source",
+          "source",
+          "source",
+          "source",
+          "ultimate-dragon-breath",
+          "source"
+        ]
+      }
+    },
+    {
+      "id": "ultimate-bowler-giant",
+      "cost": 11,
+      "paint": [
+        {
+          "name": "UltimateBowlerGiant",
+          "ok": true
+        }
+      ],
+      "units": [
+        {
+          "entity": "Knight",
+          "hp": 731
+        },
+        {
+          "entity": "Knight",
+          "hp": 1462
+        },
+        {
+          "entity": "UltimateBowlerGiant",
+          "hp": 3840,
+          "scale": 1.4
+        }
+      ],
+      "areas": [],
+      "pending": 0,
+      "projectiles": [],
+      "strike": {
+        "projectiles": [
+          {
+            "name": "UltimateBowlerGiantProjectile",
+            "hand": -1
+          },
+          {
+            "name": "UltimateBowlerGiantProjectile",
+            "hand": 1
+          }
+        ],
+        "effects": [
+          "source",
+          "source",
+          "source"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "new-card-collection.png",
+    "mortar-battery.png",
+    "royale-recall.png",
+    "goblin-magnet.png",
+    "spirit-festival.png",
+    "dark-pact.png",
+    "battle-kitchen.png",
+    "kitchen-chef.png",
+    "royale-reinforcements.png",
+    "elixir-spell.png",
+    "dragon-king.png",
+    "dragon-king-attack.png",
+    "bowler-giant.png",
+    "bowler-giant-attack.png"
+  ],
+  "version": "0.58.2",
+  "passed": true
+}

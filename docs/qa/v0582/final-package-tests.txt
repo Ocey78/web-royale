@@ -1,0 +1,21 @@
+✔ web build has a small external-script entry point instead of a 149 MB payload (2.3076ms)
+✔ web release is complete and cannot contain desktop executables, installers or fonts (2436.4882ms)
+✔ split scene metadata and images resolve to packaged files with cache-busting revisions (252.7073ms)
+✔ web build bundles no remote script, remote image host, or account impersonation endpoint (105.7545ms)
+✔ the web build-info dialog does not advertise the old native bundle version (14.3601ms)
+✔ giant actor grows by forty percent and carries two separately painted native boulders (2.7076ms)
+✔ large dragon uses source wing animation at larger scale without mutating battle state (0.2487ms)
+✔ future projectile aliases resolve original art and grow both boulders without growing ordinary ones (0.5233ms)
+✔ spell fields have visible independent colors and disappear at expiry (2.178ms)
+✔ recall, magnet and cone attacks draw bounded effects and skip expired events (1.9753ms)
+✔ native build policy includes death-spawn actors and future projectile aliases (1.1481ms)
+✔ potato quality preserves purple spill and recall effect without source scene access (3.1458ms)
+✔ magnet and cone footprints preserve tile-space width on non-square arena tiles (1.2264ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2898.4248

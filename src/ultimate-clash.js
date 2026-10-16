@@ -21,7 +21,17 @@ const CARDS=Object.freeze([
  row('elixir-witch','Elixir Witch',5,'mother-witch','Troop','A Mother Witch who moves 5% slower and periodically summons middle-stage Elixir Golemites. Her kills turn enemy troops into tiny friendly Elixir Golemites instead of Hogs.','A purple-robed Mother Witch holding a pink elixir lantern, surrounded by small smiling elixir golemites.'),
  row('unstable-egg','Unstable Egg',3,'phoenix','Troop','Place a Phoenix Egg on your side. On hatching: 30% Baby Dragon, 20% evolved Baby Dragon, 5% three Baby Dragons, or 45% a Goblin Demolisher-style explosion that damages both teams.','A cracked golden Phoenix Egg glowing green and orange from within, with dragon eyes visible between the cracks.'),
  row('fisherman','Fisherman',4,'fisherman','Troop','Hooks an enemy immediately on deployment when one is in hook range. Later hooks charge in half the normal time. Fish Slapping remains complimentary.','A grinning blue-capped Fisherman casting a gleaming anchor hook toward the viewer with a turquoise motion streak.'),
- row('bomb-squad','Bomb Squad',6,'bomber','Troop','Two Bombers hide behind a Guard. They remain faintly visible like the Archer Queen during her cloak ability, but cannot be targeted until their Guard falls; then they become fully visible.','A shield-bearing skeleton Guard protecting two shadowy Bombers with glowing bombs behind him.')
+ row('bomb-squad','Bomb Squad',6,'bomber','Troop','Two Bombers hide behind a Guard. They remain faintly visible like the Archer Queen during her cloak ability, but cannot be targeted until their Guard falls; then they become fully visible.','A shield-bearing skeleton Guard protecting two shadowy Bombers with glowing bombs behind him.'),
+ row('mortar-battery','Mortar Battery',12,'mortar','Building','Three Mortars deploy in a triangle and stagger their opening shots. Each keeps the usual Mortar minimum range, leaving nearby attackers inside its blind spot.','Three native steel Mortars arranged in a triangular battery, with glowing shells crossing a smoky amber sky.'),
+ row('royale-recall','Royale Recall',4,'tornado','Spell','Recall up to three friendly troops nearest the target point to safe positions on your side. Their health and harmful statuses stay intact; recalled troops briefly pause. Buildings and attached actors cannot be recalled.','A native Knight stepping through a bright turquoise recall portal, with curved blue trails circling a second distant Knight.'),
+ row('goblin-magnet','Goblin Magnet',5,'goblin-cage','Building','A destructible Goblin Magnet periodically tugs nearby enemy ground troops toward it. The pulls deal no damage, cannot move Crown Towers and stop when this temporary building falls.','A native Goblin Cage fitted with a glowing red-and-blue horseshoe magnet, drawing metallic sparks inward.'),
+ row('spirit-festival','Spirit Festival',7,'fire-spirits','Troop','A festival of sixteen Spirits: pairs of Fire, Ice, Electro and Heal Spirits arrive in that order, twice over eight seconds. Each pair keeps its native Spirit attack.','Pairs of native Fire, Ice, Electro and Heal Spirits spiralling together through a vivid four-colour festival sky.'),
+ row('dark-pact','Dark Pact',4,'rage','Spell','A temporary dark field increases friendly troop damage while slowly draining a small fraction of their health. The drain cannot kill them. Buildings gain no damage bonus, and overlapping pacts do not stack.','A native Rage bottle hovering above dark violet runic rings, with crimson energy rising around a shadowed Knight.'),
+ row('battle-kitchen','Battle Kitchen',8,'goblin-hut','Building','This battlefield kitchen throws healing food to damaged friendly troops within range. When the building falls, its Chef emerges and fights enemy ground troops with a frying pan.','A native wooden Goblin Hut converted into a warm field kitchen, with a steaming pot, fresh bread and a crossed frying pan.'),
+ row('royale-reinforcements','Royale Reinforcements',12,'royal-recruits','Troop','Six Royal Recruits arrive on your side as three pairs: immediately, then after three and six seconds. Each pair brings the usual shields and spears to reinforce the battle.','Six native Royal Recruits arranged as three advancing pairs beneath three gold arrival beacons.'),
+ row('elixir-spell','Elixir Spell',2,'rage','Spell','Spill a purple elixir field that slows the ground movement of troops from both teams. Flying troops are unaffected. The field deals no damage and generates no elixir.','A tipped native purple Rage bottle pouring a luminous pool of elixir across the Arena floor, surrounded by slow rippling rings.'),
+ row('dragon-king','Dragon King',18,'baby-dragon','Troop','A huge, slow flying dragon with enough health to lead an air assault. Its long-windup cone breath scorches grouped air and ground enemies, but attack resets interrupt its charge.','An enormous native green Baby Dragon wearing a golden crown, breathing a broad orange flame beneath a royal purple sky.'),
+ row('bowler-giant','Bowler Giant',11,'bowler','Troop','A Bowler and both of his boulders are 40% larger. He carries one ball in each hand and targets only buildings, while both rolling boulders strike enemy ground troops along their paths.','An enlarged native purple Bowler holding two oversized stone boulders, one in each hand, against a deep blue quarry sky.')
 ]);
 const CARD_IDS=Object.freeze(CARDS.map(c=>c.id)),DEFAULT_DECK=Object.freeze(['ultimate-royale-escort','ultimate-mega-minion-horde','ultimate-frostbite','ultimate-bomb-squad','ultimate-heal-spell','ultimate-fisherman','ultimate-executioner-cage','ultimate-meteor-shower']);
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -36,12 +46,21 @@ function install(data){
  entity('UltimateUnstableEgg','PhoenixEgg',{SpawnCharacter:'',DestroyAtLimit:false,Speed:0});
  entity('UltimateFisherman','Fisherman',{SpecialLoadTime:650});
  entity('UltimateFrostbiteHero','IceSpirits',{Hitpoints:1,Speed:0,Damage:0,Projectile:'',Kamikaze:false,Range:0,AttacksAir:false,AttacksGround:false});
+ entity('UltimateGoblinMagnet','GoblinCage',{Hitpoints:480,LifeTime:22000,Range:5000,SightRange:5000,AttacksGround:false,AttacksAir:false,Damage:0,Projectile:'',DeathSpawnCharacter:'',DeathSpawnCount:0,OnStartingAction:'',UltimateTint:'#c44e73'});
+ data.projectiles.UltimateKitchenFood={...clone(data.projectiles.HealSpiritProjectile),Name:'UltimateKitchenFood',NativeProjectile:'HealSpiritProjectile'};
+ entity('UltimateBattleKitchen','GoblinHut',{Hitpoints:650,LifeTime:35000,Range:6000,SightRange:6000,HitSpeed:1500,Damage:0,Projectile:'',HealProjectile:'UltimateKitchenFood',AttacksGround:false,AttacksAir:false,SpawnCharacter:'',SpawnNumber:0,DeathSpawnCharacter:'UltimateChef',DeathSpawnCount:1,UltimateTint:'#e9a35b'});
+ entity('UltimateChef','Knight',{Hitpoints:380,Damage:65,HitSpeed:1000,LoadTime:600,UltimateTint:'#fff2ce'});
+ entity('UltimateDragonKing','BabyDragon',{Hitpoints:1800,Speed:45,Scale:165,UltimateVisualScale:1.65,CollisionRadius:850,HitSpeed:3000,LoadTime:1000,LoadFirstHit:false,AttackStartDelay:2000,Damage:240,Projectile:'',Range:5000,SightRange:6500,UltimateTint:'#cc9d3d'});
+ data.projectiles.UltimateBowlerGiantProjectile={...clone(data.projectiles.BowlerProjectile),Name:'UltimateBowlerGiantProjectile',NativeProjectile:'BowlerProjectile',Radius:(data.projectiles.BowlerProjectile.Radius||1800)*1.4,ProjectileRadius:(data.projectiles.BowlerProjectile.ProjectileRadius||1000)*1.4,UltimateVisualScale:1.4};
+ entity('UltimateBowlerGiant','Bowler',{Hitpoints:1500,Scale:data.entities.Bowler.Scale*1.4,CollisionRadius:1050,TargetOnlyBuildings:true,Projectile:'UltimateBowlerGiantProjectile',UltimateVisualScale:1.4});
  const area=(name,base,radius,duration)=>data.areas[name]={...clone(data.areas[base]||{}),Name:name,Radius:radius,LifeDuration:duration};
  area('UltimateLightningStorm','Graveyard_rework',3400,10000);
  area('UltimateHealSpell','HealSpirit',5000,2000);
  area('UltimateFrostbite','Freeze',3450,9000);
  area('UltimateHarvest','DarkMagicAOE',3750,(data.areas.DarkMagicAOE?.LifeDuration||4000)*1.25);
  area('UltimateMeteorShower','DarkMagicAOE',3750,4500);
+ const field=(name,radius,duration)=>{const a=area(name,'DarkMagicAOE',radius,duration);for(const key of ['OnStartingAction','OnLifeTimeEndAction','Damage','Buff','Projectile','Filter'])delete a[key];return a;};
+ field('UltimateRoyaleRecall',3500,600);field('UltimateDarkPact',4000,7000);field('UltimateElixirSpell',4000,6000);
  const overrides={
   'mega-minion-horde':{SummonNumber:6,SummonRadius:1000},
   'lightning-storm':{Projectile:'',AreaEffectObject:'UltimateLightningStorm',Radius:3400,CanDeployOnEnemySide:true},
@@ -62,7 +81,17 @@ function install(data){
   'elixir-witch':{SummonCharacter:'UltimateElixirWitch'},
   'unstable-egg':{SummonCharacter:'UltimateUnstableEgg',UltimateVisualDependencies:['BabyDragon','BabyDragon_EV1','GoblinDemolisher']},
   fisherman:{SummonCharacter:'UltimateFisherman'},
-  'bomb-squad':{SummonCharacter:'',SummonCharactersList:['Bomber','Bomber','SkeletonWarrior'],SummonNumber:3,SummonRadius:700}
+  'bomb-squad':{SummonCharacter:'',SummonCharactersList:['Bomber','Bomber','SkeletonWarrior'],SummonNumber:3,SummonRadius:700},
+  'mortar-battery':{SummonCharacter:'Mortar',SummonNumber:3,SummonRadius:2000},
+  'royale-recall':{SummonCharacter:'',Projectile:'',AreaEffectObject:'UltimateRoyaleRecall',Radius:3500,CanDeployOnEnemySide:true,CanPlaceOnBuildings:true,CanPlaceOnWater:true},
+  'goblin-magnet':{SummonCharacter:'UltimateGoblinMagnet'},
+  'spirit-festival':{SummonCharacter:'',SummonNumber:16,SummonRadius:650,UltimateVisualDependencies:['FireSpirits','IceSpirits','ElectroSpirit','HealSpirit']},
+  'dark-pact':{SummonCharacter:'',Projectile:'',AreaEffectObject:'UltimateDarkPact',Radius:4000,CanDeployOnEnemySide:true,CanPlaceOnBuildings:true,CanPlaceOnWater:true},
+  'battle-kitchen':{SummonCharacter:'UltimateBattleKitchen',UltimateVisualDependencies:['UltimateChef','HealSpirit']},
+  'royale-reinforcements':{SummonCharacter:'Recruit',SummonNumber:6,SummonWidth:0,FullLaneDeploy:false,SummonDeployDelay:0,SummonRadius:700},
+  'elixir-spell':{SummonCharacter:'',Projectile:'',AreaEffectObject:'UltimateElixirSpell',Radius:4000,CanDeployOnEnemySide:true,CanPlaceOnBuildings:true,CanPlaceOnWater:true},
+  'dragon-king':{SummonCharacter:'UltimateDragonKing'},
+  'bowler-giant':{SummonCharacter:'UltimateBowlerGiant'}
  };
  data.ultimateCards=CARDS.map(config=>{const base=native(config.base);if(!base)throw Error('Ultimate Clash source card missing: '+config.base);const source={...clone(base.source),...overrides[config.slug],Name:'Ultimate_'+config.slug.replace(/-/g,'_'),ManaCost:config.cost,UltimateMechanic:config.slug};delete source.EvolvedSpells;return{...clone(base),id:config.id,name:config.name,cost:config.cost,kind:config.kind,description:config.description,artDescription:config.artDescription,exclusiveMode:MODE,ultimate:{kind:config.slug,baseCardId:config.base},source};});
  const card=id=>data.ultimateCards.find(c=>c.id===id),source=(id,patch)=>({...clone(card(id).source),...patch}),hero=data.forms?.find(f=>f.baseCardId==='mega-minion'&&f.kind==='hero');
