@@ -1,0 +1,123 @@
+{
+  "url": "https://ocey78.github.io/web-royale/?release=0.58.0",
+  "errors": [],
+  "checks": [
+    "20 custom portraits loaded in independent eight-card deck builder",
+    "custom deck edit and name survive reload without modifying ranked decks",
+    "ordinary builders and collection exclude Ultimate cards",
+    "actual battle starts with 4-minute clock, custom deck and 20-elixir HUD"
+  ],
+  "screenshots": [
+    "ultimate-deck.png",
+    "ultimate-phone-deck.png",
+    "ultimate-battle.png"
+  ],
+  "version": "0.58.0",
+  "art": {
+    "ultimate-mega-minion-horde": {
+      "cost": 8,
+      "description": "Six armored Mega Minions take to the skies. The Hero form deploys six Hero Mega Minions; they choose different targets whenever enough enemies are available.",
+      "art": true
+    },
+    "ultimate-lightning-storm": {
+      "cost": 10,
+      "description": "Six strike waves hit 1–3 randomly chosen enemies or towers in a storm cloud. Each wave arrives 0.9–2 seconds after the last. Its radius is 15% smaller than Graveyard.",
+      "art": true
+    },
+    "ultimate-heal-spell": {
+      "cost": 4,
+      "description": "Place a healing field anywhere in the Arena. It has twice a Heal Spirit’s healing radius and lasts twice as long, restoring nearby friendly troops.",
+      "art": true
+    },
+    "ultimate-balloon-parade": {
+      "cost": 12,
+      "description": "Six Balloons deploy in a broad Royal Recruits formation across your side of the Arena. Each carries its usual bomb and death damage.",
+      "art": true
+    },
+    "ultimate-executioner-cage": {
+      "cost": 9,
+      "description": "A reinforced grey cage throws Executioner axes at up to three different enemies at once, with Inferno Tower range. When destroyed, it releases three Executioners.",
+      "art": true
+    },
+    "ultimate-builder": {
+      "cost": 5,
+      "description": "Assign a Builder to one friendly building, excluding Princess and King Towers. One prevents lifetime decay; a second adds gradual healing. Maximum two Builders per building. Enemy attacks still damage it.",
+      "art": true
+    },
+    "ultimate-magic-trio": {
+      "cost": 7,
+      "description": "Deploys an Ice Wizard, Electro Wizard and Wizard in a tight three-troop formation. Fire, frost and lightning arrive together.",
+      "art": true
+    },
+    "ultimate-frostbite": {
+      "cost": 6,
+      "description": "Freezes a field 15% larger than Freeze and summons Ice Spirits throughout it using Graveyard-style spawning. Hero ability: spend 3 elixir to launch 10 Giant Snowballs at nearby positions.",
+      "art": true
+    },
+    "ultimate-harvest": {
+      "cost": 5,
+      "description": "A pink field lasts 1.25× as long as Void with a 1.5× radius. Enemy troop deaths inside grant 0.1 elixir per Skeleton, 0.2 per Minion, Bat, Spirit or Goblin, 0.35 per Barbarian, and 1 for other troops. Pink beams mark each harvest.",
+      "art": true
+    },
+    "ultimate-overcharged-tesla": {
+      "cost": 6,
+      "description": "An evolved Tesla that stays above ground. It charges and fires a Sparky-style blast instead of lightning bolts, with a harmless sky zap one second before each shot. No opening pulse.",
+      "art": true
+    },
+    "ultimate-three-pekkas": {
+      "cost": 15,
+      "description": "Three heavily armored P.E.K.K.As deploy together. Three swords, three sets of glowing eyes, and a very expensive problem for the enemy.",
+      "art": true
+    },
+    "ultimate-meteor-shower": {
+      "cost": 4,
+      "description": "An orange field 50% larger than Void rains eight Fireballs at random positions over 4.5 seconds. Each Fireball deals one third of normal Fireball damage.",
+      "art": true
+    },
+    "ultimate-code-red": {
+      "cost": 18,
+      "description": "Launches 25 Rockets in rapid waves over 3 seconds, striking random locations across the enemy’s half of the Arena.",
+      "art": true
+    },
+    "ultimate-royale-escort": {
+      "cost": 14,
+      "description": "Two Knights and a Prince lead a Royal Giant, with two Cannon Carts behind. One-cycle Evolution upgrades the Knights and Royal Giant and replaces the Prince with a Dark Prince.",
+      "art": true
+    },
+    "ultimate-kings-dropoff": {
+      "cost": 9,
+      "description": "Four Royal Deliveries drop around a boxed Cannon Cart in a plus shape. The Cannon Cart lands in the centre while the recruits secure all four sides.",
+      "art": true
+    },
+    "ultimate-elite-barbarians": {
+      "cost": 8,
+      "description": "Five Elite Barbarians deploy in the familiar Barbarians formation. Their fast movement and heavy swords make this a powerful group attack.",
+      "art": true
+    },
+    "ultimate-elixir-witch": {
+      "cost": 4,
+      "description": "A Mother Witch who moves 5% slower and periodically summons middle-stage Elixir Golemites. Her kills turn enemy troops into tiny friendly Elixir Golemites instead of Hogs.",
+      "art": true
+    },
+    "ultimate-unstable-egg": {
+      "cost": 5,
+      "description": "Place a Phoenix Egg on your side. On hatching: 30% Baby Dragon, 20% evolved Baby Dragon, 5% three Baby Dragons, or 45% a Goblin Demolisher-style explosion that damages both teams.",
+      "art": true
+    },
+    "ultimate-fisherman": {
+      "cost": 3,
+      "description": "Hooks an enemy immediately on deployment when one is in hook range. Later hooks charge in half the normal time. Fish Slapping remains complimentary.",
+      "art": true
+    },
+    "ultimate-bomb-squad": {
+      "cost": 4,
+      "description": "Two Bombers hide behind a Guard. The Bombers are invisible and cannot be targeted until their Guard falls; then they are revealed.",
+      "art": true
+    }
+  },
+  "serviceWorker": {
+    "supported": true,
+    "controlled": true
+  },
+  "passed": true
+}

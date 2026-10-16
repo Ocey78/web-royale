@@ -1,20 +1,20 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{spawn}=require('node:child_process');
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=require('playwright'));}
-const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/qa/v058/ultimate'),report={errors:[],checks:[],screenshots:[]};
+const root=path.resolve(__dirname,'..'),url=process.env.WEB_ROYALE_URL||'http://127.0.0.1:8098',out=path.resolve(process.env.ULTIMATE_QA_OUT||path.join(root,'docs/qa/v058/ultimate')),report={url,errors:[],checks:[],screenshots:[]};
 let server,browser;
 async function main(){
  fs.mkdirSync(out,{recursive:true});
- server=spawn(process.execPath,['tools/serve.cjs','8098'],{cwd:root,stdio:['ignore','pipe','pipe'],windowsHide:true});
- await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);server.once('exit',code=>reject(Error('Preview exited '+code)));});
+ if(!process.env.WEB_ROYALE_URL){server=spawn(process.execPath,['tools/serve.cjs','8098'],{cwd:root,stdio:['ignore','pipe','pipe'],windowsHide:true});
+ await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);server.once('exit',code=>reject(Error('Preview exited '+code)));});}
  browser=await chromium.launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
- const page=await browser.newPage({viewport:{width:1000,height:1080},serviceWorkers:'block'});
+ const page=await browser.newPage({viewport:{width:1000,height:1080},serviceWorkers:process.env.WEB_ROYALE_URL?'allow':'block'});
  page.on('pageerror',e=>report.errors.push(e.message));
- await page.goto('http://127.0.0.1:8098');
+ await page.goto(url);
  await page.waitForFunction(()=>window.RoyaleDemo&&document.querySelector('#loading.hidden'),null,{timeout:240000});
- assert.equal(await page.evaluate(()=>RoyaleBundle.version),'0.58.0');
+ report.version=await page.evaluate(()=>RoyaleBundle.version);assert.equal(report.version,'0.58.0');
  const capture=async name=>{await page.locator('#viewport').screenshot({path:path.join(out,name+'.png')});report.screenshots.push(name+'.png');};
- await page.evaluate(()=>RoyaleDemo.show('events'));
+ await page.locator('button[data-action="nav-events"]:visible').first().click();
  await page.locator('[data-action="special-deck-builder"][data-mode="UltimateClash"]').click();
  assert.equal(await page.locator('#modeDeckTitle').textContent(),'Ultimate Clash');
  assert.equal(await page.locator('#modeDeckCollection [data-action="special-deck-pick"]').count(),20);
@@ -48,6 +48,6 @@ async function main(){
  report.checks.push('actual battle starts with 4-minute clock, custom deck and 20-elixir HUD');
  report.art=await page.evaluate(()=>Object.fromEntries(RoyaleCore.cardsForMode('UltimateClash').map(c=>[c.id,{cost:c.cost,description:c.description,art:!!RoyaleBundle.art[c.id]}])));
  assert.equal(Object.keys(report.art).length,20);assert.ok(Object.values(report.art).every(c=>c.art&&c.description.length>25));
- assert.deepEqual(report.errors,[]);report.passed=true;
+ report.serviceWorker=await page.evaluate(()=>({supported:'serviceWorker' in navigator,controlled:!!navigator.serviceWorker?.controller}));assert.deepEqual(report.errors,[]);report.passed=true;
 }
 main().catch(error=>{report.failure=error.stack;console.error(error);process.exitCode=1;}).finally(async()=>{fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));await browser?.close();server?.kill();console.log(JSON.stringify({passed:report.passed,checks:report.checks,errors:report.errors}));});

@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-16T16:34:32.111Z",
+  "releaseSha": "e3ec67008c676c90413fcab7a88df607f2a0cc66",
+  "checks": [
+    {
+      "url": "https://ocey78.github.io/web-royale/release.json",
+      "version": "0.58.0",
+      "ultimateCards": 20,
+      "releaseHash": "05568333b0b169da306904ee68735620ac19ed8f6d3aa0d85d68e4b59ef98cb6"
+    },
+    {
+      "url": "https://ocey78.github.io/web-royale/release.json?release=0.58.0",
+      "version": "0.58.0",
+      "ultimateCards": 20,
+      "releaseHash": "05568333b0b169da306904ee68735620ac19ed8f6d3aa0d85d68e4b59ef98cb6"
+    },
+    {
+      "file": "index.html",
+      "sha256": "c664b0e8bd3671d748f1003b6aa1ac29154eb30f668d46e2520676d1c29668c8",
+      "matchesRelease": true
+    },
+    {
+      "file": "bootstrap.559aedfc9a5f.js",
+      "sha256": "559aedfc9a5fc71933f740b79550a512d894a93fad3b4757b0b0146fff431e61",
+      "matchesRelease": true
+    },
+    {
+      "file": "app.1cce82baafd6.js",
+      "sha256": "1cce82baafd6c2468427d6a7200b1eab5a9e1234c1d3416767ca4b86a8d795e3",
+      "matchesRelease": true
+    },
+    {
+      "file": "runtime.6ed910dabfbe.json",
+      "sha256": "6ed910dabfbe9b29c589db0b4d3074b7014efe6d25d44dc869c38f351f80ba02",
+      "matchesRelease": true
+    },
+    {
+      "file": "assets/ultimate-clash/builder.json",
+      "sha256": "51605da60d1254242da94a9429fa5c6aacdf0552ba948fa30badcbc5a9f83b84",
+      "matchesRelease": true
+    },
+    {
+      "file": "assets/ultimate-clash/builder-atlas.png",
+      "sha256": "54727e983063c89858801ee97a2ef23b3c6bfcbd782240f73a8439a9f03262ea",
+      "matchesRelease": true
+    },
+    {
+      "file": "assets/ultimate-clash/cards/ultimate-code-red.png",
+      "sha256": "2dea94d0db590ac6017d7fbe311beb2f4158260ddb8d7f627ac4dff7fbe5ba30",
+      "matchesRelease": true
+    }
+  ]
+}

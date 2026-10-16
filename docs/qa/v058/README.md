@@ -34,3 +34,9 @@ The separate `browser_ultimate_visuals_v058.cjs` script generates source-based p
 `independent-review.md` records the specification review, six corrected findings and 41 passing focused checks. Additional independent checks cover both-team spell scaling, Builder ownership, native troop formations, and Hero Frostbite replay seeking. No unresolved material review findings remain.
 
 Builder source provenance is recorded in `assets/ultimate-clash/builder-provenance.json`; the imported animation comes from Supercell's public asset CDN. Temporary extraction files and local diagnostic logs are excluded from the release commit.
+
+## Live GitHub Pages deployment
+
+The manual Pages workflow published release `e3ec67008c676c90413fcab7a88df607f2a0cc66` as v0.58.0. `deployment.json` records the successful workflow and public asset checks. `live/report.json` and screenshots verify the actual Events button, all 20 Ultimate cards, saved decks, phone layout, and a live battle with a four-minute timer and 20-elixir HUD. Browser verification ran with the service worker enabled and controlling the page; no JavaScript errors occurred.
+
+Set `WEB_ROYALE_URL` to the public site URL and `ULTIMATE_QA_OUT` to a separate report directory when running `tests/browser_ultimate_v058.cjs` against a deployment. The local preview remains the default. Already-open older tabs need reloading; the `?release=0.58.0` URL bypasses a cached entry page without clearing saved progress.
