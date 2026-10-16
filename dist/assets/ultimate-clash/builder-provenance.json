@@ -1,0 +1,21 @@
+{
+  "game": "Clash of Clans",
+  "version": "16.0.23",
+  "file": "sc/chr_worker.sc",
+  "url": "https://game-assets.clashofclans.com/eb14a08ba806774b06e631b82ac36d265c22e11d/sc/chr_worker.sc",
+  "fingerprint": "https://raw.githubusercontent.com/Enjoyop/coc-assets/main/v16.0.25/fingerprint.json",
+  "payloadSha256": "96fee0fa01b3e07947d8be24a594925e615ed7983951c98cf7cb905ae230ba3b",
+  "converted": "Original animation timelines, transforms, polygons and ASTC texture; no redrawn frames.",
+  "sourceSha256": "eec18edb93fd8cf79c6d9e31ecefeaf79c47c8e20558512e8a7b72b2b505fdba",
+  "atlasSha256": "54727e983063c89858801ee97a2ef23b3c6bfcbd782240f73a8439a9f03262ea",
+  "sceneSha256": "51605da60d1254242da94a9429fa5c6aacdf0552ba948fa30badcbc5a9f83b84",
+  "exports": 36,
+  "buildAnimationFrames": 18,
+  "importer": "tools/import-ultimate-builder.py",
+  "decodedTexture": {
+    "format": "ASTC 6x6 KTX1",
+    "width": 736,
+    "height": 896
+  },
+  "note": "Original Supercell in-game Builder sprite animation, obtained from the unauthenticated public asset CDN. Original copyright remains with Supercell."
+}

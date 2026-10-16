@@ -14,6 +14,8 @@ function primaryLayout(card,x,y,team){const r=card.source||{},n=Math.max(1,r.Sum
  const rad=radius||Math.min(1.1,.52+.09*n),start=f<0?-Math.PI/2:Math.PI/2;for(let i=0;i<n;i++){const a=start+TAU*i/n;out.push(point(x+Math.cos(a)*rad*SX,y+Math.sin(a)*rad*SY,entity,i,i*delay));}return out;
 }
 function cardMembers(card,x,y,team=0){if(!card?.entity)return[];const r=card.source||{},f=orient(team),finish=members=>members.map(m=>{const d=K.entityDef(m.entity,card.level||9);if(!d.air&&!d.hover){if(team===0&&y>=17*SY)m.y=Math.max(m.y,17*SY);else if(team===1&&y<=15*SY)m.y=Math.min(m.y,15*SY);}return m;});
+ if(r.UltimateMechanic==='royale-escort'){const names=r.SummonCharactersList;return finish([[-1.2,1.5],[1.2,1.5],[0,2.1],[0,0],[-1.1,-1.7],[1.1,-1.7]].map(([dx,dy],i)=>point(x+dx*SX,y+f*dy*SY,names[i],i,0)));}
+ if(r.UltimateMechanic==='magic-trio'||r.UltimateMechanic==='bomb-squad'){const names=r.SummonCharactersList,offsets=r.UltimateMechanic==='bomb-squad'?[[-.6,-.4],[.6,-.4],[0,.7]]:[[0,.7],[-.606,-.35],[.606,-.35]];return finish(offsets.map(([dx,dy],i)=>point(x+dx*SX,y+f*dy*SY,names[i],i,0)));}
  if(Array.isArray(r.SummonCharactersList)&&r.SummonCharactersList.length){return finish(r.SummonCharactersList.map((entity,i)=>point(x+(Number(r.SummonCharactersOffsetsX?.[i])||0)/1000*SX,y+f*(Number(r.SummonCharactersOffsetsY?.[i])||0)/1000*SY,entity,i,sec(r.SummonCharactersDelayList?.[i]??i*(r.SummonDeployDelay||0)))));}
  if(card.id==='goblin-gang'&&r.SummonCharacterSecond){const d=sec(r.SummonDeployDelay)||.1,sd=sec(r.SummonDeployDelaySecond||r.SummonDeployDelay)||d;return finish([
    point(x-.78*SX,y+f*.36*SY,r.SummonCharacter,0,0),point(x,y+f*.82*SY,r.SummonCharacter,1,d),point(x+.78*SX,y+f*.36*SY,r.SummonCharacter,2,2*d),

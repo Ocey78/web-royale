@@ -44,9 +44,11 @@ test('resolved source arithmetic preserves inheritance while raw authored source
  assert.equal(D.sourceSections.AEO.IceWizardHero_FreezeAeo.Damage.BaseDamage,35);
  assert.equal(D.sourceSections.CHARACTER.Ghost.Hitpoints,473);
 });
-test('serialized asset and module expose identical gameplay data',()=>{
+test('serialized asset and source module remain identical and runtime preserves every base row',()=>{
  const raw=JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname,'../assets/game/data.json'),'utf8'));
- assert.deepEqual(raw,D);
+ assert.deepEqual(raw,require('../src/game-data.js'));
+ const baseRuntime=Object.fromEntries(Object.keys(raw).map(key=>[key,['entities','areas','projectiles'].includes(key)?Object.fromEntries(Object.keys(raw[key]).map(id=>[id,D[key][id]])):D[key]]));
+ assert.deepEqual(raw,baseRuntime);
  assert.ok(D.sourceProvenance.decodedSha256['csv_logic/rarities.csv']);
  assert.ok(D.balanceOverlay.changes.every(c=>c.method&&c.appliedValue!==undefined));
 });

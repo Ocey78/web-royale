@@ -11,8 +11,8 @@ function prepare(options,cards,data={}){
  else{clean.levels={...options.profile?.cardLevels};clean.seatLevels=[clean.levels,...(options.seatLevels||[]).slice(1)];clean.kingLevel=options.profile?.level||1;clean.kingLevels=[clean.kingLevel,...(options.kingLevels||[]).slice(1)];}
  return clean;
 }
-const CUSTOM_MODES=Object.freeze(['FourCardDeck','SixCardDeck','RandomDeck','Team3v3','TeamRumble','BridgeBattle','TwelveCardDeck','TwentyElixir','UncappedElixir','OneShot','Touchdown','Touchdown2v2','Touchdown3v3']);
-function timelineFor(mode,timelines){if(['Touchdown','Touchdown2v2','Touchdown3v3'].includes(mode))return {...timelines.Default,Name:mode};
+const CUSTOM_MODES=Object.freeze(['FourCardDeck','SixCardDeck','RandomDeck','Team3v3','TeamRumble','BridgeBattle','TwelveCardDeck','TwentyElixir','UncappedElixir','UltimateClash','OneShot','Touchdown','Touchdown2v2','Touchdown3v3']);
+function timelineFor(mode,timelines){if(mode==='UltimateClash')return {...timelines.Default,Name:'UltimateClash',SectionLength:[240,180],SectionType:['Normal','Overtime'],ElixirRateLength:[120,60,60,120,60],ElixirFullBarMS:[28000,14000,11200,28000/3,7000],ElixirRateVisible:[10,20,25,30,40],NextSpellCooldownMS:[1000,1000,800,650,500]};if(['Touchdown','Touchdown2v2','Touchdown3v3'].includes(mode))return {...timelines.Default,Name:mode};
  if(mode==='TeamRumble')return {...timelines.Default,Name:'TeamRumble',SectionLength:[300,300],SectionType:['Normal','Overtime'],ElixirRateLength:[120,120,60,120,120,60],ElixirFullBarMS:[28000,14000,28000/3,28000/3,7000,5600],ElixirRateVisible:[10,20,30,30,40,50],NextSpellCooldownMS:[1000,1000,500,500,400,350]};
  if(mode==='OneShot')return timelines.SuddenDeath;
  if(mode==='Team3v3')return {...timelines.Default,Name:'Team3v3',SectionLength:[300,120],SectionType:['Normal','Overtime'],ElixirRateLength:[120,120,60,60,60],ElixirFullBarMS:[28000,28000/1.5,14000,14000,9300],ElixirRateVisible:[10,15,20,20,30],NextSpellCooldownMS:[1000,1000,500,500,350]};

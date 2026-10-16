@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "mode": "UltimateClash",
+  "method": "Deterministic composition of bundled game portraits and original native Builder render; normal card frames are applied by the UI.",
+  "cards": [
+    {
+      "id": "ultimate-mega-minion-horde",
+      "name": "Mega Minion Horde",
+      "file": "assets/ultimate-clash/cards/ultimate-mega-minion-horde.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "3c41b60a94751633af477cfe32cb6e954285cf65e4b847740a34722221612b68",
+      "description": "Six steel-blue armored Mega Minions sweeping toward the viewer beneath a violet storm sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/mega-minion.png"
+      ]
+    },
+    {
+      "id": "ultimate-lightning-storm",
+      "name": "Lightning Storm",
+      "file": "assets/ultimate-clash/cards/ultimate-lightning-storm.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "7a20202b34a25107baf778df2086332be6f7397ad33cf35e221ab45e5b264a4b",
+      "description": "A dense grey storm cloud crackling with three branching white and violet lightning bolts.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": []
+    },
+    {
+      "id": "ultimate-heal-spell",
+      "name": "Heal Spell",
+      "file": "assets/ultimate-clash/cards/ultimate-heal-spell.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "83423af395df47363a94cfcfd607b0129358a984cb10f268a76061aa26c9ddd3",
+      "description": "A smiling golden Heal Spirit rising from a radiant emerald-and-gold healing ring.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/heal-spirit.png"
+      ]
+    },
+    {
+      "id": "ultimate-balloon-parade",
+      "name": "Balloon Parade",
+      "file": "assets/ultimate-clash/cards/ultimate-balloon-parade.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "e63efc50005bb1831c975db8c8f73e839a5c83d27cf2a64686c5a4a3e224af39",
+      "description": "Six red bomb-carrying Balloons advancing in formation against a sunset-orange sky.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/balloon.png"
+      ]
+    },
+    {
+      "id": "ultimate-executioner-cage",
+      "name": "Executioner Cage",
+      "file": "assets/ultimate-clash/cards/ultimate-executioner-cage.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "ac2b44ab9901696b204e414ce172b12888bd2b4e9efeccf31f45dac6a0aa41cb",
+      "description": "A steel-grey Goblin Cage surrounded by three spinning double-headed Executioner axes.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/executioner.png",
+        "assets/ultimate-clash/executioner-cage-portrait.png"
+      ]
+    },
+    {
+      "id": "ultimate-builder",
+      "name": "Builder",
+      "file": "assets/ultimate-clash/cards/ultimate-builder.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "d33a8bd262f28901e4c4b93941e5a9e081cf71857f645f5f3d5101e25fb1b0d9",
+      "description": "A cheerful mustached Builder wearing a brown leather cap, gripping a wooden mallet beside a small wooden construction hut.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/ultimate-clash/builder-portrait.png"
+      ]
+    },
+    {
+      "id": "ultimate-magic-trio",
+      "name": "Magic Trio",
+      "file": "assets/ultimate-clash/cards/ultimate-magic-trio.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "828e9375c185af631a73726341d64e21e2ffd64771639f9288909107723103f6",
+      "description": "The blue Ice Wizard, electric-haired Electro Wizard and fireball-wielding Wizard together in a triangular portrait.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/ice-wizard.png",
+        "assets/cards/electro-wizard.png",
+        "assets/cards/wizard.png"
+      ]
+    },
+    {
+      "id": "ultimate-frostbite",
+      "name": "Frostbite",
+      "file": "assets/ultimate-clash/cards/ultimate-frostbite.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "ec5f86d33cfd33d94f31f08d3db3b6a1cc2f082aa8fc9ec978a41c793f8fc705",
+      "description": "A frozen blue spell bottle surrounded by tiny glowing Ice Spirits and a spiral of snow.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/ice-spirit.png",
+        "assets/cards/freeze.png"
+      ]
+    },
+    {
+      "id": "ultimate-harvest",
+      "name": "Harvest",
+      "file": "assets/ultimate-clash/cards/ultimate-harvest.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "176025ede6be63c8c9b7c4bd8bb4add9b45948a1796c81192c8d43040d1f4d28",
+      "description": "A luminous pink elixir vortex with rose-coloured beams rising from a dark magical circle.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": []
+    },
+    {
+      "id": "ultimate-overcharged-tesla",
+      "name": "Overcharged Tesla",
+      "file": "assets/ultimate-clash/cards/ultimate-overcharged-tesla.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "081f1a513a4a3e2f1a6eedc62303940068c4e918b0e0220f8c47797c940b9ad0",
+      "description": "An evolved purple Tesla coil above ground, overloaded with white electricity and a huge charged energy sphere.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/ui/modern-form-Tesla_EV1.png"
+      ]
+    },
+    {
+      "id": "ultimate-three-pekkas",
+      "name": "Three P.E.K.K.As",
+      "file": "assets/ultimate-clash/cards/ultimate-three-pekkas.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "b726af3dfb17c026f76c47145276e2bd810e8b90fab862ac561122931cae0943",
+      "description": "Three black-armored P.E.K.K.As with purple horns and glowing pink eyes advancing together.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/pekka.png"
+      ]
+    },
+    {
+      "id": "ultimate-meteor-shower",
+      "name": "Meteor Shower",
+      "file": "assets/ultimate-clash/cards/ultimate-meteor-shower.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "a82c082894cd03885dd14f9626beae9a1960bd4e1e524b53f1085e50efb50b2f",
+      "description": "Eight fiery meteors descending into a glowing orange ring with bright impact sparks.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/fireball.png"
+      ]
+    },
+    {
+      "id": "ultimate-code-red",
+      "name": "CODE RED",
+      "file": "assets/ultimate-clash/cards/ultimate-code-red.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "2dea94d0db590ac6017d7fbe311beb2f4158260ddb8d7f627ac4dff7fbe5ba30",
+      "description": "A chaotic red sky filled with a fan of rockets, blazing orange exhaust trails and a central warning flare.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/rocket.png"
+      ]
+    },
+    {
+      "id": "ultimate-royale-escort",
+      "name": "Royale Escort",
+      "file": "assets/ultimate-clash/cards/ultimate-royale-escort.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "fe2e3655a4d3ad375af0ca5938063abcedfebc601b598c906f47ad98127313ab",
+      "description": "A golden Royal Giant in the middle, Knights and a mounted Prince in front, and two Cannon Carts at the rear.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/cannon-cart.png",
+        "assets/cards/royal-giant.png",
+        "assets/cards/knight.png",
+        "assets/cards/prince.png"
+      ]
+    },
+    {
+      "id": "ultimate-kings-dropoff",
+      "name": "King’s Dropoff",
+      "file": "assets/ultimate-clash/cards/ultimate-kings-dropoff.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "6e6ea40bc32fe5809685ef32cb922ff0097f2667c7495c90e7c05e0f86f271cd",
+      "description": "Four falling wooden Royal Delivery crates surrounding a larger central crate with a cannon peeking out.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/royal-delivery.png",
+        "assets/cards/cannon-cart.png"
+      ]
+    },
+    {
+      "id": "ultimate-elite-barbarians",
+      "name": "Elite Barbarians",
+      "file": "assets/ultimate-clash/cards/ultimate-elite-barbarians.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "ea6fac0af3686d14e5ac4b5dfd699fe1c82f66268b4405ad519bdbc7f8d5d653",
+      "description": "Five furious blond Elite Barbarians with steel helmets and raised swords charging through gold dust.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/elite-barbarians.png"
+      ]
+    },
+    {
+      "id": "ultimate-elixir-witch",
+      "name": "Elixir Witch",
+      "file": "assets/ultimate-clash/cards/ultimate-elixir-witch.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "c7283b43ef4cc89af8ac3dc7c78f63f710eed1b7e62dd18ffee38791d472a9c5",
+      "description": "A purple-robed Mother Witch holding a pink elixir lantern, surrounded by small smiling elixir golemites.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/elixir-golem.png",
+        "assets/cards/mother-witch.png"
+      ]
+    },
+    {
+      "id": "ultimate-unstable-egg",
+      "name": "Unstable Egg",
+      "file": "assets/ultimate-clash/cards/ultimate-unstable-egg.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "edae35596642c394acb3e3c24405bf2f6bf6984945d4ef1a4b012b1f0abe2d5b",
+      "description": "A cracked golden Phoenix Egg glowing green and orange from within, with dragon eyes visible between the cracks.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/ultimate-clash/unstable-egg-portrait.png",
+        "assets/cards/baby-dragon.png"
+      ]
+    },
+    {
+      "id": "ultimate-fisherman",
+      "name": "Fisherman",
+      "file": "assets/ultimate-clash/cards/ultimate-fisherman.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "4154b3a3dabc43860588fe6f22cf3177ce25509b050655f9b6fc60303158c761",
+      "description": "A grinning blue-capped Fisherman casting a gleaming anchor hook toward the viewer with a turquoise motion streak.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/fisherman.png"
+      ]
+    },
+    {
+      "id": "ultimate-bomb-squad",
+      "name": "Bomb Squad",
+      "file": "assets/ultimate-clash/cards/ultimate-bomb-squad.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "7ea1471bc906106924cb11470acbd22b0a049e7f561f2a94539b5f24ddfdab95",
+      "description": "A shield-bearing skeleton Guard protecting two shadowy Bombers with glowing bombs behind him.",
+      "source": "Web Royale custom Canvas composition",
+      "sourceFiles": [
+        "assets/cards/bomber.png",
+        "assets/cards/guards.png"
+      ]
+    }
+  ]
+}

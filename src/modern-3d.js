@@ -230,10 +230,28 @@ function choosePartPose(part,state,elapsed,options,actor){
 }
 function applyPose(actor,partPoses,team,yaw,blends=[]){actor.group.rotation.z=yaw;for(let index=0;index<actor.parts.length;index++){const part=actor.parts[index],pose=partPoses[index],blend=blends.find(b=>b.index===index);part.actions.forEach(a=>a.stop());const play=(p,weight)=>{const action=part.actions.get(p.name);if(!action)return;action.reset();action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.setEffectiveWeight(weight);action.play();action.time=p.time;};if(pose){play(pose,blend?blend.weight:1);if(blend)play(blend.from,1-blend.weight);part.mixer.update(0);}const visibility=meshVisibility(part.metadata,pose?.name,pose?.frame??0);part.gltf.scene.traverse(o=>{if(o.isMesh)o.visible=visibility[o.name]??true;});part.uniform.value.set(...(team===1?[1,.12,.16]:[.12,.4,1]));}actor.group.updateMatrixWorld(true);}
 const skinBoundsScratch=new WeakMap();
+// Material overlays, team colours and raster densities share the same geometry.
+// Store only exact projected bounds, never approximate a moving weapon or wing.
+class GeometryBoundsCache{
+ constructor(limit=256){this.limit=limit;this.entries=new Map();this.hits=0;this.misses=0;}
+ sample(key,measure){const old=this.entries.get(key);if(old){this.entries.delete(key);this.entries.set(key,old);this.hits++;return old;}const value=Object.freeze({...measure()});this.misses++;this.entries.set(key,value);while(this.entries.size>this.limit)this.entries.delete(this.entries.keys().next().value);return value;}
+}
+function geometryPoseKey(partPoses,yaw,blends=[]){return [yaw,...partPoses.map(p=>p?`${p.name}:${p.frame}:${p.time}`:'static'),...blends.map(b=>`${b.index}:${b.from.name}:${b.from.frame}:${b.from.time}:${b.weight}`)].join('|');}
 function computeSkinnedBounds(mesh,Three=T){
  let s=skinBoundsScratch.get(mesh);if(!s){s={matrices:[],base:new Three.Vector3(),point:new Three.Vector3(),vertex:new Three.Vector3(),indices:new Three.Vector4(),weights:new Three.Vector4()};skinBoundsScratch.set(mesh,s);}
  const skeleton=mesh.skeleton,g=mesh.geometry;for(let i=0;i<skeleton.bones.length;i++)(s.matrices[i]??=new Three.Matrix4()).multiplyMatrices(skeleton.bones[i].matrixWorld,skeleton.boneInverses[i]);
  const box=mesh.boundingBox??=new Three.Box3();box.makeEmpty();
+ const position=g.attributes.position,indices=g.attributes.skinIndex,weights=g.attributes.skinWeight;
+ // Converted client meshes use packed, non-normalized attributes. Read those
+ // buffers directly without the four Vector4 accessor calls per influence.
+ // Keep Three's generic path for morph targets, normalized and interleaved data.
+ if(!g.morphAttributes.position?.length&&[position,indices,weights].every(a=>!a.normalized&&!a.isInterleavedBufferAttribute)&&position.itemSize===3&&indices.itemSize===4&&weights.itemSize===4){
+  const pa=position.array,ia=indices.array,wa=weights.array;
+  for(let i=0;i<position.count;i++){const p=i*3,j=i*4;s.base.set(pa[p],pa[p+1],pa[p+2]).applyMatrix4(mesh.bindMatrix);const x=s.base.x,y=s.base.y,z=s.base.z;let vx=0,vy=0,vz=0;
+   for(let k=0;k<4;k++){const weight=wa[j+k];if(weight===0)continue;const e=s.matrices[ia[j+k]].elements,w=1/(e[3]*x+e[7]*y+e[11]*z+e[15]);vx+=((e[0]*x+e[4]*y+e[8]*z+e[12])*w)*weight;vy+=((e[1]*x+e[5]*y+e[9]*z+e[13])*w)*weight;vz+=((e[2]*x+e[6]*y+e[10]*z+e[14])*w)*weight;}
+   s.vertex.set(vx,vy,vz).applyMatrix4(mesh.bindMatrixInverse);box.expandByPoint(s.vertex);
+  }return box;
+ }
  for(let i=0;i<g.attributes.position.count;i++){
   // Match Three's getVertexPosition/applyBoneTransform arithmetic, including
   // morph targets, but multiply each bone matrix once instead of per vertex.
@@ -247,7 +265,7 @@ function projectedBounds(box){let left=Infinity,right=-Infinity,top=-Infinity,bo
 function measureHead(actor){if(metrics.has(actor.id))return;const p=actor.parts.map(part=>choosePartPose(part,'idle',0,{},actor));applyPose(actor,p,0,0);const box=projectedBounds(actorBounds(actor)),factor=(5/6)*(Number(actor.contract.sourceEntity?.Scale)||100)/100;metrics.set(actor.id,Math.max(18,Math.min(140,box.top*UNITS*factor))+5);}
 function fxLight(actor){return {...sourceLighting(actor.contract),direction:sun.position.clone().normalize().toArray()};}
 function rasterPose(actor,partPoses,team,yaw,density,blends=[],effects=[],time=0,shadowOnly=false){
- applyPose(actor,partPoses,team,yaw,blends);const bounds=projectedBounds(actorBounds(actor)),margin=.08;
+ applyPose(actor,partPoses,team,yaw,blends);const bounds=(actor.geometryBounds??=new GeometryBoundsCache()).sample(geometryPoseKey(partPoses,yaw,blends),()=>projectedBounds(actorBounds(actor))),margin=.08;
  const left=bounds.left-margin,right=bounds.right+margin,top=bounds.top+margin,bottom=bounds.bottom-margin,width=right-left,height=top-bottom;
  if(![width,height].every(v=>Number.isFinite(v)&&v>0))throw Error('invalid source model bounds');
  const effective=Math.min(density,1536/(width*UNITS),1536/(height*UNITS)),w=Math.max(2,Math.ceil(width*UNITS*effective)),h=Math.max(2,Math.ceil(height*UNITS*effective));
@@ -298,5 +316,5 @@ function endFrame(){actors.endFrame();}
 // modelBytes estimates geometry and decoded textures, not total browser/GPU
 // memory. modelBudget is a soft inactive target; active overflow is explicit.
 function summary(){return {actors:actors.size,actorIds:[...actors.entries.keys()],modelBytes:actors.bytes,modelBudget:MODEL_BYTES,...actors.stats(),poseEntries:poses.entries.size,poseBytes:poses.bytes,poseBudget:POSE_BYTES,renders,hits,fxSprites,fxMeshes,fxMaterialDraws,fxDraws,fxHistoryEntries:fxHistory.size,pending:pending.size,error,failed:Object.fromEntries(failed)};}
-return {configure,prepareActors,beginFrame,endFrame,setActionEffects,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,computeSkinnedBounds,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,bodyAppearanceKey,rasterTarget,PoseCache,ActorCache,get error(){return error;}};
+return {configure,prepareActors,beginFrame,endFrame,setActionEffects,has,unsupported,draw,shadow,headHeight,summary,resolveState,sourceYaw,clipPose,choosePartPose,meshVisibility,sourceMaterialPlan,sourceLighting,actorMemory,computeSkinnedBounds,GeometryBoundsCache,geometryPoseKey,FXHistory,PoseHistory,sourceCurve,sourceParticleSamples,sourceFXPlan,rasterDensity,bodyAppearanceKey,rasterTarget,PoseCache,ActorCache,get error(){return error;}};
 });

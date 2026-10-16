@@ -1,5 +1,9 @@
 /* Source-table interpretation, kept separate from the battle simulation. */
-(function(root,factory){const d=typeof module==='object'&&module.exports?require('./game-data.js'):root.RoyaleGameData;const api=factory(d);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleCatalog=api;})(globalThis,function(DATA){'use strict';
+(function(root,factory){const d=typeof module==='object'&&module.exports?require('./game-data.js'):root.RoyaleGameData;const u=typeof module==='object'&&module.exports?require('./ultimate-clash.js'):root.RoyaleUltimateClash;const api=factory(d,u);if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleCatalog=api;})(globalThis,function(DATA,Ultimate){'use strict';
+// Add custom content to runtime-owned lookup maps. The generated package module
+// remains byte-for-byte equivalent to its serialized source data.
+DATA={...DATA,entities:{...DATA.entities},areas:{...DATA.areas},projectiles:{...DATA.projectiles}};
+Ultimate?.install(DATA);
 const SX=480/18,SY=640/32,DEFAULT_DECK=['knight','archers','giant','mini-pekka','musketeer','bomber','fireball','arrows'];
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),sec=x=>(Number(x)||0)/1000;
 function baseLevel(rarity){return (DATA.rarities[rarity]?.RelativeLevel||0)+1;}
@@ -27,15 +31,16 @@ function cardDef(c,level=9){
  const crownPercent=p.CrownTowerDamagePercent??a.CrownTowerDamagePercent??buff.CrownTowerDamagePercent;
  return {...c,level,spell:c.kind==='Spell',building:c.kind==='Building',entity:entity||null,hp:e?.hp||0,damage,damageMode,duration,spawnEntity,projectileName:projectileName||null,spellRange:(p.ProjectileRange||0)/1000,crownDamage:crownPercent!==undefined?Math.floor(damage*(100+crownPercent)/100):null,speed:e?.speed||0,speedTiles:e?.speedTiles||0,range:e?.range||0,interval:e?.interval||0,firstHit:e?.firstHit||0,radius:((r.Radius||p.Radius||p.ProjectileRadius||a.Radius||1000)/1000)*SY,radiusTiles:(r.Radius||p.Radius||p.ProjectileRadius||a.Radius||1000)/1000,count:r.SummonCharactersList?.length||r.SummonNumber||p.SpawnCharacterCount||1,role:c.kind,buildingsOnly:!!e?.buildingsOnly,description:c.description.replace(/<[^>]*>/g,'')};
 }
-const CARDS=DATA.cards.map(c=>Object.freeze(cardDef(c))),CARD_BY_ID=Object.fromEntries(CARDS.map(c=>[c.id,c])),SOURCE_CARD=Object.fromEntries(CARDS.map(c=>[c.source.Name,c.id]));
+const CARDS=DATA.cards.map(c=>Object.freeze(cardDef(c))),ULTIMATE_CARDS=(DATA.ultimateCards||[]).map(c=>Object.freeze(cardDef(c))),ALL_CARDS=[...CARDS,...ULTIMATE_CARDS],CARD_BY_ID=Object.fromEntries(ALL_CARDS.map(c=>[c.id,c])),SOURCE_CARD=Object.fromEntries(ALL_CARDS.map(c=>[c.source.Name,c.id]));
+function cardsForMode(mode='Default'){return mode==='UltimateClash'?ULTIMATE_CARDS:CARDS.filter(c=>allowedInMode(c.id,mode));}
 function validDeck(deck,options={}){const size=[4,6,12].includes(options.size)?options.size:8;return Array.isArray(deck)&&deck.length===size&&(options.duplicates===true||new Set(deck).size===size)&&deck.every(id=>!!CARD_BY_ID[id]);}
 function modeDeckSize(mode){return mode==='TwelveCardDeck'?12:mode==='SixCardDeck'?6:mode==='FourCardDeck'?4:8;}
-function allowedInMode(id,mode){const c=CARD_BY_ID[id];return !!c&&(mode!=='OneShot'||c.kind!=='Spell'&&!['mortar','x-bow','miner','goblin-drill'].includes(id));}
+function allowedInMode(id,mode){const c=CARD_BY_ID[id];return !!c&&(mode==='UltimateClash'?c.exclusiveMode==='UltimateClash':!c.exclusiveMode)&&(mode!=='OneShot'||c.kind!=='Spell'&&!['mortar','x-bow','miner','goblin-drill'].includes(id));}
 // Casual deck storage never implies collection ownership. Keep this registry below
 // the catalog, so profile migration, builders, battles and workers share one rule.
 const MAX_DECKS=100,DECK_PAGE_SIZE=5;
 const MODE_DECKS=Object.freeze(Object.fromEntries([
- ['Default','challengeDeck','Classic Challenge'],['TeamVsTeam','duoDeck','2v2'],
+ ['UltimateClash','ultimateClashDeck','Ultimate Clash'],['Default','challengeDeck','Classic Challenge'],['TeamVsTeam','duoDeck','2v2'],
  ['Team3v3','tripleDeck','3v3'],['TeamRumble','rumbleDeck','Team Rumble'],
  ['BridgeBattle','bridgeDeck','Bridge'],['FourCardDeck','fourCardDeck','4 Card Deck'],
  ['SixCardDeck','sixCardDeck','6 Card Deck'],['TwelveCardDeck','twelveCardDeck','12 Card Deck'],['TwentyElixir','twentyElixirDeck','20 Elixir'],['UncappedElixir','uncappedElixirDeck','Uncapped Elixir'],
@@ -46,8 +51,8 @@ const MODE_DECKS=Object.freeze(Object.fromEntries([
  ['Touchdown2v2','touchdown2v2Deck','2v2 Touchdown'],['Touchdown3v3','touchdown3v3Deck','3v3 Touchdown']
 ].map(([mode,key,name])=>[mode,Object.freeze({key,name,size:modeDeckSize(mode)})])));
 function deckName(value,index=0){return (typeof value==='string'?value.replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,24):'')||'Deck '+(index+1);}
-function normalizeDeck(deck,options={}){const size=[4,6,12].includes(options.size)?options.size:8;return validDeck(deck,options)?[...deck]:[...new Set([...DEFAULT_DECK,...CARDS.map(c=>c.id)])].slice(0,size);}
+function normalizeDeck(deck,options={}){const size=[4,6,12].includes(options.size)?options.size:8,mode=options.mode||'Default',fallback=mode==='UltimateClash'?Ultimate.DEFAULT_DECK:DEFAULT_DECK;return validDeck(deck,options)&&deck.every(id=>allowedInMode(id,mode))?[...deck]:[...new Set([...fallback,...cardsForMode(mode).map(c=>c.id)])].slice(0,size);}
 function cardAt(id,level=9){const c=CARD_BY_ID[id];return c?cardDef(c,level):null;}
 function features(c){const r=c.source,e=DATA.entities[r.SummonCharacter]||{},p=DATA.projectiles[e.Projectile||r.Projectile]||{},a=DATA.areas[r.AreaEffectObject]||{};const f=[];if(e.FlyingHeight)f.push('Flying');if(e.TargetOnlyBuildings)f.push('Buildings only');if(e.AttacksAir)f.push('Targets air');if(e.ShieldHitpoints||c.id==='cannon-cart')f.push('Shield / second form');if(e.ChargeRange)f.push('Charge');if(e.DashDamage)f.push('Dash / jump');if(e.DeathSpawnCharacter)f.push('Death spawn');if(e.SpawnCharacter)f.push(e.SpawnAttach?'Attached attacker':'Troop spawner');if(e.DeathDamage||e.DeathAreaEffect)f.push('Death effect');if(e.VariableDamage2)f.push('Ramping damage');if(e.BuffOnDamage||p.TargetBuff)f.push('On-hit status');if(e.HidesWhenNotAttacking||e.BuffWhenNotAttacking==='Invisibility')f.push('Concealment');if(e.ReflectedAttackDamage)f.push('Damage reflection');if(e.ProjectileSpecial==='FishermanProjectile')f.push('Hook');if(p.ProjectileRange)f.push('Line projectile');if(p.ChainedHitCount)f.push('Chain hit');if(a.Buff)f.push('Area status');if(a.SpawnCharacter)f.push('Area spawner');if(e.ManaGenerateTimeMs)f.push('Elixir generation');if(e.AreaEffectOnHit)f.push('On-hit area effect');if(e.Kamikaze)f.push('One-shot attack');if(e.AreaDamageRadius||p.Radius)f.push('Area damage');if(r.Mirror)f.push('Copies last card');if(c.id==='clone')f.push('One-HP copies');return f.length?f:['Direct attack'];}
-return {MAX_DECKS,DECK_PAGE_SIZE,MODE_DECKS,deckName,DATA,CARDS,CARD_BY_ID,SOURCE_CARD,DEFAULT_DECK,SX,SY,sec,clamp,scaled,baseLevel,maxLevel,MAX_CARD_LEVEL,levelFactor,towerFactor,projectileForAttack,projectileDamageDef,entityDef,cardDef,cardAt,validDeck,normalizeDeck,modeDeckSize,allowedInMode,features};
+return {MAX_DECKS,DECK_PAGE_SIZE,MODE_DECKS,deckName,DATA,CARDS,ALL_CARDS,ULTIMATE_CARDS,cardsForMode,CARD_BY_ID,SOURCE_CARD,DEFAULT_DECK,SX,SY,sec,clamp,scaled,baseLevel,maxLevel,MAX_CARD_LEVEL,levelFactor,towerFactor,projectileForAttack,projectileDamageDef,entityDef,cardDef,cardAt,validDeck,normalizeDeck,modeDeckSize,allowedInMode,features};
 });

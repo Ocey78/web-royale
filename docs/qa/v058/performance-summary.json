@@ -1,0 +1,38 @@
+{
+  "environment": "ANGLE (AMD, AMD Radeon RX 6600 (0x000073FF) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "frames": 60,
+  "warmup": 40,
+  "units": 12,
+  "notes": [
+    "Render workload timings are main-thread synchronous draw cost, not full-game FPS.",
+    "Twelve actor instances use both shadow and body passes with six unique hero assets in the effects case."
+  ],
+  "pixelComparison": {
+    "changedChannels": 0,
+    "maxChannelDifference": 0
+  },
+  "cases": [
+    {
+      "name": "repeat-idle",
+      "beforeMeanMs": 3.2800000000124174,
+      "afterMeanMs": 2.1350000000093132,
+      "reductionPercent": 34.90853658532834,
+      "beforeP95Ms": 4.2000000001862645,
+      "afterP95Ms": 2.7999999998137355,
+      "unchangedRenders": true,
+      "unchangedEffects": true,
+      "failures": 0
+    },
+    {
+      "name": "mixed-effects",
+      "beforeMeanMs": 22.8483333333085,
+      "afterMeanMs": 14.116666666666667,
+      "reductionPercent": 38.215770661542,
+      "beforeP95Ms": 24.100000000558794,
+      "afterP95Ms": 15.5,
+      "unchangedRenders": true,
+      "unchangedEffects": true,
+      "failures": 0
+    }
+  ]
+}

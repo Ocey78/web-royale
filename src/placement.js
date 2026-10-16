@@ -1,5 +1,5 @@
 /* Shared Clash-style placement/forecast rules used by both engine and renderer. */
-(function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./catalog.js'):root.RoyaleCatalog,n?require('./arena-grid.js'):root.RoyaleArenaGrid,n?require('./formations.js'):root.RoyaleFormations);if(n)module.exports=api;else root.RoyalePlacement=api;})(globalThis,function(K,G,F){'use strict';
+(function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./catalog.js'):root.RoyaleCatalog,n?require('./arena-grid.js'):root.RoyaleArenaGrid,n?require('./formations.js'):root.RoyaleFormations,n?require('./ultimate-combat.js'):root.RoyaleUltimateCombat);if(n)module.exports=api;else root.RoyalePlacement=api;})(globalThis,function(K,G,F,Ultimate){'use strict';
 const {SX,SY,clamp,entityDef,cardAt,DATA}=K;
 const edgeDistance=(a,b)=>Math.max(0,Math.hypot((a.x-b.x)/SX,(a.y-b.y)/SY)-(a.def?.radiusTiles||0)-(b.def?.radiusTiles||0));
 const segmentDistance=(u,s)=>{const ax=s.x/SX,ay=s.y/SY,bx=s.x2/SX,by=s.y2/SY,px=u.x/SX,py=u.y/SY,dx=bx-ax,dy=by-ay,l2=dx*dx+dy*dy||1,t=clamp(((px-ax)*dx+(py-ay)*dy)/l2,0,1),qx=ax+t*dx,qy=ay+t*dy;return Math.hypot(px-qx,py-qy);};
@@ -13,7 +13,7 @@ function bodyOverlap(battle,x,y,radius,ignoreId=null){return battle.active.some(
 function snapCard(battle,team,card,x,y,seat=team){
  const layout=battle.arenaLayout?.id,a=G.layoutFor(layout);
  if(!card||!Number.isFinite(x)||!Number.isFinite(y)||x<a.left*SX||x>a.right*SX||y<a.top*SY||y>a.bottom*SY)return{ok:false,reason:'Place inside the arena',x,y,tiles:[],formation:[]};
- const r=card.source||{};
+ const r=card.source||{},ultimate=Ultimate?.placement(battle,team,card,x,y);if(ultimate)return ultimate;
  if(card.spell&&!r.SpellAsDeploy)return{ok:true,reason:'',x:clamp(x,(a.left+.25)*SX,(a.right-.25)*SX),y:clamp(y,(a.top+.5)*SY,(a.bottom-.5)*SY),tiles:[],formation:[]};
  const tile=G.worldToTile(x,y,layout),anchor=G.tileCenter(tile.col,tile.row),cheat=seat===0&&battle.cheats?.placement;
  const allowed=(p)=>{const t=G.worldToTile(p.x,p.y,layout);return r.CanDeployOnEnemySide||G.deploymentAllowed(team,t.col,t.row,battle.towers,cheat,battle.arenaLayout?.id);};

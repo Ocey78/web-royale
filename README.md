@@ -1,4 +1,8 @@
-# Gameplay update 0.53.0
+# Ultimate Clash update 0.58.0
+
+Ultimate Clash adds a separate 20-card deck library, 20 maximum elixir, evolved Princess Towers, extended battles, original animated Clash of Clans Builders, and faster rendering. See the [0.58.0 release notes](docs/RELEASE-v0.58.0.md).
+
+## Previous gameplay baseline 0.53.0
 
 See [current gameplay changes, verification and fidelity limits](BUILD-NOTES-v0.53.0.md). This package is a source-data interpreter, not the original native battle-engine code.
 

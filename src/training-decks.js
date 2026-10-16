@@ -60,6 +60,7 @@ function catalogue(arenaNumber=R.ARENAS.length){
 function select(seed,arenaNumber=R.ARENAS.length){const pool=catalogue(arenaNumber);if(!pool.length)throw Error('No eligible opponent decks');return pool[(Number(seed)>>>0)%pool.length];}
 function build(seed,arenaNumber=R.ARENAS.length){return shuffle(select(seed,arenaNumber).cards,rng((Number(seed)>>>0)^0x51ab12));}
 function forMode(seed,arenaNumber=R.ARENAS.length,mode='Default'){
+ if(mode==='UltimateClash'){const random=rng((Number(seed)>>>0)^0x72be1),pool=shuffle(K.cardsForMode(mode),random),troop=pool.find(c=>c.kind==='Troop'),spell=pool.find(c=>c.kind==='Spell'),chosen=[troop.id,spell.id];for(const c of pool)if(chosen.length<8&&!chosen.includes(c.id))chosen.push(c.id);return shuffle(chosen,random);}
  const limit=arenaLimit(arenaNumber),size=K.modeDeckSize(mode),random=rng((Number(seed)>>>0)^0x72be1),base=build(seed,limit).filter(id=>K.allowedInMode(id,mode));
  if(size===8&&mode!=='OneShot')return base;
  const chosen=[],take=id=>{if(id&&!chosen.includes(id)&&(K.CARD_BY_ID[id].rarity!=='Champion'||chosen.filter(x=>K.CARD_BY_ID[x].rarity==='Champion').length<(limit>=10?2:limit>=5?1:0)))chosen.push(id);};

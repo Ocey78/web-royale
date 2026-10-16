@@ -1,0 +1,83 @@
+/* Ultimate Clash is an isolated mode adapter. Every random draw uses the battle's
+   replayable generator; custom state stays on ordinary units, areas and events. */
+(function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./catalog.js'):root.RoyaleCatalog);if(n)module.exports=api;else root.RoyaleUltimateCombat=api;})(globalThis,function(K){'use strict';
+const {DATA,SX,SY}=K,EPS=1e-7;
+const distance=(a,b)=>Math.hypot((a.x-b.x)/SX,(a.y-b.y)/SY),edge=(a,b)=>Math.max(0,distance(a,b)-(a.def?.radiusTiles||0)-(b.def?.radiusTiles||0));
+const kind=c=>c?.source?.UltimateMechanic||c?.ultimate?.kind||'';
+const nativeArea=id=>DATA.areas[K.CARD_BY_ID[id]?.source.AreaEffectObject]||{};
+const areaSpecs={UltimateLightningStorm:{radius:(nativeArea('graveyard').Radius||4000)*.85,duration:11000},UltimateHealSpell:{radius:(DATA.areas.HealSpirit?.Radius||2500)*2,duration:(DATA.areas.HealSpirit?.LifeDuration||1000)*2},UltimateFrostbite:{radius:(DATA.areas.Freeze?.Radius||3000)*1.15,duration:nativeArea('graveyard').LifeDuration||9000},UltimateHarvest:{radius:(nativeArea('void').Radius||2500)*1.5,duration:(nativeArea('void').LifeDuration||4000)*1.25},UltimateMeteorShower:{radius:(nativeArea('void').Radius||2500)*1.5,duration:4500}};
+for(const [name,s]of Object.entries(areaSpecs))DATA.areas[name]={Name:name,Rarity:'Common',Radius:s.radius,LifeDuration:s.duration,HitsAir:true,HitsGround:true};
+function area(b,name,c,team,x,y){const a=b.createArea(name,team,x,y,c.level);a.ultimate={kind:kind(c)};return a;}
+function point(b,x,y,radius){const angle=b.random()*Math.PI*2,r=Math.sqrt(b.random())*radius;return{x:K.clamp(x+Math.cos(angle)*r*SX,.5*SX,17.5*SX),y:K.clamp(y+Math.sin(angle)*r*SY,.5*SY,31.5*SY)};}
+function targets(b,a,team=a.team){return b.active.filter(u=>u.team!==team&&!u.effectCarrier&&!u.attachedTo&&!u.hidden&&distance(u,a)<=a.radius+u.def.radiusTiles);}
+function impact(b,name,p,target=null,scale=1){const source=DATA.projectiles[name];if(!source)return;const damageOverride=scale===1?undefined:b.scaleStat(source.Damage,source.Rarity||'Common',p.level)*scale;b.projectileImpact({name,owner:p.owner,team:p.team,x:target?.x??p.x,y:target?.y??p.y,level:p.level,vx:0,vy:p.team?1:-1,source:0,attacker:null,damageOverride},target);}
+function rainVisual(b,projectile,p){const remaining=Math.max(0,p.due-b.time),duration=Math.min(.5,remaining);b.effect({kind:'ultimate-falling-projectile',projectile,x:p.x,y:p.y,team:p.team,delay:Math.max(0,remaining-duration),duration,impactAt:p.due,ttl:remaining+.1});}
+function setupTower(b,u){if(b.mode!=='UltimateClash')return;if(u.king){u.hp*=10;u.maxHp=u.hp;return;}const base=b.entityDefinition('PrincessTower',u.level),evo=b.entityDefinition('Princess_EV1',u.level),source={...base.source,...evo.source,Name:base.source.Name,Hitpoints:base.source.Hitpoints,Speed:0,IsBuilding:true,isBuilding:true,AttachedCharacter:'Princess_EV1',AttachedCharacterHeight:base.source.AttachedCharacterHeight,FileName:base.source.FileName,BlueExportName:base.source.BlueExportName,RedExportName:base.source.RedExportName,BlueTopExportName:base.source.BlueTopExportName,RedTopExportName:base.source.RedTopExportName,SkinType:'PrincessTower',DeathAreaEffect:'',SpawnEffect:'',CollisionRadius:base.source.CollisionRadius};u.entity='PrincessTower';u.def={...base,...evo,source,name:'PrincessTower',hp:base.hp*8,building:true,speed:0,speedTiles:0,radius:base.radius,radiusTiles:base.radiusTiles};u.hp=u.maxHp=base.hp*8;u.ultimate={kind:'evo-princess-tower',shooter:'Princess_EV1'};}
+function builderTarget(b,team,x,y){return b.units.filter(u=>u.team===team&&u.building&&u.king===undefined&&b.isPresent(u)&&!u.effectCarrier&&!u.attachedTo&&distance(u,{x,y})<=Math.max(.8,u.def.radiusTiles)).sort((a,z)=>distance(a,{x,y})-distance(z,{x,y}))[0]||null;}
+function placement(b,team,c,x,y){if(kind(c)!=='builder')return null;const u=builderTarget(b,team,x,y);if(!u)return{ok:false,reason:'Place Builder on one of your deployed buildings',x,y,tiles:[],formation:[]};if((u.ultimate?.builders||0)>=2)return{ok:false,reason:'This building already has two Builders',x,y,tiles:[],formation:[]};return{ok:true,reason:'',x:u.x,y:u.y,tiles:[],formation:[]};}
+function cast(b,c,team,x,y){const k=kind(c);if(!k||b.mode!=='UltimateClash')return false;const owner=b._owner??team,queue=(ultimate,due,extra={})=>{const p={type:'ultimate',ultimate,due,team,owner,x,y,level:c.level,...extra};b.schedule(p);if(ultimate==='meteor'||ultimate==='rocket')rainVisual(b,ultimate==='meteor'?'FireballSpell':'RocketSpell',p);};
+ if(k==='builder'){const u=builderTarget(b,team,x,y);if(u&&(u.ultimate?.builders||0)<2){u.ultimate={...u.ultimate,builders:(u.ultimate?.builders||0)+1};u.expires=Infinity;b.effect({kind:'ultimate-builder',x:u.x,y:u.y,team,follow:u.id,ttl:1});}return true;}
+ if(k==='lightning-storm'){const a=area(b,'UltimateLightningStorm',c,team,x,y);let due=b.time+.5;for(let i=0;i<6;i++){if(i)due+=.9+b.random()*1.1;queue('lightning-wave',due,{radius:a.radius,count:1+Math.floor(b.random()*3),wave:i});}a.ends=due+.25;return true;}
+ if(k==='heal-spell'){area(b,'UltimateHealSpell',c,team,x,y);return true;}
+ if(k==='frostbite'){const a=area(b,'UltimateFrostbite',c,team,x,y);a.nextSpawn=b.time+(DATA.areas.Graveyard?.SpawnInitialDelay||2200)/1000;if(c.form?.kind==='hero'||/hero/.test(c.formId||'')){const u=b.spawn('UltimateFrostbiteHero',team,x,y,{card:c.id,level:c.level,wait:0,formCard:c});if(u){u.effectCarrier=true;u.ultimate={kind:k,areaId:a.id};u.expires=a.ends;a.ultimate.heroId=u.id;}}return true;}
+ if(k==='harvest'){area(b,'UltimateHarvest',c,team,x,y);return true;}
+ if(k==='meteor-shower'){const a=area(b,'UltimateMeteorShower',c,team,x,y);for(let i=0;i<8;i++)queue('meteor',b.time+(i+1)*4.5/8,{...point(b,x,y,a.radius),damageScale:1/3});return true;}
+ if(k==='code-red'){for(let i=0;i<25;i++)queue('rocket',b.time+Math.floor(i/5)*.6+.6,{x:(.75+b.random()*16.5)*SX,y:(team===0?.75+b.random()*14.5:16.75+b.random()*14.5)*SY});return true;}
+ if(k==='kings-dropoff'){for(const [dx,dy]of [[0,-1.6],[-1.6,0],[1.6,0],[0,1.6]]){const px=K.clamp(x+dx*SX,.6*SX,17.4*SX),py=K.clamp(y+dy*SY,.6*SY,31.4*SY);b.effect({kind:'source',sourceEffect:'Royale_Delivery_spawn',team,x:px,y:py,ttl:3});queue('delivery',b.time+3,{x:px,y:py});}b.effect({kind:'ultimate-delivery',team,x,y,ttl:3});queue('cart-delivery',b.time+3);return true;}
+ return false;
+}
+function afterCast(b,c,spawned){const k=kind(c);if(!k)return;for(const u of spawned){u.ultimate={...u.ultimate,kind:k};if(k==='overcharged-tesla'){u.hidden=false;u.hideVisual={progress:1,direction:0};u.precharge=0;}if(k==='unstable-egg')u.ultimate.hatchAt=u.readyAt+(DATA.entities.PhoenixEgg.SpawnStartTime||3800)/1000;if(k==='fisherman'){const target=b.active.filter(t=>b.canTarget(u,t)&&edge(u,t)>=u.def.source.SpecialMinRange/1000&&edge(u,t)<=u.def.source.SpecialRange/1000).sort((a,z)=>distance(u,a)-distance(u,z)||a.id-z.id)[0];if(target){u.targetId=target.id;b.fireProjectile('FishermanProjectile',u,target);u.visualHook={phase:'outbound'};u.nextAttackAt=b.time+u.def.interval;}}}
+ if(k==='bomb-squad'){const guard=spawned.find(u=>u.entity==='SkeletonWarrior');for(const u of spawned)if(u.entity==='Bomber'){u.ultimate.guardId=guard?.id;u.invisible=true;}}
+ if(k==='mega-minion-horde'&&c.form?.kind==='hero')for(const u of spawned){u.ultimate.distinctTargets=true;u.ultimate.group=spawned[0]?.id;}
+}
+function targetDecision(b,u,candidates){if(!u.ultimate?.distinctTargets)return null;const available=candidates.filter(t=>b.canTarget(u,t)&&edge(u,t)<=b.attackSight(u));if(!available.length)return null;const siblings=b.units.filter(v=>v.id!==u.id&&v.ultimate?.group===u.ultimate.group&&b.isPresent(v)),reserved=new Set(siblings.map(v=>v.targetId));const free=available.filter(t=>!reserved.has(t.id));const choices=free.length?free:available,old=choices.find(t=>t.id===u.targetId),target=old||choices.sort((a,z)=>distance(u,a)-distance(u,z)||a.id-z.id)[0];return{target,kind:edge(u,target)<=b.attackRange(u)?'engage':'chase',lane:null};}
+function heroTarget(b,u,choices){if(!u.ultimate?.distinctTargets)return choices[0];const reserved=new Set(b.units.filter(v=>v.id!==u.id&&v.ultimate?.group===u.ultimate.group&&b.isPresent(v)).map(v=>v.modernIndicator?.target));return choices.find(t=>!reserved.has(t.id))||choices[0];}
+function tickArea(b,a,dt){if(!a.ultimate)return false;const k=a.ultimate.kind;if(!a.applied){a.applied=true;if(k==='frostbite'){const freeze=DATA.areas.Freeze;for(const u of targets(b,a)){b.addBuff(u,'Freeze',(freeze.BuffTime||3500)/1000,a.team,a.level);b.damage(u,b.scaleStat(u.king!==undefined?freeze.Damage.TowerDamage:freeze.Damage,freeze.Rarity,a.level),null,{team:a.team});}}}
+ if(b.time>a.ends+EPS)return true;
+ if(k==='heal-spell'&&b.time+EPS>=a.nextTick){const buff=DATA.buffs.HealSpiritBuff,interval=(buff.HitFrequency||250)/1000;for(const u of b.active)if(u.team===a.team&&!u.building&&!u.effectCarrier&&distance(u,a)<=a.radius+u.def.radiusTiles)b.heal(u,b.scaleStat(buff.HealPerSecond,buff.Rarity||'Common',a.level)*interval);a.nextTick=b.time+interval;}
+ if(k==='frostbite'&&b.time+EPS>=a.nextSpawn){const p=point(b,a.x,a.y,a.radius);b.spawn('IceSpirits',a.team,p.x,p.y,{level:a.level,owner:a.owner,wait:.4});a.spawned++;a.nextSpawn+=(DATA.areas.Graveyard?.SpawnInterval||500)/1000;}
+ return true;
+}
+function pending(b,p){if(p.type!=='ultimate')return false;
+ if(p.ultimate==='lightning-wave'){const eligible=targets(b,p),chosen=[];for(let i=0;i<p.count&&eligible.length;i++){const ix=Math.floor(b.random()*eligible.length);chosen.push(eligible.splice(ix,1)[0]);}for(const target of chosen)impact(b,DATA.areas.Lightning.Projectile,p,target);b.record({type:'ultimate-wave',team:p.team,wave:p.wave,targets:chosen.map(u=>u.id)});}
+ else if(p.ultimate==='meteor')impact(b,'FireballSpell',p,null,p.damageScale);
+ else if(p.ultimate==='rocket')impact(b,'RocketSpell',p);
+ else if(p.ultimate==='snowball')impact(b,'SnowballSpell',p);
+ else if(p.ultimate==='delivery')impact(b,'RoyalDeliveryProjectile',p);
+ else if(p.ultimate==='cart-delivery'){const d=DATA.projectiles.RoyalDeliveryProjectile;b.hitArea({team:p.team,x:p.x,y:p.y,radius:d.Radius/1000,damage:b.scaleStat(d.Damage,d.Rarity,p.level),ground:true,air:true});b.spawn('MovingCannon',p.team,p.x,p.y,{level:p.level,owner:p.owner,wait:.25,card:'ultimate-kings-dropoff'});b.effect({kind:'impact',sourceEffect:d.HitEffect,x:p.x,y:p.y,team:p.team,ttl:2});}
+ return true;
+}
+function tickUnit(b,u,dt){const v=u.ultimate;if(!v)return false;
+ if(v.builders){u.expires=Infinity;if(v.builders>=2)u.hp=Math.min(u.maxHp,u.hp+u.maxHp*.01*dt);}
+ if(v.guardId){const guard=b.getEntity(v.guardId);u.invisible=!!(guard&&guard.hp>0&&!guard.dead);}
+ if(v.kind==='frostbite'){if(b.time>=u.expires)u.hp=0;return true;}
+ if(v.kind==='unstable-egg'){if(b.time+EPS>=v.hatchAt&&!v.hatched){v.hatched=true;const roll=b.random();if(roll<.55)b.spawnGroup(roll<.3||roll>=.5?'BabyDragon':'BabyDragon_EV1',roll>=.5?3:1,u.team,u.x,u.y,u.level,{wait:.5,owner:u.owner});else{const p=DATA.projectiles.GoblinDemolisherDeathProjectile;for(const target of b.active)if(target.id!==u.id&&!target.effectCarrier&&!target.attachedTo&&(!target.air||p.AoeToAir===true)&&distance(target,u)<=(p.Radius||2500)/1000+target.def.radiusTiles)b.damage(target,b.scaleStat(p.Damage,p.Rarity||'Common',u.level),u,{team:u.team,affectsHidden:true,crownPercent:p.CrownTowerDamagePercent});b.effect({kind:'impact',sourceEffect:p.HitEffect||'Goblin_Demolisher_Explode',x:u.x,y:u.y,team:u.team,ttl:2});}u.hp=0;}return true;}
+ if(v.kind==='overcharged-tesla'){
+  u.hidden=false;u.hideVisual={progress:1,direction:0};
+  const target=b.chooseTarget(u),inRange=target&&edge(u,target)<=b.attackRange(u)+EPS,remaining=u.windup?.remaining,rate=b.buffs(u).attack;
+  if(!inRange||remaining===undefined&&(u.precharge||0)<u.def.interval-1-EPS)v.warned=false;
+  const chargingLastSecond=remaining!==undefined?remaining-dt*rate<=1+EPS:(u.precharge||0)+dt*rate>=u.def.interval-1-EPS;
+  if(inRange&&rate>0&&chargingLastSecond&&!v.warned){
+   v.warned=true;v.warningAt=b.time;b.effect({kind:'ultimate-tesla-warning',x:u.x,y:u.y,team:u.team,ttl:1});
+   // A charged, idle Tesla must still telegraph its next shot before releasing.
+   u.nextAttackAt=Math.max(u.nextAttackAt,b.time+1);
+   if(u.windup)u.windup.remaining=Math.max(u.windup.remaining,1+dt*rate);
+  }
+ }
+ return false;
+}
+function onStrike(b,u){if(u.ultimate?.kind==='overcharged-tesla'){u.ultimate.warned=false;u.ultimate.lastDischargeAt=b.time;}}
+function onDamage(b,u,attacker){if(u.hp<=0&&attacker?.ultimate?.kind==='elixir-witch'&&!u.building)u.ultimateWitchKill={owner:attacker.owner,team:attacker.team,level:attacker.level};}
+// Family membership comes from exact native rows and authored inheritance.
+// Named specialists (Mega Minion, Guard, Elite Barbarian, Lumberjack, etc.)
+// retain the catch-all reward even when their internal name contains a family.
+const harvestFamilies=Object.freeze({Skeleton:.1,SkeletonKingSkeleton:.1,YetAnotherSkeleton:.1,Minion:.2,Bat:.2,IceSpirits:.2,FireSpirits:.2,ElectroSpirit:.2,HealSpirit:.2,Goblin:.2,Goblin_Stab:.2,GoblinBarrelGoblin:.2,SpearGoblin:.2,SpearGoblinGiant:.2,BlowdartGoblin:.2,BabyGoblin:.2,BushGoblin:.2,Barbarian:.35});
+function reward(u){let name=u.entity;const visited=new Set();while(name&&!visited.has(name)){if(Object.hasOwn(harvestFamilies,name))return harvestFamilies[name];visited.add(name);const parent=DATA.entities[name]?.Base;name=typeof parent==='string'&&parent.startsWith('CHARACTER.')?parent.slice(10):null;}return 1;}
+function onDeath(b,u){for(const a of b.areas)if(a.ultimate?.kind==='harvest'&&a.team!==u.team&&!u.building&&!u.effectCarrier&&!u.attachedTo&&b.time<=a.ends+EPS&&distance(u,a)<=a.radius+u.def.radiusTiles){b.creditElixir(a.owner,reward(u));b.effect({kind:'ultimate-harvest-beam',x:u.x,y:u.y,team:a.team,amount:reward(u),ttl:.7});}
+ if(u.ultimateWitchKill){const credit=u.ultimateWitchKill;b.spawn('ElixirGolem4',credit.team,u.x,u.y,{owner:credit.owner,level:credit.level,wait:.5});}
+ for(const v of b.units)if(v.ultimate?.guardId===u.id){v.invisible=false;delete v.ultimate.guardId;}
+}
+function abilitySupported(config){return config?.id==='UltimateFrostbiteSnowballs'||config?.id==='ultimate-frostbite-snowballs';}
+function executeAbility(b,config,c){if(!abilitySupported(config))return false;const u=c.unit;for(let i=0;i<10;i++){const p=point(b,u.x,u.y,4.5);const event={type:'ultimate',ultimate:'snowball',due:b.time+.15+i*.12,owner:u.owner,team:u.team,level:u.level,...p};b.schedule(event);rainVisual(b,'SnowballSpell',event);}return true;}
+function aiPlay(b,seat){if(b.mode!=='UltimateClash')return false;const team=b.teamOf(seat),enemies=b.active.filter(u=>u.team!==team&&!u.effectCarrier),allies=b.units.filter(u=>u.team===team&&b.isPresent(u)),options=[];for(let slot=0;slot<4;slot++){const c=b.card(seat,slot);if(!c||b.elixir[seat]<c.cost||b.slotReady[seat][slot]>b.time)continue;const k=kind(c);let target;if(k==='builder')target=allies.find(u=>u.building&&(u.ultimate?.builders||0)<2);else if(k==='heal-spell')target=allies.find(u=>!u.building&&u.hp<u.maxHp*.8);else if(k==='harvest')target=enemies.find(u=>!u.building);else if(c.spell&&!c.source.SpellAsDeploy)target=enemies.find(u=>!u.building)||enemies.find(u=>!u.king);else target={x:(b.random()<.5?4:14)*SX,y:(team?11:21)*SY};if(target)options.push({slot,target,c});}if(!options.length)return true;options.sort((a,z)=>z.c.cost-a.c.cost);for(const o of options)if(b.deploy(seat,o.slot,o.target.x,o.target.y).ok)break;return true;}
+return{setupTower,placement,cast,afterCast,targetDecision,heroTarget,tickArea,pending,tickUnit,onStrike,onDamage,onDeath,abilitySupported,executeAbility,aiPlay};});

@@ -1,0 +1,36 @@
+{
+  "errors": [],
+  "checks": [
+    "Actual original Builder hammer clips surround grey cage; source Evo Princess occupies all four towers; Tesla raised pose21",
+    "Grey Graveyard storm, pink source Void Harvest with death beam, orange source Void meteor floor, frost-only Frostbite, falling native Fireball",
+    "CODE RED wave shows five original rocket bodies and source exhaust trails",
+    "Double-radius Heal Spirit source effect, native Frostbite snowballs and harmless sky warning all render"
+  ],
+  "screenshots": [
+    "ultimate-builders-and-towers.png",
+    "ultimate-fields.png",
+    "ultimate-rocket-rain.png",
+    "ultimate-heal-and-snowballs.png"
+  ],
+  "prepared": {
+    "builder": true,
+    "cage": true,
+    "tesla": {
+      "frame": 21
+    },
+    "towerShooters": [
+      "Princess_EV1",
+      "Princess_EV1",
+      "Princess_EV1",
+      "Princess_EV1"
+    ],
+    "sceneCount": 52,
+    "snowball": true
+  },
+  "runtime": {
+    "missing": [],
+    "error": null,
+    "modernError": null
+  },
+  "passed": true
+}
