@@ -1,7 +1,7 @@
 {
   "id": "web-royale",
   "name": "Web Royale",
-  "version": "0.58.4",
+  "version": "0.58.5",
   "baseline": "0.50.0",
   "private": true,
   "purpose": "Modern features, arenas and future online development base",

@@ -1,6 +1,6 @@
 {
   "name": "web-royale",
-  "version": "0.58.4",
+  "version": "0.58.5",
   "private": true,
   "scripts": {
     "build": "node tools/build-web.js --compact-scenes",

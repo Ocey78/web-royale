@@ -1,9 +1,9 @@
 {
-  "version": "0.58.4",
+  "version": "0.58.5",
   "project": {
     "id": "web-royale",
     "name": "Web Royale",
-    "version": "0.58.4",
+    "version": "0.58.5",
     "baseline": "0.50.0",
     "private": true,
     "purpose": "Modern features, arenas and future online development base",
@@ -19,9 +19,9 @@
   "cards": 123,
   "ultimateCards": 33,
   "scenes": 282,
-  "runtime": "runtime.2250e4bcd4c9.json",
-  "app": "app.f3631536b645.js",
-  "bootstrap": "bootstrap.509dc5e60f7f.js",
+  "runtime": "runtime.24c51f5651fb.json",
+  "app": "app.9bcc49683fe1.js",
+  "bootstrap": "bootstrap.a06695902200.js",
   "styles": "styles.4958c637f56c.css",
   "files": {
     "assets/modern-heroes/0c29f6a413b8f355.png": "738569e72d43946482499b6c76e9c3d247225ef7ce31e3ceb3506ceb4df2743e",
@@ -2288,7 +2288,7 @@
     "assets/presentation/ink-body.png": "7ab4304cdabc141c7b7ec7574d88436e239e60a909982775e37204766aa6cb56",
     "assets/presentation/ink-body-outline.png": "e7db1afc8bd63c75cc8ee067a7e7f2cee4100e4634e19555f2bd90f8d7232b67",
     "training-data.1474e0edcb5b.json": "1474e0edcb5b0b1546715d16e606283e9ff90a7595a5919e7a0f071a93ef6b94",
-    "training-engine.b57dd14a69a5.js": "b57dd14a69a5598dc5c6d7c2473bc5472a80d68d51ca9ecdc1c5c7da1a1b924c",
+    "training-engine.ec2b8d366e16.js": "ec2b8d366e16affd30c45adf1fe58c076782c2ee7fe128e59d7957a3db9669ed",
     "training-worker.2f7e7650ba6e.js": "2f7e7650ba6efc0896e5771f68492e66a52a916aecbe68bf9c5f5514a9aac071",
     "assets/webapp/icon-180.png": "95d25ecc83f4ae6bbd6b39309963e7afae3d143e32a258dc434cfa99b2689ded",
     "assets/webapp/icon-192.png": "08fa53a097998183ede6d12af2f507f94e5235dc04fcad38448620a553c1dbb5",
@@ -2302,13 +2302,13 @@
     "assets/ultimate-clash/executioner-cage-portrait.png": "b97bc15a4209bb585b9666a4d3cb9e206819dd3d3ed2ce6cb3c07fd5f2219a9c",
     "assets/ultimate-clash/overcharged-tesla-portrait.png": "e1d16d73b82c6de75d66ff39a158e82f132406504524b042062e80585c250dd7",
     "assets/ultimate-clash/unstable-egg-portrait.png": "8b87b820ef57da58bf3a69daa44b1de63721e8fd2f913995633b841b9b991526",
-    "asset-index.2e73d4c33dba.json": "2e73d4c33dba43bc6f7074565784422140584802892f55a564f7ce4ea7216a85",
+    "asset-index.88ef5c91c062.json": "88ef5c91c06285faaa098bbbf94c5d26260fea4c944f94285106dc393e60b8a9",
     "asset-worker.js": "621ef7e59d2fb7416590455fbecabdd37eb0604a7b41e81bc0b6f13b4c0b77de",
-    "runtime.2250e4bcd4c9.json": "2250e4bcd4c935a074c3857a3bfc5d264159749d5430c53539b4f7276392d148",
-    "app.f3631536b645.js": "f3631536b6455fba64cab4c6fea43cb577ffd6d339c5619a73ea332506134e3a",
+    "runtime.24c51f5651fb.json": "24c51f5651fbc31241daab82f94589ea29bd162686eb1bd4745bf324d6ca9728",
+    "app.9bcc49683fe1.js": "9bcc49683fe1ab16b1d1852473f95fda4b4283e519e1f3a19d8b5ea362913e86",
     "manifest.json": "44874443c977476debf4e3cf4ae3e05b27c86f913534f40dfafdb2d76b1a3fae",
     "styles.4958c637f56c.css": "4958c637f56c8ad1a2d755a3309d095371a13d54c7e2ba669b7796c34a8a4609",
-    "bootstrap.509dc5e60f7f.js": "509dc5e60f7fc90a060eb65e772591dff046cbb706ebe0c32f02186cd4ddf8f1",
-    "index.html": "c5652277318f38cf951402592e5c24b74339746d30c70e91484cb3461b8a2224"
+    "bootstrap.a06695902200.js": "a066959022003d48f1a9a5e5c763d06d25ce6ac924e118acd02bd9025722bd57",
+    "index.html": "1f5c7ee49802edf1aaa54cb00236da420854185ea5d450307cedb65571e30291"
   }
 }
