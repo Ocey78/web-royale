@@ -28342,9 +28342,10 @@ root.RoyaleChestOpeningUI={create};})(globalThis);
 ;
 /* Isolated practice with optional AI on either side. Normal Battle rules and
    persistent profile data are untouched; there is no match outcome or recorder. */
-(function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./core.js'):root.RoyaleCore,n?require('./platform.js'):root.RoyalePlatform,n?require('./arena-selection.js'):root.RoyaleArenaSelection);if(n)module.exports=api;else root.RoyaleSandbox=api;})(globalThis,function(C,Platform,Maps){'use strict';
+(function(root,factory){const n=typeof module==='object'&&module.exports,api=factory(n?require('./core.js'):root.RoyaleCore,n?require('./platform.js'):root.RoyalePlatform,n?require('./arena-selection.js'):root.RoyaleArenaSelection,n?require('./card-forms.js'):root.RoyaleCardForms);if(n)module.exports=api;else root.RoyaleSandbox=api;})(globalThis,function(C,Platform,Maps,Forms){'use strict';
 function towerConfig(value={}){return Object.fromEntries(['blue','red'].map(team=>[team,Object.fromEntries(['left','right','king'].map(key=>[key,value[team]?.[key]!==false]))]));}
 function aiConfig(value=[]){return [value?.[0]===true,value?.[1]===true];}
+function availableForms(cardId,registry=Forms.defaultRegistry){const card=C.CARD_BY_ID[cardId];return !card||card.source.Mirror?[]:registry.forCard(cardId).filter(f=>['evolution','hero'].includes(f.kind)&&Forms.formCapability(f.id,registry).ok);}
 function validLevel(value,fallback=9){return Number.isFinite(Number(value))?C.clamp(Math.floor(Number(value)),0,99):fallback;}
 // Source levels retain their recorded multipliers. Debug levels below a
 // rarity's base extrapolate backward with the same 10% growth convention.
@@ -28355,8 +28356,9 @@ function entityDefinition(name,level=9){
  const hp=tower?towerStat(r.Hitpoints):scaleStat(r.Hitpoints,r.Rarity,n),damageRaw=r.Damage??p.Damage??0;
  return{...d,level:n,hp:r.Hitpoints?Math.max(1,hp):0,damage:tower?towerStat(damageRaw,true):scaleStat(damageRaw,r.Damage!==undefined?r.Rarity:p.Rarity||r.Rarity,n),shield:scaleStat(r.ShieldHitpoints,r.Rarity,n)};
 }
-function cardDefinition(id,level=9){
- const n=validLevel(level),card=C.cardAt(id,n);if(!card)return null;
+function cardDefinition(id,level=9,formId=null,registry=Forms.defaultRegistry){
+ const n=validLevel(level);let card=C.cardAt(id,n);if(!card)return null;
+ if(formId!==null){if(!availableForms(id,registry).some(f=>f.id===formId))return null;card=registry.resolve(card,formId);}
  if(card.entity){const e=entityDefinition(card.entity,n);return{...card,level:n,hp:e.hp,damage:e.damage};}
  const r=card.source,a=C.DATA.areas[r.AreaEffectObject]||{},p=C.DATA.projectiles[card.projectileName]||{},buff=C.DATA.buffs[a.Buff]||{};
  const damage=scaleStat(p.Damage??a.Damage??r.InstantDamage??buff.DamagePerSecond??0,p.Rarity||a.Rarity||card.rarity,n),percent=p.CrownTowerDamagePercent??a.CrownTowerDamagePercent??buff.CrownTowerDamagePercent;
@@ -28365,7 +28367,7 @@ function cardDefinition(id,level=9){
 class SandboxBattle extends C.Battle{
  constructor(options={}){
   const mapId=Maps.valid(options.mapId)?options.mapId:'training',mode=['Team3v3','TeamRumble','BridgeBattle'].includes(mapId)?mapId:'Default',level=validLevel(options.level??9),levels=Object.fromEntries((C.ALL_CARDS||C.CARDS).map(c=>[c.id,level]));
-  super({mode,arenaId:mapId,seed:options.seed||1,ai:false,practice:true,headless:options.headless===true,levels,seatLevels:[levels,levels],kingLevels:[level,level],kingLevel:level});
+  super({mode,arenaId:mapId,seed:options.seed||1,ai:false,practice:true,headless:options.headless===true,levels,seatLevels:[levels,levels],kingLevels:[level,level],kingLevel:level,formRegistry:options.formRegistry||Forms.defaultRegistry});
   this.isSandbox=true;this.queueType='sandbox';this.learningEnabled=false;this.recorder=null;this.replayInitial=null;this.sandboxLevel=level;this.aiTeams=aiConfig(options.aiTeams);this.seatLevels=this.seats.map(()=>({...levels}));
   for(const bot of this.bots)bot.learner=null;
   this.sandboxTowers=towerConfig(options.towers);
@@ -28399,16 +28401,23 @@ class Session extends Platform.LocalMatchSession{
   if(!cmd||!C.CARD_BY_ID[cmd.card]||![0,1].includes(cmd.team)||!Number.isFinite(cmd.x)||!Number.isFinite(cmd.y)||cmd.x<this.battle.arenaLayout.left*C.SX||cmd.x>this.battle.arenaLayout.right*C.SX||cmd.y<this.battle.arenaLayout.top*C.SY||cmd.y>this.battle.arenaLayout.bottom*C.SY)return{ok:false,reason:'Choose a card, team and position inside the arena'};
   const b=this.battle,team=cmd.team,level=validLevel(cmd.level??b.sandboxLevel,b.sandboxLevel);
   if(b.units.length>=450)return{ok:false,reason:'Clear the arena before adding more troops'};
-  let card=cardDefinition(cmd.card,level);
+  let card=cardDefinition(cmd.card,level,cmd.formId??null,b.formRegistry);
+  if(!card)return{ok:false,reason:'This form is not supported for the selected card'};
   const mirror=card.source.Mirror===true;
   if(mirror){
    const last=b.lastCard[team];if(!last)return{ok:false,reason:'Place another card for this team before using Mirror'};
    const copiedLevel=cmd.card==='ultimate-mirror'?last.level+3:level+(C.DATA.globals.MIRROR_LEVEL_OFFSET?.NumberValue??1);
-   card=cardDefinition(last.id,Math.min(99,copiedLevel));
+   card=cardDefinition(last.id,Math.min(99,copiedLevel),null,b.formRegistry);
   }
   b.cast(card,team,cmd.x,cmd.y,team);
   if(!mirror)b.lastCard[team]={id:card.id,level:card.level,cost:card.cost};
-  b.played[team]++;return{ok:true,card:card.id,team};
+  b.played[team]++;b.modernActions?.onCardDeploy?.(b,card,team);return{ok:true,card:card.id,formId:card.formId||null,team};
+ }
+ activateAbility(entityId,team){
+  if(!Number.isSafeInteger(entityId)||![0,1].includes(team))return{ok:false,reason:'Choose a unit and side for its ability'};
+  const b=this.battle,u=b.getEntity(entityId);
+  if(!u||u.team!==team||b.teamOf(u.owner)!==team)return{ok:false,reason:'Choose a unit belonging to this side'};
+  return b.activateAbility(u.owner,entityId);
  }
  clear(){const b=this.battle;for(const key of ['units','pending','projectiles','areas','effects'])b[key]=[];b.lastCard=b.seats.map(()=>null);for(const bot of b.bots)bot.intent=null;for(const t of b.towers){t.targetId=null;t.windup=null;t.buffs={};t.visualAttack=null;t.visualHook=null;t.visualAttackCancelled=false;t.visualState='idle';t.animationTime=0;}this.accumulator=0;}
  setAI(team,enabled){
@@ -28424,7 +28433,7 @@ class Session extends Platform.LocalMatchSession{
   Object.assign(this.battle,new SandboxBattle(this.options));this.battle.paused=paused;this.accumulator=0;this.sequence=0;this.replies.clear();return this.battle;
  }
 }
-return{Session,SandboxBattle,towerConfig,aiConfig,validLevel,scaleStat,entityDefinition,cardDefinition};});
+return{Session,SandboxBattle,towerConfig,aiConfig,availableForms,validLevel,scaleStat,entityDefinition,cardDefinition};});
 
 ;
 /* Manual practice controls share the measured battle frame, without changing
@@ -28432,16 +28441,27 @@ return{Session,SandboxBattle,towerConfig,aiConfig,validLevel,scaleStat,entityDef
 (function(root){'use strict';
 function create(ctx){
  const C=root.RoyaleCore,V=root.RoyaleBattleView,$=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- let session=null,shell=null,ready=false,card='knight',team=0,level=9,revision=0,showTargets=false,gesture=null,lastStatus=0,loadError='';
+ let session=null,shell=null,ready=false,card='knight',team=0,level=9,revision=0,showTargets=false,gesture=null,lastStatus=0,loadError='',forms=[],formKind='',abilitySignature='';
  const b=()=>session?.battle,btn=(label,action,kind='blue',attrs='')=>ctx.button(label,action,kind,attrs);
+ const selectedForm=()=>forms.find(f=>f.kind===formKind),cardName=()=>selectedForm()?.name||C.CARD_BY_ID[card].name;
+ function syncForms(){
+  forms=root.RoyaleSandbox.availableForms(card,b().formRegistry);if(!selectedForm())formKind='';
+  for(const input of shell.querySelectorAll('[data-sandbox-form]')){const kind=input.dataset.sandboxForm,form=forms.find(f=>f.kind===kind),name=kind==='evolution'?'Evolution':'Hero';input.disabled=!form;input.checked=formKind===kind;input.title=form?.description||(!form?`No supported ${name} form for ${C.CARD_BY_ID[card].name}`:form.name);input.parentElement.title=input.title;input.parentElement.dataset.available=String(!!form);}
+ }
  async function prepare(){
-  if(!session)return;const generation=++revision;ready=false;status('Loading '+C.CARD_BY_ID[card].name+'…');
-  try{await ctx.prepareCard(card);if(generation!==revision||!session)return;ready=true;status();}
+  if(!session)return;const generation=++revision;ready=false;loadError='';status('Loading '+cardName()+'…');
+  try{await ctx.prepareCard(card,selectedForm()?.id||null);if(generation!==revision||!session)return;ready=true;status();}
   catch(e){if(generation!==revision)return;loadError='Card could not load. Select it again to retry.';status();ctx.toast(e.message||'Card could not load');}
  }
- function status(message){if(!shell)return;const battle=b();$('sandboxStatus').textContent=message||(!ready?(loadError||'Loading '+C.CARD_BY_ID[card].name+'...'):`${battle.paused?'Paused · ':''}${team?'Red':'Blue'} · ${C.CARD_BY_ID[card].name} · Tap arena to place`);$('sandboxStatus').dataset.ready=String(ready);}
- function refresh(){if(!shell)return;const battle=b();$('sandboxPause').textContent=battle.paused?'Resume':'Pause';$('sandboxPause').setAttribute('aria-pressed',String(battle.paused));$('sandboxElapsed').textContent=Math.floor(battle.time)+'s · No time limit';for(const input of shell.querySelectorAll('[data-sandbox-ai]'))input.checked=!!session.options.aiTeams?.[Number(input.dataset.sandboxAi)];status();}
- function setTeam(next){team=next;for(const e of shell.querySelectorAll('[data-sandbox-team]'))e.setAttribute('aria-pressed',String(Number(e.dataset.sandboxTeam)===team));status();}
+ function status(message){if(!shell)return;const battle=b();$('sandboxStatus').textContent=message||(!ready?(loadError||'Loading '+cardName()+'...'):`${battle.paused?'Paused · ':''}${team?'Red':'Blue'} · ${cardName()} · Tap arena to place`);$('sandboxStatus').dataset.ready=String(ready);}
+ function refreshAbilities(){
+  const battle=b(),bar=$('sandboxAbilities'),select=$('sandboxHero'),button=$('sandboxAbility'),rows=battle.units.filter(u=>u.abilityState&&u.team===team&&battle.teamOf(u.owner)===team&&battle.isPresent(u)&&!u.dead),side=team?'Red':'Blue';bar.hidden=!rows.length;if(!rows.length){abilitySignature='';select.innerHTML='';return;}
+  const html=rows.map(u=>`<option value="${u.id}">${esc(battle.formRegistry.get(u.formId)?.name||C.CARD_BY_ID[u.card]?.name||u.entity)} · #${u.id}</option>`).join('');if(html!==abilitySignature){const previous=select.value;select.innerHTML=html;if(rows.some(u=>String(u.id)===previous))select.value=previous;abilitySignature=html;}select.setAttribute('aria-label',side+' Hero or Champion ability');
+  const unit=rows.find(u=>String(u.id)===select.value),state=unit&&battle.abilityStatus(unit.id);if(!state){button.disabled=true;button.textContent='Unavailable';return;}
+  const seconds=Math.max(0,Math.ceil(state.cooldownUntil-battle.time)),elixir=battle.elixir[state.owner]||0,affordable=elixir+1e-7>=state.cost,caption=state.supported===false?'Unavailable':state.pending?'Casting':state.charges===0?'Used':battle.paused?'Paused':seconds?seconds+'s':!state.ready?'Not ready':!affordable?'Need '+state.cost+' elixir':'Ability · '+state.cost+' elixir';button.disabled=!state.ready||state.supported===false||!affordable;button.textContent=caption;button.title=state.unsupportedReason||`${side} has ${elixir.toFixed(1)} elixir`;button.setAttribute('aria-label',`${side} ${battle.formRegistry.get(unit.formId)?.name||unit.entity}: ${caption}`);
+ }
+ function refresh(){if(!shell)return;const battle=b();$('sandboxPause').textContent=battle.paused?'Resume':'Pause';$('sandboxPause').setAttribute('aria-pressed',String(battle.paused));$('sandboxElapsed').textContent=Math.floor(battle.time)+'s · No time limit';for(const input of shell.querySelectorAll('[data-sandbox-ai]'))input.checked=!!session.options.aiTeams?.[Number(input.dataset.sandboxAi)];refreshAbilities();status();}
+ function setTeam(next){team=next;for(const e of shell.querySelectorAll('[data-sandbox-team]'))e.setAttribute('aria-pressed',String(Number(e.dataset.sandboxTeam)===team));refresh();}
  function towerPanel(){
   const box=$('sandboxTowers');box.hidden=false;box.innerHTML=`<form id="sandboxTowerForm"><h2>Towers</h2><p>Choose towers, then reset the arena.</p><label class="sandbox-tower-level">Tower level (0-99) <input id="sandboxTowerLevel" type="number" min="0" max="99" step="1" value="${session.options.level}"></label><div class="sandbox-tower-teams">${['blue','red'].map(name=>`<fieldset><legend>${name==='blue'?'Blue':'Red'} team</legend>${[['left','Left Princess'],['right','Right Princess'],['king','King']].map(([key,label])=>`<label><input type="checkbox" name="${name}-${key}" ${session.options.towers[name][key]?'checked':''}> ${label}</label>`).join('')}</fieldset>`).join('')}</div><div class="sandbox-tower-actions">${btn('All off','sandbox-towers-off')}${btn('Cancel','sandbox-towers-cancel')}${btn('Reset','sandbox-towers-apply','green','type="submit"')}</div></form>`;
   ctx.hydrate(box);$('sandboxTowerForm').addEventListener('submit',e=>{e.preventDefault();const config={blue:{},red:{}};for(const name of ['blue','red'])for(const key of ['left','right','king'])config[name][key]=box.querySelector(`[name="${name}-${key}"]`).checked;session.reset(config,Number($('sandboxTowerLevel').value));box.hidden=true;refresh();});
@@ -28455,24 +28475,27 @@ function create(ctx){
   else if(action==='sandbox-pause'){b().paused=!b().paused;session.accumulator=0;refresh();}
   else if(action==='sandbox-clear'){session.clear();refresh();}
   else if(action==='sandbox-reset'){session.reset();refresh();}
+  else if(action==='sandbox-ability'){const result=session.activateAbility(Number($('sandboxHero').value),team);if(!result.ok)ctx.toast(result.reason);refresh();}
   else if(action==='sandbox-towers')towerPanel();
   else if(action==='sandbox-towers-off')for(const input of $('sandboxTowers').querySelectorAll('input'))input.checked=false;
   else if(action==='sandbox-towers-cancel')$('sandboxTowers').hidden=true;
  }
  function point(e){const r=$('viewport').getBoundingClientRect();return{x:(e.clientX-r.left)*540/r.width,y:(e.clientY-r.top)*V.layout.height/r.height};}
  function down(e){if(!session||e.button!==0||!$('sandboxTowers').hidden)return;e.preventDefault();e.stopPropagation();gesture={id:e.pointerId};$('battleCanvas').setPointerCapture(e.pointerId);}
- function up(e){if(!gesture||gesture.id!==e.pointerId)return;gesture=null;if($('battleCanvas').hasPointerCapture(e.pointerId))$('battleCanvas').releasePointerCapture(e.pointerId);e.preventDefault();e.stopPropagation();const p=point(e);if(!V.onBoard(p))return;if(!ready){ctx.toast('Wait for the selected card to load');return;}const world=V.toWorld(p),result=session.spawn({card,team,level,x:world.x,y:world.y});if(!result.ok)ctx.toast(result.reason);refresh();}
+ function up(e){if(!gesture||gesture.id!==e.pointerId)return;gesture=null;if($('battleCanvas').hasPointerCapture(e.pointerId))$('battleCanvas').releasePointerCapture(e.pointerId);e.preventDefault();e.stopPropagation();const p=point(e);if(!V.onBoard(p))return;if(!ready){ctx.toast('Wait for the selected card to load');return;}const world=V.toWorld(p),result=session.spawn({card,formId:selectedForm()?.id||null,team,level,x:world.x,y:world.y});if(!result.ok)ctx.toast(result.reason);refresh();}
  function cancel(){gesture=null;}
  function cardOptions(){return [['',C.CARDS],['Ultimate ',C.ULTIMATE_CARDS||[]]].map(([prefix,pool])=>['Troop','Building','Spell'].map(kind=>`<optgroup label="${prefix}${kind}s">${pool.filter(c=>c.kind===kind).sort((a,b)=>a.name.localeCompare(b.name)).map(c=>`<option value="${c.id}" ${c.id===card?'selected':''}>${esc(c.name)}</option>`).join('')}</optgroup>`).join('')).join('');}
  function mount(next){
-  unmount();session=next;level=next.battle.sandboxLevel;card='knight';team=0;showTargets=false;ready=false;
-  shell=document.createElement('div');shell.id='sandboxUI';shell.innerHTML=`<div class="sandbox-header"><div><h1>Sandbox</h1><small id="sandboxElapsed">0s · No time limit</small></div><label class="sandbox-map-label">Map<select id="sandboxMap" aria-label="Sandbox map">${root.RoyaleArenaSelection.choices.map(m=>`<option value="${m.id}" ${next.options.mapId===m.id?'selected':''}>${esc(m.name)}</option>`).join('')}</select></label>${btn('Exit','sandbox-exit')}</div><div id="sandboxTowers" class="sandbox-towers" role="dialog" aria-modal="true" aria-label="Configure sandbox towers" hidden></div><section class="sandbox-controls" aria-label="Sandbox controls"><div class="sandbox-card-row"><label>Card <select id="sandboxCard" aria-label="Sandbox card">${cardOptions()}</select></label><label>Level <input id="sandboxLevel" aria-label="Sandbox level, 0 to 99" type="number" min="0" max="99" step="1" value="${level}"></label><div class="sandbox-team" aria-label="Spawn team"><button type="button" data-sandbox-team="0" aria-pressed="true">Blue</button><button type="button" data-sandbox-team="1" aria-pressed="false">Red</button></div></div><div class="sandbox-actions">${btn('Pause','sandbox-pause','blue','id="sandboxPause" aria-pressed="false"')}${btn('Clear','sandbox-clear')}${btn('Reset','sandbox-reset')}${btn('Towers','sandbox-towers')}</div><div class="sandbox-toggles"><div class="sandbox-ai" role="group" aria-label="Enable team AI">${['Blue','Red'].map((name,index)=>`<label><input id="sandboxAI${index}" data-sandbox-ai="${index}" type="checkbox" ${session.options.aiTeams?.[index]?'checked':''}> ${name} AI</label>`).join('')}</div><label><input id="sandboxTargets" type="checkbox"> Show targets</label></div><div class="sandbox-foot"><span id="sandboxStatus" role="status" aria-live="polite"></span></div></section>`;
+  unmount();session=next;level=next.battle.sandboxLevel;card='knight';team=0;showTargets=false;ready=false;forms=[];formKind='';abilitySignature='';
+  shell=document.createElement('div');shell.id='sandboxUI';shell.innerHTML=`<div class="sandbox-header"><div><h1>Sandbox</h1><small id="sandboxElapsed">0s · No time limit</small></div><label class="sandbox-map-label">Map<select id="sandboxMap" aria-label="Sandbox map">${root.RoyaleArenaSelection.choices.map(m=>`<option value="${m.id}" ${next.options.mapId===m.id?'selected':''}>${esc(m.name)}</option>`).join('')}</select></label>${btn('Exit','sandbox-exit')}</div><div id="sandboxTowers" class="sandbox-towers" role="dialog" aria-modal="true" aria-label="Configure sandbox towers" hidden></div><section class="sandbox-controls" aria-label="Sandbox controls"><div class="sandbox-card-row"><label>Card <select id="sandboxCard" aria-label="Sandbox card">${cardOptions()}</select></label><label>Level <input id="sandboxLevel" aria-label="Sandbox level, 0 to 99" type="number" min="0" max="99" step="1" value="${level}"></label><div class="sandbox-team" aria-label="Spawn team"><button type="button" data-sandbox-team="0" aria-pressed="true">Blue</button><button type="button" data-sandbox-team="1" aria-pressed="false">Red</button></div></div><div class="sandbox-actions">${btn('Pause','sandbox-pause','blue','id="sandboxPause" aria-pressed="false"')}${btn('Clear','sandbox-clear')}${btn('Reset','sandbox-reset')}${btn('Towers','sandbox-towers')}</div><div class="sandbox-toggles"><div class="sandbox-ai" role="group" aria-label="Enable team AI">${['Blue','Red'].map((name,index)=>`<label><input id="sandboxAI${index}" data-sandbox-ai="${index}" type="checkbox" ${session.options.aiTeams?.[index]?'checked':''}> ${name} AI</label>`).join('')}</div><div class="sandbox-forms" role="group" aria-label="Selected card form"><label><input id="sandboxEvo" data-sandbox-form="evolution" type="checkbox"> Evo</label><label><input id="sandboxHeroForm" data-sandbox-form="hero" type="checkbox"> Hero</label></div><label><input id="sandboxTargets" type="checkbox"> Show targets</label></div><div class="sandbox-foot"><span id="sandboxStatus" role="status" aria-live="polite"></span></div><div id="sandboxAbilities" class="sandbox-abilities" aria-label="Selected side abilities" hidden><select id="sandboxHero" aria-label="Hero or Champion ability"></select>${btn('Ability','sandbox-ability','purple','id="sandboxAbility" disabled')}</div></section>`;
   $('battle').append(shell);$('battle').classList.add('sandbox-view');ctx.hydrate(shell);
   shell.addEventListener('click',handle);for(const e of shell.querySelectorAll('[data-sandbox-team]'))e.addEventListener('click',()=>setTeam(Number(e.dataset.sandboxTeam)));
   for(const input of shell.querySelectorAll('[data-sandbox-ai]'))input.addEventListener('change',()=>{session.setAI(Number(input.dataset.sandboxAi),input.checked);refresh();});
+  for(const input of shell.querySelectorAll('[data-sandbox-form]'))input.addEventListener('change',()=>{formKind=input.checked?input.dataset.sandboxForm:'';syncForms();prepare();});
+  $('sandboxHero').addEventListener('change',refreshAbilities);
   $('sandboxMap').addEventListener('change',async e=>{const active=session,prev=active.options.mapId,wasPaused=b().paused;const selector=e.target;selector.disabled=true;ready=false;active.setMap(selector.value);b().paused=true;status('Loading map…');try{await ctx.prepareMap(active);if(session!==active)return;await prepare();}catch(error){if(session!==active)return;active.setMap(prev);selector.value=prev;ctx.toast(error.message||'Map could not load');try{await ctx.prepareMap(active);await prepare();}catch(_){status('Map unavailable. Choose another map.');}}finally{if(session===active){b().paused=wasPaused;selector.disabled=false;refresh();}}});
-  $('sandboxCard').addEventListener('change',e=>{card=e.target.value;prepare();});$('sandboxLevel').addEventListener('change',e=>{level=root.RoyaleSandbox.validLevel(e.target.value);e.target.value=String(level);status();});$('sandboxTargets').addEventListener('change',e=>{showTargets=e.target.checked;});
-  const canvas=$('battleCanvas');canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',cancel);prepare();return api;
+  $('sandboxCard').addEventListener('change',e=>{card=e.target.value;syncForms();prepare();});$('sandboxLevel').addEventListener('change',e=>{level=root.RoyaleSandbox.validLevel(e.target.value);e.target.value=String(level);status();});$('sandboxTargets').addEventListener('change',e=>{showTargets=e.target.checked;});
+  const canvas=$('battleCanvas');canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',cancel);syncForms();prepare();return api;
  }
  function unmount(){revision++;ready=false;gesture=null;const canvas=$('battleCanvas');canvas?.removeEventListener('pointerdown',down);canvas?.removeEventListener('pointerup',up);canvas?.removeEventListener('pointercancel',cancel);shell?.remove();shell=null;session=null;$('battle')?.classList.remove('sandbox-view');}
  function drawTargets(c){
@@ -28481,7 +28504,7 @@ function create(ctx){
   const anchor=u=>V.toScreen({x:u.x,y:u.y-(root.RoyaleNative.entityElevation(u)||0)-(u.king!==undefined?40:u.building?28:12)});
   for(const u of b().active){const target=b().getEntity(u.targetId);if(!target||target.hp<=0)continue;const a=anchor(u),z=anchor(target);c.strokeStyle=u.team?'#ff697b':'#64ddff';c.fillStyle=c.strokeStyle;c.beginPath();c.moveTo(a.x,a.y);c.lineTo(z.x,z.y);c.stroke();c.beginPath();c.arc(z.x,z.y,5,0,Math.PI*2);c.fill();}c.restore();
  }
- const api={mount,unmount,drawTargets,get ready(){return ready;},get session(){return session;},get card(){return card;},get team(){return team;}};return api;
+ const api={mount,unmount,drawTargets,get ready(){return ready;},get session(){return session;},get card(){return card;},get formId(){return selectedForm()?.id||null;},get team(){return team;}};return api;
 }
 root.RoyaleSandboxUI={create};})(globalThis);
 
@@ -29190,7 +29213,7 @@ let lastUI=0,lastHomePaint=0,lastBattlePaint=-Infinity;function frame(ms){reques
 document.addEventListener('royale-ui-resize',()=>{if(battle)renderBattleHeader();});
 let lastWorldSave=0;
 const chestOpening=RoyaleChestOpeningUI.create({native,art,uiImages:B.uiImages,extraRewardMarkup:reward=>contentRewardMarkup(reward,{actions:true}),afterRewardMarkup:renderSkinPreviews,panel,close:closeModal,word,icon,cardVisual,hydrate,sound,getProfile:()=>profile});
-const sandboxUI=RoyaleSandboxUI.create({button,hydrate,toast,onExit:()=>show('home'),prepareMap:async s=>{fit();native.setArena(RoyaleArenaSelection.base(s.options.mapId));await native.prepareBattle(s.battle,C.DATA);profile.sandboxMap=s.options.mapId;save();},prepareCard:async id=>{if(RoyaleGraphics.current.potato)return;await Promise.all([art.load(id),native.ensureScenes(RoyaleNative.sceneDependencies(B.native,C.DATA,[[id]],battle?.arenaLayout?.custom?'custom':native.arenaId))]);if(C.CARD_BY_ID[id]?.exclusiveMode){await native.prewarmBattleActors({catalog:C,initialDecks:[[id]],seatForms:[]});await native.fx?.prewarmSpells?.([id],C.DATA);}}});
+const sandboxUI=RoyaleSandboxUI.create({button,hydrate,toast,onExit:()=>show('home'),prepareMap:async s=>{fit();native.setArena(RoyaleArenaSelection.base(s.options.mapId));await native.prepareBattle(s.battle,C.DATA);profile.sandboxMap=s.options.mapId;save();},prepareCard:async(id,formId=null)=>{if(RoyaleGraphics.current.potato)return;const form=F.get(formId),extra=form?[form.source,form.ability,form.abilityCharacter].filter(Boolean):[];await Promise.all([art.load(id),native.ensureScenes(RoyaleNative.sceneDependencies(B.native,C.DATA,[[id]],battle?.arenaLayout?.custom?'custom':native.arenaId,extra))]);await native.prewarmBattleActors({catalog:C,initialDecks:[[id]],seatForms:form?[[form.id],[form.id]]:[],formRegistry:F,teamOf:seat=>seat});await native.fx?.prewarmSpells?.([id,...(form?[form.id]:[])],C.DATA);}});
 const social=RoyaleSocialUI.create({getProfile:()=>profile,setProfile:p=>{profile=C.normalizeProfile(p,{positionalSlots:true});},save,header,show,panel,close:closeModal,hydrate,icon,button,word,cardVisual,emoteVisual,startBattle,playReplay,toast,getScreen:()=>screen,getModal:()=>modal,profileMenu,emotePicker,rewards});
 const replayBar=document.createElement('div');replayBar.id='replayControls';replayBar.hidden=true;replayBar.innerHTML='<strong>Replay</strong><span id="replayTime"></span><button id="replayPause" data-action="replay-pause">Pause</button><button data-action="replay-speed">Speed</button><button data-action="replay-restart">Restart</button><button data-action="return-log">Back</button>';$('battle').appendChild(replayBar);
 // The loading artwork is the only image decoded before the bounded asset pass.

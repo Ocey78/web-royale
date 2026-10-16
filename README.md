@@ -1,4 +1,6 @@
-# Ultimate Clash update 0.58.9
+# Ultimate Clash update 0.58.10
+
+The [0.58.10 update](docs/RELEASE-v0.58.10.md) adds **Evo and Hero checkboxes to Sandbox**, with direct form placement for normal and Ultimate cards and ability controls for either side.
 
 The [0.58.9 update](docs/RELEASE-v0.58.9.md) lowers Frostbite to **10 elixir**. Its **3-elixir Hero ability** extends the field by four seconds and summons five extra Ice Spirits. Evolved Lightning Storm now strikes every **0.3–0.6 seconds**.
 
