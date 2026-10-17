@@ -37,7 +37,8 @@ const plans={
  mirror:{color:'#342559',actors:['mirror'],layout:'mirror'},
  'bandit-squad':{color:'#554075',actors:['bandit','boss-bandit'],layout:'bandit-squad'},
  'elixir-pump':{color:'#7b2d9c',actors:['elixir-collector'],layout:'pump'},
- musketeer:{nativePortrait:'musketeer'}
+ musketeer:{nativePortrait:'musketeer'},
+ 'taunt-tower':{illustration:'taunt-tower'}
 };
 const imageIds=plan=>plan.illustration?['illustration-'+plan.illustration]:plan.actors;
 (async()=>{

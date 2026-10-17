@@ -11,7 +11,7 @@ const RANKED_LEAGUES=Object.freeze((MODERN?.rankedLeagues||[]).map(Object.freeze
 function arenaForTrophies(trophies){const t=Number.isFinite(trophies)?Math.max(0,trophies):0;return [...ARENAS].reverse().find(a=>t>=a.trophies)||ARENAS[0];}
 function leagueForTrophies(trophies){const t=Number.isFinite(trophies)?Math.max(0,trophies):0;return [...LEAGUES].reverse().find(l=>t>=l.trophies)||null;}
 function currentProgression(profile){const t=Number(profile?.trophies)||0;return leagueForTrophies(t)||arenaForTrophies(t);}
-function cheatFlags(raw){const c={duplicates:raw?.duplicates===true,placement:raw?.placement===true,overlevels:raw?.overlevels===true};if(raw?.elixir===true)c.elixir=true;return c;}
+function cheatFlags(raw){const c={duplicates:raw?.duplicates===true,placement:raw?.placement===true,overlevels:raw?.overlevels===true};for(const key of ['elixir','ultimateCards','halfCost'])if(raw?.[key]===true)c[key]=true;return c;}
 function timeLabel(seconds){const s=Math.max(0,Math.ceil(seconds));if(s>=3600)return Math.floor(s/3600)+'H'+(Math.floor(s%3600/60)?' '+Math.floor(s%3600/60)+'MIN':'');if(s>=60)return Math.floor(s/60)+'MIN'+(s%60?' '+s%60+'S':'');return s+'S';}
 function arenaUnlocks(cards,sourceArenas,number){const names=new Set(sourceArenas.filter(a=>a.Arena===number).map(a=>a.Name));return cards.filter(c=>names.has(c.arena||c.source?.UnlockArena));}
 // Add new IDs between existing milestones: old claims and reward content stay valid.

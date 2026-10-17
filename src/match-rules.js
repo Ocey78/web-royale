@@ -6,7 +6,7 @@ function difficulty(index=0,seed=77137){index=Math.max(0,Math.floor(Number(index
 function prepare(options,cards,data={}){
  if(!options.queue)return options;
  const queue=QUEUES.includes(options.queue)?options.queue:'challenge',trophy=queue==='trophy-road';
- const clean={...options,profile:options.profile?{...options.profile,cheatLevels:{}}:options.profile,queue,aiDifficulty:difficulty(options.profile?.battleSerial||0,options.profile?.world?.seed||77137)};
+ const clean={...options,profile:options.profile?{...options.profile,cheatLevels:options.profile.cheats?.overlevels?{...options.profile.cheatLevels}:{}}:options.profile,queue,aiDifficulty:difficulty(options.profile?.battleSerial||0,options.profile?.world?.seed||77137)};
  if(!trophy){const tournament=(data.rarities?.Common?.RelativeLevel||0)+(data.rarities?.Common?.TournamentLevelIndex??8)+1,levels=Object.fromEntries(cards.map(c=>[c.id,tournament])),count=['TeamRumble','UltimateTeamRumble'].includes(options.mode)?10:['Team3v3','Touchdown3v3','UltimateClash3v3'].includes(options.mode)?6:['TeamVsTeam','Touchdown2v2','UltimateClash2v2'].includes(options.mode)?4:2;Object.assign(clean,{levels,seatLevels:Array.from({length:count},()=>({...levels})),kingLevel:tournament,kingLevels:Array(count).fill(tournament)});}
  else{clean.levels={...options.profile?.cardLevels};clean.seatLevels=[clean.levels,...(options.seatLevels||[]).slice(1)];clean.kingLevel=options.profile?.level||1;clean.kingLevels=[clean.kingLevel,...(options.kingLevels||[]).slice(1)];}
  return clean;

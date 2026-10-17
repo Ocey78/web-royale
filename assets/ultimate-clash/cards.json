@@ -72,6 +72,21 @@
       ]
     },
     {
+      "id": "ultimate-taunt-tower",
+      "name": "Taunt Tower",
+      "file": "assets/ultimate-clash/cards/ultimate-taunt-tower.png",
+      "width": 474,
+      "height": 602,
+      "sha256": "2d8b6a2c61e553ba25fada9293cf74a3aec0484597a5be714884a484bcba6738",
+      "description": "A native Inferno Tower plated in bright gold and white enamel, with six blazing beams radiating from its molten core beneath a royal blue sky.",
+      "source": "Original illustration generated with the built-in imagegen tool",
+      "sourceFiles": [
+        "assets/ultimate-clash/illustrations/taunt-tower.png"
+      ],
+      "sourceSha256": "12a1da5b977cffa4c0f25ff04f298d90d8227f8b32557a6bf344925511af093a",
+      "generationPrompt": "Use case: stylized-concept. Asset type: full-bleed card portrait for a colorful 3D fantasy strategy game. Primary request: TAUNT TOWER, a Clash Royale Inferno Tower variant made of polished ivory-white stone and bright gold armor. A squat square armored pedestal supports a tall white and gold mechanical tower with a blazing golden inferno emitter at the top. Six clearly separate luminous gold-white energy beams fan from the emitter toward six small distant enemy silhouettes around the edges of an arena, suggesting irresistible attention. The tower dominates the image, is recognizable as an Inferno Tower, with chunky rounded mobile-game shapes, crisp sculpted details, bright gold fittings, white enamel panels, an orange-hot central lens. Deep royal blue background contrasts with the luminous white/gold tower. Dynamic three-quarter low-angle view, strong dimensional lighting, polished colorful 3D cartoon fantasy render, clean readable silhouette at small card sizes. Portrait composition approximately 474:602, center the entire tower within middle 80%, full bleed opaque background. No words, letters, numerals, logos, watermark, card frame, border, or UI. Rich painted dimensional artwork, not flat vector."
+    },
+    {
       "id": "ultimate-builder",
       "name": "Builder",
       "file": "assets/ultimate-clash/cards/ultimate-builder.png",
