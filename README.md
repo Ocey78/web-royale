@@ -1,3 +1,7 @@
+# Ultimate Clash update 0.58.16
+
+The [0.58.16 update](docs/RELEASE-v0.58.16.md) makes Ultimate cards match your King Tower level when the Ultimate-cards practice cheat is enabled in normal games. Deck labels and battle stats follow that level automatically.
+
 # Ultimate Clash update 0.58.15
 
 The [0.58.15 update](docs/RELEASE-v0.58.15.md) adds **Ultimate cards in normal decks** and **Half elixir costs** under Settings → Practice Cheats. With Ultimate access enabled in normal games, your cap is **20 elixir**, or **10 with Half elixir costs enabled**. Ultimate Musketeer fires 50% faster and shoots two bullets per attack. The new **6-elixir Taunt Tower** reaches 12 tiles, channels six Inferno beams and forces the enemies it beams to focus on it.

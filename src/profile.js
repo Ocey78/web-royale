@@ -27,8 +27,6 @@ function normalizeProfile(raw,options={}){
   copies[c.id]=num(p.copies?.[c.id],0,100000);
   if(Number.isFinite(p.cheatLevels?.[c.id]))cheatLevels[c.id]=clamp(Math.floor(p.cheatLevels[c.id]),base,30);
  }
- // Practice access grants fixed battle levels, never collection copies or upgrades.
- for(const c of K.ULTIMATE_CARDS){const base=K.baseLevel(c.rarity);levels[c.id]=Math.max(11,base);if(Number.isFinite(p.cheatLevels?.[c.id]))cheatLevels[c.id]=clamp(Math.floor(p.cheatLevels[c.id]),base,30);}
  const trophies=num(p.trophies,fresh?0:1000),highestTrophies=Math.max(trophies,num(p.highestTrophies,trophies)),arena=R.arenaForTrophies(trophies),peakArena=R.arenaForTrophies(highestTrophies);
  const existingDecks=Array.isArray(p.decks)?p.decks:[],deckFallback=fresh?Array.from({length:5},()=>[...K.DEFAULT_DECK]):PRESETS;
  const savedDecks=Array.isArray(p.decks)?(existingDecks.length?existingDecks.slice(0,K.MAX_DECKS):[K.DEFAULT_DECK]):deckFallback;
@@ -56,6 +54,8 @@ function normalizeProfile(raw,options={}){
  const casualDecks=Object.fromEntries(Object.entries(K.MODE_DECKS).map(([mode,cfg])=>[cfg.key,modeSaved(p[cfg.key]??decks[num(p.activeDeck,0,decks.length-1)],mode)]));
  const modeDeckSets={};for(const [mode,cfg] of Object.entries(K.MODE_DECKS)){const rawSet=p.modeDeckSets?.[mode],rawDecks=Array.isArray(rawSet?.decks)?rawSet.decks.slice(0,K.MAX_DECKS):[],setDecks=(rawDecks.length?rawDecks:[casualDecks[cfg.key]]).map(d=>modeSaved(d,mode)),active=num(rawSet?.active,0,setDecks.length-1);if(rawDecks.length&&Array.isArray(p[cfg.key]))setDecks[active]=modeSaved(p[cfg.key],mode);const names=setDecks.map((_,i)=>K.deckName(rawSet?.names?.[i],i));modeDeckSets[mode]={active,decks:setDecks,names};casualDecks[cfg.key]=[...setDecks[active]];}
  const experience=X.legacyTotalXp(p,fresh),xpState=X.progressFromTotalXp(experience),starPoints=num(p.starPoints,0,999999999);
+ // Practice access follows tower strength, without granting copies or upgrades.
+ for(const c of K.ULTIMATE_CARDS){levels[c.id]=cheats.ultimateCards?(xpState.towerLevel||xpState.level):11;if(Number.isFinite(p.cheatLevels?.[c.id]))cheatLevels[c.id]=clamp(Math.floor(p.cheatLevels[c.id]),K.baseLevel(c.rarity),30);}
  const winStreak=num(p.winStreak),milestones=Math.floor(winStreak/3),minimumBonus=Math.min(3,milestones)*10+Math.max(0,milestones-3)*5,winStreakBonus=clamp(num(p.winStreakBonus,minimumBonus,milestones*15),minimumBonus,milestones*15),bestWinStreak=Math.max(winStreak,num(p.bestWinStreak));
  // Keep reward receipts beyond the 20-entry Battle Log. Import the IDs available
  // in older saves and bound recent receipts independently of presentation history.
