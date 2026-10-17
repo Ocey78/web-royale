@@ -3,6 +3,7 @@
    Emitter coordinates/gravity are a browser interpretation, not native-engine code. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RoyaleFX=api;})(globalThis,function(){'use strict';
 const TAU=Math.PI*2,MAX_EMITTER_PARTICLES=96,MAX_FRAME_PARTICLES=850;
+const GROUND_LAYERS=new Set(['Base','Ground','GroundAbility','Shadow']);
 const Ground=typeof module==='object'&&module.exports?require('./spell-ground'):globalThis.RoyaleSpellGround,Flight=typeof module==='object'&&module.exports?require('./spell-flight'):globalThis.RoyaleSpellFlight;
 const clamp=(n,l,h)=>Math.max(l,Math.min(h,n)),num=(n,d=0)=>Number.isFinite(n)?n:d,seconds=n=>Math.max(0,num(n))/1000;
 function hash(v){let n=2166136261;for(const c of String(v))n=Math.imul(n^c.charCodeAt(0),16777619);return n>>>0;}
@@ -28,10 +29,10 @@ function emitterSamples(r,seed,time,loop=false,parent={},budget=MAX_EMITTER_PART
  // Continuous emission has a stable birth interval. Repeating a truncated batch
  // introduced gaps in fire/rocket trails and discarded the later snow particles.
  if(loop){const step=Math.max(.001,interval,emission/count||seconds(r.ParticleMaxLife||800)/count),life=Math.max(.001,seconds(r.ParticleMaxLife??r.ParticleMinLife??800)),last=Math.floor(time/step),first=Math.max(0,last-Math.ceil(life/step)),stride=Math.max(1,Math.ceil((last-first+1)/budget)),out=[];
-  for(let i=last;i>=first&&out.length<budget;i-=stride){const born=i*step,p=particleAt(r,seed,i,time-born,parent);if(p)out.push({...p,born});}return out;
+  for(let i=last;i>=first&&out.length<budget;i-=stride){const born=i*step,p=particleAt(r,seed,i,time-born,parent);if(p){p.born=born;out.push(p);}}return out;
  }
  const period=Math.max(.12,emission||seconds(r.ParticleMaxLife||r.ParticleMinLife||800)),cycle=loop?Math.floor(time/period):0,out=[];
- for(let g=Math.max(0,cycle-2);g<=cycle;g++){const local=time-g*period;for(let i=0;i<count;i++){if(out.length>=budget)return out;const start=interval?i*interval:emission>.12?(i/count)*emission:0,age=local-start;if(age<0)continue;const p=particleAt(r,seed+':'+g,i,age,parent);if(p)out.push({...p,born:g*period+start});}}
+ for(let g=Math.max(0,cycle-2);g<=cycle;g++){const local=time-g*period;for(let i=0;i<count;i++){if(out.length>=budget)return out;const start=interval?i*interval:emission>.12?(i/count)*emission:0,age=local-start;if(age<0)continue;const p=particleAt(r,seed+':'+g,i,age,parent);if(p){p.born=g*period+start;out.push(p);}}}
  return out;
 }
 // Tail limits are source fixed-point distances, not ready-made pixel segments.
@@ -47,11 +48,11 @@ function effectComponents(data,name,team=0,seen=new Set()){if(!name||seen.has(na
 function nameOf(file){return String(file||'').split('/').pop().replace(/\.sc$/,'');}
 function sourceEffects(data,game,roots){const names=new Set(),seen=new Set(),tables=['projectiles','areas','buffs','entities','actions','actionGroups','abilities'];const visit=value=>{if(Array.isArray(value)){value.forEach(visit);return;}if(value&&typeof value==='object'){Object.values(value).forEach(visit);return;}if(typeof value!=='string'||seen.has(value))return;seen.add(value);if(data.effects[value]){names.add(value);visit(data.effects[value]);}for(const table of tables)if(game[table]?.[value])visit(game[table][value]);};visit(roots);return names;}
 class Renderer{
- constructor(data,library){this.data=data;this.library=library;this.used=0;this.particlesUsed=0;this.componentCache=new Map();this.areaBounds=new WeakMap();this.spriteCount=0;this.effectCount=0;this.missing=new Set();}
+ constructor(data,library){this.data=data;this.library=library;this.used=0;this.particlesUsed=0;this.componentCache=new Map();this.emitterVariantCache=new WeakMap();this.unitFilters=new Map();this.areaBounds=new WeakMap();this.spriteCount=0;this.effectCount=0;this.missing=new Set();}
  begin(){this.used=0;this.particlesUsed=0;}
  // Target filters are presentation records. Rebuild from the current visual
  // events each frame so seeking/replays never retain a future hit's colour.
- prepareUnitFilters(b){this.unitFilters=new Map();const now=b.visualTime??b.time;globalThis.RoyaleModern3D?.setActionEffects?.(b.effects||[],now);for(const e of b.effects||[]){if(!e.sourceEffect||e.follow===undefined)continue;const age=now-e.born-(e.delay||0);if(age<0||age>=e.ttl-(e.delay||0))continue;for(const r of this.components(e.sourceEffect,e.team)){if(r.Type!=='Filter'||!r.ExportName||!r.FileName)continue;const scene=this.library.scenes[nameOf(r.FileName)],time=age-seconds(r.Time),duration=scene?.duration(r.ExportName);if(!scene||scene.id(r.ExportName)===undefined||time<0||!(duration>time))continue;this.unitFilters.set(e.follow,{scene,name:r.ExportName,time,loop:false});}}}
+ prepareUnitFilters(b){this.unitFilters.clear();const now=b.visualTime??b.time;globalThis.RoyaleModern3D?.setActionEffects?.(b.effects||[],now);for(const e of b.effects||[]){if(!e.sourceEffect||e.follow===undefined)continue;const age=now-e.born-(e.delay||0);if(age<0||age>=e.ttl-(e.delay||0))continue;for(const r of this.components(e.sourceEffect,e.team)){if(r.Type!=='Filter'||!r.ExportName||!r.FileName)continue;const scene=this.library.scenes[nameOf(r.FileName)],time=age-seconds(r.Time),duration=scene?.duration(r.ExportName);if(!scene||scene.id(r.ExportName)===undefined||time<0||!(duration>time))continue;this.unitFilters.set(e.follow,{scene,name:r.ExportName,time,loop:false});}}}
  unitFilter(u){return u?.preview?null:this.unitFilters?.get(u?.id)||null;}
  async prewarmSpells(cardIds,game){if(typeof document==='undefined')return;const roots=[];for(const id of new Set(cardIds)){const card=game.cards?.find(c=>c.id===id)||globalThis.RoyaleCore?.CARD_BY_ID[id],form=globalThis.RoyaleCardForms?.defaultRegistry?.get(id);if(card?.spell||card?.kind==='Spell')roots.push(card.source);if(form)roots.push(form.source);}const names=sourceEffects(this.data,game,roots);
   const cv=document.createElement('canvas');cv.width=cv.height=256;const ctx=cv.getContext('2d'),sprites=this.spriteCount,effects=this.effectCount;let start=performance.now();
@@ -66,6 +67,8 @@ class Renderer{
  }
  isSpellEffect(name){const game=globalThis.RoyaleCore?.DATA;if(!game)return false;if(!this.spellEffects)this.spellEffects=sourceEffects(this.data,game,(globalThis.RoyaleCore.CARDS||[]).filter(c=>c.spell).map(c=>c.source));return this.spellEffects.has(name);}
  components(name,team){const k=name+':'+team;if(!this.componentCache.has(k))this.componentCache.set(k,effectComponents(this.data,name,team));return this.componentCache.get(k);}
+ // Emitter source rows are fixed asset metadata; never cache live particle state.
+ emitterVariants(records){let variants=this.emitterVariantCache.get(records);if(!variants){const head=records[0];variants=records.map(variant=>({...head,...variant}));this.emitterVariantCache.set(records,variants);}return variants;}
  areaExtent(scene,name){let cache=this.areaBounds.get(scene);if(!cache){cache=new Map();this.areaBounds.set(scene,cache);}if(cache.has(name))return cache.get(name);
   // Ignore the empty intro and airborne cast objects; calibrate the established
   // floor pose. Cache once per export instead of traversing its graph every draw.
@@ -80,16 +83,16 @@ class Renderer{
  }
  sprite(c,file,name,time,x,y,sx=1,sy=sx,rotation=0,alpha=1,loop=true){if(this.used>=MAX_FRAME_PARTICLES||!name||alpha<=.001)return false;const sc=this.library.scenes[nameOf(file)];if(!sc||sc.id(name)===undefined){this.missing.add(nameOf(file)+'#'+name);return false;}c.save();c.translate(x,y);c.rotate(rotation);c.scale(sx,sy);c.globalAlpha*=clamp(alpha,0,1);if(!(/^sauron_eye_ground(?:_outro)?$/.test(name)&&this.groundComposite(c,sc,name,time,loop)))sc.draw(c,name,time,{loop});c.restore();this.used++;this.spriteCount++;return true;}
  effect(c,name,x,y,time,team,options={}){const rows=this.components(name,team);if(!rows.length)return false;if(rows.some(r=>r.Type==='ParticleEmitter')&&Flight?.impact(this,c,name,x,y,time,options.phase||'above',options))return true;if(name==='Spell_zap_effect')Ground.zap(c,x,y,time,options.phase||'above',options.impactRadius);if(name==='Spell_rage_effect'){if(time>=.9)return true;options={...options,alpha:(options.alpha??1)*clamp(1-time/.9,0,1)};}const baseScale=num(this.data.coordinateScale,.6),phase=options.phase||'above';let count=0;
- for(let ri=0;ri<rows.length;ri++){const r=rows[ri],ground=['Base','Ground','GroundAbility','Shadow'].includes(r.Layer);if(phase!=='all'&&ground!==(phase==='ground'))continue;const age=time-seconds(r.Time);if(age<0)continue;const scale=baseScale*num(r.Scale,100)/100*num(r.RenderableScale,100)/100*num(options.scale,1);
+ for(let ri=0;ri<rows.length;ri++){const r=rows[ri],ground=GROUND_LAYERS.has(r.Layer);if(phase!=='all'&&ground!==(phase==='ground'))continue;const age=time-seconds(r.Time);if(age<0)continue;const scale=baseScale*num(r.Scale,100)/100*num(r.RenderableScale,100)/100*num(options.scale,1);
   if(r.Type==='SWF'&&r.FileName&&r.ExportName){const sc=this.library.scenes[nameOf(r.FileName)];if(!sc||sc.id(r.ExportName)===undefined){this.missing.add(nameOf(r.FileName)+'#'+r.ExportName);continue;}let sx=scale,sy=scale;
    if(options.fitArea&&ground&&options.radius){const bounds=this.areaExtent(sc,r.ExportName);sx=options.radius*2*(480/18)/Math.max(1,bounds.width);sy=options.radius*40/Math.max(1,bounds.height);}
    const duration=sc.duration(r.ExportName)||.6,loop=options.loop||r.Loop,life=Math.min(duration,options.life??duration);if(!loop&&age>life)continue;
    const ringAlpha=options.fitArea&&/^spell_.*_radius_(blue|red)$/.test(r.ExportName)?.22:options.area&&ground?Ground.nativeFloorAlpha(options.area.name):1;
    count+=Number(this.sprite(c,r.FileName,r.ExportName,age,x,y-num(options.height),sx,sy,0,(options.alpha??1)*ringAlpha,!!loop));
   }else if(r.Type==='ParticleEmitter'&&r.ParticleEmitterName){const G=globalThis.RoyaleGraphics,mode=G?.current.particles||'good',isSpell=options.spell??this.isSpellEffect(name),budget=G?Math.min(G.particleBudget(mode,isSpell),Math.max(0,G.current.frameParticles-this.particlesUsed)):MAX_EMITTER_PARTICLES;if(!budget)continue;let records=this.data.emitters[r.ParticleEmitterName];if(!records?.length)continue;if(team&&records[0].EnemyVersion)records=this.data.emitters[records[0].EnemyVersion]||records;const head=records[0];
-   const parentAngle=options.velocity?Math.atan2(options.velocity.y,options.velocity.x):num(options.angle),emitterPolicy=Ground.policy(r.ParticleEmitterName),policy=options.area&&emitterPolicy;if(emitterPolicy?.replace)continue;
+   const parentAngle=options.velocity?Math.atan2(options.velocity.y,options.velocity.x):num(options.angle),emitterPolicy=Ground.policy(r.ParticleEmitterName),policy=options.area&&emitterPolicy;if(emitterPolicy?.replace)continue;const variants=this.emitterVariants(records);
    for(const p of emitterSamples(head,(options.seed??name)+':'+ri,age,options.loop||r.Loop,{angle:parentAngle},Math.min(budget,policy?.maxVisible??budget))){
-    if(this.used>=MAX_FRAME_PARTICLES)break;this.particlesUsed++;const variantIndex=head.ResourceFromAngle?directionalVariant(records.length,p.theta):Math.min(records.length-1,Math.floor(p.variant*records.length)),variant=records[variantIndex],d={...head,...variant},alpha=p.alpha*(options.alpha??1)*(r.Layer==='Shadow'?.3:1);
+    if(this.used>=MAX_FRAME_PARTICLES)break;this.particlesUsed++;const variantIndex=head.ResourceFromAngle?directionalVariant(records.length,p.theta):Math.min(records.length-1,Math.floor(p.variant*records.length)),d=variants[variantIndex],alpha=p.alpha*(options.alpha??1)*(r.Layer==='Shadow'?.3:1);
     // Small numeric area-emitter radii use a local coordinate space distinct
     // from the authored SWF floor. Map that space to the actual spell footprint.
     const placed=options.area&&Ground.placement(options.area,r.ParticleEmitterName,p,options.seed,ri,scale);

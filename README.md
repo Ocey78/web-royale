@@ -1,4 +1,8 @@
-# Ultimate Clash update 0.58.13
+# Ultimate Clash update 0.58.14
+
+The [0.58.14 update](docs/RELEASE-v0.58.14.md) reduces repeated combat scans, Horde UI work and effect allocations. **Evolved Lightning Storm grows 5% per wave**, and its strike visuals are batched so every bolt remains visible during crowded waves.
+
+The Ultimate pool now has **34 cards**, including a **4-elixir Musketeer with Princess range**. Elixir Witch summons Golemites **55% less frequently**.
 
 The [0.58.13 update](docs/RELEASE-v0.58.13.md) lowers **Mega Minion Horde to 8 elixir**, including its Hero form.
 

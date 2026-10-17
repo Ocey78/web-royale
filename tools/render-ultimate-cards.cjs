@@ -3,7 +3,6 @@
 // The UI applies the normal card frame; every output is a full-bleed portrait.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),content=require('../src/ultimate-clash.js');
-const {chromium}=require('playwright');
 const plans={
  'mega-minion-horde':{color:'#333c88',actors:['mega-minion','mega-minion','mega-minion','mega-minion','mega-minion','mega-minion'],layout:'horde'},
  'lightning-storm':{illustration:'lightning-storm'},
@@ -37,7 +36,8 @@ const plans={
  'bowler-giant':{color:'#2b446d',actors:['bowler'],layout:'giant'},
  mirror:{color:'#342559',actors:['mirror'],layout:'mirror'},
  'bandit-squad':{color:'#554075',actors:['bandit','boss-bandit'],layout:'bandit-squad'},
- 'elixir-pump':{color:'#7b2d9c',actors:['elixir-collector'],layout:'pump'}
+ 'elixir-pump':{color:'#7b2d9c',actors:['elixir-collector'],layout:'pump'},
+ musketeer:{nativePortrait:'musketeer'}
 };
 const imageIds=plan=>plan.illustration?['illustration-'+plan.illustration]:plan.actors;
 (async()=>{
@@ -52,12 +52,14 @@ const imageIds=plan=>plan.illustration?['illustration-'+plan.illustration]:plan.
  if(!fs.existsSync(path.join(root,paths['builder-portrait'])))throw Error('Render the source Builder portrait before rendering custom cards.');
  const manifestPath=path.join(root,'assets/ultimate-clash/cards.json'),previous=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPath,'utf8')):{cards:[]},onlyNew=process.argv.includes('--only-new');
  const requested=process.argv.find(v=>v.startsWith('--cards='))?.slice(8).split(',');
- const selected=Object.fromEntries(Object.entries(plans).filter(([slug])=>requested?requested.includes(slug):!onlyNew||!previous.cards.some(c=>c.id==='ultimate-'+slug)));
+ const selected=Object.fromEntries(Object.entries(plans).filter(([slug,plan])=>!plan.nativePortrait&&(requested?requested.includes(slug):!onlyNew||!previous.cards.some(c=>c.id==='ultimate-'+slug))));
  const images=Object.fromEntries([...new Set(Object.values(selected).flatMap(imageIds))].map(id=>[id,'data:image/png;base64,'+fs.readFileSync(path.join(root,paths[id])).toString('base64')]));
- const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||'msedge'});
+ const browser=Object.keys(selected).length?await require('playwright').chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||'msedge'}):null;
  try{
+  let result={};
+  if(browser){
   const page=await browser.newPage();await page.setContent('<!doctype html><html><body></body></html>');
-  const result=await page.evaluate(async({plans,images})=>{
+  result=await page.evaluate(async({plans,images})=>{
    const loaded={};await Promise.all(Object.entries(images).map(([id,url])=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{loaded[id]=im;resolve();};im.onerror=reject;im.src=url;})));
    if(loaded['royal-recruit-unit']){const source=loaded['royal-recruit-unit'],tile=document.createElement('canvas');tile.width=142;tile.height=234;tile.getContext('2d').drawImage(source,95,66,142,234,0,0,142,234);loaded['royal-recruit-unit']=tile;}
    const outputs={};for(const [slug,p]of Object.entries(plans)){
@@ -128,8 +130,14 @@ const imageIds=plan=>plan.illustration?['illustration-'+plan.illustration]:plan.
     outputs[slug]=cv.toDataURL('image/png').split(',')[1];
    }return outputs;
   },{plans:selected,images});
+  }
   const dir=path.join(root,'assets/ultimate-clash/cards');fs.mkdirSync(dir,{recursive:true});const entries=[];
   for(const config of content.CARDS){
+   const nativePortrait=plans[config.slug]?.nativePortrait;
+   if(nativePortrait){
+    const sourceFile=paths[nativePortrait],bytes=fs.readFileSync(path.join(root,sourceFile)),file='assets/ultimate-clash/cards/'+config.id+'.png';fs.writeFileSync(path.join(root,file),bytes);
+    entries.push({id:config.id,name:config.name,file,width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20),sha256:crypto.createHash('sha256').update(bytes).digest('hex'),description:config.artDescription,source:'Bundled native card portrait',sourceFiles:[sourceFile]});continue;
+   }
    if(!result[config.slug]){const existing=previous.cards.find(c=>c.id===config.id);if(!existing)throw Error('Missing portrait result: '+config.id);entries.push(existing);continue;}
    const plan=plans[config.slug],bytes=Buffer.from(result[config.slug],'base64'),file='assets/ultimate-clash/cards/'+config.id+'.png';fs.writeFileSync(path.join(root,file),bytes);
    const sourceFiles=[...new Set(imageIds(plan).map(id=>paths[id]))],entry={id:config.id,name:config.name,file,width:474,height:602,sha256:crypto.createHash('sha256').update(bytes).digest('hex'),description:config.artDescription,source:plan.illustration?'Original illustration generated with the built-in imagegen tool':'Web Royale custom Canvas composition',sourceFiles};
@@ -137,5 +145,5 @@ const imageIds=plan=>plan.illustration?['illustration-'+plan.illustration]:plan.
    entries.push(entry);
   }
   fs.writeFileSync(path.join(root,'assets/ultimate-clash/cards.json'),JSON.stringify({version:1,mode:'UltimateClash',method:'Deterministic composition of bundled game portraits and retained original spell illustrations; normal card frames are applied by the UI.',cards:entries},null,2)+'\n');console.log('Rendered '+Object.keys(result).length+' of '+entries.length+' Ultimate Clash card portraits.');
- }finally{await browser.close();}
+ }finally{if(browser)await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -456,6 +456,19 @@
       "sourceFiles": [
         "assets/cards/elixir-collector.png"
       ]
+    },
+    {
+      "id": "ultimate-musketeer",
+      "name": "Musketeer",
+      "file": "assets/ultimate-clash/cards/ultimate-musketeer.png",
+      "width": 237,
+      "height": 301,
+      "sha256": "8d2cee311cc818a368a943340a93f8af63ba0c1b00bee0f31d10771b9aeacdd9",
+      "description": "The native purple-haired Musketeer portrait, wearing her steel helmet and carrying her musket.",
+      "source": "Bundled native card portrait",
+      "sourceFiles": [
+        "assets/cards/musketeer.png"
+      ]
     }
   ]
 }

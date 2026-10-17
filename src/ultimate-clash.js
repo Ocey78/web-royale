@@ -18,7 +18,7 @@ const CARDS=Object.freeze([
  row('royale-escort','Royale Escort',20,'royal-giant','Troop','Two Knights and a Prince lead a Royal Giant, with two Cannon Carts behind. One-cycle Evolution upgrades the Knights and Royal Giant and replaces the Prince with a Dark Prince.','A golden Royal Giant in the middle, Knights and a mounted Prince in front, and two Cannon Carts at the rear.'),
  row('kings-dropoff','King’s Dropoff',13,'royal-delivery','Spell','Four Royal Deliveries drop around a boxed Cannon Cart in a plus shape. The Cannon Cart lands in the centre while the recruits secure all four sides.','Four falling wooden Royal Delivery crates surrounding a larger central crate with a cannon peeking out.'),
  row('elite-barbarians','Elite Barbarians',12,'elite-barbarians','Troop','Five Elite Barbarians deploy in the familiar Barbarians formation. Their fast movement and heavy swords make this a powerful group attack.','Five furious blond Elite Barbarians with steel helmets and raised swords charging through gold dust.'),
- row('elixir-witch','Elixir Witch',5,'mother-witch','Troop','A Mother Witch who moves 5% slower and periodically summons middle-stage Elixir Golemites. Her kills turn enemy troops into tiny friendly Elixir Golemites instead of Hogs.','A purple-robed Mother Witch holding a pink elixir lantern, surrounded by small smiling elixir golemites.'),
+ row('elixir-witch','Elixir Witch',5,'mother-witch','Troop','A Mother Witch who moves 5% slower and summons two middle-stage Elixir Golemites about every 11.11 seconds, with her first pair about 2.22 seconds after deploying. Her kills turn enemy troops into tiny friendly Elixir Golemites instead of Hogs.','A purple-robed Mother Witch holding a pink elixir lantern, surrounded by small smiling elixir golemites.'),
  row('unstable-egg','Unstable Egg',3,'phoenix','Troop','Place a Phoenix Egg on your side. On hatching: 30% Baby Dragon, 20% evolved Baby Dragon, 5% three Baby Dragons, or 45% a Goblin Demolisher-style explosion that damages both teams.','A cracked golden Phoenix Egg glowing green and orange from within, with dragon eyes visible between the cracks.'),
  row('fisherman','Fisherman',4,'fisherman','Troop','Hooks an enemy immediately on deployment when one is in hook range. Later hooks charge in half the normal time. Fish Slapping remains complimentary.','A grinning blue-capped Fisherman casting a gleaming anchor hook toward the viewer with a turquoise motion streak.'),
  row('bomb-squad','Bomb Squad',6,'bomber','Troop','Two Bombers hide behind a Guard. They remain faintly visible like the Archer Queen during her cloak ability, but cannot be targeted until their Guard falls; then they become fully visible.','A shield-bearing skeleton Guard protecting two shadowy Bombers with glowing bombs behind him.'),
@@ -34,7 +34,8 @@ const CARDS=Object.freeze([
  row('bowler-giant','Bowler Giant',11,'bowler','Troop','A Bowler and both of his boulders are 40% larger. He carries one ball in each hand and targets only buildings, while both rolling boulders strike enemy ground troops along their paths.','An enlarged native purple Bowler holding two oversized stone boulders, one in each hand, against a deep blue quarry sky.'),
  row('mirror','Mirror',1,'mirror','Spell','Replays your last non-Mirror card at 3 levels above its played level. Costs one more elixir than that card, capped at 20 elixir. A 20-elixir card still costs 20 to mirror. Copies use the base card form; repeated Mirrors do not add further levels.','An ornate gold-and-steel Mirror glows with violet light and three reflected magical echoes.'),
  row('bandit-squad','Bandit Squad',18,'bandit','Troop','Four Bandits surround a Boss Bandit in one five-troop deployment. Each keeps her native charge and dash attack, rushing enemies together. The squad costs 18 elixir and is available only in Ultimate Clash.','Four masked white-haired Bandits surround a larger red-haired Boss Bandit beneath a violet-and-gold sky.'),
- row('elixir-pump','Elixir Pump',15,'elixir-collector','Building','An accelerated Elixir Collector that costs 15 elixir and produces 1 elixir every 6 seconds, 2.5 times as fast as the normal Collector. It keeps the normal Collector’s health and lifetime, supports Builders, and is available only in Ultimate Clash.','A reinforced Elixir Collector overflowing with luminous purple elixir, with bright droplets and rapid pumping energy around its glass tank.')
+ row('elixir-pump','Elixir Pump',15,'elixir-collector','Building','An accelerated Elixir Collector that costs 15 elixir and produces 1 elixir every 6 seconds, 2.5 times as fast as the normal Collector. It keeps the normal Collector’s health and lifetime, supports Builders, and is available only in Ultimate Clash.','A reinforced Elixir Collector overflowing with luminous purple elixir, with bright droplets and rapid pumping energy around its glass tank.'),
+ row('musketeer','Musketeer',4,'musketeer','Troop','A Musketeer with the Princess’s 9-tile attack range and 9.5-tile sight range. She costs 4 elixir and keeps the normal Musketeer’s other stats.','The native purple-haired Musketeer portrait, wearing her steel helmet and carrying her musket.')
 ]);
 const CARD_IDS=Object.freeze(CARDS.map(c=>c.id)),DEFAULT_DECK=Object.freeze(['ultimate-royale-escort','ultimate-mega-minion-horde','ultimate-frostbite','ultimate-bomb-squad','ultimate-heal-spell','ultimate-fisherman','ultimate-executioner-cage','ultimate-meteor-shower']);
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -45,7 +46,7 @@ function install(data){
  const cage=entity('UltimateExecutionerCage','GoblinCage',{Range:inferno.Range||6000,SightRange:inferno.Range||6000,Projectile:axe.Projectile,HitSpeed:axe.HitSpeed,LoadTime:axe.LoadTime,AttacksAir:true,AttacksGround:true,MultipleTargets:3,DeathSpawnCharacter:'AxeMan',DeathSpawnCount:3,OnStartingAction:'',UltimateTint:'#a6aab0'});delete cage.Damage;
  const tesla=entity('UltimateOverchargedTesla','Tesla_EV1',{Projectile:zap.Projectile,AttackStartEffect:'',TargetedHitEffect:'',ProjectileEffect:zap.ProjectileEffect,HitSpeed:4000,LoadFirstHit:true,LoadTime:3000,AttacksAir:false,HidesWhenNotAttacking:false,OnStartingAction:'',OnAppearAction:'',OnDisappearAction:'',AppearEffect:'',HideEffect:''});delete tesla.Damage;
  data.projectiles.UltimateElixirWitchProjectile={...clone(data.projectiles[data.entities.WitchMother.Projectile]),Name:'UltimateElixirWitchProjectile',TargetBuff:''};
- entity('UltimateElixirWitch','WitchMother',{Projectile:'UltimateElixirWitchProjectile',Speed:(data.entities.WitchMother.Speed||60)*.95,BuffOnDamage:'',SpawnCharacter:'ElixirGolem2',SpawnStartTime:night.SpawnStartTime,SpawnPauseTime:night.SpawnPauseTime,SpawnNumber:night.SpawnNumber,UltimateTint:'#e965d3'});
+ entity('UltimateElixirWitch','WitchMother',{Projectile:'UltimateElixirWitchProjectile',Speed:(data.entities.WitchMother.Speed||60)*.95,BuffOnDamage:'',SpawnCharacter:'ElixirGolem2',SpawnStartTime:night.SpawnStartTime/.45,SpawnPauseTime:night.SpawnPauseTime/.45,SpawnNumber:night.SpawnNumber,UltimateTint:'#e965d3'});
  entity('UltimateUnstableEgg','PhoenixEgg',{SpawnCharacter:'',DestroyAtLimit:false,Speed:0});
  entity('UltimateFisherman','Fisherman',{SpecialLoadTime:650});
  entity('UltimateFrostbiteHero','IceSpirits',{Hitpoints:1,Speed:0,Damage:0,Projectile:'',Kamikaze:false,Range:0,AttacksAir:false,AttacksGround:false});
@@ -59,6 +60,7 @@ function install(data){
  // Classic bridges are two tiles wide; keep the body within their one-tile half-width while retaining the enlarged art.
  entity('UltimateBowlerGiant','Bowler',{Hitpoints:1500,Scale:data.entities.Bowler.Scale*1.4,CollisionRadius:1000,TargetOnlyBuildings:true,Projectile:'UltimateBowlerGiantProjectile',UltimateVisualScale:1.4});
  entity('UltimateElixirPump','ElixirCollector',{ManaGenerateTimeMs:data.entities.ElixirCollector.ManaGenerateTimeMs/2.5});
+ entity('UltimateMusketeer','Musketeer',{Range:data.entities.Princess.Range,SightRange:data.entities.Princess.SightRange});
  const area=(name,base,radius,duration)=>data.areas[name]={...clone(data.areas[base]||{}),Name:name,Radius:radius,LifeDuration:duration};
  area('UltimateLightningStorm','Graveyard_rework',3400,10000);
  area('UltimateHealSpell','HealSpirit',5000,2000);
@@ -69,7 +71,7 @@ function install(data){
  field('UltimateRoyaleRecall',3500,600);field('UltimateDarkPact',4000,7000);field('UltimateElixirSpell',4000,6000);
  const overrides={
   'mega-minion-horde':{SummonNumber:6,SummonRadius:1000},
-  'lightning-storm':{Projectile:'',AreaEffectObject:'UltimateLightningStorm',Radius:3400,CanDeployOnEnemySide:true},
+  'lightning-storm':{Projectile:'',AreaEffectObject:'UltimateLightningStorm',Radius:3400,CanDeployOnEnemySide:true,UltimateVisualDependencies:['LighningSpell']},
   'heal-spell':{SummonCharacter:'',SpellAsDeploy:false,AreaEffectObject:'UltimateHealSpell',Radius:5000,CanDeployOnEnemySide:true,CanPlaceOnBuildings:true,CanPlaceOnWater:true},
   'balloon-parade':{SummonNumber:6,SummonWidth:14000,SummonRadius:500,SummonDeployDelay:100,DeployWTileMargin:6,FullLaneDeploy:true},
   'executioner-cage':{SummonCharacter:'UltimateExecutionerCage'},
@@ -100,7 +102,8 @@ function install(data){
   'bowler-giant':{SummonCharacter:'UltimateBowlerGiant'},
   mirror:{Mirror:true},
   'bandit-squad':{SummonCharacter:'',SummonCharactersList:['Assassin','Assassin','BossBandit','Assassin','Assassin'],SummonNumber:5,SummonRadius:1200},
-  'elixir-pump':{SummonCharacter:'UltimateElixirPump'}
+  'elixir-pump':{SummonCharacter:'UltimateElixirPump'},
+  musketeer:{SummonCharacter:'UltimateMusketeer'}
  };
  data.ultimateCards=CARDS.map(config=>{const base=native(config.base);if(!base)throw Error('Ultimate Clash source card missing: '+config.base);const source={...clone(base.source),...overrides[config.slug],Name:'Ultimate_'+config.slug.replace(/-/g,'_'),ManaCost:config.cost,UltimateMechanic:config.slug};delete source.EvolvedSpells;return{...clone(base),id:config.id,name:config.name,cost:config.cost,kind:config.kind,description:config.description,artDescription:config.artDescription,exclusiveMode:MODE,ultimate:{kind:config.slug,baseCardId:config.base},source};});
  const card=id=>data.ultimateCards.find(c=>c.id===id),source=(id,patch)=>({...clone(card(id).source),...patch}),hero=data.forms?.find(f=>f.baseCardId==='mega-minion'&&f.kind==='hero');
@@ -110,7 +113,7 @@ function install(data){
   {id:'ultimate-royale-escort-evolution',baseCardId:'ultimate-royale-escort',kind:'evolution',name:'Royale Escort Evolution',cycles:1,requiredShards:0,exclusiveMode:MODE,source:source('ultimate-royale-escort',{SummonCharactersList:['Knight_EV1','Knight_EV1','DarkPrince','RoyalGiant_EV1','MovingCannon','MovingCannon']}),ability:null,description:'Every second deployment: two evolved Knights and a Dark Prince lead an evolved Royal Giant and two Cannon Carts.'},
   {id:'ultimate-meteor-shower-evolution',baseCardId:'ultimate-meteor-shower',kind:'evolution',name:'Meteor Shower Evolution',cycles:3,requiredShards:0,exclusiveMode:MODE,source:source('ultimate-meteor-shower',{UltimateEvolution:true}),ability:null,description:'After three normal casts, the fourth rains 50 meteors over 10 seconds. Each meteor deals one quarter of a normal Fireball’s damage.'},
   {id:'ultimate-code-red-evolution',baseCardId:'ultimate-code-red',kind:'evolution',name:'CODE RED Evolution',cycles:2,requiredShards:0,exclusiveMode:MODE,source:source('ultimate-code-red',{UltimateEvolution:true}),ability:null,description:'After two normal casts, the third launches 25 Rockets per wave across 10 waves over 6 seconds: 250 full-damage Rockets across the enemy half of the Arena.'},
-  {id:'ultimate-lightning-storm-evolution',baseCardId:'ultimate-lightning-storm',kind:'evolution',name:'Lightning Storm Evolution',cycles:2,requiredShards:0,exclusiveMode:MODE,source:source('ultimate-lightning-storm',{UltimateEvolution:true}),ability:null,description:'After two normal casts, the third strikes every enemy troop and building in range for eight rapid waves, 0.3–0.6 seconds apart. The first wave uses the normal radius; each following wave grows 20% wider than the last.'}
+  {id:'ultimate-lightning-storm-evolution',baseCardId:'ultimate-lightning-storm',kind:'evolution',name:'Lightning Storm Evolution',cycles:2,requiredShards:0,exclusiveMode:MODE,source:source('ultimate-lightning-storm',{UltimateEvolution:true}),ability:null,description:'After two normal casts, the third strikes every enemy troop and building in range for eight rapid waves, 0.3–0.6 seconds apart. The first wave uses the normal radius; each following wave grows 5% wider than the last.'}
  ];
  return data;
 }

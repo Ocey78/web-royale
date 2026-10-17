@@ -390,8 +390,13 @@ function formInventory(kind='all'){
 function formCardActions(id){const forms=F.forCard(id).filter(f=>f.kind!=='champion'&&profile.unlockedForms.includes(f.id));if(!forms.length)return '';return `<section class="card-form-actions" aria-label="Unlocked forms">${forms.map(f=>button('Use '+(f.kind==='hero'?'Hero':'Evolution'),'use-form','purple',`data-id="${f.id}" ${!formSupported(f)?'disabled':''}`)).join('')}${button('Hero & Evo Inventory','form-inventory','blue')}</section>`;}
 
 function refreshAbilities(){
- let node=$('battleAbilities');if(!node){node=document.createElement('div');node.id='battleAbilities';node.setAttribute('aria-label','Hero and Champion abilities');$('battle').append(node);}if(!battle||battle.isReplay||battle.isSandbox){node.hidden=true;return;}
- const units=battle.units.filter(u=>u.owner===0&&battle.isPresent(u)&&!u.dead),rows=[],groups=new Set();for(const u of units){const s=battle.abilityStatus(u.id);if(!s)continue;const key=s.groupId?JSON.stringify([u.owner,u.team,s.groupId]):null;if(key&&groups.has(key))continue;if(key)groups.add(key);rows.push({u,s});}node.hidden=!rows.length;
+ let node=$('battleAbilities');if(!node){node=document.createElement('div');node.id='battleAbilities';node.setAttribute('aria-label','Hero and Champion abilities');$('battle').append(node);}if(!battle||battle.isReplay||battle.isSandbox){if(!node.hidden)node.hidden=true;return;}
+ const rows=[],groups=new Set(),hordes=new Set();for(const u of battle.units){
+  if(!u.abilityState||u.owner!==0||!battle.isPresent(u)||u.dead)continue;
+  // Match Ultimate.abilityGroup membership before evaluating the full group.
+  const horde=u.formId==='ultimate-mega-minion-horde-hero'&&u.ultimate?.kind==='mega-minion-horde'&&u.ultimate.group!=null?JSON.stringify([u.owner,u.team,u.ultimate.group]):null;if(horde&&hordes.has(horde))continue;
+  const s=battle.abilityStatus(u.id);if(!s)continue;const key=s.groupId?JSON.stringify([u.owner,u.team,s.groupId]):null;if(key){if(horde)hordes.add(horde);if(groups.has(key))continue;groups.add(key);}rows.push({u,s});
+ }const hidden=!rows.length;if(node.hidden!==hidden)node.hidden=hidden;
  const html=rows.map(({u,s})=>{const f=F.get(s.formId),name=(f?.name||u.entity)+(s.groupId?` · ${s.groupSize} member${s.groupSize===1?'':'s'}`:''),seconds=Math.max(0,Math.ceil(s.cooldownUntil-battle.time)),available=s.ready&&s.supported!==false&&battle.elixir[0]+1e-7>=s.cost,caption=s.supported===false?'Unavailable':s.pending?'Casting':seconds?seconds+'s':s.charges===0?'Used':s.cost+' Elixir';return `<button class="ability-button" data-action="battle-ability" data-entity="${u.id}" ${available?'':'disabled'} aria-label="${esc(name)} ability: ${caption}" title="${esc(s.supported===false?'This ability is not available yet.':f?.description||'')}"><img data-card-image="${f?.baseCardId||u.card||''}" alt=""><span><b>${esc(name)}</b><small>${caption}</small></span></button>`;}).join('');if(node._html!==html){node._html=html;node.innerHTML=html;hydrate(node);}
 }
 

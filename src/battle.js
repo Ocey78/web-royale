@@ -67,8 +67,8 @@ class Battle {
  get section(){let end=0;const lengths=this.timeline.SectionLength||[180,120];for(let i=0;i<lengths.length;i++){end+=lengths[i];if(this.time<end||i===lengths.length-1)return {index:i,end,type:this.timeline.SectionType?.[i]||'Normal'};}return {index:0,end:180,type:'Normal'};}
  get secondsLeft(){return Math.max(0,Math.ceil(this.section.end-this.time));}
  isPresent(u){return !!u&&u.hp>0&&!u.dead&&(this.tiebreaker?.startedAt??this.time)+EPS>=(u.appearsAt??u.born??0);}
- get active(){return [...this.towers,...this.units].filter(u=>this.isPresent(u));}
- getEntity(id){return this.towers.find(u=>u.id===id)||this.units.find(u=>u.id===id);}
+ get active(){const active=[];for(const u of this.towers)if(this.isPresent(u))active.push(u);for(const u of this.units)if(this.isPresent(u))active.push(u);return active;}
+ getEntity(id){if(id==null)return undefined;return this.towers.find(u=>u.id===id)||this.units.find(u=>u.id===id);}
  isMirrorCard(card){return card?.source?.Mirror===true;}
  card(team,slot){const id=this.hand[team]?.[slot];if(!id)return null;let c=cardAt(id,this.seatLevels[team]?.[id]??9);c=Forms.resolveCard(this,team,slot,c);const last=this.lastCard[team];if(this.isMirrorCard(c)&&last){const ultimate=id==='ultimate-mirror',mirrorLevel=ultimate?last.level+3:Math.min(DATA.globals.MIRROR_CAP_TO_MAX_LEVEL?.BooleanValue?(K.MAX_CARD_LEVEL||13):(K.MAX_CARD_LEVEL||13)+1,c.level+(DATA.globals.MIRROR_LEVEL_OFFSET?.NumberValue??1));c={...c,cost:Math.min(ultimate?20:10,last.cost+1),mirrorCard:last.id,mirrorLevel};}return c;}
  // Mirror keeps its own hand identity, but every gameplay consumer uses this
@@ -77,7 +77,7 @@ class Battle {
  playableCard(seat,slot){return this.resolvePlayedCard(seat,this.card(seat,slot));}
  activateAbility(seat,entityId){return Forms.activate(this,seat,entityId);}
  abilityStatus(entityId){return Forms.status(this,this.getEntity(entityId));}
- effect(e){if(this.headless)return;this.effects.push({...e,fxId:this.visualSerial=(this.visualSerial||0)+1,born:this.time});if(this.effects.length>220)this.effects.splice(0,this.effects.length-220);}
+ effect(e){if(this.headless)return;this.effects.push({...e,fxId:this.visualSerial=(this.visualSerial||0)+1,born:this.time});while(this.effects.length>220){const discard=this.effects.findIndex(f=>f.kind!=='ultimate-lightning-wave'||this.time-f.born>=f.ttl);this.effects.splice(discard<0?0:discard,1);}}
  record(e){const event={...e,time:this.time};this.recorder?.event(event);if(this.compactRecording&&event.type!=='deploy'&&event.type!=='ability')return;this.events.push(event);if(this.events.length>(this.compactRecording?64:300))this.events.shift();}
  placement(team,card,x,y,seat=team){return Placement.snapCard(this,team,card,x,y,seat);}
  placementPreview(seat,slot,x,y){return Placement.forecastPlacement(this,seat,slot,x,y);}
@@ -375,7 +375,7 @@ class Battle {
   if(r.SpawnProjectile){const child=DATA.projectiles[r.SpawnProjectile]||{},count=Math.max(1,Math.min(30,r.SpawnCount||child.SpawnCount||1));for(let i=0;i<count;i++){const angle=(i-(count-1)/2)*.19;const origin={...p.attacker,x:p.x,y:p.y,team:p.team,level:p.level};this.fireProjectile(r.SpawnProjectile,origin,null,{x:p.x+p.vx*6*SX,y:p.y+p.vy*6*SY,angle,level:p.level});}}
   if(r.DragBackSpeed&&target){const source=this.getEntity(p.source);if(source){if(target.building){const d=dist(source,target)||1,margin=(target.def.radiusTiles+source.def.radiusTiles+.4)/d;source.drag={to:{x:target.x+(source.x-target.x)*margin,y:target.y+(source.y-target.y)*margin},speed:(r.DragSelfSpeed||450)/60};}else{const d=dist(source,target)||1,margin=(source.def.radiusTiles+target.def.radiusTiles+.25)/d;target.drag={to:{x:source.x+(target.x-source.x)*margin,y:source.y+(target.y-source.y)*margin},speed:r.DragBackSpeed/60};target.charged=false;target.windup=null;}const dragged=target.building?source:target,duration=dist(dragged,dragged.drag.to)/dragged.drag.speed;source.visualHook={phase:'pull',startedAt:source.animationTime,duration};this.effect({kind:'beam',sourceBeam:r.DragEffect||null,source:source.id,target:target.id,x:source.x,y:source.y,tx:target.x,ty:target.y,team:p.team,ttl:Math.max(.1,duration)});}}
   else if(r.DragBackSpeed){const source=this.getEntity(p.source);if(source)source.visualHook=null;}
-  this.effect({kind:'impact',sourceEffect:r.HitEffect||null,projectile:p.name,x:p.x,y:p.y,team:p.team,angle:Math.atan2(p.vy,p.vx),radius:Math.max(8,radius*SY),ttl:r.HitEffect?6:.35});
+  if(!p.skipImpactVisual)this.effect({kind:'impact',sourceEffect:r.HitEffect||null,projectile:p.name,x:p.x,y:p.y,team:p.team,angle:Math.atan2(p.vy,p.vx),radius:Math.max(8,radius*SY),ttl:r.HitEffect?6:.35});
  }
  tickProjectiles(dt){for(const p of this.projectiles){if(p.done)continue;const r=DATA.projectiles[p.name],t=this.getEntity(p.target);if(p.returning){const source=this.getEntity(p.source);if(source){p.tx=source.x;p.ty=source.y;}}else if(r.Homing&&t?.hp>0&&!p.line){p.tx=t.x;p.ty=t.y;}
    p.previousX=p.x;p.previousY=p.y;p.previousTravel=p.travel;p.lastStepDt=dt;let dx=(p.tx-p.x)/SX,dy=(p.ty-p.y)/SY,d=Math.hypot(dx,dy),step=Math.min(d,p.speed*dt),old={x:p.x,y:p.y};if(d>EPS){p.vx=dx/d;p.vy=dy/d;p.x+=p.vx*step*SX;p.y+=p.vy*step*SY;}p.travel+=step;
